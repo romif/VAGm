@@ -1,12 +1,11 @@
 package com.vagm.vagmdroid.activities;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,69 +13,117 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.vagm.vagmdroid.R;
-import com.vagm.vagmdroid.service.BluetoothCommandService;
+import com.vagm.vagmdroid.enums.FunctionCode;
+import com.vagm.vagmdroid.enums.VAGmConstans;
+import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.service.BluetoothService;
+import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BufferService;
 
-public class ControllerActivity extends Activity {
+/**
+ * The Class ControllerActivity.
+ * @author Roman_Konovalov
+ */
+public class ControllerActivity extends CustomAbstractActivity implements OnClickListener {
 
+	/**
+	 * TAG constant.
+	 */
 	private static final String TAG = "VAGm_ControllerActivity";
+
+	/**
+	 * D.
+	 */
 	private static final boolean D = true;
 
+	/**
+	 * buffer.
+	 */
+	private byte[] buffer = new byte[0];
+
 	// Layout view
-	private TextView ECUText;
+	/**
+	 * VAGnumberText.
+	 */
+	private TextView VAGnumberText;
 
-	private TextView ECUInfoText;
+	/**
+	 * componentText.
+	 */
+	private TextView componentText;
 
-	private Button okButton;
+	/**
+	 * boudRateText.
+	 */
+	private TextView boudRateText;
 
-	private String controllerInfo = "";
-
+	/**
+	 * progressBar.
+	 */
 	private ProgressBar progressBar;
 
+	/**
+	 * longTimer.
+	 */
 	private Timer longTimer;
 
+	/**
+	 * h.
+	 */
 	private Handler h;
 
-	// The Handler that gets information back from the BluetoothChatService
+	/**
+	 * The Handler that gets information back from the BluetoothService.
+	 */
 	@SuppressLint("HandlerLeak")
 	private final Handler mHandler = new Handler() {
 		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-			case BluetoothCommandService.MESSAGE_READ:
-				byte[] array = Arrays.copyOfRange((byte[]) msg.obj, 0, msg.arg1);
-				if (D)
-					Log.d(TAG, "Recieved message from conroller: " + bytesToHex(array));
-				if (msg.arg1 > 1) {
-					if (array[0] != msg.arg1) {
-						Log.w(TAG, "Message length: " + msg.arg1 + ", but should be: " + array[0]);
-					}
-					proceedMessage(Arrays.copyOfRange(array, 1, array.length));
+		public void handleMessage(final Message msg) {
+			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
+			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
+				byte[] tempArray = Arrays.copyOf(buffer, buffer.length + msg.arg1);
+				System.arraycopy((byte[]) msg.obj, 0, tempArray, buffer.length, msg.arg1);
+				buffer = tempArray;
+				if (D) {
+					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex((byte[]) msg.obj));
 				}
-				break;
+				try {
+					proceedMessage(buffer);
+				} catch (ControllerCommunicationException e) {
+					getAlert().show();
+				}
 			}
 		}
 	};
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_controller);
-		BluetoothCommandService.getInstance().setmHandler(mHandler);
-		int controllerCode = getIntent().getExtras().getInt(ControllerSelectionActivity.CONTROLLER_CODE);
-		if (D)
+		Bundle extras = getIntent().getExtras();
+		int controllerCode = 0;
+		if (extras != null) {
+			controllerCode = extras.getInt(MainActivity.CONTROLLER_CODE);
+		}
+		if (D) {
 			Log.d(TAG, "Sending controller code: " + controllerCode);
-		BluetoothCommandService.getInstance().write(controllerCode);
-		ECUText = (TextView) findViewById(R.id.VAGnumber);
-		ECUInfoText = (TextView) findViewById(R.id.component);
-		okButton = (Button) findViewById(R.id.okButton);
-		okButton.setVisibility(View.GONE);
+		}
+		BluetoothService.getInstance().write(controllerCode);
+		disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
+		setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
+		VAGnumberText = (TextView) findViewById(R.id.VAGnumber);
+		componentText = (TextView) findViewById(R.id.component);
+		boudRateText = (TextView) findViewById(R.id.boudRate);
 		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
 		progressBar.setVisibility(View.VISIBLE);
 		h = new Handler();
@@ -85,7 +132,7 @@ public class ControllerActivity extends Activity {
 			@Override
 			public void run() {
 				h.post(new Runnable() {
-					
+
 					public void run() {
 						Log.w(TAG, "No answer from controller");
 						longTimer.cancel();
@@ -98,57 +145,92 @@ public class ControllerActivity extends Activity {
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.controller, menu);
-		return true;
-	}
-
-	private void proceedMessage(byte[] array) {
-		if (array[0] > 0x80)
-			array[0] = (byte) (array[0] - 0x80);
-		try {
-			controllerInfo = controllerInfo + new String(array, "ISO-8859-1");
-		} catch (UnsupportedEncodingException e) {
-			controllerInfo = controllerInfo + new String(array);
+	/**
+	 * proceedMessage.
+	 * @param array array
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 */
+	private void proceedMessage(final byte[] array) throws ControllerCommunicationException {
+		List<String> controllerInfo = BufferService.getControllerInfo(array);
+		if (controllerInfo.size() == 1) {
+			boudRateText.setText(controllerInfo.get(0));
 		}
-		if (controllerInfo.length() > 14) {
-			ECUText.setText(getString(R.string.VAGnumber) + controllerInfo.substring(0, 12));
-			ECUInfoText.setText(getString(R.string.component) + controllerInfo.substring(12));
+		if (controllerInfo.size() == 3) {
+			boudRateText.setText(controllerInfo.get(0));
+			VAGnumberText.setText(controllerInfo.get(1));
+			componentText.setText(controllerInfo.get(2));
 			progressBar.setVisibility(View.GONE);
-			okButton.setVisibility(View.VISIBLE);
+			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			if (longTimer != null) {
 				longTimer.cancel();
 				longTimer = null;
 			}
 		}
 	}
-	
-	private void proceedArray(byte[] array) {
-		byte marker = array[0];
-		
-	}
 
+	/**
+	 * getAlert.
+	 * @return AlertDialog
+	 */
 	private AlertDialog getAlert() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(ControllerActivity.this);
-		builder.setMessage("Нет ответа от контроллера.").setTitle("Ошибка").setCancelable(false)
-				.setNeutralButton("Назад", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						Intent controllerSelection = new Intent(ControllerActivity.this,
-								ControllerSelectionActivity.class);
-						startActivityForResult(controllerSelection, -1);
+		final AlertDialog.Builder builder = new AlertDialog.Builder(ControllerActivity.this);
+		builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
+				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog, final int id) {
+						finish();
 					}
 				});
 		return builder.create();
 	}
-	
-	private static String bytesToHex(byte[] in) {
-	    final StringBuilder builder = new StringBuilder();
-	    for(byte b : in) {
-	        builder.append(String.format("%02x", b));
-	    }
-	    return builder.toString();
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Handler getHandler() {
+		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.bCloseController:
+			getmCommandService().write(VAGmConstans.STOP_CONTROLLER_COMMUNICATION);
+			if (longTimer != null) {
+				longTimer.cancel();
+				longTimer = null;
+			}
+			finish();
+			break;
+
+		case R.id.bFaultCodes:
+			//getmCommandService().write(FunctionCode.FAULT_CODES.getCode());
+			// final Intent faultCodeIntent = new Intent(this,
+			// FaultCodeActivity.class);
+			// startActivityForResult(faultCodeIntent, -1);
+			break;
+
+		case R.id.bMeasBlocks:
+			getmCommandService().write(FunctionCode.MEAS_BLOCKS.getCode());
+			final Intent measBlocksIntent = new Intent(this, MeasBlocksActivity.class);
+			startActivityForResult(measBlocksIntent, -1);
+			break;
+
+		case R.id.bOuputTests:
+			//getmCommandService().write(FunctionCode.OUTPUT_TESTS.getCode());
+			// final Intent outputTestsIntent = new Intent(this,
+			// OutputTestsActivity.class);
+			// startActivityForResult(outputTestsIntent, -1);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

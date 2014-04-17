@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    <string name="title_activity_graphic">GraphicActivity</string>
+    <string name="title_activity_meas_blocks">MeasBlocksActivity</string>
+    <string name="bUp">Up</string>
+    <string name="bDn">Dn</string>
+    <string name="group1">Group 1</string>
+    <string name="group2">Group 2</string>
+    <string name="bGraph">Graph</string>
+    <string name="bLog">Log</string>
+    <string name="bMeasBlocksBack">Done, Go Back</string>
+
+</resources>

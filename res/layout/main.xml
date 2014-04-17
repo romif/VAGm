@@ -1,151 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mainLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:label="@string/component"
-    android:orientation="horizontal"
-    android:weightSum="2" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayot"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mainBackground"
+    android:fillViewport="true" >
 
-    <TableRow>
-
-        <Button
-            android:id="@+id/bEngine"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bEngine" />
-
-        <Button
-            android:id="@+id/bABS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bABS" />
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/bAirbags"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bAirbags" />
-
-        <Button
-            android:id="@+id/bInstruments"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bInstruments" />
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/bImmobilizer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bImmobilizer" />
-
-        <Button
-            android:id="@+id/bComfort"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/bComfort" />
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Button" />
-    </TableRow>
-
-    <TableRow>
-
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Button" />
-    </TableRow>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/black" >
+        android:focusableInTouchMode="true"
+        android:label="@string/component"
+        android:orientation="horizontal"
+        android:weightSum="1" >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/frame"
-            android:orientation="vertical"
-            android:padding="10dp" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/editText1"
-                android:layout_alignParentLeft="true"
-                android:text="@string/addressWord" />
-
-            <EditText
-                android:id="@+id/editText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/textView1"
-                android:digits="0123456789ABCDEF"
-                android:ems="2"
-                android:inputType="number" >
-            </EditText>
+        <TableRow>
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/bEngine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bEngine" />
+
+            <Button
+                android:id="@+id/bABS"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bABS" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bAirbags"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bAirbags" />
+
+            <Button
+                android:id="@+id/bInstruments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bInstruments" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/bImmobilizer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bImmobilizer" />
+
+            <Button
+                android:id="@+id/bComfort"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bComfort" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Button" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Button" />
+        </TableRow>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#d0e0e0" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/frame"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/VAGnumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/controllerCode"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/addressWord"
+                    android:textColor="#0000ff" />
+
+                <EditText
+                    android:id="@+id/controllerCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/VAGnumber"
+                    android:digits="0123456789ABCDEF"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="2"
+                    android:minEms="2" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/bDirectEntry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/controllerCode"
+                    android:text="@string/bGo" />
+            </RelativeLayout>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/editText1"
-                android:text="@string/go" />
+                android:layout_marginLeft="30dp"
+                android:background="#d0e0e0"
+                android:padding="3dp"
+                android:text="@string/directEntry"
+                android:textColor="@android:color/black" />
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:background="@android:color/black"
-            android:padding="5dp"
-            android:text="@string/directEntry"
-            android:textColor="@android:color/white" />
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom" >
 
-    <Button
-        android:id="@+id/bConnectAdapter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/connectAdapter" />
+            <Button
+                android:id="@+id/bConnectAdapter"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bConnectAdapter" />
+        </LinearLayout>
+    </TableLayout>
 
-</TableLayout>
+</ScrollView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="conroller_info">Controller Info</string>
+    <string name="functions">Functions</string>
+    <string name="boudRate">Boud Rate:</string>
+    <string name="comm_status">Comm Status</string>
+    <string name="controller_not_answer">No answer from controller</string>
+    <string name="adapter_not_answer">No answer from adapter</string>
+    <string name="error">Error</string>
+    <string name="back">Back</string>
+
+
+</resources>

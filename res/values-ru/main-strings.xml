@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VAGm</string>
+    <string name="btn_not_available">Bluetooth не доступен</string>
+    <string name="btn_not_selected">Bluetooth адаптер не выбран, вначале выберите</string>
+    <string name="bt_not_enabled_leaving">Bluetooth не был активирован. Выход из программы</string>
+    <string name="title_paired_devices">Сопряженные устройства</string>
+    <string name="title_other_devices">Другие доступные устройства</string>
+    <string name="button_scan">Поиск устройств</string>
+    <string name="none_paired">Нет сопряженных устройств</string>
+    <string name="scanning">поиск устройств...</string>
+    <string name="none_found">Устройства не были найдены</string>
+    <string name="select_device">выберите устройство для подключения</string>
+    <string name="settings">Настройки</string>
+    <string name="title_connected_to">подключен: </string>
+    <string name="title_connecting">подключение...</string>
+    <string name="title_not_connected">адаптер не подключен</string>
+    <string name="unable_connect">Невозможно подключиться к адаптеру</string>
+    <string name="connection_lost">Связь с адаптером была утеряна</string>
+    <string name="wrong_number">Введено неправильное число</string>
+    <string name="title_activity_controller_selection">ControllerSelection</string>
+    <string name="title_activity_controller">ControllerActivity</string>
+    <string name="bEngine">01 - Двигатель</string>
+    <string name="bABS">03 - ABS/ESP</string>
+    <string name="bAirbags">15-Подушки безоп-си</string>
+    <string name="bInstruments">17-Панель приборов</string>
+    <string name="bImmobilizer">25-Иммобилайзер</string>
+    <string name="bComfort">46 - Блок комфорта</string>
+    <string name="VAGnumber">VAG Номер:</string>
+    <string name="component">Компонент:</string>
+    <string name="bFaultCodes">Коды ошибок - 02</string>
+    <string name="bMeasBlocks">Измерения - 08</string>
+    <string name="bOuputTests">Тест исполнителей - 03</string>
+    <string name="bCloseController">Выход из контроллера - 06</string>
+    <string name="directEntry">Прямой вход</string>
+    <string name="addressWord">Номер блока (01-FF): </string>
+    <string name="bGo">Запуск!</string>
+    <string name="savedDevice">savedDevice</string>
+    <string name="bConnectAdapter">Подключиться к адаптеру</string>
+
+
+</resources>

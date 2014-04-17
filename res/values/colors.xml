@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="mainBackground">#d0e0e0</color>
+    
+    <color name="borderLow">#999</color>
+    <color name="borderHigh">#DDD</color>
+    
+    <color name="gradientStart">#DDD</color>
+    <color name="gradientEnd">#BBB</color>
+    
+    <color name="text">#999</color>
+    <color name="text_blue">#0000ff</color>
+    <color name="text_green">#009900</color>
+    <color name="shadow">#FFFFFF</color>
+</resources>

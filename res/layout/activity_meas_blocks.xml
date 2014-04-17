@@ -1,0 +1,336 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mainBackground"
+    android:fillViewport="true"
+    tools:context=".ControllerActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/outerLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/panel"
+                android:maxLength="3"
+                android:minEms="2"
+                android:padding="3dp"
+                android:textColor="@android:color/black" />
+
+            <RelativeLayout
+                android:id="@+id/innerLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/group1" >
+
+                <Button
+                    android:id="@+id/bUp1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bUp" />
+
+                <Button
+                    android:id="@+id/bDn1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bUp1"
+                    android:text="@string/bDn" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/bGo1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/innerLayout1"
+                android:text="@string/bGo" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/bGo1"
+                android:weightSum="2" >
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/group1Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/group1"
+                        android:textColor="@color/text_blue" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/block11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/block11Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block12Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block13Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block14Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/outerLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/outerLayout1"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/group2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/panel"
+                android:maxLength="3"
+                android:minEms="2"
+                android:padding="3dp"
+                android:textColor="@android:color/black" />
+
+            <RelativeLayout
+                android:id="@+id/innerLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/group2" >
+
+                <Button
+                    android:id="@+id/bUp2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bUp" />
+
+                <Button
+                    android:id="@+id/bDn2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/bUp2"
+                    android:text="@string/bDn" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/bGo2"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/innerLayout2"
+                android:text="@string/bGo" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/bGo2"
+                android:weightSum="2" >
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/group2Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/group2"
+                        android:textColor="@color/text_blue" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/block21"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block22"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block23"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+
+                    <TextView
+                        android:id="@+id/block24"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/panel"
+                        android:padding="3dp"
+                        android:textColor="@color/text_green" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/block21Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block22Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block23Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+
+                    <TextView
+                        android:id="@+id/block24Label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_blue" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/outerLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/outerLayout2"
+            android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/bGraph"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:text="@string/bGraph" />
+
+            <Button
+                android:id="@+id/bLog"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".50"
+                android:text="@string/bLog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/outerLayout3"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom" >
+
+            <Button
+                android:id="@+id/bMeasBlocksBack"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bMeasBlocksBack" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="conroller_info">Информация о контроллере</string>
+    <string name="functions">Функции</string>
+    <string name="boudRate">Скорость передачи:</string>
+    <string name="comm_status">Состояние связи</string>
+    <string name="controller_not_answer">Нет ответа от контроллера</string>
+    <string name="adapter_not_answer">Нет ответа от адаптера</string>
+    <string name="error">Ошибка</string>
+    <string name="back">Назад</string>
+
+
+</resources>

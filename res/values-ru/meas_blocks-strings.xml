@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="Dt">Верх</string>
+    <string name="bDn">Низ</string>
+    <string name="group1">Группа 1</string>
+    <string name="group2">Группа 2</string>
+    <string name="bGraph">График</string>
+    <string name="bLog">Лог</string>
+    <string name="bMeasBlocksBack">Сделано, возврат</string>
+
+</resources>

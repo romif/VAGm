@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VAGm</string>
+    <string name="btn_not_available">Bluetooth is not available</string>
+    <string name="btn_not_selected">Bluetooth adapter is not selected, first select</string>
+    <string name="bt_not_enabled_leaving">Bluetooth was not enabled. Leaving VAGm</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="scanning">scanning for devices...</string>
+    <string name="none_found">No devices found</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="settings">Settings</string>
+    <string name="title_connected_to">connected: </string>
+    <string name="title_connecting">connecting...</string>
+    <string name="title_not_connected">adapter not connected</string>
+    <string name="unable_connect">Unable to connect adapter</string>
+    <string name="connection_lost">Adapter connection was lost</string>
+    <string name="wrong_number">Input incorrect number</string>
+    <string name="title_activity_controller_selection">ControllerSelection</string>
+    <string name="title_activity_controller">ControllerActivity</string>
+    <string name="VAGnumber">VAG Number:</string>
+    <string name="component">Component:</string>
+    <string name="bFaultCodes">Fault Codes - 02</string>
+    <string name="bMeasBlocks">Meas. Blocks - 08</string>
+    <string name="bOuputTests">Ouput Tests - 03</string>
+    <string name="bCloseController">Close Controller, Go Back - 06</string>
+    <string name="bEngine">01-Engine</string>
+    <string name="bABS">03-ABS Brakes</string>
+    <string name="bAirbags">15-Airbags</string>
+    <string name="bInstruments">17-Instruments</string>
+    <string name="bImmobilizer">25-Immobilizer</string>
+    <string name="bComfort">46 - Comfort</string>
+    <string name="directEntry">Direct Entry</string>
+    <string name="addressWord">Address Word (01-FF): </string>
+    <string name="bGo">  Go!  </string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="savedDevice">savedDevice</string>
+    <string name="bConnectAdapter">Connect to adapter</string>
+    <string name="exit">EXIT</string>
+
+</resources>

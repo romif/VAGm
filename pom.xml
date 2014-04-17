@@ -17,6 +17,14 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>achartengine</id>
+			<name>Public AChartEngine repository</name>
+			<url>https://repository-achartengine.forge.cloudbees.com/snapshot/</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.google.android</groupId>
@@ -25,6 +33,16 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.jayway.android.robotium</groupId>
+			<artifactId>robotium-solo</artifactId>
+			<version>5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.achartengine</groupId>
+			<artifactId>achartengine</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
