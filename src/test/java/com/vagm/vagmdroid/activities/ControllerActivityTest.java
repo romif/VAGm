@@ -5,9 +5,12 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGA
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
+import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 
 /**
@@ -22,25 +25,42 @@ public class ControllerActivityTest extends ActivityInstrumentationTestCase2<Con
 	private Solo solo;
 
 	/**
+	 * controller.
+	 */
+	private Intent intent;
+
+	/**
 	 * constructor.
 	 */
 	public ControllerActivityTest() {
 		super(ControllerActivity.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
+	/**
+	 * {@inheritDoc}
+	 */
+	public void setUp() throws Exception {
+	    super.setUp();
+	    intent = new Intent();
+		intent.putExtra(MainActivity.CONTROLLER_CODE, 0x01);
+		intent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, BluetoothService.getInstance());
+		setActivityIntent(intent);
+		solo = new Solo(getInstrumentation(), getActivity());
+		getInstrumentation().waitForIdleSync();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void tearDown() throws Exception {
+	    solo.finishOpenedActivities();
+	    super.tearDown();
 	}
 
 	/**
 	 * testHandleMessage.
 	 */
 	public final void testHandleMessage() {
-		ControllerActivity controllerActivity = getActivity();
-		solo = new Solo(getInstrumentation(), controllerActivity);
-		getInstrumentation().waitForIdleSync();
-
 		// precondition
 		for (int i = 0; i < 4; i++) {
 			assertTrue("Button '" + solo.getButton(i).getText() + "' should be desabled", !solo.getButton(i).isEnabled());
@@ -48,7 +68,7 @@ public class ControllerActivityTest extends ActivityInstrumentationTestCase2<Con
 
 		for (String s : BUFFER_STRING_ARRAY) {
 			byte[] buffer = hexStringToByteArray(s);
-			controllerActivity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+			getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 		}
 
 		// postcondition
@@ -58,19 +78,38 @@ public class ControllerActivityTest extends ActivityInstrumentationTestCase2<Con
 		for (int i = 0; i < 4; i++) {
 			assertTrue("Button '" + solo.getButton(i).getText() + "' should be enabled", solo.getButton(i).isEnabled());
 		}
+	}
 
+	/**
+	 * testHandleMessageRotation.
+	 */
+	public final void testHandleMessageRotation() {
+		// precondition
+		for (int i = 0; i < 4; i++) {
+			assertTrue("Button '" + solo.getButton(i).getText() + "' should be desabled", !solo.getButton(i).isEnabled());
+		}
+
+		for (String s : BUFFER_STRING_ARRAY) {
+			byte[] buffer = hexStringToByteArray(s);
+			getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+		}
+		solo.setActivityOrientation(Solo.LANDSCAPE);
+
+		// postcondition
+		for (String s : ECU_INFO) {
+			assertTrue("Cannot find TextView with text: " + s, solo.searchText(s));
+		}
+		for (int i = 0; i < 4; i++) {
+			assertTrue("Button '" + solo.getButton(i).getText() + "' should be enabled", solo.getButton(i).isEnabled());
+		}
 	}
 
 	/**
 	 * testHandleMessageNegative.
 	 */
 	public final void testHandleMessageNegative() {
-		ControllerActivity controllerActivity = getActivity();
-		solo = new Solo(getInstrumentation(), controllerActivity);
-		getInstrumentation().waitForIdleSync();
-
-		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]);
-		controllerActivity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition
 		assertTrue("Cannot find TextView with text: " + ECU_INFO1[0], solo.searchText(ECU_INFO1[0]));
@@ -78,8 +117,8 @@ public class ControllerActivityTest extends ActivityInstrumentationTestCase2<Con
 			assertTrue("Button '" + solo.getButton(i).getText() + "' should be desabled", !solo.getButton(i).isEnabled());
 		}
 
-		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]);
-		controllerActivity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]  + BUFFER_STRING_ARRAY_NEGATIVE[2]);
+		getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition
 		assertTrue("Should be error dialog", solo.waitForDialogToOpen());
@@ -89,12 +128,19 @@ public class ControllerActivityTest extends ActivityInstrumentationTestCase2<Con
 	 * testHandleMessageNegative1.
 	 */
 	public final void testHandleMessageNegative1() {
-		ControllerActivity controllerActivity = getActivity();
-		solo = new Solo(getInstrumentation(), controllerActivity);
-		getInstrumentation().waitForIdleSync();
-
 		// postcondition
 		assertTrue("Should be error dialog", solo.waitForDialogToOpen());
+	}
+
+	/**
+	 * testHandleMessageConnectionLost.
+	 */
+	public final void testHandleMessageConnectionLost() {
+		getActivity().getHandler().obtainMessage(ServiceCommand.CONNECTION_LOST.ordinal(), -1, -1).sendToTarget();
+
+		// postcondition
+		assertTrue("Should be a message: " + getActivity().getText(R.string.connection_lost),
+				solo.waitForText(getActivity().getText(R.string.connection_lost).toString()));
 	}
 
 }

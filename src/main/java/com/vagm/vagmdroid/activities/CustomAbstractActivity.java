@@ -19,7 +19,7 @@ public abstract class CustomAbstractActivity extends Activity {
 	/**
 	 * mCommandService.
 	 */
-	private BluetoothService mCommandService = BluetoothService.getInstance();
+	private BluetoothService mCommandService = (BluetoothService) BluetoothService.getInstance();
 
 	/**
 	 * @return the mCommandService
@@ -35,7 +35,6 @@ public abstract class CustomAbstractActivity extends Activity {
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mCommandService.setmHandler(getHandler());
-
 	}
 
 	/**
@@ -78,7 +77,7 @@ public abstract class CustomAbstractActivity extends Activity {
 	 * @return Handler
 	 */
 	protected abstract Handler getHandler();
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

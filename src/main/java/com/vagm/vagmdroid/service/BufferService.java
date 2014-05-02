@@ -29,7 +29,7 @@ public final class BufferService {
 	public static List<String> getControllerInfo(final byte[] buffer) throws ControllerCommunicationException {
 		int countPos = 0;
 		while (getCount(countPos, buffer) != 0) {
-			if ((buffer[countPos] == 0x01) && (buffer.length > countPos)) {
+			if ((buffer[countPos] == 0x01) && (buffer.length > countPos + 1)) {
 				if (buffer[countPos + 1] == CONTROLLER_NO_ANSWER) {
 					throw new ControllerCommunicationException();
 				}

@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.ControllerCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ConnectionState;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 
@@ -334,6 +335,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		Log.d(TAG, "Request for controller with number: " + controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode);
+		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, BluetoothService.getInstance());
 		startActivityForResult(controller, -1);
 	}
 

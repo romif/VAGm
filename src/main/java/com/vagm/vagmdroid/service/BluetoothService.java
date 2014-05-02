@@ -12,6 +12,8 @@ import android.bluetooth.BluetoothSocket;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import com.vagm.vagmdroid.activities.MainActivity;
@@ -20,7 +22,7 @@ import com.vagm.vagmdroid.activities.MainActivity;
  * The Class BluetoothCommandService.
  * @author Roman_Konovalov
  */
-public final class BluetoothService {
+public class BluetoothService implements Parcelable {
 
 	// Debugging
 	/**
@@ -42,12 +44,12 @@ public final class BluetoothService {
 	/**
 	 * mAdapter.
 	 */
-	private final BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();;
+	private final BluetoothAdapter mAdapter = BluetoothAdapter.getDefaultAdapter();
 
 	/**
 	 * mHandler.
 	 */
-	private Handler mHandler;
+	private transient Handler mHandler;
 
 	/**
 	 * mConnectThread.
@@ -152,6 +154,11 @@ public final class BluetoothService {
 		CONNECTION_LOST
 
 	}
+	
+	/**
+	 * BLUETOOTH_SERVICE_INSTANCE.
+	 */
+	public static final String BLUETOOTH_SERVICE_INSTANCE = "BluetoothServiceInstance";
 
 	/**
 	 * instance.
@@ -161,7 +168,7 @@ public final class BluetoothService {
 	/**
 	 * Constructor.
 	 */
-	private BluetoothService() {
+	public BluetoothService() {
 	}
 
 	/**
@@ -608,5 +615,32 @@ public final class BluetoothService {
 	public void setmHandler(final Handler mHandler) {
 		this.mHandler = mHandler;
 	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * CREATOR.
+	 */
+	public static final Parcelable.Creator<BluetoothService> CREATOR = new Parcelable.Creator<BluetoothService>() {
+
+		@Override
+		public BluetoothService createFromParcel(Parcel source) {
+			return getInstance(); // using parcelable constructor
+		}
+
+		@Override
+		public BluetoothService[] newArray(int size) {
+			throw new RuntimeException("Only one instance is allowed");
+		}
+	};
 
 }

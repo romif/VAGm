@@ -35,6 +35,7 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity
             android:name="com.vagm.vagmdroid.activities.ControllerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_controller" >
         </activity>
 

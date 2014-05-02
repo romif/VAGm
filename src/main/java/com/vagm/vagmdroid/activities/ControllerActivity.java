@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
@@ -42,27 +43,31 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * D.
 	 */
 	private static final boolean D = true;
+	
+	/**
+	 * bluetoothService.
+	 */
+	private BluetoothService bluetoothService;
+
+	/**
+	 * boudRate.
+	 */
+	private static final String BOUD_RATE = "boudRate";
+
+	/**
+	 * VAGnumber.
+	 */
+	private static final String VAG_NUMBER = "VAGnumber";
+
+	/**
+	 * component.
+	 */
+	private static final String COMPONENT = "component";
 
 	/**
 	 * buffer.
 	 */
 	private byte[] buffer = new byte[0];
-
-	// Layout view
-	/**
-	 * VAGnumberText.
-	 */
-	private TextView VAGnumberText;
-
-	/**
-	 * componentText.
-	 */
-	private TextView componentText;
-
-	/**
-	 * boudRateText.
-	 */
-	private TextView boudRateText;
 
 	/**
 	 * progressBar.
@@ -85,7 +90,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	@SuppressLint("HandlerLeak")
 	private final Handler mHandler = new Handler() {
 		@Override
-		public void handleMessage(final Message msg) {
+		public void handleMessage(final Message msg)  {
+			super.handleMessage(msg);
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				byte[] tempArray = Arrays.copyOf(buffer, buffer.length + msg.arg1);
@@ -99,6 +105,10 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 				} catch (ControllerCommunicationException e) {
 					getAlert().show();
 				}
+			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
+				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
+				stopTimer();
+				finish();
 			}
 		}
 	};
@@ -110,61 +120,76 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_controller);
-		Bundle extras = getIntent().getExtras();
-		int controllerCode = 0;
-		if (extras != null) {
-			controllerCode = extras.getInt(MainActivity.CONTROLLER_CODE);
-		}
-		if (D) {
-			Log.d(TAG, "Sending controller code: " + controllerCode);
-		}
-		BluetoothService.getInstance().write(controllerCode);
-		disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
-		VAGnumberText = (TextView) findViewById(R.id.VAGnumber);
-		componentText = (TextView) findViewById(R.id.component);
-		boudRateText = (TextView) findViewById(R.id.boudRate);
-		progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-		progressBar.setVisibility(View.VISIBLE);
-		h = new Handler();
-		longTimer = new Timer();
-		longTimer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				h.post(new Runnable() {
-
-					public void run() {
-						Log.w(TAG, "No answer from controller");
-						longTimer.cancel();
-						longTimer = null;
-						getAlert().show();
-					}
-				});
+		/*if (BluetoothService.getInstance().getState() != ConnectionState.CONNECTED) {
+			Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
+			stopTimer();
+			finish();
+		}*/
+		if (savedInstanceState == null) {
+			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
+			bluetoothService =  getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
+			if (D) {
+				Log.d(TAG, "Sending controller code: " + controllerCode);
 			}
-		}, 15 * 1000);
+			bluetoothService.write(controllerCode);
+			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
+			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
+			progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+			progressBar.setVisibility(View.VISIBLE);
+			h = new Handler();
+			longTimer = new Timer();
+			longTimer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					h.post(new Runnable() {
+
+						public void run() {
+							Log.w(TAG, "No answer from controller");
+							longTimer.cancel();
+							longTimer = null;
+							getAlert().show();
+						}
+					});
+				}
+			}, 15 * 1000);
+		} else {
+			((TextView) findViewById(R.id.boudRate)).setText(savedInstanceState.getString(BOUD_RATE));
+			((TextView) findViewById(R.id.VAGnumber)).setText(savedInstanceState.getString(VAG_NUMBER));
+			((TextView) findViewById(R.id.component)).setText(savedInstanceState.getString(COMPONENT));
+		}
 
 	}
 
 	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onSaveInstanceState(final Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putString(BOUD_RATE, ((TextView) findViewById(R.id.boudRate)).getText().toString());
+		outState.putString(VAG_NUMBER, ((TextView) findViewById(R.id.VAGnumber)).getText().toString());
+		outState.putString(COMPONENT, ((TextView) findViewById(R.id.component)).getText().toString());
+	}
+
+	/**
 	 * proceedMessage.
-	 * @param array array
-	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @param array
+	 *            array
+	 * @throws ControllerCommunicationException
+	 *             if some communication error occurs
 	 */
 	private void proceedMessage(final byte[] array) throws ControllerCommunicationException {
 		List<String> controllerInfo = BufferService.getControllerInfo(array);
 		if (controllerInfo.size() == 1) {
-			boudRateText.setText(controllerInfo.get(0));
+			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
 		}
 		if (controllerInfo.size() == 3) {
-			boudRateText.setText(controllerInfo.get(0));
-			VAGnumberText.setText(controllerInfo.get(1));
-			componentText.setText(controllerInfo.get(2));
+			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
+			((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo.get(1));
+			((TextView) findViewById(R.id.component)).setText(controllerInfo.get(2));
 			progressBar.setVisibility(View.GONE);
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
-			if (longTimer != null) {
-				longTimer.cancel();
-				longTimer = null;
-			}
+			stopTimer();
 		}
 	}
 
@@ -201,10 +226,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		switch (v.getId()) {
 		case R.id.bCloseController:
 			getmCommandService().write(VAGmConstans.STOP_CONTROLLER_COMMUNICATION);
-			if (longTimer != null) {
-				longTimer.cancel();
-				longTimer = null;
-			}
+			stopTimer();
 			finish();
 			break;
 
@@ -230,6 +252,16 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 
 		default:
 			break;
+		}
+	}
+
+	/**
+	 * stopTimer.
+	 */
+	private void stopTimer() {
+		if (longTimer != null) {
+			longTimer.cancel();
+			longTimer = null;
 		}
 	}
 
