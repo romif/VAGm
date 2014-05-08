@@ -1,13 +1,15 @@
 package com.vagm.vagmdroid.activities;
 
 import android.app.Activity;
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.BluetoothService;
 
 /**
@@ -17,24 +19,23 @@ import com.vagm.vagmdroid.service.BluetoothService;
 public abstract class CustomAbstractActivity extends Activity {
 
 	/**
-	 * mCommandService.
+	 * @return the bluetoothService
 	 */
-	private BluetoothService mCommandService = (BluetoothService) BluetoothService.getInstance();
+	abstract BluetoothService getBluetoothService();
 
 	/**
-	 * @return the mCommandService
+	 * getHandler.
+	 * @return Handler
 	 */
-	protected BluetoothService getmCommandService() {
-		return mCommandService;
-	}
+	protected abstract Handler getHandler();
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		mCommandService.setmHandler(getHandler());
+	protected void onResume() {
+		super.onResume();
+		getBluetoothService().setmHandler(getHandler());
 	}
 
 	/**
@@ -73,16 +74,25 @@ public abstract class CustomAbstractActivity extends Activity {
 	}
 
 	/**
-	 * Gets Handler.
-	 * @return Handler
-	 */
-	protected abstract Handler getHandler();
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	public void onBackPressed() {
+	}
+
+	/**
+	 * getControllerNotAnswerAlert.
+	 * @return AlertDialog
+	 */
+	protected AlertDialog getControllerNotAnswerAlert() {
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
+				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog, final int id) {
+						finish();
+					}
+				});
+		return builder.create();
 	}
 
 }

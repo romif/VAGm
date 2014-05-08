@@ -39,5 +39,6 @@
     <string name="savedDevice">savedDevice</string>
     <string name="bConnectAdapter">Connect to adapter</string>
     <string name="exit">EXIT</string>
+    <string name="copying_labels">Copying label files</string>
 
 </resources>

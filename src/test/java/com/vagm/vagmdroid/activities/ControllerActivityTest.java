@@ -5,56 +5,22 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGA
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
-import android.content.Intent;
-import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;
 import com.vagm.vagmdroid.R;
-import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 
 /**
  * The Class ControllerActivityTest.
  * @author Roman_Konovalov
  */
-public class ControllerActivityTest extends ActivityInstrumentationTestCase2<ControllerActivity> {
-
-	/**
-	 * solo.
-	 */
-	private Solo solo;
-
-	/**
-	 * controller.
-	 */
-	private Intent intent;
+public class ControllerActivityTest extends AbstractActivityTest<ControllerActivity> {
 
 	/**
 	 * constructor.
 	 */
 	public ControllerActivityTest() {
 		super(ControllerActivity.class);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public void setUp() throws Exception {
-	    super.setUp();
-	    intent = new Intent();
-		intent.putExtra(MainActivity.CONTROLLER_CODE, 0x01);
-		intent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, BluetoothService.getInstance());
-		setActivityIntent(intent);
-		solo = new Solo(getInstrumentation(), getActivity());
-		getInstrumentation().waitForIdleSync();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public void tearDown() throws Exception {
-	    solo.finishOpenedActivities();
-	    super.tearDown();
 	}
 
 	/**

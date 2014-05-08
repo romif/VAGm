@@ -37,6 +37,7 @@
     <string name="bGo">Запуск!</string>
     <string name="savedDevice">savedDevice</string>
     <string name="bConnectAdapter">Подключиться к адаптеру</string>
+    <string name="copying_labels">Копирование label файлов</string>
 
 
 </resources>

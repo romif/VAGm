@@ -623,7 +623,7 @@ public class BluetoothService implements Parcelable {
 	}
 
 	@Override
-	public void writeToParcel(Parcel dest, int flags) {
+	public void writeToParcel(final Parcel dest, final int flags) {
 		// TODO Auto-generated method stub
 	}
 
@@ -633,12 +633,12 @@ public class BluetoothService implements Parcelable {
 	public static final Parcelable.Creator<BluetoothService> CREATOR = new Parcelable.Creator<BluetoothService>() {
 
 		@Override
-		public BluetoothService createFromParcel(Parcel source) {
-			return getInstance(); // using parcelable constructor
+		public BluetoothService createFromParcel(final Parcel source) {
+			return getInstance();
 		}
 
 		@Override
-		public BluetoothService[] newArray(int size) {
+		public BluetoothService[] newArray(final int size) {
 			throw new RuntimeException("Only one instance is allowed");
 		}
 	};

@@ -10,24 +10,16 @@ import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import java.util.List;
 
 import junit.framework.Assert;
-import android.test.ActivityInstrumentationTestCase2;
+import android.test.AndroidTestCase;
 import android.util.Log;
 
-import com.vagm.vagmdroid.activities.ControllerActivity;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 
 /**
  * The Class BufferServiceTest.
  * @author Roman_Konovalov
  */
-public class BufferServiceTest extends ActivityInstrumentationTestCase2<ControllerActivity> {
-
-	/**
-	 * constructor.
-	 */
-	public BufferServiceTest() {
-		super(ControllerActivity.class);
-	}
+public class BufferServiceTest extends AndroidTestCase {
 
 	/**
 	 * testGetControllerInfo.

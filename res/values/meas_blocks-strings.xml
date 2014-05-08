@@ -11,5 +11,10 @@
     <string name="bGraph">Graph</string>
     <string name="bLog">Log</string>
     <string name="bMeasBlocksBack">Done, Go Back</string>
+    <string name="block1">Block 1</string>
+    <string name="block2">Block 2</string>
+    <string name="block3">Block 3</string>
+    <string name="block4">Block 4</string>
+    
 
 </resources>

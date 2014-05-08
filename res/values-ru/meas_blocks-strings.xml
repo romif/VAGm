@@ -8,5 +8,9 @@
     <string name="bGraph">График</string>
     <string name="bLog">Лог</string>
     <string name="bMeasBlocksBack">Сделано, возврат</string>
+    <string name="block1">Блок 1</string>
+    <string name="block2">Блок 2</string>
+    <string name="block3">Блок 3</string>
+    <string name="block4">Блок 4</string>
 
 </resources>

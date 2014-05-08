@@ -6,8 +6,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,11 +41,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * D.
 	 */
 	private static final boolean D = true;
-	
-	/**
-	 * bluetoothService.
-	 */
-	private BluetoothService bluetoothService;
 
 	/**
 	 * boudRate.
@@ -85,6 +78,23 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private Handler h;
 
 	/**
+	 * bluetoothService.
+	 */
+	private BluetoothService bluetoothService;
+	
+	/**
+	 * ecu.
+	 */
+	private String ecu;
+
+	/**
+	 * ECU.
+	 */
+	public static final String ECU = "ecu";
+	
+	
+
+	/**
 	 * The Handler that gets information back from the BluetoothService.
 	 */
 	@SuppressLint("HandlerLeak")
@@ -103,7 +113,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 				try {
 					proceedMessage(buffer);
 				} catch (ControllerCommunicationException e) {
-					getAlert().show();
+					getControllerNotAnswerAlert().show();
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -117,7 +127,46 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
+	public void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.bCloseController:
+			getBluetoothService().write(VAGmConstans.STOP_CONTROLLER_COMMUNICATION);
+			stopTimer();
+			finish();
+			break;
+
+		case R.id.bFaultCodes:
+			//getmCommandService().write(FunctionCode.FAULT_CODES.getCode());
+			// final Intent faultCodeIntent = new Intent(this,
+			// FaultCodeActivity.class);
+			// startActivityForResult(faultCodeIntent, -1);
+			break;
+
+		case R.id.bMeasBlocks:
+			getBluetoothService().write(FunctionCode.MEAS_BLOCKS.getCode());
+			final Intent measBlocksIntent = new Intent(this, MeasBlocksActivity.class);
+			measBlocksIntent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
+			measBlocksIntent.putExtra(ECU, ecu);
+			startActivityForResult(measBlocksIntent, -1);
+			break;
+
+		case R.id.bOuputTests:
+			//getmCommandService().write(FunctionCode.OUTPUT_TESTS.getCode());
+			// final Intent outputTestsIntent = new Intent(this,
+			// OutputTestsActivity.class);
+			// startActivityForResult(outputTestsIntent, -1);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_controller);
 		/*if (BluetoothService.getInstance().getState() != ConnectionState.CONNECTED) {
@@ -127,11 +176,11 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		}*/
 		if (savedInstanceState == null) {
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
-			bluetoothService =  getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
+			bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
 			if (D) {
 				Log.d(TAG, "Sending controller code: " + controllerCode);
 			}
-			bluetoothService.write(controllerCode);
+			getBluetoothService().write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
 			progressBar = (ProgressBar) findViewById(R.id.progressBar1);
@@ -147,7 +196,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 							Log.w(TAG, "No answer from controller");
 							longTimer.cancel();
 							longTimer = null;
-							getAlert().show();
+							getControllerNotAnswerAlert().show();
 						}
 					});
 				}
@@ -164,11 +213,24 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void onSaveInstanceState(final Bundle outState) {
+	public void onSaveInstanceState(final Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putString(BOUD_RATE, ((TextView) findViewById(R.id.boudRate)).getText().toString());
 		outState.putString(VAG_NUMBER, ((TextView) findViewById(R.id.VAGnumber)).getText().toString());
 		outState.putString(COMPONENT, ((TextView) findViewById(R.id.component)).getText().toString());
+	}
+
+	@Override
+	protected BluetoothService getBluetoothService() {
+		return bluetoothService;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Handler getHandler() {
+		return mHandler;
 	}
 
 	/**
@@ -184,74 +246,13 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
 		}
 		if (controllerInfo.size() == 3) {
+			ecu = controllerInfo.get(1);
 			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
 			((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo.get(1));
 			((TextView) findViewById(R.id.component)).setText(controllerInfo.get(2));
 			progressBar.setVisibility(View.GONE);
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			stopTimer();
-		}
-	}
-
-	/**
-	 * getAlert.
-	 * @return AlertDialog
-	 */
-	private AlertDialog getAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(ControllerActivity.this);
-		builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		return builder.create();
-	}
-
-
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.bCloseController:
-			getmCommandService().write(VAGmConstans.STOP_CONTROLLER_COMMUNICATION);
-			stopTimer();
-			finish();
-			break;
-
-		case R.id.bFaultCodes:
-			//getmCommandService().write(FunctionCode.FAULT_CODES.getCode());
-			// final Intent faultCodeIntent = new Intent(this,
-			// FaultCodeActivity.class);
-			// startActivityForResult(faultCodeIntent, -1);
-			break;
-
-		case R.id.bMeasBlocks:
-			getmCommandService().write(FunctionCode.MEAS_BLOCKS.getCode());
-			final Intent measBlocksIntent = new Intent(this, MeasBlocksActivity.class);
-			startActivityForResult(measBlocksIntent, -1);
-			break;
-
-		case R.id.bOuputTests:
-			//getmCommandService().write(FunctionCode.OUTPUT_TESTS.getCode());
-			// final Intent outputTestsIntent = new Intent(this,
-			// OutputTestsActivity.class);
-			// startActivityForResult(outputTestsIntent, -1);
-			break;
-
-		default:
-			break;
 		}
 	}
 

@@ -5,7 +5,10 @@ import static com.vagm.vagmdroid.enums.VAGmConstans.CONTROLLER_NO_ANSWER;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vagm.vagmdroid.dto.DataStreamDTO;
+import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 
 /**
  * The Class BufferService.
@@ -102,6 +105,36 @@ public final class BufferService {
 			result.add(resultString.substring(13));
 		}
 		return result;
+	}
+
+	/**
+	 * getMeasBlocksInfo.
+	 * @param buffer buffer
+	 * @return DataStreamDTO array
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public static DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+		int count = getCount(0, buffer);
+		if ((buffer[0] == 0x01) && (buffer.length > 1)) {
+			if (buffer[1] == CONTROLLER_NO_ANSWER) {
+				throw new ControllerCommunicationException();
+			}
+		}
+		if (count + 1 != buffer.length) {
+			return null;
+		} else {
+			if (byteToInt(buffer[1]) == VAGmConstans.VAG_BTI_GROUP_RES) {
+				DataStreamDTO[] dtos = new DataStreamDTO[4];
+				for (int i = 0; i < 4; i++) {
+					dtos[i] = DataStreamService.encodeGroupData(buffer[i * 3 + 2], buffer[i * 3 + 3], buffer[i * 3 + 1]);
+				}
+				return dtos;
+			} else {
+				throw new ControllerWrongResponseException("Wrong response from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
+						+ ", but was: " + byteToInt(buffer[1]));
+			}
+		}
 	}
 
 	/**
