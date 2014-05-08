@@ -1,0 +1,117 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L) / VW Transporter (7H/7J)
+;
+; Component: Radio-/Navigation System (#56) - RN-S2 DVD
+;
+; P/N: 7L6-035-186-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-56.LBL
+; 7L6-035-186-CD.LBL
+; 7L6-035-186-DVD.LBL
+;
+; includes measuring blocks and coding
+;
+; created on 02/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Apr/2007
+;
+; requires VAG-COM 702.0 or newer
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5.0...18.0 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Input,Telephone-Mute
+001,4,Input,Telephone-Mute,Display Range: ON/OFF
+;
+002,0,Speaker/Line-Out (Front Left)
+002,1,Location/Type
+002,2,Status
+;
+003,0,Speaker/Line-Out (Front Right)
+003,1,Location/Type
+003,2,Status
+;
+004,0,Speaker/Line-Out (Rear Left)
+004,1,Location/Type
+004,2,Status
+;
+005,0,Speaker/Line-Out (Rear Right)
+005,1,Location/Type
+005,2,Status
+;
+007,0,Remote Feed Antenna I
+007,1,Type
+007,2,Component
+007,3,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+008,3,Signal Strength
+008,4,Signal Strength,Tuner II
+;
+010,0,Remote Feed Antenna II
+010,1,Type
+010,2,Component
+010,3,Status
+;
+011,0,CD-Connection
+011,1,Component
+011,2,Status,,Display Range: OK/not OK
+;
+012,0,CAN-Databus Infotainment (Communication)
+012,1,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+012,2,Telephone,,Display Range: Telephone 1/Telephone 0
+012,3,Steering Wheel,Electronics,Specification: St. Wheel 1\nDisplay Range: St. Wheel 1/St. Wheel 0
+012,4,TV-Tuner,,Display Range: TV-Tuner 1/TV-Tuner 0
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+C00,Radio-/Navigation System (R) Coding
+C01,00?xxxx: Treble Speaker Monitoring
+C02,1 = Front and Rear Monitoring inactive
+C03,2 = Front Monitoring active / Rear Monitoring inactive
+C04,3 = Front Monitoring inactive / Rear Monitoring active
+C05,4 = Front and Rear Monitoring active
+C06,00x?xxx: Configuration I
+C07,+1 = Digital Voice Enhancement (DVE | Transporter/Multivan ONLY)
+C08,+2 = CAN Telephone Control
+C09,+4 = CAN Multi-Function Steering Wheel
+C10,00xx?xx: Speakers
+C11,0 = Sound System (No passive Speakers)
+C12,4 = 8 or 10 passive Speakers (4 Speaker Channels)
+C13,00xxx?x: Sound System Correction
+C14,0 = Transporter/Multivan (RoW)
+C15,2 = Transporter/Multivan (NAR)
+C16,4 = Touareg (Rest of World)
+C17,6 = Touareg (NAR)
+C18,+1 = No Sound System (No Correction)
+C19,00xxxx?: Configuration I
+C20,+2 = CD-Changer
+C21,+4 = Digital Satellite Radio (SDARS)
+;

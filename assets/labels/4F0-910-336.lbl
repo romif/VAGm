@@ -1,0 +1,94 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F)
+;
+; Component: R36 - Telephone Preperation (#77)
+;
+; P/N: 4F0-910-336-???
+;
+; includes measuring blocks and coding
+;
+; created on 12/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 12/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+005,0,Input Signals
+005,1,Input Signals,,1xxx = Communication to Mobile Phone active\nx1xx = Mobile Phone Switched ON\nxx1x = Mobile Phone inserted\nxxx1 = Push-To-Talk (PTT) Button pressed
+;
+010,0,Signal Strengths
+010,1,Signal Strengths
+010,2,Reception,Signal Strengths,Display Range: -113.0...33.0 dBm\n128.0 dBM = No Communication with Mobile Phone
+;
+011,0,Main Antenna
+011,1,Main Antenna
+011,2,Main Antenna,Status,Display Range: OK/Short Circuit/Open Circuit/Not Possible
+;
+014,0,Bluetooth Devices
+014,1,Bluetooth Devices
+014,2,Connected,Bluetooth Devices
+;
+019,0,Microphone Input
+019,1,Microphone Input,Voltage
+019,2,Microphone Input,Status
+;
+20,0,Connected Bluetooth Devices && Reception Signal Strength
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+133,0,Bluetooth Antenna
+133,1,Bluetooth Antenna
+133,2,Bluetooth Antenna,Status
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone Preperation (R36) Coding
+C01,00?0xx0: Sound System
+C02,1 - Sound System A8/A6 (High)
+C03,2 - Sound System A6 (Standard)
+C04, 
+C05,00x0?x0: Installation List
+C06,9 - Vehicle with MOST-Databus
+C07, 
+C08,00x0x?0: Voice Control Language
+C09,0 - Voice Control OFF
+C10,1 - German (Rest of World)
+C11,2 - English (United Kingdom)
+C12,3 - French (Rest of World)
+C13,4 - Italian (Rest of World)
+C14,5 - Spanish (Rest of World)
+C15,6 - Spanish (USA)
+C16,7 - English (USA)
+C17,8 - French (Canada)
+C18,9 - Speaker depend Voice Selection
+;

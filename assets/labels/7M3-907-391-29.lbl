@@ -1,0 +1,68 @@
+;
+; VAG-COM label file
+;
+; VW Bora/Golf/Jetta (1J/9M) / VW New Bettle (1C/1Y/9C) / VW Sharan (7M)
+;
+; component: J567 - Automatic Headlight Aim Control Left (#29)
+;
+; p/n: 7M3-907-391
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7M-29.LBL
+; 7M-39.LBL
+; 7M0-907-391-29.LBL
+; 7M0-907-391-39.LBL
+;
+; created on 24/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 24/Aug/2005
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Information (Basic Setting: Adjustment Position)
+001,1,Voltage,Terminal 15
+001,2,Voltage,Terminal 56b
+001,3,Vehicle Speed
+001,4,Vehicle Status,,0 = Vehicle is stationary\n85 = Vehicle moving uniformly\n255 = Vehicle not moving uniformly
+;
+002,0,Basic Information (Basic Setting: Position learning)
+002,1,Front Level,Sender (G78),Specification: 1.6...3.0 V
+002,2,Rear Level,Sender (G76),Specification: 2.0...3.0 V
+002,3,Basic Setting,Status
+002,4,Supply Voltage,Actuation Motor,Specification: 40...80 %
+;
+003,0,Basic Information
+003,1,Bulb Output,,Specification: 30...40 W
+003,2,Bulb Voltage,,Specification: 68...103 V
+003,3,Supply Voltage,Act. Motor (Slave),Specification: 40...80 %
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Automatic Headlight Aim Control (J567) Coding
+C1,00001 - Golf (FWD)
+C2,00002 - Golf 4Motion (AWD)
+C3,00003 - Bora (FWD)
+C4,00004 - Bora 4Motion (AWD)
+C5,00005 - Sharan
+C6,00006 - New Beetle
+;

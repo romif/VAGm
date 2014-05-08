@@ -1,0 +1,48 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L) / VW Transporter (7H)
+;
+; Component: Control Head Roof (#6E)
+;
+; P/N: 7L6-919-044-???
+;
+; includes meas. blocks and adaption
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7H-6E.LBL
+; 7L6-919-044.LBL
+;
+; created on 14/Mar/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; adaption information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Display Light
+A001,1,Time light,stays on
+A001,5,Display Light
+A001,6,Entered value multiplied by 5 is the time in seconds
+A001,7,how long the display is beeing lighted.
+A001,8,0 is unlimited. Standard setting is 6 (30 seconds).
+;

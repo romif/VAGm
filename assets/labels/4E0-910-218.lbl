@@ -1,0 +1,89 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J589 - Driver Identification (#1D)
+;
+; P/N: 4E0-910-218-???
+;
+; includes measuring blocks and selective output test
+;
+; created on 10/Nov/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Nov/2007
+;
+; requires VAG-COM 403.2 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,Voltage Supply
+001,1,Supply Voltage,,Specification: 8.5...15.5 V
+001,2,Supply Voltage,Regul. Output,Specification: 8.5...15.5 V
+001,3,Bio-Mechanical,Switch (Wakeup),Range: Operated/Not Oper.
+001,4,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+;
+002,0,Voltage Supply
+002,1,Status,Terminal S,Range: ON/OFF
+;
+003,0,Last Identification
+003,1,Last known User,after Identification,Range: 0...4
+003,2,Last used Finger,after Identification,Range: 1...10 (See Label File)
+; 01 = Left Hand - Small Finger
+; 02 = Left Hand - Right Finger
+; 03 = Left Hand - Middle Finger
+; 04 = Left Hand - Index Finger
+; 05 = Left Hand - Thumb
+; 06 = Right Hand - Thumb
+; 07 = Right Hand - Index Finger
+; 08 = Right Hand - Middle Finger
+; 09 = Right Hand - Right Finger
+; 10 = Right Hand - Small Finger
+;
+004,0,Logins I
+004,1,Total Login,Attempts User 1
+004,2,Successful Login,Attempts User 1
+004,3,Total Login,Attempts User 2
+004,4,Successful Login,Attempts User 2
+;
+005,0,Logins II
+005,1,Total Login,Attempts User 3
+005,2,Successful Login,Attempts User 3
+005,3,Total Login,Attempts User 4
+005,4,Successful Login,Attempts User 4
+;
+006,0,Logins III
+006,1,Total Login,Attempts User 5
+006,2,Successful Login,Attempts User 5
+006,3,Total Login,Attempts User 6
+006,4,Successful Login,Attempts User 6
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus (Communication)
+125,1,Access/Start,Authorization,Specification: El.Ign.Lock 1\nRange: El.Ign.Lock 1/El.Ign.Lock 0
+125,2,Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+125,3,Comfort System,(J393),Specification: Central 1\nRange: Central 1/Central 0
+125,4,Door Electronics,Driver (J386),Specification: Dr. Door 1\nRange: Dr. Door 1/Dr. Door 0
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T2027,User 1
+T2028,User 2
+T2029,User 3
+T2030,User 3
+;

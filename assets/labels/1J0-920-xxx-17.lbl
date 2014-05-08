@@ -1,0 +1,314 @@
+;
+; VAG-COM Label File
+;
+; VW Golf IV / Bora / Jetta IV (1J/9M)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 1J?-920-???-???
+;
+; includes measuring blocks, adaptation, coding, login and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1J-17.LBL
+; 1J0-919-xxx-17.LBL
+; 1J0-920-xxx-17.LBL
+;
+; created on 10/Aug/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Nov/2006
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2,Range: Oil Pr. 2 <min / Oil Pr. 2 OK
+001,4,Time
+;
+002,0,General
+002,1,Odometer
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+002,4,Ambient,Temperature
+;
+003,0,General
+003,1,Coolant,Temperature
+003,2,Oil Level,,Range: Ok/n.Ok
+003,3,Oil,Temperature
+;
+020,0,Immobilizer - ID Block 1
+020,1,Digit 1 && 2
+020,2,Digit 3 && 4
+020,3,Digit 5 && 6
+020,4,Digit 7 && 8
+;
+021,0,Immobilizer - ID Block 2
+021,1,Digit 9 && 10
+021,2,Digit 11 && 12
+021,3,Digit 13 && 14
+;
+022,0,Immobilizer I
+022,1,Engine Start,permitted,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+022,2,Engine (ECU),responds,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+022,3,Key Status,,Specification: 1 = Key OK\nRange: 0 = Key not OK / 1 = Key OK
+022,4,Number of,adapted Keys,Specification: 1...4
+;
+023,0,Immobilizer II
+023,1,Variable Code,authorized,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+023,2,Key Status,(Transponder),Range: 0 = Not Locked / 1 = Locked
+023,3,Fixed Code,authorized,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+023,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 1 = End of Assembly Line: NEW (Delivery Condition of New Instrument Cluster)
+; 2 = End of Assembly Line: VIN adapted
+; 3 = End of Assembly Line: ECU adapted
+; 4 = Customer Service: NEW (Delivery Condition of Replacement Instrument Cluster)
+; 5 = Customer Service: Instrument Cluster adapted
+; 6 = Customer Service: Keys adapted (Normal Condition)
+; 7 = Customer Service: Key Adaptation active
+;
+024,0,Immobilizer III (Lock-Time)
+024,1,Lock-Time,Instrument Cluster
+024,2,Lock-Time,Engine (ECU)
+024,3,Lock-Time,Emergency Unlock
+024,4,Lock-Time,Transponder
+;
+025,0,Immobilizer IV
+025,1,Immobilizer,Communication,0 = No Communication\n1 = Communication via CAN-Databus\n2 = Communication via W-Line
+;
+050,0,General
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 0/Engine 1
+125,2,Transmission,,Range: Transm. 0/Transm. 1
+125,3,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 0/ABS 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 0/Steer. ang. 1
+126,2,Airbags,(J234),Specification: Airbag 1\nRange: Airbag 0/Airbag 1
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,2,All-Wheel-Drive,,Range: AWD 1/AWD 0
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,CAN-Comfort,Status,Specification: 2-Wire\nRange: 2-Wire/1-Wire
+130,2,Comfort System,(J393),Specification: Central 1\nRange: Central 1/Central 0
+130,3,Door Electronics,Driver (J386),Specification: Dr. Door 1\nRange: Dr. Door 1/Dr. Door 0
+130,4,Door Electronics,Passenger (J387),Specification: Pas. Door 1\nRange: Pas. Door 1/Pas. Door 0
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Door Electronics,Rear Left (J388),Specification: RL Door 1\nRange: RL Door 1/RL Door 0
+131,2,Door Electronics,Rear Right (J389),Specification: RR Door 1\nRange: RR Door 1/RR Door 0
+;
+140,0,CAN-Databus Communication (Infotainment)
+140,1,CAN-Infotainment,Status,Specification: 2-Wire\nRange: 2-Wire/1-Wire
+140,2,Radio,,Range: Radio 1/Radio 0
+;
+201,1,Distance Impulse,Number
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 0 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard: 100 %
+A003,7,Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+A004,12,8 = Czech
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km.
+A009,11, 
+A009,12,NOTE: Perform Login first.
+;
+A016,0,Distance Impulse Number
+;
+A021,0,Immobilizer - Key Adaptation
+A021,5,Immobilizer - Key Adaptation
+;
+A030,0,Tank Characteristic (Fuel Level Sensor)
+A030,5,Tank Characteristic (Fuel Level Sensor)
+A030,6,This channel is used to set the fuel gauge reserve mark
+A030,7,therfor fill the tank with 7 l of fuel and correct the
+A030,8,needle to hit the reserve mark. This is a parallel shift
+A030,9,of the tank characteristic.
+A030,10, 
+A030,11,Standard: 128
+A030,12,Range: 120...136 (-2.0...+2.0 l)
+A030,13,Increments: 1 = 1 Ohm = 1/4 l
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Increments: 1 = 100 km
+A040,7, 
+A040,8,NOTE: Adaptation channels 40-44 must be
+A040,9,entered and stored in the following order:
+A040,10,42 > 43 > 44 > 40 > 41
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Increments: 1 = 1 day(s)
+A041,7, 
+A041,8,NOTE: Adaptation channels 40-44 must be
+A041,9,entered and stored in the following order:
+A041,10,42 > 43 > 44 > 40 > 41
+;
+A042,0,Minimum Mileage to Service
+A042,5,Minimum Mileage to Service
+A042,6,Increments: 1 = 1000 km
+A042,7,00015 = Standard (15.000 km / 9.000 mi)
+A042,8, 
+A042,9,NOTE: Adaptation channels 40-44 must be
+A042,10,entered and stored in the following order:
+A042,11,42 > 43 > 44 > 40 > 41
+;
+A043,0,Maximum Mileage to Service
+A043,5,Maximum Mileage to Service
+A043,6,Increments: 1 = 1000 km
+A043,7,00015 = fixed Service Intervals (15.000 km / 9.000 mi - w/o Longlife)
+A043,8,00030 = Gasoline Engines with flexible Service Intervals (30.000 km / 19.000 mi - with Longlife)
+A043,9,00050 = Diesel Engines with flexible Service Intervals (50.000 km / 31.000 mi - with Longlife)
+A043,10, 
+A043,11,NOTE: Adaptation channels 40-44 must be
+A043,12,entered and stored in the following order:
+A043,13,42 > 43 > 44 > 40 > 41
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Increments: 1 = 1 day(s)
+A044,7,00365 = fixed Service Intervals (w/o Longlife)
+A044,8,00730 = flexible Service Intervals (with Longlife)
+A044,9, 
+A044,10,NOTE: Adaptation channels 40-44 must be
+A044,11,entered and stored in the following order:
+A044,12,42 > 43 > 44 > 40 > 41
+;
+A050,0,Immobilizer - Vehicle Data Learning
+A050,5,Immobilizer - Vehicle Data Learning
+;
+;
+;---------------------------------------------------
+;
+; login information
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??xxx: Options
+C02,+01 = Brakepad Warning active / +02 = Seatbelt Warning active
+C03,+04 = Washer Fluid Warning active
+C04,+08 = Seatbelt Warning active (NAR only)
+C05,+10 = Seatbelt Warning Driver & Passenger active (NAR only)
+C06,+16 = Secondary Display (Radio/Navigation) active
+C07,xx?xx: Country
+C08,1 = Europe / 2 = USA / 3 = Canada/Mexico/Latin America
+C09,4 = Great Britain (GB) / 5 = Japan / 6 = Saudi Arabia / 7 = Australia
+C10,xxx?x: Service Intervals
+C11,0 = fixed Service Intervals (PR-QG0) without Oil Level/Temperature Sensor
+C12,1 = flexible Service Intervals with Oil Level/Temperature Sensor (PR-QG1)
+C13,2 = fixed Service Intervals with Oil Level/Temperature Sensor (PR-QG2)
+C14,3 = without Service Intervals (USA/Canada)
+C15,xxxx?: Distance Impulse Number (K-Value)
+C16,0 = All Engines/Transmissions (Impulse via CAN)
+C17,1 = 4345 Impulses/Km or 6991 Impulses/Mi
+C18,2 = 3528 Impulses/Km or 5677 Impulses/Mi
+C19,3 = 4134 Impulses/Km or 6651 Impulses/Mi
+C20,4 = 3648 Impulses/Km or 5870 Impulses/Mi
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals,,
+RJ,1,1,42,15
+RJ,1,2,43,15
+RJ,1,3,44,365
+RC,1,0,When changing between service intervals on this model
+RC,1,1,make sure to change the instrument cluster coding first!
+;
+RJ,2,0,Change to Flexible Intervals (Gasoline),,
+RJ,2,1,42,15
+RJ,2,2,43,30
+RJ,2,3,44,730
+RC,2,0,When changing between service intervals on this model
+RC,2,1,make sure to change the instrument cluster coding first!
+;
+RJ,3,0,Change to Flexible Intervals (Diesel),,
+RJ,3,1,42,15
+RJ,3,2,43,50
+RJ,3,3,44,730
+RC,3,0,When changing between service intervals on this model
+RC,3,1,make sure to change the instrument cluster coding first!
+;

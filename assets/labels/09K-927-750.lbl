@@ -1,0 +1,122 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: Getriebelektronik (#02) - 09K (6-Gang-Automatikgetriebe)
+;
+; T/N: 09K 927 750 ???
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 20.06.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 20.06.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Grundfunktionen (Grundeinstellung: Kick-Down Adaption)
+001,1,Motordrehzahl,,Wertebereich: 0...7650 U/min
+001,2,Getriebedrehzahl,(Eingang - G182),Wertebereich: 0...7650 U/min
+001,3,Getriebedrehzahl,(Ausgang - G195),Wertebereich: 0...7650 U/min
+001,4,Eingelegter,Gang (IST-Wert),Wertebereich: 1H/1M/2H/2M/3H...6M/R/0
+;
+002,0,Grundfunktionen - Getriebedrehzahlen
+002,1,Getriebedrehzahl,(Eingang - G182),Wertebereich: 0...7650 U/min
+002,2,Getriebedrehzahl,(Eingang - G182)
+002,3,Getriebedrehzahl,(Ausgang - G195),Wertebereich: 0...7650 U/min
+002,4,Getriebedrehzahl,(Ausgang - G195)
+;
+003,0,Grundfunktionen
+003,1,Fahrzustand,,Wertebereich: DS/SO/TT/WU/AC/AS/Error
+003,2,Gaspedalwert,(G79),Wertebereich: 0...100 %
+003,3,Geschwindigkeit,,Wertebereich: 0...255 km/h
+003,4,Eingelegter,Gang (IST-Wert),Wertebereich: 1H/1M/2H/2M/3H...6M/R/0
+;
+004,0,Grundfunktionen
+004,1,Wählhebelstellung,,Wertebereich: P/R/N/D/S/manuell/Error
+004,2,Gaspedalwert,(G79),Wertebereich: 0...100 %
+004,3,Wegprofil,(IST-Wert)
+004,4,Eingelegter,Gang (IST-Wert),Wertebereich: 1H/1M/2H/2M/3H...6M/R/0
+;
+005,0,Grundfunktionen
+005,1,Fahrwiderstand,,Wertebereich: -32.0...32.0 %
+005,2,Bergfaktor,,Wertebereich: 0...100 %
+005,3,Sportlichkeitsfaktor,,Wertebereich: 0...100 %
+005,4,Gaspedalwert,(G79),Wertebereich: 0...100 %
+;
+006,0,Grundfunktionen - Überbrückungskupplung
+006,1,Getriebeöl-,temperatur (ATF),Wertebereich: -50.0...205.0 °C\nSollwert: 60.0...110.0 °C
+006,2,Magnetventil 4 (ÜK)
+006,3,Status Überbrück-,ungskupplung (ÜK),0 - ÜK offen\n1 - ÜK geschlossen\n2 - ÜK schlupf
+;
+007,0,Grundfunktionen - Magnetventile
+007,1,Magnetventil 5,(K1),Wertebereich: 0...2.550 A
+007,2,Magnetventil 9,(K2),Wertebereich: 0...2.550 A
+007,3,Magnetventil 3,(K3),Wertebereich: 0...2.550 A
+007,4,Magnetventil 10,(B2),Wertebereich: 0...2.550 A
+;
+008,0,Grundfunktionen - Magnetventile
+008,1,Magnetventil 6,(HD),Wertebereich: 0...2.550 A
+008,2,Magnetventil 4,(ÜK),Wertebereich: 0...2.550 A
+;
+009,0,Grundfunktionen - Schalterstellungen
+009,1,Bremsschalter-,stellungen,Wertebereich: 0...3
+009,2,Schalterstellungen,,Wertebereich: 0/1
+009,3,Wählhebelstellung,,Wertebereich: P/R/N/D/S/manuell/Error
+009,4,Positionschalter
+;
+010,1,Getriebeöl-,temperatur (ATF),Wertebereich: -50.0...205.0 °C\nSollwert: 60.0...110.0 °C
+010,2,Getriebeöl-,temperatur (ATF),Wertebereich: 0...5 V
+010,3,Getriebestatus,,WL = im Warmlauf\nkeine Anzeige = im Normalzustand\nERROR = Fehler
+010,4,Spannung,(Klemme 15),Wertebereich: 0...25.5 V
+;
+011,1,Bremslichtschalter,,Wertebereich: EIN/AUS
+011,2,Shiftlock (SL)
+011,3,Geschwindigkeit,,Wertebereich: 0...255 km/h
+011,4,Wählhebelstellung,,Wertebereich: P/R/N/D/S/manuell/Error
+;
+012,1,Wählhebelstellung,,Wertebereich: P/R/N/D/S/manuell/Error
+012,2,Tiptronic,,Wertebereich: M-Schalter/Hochtaster/Rücktaster
+012,3,Eingelegter,Gang (IST-Wert),Wertebereich: 1H/1M/2H/2M/3H...6M/R/0
+012,4,Drehmoment-,begrenzung,Wertebereich: 0...100 %
+;
+013,1,Wählhebelstellung,,Wertebereich: P/R/N/D/S/manuell/Error
+013,2,Positionschalter,Wertebereich: 0...16
+013,3,Tiptronic,,Wertebereich: M-Schalter/Hochtaster/Rücktaster
+;
+014,1,Gaspedalwert,(G79),Wertebereich: 0...100 %
+014,3,Leergas-,information,1 = Verbindung i.O.\n0 = Verbindung n.i.O.
+;
+025,0,Lerkontrolle
+025,1,Lernkontroll-,zustand 1,Wertebereich: 0...255\n\n1 = Fehler beim Lernen\n0 = normal
+025,2,Lernkontroll-,zustand 2,Wertebereich: 0...255\n\n1 ... 254 = Anzeige Selbstlernkontrolle\n0 = Selbstlernkontrolle inaktiv\n255 = Fehler beim Selbstlernen
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Motorelektronik,,Sollwert: Motor 1\n\nMotor 1 = Verbindung i.O.\nMotor 0 = Verbindung n.i.O.
+125,2,Bremsenelektronik,,Sollwert: ABS 1\n\nABS 1 = Verbindung i.O.\nABS 0 = Verbindung n.i.O.
+125,3,Kombiinstrument,,Sollwert: Kombi 1\n\nKombi 1 = Verbindung i.O.\nKombi 0 = Verbindung n.i.O.
+125,4,Allradelektronik,,Sollwert: Allrad 1\n\nAllrad 1 = Verbindung i.O.\nAllrad 0 = Verbindung n.i.O.
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,CAN-Gateway,,Sollwert: Gateway 1\n\nGateway 1 = Verbindung i.O.\nGateway 0 = Verbindung n.i.O.
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Getriebelektronik (J217) Codierung - 09K (6-Gang-Automatikgetriebe)
+C1,0000008 - Rest der Welt (RdW)
+;

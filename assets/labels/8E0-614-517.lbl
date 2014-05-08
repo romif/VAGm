@@ -1,0 +1,122 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 5.7
+;
+; P/N: 8E0-614-517-???
+;
+; includes measuring blocks, coding and login
+;
+; created on 26/Sep/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 11/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left,Display Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right,Display Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left,Display Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right,Display Range: 0.0...255.0 km/h
+;
+002,0,Switches && Buttons
+002,1,Brake Test Switch,,Display Range: 0/operated
+002,2,Brake Light Switch,,Display Range: 0/operated
+002,3,Parking Brake,Button,Display Range: 0/operated
+002,4,ESP-Passive,Button,Display Range: 0/operated
+;
+003,0,Engine Data
+003,1,Engine Speed
+003,2,Engine Torque
+003,3,Engine Torque,(loss)
+003,4,Throttle Valve Angle
+;
+004,1,Standing Time
+004,2,EDL-T Flag,,Display Range: ON/OFF\nSpecification: OFF
+;
+005,1,Steering Angle,Sensor (G85),Display Range: -720.0...+720.0 °\nTolerance (when straight): ±5.0 °
+005,2,Rotation Rate,,Display Range: -69.0...+69.0 °/s
+005,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+005,4,Transverse,Acceleration,Display Range: -25.0...+25.0 m/s²
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 0/Steer. ang. 1
+125,2,Transmission,,Display Range: Transm. 1/Transm. 0
+125,3,Engine,,Specification: Engine 1\nDisplay Range: Engine 0/Engine 1
+125,4,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 0/Instruments 1
+;
+;
+;---------------------------------------------------
+;
+; login/coding-ii information
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics - Bosch 5.7 (J104) Login
+L01,0?xxx: Chassis
+L02,9 - Audi A4
+L03,0x?xx: Brakes
+L04,2 - Brembo 17" (PR-1LJ)
+L05,3 - FN3 16" (PR-1LT/1LF)
+L06,4 - HP2 16" (PR-1LX)
+L07,4 - FNR 16" (PR-1LA/1LG)
+L08,5 - FN3 15" (PR-1LB/1LE)
+L09,6 - C54 (PR-1LZ)
+L10,0xx?x: Engine
+L11,5 - 4/6 Cyl. Diesel
+L12,7 - 4/5 Cyl. Gasoline
+L13,9 - 6/8 Cyl. Gasoline
+L14,0xxx?: Transmission
+L15,5 - Manual
+L16,7 - Automatic (5HP19, 5HP24, AG4, AG5)
+L17,9 - Multitronic
+L18, 
+L19,Note #1: After Login/Coding-II has been carried out you need to recode the control module.
+L20,Note #2: Special Login/Coding-II 09399 is used for BFB Engine with 1LT Brakes and Multitronic.
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics - Bosch 5.7 (J104) Coding
+C01,0?xxx: Chassis
+C02,4 - Audi A4
+C03,0x?xx: Brakes
+C04,1 - C54 (PR-1LZ)
+C05,2 - FN3 15" (PR-1LB/1LE)
+C06,3 - HP2 16" (PR-1LX)
+C07,3 - FNR 16" (PR-1LG)
+C08,4 - FN3 16" (PR-1LT/1LF)
+C09,5 - Brembo 17" (PR-1LJ)
+C10,0xx?x: Engine
+C11,5 - 4/6 Cyl. Diesel
+C12,7 - 4/5 Cyl. Gasoline
+C13,9 - 6/8 Cyl. Gasoline
+C14,0xxx?: Transmission
+C15,5 - Manual
+C16,7 - Automatic (5HP19, 5HP24, AG4, AG5)
+C17,9 - Multitronic
+C18,Note #1: Coding is accepted after a specific login has been carried out.
+C19,Note #2: After successful coding the steering angle sensor basic setting needs to be carried out.
+C20,Note #3: Special Coding 04499 is used for BFB Engine with 1LT Brakes and Multitronic.
+;

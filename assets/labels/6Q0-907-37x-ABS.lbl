@@ -1,0 +1,49 @@
+;
+; VAG-COM Label File
+;
+; Skoda Fabia (6Y) / VW Polo (9N)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 5.7 ABS/EDS
+;
+; P/N: 6Q0-907-37?-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-03.LBL
+; 6R-03.LBL
+; 6Q0-907-37x-ABS.LBL  (ABS/EDS 5.7)
+; 6Q0-907-37x-ABS2.LBL (ABS/EDS MK60)
+; 6Q0-907-37x-ASR.LBL  (ABS/EDS/ASR 5.7)
+; 6Q0-907-37x-ESP.LBL  (ABS/EDS/ASR/ESP 5.7)
+; 6R0-907-37x-ABS.LBL  (ABS/EDS 8.0)
+; 6R0-907-37x-ASR.LBL  (ABS/EDS/ASR 8.0)
+; 6R0-907-37x-ESP.LBL  (ABS/EDS/ASR/ESP 8.0)
+; 
+; created on 22/Oct/2007 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 22/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left,Display Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right,Display Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left,Display Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right,Display Range: 0.0...255.0 km/h
+;
+002,0,Status Bits
+002,1,Brake Light Switch,,Display Range: 0/1
+002,2,Return Flow Pump,,Display Range: 0/1
+002,3,Solenoid Valve,Relay,Display Range: 0/1
+;

@@ -1,0 +1,363 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi R8 (42) / Audi TT (8J)
+;
+; Component: J519 - Central Electronics I (#09) - HIGHEND (30 Byte)
+;
+; P/N: 8P0-907-279-???
+;
+; includes measuring blocks, adaptation, selective output test and long coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-09.LBL
+; 8P0-907-279-23-H.LBL
+; 8P0-907-279-30-H.LBL
+;
+; created on 18/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Mar/2008
+;
+; requires VAG-COM 602.3 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Parking Lights
+001,1,Left Front,Parking Light,Range: 0.0...100.0 %
+001,2,Right Front,Parking Light,Range: 0.0...100.0 %
+001,3,Left Rear,Parking Light,Range: 0.0...100.0 %
+001,4,Right Rear,Parking Light,Range: 0.0...100.0 %
+;
+002,0,Fog Lights/Low Beams
+002,1,Left Low Beam,Headlight,Range: 0.0...100.0 %
+002,2,Right Low Beam,Headlight,Range: 0.0...100.0 %
+002,3,Left Fog Light,,Range: 0.0...100.0 %
+002,4,Right Fog Light,,Range: 0.0...100.0 %
+;
+003,0,Turn Signals
+003,1,Left Front,Turn Signal,Range: 0.0...100.0 %
+003,2,Right Front,Turn Signal,Range: 0.0...100.0 %
+003,3,Left Rear,Turn Signal,Range: 0.0...100.0 %
+003,4,Right Rear,Turn Signal,Range: 0.0...100.0 %
+;
+004,1,Left Side,Turn Signal,Range: 0.0...100.0 %
+004,2,Right Side,Turn Signal,Range: 0.0...100.0 %
+004,3,Left/Right,High Beam,Range: 0.0...100.0 %
+004,4,Xenon-Shutter,,Range: ON/OFF
+;
+005,0,Brake Lights
+005,1,Left,Brake Light,Range: 0.0...100.0 %
+005,2,Right,Brake Light,Range: 0.0...100.0 %
+005,3,Center,Brake Light,Range: 0.0...100.0 %
+005,4,License Plate,Illumination,Range: 0.0...100.0 %
+;
+006,0,Back-Up Lights
+006,1,Instrument,Illumination,Terminal 58d (Range: 0.0...100.0 %)
+006,2,Left,Back-Up Light,Range: 0.0...100.0 %
+006,3,Right,Back-Up Light,Range: 0.0...100.0 %
+006,4,Left Rear,Fog Light,Range: 0.0...100.0 %
+;
+007,1,Activation Relay,Terminal 50,Range: ON/OFF
+007,2,Activation Relay,Terminal 15,cockpit/engine (Range: ON/OFF)
+007,3,Activation Relay,Terminal 75,Range: ON/OFF
+007,4,Enabling SAD,,Range: active/inactive
+;
+008,1,Brightness,,Range: 0...7
+008,2,Rain Quantity,,Range: 0...7
+008,3,Right Rear,Fog Light,Range: 0.0...100.0 %
+008,4,Footwell,Lighting,Range: 0.0...100.0 %
+;
+009,1,Terminal 30g,Relay,Range: ON/OFF
+009,2,Dual Washer,Pump +,Range: ON/OFF
+009,3,Dual Washer,Pump -,Range: ON/OFF
+009,4,Heated Rear,Windshield,Range: ON/OFF
+;
+010,1,Horn,,Range: Operated/Not Oper.
+010,2,Enabling of,Seat Heating,Range: Active/Inactive
+010,3,Electric Fuel,Pump (FP) Relay,Range: ON/OFF
+010,4,Headlight Washer,System Relay,Range: ON/OFF
+;
+011,1,LED Heated Rear,Windshield,Range: ON/OFF
+011,2,LED Emergency,Flasher Button,Range: 0.0...100.0 %
+011,3,LED Heated,Outside Mirror,Range: ON/OFF
+011,4,Interior,Light Dimmed,Range: 0.0...100.0 %
+;
+012,1,Coming Home,LED,Range: ON/OFF
+012,2,Heated Outside,Mirror,Range: ON/OFF
+;
+013,0,Terminals
+013,1,Terminal 30,(left),Range: 5.00...17.75 V
+013,2,Terminal 30,(right),Range: 5.00...17.75 V
+013,3,Terminal 30,(ref.),Range: 5.00...17.75 V
+013,4,Terminal 31,(ref.),Range: 5.00...17.75 V
+;
+014,1,Dimming,Potentiometer,Range: 0.0...100.0 %
+014,2,Coming Home,,Range: 0.0...100.0 %/ON/OFF
+014,4,HomeLink,,Range: Operated/Not Oper.
+;
+015,0,Terminals
+015,1,Terminal 15,(Input),Range: ON/OFF
+015,2,Terminal 50,(Input),Range: ON/OFF
+015,3,Enabling P/N,,Range: ON/OFF
+015,4,Terminal L,(Input),Range: ON/OFF
+;
+016,1,Brightness,,OFF = Bright\nON = Dark
+016,2,Lights on (RLS),,Range: ON/OFF
+016,3,Front Wiper,Status,Range: ON/OFF
+016,4,Wiper turn-around,Position Signal,Range: Reached/Not Active
+;
+017,1,Light Switch,(Light off),Range: ON/OFF
+017,2,Parking Light,Switch,Range: ON/OFF
+017,3,Low Beam,Headlight Switch,Range: ON/OFF
+017,4,AFL Light Switch,,Range: ON/OFF
+;
+018,1,Fog Light Switch,,Range: ON/OFF
+018,2,Light Switch,Rear Fog Light,Range: ON/OFF
+018,3,Brake Light Switch,,Range: ON/OFF
+018,4,Back-Up,Light Switch,Range: ON/OFF
+;
+019,1,Emergency,Flasher Button,Range: Operated/Not Oper.
+019,2,Engine Hood,,Range: Open/Closed
+019,3,Heated Rear,Windshield Button,Range: Operated/Not Oper.
+019,4,Heated Outside,Mirror,Range: Operated/Not Oper.
+;
+020,0,Backrest Recognition
+020,3,Backrest,Left,Range: ON/OFF
+020,4,Backrest,Right,Range: ON/OFF
+;
+021,0,Rotary Traps
+021,1,Rotary Trap LF,,Range: ON/OFF
+021,2,Rotary Trap RF,,Range: ON/OFF
+021,3,Rotary Trap LR,,Range: ON/OFF
+021,4,Rotary Trap RR,,Range: ON/OFF
+;
+022,1,Rear Lid,Main Catch,Range: ON/OFF
+022,2,Heated Front,Windshield,Range: operated/n. oprated
+022,3,Heated Front,Windshield Relay,Range: ON/OFF
+022,4,Heated Front,Windshield LED,Range: ON/OFF
+;
+023,1,Rotary Light Switch,Position
+023,2,Coming Home,Condition
+023,3,Leaving Home,Condition
+023,4,AFL Condition
+;
+024,1,Steering Column,Switch Information,via LIN-Databus
+024,2,Terminal 15,(via LIN),Range: ON/OFF
+024,3,Terminal 50,(via LIN),Range: ON/OFF
+024,4,Wiper Cycle,Number (via LIN)
+;
+030,1,Load Management,,Range: Active/Inactive
+030,2,Short-Distance,Operations
+030,3,Critical,Time Fraction
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A000,0,Reset Adaptation Channels
+A000,5,Reset Adaptation Channels
+A000,6,Reset all adaptation channels back
+A000,7,to the original factory values.
+;
+A001,0,Coming-Home Time
+A001,5,Coming-Home Time
+A001,6,Time which the Coming-Home function will be active.
+A001,7,Range: 10...60 Seconds
+A001,8,Resolution: 10 Seconds
+A001,9,Note: Only active if Byte 00 Bit 7 of Long Coding active.
+;
+A002,0,Leaving-Home Time
+A002,5,Leaving-Home Time
+A002,6,Time which the Leaving-Home function will be active.
+A002,7,Range: 10...60 Seconds
+A002,8,Resolution: 10 Seconds
+A002,9,Note: Only active if Byte 00 Bit 5 of Long Coding active.
+;
+A003,0,Rear Window & Outside Mirror Heater Activation Time
+A003,5,Rear Window & Outside Mirror Heater Activation Time
+A003,6,Time which the Rear Window and Outside Mirror Heater will be active.
+A003,7,Range: 1...254 Minutes
+A003,8,Resolution: 1 Minute
+;
+A004,0,Headlight Washer Activation Time
+A004,5,Headlight Washer Activation Time
+A004,6,Range: 50...10000 ms
+A004,7,Resolution: 50 ms (Adaptation Value * Resolution = Actual Value)
+A004,8,Note: Only active if Byte 01 Bit 1 of Long Coding active.
+;
+A005,0,Footwell Lighting Dimming
+A005,5,Footwell Lighting Dimming
+A005,6,Range: 20...100 %
+A005,7,Resolution: 1 %
+A005,8,Note: Only active if Byte 00 Bit 1 of Long Coding active.
+;
+A006,0,Load Management
+A006,5,Load Management
+A006,6,Range: 0...3
+A006,7,Note: Only active if Byte 02 Bit 3 of Long Coding active.
+;
+A007,0,Highbeam with Assistance Driving Light
+A007,5,Highbeam with Assistance Driving Light
+A007,6,0 = inactive
+A007,7,1 = active
+;
+A008,0,Assistance Driving Light Activation/Deactivation Delay
+A008,5,Assistance Driving Light Activation/Deactivation Delay
+A008,6,Range: 0...10200 ms
+A008,7,Resolution: 40 ms
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T59,Interior Lighting
+T60,Foglight Lamps
+T156,Front Windshield Washer Pump
+T901,Back-Up Lamps
+T906,Horn (H1)
+T909,Windshield Wiper Motor (V)
+T967,Left Turn Signals
+T968,Right Turn Signals
+T975,Heated Rear Window (Z1)
+T977,Low Beam (Left & Right)
+T2486,High Beam (Left & Right)
+T1064,Interior Dimming (Terminal 58d)
+T1259,Fuel Pump Relay (J17)
+T1504,License-Plate Light (X)
+T1701,Dimmer for Interior Lighting
+T1755,Parking Lights (E1)
+T1758,Brake Lamps
+T1830,Rear Fog Light(s)
+T2377,Wiper: Upper Reverse Point
+T2398,Rear Windshield Washer Pump
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,Front Fog Lights installed
+LC,00,1,Xenon Headlights with Shutter installed
+LC,00,2,Footwell Lights installed
+LC,00,3,Daytime Running Lights (Scandinavia) active
+LC,00,4,Daytime Running Lights (North America)
+LC,00,5,Assistance Driving Light & Leaving Home active
+LC,00,6,Rain-/Light sensor installed
+LC,00,7,Coming-Home active
+LC,01,0,Rear Seat Recognition installed
+LC,01,1,Headlight Washer installed
+LC,01,2,Electronic Fuelpump Relay installed (Gasoline only)
+LC,01,3,Rear Wiper installed
+LC,01,7,Rear Wiper with Front Wiper continiously active
+LC,02,0,Rear Wiper with Front Wiper intermittent active
+LC,02,1,Comfort Turn Signals
+LC,02,2,Cold Lamp Diagnosis active
+LC,02,3,Load Management active
+LC,02,4,Coming-Home Mode via (0 = Personalisation / 1 = Lightsensor)
+LC,02,6,Side Turn Signal Lights installed
+LC,02,7,Seat Heating installed
+LC,03,0,Relay Terminal 15 installed
+LC,03,1,Rear Fog Lights (0 = 2 Rear Fog Lights / 1 = 1 Rear Fog Light)
+LC,03,2,Reverse Driving Lights (0 = 2 Reverse Driving Lights / 1 = 1 Reverse Driving Light)
+LC,03,3,Reverse Driving Light off when Rear Lid open
+LC,03,4,Xenon-Shutter without Shutter installed (Bi-Xenon)
+LC,03,5,Teardrop Wiping for Rear Window active
+LC,03,7,Rear Lights (1 = Back Light/Brake Light dimmed / 0 = Back Light dimmed)
+LC,04,0,Auxiliary Heater installed
+LC,04,1,Auxiliary Heating installed
+LC,04,2,Trailer/Towing Device installed
+LC,04,3,Memory Seats installed
+LC,04,4,Activation of both Rear Fog Lights
+LC,04,5,Model (0 = Left-Hand-Drive / 1 = Right-Hand-Drive)
+LC,04,6,Rear Fog Lights deactivated
+LC,04,7,Climatronic installed
+LC,05,0-7,50,Headlight Washer Delay
+LC,05,0-7,50,Decimal Value (Resolution 50 ms) (Example: 20 is 20 x 50 = 1000 ms)
+LC,06,0-7,50,Headlight Washer Activation Time
+LC,06,0-7,50,Decimal Value (Resolution 50 ms) (Example: 16 is 16 x 50 = 800 ms)
+LC,07,0-7,1,Turn Signal Front left/right as Parking Light Front left/right (USA and Canada)
+LC,07,0-7,1,Decimal Value (Resolution: 1%)
+LC,08,0,Seat Heating Deactivation with Transport Mode active
+LC,08,1,Daytime Running Light (DRL) Deactivation with Transport Mode active
+LC,08,2,Footwell Lighting Deactivation with Transport Mode active
+LC,08,3,Interlock Display via CAN-Instruments active
+LC,08,4,Interior Light via Rear Lid Notch active
+LC,08,6,Rear Fog Light Deactivation with Trailer active
+LC,08,7,Daytime Running Light (DRL) Deactivation while Blinking active
+LC,09,0-7,1,Rear Brake Light as Parking Light
+LC,09,0-7,1,Decimal Value (Resolution: 1%)
+LC,10,0-7,1,Rear Fog Light as Parking Light
+LC,10,0-7,1,Decimal Value (Resolution: 1%)
+LC,11,0-7,1,Front Parking Light Dimming
+LC,11,0-7,1,Decimal Value (Resolution: 1%)
+LC,12,0-7,1,Rear Parking Light Dimming
+LC,12,0-7,1,Decimal Value (Resolution: 1%)
+LC,13,0-7,1,Backup Function: Rear Side Turn Signal as Parking/Brake Light
+LC,13,0-7,1,Decimal Value (Resolution: 1%)
+LC,14,0-7,1,Backup Function: Front Parking Light as Side Turn Signals
+LC,14,0-7,1,Decimal Value (Resolution: 1%)
+LC,15,0-7,1,Backup Function: Rear Parking Light as Side Turn Signals
+LC,15,0-7,1,Decimal Value (Resolution: 1%)
+LC,16,0-7,1,Backup Function: Front Fog Lights as Low Beam Headlight
+LC,16,0-7,1,Decimal Value (Resolution: 1%)
+LC,17,0,Emergency Brake Flash Light active
+LC,17,1,Deactivation of Additional High Beam with Bi-Xenon
+LC,17,2,Heated Front Window installed
+LC,17,3,Diagnosis Terminal 50 active
+LC,17,4,Daytime Running Light via Fog Lights
+LC,17,5,Front Fog Lights deactivated with High Beam
+LC,17,6,Parking Light Function inactive (USA/Canada)
+LC,18,0,Cold Diagnosis License Plate Lights active
+LC,18,1,Cold Diagnosis Brake Lights active
+LC,18,2,Cold Diagnosis Front Fog Lights active
+LC,18,3,Cold Diagnosis Rear Fog Lights active
+LC,18,4,Cold Diagnosis High Beam active
+LC,18,5,Cold Diagnosis Turn Signals active
+LC,18,6,Cold Diagnosis Back-Up Light active
+LC,18,7,Cold Diagnosis Side Turn Signals active
+LC,19,0,Cold Diagnosis Low Beam active
+LC,19,1,Cold Diagnosis Front Parking Lights active
+LC,19,2,Cold Diagnosis Rear Parking Lights active
+LC,19,3,Diagnosis Rear Parking Lights active
+LC,20,0-7,1,Front Fog Light Dimming (Standard 5C)
+LC,20,0-7,1,Decimal Value (Resolution: 1%)
+LC,21,0~2,01,Halogen Front Light
+LC,21,0~2,02,Xenon Front Light with Halogen High Beam
+LC,21,0~2,03,Bi-Xenon Front Light with additional High Beam
+LC,21,0~2,04,Bi-Xenon Front Light without additional High Beam
+LC,21,0~2,05,Bi-Xenon Front Light with separate Daytime Running Lights (DRL)
+LC,21,0~2,06,Bi-Xenon Front Light with LED Daytime Running Lights (DRL)
+LC,21,0~2,07,LED Front Light
+LC,21,4,Rear Fog Light as Brake Light
+LC,22,1,Daytime Running Lights (DRL) switchable via Menu
+LC,22,4,Speed dependant Trunk Locking active
+LC,22,6,Rear Parking Lights as Blinker active (North America)
+LC,22,7,Diagnosis Rear Brake Lights inactive (North America)
+LC,23,1,Advanced Comfort Menu active
+LC,23,7,Engine Compartment Light via Right Side Blinker Output active
+;

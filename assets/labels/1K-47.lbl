@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Component: R44 - Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-47.LBL
+; 1Q-47.LBL
+; 1T-47.LBL
+; 3C0-035-456.LBL
+;
+; created on 26/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+REDIRECT,3C0-035-456.LBL,1K6-035-456-???
+;

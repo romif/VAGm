@@ -1,0 +1,94 @@
+;
+; VAG-COM label file
+;
+; Audi A4 (8E2/8E5)
+;
+; component: J234 - Airbag 8.4 (#15)
+;
+; p/n: 8E0-959-655-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-15.LBL
+; 8E0-959-655-84.LBL (Airbag 8.4)
+; 8E0-959-655-94.LBL (Airbag 9.4x)
+;
+; created on 27/Sep/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 23/Feb/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Drivers-side,airbag,Display range: correct/too low/too high/endp. GND/endp. B+
+001,2,Passenge-side,airbag,Display range: correct/too low/too high/endp. GND/endp. B+
+001,3,belt tensioner,driver-side,Display range: correct/too low/too high/endp. GND/endp. B+
+001,4,belt tensioner,passenger-side,Display range: correct/too low/too high/endp. GND/endp. B+
+;
+002,1,belt tensioner,driver-side rear,Display range: correct/too low/too high/endp. GND/endp. B+
+002,2,belt tensioner,passenger-side rear,Display range: correct/too low/too high/endp. GND/endp. B+
+002,3,belt tensioner,center rear,Display range: correct/too low/too high/endp. GND/endp. B+
+;
+003,1,voltage supply,Display range: correct/too low
+003,3,seatbelt switch,driver-side,Display range: too low/too high/endp. GND/endp. B+/n.defined/belt YES/belt NO
+003,4,seatbelt switch,passenger-side,Display range: too low/too high/endp. GND/endp. B+/n.defined/belt YES/belt NO
+;
+004,0,Belt usage recognition
+004,1,driver-side,rear,Display range: too low/too high/endp. GND/endp. B+/n.defined/belt YES/belt NO
+004,2,passenger-side,rear,Display range: too low/too high/endp. GND/endp. B+/n.defined/belt YES/belt NO
+004,3,center,rear,Display range: too low/too high/endp. GND/endp. B+/n.defined/belt YES/belt NO
+;
+006,0,Igniter for side airbag
+006,1,driver-side,front,Display range: correct/too low/too high/endp. GND/endp. B+
+006,2,passenger-side,front,Display range: correct/too low/too high/endp. GND/endp. B+
+006,3,driver-side,rear,Display range: correct/too low/too high/endp. GND/endp. B+
+006,4,passenger-side,rear,Display range: correct/too low/too high/endp. GND/endp. B+
+;
+008,0,Igniter for head-level airbag
+008,3,driver-side,,Display ange: correct/too low/too high/endp. GND/endp. B+
+008,4,passenger-side,,Display range: correct/too low/too high/endp. GND/endp. B+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag (J234) Coding
+C01,Standard (Rest of World): Front Airbags/Front Side Airbags/Front Seatbelt Tensioners/Head Airbags
+C02,0010602 = Standard
+C03,0010702 = Standard + Rear Side Airbags
+C04,0011602 = Standard + Key Switch for Passenger Airbag Deactivation
+C05,0011702 = Standard + Rear Side Airbags + Key Switch for Passenger Airbag Deactivation
+C06, 
+C07,Standard (North America):  Front Airbags/Front Side Airbags/Front Seatbelt Tensioners/Head Airbags
+C08,0010605 = Standard + 2 Rear Seatbelt Tensioners
+C09,0010705 = Standard + 2 Rear Seatbelt Tensioners + Rear Side Airbags
+C10,0010607 = Standard + 3 Rear Seatbelt Tensioners
+C11,0010707 = Standard + 3 Rear Seatbelt Tensioners + Rear Side Airbags
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A081,0,Component Protection
+A081,5,Component Protection
+A081,6,To start the learning process for the Vehicle
+A081,7,Identification Number (VIN) save "02905" as new value.
+;

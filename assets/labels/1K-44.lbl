@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8P) / VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Skoda Octavia II (1Z)
+;
+; Component: J500 - Steering Aid (#44)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-44.LBL
+; 1Kx-909-14x.LBL
+;
+; created on 13/April/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 07/Sep/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1Kx-909-14x.LBL,1K?-909-143-??? ; Generation I
+REDIRECT,1Kx-909-14x.LBL,1K?-909-144-??? ; Generation II
+;

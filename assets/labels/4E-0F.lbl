@@ -1,0 +1,31 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R146 - Digital Radio (#0F)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-0F.LBL
+; 4E0-910-593-SIR.LBL
+; 4E0-910-593-XM.LBL
+;
+; created on 13/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Jul/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593
+REDIRECT,4E0-910-593-XM.LBL,4E0-910-593-A
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593-B
+REDIRECT,4E0-910-593-XM.LBL,4E0-910-593-C
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593-D
+REDIRECT,4E0-910-593-XM.LBL,4E0-910-593-E
+REDIRECT,4E0-910-593-XM.LBL,4E0-910-593-G
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593-H
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593-K
+REDIRECT,4E0-910-593-SIR.LBL,4E0-910-593-L
+;

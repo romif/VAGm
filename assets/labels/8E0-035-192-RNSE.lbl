@@ -1,0 +1,480 @@
+;
+; VCDS Label File
+;
+; Audi A2 (8Z) / Audi A3 (8P) / Audi A4 (8E) / Audi A6 (4B)
+; Audi TT (8N) / Audi TT (8J) / Audi R8 (42)
+;
+; Component: Radio-/Navigation System (#37/#56) - RNS-E
+;
+; P/N: 4B0-035-192 ???
+;      8E0-035-192 ???
+;      8P0-035-192 ???
+;      8Z0-035-192 ???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-37.LBL
+; 4B-56.LBL
+; 8E-37.LBL
+; 8E-56.LBL
+; 8P-37.LBL
+; 8P-56.LBL
+; 8E0-035-192-RNSE.LBL
+;
+; created on 15/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+; updated on 11/Mar/2008 by Kiss Lorand (kisslorand666@yahoo.com)
+; updated on 04/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Jun/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Information
+001,1,Battery Voltage,(Terminal 30)
+001,2,Status,Terminal 15,,Display Range: ON/OFF/Invalid
+001,3,Status,S-Contact,,Display Range: ON/OFF/Invalid
+001,4,Operating,Temperature
+;
+002,0,Sound System && Telephone Mute
+002,1,Connection to,Sound System
+002,2,Connection Status,Sound System,Display Range: OK/OFF/Short Circuit
+002,3,Telephone Mute
+002,4,Status,Telephone Mute,Display Range: ON/OFF
+;
+003,0,Status of Front Loudspeakers (software level <80 does not differ left/right)
+003,1,Loudspeakers,Front Left
+003,2,Status Loudspkr.,Front Left,Display Range: OK/Short Circuit/Open Circuit/not active
+003,3,Loudspeakers,Front Right
+003,4,Status Loudspkr.,Front Right,Display Range: OK/Short Circuit/Open Circuit/not active
+;
+004,0,Vehicle Speed && Driving Direction
+004,1,Speed Signal
+004,2,Vehicle Speed,,via CAN from ABS
+004,3,Driving Direction,,Display Range: forward/reverse/invalid
+;
+005,0,Status active Antenna
+005,1,active
+005,2,Antenna
+005,3,Status,active Antenna,Display Range: OK/Short Circuit/Open Circuit
+;
+006,0,Status IF-Output
+006,1,IF-Output
+006,2,Status,IF-Output,Display Range: OK/Short Circuit/Open Circuit
+;
+007,0,Satellite/GPS Status
+007,1,Received,Satellites
+007,2,Received/Utilized,Satellites
+007,3,GPS-Antenna
+007,4,Status GPS-Ant.,(Remote Feeding),Display Range: OK/Short Circuit/Open Circuit
+;
+008,1,Comunication,CD-Changer,Display Range: OK/not OK
+008,2,Status,CD-Changer,0 = OK\n1 = Focus Malfunction\n2 = Mechanical Malfunction\n3 = Media Missing
+;
+009,1,GPS-Status
+009,2,Information
+; 0   = GPS-Info not available (cold start necessary)
+; 1   = GPS-Info not available (Almanac, last position, time available)
+; 2   = NO FIX: Satellites received, however position sensing not possible
+; 3   = 2D FIX: Satellites received, 2-dimensional position sensing 
+; 4   = 3D FIX: Satellites received, 3-dimensional position sensing 
+; 255 = GPS antenna not connected
+;
+010,1,DVD-Status
+010,2,Information
+; 0 = no DVD/CD in drive 
+; 1 = wrong DVD/CD, no Navigation-DVD inserted
+; 2 = Navigation-DVD inserted, reading error occurs
+; 3 = Navigation-DVD inserted and OK
+; 4 = Load/eject error (end switch not recognized)
+; 5 = DVD-drive malfunction (drive cannot be initialized)
+; 6 = unknown malfunction
+;
+011,1,Name of inserted,CD/DVD
+;
+020,0,Button Diagnosis I
+020,1,Function Buttons
+; xxxxxxx1 = RADIO (USA-Version: FM/AM)
+; xxxxxx1x = CD/TV (USA-Version: CD/SD)
+; xxxxx1xx = NAME
+; xxxx1xxx = TEL
+; xxx1xxxx = NAV 
+; xx1xxxxx = INFO
+; x1xxxxxx = CAR 
+; 1xxxxxxx = SETUP
+020,2,Control and,Arrow Buttons
+; xxxxxxx1 = left upper control button
+; xxxxxx1x = left lower control button
+; xxxxx1xx = right upper control button
+; xxxx1xxx = right lower control button
+; xxx1xxxx = RETURN
+; xx1xxxxx = left arrow button
+; x1xxxxxx = right arrow button
+; 1xxxxxxx = OPEN
+;
+021,0,Button Diagnosis I
+021,1,Operated Buttons,,xx1 = Rotation Button depressed\nx1x = Volume Button depressed\n1xx = EJECT Button depressed
+021,2,Control Knob,(Rotation Pulse),per Time Unit (Display Range: -127...+127)
+021,3,ON/OFF Knob,(Rotation Pulse),per Time Unit (Display Range: -127...+127)
+;
+025,0,Card Reader Status
+025,1,Card Reader 1
+025,2,Status,Card Reader 1
+; --xxxxx1 - Card Reader ready
+; --xxxx1x - Card inserted and ready
+; --xxx1xx - Card is beeing read
+; --xx1xxx - Card is beeing written
+; --x1xxxx - No Card inserted
+; --1xxxxx - Malfunction occured
+025,3,Card Reader 2
+025,4,Status,Card Reader 2
+; --xxxxx1 - Card Reader ready
+; --xxxx1x - Card inserted and ready
+; --xxx1xx - Card is beeing read
+; --xx1xxx - Card is beeing written
+; --x1xxxx - No Card inserted
+; --1xxxxx - Malfunction occured
+;
+030,1,Gyro Rough Value,,If navigation turns clockwise the values become greater counter clockwise smaller
+030,2,Number of days,since last Almanac,Display Range: 0 = today / 1 = yesterday / 255 = no data received
+;
+031,0,Longitude (current Position)
+031,1,Longitude
+031,2,Degrees,,Display Range: -180...+180
+031,3,Minutes,,Display Range: 0...59
+031,4,Seconds,,Display Range: 0...59
+;
+032,0,Latitude (current Position)
+032,1,Latitude
+032,2,Degrees,,Display Range: -90...+90
+032,3,Minutes,,Display Range: 0...59
+032,4,Seconds,,Display Range: 0...59
+;
+033,0,Height/Direction (current Position)
+033,1,Height
+033,2,Height,,Display Range: -500...+8000 m
+033,3,Direction
+033,4,Angle,,000 = North\n090 = East\n180 = South\n270 = West
+;
+034,0,Longitude (last stored Position)
+034,1,Longitude
+034,2,Degrees,,Display Range: -180...+180
+034,3,Minutes,,Display Range: 0...59
+034,4,Seconds,,Display Range: 0...59
+;
+035,0,Latitude (last stored Position)
+035,1,Latitude
+035,2,Degrees,,Display Range: -90...+90
+035,3,Minutes,,Display Range: 0...59
+035,4,Seconds,,Display Range: 0...59
+;
+036,0,Height/Direction (last stored Position)
+036,1,Height
+036,2,Height,,Display Range: -500...+8000 m
+036,3,Direction
+036,4,Angle,,000 = North\n090 = East\n180 = South\n270 = West
+;
+037,0,GPS-Date (0.0.2000 = No Reception)
+037,1,Date
+037,2,Day,,Display Range: 0...31
+037,3,Month,,Display Range: 0...12
+037,4,Year,,Display Range: 2000...9999
+;
+038,0,GPS-Time (00:00:00 = No Reception)
+038,1,Time
+038,2,Hours,,Display Range: 0...23
+038,3,Minutes,,Display Range: 0...59
+038,4,Seconds,,Display Range: 0...59
+;
+039,0,Dilution of Precision (DOP | 0 = No Reception)
+039,1,Quality of Satellite,Constallation,Note: the smaller the value the better the value
+039,2,HDOP,horizontal Quality,2 Coordinates (Display Range: 1...25.4)
+039,3,VDOP,vertical Quality,1 Coordinate (only Height / Display Range: 1...25.4)
+039,4,PDOP,entire Quality,3 Coordinates (Display Range: 1...25.4)
+;
+048,1,Received,Wheel Pulses
+;
+049,1,Dimming,Terminal 58d,Display Range: 0.0...100.0 % (127.5 % = Signal invalid)
+049,2,Dimming,Terminal 58s,Display Range: 0.0...100.0 % (127.5 % = Signal invalid)
+049,3,Telephone,Software-Mute,Display Range: ON/OFF/invalid
+;
+070,1,Reception Level
+070,2,RDS,Malfunction Rate
+070,3,TMC-Data,avialiable,Display Range: 0 = NO / 1 = YES
+070,4,Received,TMC-Data Packets,Display Range: 0...65535
+;
+071,0,Satellite Identification I
+071,1,Satellite ID,best Reception
+071,2,Signal Strength
+071,3,Satellite ID,2nd best Reception
+071,4,Signal Strength
+;
+072,0,Satellite Identification II
+072,1,Satellite ID,3rd best Reception
+072,2,Signal Strength
+072,3,Satellite ID,4th best Reception
+072,4,Signal Strength
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio/Navigation (J401/RNS-E) Coding
+C01,0?xxxxx: Model
+C02,1 = Audi A2 / 2 = Audi A3 (8P) / 3 = Audi A4 (8E)
+C03,4 = Audi A4 Cabriolet (8H) / 5 = Audi A6 (4B) / 6 = Audi TT (8N/8J)
+C04,0x?xxxx: Treble Speaker Diagnosis
+C05,0 = Front Treble Speaker Diagnosis active / 1 = Front Treble Speaker Diagnosis inactive
+C06,0xx?xxx: Sound Characteristic
+C07,0 = Linear Sound Characteristic / 1 = Audi A4 (8E) / 2 = Audi A6 (4B)
+C08,3 = Audi A4 Cabriolet (8H) / 4 = Audi TT (8N) / 5 = Audi A3 (8P) / 9 = Sound System
+C09,0xxx?xx: Telephone/Telematic
+C10,1 - no Telephone (Remote Feed Voltage for Microphone active) / 2 - Base plate (Temic - Remote Feed Voltage for Microphone inactive)
+C11,3 - Base plate (Cullmann - Remote Feed Voltage for Microphone inactive) / 4 - Base plate (Nokia - Remote Feed Voltage for Microphone inactive)
+C12,5 - Telematic Europa (Remote Feed Voltage for Microphone inactive) / 6 - Telematic US (Remote Feed Voltage for Microphone inactive)
+C13,7 - Base plate diagnostic capable with comfort control
+C14,0xxxx?x: Equipment I
+C15,1 = No Additional Tuner / 2 = Digital-Radio / 3 = Satellite-Radio / 4 = Satellite- and Digital-Radio installed
+C16,5 = Analog Input (AUX) installed / 7 = Satellite-Radio & Analog Input (AUX) installed
+C17,0xxxxx?: Equipment II
+C18,1 - no TV-Tuner or CD-Changer or Multi-Function Steering Wheel / 2 - TV-Tuner installed / 3 - CD-Changer installed
+C19,4 - TV-Tuner and CD-Changer installed / 5 - Multi-Function Steering Wheel installed / 6 - TV-Tuner and Multi-Function Steering Wheel installed
+C20,7 - CD-Changer and Multi-Function Steering Wheel installed /8 - TV-Tuner and CD-Changer and Multi-Function Steering Wheel installed
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T850,Control Output Active: Radio Amplifier
+T852,Loudspeaker(s) Front
+T870,Bass Speaker Front Left (R21)
+T871,Bass Speaker Front Right (R23)
+T872,Bass Speaker Rear Left (R15)
+T873,Bass Speaker Rear Right (R17)
+T874,Treble Speaker Front Left (R20)
+T875,Treble Speaker Front Right (R22)
+T876,Treble Speaker Rear Left (R14)
+T877,Treble Speaker Rear Right (R16)
+T2247,Subwoofer (R148/R157)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Tire Circumference
+A001,5,Tire Circumference
+A001,6,The tire circumference is beeing adapted in "mm".
+A001,7,A tire circumference list can be found here:
+A001,8, 
+A001,9,http://de.openobd.org/audi/rns.htm#reifen
+;
+A002,0,Wheel Impulse
+A002,5,Wheel Impulse
+A002,6,The Distance Impulse describes the amount of ABS Pulses per Wheel Revolution.
+A002,7, 
+A002,8,43 = Audi A3 (8P)
+A002,9,45 = Audi A4 (8E)
+A002,10, 
+A002,11,NOTE: If "0" is entered as new Value the System calibrates
+A002,12,itself automatically after a short distance and inputs a proper Value.
+;
+A003,0,Language (Screen)
+A003,5,Language (Screen)
+A003,6,0 = German
+A003,7,1 = English (UK only)
+A003,8,2 = French
+A003,9,3 = Italian
+A003,10,5 = Spanish
+A003,11,6 = Portuguese
+A003,12,7 = English (USA only)
+;
+A004,0,Rear View Camera
+A004,5,Rear View Camera (Lamborghini only)
+A004,6,0 - Rear View Camera not installed
+A004,7,1 - Rear View Camera installed
+;
+A005,0,Speed Threshold (Video In Motion)
+A005,5,Speed Threshold (Video In Motion)
+A005,6,0 = max. 0 km/h (only while Standing)
+A005,7,1 = max. 5 km/h (Standard for Europe)
+; 250 = unlocked units only/otherwise value will not be stored
+;
+A007,0,Settings
+A007,5,Settings
+A007,6,+01 = Distance in Miles
+A007,7,+02 = Speed in mph
+A007,8,+04 = Time in am/pm
+A007,9,+08 = Date in MM:TT:JJJJ
+A007,10,+16 = Repeat Voice Commands
+;
+A008,0,Speed Dependant Volume Control (GALA)
+A008,5,Speed Dependant Volume Control (GALA)
+A008,6,000 = Speed Dependant Volume Control (GALA) OFF
+A008,7,001 = Charakteristics 1
+A008,8,002 = Charakteristics 2
+A008,9,003 = Charakteristics 3
+A008,10,004 = Charakteristics 4
+A008,11,005 = Charakteristics 5
+A008,12,255 = GALA via Microphone (Bose AudioPilot)
+;
+A010,0,Region
+A010,5,Region
+A010,6,0 = Northern Hemisphere (Europe and North America)
+A010,7,1 = Southern Hemisphere (Australia)
+A010,8,2 = Southern Hemisphere (South Africa)
+A010,9, 
+A010,10,Note: Reverts back to 0 after a Software Update.
+;
+A011,0,Language (Voice Control)
+A011,5,Language (Voice Control)
+A011,6,0 = German
+A011,7,1 = English (UK only)
+A011,8,2 = French
+A011,9,3 = Italian
+A011,10,5 = Spanish
+A011,11,6 = Portuguese
+A011,12,7 = English (USA only)
+;
+A018,0,Start Screen
+A018,5,Start Screen (SW US 0150+/EU 0500+)
+A018,6,0 = Standard
+A018,7,1 = Audi S3 (8P)
+A018,8,2 = Audi S4 (8E)
+A018,9,3 = Audi RS4 (8E)
+A018,10,4 = Audi TT (8N)
+A018,11,5 = Audi R8 (42)
+A018,12, 
+A018,13,Note: The Start Screen needs to correspond with the Coding.
+;
+A065,0,Read Test
+A065,5,Read Test
+A065,6,0 = Normal Operation
+A065,7,1 = Short Read Test
+A065,8,2 = Full Read Test
+A065,9, 
+A065,10,Note: These values are only used to initiate the test and will not be stored permanently.
+;
+A066,0,Self Test
+;
+A067,0,CD/DVD Ejection
+A067,5,CD/DVD Ejection
+A067,6,000 = Normal
+A067,7,001 = Eject CD/DVD now (will not be saved)
+A067,8,255 = Eject Button locked (i.e. Rental Car)
+;
+A068,0,Display Test
+A068,5,Display Test
+A068,6,0 = No Test Pattern
+A068,7,1 = Red Test Pattern
+A068,8,2 = Green Test Pattern
+A068,9,3 = Blue Test Pattern
+A068,10,4 = White Test Pattern
+A068,11,5 = Black Test Pattern
+A068,12,6 = Checkerboard Test Pattern
+A068,13,7 = Checkerboard Test Pattern (inverted)
+A068,14,8 = 64 Gray Scales Test Pattern (vertical Bar)
+A068,15,9 = Special Test Pattern
+A068,16, 
+A068,17,Note: These values are only used to initiate the test and will not be stored permanently.
+;
+A069,0,Display Mechanism
+A069,5,Display Mechanism
+A069,6,000 = Display closed
+A069,7,001 = Display open
+A069,8,200 = Display partly opened (blocked)
+A069,9,255 = Unknown Display Position
+;
+A70,0,Display Brightness
+A70,5,Display Brightness
+A70,6,0 = 0 % (OFF)
+A70,7,1 = 20 %
+A70,8,2 = 40 %
+A70,9,3 = 60 %
+A70,10,4 = 80 %
+A70,11,5 = 100 %
+;
+A097,0,Software Downgrade
+A097,5,Software Downgrade
+A097,6,0 = Normal (Updates only)
+A097,7,1 = Forced (Downgrades possible - older DVD/CD Version required)
+;
+A099,0,Transport Mode
+A099,5,Transport Mode
+A099,6,0 = Transport Mode inactive 
+A099,7,1 = Transport Mode active
+A099,8, 
+A099,9,Note: Only used in models without CAN-Gateway like Audi A6 (4B).
+;
+A111,0,System Reset
+A111,5,System Reset
+A111,6,To initiate a system reset (cold boot) test "1" as new value.
+A111,7,Note: Stored fault codes will not be cleared.
+;
+A112,0,Remote Control: Audio Source
+A112,5,Remote Control: Audio Source
+A112,6,0 = FM
+A112,7,1 = AM
+A112,8,2 = CD
+A112,9,3 = TV
+A112,10,4 = SAT
+;
+A114,0,Remote Control: FM Frequency
+;
+A115,0,Remote Control: AM Frequency
+;
+A116,0,Remote Control: XM Channel
+;
+A117,0,Signal Position
+A117,5,Signal Position
+A117,6,0 = Fader Center / Balance Center
+A117,7,1 = Fader Front / Balance Left
+A117,8,2 = Fader Front / Balance Right
+A117,9,3 = Fader Rear / Balance Left
+A117,10,4 = Fader Rear / Balance Right
+;
+A118,0,Remote Control: FM Seek
+A118,5,Remote Control: FM Seek
+A118,6,1 = Seek Up
+A118,7,2 = Seek Down
+;
+A119,0,Remote Control: AM Seek
+A119,5,Remote Control: AM Seek
+A119,6,1 = Seek Up
+A119,7,2 = Seek Down
+;
+A136,0,Voice Commands - Driver Position
+A136,5,Voice Commands - Driver Position
+A136,6,RNS-E Basic:
+A136,7,03226 = Left-Hand-Drive (LHD)
+A136,8,02632 = Right-Hand-Drive (RHD)
+A136,9,RNS-E High/US:
+A136,10,00005 = Left-Hand-Drive (LHD)
+A136,11,00013 = Right-Hand-Drive (RHD)
+;

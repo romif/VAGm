@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; VW Passat (3C)
+;
+; Component: J393 - Comfort System (#46)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-46.LBL
+; 3C0-959-433-46.LBL
+;
+; created on 27/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Apr/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3C0-959-433-46.LBL,3C0-959-433-??? ; REMOTE
+;
+REDIRECT,3C0-959-433-46.LBL,3C0-959-799-??? ; KESSY
+;

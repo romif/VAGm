@@ -1,0 +1,103 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) Seat Leon (1P) / Skoda Octavia II (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Touran (1T)
+;
+; Component: J431 - Automatic Headlight Aim Control (#55)
+;
+; P/N: 1T0-907-357-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; created on 27/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Jan/2008
+;
+; requires VAG-COM 603.4 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 15)
+001,2,Light,(Terminal 56b),Specification: ON/OFF
+001,3,Vehicle Speed
+001,4,Acceleration
+;
+B001,0,Adjustment Position && Adjustment Learning
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,Sensor Values
+002,1,Front Sensor (G78),(actual),Specification: 12.5...50.0 %
+002,2,Rear Sensor (G76),(actual),Specification: 50.0...87.5 %
+002,3,Actuator Motor,Activation
+002,4,Time Constant
+;
+003,0,Brake && Engine Status
+003,1,Brake
+003,2,Brake Status,,Display Range: ON/OFF
+003,3,Engine
+003,4,Engine Status,,Display Range: ON/OFF
+;
+004,1,Voltage at,Light Input
+004,2,Sensor,Voltage Supply
+004,3,Basic Frequency,Sensor Front (G78)
+004,4,Basic Frequency,Sensor Rear (G76)
+;
+005,1,Front Sensor (G78),(learned)
+005,2,Rear Sensor (G76),(learned)
+005,3,Movement,Front Suspension,Display Range: -127.0...+128.0 mm
+005,4,Movement,Rear Suspension,Display Range: -127.0...+128.0 mm
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+083,0,Advanced Control Module Identification IV
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Brake Electronics,(J104),Display Range: ABS 1/ABS 0\nSpecification: ABS 1
+125,3,Steering Angle,Sensor (G85),Display Range: Steer. ang. 1/Steer. ang. 0\nSpecification: Steer. ang. 1
+125,4,Engine,,Display Range: Engine 1\Engine 0\nSpecification: Engine 1
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Level Control,(J197)
+126,2,Instrument Cluster,(J285),Display Range: Instruments 1/Instruments 0\nSpecification: Instruments 1
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Brake Electronics,(J104)
+225,3,Steering Angle,Sensor (G85)
+225,4,Engine
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,Level Control,(J197)
+226,2,Instrument Cluster,(J285)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Automatic Headlight Aim Control (J431) Coding
+C01,0000001 = VW Touran (1T) Front-Wheel-Drive (FWD)
+;   0000002 = VW Touran (1T) All-Wheel-Drive (AWD)
+C02,0000003 = VW Golf/Jetta (1K/5M) Front-Wheel-Drive (FWD)
+C03,0000004 = VW Golf/Jetta (1K/5M) All-Wheel-Drive (AWD)
+C04,0000007 = Skoda Octavia (1Z) Front-Wheel-Drive (FWD)
+C05,0000008 = Skoda Octavia (1Z) All-Wheel-Drive (AWD)
+C06,0000009 = Seat Altea/Toledo (5P) / Leon (1P)
+;

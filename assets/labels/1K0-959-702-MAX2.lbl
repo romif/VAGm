@@ -1,0 +1,110 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Eos (1F) / VW Golf/Jetta (1K/5M)
+; VW Passat (3C) / VW Touran (1T)
+;
+; Component: J387 - Passenger Door Electronics (#52) MAX Generation 2
+;
+; P/N: ???-959-702-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-52.LBL
+; 1Q-52.LBL
+; 1T-52.LBL
+; 1K0-959-702-MAX1.LBL
+; 1K0-959-702-MAX2.LBL
+; 1K0-959-702-MAX3.LBL
+; 1K0-959-702-MIN1.LBL
+; 1K0-959-702-MIN2.LBL
+; 1K0-959-702-MIN3.LBL
+;
+; created on 15/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 21/Jul/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Window Regulator
+001,1,WR-Button (E107),Passenger Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,2,WR-Button (E81),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,3,Window Regulator,(V148),Specification: Ends Learned\nDisplay Range: Up/Down/Ends Learned/At Top/At Bottom/Pinch Protect/Over-Temp S/O
+001,4,Thermal Protection,,Display Range: Active/Not Active
+;
+002,0,Window Regulator && General
+002,1,Window Regulator,Comfort Control,Display Range: Open/Closed/Not Oper.
+002,2,Window Regulator,Enabling,Display Range: Yes/No
+002,3,Dimming,(Terminal 58d),Display Range: 0.0...100.0 %
+002,4,Vehicle Speed
+;
+003,0,General
+003,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+003,2,Databus,Condition,Specification: 2-Wire\nDisplay Range: 1-Wire/2-Wire
+003,3,Ignition,(Terminal 15),Display Range: Terminal 15 On/Terminal 15 Off
+003,4,S-Contact,,Display Range: Activated
+;
+004,0,Illumination
+004,1,Dimming,(Terminal 58s),Display Range: 0.0...100.0 %
+004,2,Interior Door,Handle Illumination,Display Range: 0.0...100.0 %/Not Installed
+004,3,Ambient,Illumination,Display Range: 0.0...100.0 %/Not Installed
+004,4,Internal,Illumination,Display Range: Enabled/Disabled
+;
+005,0,Central Locking
+005,1,Locking Unit (F221),Passenger Door,Display Range: Locked/Unlocked/Safe
+005,2,Contact Switch (F3),Passenger Door,Display Range: Door Open/Door Closed
+005,3,Interior Locking,Button (E309),Display Range: Lock/Unlock/Not Oper./Not Installed
+005,4,Key Switch,Passenger Door,Display Range: Open/Closed/Not Oper./Not Installed
+;
+006,0,Mirror I
+006,1,Mirror Selector,Switch (E48),Display Range: Left/Right/ON (Mirror Heater Switch)/OFF (Mirror Heater Switch)/Not Oper.
+006,2,Mirror Heater,(Z5),Display Range: Active/Not Active/Not Installed
+006,3,Mirror,folded in,Display Range: Active/Not Active
+006,4,Mirror Request,,Display Range: Fold Out/Fold In/Not Oper.
+;
+007,0,Mirror II
+007,1,Mirror Adjustment,Switch (E43),Display Range: Pos X+/Pos X-/Pos Y+/Pos Y-/Not Oper./Not Installed
+007,2,Mirror Status,Position X,Display Range: 0.0...100.0 %
+007,3,Mirror Status,Position Y,Display Range: 0.0...100.0 %
+007,4,Mirror Supply,Potentiometer,Display Range: Active/Not Active/Not Installed
+;
+008,1,Inside Door,Handle Button,Display Range: Operated/Not Oper./Not Installed
+008,2,Outside Door,Handle Button,Display Range: Operated/Not Oper./Not Installed
+008,3,Window Regulator,Position (V148),Display Range: 0.0...100.0 %
+008,4,Mirror Blinker,Passenger (L132),Range: Active/Not Active/Not Installed
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Door Electronics Passenger (J387) Coding
+C01,+0000002 - Ambient Mirror Illumination
+C02,+0000004 - Mirror Turn Signals
+C03,+0000008 - Interior Door Handle Illumination installed
+C04,+0000016 - Automatic Run active
+C05,+0000032 - Mirror Heater installed
+C06,+0000064 - Door Exit/Warning Light installed
+C07,+0000128 - 5-Door Chassis
+C08,+0000256 - Seat Memory installed
+C09,+0000512 - Right Hand Steering
+C10,+0001024 - Safe-Motor not installed
+C11,+0002048 - Pinch Protection inactive
+;

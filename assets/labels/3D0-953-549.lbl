@@ -1,0 +1,196 @@
+;
+; VAG-COM label file 3D0-953-549.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton)
+; VW Bentley Continental GT - up to and including model year 2005 (not yet tested with this vehicle)
+;
+; Component: Steering Wheel Electronics -J453- (#16)
+;
+; p/n:    3D0 953 549 B
+;         3D0 953 549 C
+;         3D0 953 549 D Component: Lenksäulenmodul 3401 (same PN and component number on both Phaeton and Bentley)
+;         3D0 953 549 E Component: Lenksäulenmodul 3401 (same PN and component number on both Phaeton and Bentley)
+;         Not suitable for the Touareg - use existing file 7L6-953-549.lbl for Touaregs.  
+;         Phaeton and Touareg coding is the same, though.
+;   
+;
+; includes measured value block and coding.
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; Modification History
+;
+; 11/05/2004 (Sebastian)
+; 30/August/2005 (Michael) - Coding and Security info for GRA and ACC buttons added.
+;                                           See remarks embedded in the Coding info.
+; 29/November/2005 (Michael) - All MVB and Adaptation Channels checked.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Controls on Steering Wheel
+001,1,Turn signal,switch active,Possible values: not active/left/right
+001,2,Headlamp flash,to pass active,Possible values: button pressed / button not pressed
+001,3,High beam,switch active,Possible values: button pressed / button not pressed
+001,4,Horn,switch depressed,Possible values: button pressed / button not pressed
+;
+002,0,Windshield Wipe and Wash Controls
+002,1,Wiper Lever,Position,Possible values: not active/Interval/Level 1/Level 2
+002,2,Intermittent Wipe,Interval Dial,Possible values: off/Interval 1/2/3/Poti Ok
+002,3,Front window,washing,Possible values: button pressed / button not pressed
+002,4,Term 30 (Battery), Voltage
+;
+003,0,Tilt and Telescope Steering Wheel Control, Easy Entry Switch Status
+003,1,Steering column,adjustment,Possible values: not active/raise/lower/forward/backward
+003,2,Easy Entry,switch,Possible values: on/off
+;
+004,0,CSO-Signal
+004,1,Terminal P,,Possible values: on/off
+004,2,Terminal S,,Possible values: on/off
+004,3,Terminal X,(consumers),Possible values: on/off
+004,4,Terminal 15,,Possible values: on/off
+;
+005,0,Steering Wheel Heat Related
+005,1,Term X (consumers),switched on,Possible values: yes/no
+005,2,Steering wheel,heat status,Possible values: off/Level
+005,3,St. wheel heater,via VSCM,Possible values: yes/no
+005,4,St. wheel heater,via control head,Possible values: yes/no
+;
+006,0,Steering Wheel Heating Status
+006,1,Steering wheel,heater status,Possible values: not installed/on/off
+006,2,Steering wheel,Temperature,Possible values: not installed/Temperature of steering wheel
+;
+007,0,Steering Wheel Illumination
+007,1,Dimming,value,steering wheel illumination
+;
+008,0,Unknown
+;
+;Remark: Check to see if 008 or 009 may have to do with steering wheel heating
+;        or paddle shifter installation.
+;
+009,0,Unknown
+;
+010,0,Total Resistance Values for Switches Each Side of Steering Wheel Airbag
+010,1,Left Side,buttons,value will vary depending on button that is pushed
+010,2,Right Side,buttons,value will vary depending on button that is pushed
+010,3,Unknown
+;
+011,0,Cruise Control System (CCS) Buttons on Steering Wheel (Left Side)
+011,1,GRA + (increment),button,Possible values: button pressed / button not pressed
+011,2,GRA - (decrement),button,Possible values: 
+011,3,SET, button,Possible values: button pressed / button not pressed
+011,4,RESUME,button,Possible values: button pressed / button not pressed
+;
+012,0,Cruise Control System (CCS) Buttons on Steering Wheel (Left Side)
+012,1,CANCEL,button,Possible values: button pressed / button not pressed
+012,2,CCS ON/OFF,button,Possible values: button pressed / button not pressed
+012,3,Illumination,button,Possible values: button pressed / button not pressed
+012,4,Unknown
+;
+013,0,Phone and Audio Buttons on Steering Wheel (Right Side)
+013,1,Vol+ (plus)button,button,Possible values: button pressed / button not pressed
+013,2,Vol- (minus),button,Possible values: button pressed / button not pressed
+013,3,Telephone,button,Possible values: button pressed / button not pressed
+013,4,Mute - PTT,button,Possible values: button pressed / button not pressed
+;
+014,0,Phone and Audio Buttons on Steering Wheel (Right Side)
+014,1,OK (accept),button depressed,Possible values: button pressed / button not pressed
+014,2,Escape button,,Possible values: button pressed / button not pressed
+014,3,Menu button,,Possible values: button pressed / button not pressed
+014,4,Unknown
+;
+; NOTE TO SELF: Need to double-check groups 14 and 15.
+;
+015,0,Knurling Wheels (Thumbwheels) on Steering Wheel
+015,1,Right thumbwheel,depressed
+015,2,Unknown
+015,3,ADR (left),thumbwheel
+015,4,Unknown
+;
+016,0,*Next Block Used is Block 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Vehicle Identification Number (VIN)
+; Serial number
+; Type test number
+;
+082,0,*Next Block Used is Block 125
+;
+125,0,CAN-Databus communication (Comfort)
+125,1,Instrument,cluster
+125,2,Central comfort,electric
+125,3,Climate control
+125,4,[N/A]
+;
+126,0,CAN-Databus communication (Comfort) - Door control modules
+126,1,driver,side
+126,2,passenger,side
+126,3,rear,left,only with electrical power windows
+126,4,rear,right,only with electrical power windows
+;
+127,0,*End of Documented Blocks
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+; Remark:  Phaeton coding 232 (heated wheel), Bentley coding 212 (status unknown)   
+;
+C0,Steering wheel column electronics - J527 - 
+;
+C1,xx?xx - Steering Wheel Heat Status 
+C2,0 - Steering wheel heating not installed
+C3,1 - Steering wheel heating disabled  
+C4,2 - Steering wheel heating enabled
+C5,  
+C6,xxx?x - Cruise Control Button Configuration
+C7,0 - No buttons on steering wheel
+C8,1 - 6 button (GRA High) - including GRA but not ADR thumbwheel
+C9,2 - 6 button and ACC wheel (ACC) - including GRA and ADR thumbwheel
+C10,3 - 4 button (GRA Low) - (normal for North America without ADR)
+C11, 
+C12,A Security access code is required for upgrading above numbers following retrofit - see labelfile for details.
+;
+;Remark: Codes for enabling and disabling Cruise Control functions and ADR functions are as follows:
+;        ACC (Active Cruise Control) enabling: 13647
+;        GRA (6 buttons but no thumbwheel) enabling: 11463
+;        Deactivation code for deactivating either ACC or GRA: 16167
+;        These codes are entered in the 'Advanced Functions' section of VAG-COM, press the 'LOGIN - 11' button.
+;        The 'LOGIN - 11' button is just to the left of the 'RECODE - 07' button.
+;
+;        See Engine Controller (01) MVB 66/2 to observe status of CC or ADR system (enabled - disabled, etc.)
+;        Additional information is embedded as remarks in labelfile 07C-906-018-BAP1.lbl
+;
+C13,  
+C14,xxxx? - Electric Steering Column Adjustment Status
+C15,1 - without electric steering column tilt and telescope
+C16,2 - with electric steering column tilt and telescope
+C17,
+;
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+; There does not appear to be any possibility to adapt this controller.

@@ -1,0 +1,35 @@
+;
+; VAG-COM Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-56.LBL
+; 1J-56.LBL
+; 1U-56.LBL
+; 6L-56.LBL
+; 6N-56.LBL
+; 6Q-56.LBL
+; 6X-56.LBL
+; 6Y-56.LBL
+; 1J0-035-15x-56.LBL
+; 1J0-035-18x-56.LBL
+;
+; created on 07/Apr/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;REDIRECT,1J0-035-15x-56.LBL,1J0-035-152-B   ; BETA
+;
+;6Y0-035-152-??? ; MS 202
+;
+;6Y0-035-156-??? ; SYMPHONY
+;
+;6Y0-035-160-??? ; MS 402
+;
+;6Y0-035-161-??? ; MS 502
+;

@@ -1,0 +1,29 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Instrument Cluster 1J0-919-881D (Golf IV)
+;
+; contributed by Jens Ulmer, 27.08.2001
+;
+1,0,Various values
+1,1,Road speed
+1,2,Engine speed,RPM
+1,3,Oil press. switch, 0,9 bar
+1,4,Clock-time
+;
+2,0,Various values
+2,1,Distance,travelled
+2,2,Fuel level
+2,3,Fuel gauge, sender (Ohm)
+2,4,Ambient temp,(MFA only)
+;
+3,0,Various values
+3,1,Coolant,temperature
+3,2,[empty]
+3,3,[empty]
+3,4,[empty]
+;
+50,0,Various values
+50,1,Distance,travelled
+50,2,Engine speed,RPM
+50,3,Oil,temperature
+50,4,Coolant,temperature

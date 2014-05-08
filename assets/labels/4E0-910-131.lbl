@@ -1,0 +1,364 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J518 - Access/Start Authorization (#05)
+;
+; P/N: 4E0-910-131-???
+;
+; includes measuring blocks, coding and security access
+;
+; created on 08/Sep/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 10/Nov/2007
+;
+; requires VAG-COM 403.2 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Terminal Status
+001,1,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+001,3,Status,Terminal 75X,Range: ON/OFF
+001,4,Status,Terminal 50,Range: Term 50 On/Term 50 Off
+;
+002,0,Entry and Start Authorisation Buttons
+002,1,Start Auth. Button,(E262) START1,Range: ON/OFF
+002,2,Start Auth. Button,(E262) START2,Range: ON/OFF
+002,3,Start Auth. Button,(E262) STOP1,Range: ON/OFF
+002,4,Start Auth. Button,(E262) STOP2,Range: ON/OFF
+;
+003,0,Electric Ignition Lock (EIL)
+003,1,Electric Ignition,Lock Supply Diag.,Range: ON/OFF
+003,4,Electric Ignition,Lock Switch
+;
+004,0,Capacative Sensors
+004,1,Capacative Sensor,Drivers Door,Range: Operated/Not Oper.
+004,2,Capacative Sensor,Passenger Door,Range: Operated/Not Oper.
+004,3,Capacative Sensor,Rear Left Door,Range: Operated/Not Oper.
+004,4,Capacative Sensor,Rear Right Door,Range: Operated/Not Oper.
+;
+005,0,Sender Identification
+005,1,Software Version,Current Sender,Version:Week:Year\n00:00:00 = Invalid
+;
+006,0,Sender Identification (Sender 1 - 4)
+006,1,Identification,Sender 1,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+006,2,Identification,Sender 2,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+006,3,Identification,Sender 3,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+006,4,Identification,Sender 4,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+;
+007,2,Radio Signal,Range Reduction,Range: ON/OFF
+;
+008,0,Capacative Sensor Play Protection
+008,1,Remaining Time,Shut-Off Driver
+008,2,Remaining Time,Shut-Off Passeng.
+008,3,Play Protection,Drivers Door
+008,4,Play Protection,Passenger Door
+;
+009,0,Capacative Sensor Play Protection
+009,1,Play Protection,Drivers Door,Range: ON/OFF
+009,2,Play Protection,Passenger Door,Range: ON/OFF
+009,3,Play Protection,Rear Left Door,Range: ON/OFF
+009,4,Play Protection,Rear Right Door,Range: ON/OFF
+;
+010,1,Manufacturer,Hardware Status
+;
+021,0,Immobilizer I (Engine Control Unit = ECU Status)
+021,1,Start permitted,Slave 1,Specification: Yes\nRange: Yes/No
+021,2,ECU responds,Slave 1,Specification: Yes\nRange: Yes/No
+021,3,Start permitted,Slave 2,Specification: Yes\nRange: Yes/No
+021,4,ECU responds,Slave 2,Specification: Yes\nRange: Yes/No
+;
+022,0,Immobilizer II
+022,1,Engine Start,permitted,Specification: Yes\nRange: Yes/No
+022,2,Engine (ECU),responds,Specification: Yes\nRange: Yes/No
+022,3,Key Status,OK,Specification: Yes\nRange: Yes/No
+022,4,Number of,adapted Keys,Specification: 1...8
+;
+023,0,Immobilizer III
+023,1,Variable Code,authorized,Specification: Yes\nRange: Yes/No
+023,2,Key Status,(Transponder Lock),Range: Yes/No
+023,3,Fixed Code,authorized,Specification: Yes\nRange: Yes/No
+023,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 1 = End of Assembly Line: NEW (Delivery Condition of New Instrument Cluster)
+; 2 = End of Assembly Line: VIN adapted
+; 3 = End of Assembly Line: ECU adapted
+; 4 = Customer Service: NEW (Delivery Condition of Replacement Instrument Cluster)
+; 5 = Customer Service: Instrument Cluster adapted
+; 6 = Customer Service: Keys adapted (Normal Condition)
+; 7 = Customer Service: Key Adaptation active
+;
+024,0,Immobilizer IV (Lock Time)
+024,1,Login-Lock,Tester,wrong Login (Specification: 0)
+024,2,Login-Lock,CAN-Bus,wrong PIN (Specification: 0)
+024,3,Lock Time,Scan Protection,Key (Specification: 0)
+024,4,Lock Time,after Adaptation,Specification: 0
+;
+025,0,Immobilizer V (Electric Steering Lock = ESL)
+025,1,Electric Steering,Lock Authentication,Range: Valid/Invalid
+025,2,Electric Steering,Lock Access,Range: Possible/Impossible
+;
+026,0,Immobilizer VI (Electric Steering Lock = ESL)
+026,1,ESL Login,Lock Time,Specification: 0
+026,2,Security Access,Lock Time,Specification: 0
+026,3,PP_ESL Inhibit,HighSide
+026,4,PP_ESL Inhibit,LowSide
+;
+050,0,CAN-Messages from Central Electronics (J519)
+050,1,Tailgate Lock
+050,2,Locked,(internal)
+050,3,Locked,(external)
+050,4,Safed,(external)
+;
+051,0,CAN-Messages from Driver's Door Control Unit (J386)
+051,1,Driver's Door,Opened,Range: ON/OFF
+051,2,Driver's Door,Locked,Range: ON/OFF
+051,3,Driver's Door,Safed,Range: ON/OFF
+;
+052,0,CAN-Messages from Passenger Door Control Unit (J387)
+052,1,Passenger Door,Opened,Range: ON/OFF
+052,2,Passenger Door,Locked,Range: ON/OFF
+052,3,Passenger Door,Safed,Range: ON/OFF
+;
+053,0,CAN-Messages from Rear Left Door Control Unit (J388)
+053,1,Door Rear Left,Opened,Range: ON/OFF
+053,2,Door Rear Left,Locked,Range: ON/OFF
+053,3,Door Rear Left,Safed,Range: ON/OFF
+;
+054,0,CAN-Messages from Rear Right Door Control Unit (J389)
+054,1,Door Rear Right,Opened,Range: ON/OFF
+054,2,Door Rear Right,Locked,Range: ON/OFF
+054,3,Door Rear Right,Safed,Range: ON/OFF
+;
+055,0,CAN-Messages from Door Control Units
+055,1,Driver's Door,Opening,Range: 0.0...100.0 %
+055,2,Passenger Door,Opening,Range: 0.0...100.0 %
+055,3,Door Rear Left,Opening,Range: 0.0...100.0 %
+055,4,Door Rear Right,Opening,Range: 0.0...100.0 %
+;
+056,0,CAN-Messages from Roof Module
+056,1,Roof Opening,,Range: 0.0...100.0 %
+056,2,Roof installed,,Range: ON/OFF
+;
+057,1,CAN-Diagnosis 1,Unlearn Counter
+057,2,CAN-Diagnosis 1,Error-Bit Mileage
+057,3,CAN-Diagnosis 1,Error-Bit Time
+;
+058,1,CAN-Diagnoses 1,Time/Date
+;
+059,1,CAN-Diagnoses 1,Mileage,
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN) & Serial Number
+;
+082,0,Advanced Control Module Identification III
+;
+083,0,Advanced Control Module Identification IV
+;
+090,0,CAN-Gateway
+090,1,Engine 1 Old,,Range: ON/OFF
+090,2,Clutch Switch,,Range: ON/OFF
+090,3,Brake Light Switch,,Range: ON/OFF
+090,4,Brake Test Switch,,Range: ON/OFF
+;
+091,0,CAN-Gateway
+091,1,Vehicle Speed
+091,2,Selector Lever,Position
+091,3,Brake 1 Old,,Range: ON/OFF
+091,4,Gearbox 1 Old,,Range: ON/OFF
+;
+128,0,Terminals
+128,1,Status,Terminal S,Range: ON/OFF
+128,3,Status,Terminal P,Range: ON/OFF
+;
+129,0,Gear Status
+129,2,Gear P,,Range: ON/OFF
+129,3,Gear PN,,Range: PN Inactive/PN Active
+129,4,Digital Switch,Brakes,Range: ON/OFF
+;
+130,1,Terminal 15,Diagnosis Status,Range: ON/OFF
+130,2,Terminal 50,Diagnosis Status,Range: ON/OFF
+130,3,Voltage Supply
+;
+131,1,Voltage Supply,Driver Sensor,Range: ON/OFF
+131,2,Voltage Supply,Pass./Rear Sens.,Range: ON/OFF
+131,3,Last Trigger,Passive Entry,See Label File
+; 19,Count,
+;  1 = Capacitive Sensor Driver Door
+;  2 = Capacitive Sensor Front Passenger Door
+;  3 = Capacitive Sensor Rear Left Door
+;  4 = Capacitive Sensor Rear Right Door
+;  5 = Lock Bbutton Driver Door
+;  6 = Lock Button Front Passenger Door
+;  7 = Lock Button Rear Left door
+;  8 = Lock Button Rear Right door
+;  9 = Door Handle Driver Door pulled
+; 10 = Door Handle Front Passenger Door pulled
+; 11 = Door Handle Rear Left Door pulled
+; 12 = Door Handle Rear Right Door pulled
+; 13 = Rear Lid/Trunk Release Button
+; 14 = Rear Lid/Trunk closed
+; 15 = Reserved
+; 16 = Lock with RK
+; 17 = Passive Go
+; 18 = Event Search
+; 19 = Passive Go Special Function
+;
+133,0,Sender Identification (Sender 5 - 8)
+133,1,Identification,Sender 5,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+133,2,Identification,Sender 6,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+133,3,Identification,Sender 7,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+133,4,Identification,Sender 8,See Label File
+; 1xxxxxxx = Battery OK
+; x1xxxxxx = Matched
+; xx1xxxxx = Disabled
+; xxx1xxxx = External Synchronisation
+; xxxx1xxx = Rear Lid Release
+; xxxxx1xx = Panic Button
+; xxxxxx1x = Central Locking Unlock
+; xxxxxxx1 = Central Locking Lock
+;
+135,0,Key Authentication
+135,1,Last Key auth. for,Passive Entry
+135,2,Last Key auth. for,Passive Go,Advance Key
+135,3,Keys found in last,interior search
+135,4,Keys found in last,exterior search
+;
+136,1,Original,Data Version
+136,2,Data Version,altered
+136,3,Current,Data Version
+;
+148,0,Immobilizer
+148,1,Start permitted,Slave 3,Specification: Yes\nRange: Yes/No
+148,2,ECU responds,Slave 3,Specification: Yes\nRange: Yes/No
+148,3,Start permitted,Transmission,Specification: Yes\nRange: Yes/No
+148,4,ECU responds,Transmission,Specification: Yes\nRange: Yes/No
+;
+153,0,Electric Steering Lock (ESL)
+153,1,ESL Voltage,Supply LowSide,Range: ON/OFF
+153,2,ESL Voltage,Supply HighSide,Range: ON/OFF
+153,3,ESL Voltage Supp.,LowSide Diagnos.,Range: ON/OFF
+153,4,ESL Voltage Supp.,HighSide Diagnos.,Range: ON/OFF
+;
+177,0,Intelligent Load Management (ILM)
+177,1,ILM Rear 1,Softtouch pressed,Range: ON/OFF
+;
+178,0,CAN-Messages from Driver's Door Control Unit (J386)
+178,1,Driver's Door,Keyswitch Close,Range: ON/OFF
+178,2,Driver's Door,Tag Pressed,Range: ON/OFF
+178,3,Driver's Door,Lock Button,Range: ON/OFF
+;
+179,0,CAN-Messages from Passenger Door Control Unit (J387)
+179,2,Passenger Door,Tag Pressed,Range: ON/OFF
+179,3,Passenger Door,Lock Button,Range: ON/OFF
+;
+180,0,CAN-Messages from Rear Left Door Control Unit (J388)
+180,2,Door Rear Left,Tag Pressed,Range: ON/OFF
+180,3,Door Rear Left,Lock Button,Range: ON/OFF
+;
+181,0,CAN-Messages from Rear Right Door Control Unit (J389)
+181,2,Door Rear Right,Tag Pressed,Range: ON/OFF
+181,3,Door Rear Right,Lock Button,Range: ON/OFF
+;
+217,0,CAN-Messages from Gateway (J533)
+217,1,Starter enabled,,Range: ON/OFF
+217,2,Starter disengage,,Range: ON/OFF
+217,3,Engine Speed
+217,4,Engine 2 Old,,Range: ON/OFF
+;
+218,0,CAN-Messages from Gateway (J533) && Battery/Energy Manager
+218,1,CAN-Powertrain,Sleep-Ack,Range: ON/OFF
+218,2,Shut-Off Stage
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Start/Access Authorization (J518) Coding
+C01,+0000512 = Japan/South Korea (Antennas for Reduced Power Transmitters)
+C02,+0001024 = Comfort Function: Closing
+C03,+0002048 = Right-Hand-Drive (RHD)
+C04,+0004096 = 2 Second Trunk Opening Delay (MY 2006+)
+C05,+0016384 = Steering Column Lock active with Locking via Remote
+C06,+0131072 = Audi Advanced Key
+C07,+0262144 = Standard (ALWAYS SET)
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Start/Access Authorization (J518) Security Access
+S01,19795 = Coding Enabling
+;

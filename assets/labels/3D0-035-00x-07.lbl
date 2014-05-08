@@ -1,0 +1,196 @@
+;
+; VAG-COM label file 3D0-035-00x-07.lbl
+;
+; Bentley Continental GT (3W) / VW Phaeton (3D)
+;
+; Component: J523 - Front Information Display Control Head (#07)
+;
+;       P/N: 3D0-035-007-? 
+;       P/N: 3D0-035-008-? 
+;
+;       3D0 035 007 L 0223 Coding: 0500735 German W12 (Daniel)
+;       3D0 035 008 M 0223 Coding: 0500305 NAR W12 (Brent)
+;       3D0 035 008 Q 0223 Coding: 0500305 NAR W12 (Michael)
+;       3D0 035 008 Q 0223 Coding: 0500305 NAR W12 (David)
+;       3D0 035 007 P 0223 Coding: 0400525 Swiss V6 TDI MY 2003 (Alex)
+;       3D0 035 007 L 0223 Coding: 0500735 German V6 Benzene (Tomasz)
+;       3D0 035 008 Q 0223 Coding: 0500205 NAR V8 MY 2005 (Robert)
+;       3D0 035 008 M 0188 Coding: 0500305 NAR V8 MY 2004 (Fred)
+;       3D0 035 007 P 0223 Coding: 0500525 German W12 MY 2004 (DD AM 2662)
+;
+; NOTE: A CD ROM is available to flash upgrade the Phaeton controller to 0223 status, 
+; VW part number 3D0 919 278, release 136 ZAB. This is suitable for -007 and -008 controllers
+; (meaning, NAR and ROW), but do not use this CD ROM flash upgrade on older NAR controllers that have 
+; 'MANUAL' and 'NAV SETUP' buttons or the button functions will be reassigned to 'INFO' and 'PHONE'.
+;
+;       P/N: 3W0-035-007-? (Bentley Continental GT - Rest of World)
+;       P/N: 3W0-035-008-? (Bentley Continental GT - North America)
+;
+; includes coding & measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-07.LBL
+; 3W-07.LBL
+; 3D0-035-00x-07.LBL
+;
+; created by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; measuring block information added on 30/Mar/2005 by Sebastian Stange (sebastian@ross-tech.com)
+; updated on 04/Sep/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 23/Sep/2005 by Michael Moore - Bentley information added above.
+;                    23/Nov/2005 by Michael Moore - Note Added about CD Rom Flash Upgrade 
+;                    16/Sep/2006 by Michael Moore - minor editorial corrections
+;                    06/OCT/2006 by Michael Moore - MVB error corrected.  
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+001,0,General Vehicle Information
+001,1,Battery Voltage,at J523 screen,Specification: 5.0...18.0 V
+;
+002,0,Signals
+002,1,Status,Terminal 15
+002,2,Status,S-Contact
+002,4,Close-Request,S-Contact,This measurement is only displayed if the S-contact is opened.
+;
+003,0,Screen Illumination and Light Levels Sensed
+003,1,Instrument Panel,Illumination,Terminal 58d (Specification: 0...100 %)
+003,2,Photocell signal,from J523 Panel
+;
+004,0,HF Remote Supply (Active Antenna Test)
+;NOTE: The front CCH uses the HF remote supply as control signal for the diversity system.
+;Shut-off is always performed in case of malfunction. In case of malfunction in diagnostic
+;operation, the remote supply for every measurement is switched on again.
+;
+005,0,IF Remote Supply
+;NOTE: The front CCH uses the IF remote supply as control signal for the diversity system.
+;Shut-off is always performed in case of malfunction. In case of malfunction in diagnostic
+;operation, the remote supply for every measurement is switched on again.
+;
+006,0,Stereo Channel Testing - Entertainment Audio (CD, Radio, etc.)
+006,1,Stereo channel 1,(left)
+006,2,Stereo channel 1,(right)
+;
+007,0,Cable Testing - Telephone or Telematics Input
+007,1,Stereo cable 2,(Tel +)
+007,2,Stereo cable 2,(Tel -)
+;
+008,0,Cable Testing - Voice Guidance from Navigation System
+008,1,Mono channel 3,(Nav +)
+008,2,Mono channel 3,(Nav -)
+; 
+009,0,Function Test of Large Rotating Knob
+009,1,Testing press-in,rotating knob
+009,2,Testing left,rotating knob
+009,3,Testing right,rotating knob
+;
+010,0,Function Test of Soft Keys either side of screen
+010,1,Testing keypad,,Press buttons to see results
+;
+011,0,Rear Headphones - Driver Side Jacks (if installed)
+011,1,Headphone,output 1 (left)
+011,2,Headphone,output 1 (right)
+;
+012,0,Rear Headphones - Passenger Side Jacks (if installed)
+012,1,Headphone,output 2 (left)
+012,2,Headphone,output 2 (right)
+;
+013,0, CD Changer Connection and Malfunction Message Status
+013,1,Connection,CD-Changer
+013,2,Malfunction,CD-Changer
+;
+014,0,Fibre Optic Cable from Nav CD Reader to J523
+014,2,Optical-Bus,Status
+;
+015,0,*Next Block Used is Block 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Vehicle Identification Number (VIN)
+; Serial number
+; Type test numbers
+;
+082,0,FTC/Serial number
+;
+083,0,*Next Block Used is Block 141
+;
+141,0,Unknown
+;
+142,0,*Next Block Used is Block 240
+;
+240,0,Unknown
+;
+241,0,Unknown
+;
+242,0,Unknown
+;
+243,0,Unknown
+;
+244,0,Unknown
+;
+245,0,Unknown
+;
+246,0,Unknown
+;
+247,0,Unknown
+;
+248,0,Unknown
+;
+249,0,Unknown
+;
+250,0,Unknown
+;
+251,0,Unknown
+;
+252,0,Unknown
+;
+253,0,Unknown
+;
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton (3D) - Front Information Display Control Head - CCH - (J523) Coding
+C01,xxxxxx?
+C02,+1 Navigation Installed (J401 module)
+C03,+2 Voice Activation Installed (for cell phone only - not for OnStar)
+C04,+4 CD Changer Installed (R41 module)
+C05, 
+C06,xxxxx?x
+C07,+1 TV Tuner Installed
+C08,+2 Telephone Installed (cell phone - not OnStar)
+C09,+4 Test Mode 1 selected
+C10, 
+C11,xxxx?xx
+C12,+1 Seat Memory Installed
+C13,+2 Tire Pressure Monitoring System installed
+C14,+4 Parking Heater (Webasto overnight heater) installed
+C15, 
+C16,x?xxxxx
+C17,+0 None of the three configurations below
+C18,+1 Rear Air Conditioning Control Head installed (typical)
+C19,+2 Rear Central Control Head Installed (very rare)
+C20,+4 Byte Coding Valid (always added to the total)
+;
+; REMARK: It is possible, though unlikely, that a 0 could be used in the first three positions from the right.
+;         A 0 would be applicable if none of the three controllers indicated in the group were installed.
+;
+;

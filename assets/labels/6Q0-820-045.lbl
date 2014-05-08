@@ -1,0 +1,95 @@
+;
+; VAG-COM Label File
+;
+; Skoda Fabia (6Y) / VW Polo (9N)
+;
+; Component: J301 - Climate Control (#08)
+;
+; P/N: 6?0-820-045-???
+;
+; includes measuring blocks and basic setting
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 5J-08.LBL
+; 6L-08.LBL
+; 6Y-08.LBL
+; 6Q0-820-045.LBL
+;
+; created on 16/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Feb/2008
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage,(Terminal 15)
+001,2,Fresh Air Blower,(V2) Position,Switch Position & Voltage Specification\n\n1 = 0.0 V\n1 = 3.0...4.5 V\n2 = 5.0...7.0 V\n3 = 7.5...10.0 V\n4 = 10.5...14.0 V
+001,3,Coolant Fan,(Stage 1),Range: ON/OFF
+001,4,Coolant Fan,(Stage 2),Range: ON/OFF
+;
+B001,0,Flap Motor Basic Setting
+B001,1,Temp. Regulator,Flap Motor (V68),Specification: 0
+B001,2,Outside/Recirc.,Air Flap (V154),Specification: 0
+B001,3, , , 
+B001,4, , , 
+;
+002,1,Compressor Load,,Range: 0.0...100.0 %
+002,2,Refrigerant,Pressure (G65),Specification: 2.0...32.0 bar 
+002,3,Comprossor,Shut-Off,Specification: 0/6/7 (See Label File)
+;  0 = Compressor Running
+;  1 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too High
+;  2 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too Low
+;  3 = Compressor OFF by Missing Engine Speed Signal
+;  6 = Compressor OFF by ECON Button
+;  7 = Compressor OFF by OFF Button (via Fresh Air Blower Speed Buttons)
+;  8 = Compressor OFF by Ambient Temperature below 3 °C (37 °F)
+; 10 = Compressor OFF by Voltage below 9.5 V
+; 11 = Compressor OFF by Coolant Temperature too High
+; 12 = Compressor OFF by Engine OR Transmission Control Module (Compressor Load Limitation)
+; 14 = Compressor OFF by Evaporator Temperature too Low
+; 16 = Evaporator Temperature Sensor (G263) faulty OR Coolant Fan not working
+002,4,Temperature (G263),Evaporator
+;
+003,1,Temperature at,Floor Outlet (G192)
+003,2,Temperature at,Center Outl. (G191)
+003,3,Temperature at,A/C Panel (G56)
+003,4,Heat Exchanger,Deactivation,Range: ON/OFF
+;
+004,0,Motor for Outside/Recirculated Air Flap (V154) (V154) / Potentiom. (G143)
+004,1,Potentiom. (G143),(actual),Range: 0...255\nTolerance (to Specification): ± 2
+004,2,Potentiom. (G143),(specified),Range: 0...255
+004,3,Stop/Learned,(Fresh Air),saved after Basic Setting (Specification: 150...250)
+004,4,Stop/Learned,(Recirculated),saved after Basic Setting (Specification: 5...100)
+;
+005,0,Motor for Temperature Regulator Flap (V68) / Potentiom. (G92)
+005,1,Potentiom. (G92),(actual),Range: 0...255\nTolerance (to Specification): ± 2
+005,2,Potentiom. (G92),(specified),Range: 0...255
+005,3,Stop/Learned,(Heating),saved after Basic Setting (Specification: 150...250)
+005,4,Stop/Learned,(Cooling),saved after Basic Setting (Specification: 5...100)
+;
+006,1,Engine Speed
+006,2,Idle Speed,Increase,Range: ON/OFF
+006,3,Vehicle Speed,,Range: 0...255 km/h
+006,4,Reverse Gear,engaged,Range: Reverse OFF/Reverse ON
+;
+007,1,Standing Time
+007,2,Status,Terminal X,Range: ON/OFF
+007,3,Dimming,(Terminal 58d),Range: 0.0...100.0 %
+007,4,Auxiliary,Heater (Z35),Range: ON/OFF
+;
+008,1,Outside Air,Temperature (G17)
+008,2,Coolant,Temperature (G62)
+008,3,Coolant Temperat.,"too High",Range: ON (Coolant Temperature not OK)/OFF (Coolant Temperature OK)
+008,4,Compressor Load,Limitation,Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;

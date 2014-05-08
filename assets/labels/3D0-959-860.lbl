@@ -1,0 +1,23 @@
+;
+; VAG-COM label file 3D0-959-860.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Rear Passenger Seats Controller  -J522-  (#66)
+;            - applicable to both 4 and 5 seat Phaetons.
+;
+;
+; p/n: 3D0 959 860 B     Component: Component: Sitzmemory D1 H 1501   Coding: 0000001 (2004 ROW)
+; p/n: 3D0 959 860 B     Component: Component: Sitzmemory D1 H 1513   Coding: 0000001 (2004 NAR 5 seat)
+; p/n: 3D0 959 860 B     Component: Component: Sitzmemory D1 H 1516   Coding: 0000001 (2004 NAR 4 seat)
+; p/n: 3D0 959 860 B     Component: Component: Sitzmemory D1 H 1526   Coding: 0000001 (2004 NAR 4 seat)
+; p/n: 3D0 959 860 C     Component: Component: Sitzmemory D1 H 1724   Coding: 0000001 (2005 NAR 5 seat)
+; p/n: 3D0 959 860 C     Component: Component: Sitzmemory D1 H 1726   Coding: 0000001 (2005 NAR 5 seat)
+;
+;
+; label file still needs to be written, this is only a placeholder file to contain the part number.
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 30/August/2005 (Michael)
+; last modified: 23/November/2005 (Michael) - additional p/n added above.

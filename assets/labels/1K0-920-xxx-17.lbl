@@ -1,0 +1,426 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Eos (1F) / VW Golf/Jetta (1K/5M) / VW Touran (1T)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: ???-???-???-???
+;
+; includes measuring blocks, adaptation, coding, security access,
+;          selective output test and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-17.LBL
+; 1T-17.LBL
+; 1Z-17.LBL
+; 2K-17.LBL
+; 5P-17.LBL
+; 1K-25.LBL
+; 1T-25.LBL
+; 1Z-25.LBL
+; 2K-25.LBL
+; 5P-25.LBL
+; 1K0-920-xxx-17.LBL
+; 1K0-920-xxx-25.LBL
+;
+; created on 19/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Speed / Engine speed / Oil pressure / Time
+001,1,Speed
+001,2,Engine Speed
+001,3,Oil pressure, 0.9 bar
+001,4,Time
+;
+002,0,Distance / Fuel / Ambient temperature
+002,1,Odometer
+002,2,Fuel level (l)
+002,3,Fuel Sender,Resistance
+002,4,Ambient,temperature
+;
+003,0,Coolant and Oil
+003,1,Coolant,Temperature
+003,2,Oil Level,,Range: OK/n.OK
+003,3,Oil Temperature
+;
+004,0,Voltage supply
+004,1,Voltage
+;
+005,0,Service reminder informations
+005,1,Service,timeout
+005,2,Service,timeout
+005,3,Remaining,distance
+005,4,Remaining,time
+;
+006,0,Service reminder informations (oil) [SI = service interval]
+006,1,Min. oil,in last SI
+006,2,Max. oil,in last SI
+006,3,Long time,avarage,Oil level difference
+;
+007,0,Unknown
+;
+012,0,Mileage/Days since last service
+012,1,Adaptation,channel
+012,2,Mileage,since service
+012,3,Adaptation,channel
+012,4,Days,since service
+;
+013,0,Mileage minimum/maximum (Service reminder limit)
+013,1,Adaptation,channel
+013,2,Mileage,minimum
+013,3,Adaptation,channel
+013,4,Mileage,maximum
+;
+014,0,Days minimum/maximum (Service reminder limit)
+014,1,Adaptation,channel
+014,2,Maximum,in days
+014,3,Adaptation,channel
+014,4,Minimum,in days
+;
+015,0,Oil quality
+015,1,Adaptation,channel
+015,2,Oil quality
+;
+016,0,Soot quantity && thermal load
+016,1,Adaptation,channel
+016,2,Soot quantity
+016,3,Adaptation,channel
+016,4,Thermal,load
+;
+50,0,Misc
+50,1,Odometer
+50,2,Engine Speed
+50,3,Oil,temperature
+50,4,Coolant,temperature
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Vehicle Identification Number (VIN)
+; Serial number
+; Type test numbers
+;
+082,0,FTC/Serial number
+;
+125,0,CAN-Databus Powertrain
+125,1,Engine,electronics,no Display/0/1/S
+125,2,[N/A]
+125,3,Brake,electronics,no Display/0/1/S
+125,4,[N/A]
+;
+126,0,CAN-Databus Powertrain
+126,1,CAN-Gateway,,no Display/0/1/S
+126,2,Airbag,,no Display/0/1
+126,3,Steering,Assistant,no Display/0/1/S
+126,4,[N/A]
+;
+201,1,Distance,impulse number
+201,2,[Unknown]
+201,3,[N/A]
+201,4,[N/A]
+;
+202,1,[N/A]
+202,2,Wheel,circumference
+202,3,[N/A]
+202,4,[N/A]
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T400,Blinker Signal (Acoustic)
+T661,Temperature Indicator
+T662,Tachometer (G5)
+T663,Speedometer (G21)
+T664,Fuel Gauge
+T665,Seat Belt Warning Light (K19)
+T798,Display: Segment Test
+T3079,Display: Test Sequence/Picture
+T666,Chime/Buzzer/Gong
+T1023,Buzzer/Gong/Chime (H3)
+T1047,Brake and Parking Brake Warning Light (K7)
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Instrument Cluster (J285) Security Access
+S01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 0 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A4,0,Language for error messages and navigation (MFD only)
+A4,5,Language for error messages and navigation
+A4,6,1 - German
+A4,7,2 - English
+A4,8,3 - French
+A4,9,4 - Italian
+A4,10,5 - Spanish
+A4,11,6 - Portuguese
+A4,12,7 - No Text
+A4,13,8 - Czech
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km or 1 = 10 mi
+A009,9,The distance can only be changed once before
+A009,10,the current value is not over 100 km/62 mi.
+A009,11,After changing the value can be corrected
+A009,12,within the next 5 km/3 mi.
+;
+A022,0,Production Mode
+;
+A30,0,Fuel gauge adaptation
+A30,1,Current,value
+A30,5,Fuel gauge adaptation
+A30,6,Basic value: 100
+A30,7,Range: 120 - 136
+A30,8,Unit: 1 Ohm
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A038,0,Oil Minimum Detection
+A038,5,Oil Minimum Detection
+A038,6,With this function the oil-minimum-warning at
+A038,7,low oil level can be deactivated or activated.
+;
+A039,0,Oil Level Sensor Adaptation
+A039,5,Oil Level Sensor Adaptation
+A039,6,Determines if the TOG Sensor is installed or not.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Increments: 1 = 100 km
+A040,7, 
+A040,8,NOTE: Adaptation channels 40-49 must be
+A040,9,entered and stored in the following order:
+A040,10,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Increments: 1 = 1 day(s)
+A041,7, 
+A041,8,NOTE: Adaptation channels 40-49 must be
+A041,9,entered and stored in the following order:
+A041,10,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A42,0,Minimum value mileage
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 = 100 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-48 must be
+A42,9,entered and stored in the following order:
+A42,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A43,0,Maximum value mileage
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 = 100 km
+A43,7, 
+A43,8,NOTE: Adaptation channels 40-48 must be
+A43,9,entered and stored in the following order:
+A43,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Increments: 1 = 1 day(s)
+A044,7,00365 = fixed Service Intervals (w/o Longlife)
+A044,8,00730 = flexible Service Intervals (with Longlife)
+A044,9, 
+A044,10,NOTE: Adaptation channels 40-49 must be
+A044,11,entered and stored in the following order:
+A044,12,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A045,0,Oil Quality
+A045,5,Oil Quality
+A045,6,1 = fixed Service Intervals (w/o Longlife)
+A045,7,2 = flexible Service Intervals (with Longlife)
+A045,8, 
+A045,9,NOTE: Adaptation channels 40-49 must be
+A045,10,entered and stored in the following order:
+A045,11,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A046,0,Total Consumption
+A046,5,Total Consumption
+A046,6,This value does not represent the actual consumption
+A046,7,but is rather an arithmetic value for the service interval display
+A046,8, 
+A046,9,NOTE: Adaptation channels 40-49 must be
+A046,10,entered and stored in the following order:
+A046,11,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A047,0,Soot Entry
+A047,5,Soot Entry
+A047,6,Arithmetic value used to calculate the amount of soot in
+A047,7,the engine oil referenced to a distance of 100 km and used
+A047,8,as comparison value for the service interval display.
+A047,9, 
+A047,10,NOTE: Adaptation channels 40-49 must be
+A047,11,entered and stored in the following order:
+A047,12,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A048,0,Thermal Load
+A048,5,Thermal Load
+A048,6,Arithmetic value used to calculate the thermal stress of
+A048,7,the engine oil referenced to a distance of 100 km and used
+A048,8,as comparison value for the service interval display.
+A048,9, 
+A048,10,NOTE: Adaptation channels 40-49 must be
+A048,11,entered and stored in the following order:
+A048,12,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+A049,0,Minimum Time to Service
+A049,5,Minimum Time to Service
+A049,6,Increments: 1 = 1 day(s)
+A049,7,00365 - fixed Service Intervals (w/o Longlife)
+A049,8,00365 - Gasoline Engine with flexible Service Intervals (with Longlife)
+A049,9,00730 - Diesel Engine with flexible Service Intervals (with Longlife)
+A049,10, 
+A049,11,NOTE: Adaptation channels 40-49 must be
+A049,12,entered and stored in the following order:
+A049,13,45 > 42 > 43 > 44 > 49 > 40 > 41 > 46 > 47 > 48
+;
+;
+;---------------------------------------------------
+;
+; Coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,00??x0x: Options
+C02,+00 = No Options
+C03,+01 = Brake Pad Warning
+C04,+02 = Seatbelt Warning
+C05,+04 = Washer Fluid Warning
+C06,+16 = Sedan (only VW Jetta)
+C07,00xx?0x: Country
+C08,1 = Europe (EU) / 2 = USA (US)
+C09,3 = Canada (CDN) / 4 = Great Britain (GB)
+C10,5 = Japan (JP) / 6 = Saudi Arabia (SA)
+C11,7 = Australia (AUS)
+C12,00xxx0?: Distance Impulse Number
+C13,1 = 22188 / 2 = 22076
+C14,3 = 21960 / 4 = 21848
+C15,5 = 22304 / 6 = 22420
+C16,7 = 22532
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+RD,49,Min Time to Service,1,Days
+;
+RJ,0,0,General Service Reset,,
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals (Kilometers),,
+RJ,1,1,45,1
+RJ,1,2,42,150
+RJ,1,3,43,150
+RJ,1,4,44,372
+RJ,1,5,49,372
+;
+RJ,2,0,Change to Flexible Intervals (Kilometers/Diesel),,
+RJ,2,1,45,2
+RJ,2,2,42,150
+RJ,2,3,43,300
+RJ,2,4,44,744
+RJ,2,5,49,744
+;
+RJ,3,0,Change to Flexible Intervals (Kilometers/Gasoline),,
+RJ,3,1,45,2
+RJ,3,2,42,150
+RJ,3,3,43,300
+RJ,3,4,44,744
+RJ,3,5,49,372
+;
+RJ,4,0,Change to Fixed Intervals (Miles),,
+RJ,4,1,45,1
+RJ,4,2,42,50
+RJ,4,3,43,50
+RJ,4,4,44,372
+RJ,4,5,49,372
+;
+RJ,5,0,Change to Flexible Intervals (Miles/Diesel),,
+RJ,5,1,45,2
+RJ,5,2,42,93
+RJ,5,3,43,186
+RJ,5,4,44,744
+RJ,5,5,49,744
+;
+RJ,6,0,Change to Flexible Intervals (Miles/Gasoline),,
+RJ,6,1,45,2
+RJ,6,2,42,93
+RJ,6,3,43,186
+RJ,6,4,44,744
+RJ,6,5,49,372
+;

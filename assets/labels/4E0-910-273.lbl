@@ -1,0 +1,237 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; P/N: 4E0-910-273-???
+;
+; includes measuring blocks and coding
+;
+; created on 29/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Sep/2007
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Front Left Wheel Status I
+001,1,Position,No Display = Not yet recognized
+001,2,Wheel,Temperature
+001,3,Wheel Pressure,(actual)
+001,4,Wheel Pressure,(specified)
+;
+002,0,Front Left Wheel Status II
+002,1,Position,No Display = Not yet recognized
+002,2,Remaining,Battery Life (Month),Range: 0...99 Month
+002,3,Voltage
+002,4,Voltage,Status,Range: OK/Not OK
+;
+003,0,Front Left Wheel Status III
+003,1,Wheel Sensor,Position,No Display = Not yet recognized
+003,2,Wheel Sensor,Identification
+003,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+004,0,Front Right Wheel Status I
+004,1,Position,No Display = Not yet recognized
+004,2,Wheel,Temperature
+004,3,Wheel Pressure,(actual)
+004,4,Wheel Pressure,(specified)
+;
+005,0,Front Right Wheel Status II
+005,1,Position,No Display = Not yet recognized
+005,2,Remaining,Battery Life (Month),Range: 0...99 Month
+005,3,Voltage
+005,4,Voltage,Status,Range: OK/Not OK
+;
+006,0,Front Right Wheel Status II
+006,1,Wheel Sensor,Position,No Display = Not yet recognized
+006,2,Wheel Sensor,Identification
+006,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+007,0,Rear Left Wheel Status I
+007,1,Position,No Display = Not yet recognized
+007,2,Wheel,Temperature
+007,3,Wheel Pressure,(actual)
+007,4,Wheel Pressure,(specified)
+;
+008,0,Rear Left Wheel Status II
+008,1,Position,No Display = Not yet recognized
+008,2,Remaining,Battery Life (Month),Range: 0...99 Month
+008,3,Voltage
+008,4,Voltage,Status,Range: OK/Not OK
+;
+009,0,Rear Left Wheel Status III
+009,1,Wheel Sensor,Position,No Display = Not yet recognized
+009,2,Wheel Sensor,Identification
+009,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+010,0,Rear Right Wheel Status I
+010,1,Position,No Display = Not yet recognized
+010,2,Wheel,Temperature
+010,3,Wheel Pressure,(actual)
+010,4,Wheel Pressure,(specified)
+;
+011,0,Rear Right Wheel Status II
+011,1,Position,No Display = Not yet recognized
+011,2,Remaining,Battery Life (Month),Range: 0...99 Month
+011,3,Voltage
+011,4,Voltage,Status,Range: OK/Not OK
+;
+012,0,Rear Right Wheel Status III
+012,1,Wheel Sensor,Position,No Display = Not yet recognized
+012,2,Wheel Sensor,Identification
+012,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+013,0,Spare Tire I
+013,1,Position,No Display = Not yet recognized
+013,2,Wheel,Temperature
+013,3,Wheel Pressure,(actual)
+013,4,Wheel Pressure,(specified)
+;
+014,0,Spare Tire II
+014,1,Position,No Display = Not yet recognized
+014,2,Remaining,Battery Life (Month),Range: 0...99 Month
+014,3,Voltage
+014,4,Voltage,Status,Range: OK/Not OK
+;
+015,0,Spare Tire III
+015,1,Wheel Sensor,Position,No Display = Not yet recognized
+015,2,Wheel Sensor,Identification
+015,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+016,0,Wheel Sensor Status (from last Received Wheel ID) I
+016,1,Wheel Sensor,Identification
+016,2,Wheel Sensor,Status,No Display = Not yet recognized
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+016,3,Wheel Sensor,Battery Status
+016,4,Wheel Pressure,(actual)
+;
+017,0,Offset Antenna
+017,1,Offset Antenna,Front Left,Range: 0.0...5.1 V
+017,2,Offset Antenna,Front Right,Range: 0.0...5.1 V
+017,3,Offset Antenna,Rear Left,Range: 0.0...5.1 V
+017,4,Offset Antenna,Rear Right,Range: 0.0...5.1 V
+;
+018,0,Antenna Level
+018,1,Antenna Level,Front Left,Range: 0.0...5.1 V
+018,2,Antenna Level,Front Right,Range: 0.0...5.1 V
+018,3,Antenna Level,Rear Left,Range: 0.0...5.1 V
+018,4,Antenna Level,Rear Right,Range: 0.0...5.1 V
+;
+019,0,System/Vehicle/Warning Status
+;
+020,0,CAN-Databus Communication
+020,1,CAN-Databus,Comfort,Range: 2-Wire/1-Wire\nSpecification: 2-Wire
+;
+021,0,CAN-Databus Communication
+021,1,Vehicle Speed
+021,2,Brake Electronics,(J104),Range: ABS 1/ABS 0
+021,3,Engine Speed
+021,4,Engine,,Range: Engine 1/Engine 0
+;
+022,0,CAN-Databus Communication
+022,1,Outside,Temperature
+022,2,Heating/Air,Conditioning,Range: A/C 1/A/C 0
+022,3,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+022,4,Voltage,(Terminal 30)
+;
+023,0,CAN-Databus Communication
+023,1,Drivers Door,Status,Range: Door Closed/Door Open
+023,2,Load
+023,3,Level Control,,Range: Level 1/Level 0
+023,4,CAN-Gateway,(J533),Range: Gateway 1/Gateway 0
+;
+024,0,Antenna Part Numbers I
+024,1,Antenna,Front Left
+024,2,Antenna,Front Right
+;
+025,0,Antenna Part Numbers II
+025,1,Antenna,Rear Left
+025,2,Antenna,Rear Right
+;
+026,1,BE-Active,Countdown
+;
+027,0,Reception
+;  1 -  8 = Front Left
+;  9 - 16 = Front Right
+; 17 - 24 = Rear Left
+; 25 - 32 = Rear Right
+; 33 - 40 = Spare Tire
+;
+028,0,Non-Reception
+;  1 -  8 = Front Left
+;  9 - 16 = Front Right
+; 17 - 24 = Rear Left
+; 25 - 32 = Rear Right
+; 33 - 40 = Spare Tire
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring (J502) Coding
+C01,0?xxxxx: Manufacturer
+C02,2 = Audi
+C03,0x?xxxx: Type
+C04,0 = System Disabled
+C05,1 = Rest of World (RoW) @ 433 MHz
+C06,2 = Rest of World (RoW) @ 315 MHz
+C07,3 = North American Region (NAR) @ 433 MHz
+C08,4 = North American Region (NAR) @ 315 MHz
+C09,5 = Rest of World (RoW) @ 433 MHz with Run Flat Tires
+C10,6 = Rest of World (RoW) @ 315 MHz with Run Flat Tires
+C11,0xx?xxx: Front Axle (Partial Load) I
+C12,1 = 1.x bar / 2 = 2.x bar / 3 = 3.x bar
+C13,0xxx?xx: Front Axle (Partial Load) II
+C14,0 = x.0 bar / 1 = x.1 bar / 2 = x.2 bar / 3 = x.3 bar / 4 = x.4 bar
+C15,5 = x.5 bar / 6 = x.6 bar / 7 = x.7 bar / 8 = x.8 bar / 9 = x.9 bar
+C16,0xxxx?x: Rear Axle (Full Load) I
+C17,1 = 1.x bar / 2 = 2.x bar / 3 = 3.x bar
+C18,0xxxxx?: Rear Axle (Full Load) II
+C19,0 = x.0 bar / 1 = x.1 bar / 2 = x.2 bar / 3 = x.3 bar / 4 = x.4 bar
+C20,5 = x.5 bar / 6 = x.6 bar / 7 = x.7 bar / 8 = x.8 bar / 9 = x.9 bar
+;

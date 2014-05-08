@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Auxiliary Heater (#18)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-18.LBL
+; 7L6-819-008.LBL
+;
+; created on 10/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,7L6-819-008.LBL,7L6-815-071-???
+;

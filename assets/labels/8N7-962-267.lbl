@@ -1,0 +1,71 @@
+;
+; VAG-COM TT Radio Measuring Block Labels file 8N7-962-267.lbl.
+; Component: Central Lock/Alarm  D05
+; 12/15/02 Simon Graham (simgr@attbi.com)
+;
+
+1,0,Driver side
+1,1,Door Key,Switch
+1,2,Interior,Switch
+1,3,Door Lock,State
+1,4,Safety Lock,State
+
+2,0,Passenger side
+2,1,Door Key,Switch
+2,3,Door Lock,State
+2,4,Safety Lock,State
+
+3,0,
+3,1,Drivers,Door
+3,2,Passenger,Door
+3,3,Int Monitor,Switch
+
+4,0,
+4,1,Gas Tank,Switch
+4,2,Trunk Lid,
+4,3,Trunk,Switch
+
+5,0,
+5,1,Interior,Light
+5,2,Switch off,delay
+;; Not sure what comfort/auto open/close is?
+5,3,Automatic,open/close
+5,4,Luggage Comp,Light
+
+6,0,Radio Remote
+6,1,Key Number,
+6,2,Command,
+6,3,Adapted,Keys
+
+7,0,
+7,1,Road Speed,
+7,2,Immobilizer,
+7,3,Ignition,
+7,4,S-Contact,
+
+8,0,Flags (See Label File for meaning)
+;;8,1 --  100 Radio controlled CL, Mechanical Safety Central Lock
+;;        010 No safe function (US only)
+;;        001 Confirmation radio controlled opening (blink 2x)
+;;8,2 -- 1000 Terminal 87 door logic (US)
+;;       0100 Confirm ATWS honking
+;;       0010 Conform radio controlled lock (blink 1x)
+;;       0001 Time delay (1s) fade out trunk unlock
+;;8,3 -- 0100 Window control via radio-control
+;;       0010 CL via speed (without trunk lid)
+;;       0001 Automatic convertible top control
+;;8,4 -- 1000 Immobilizor active
+;;       0100 Safety Central Lock Active
+;;       0010 Confirm immobilizor with flashes
+;;       0001 ATWS LED (1Hz)
+
+9,0,Convertible Top
+9,1,Operation,Switch
+9,3,Canvas Cover,
+9,4,Hard Top,
+
+10,0,Convertible Top
+10,1,Front Lock,Switch
+10,2,Latch Open,Switch
+10,3,Cover Detector,Switch
+10,4,Front Lock,Switch

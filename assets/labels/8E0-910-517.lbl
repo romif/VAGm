@@ -1,0 +1,120 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8EC/8ED)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 8.0
+;
+; P/N: 8E0-910-517-???
+;
+; includes measuring blocks, basic setting, coding and security access
+;
+; created on 05/Sep/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Apr/2007
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+B001,0,Steering Angel Sensor (G85) Calibration
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,1,Brake Test Switch,,0 = not operated\n1= operated
+002,2,Brake Light Switch,,0 = not operated\n1= operated
+002,3,Parking Brake,,0 = not operated\n1= operated
+002,4,ESP-Button,,0 = not operated\n1= operated
+;
+003,0,Engine Data
+003,1,Engine Speed
+003,2,Engine Torque
+003,3,Engine Torque,(loss)
+003,4,Throttle Valve Angle
+;
+004,1,Standing Time
+004,2,EDL-T Flag,,Display Range: ON/OFF\nSpecification: OFF
+;
+005,1,Steering Angle,,Display Range: -720.0...+720.0 °\nTolerance (when straight): ±5.0 °
+005,2,Rotation Rate,,Display Range: -69.0...+69.0 °/s
+005,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+005,4,Transverse,Acceleration,Display Range: -25.0...+25.0 m/s²
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+009,1,Brake Test Switch,,0 = not operated\n1= operated
+009,2,Brake Light Switch,,0 = not operated\n1= operated
+009,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+;
+021,0,ESP Sensor Unit (G419) Data
+021,4,HW/SW Number
+;
+022,0,Steering Angle Sensor Data
+;
+023,0,Data Variant Coding
+023,1,Data Variant,Coding
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Steering Angle,Sensor,Specification: Steer. ang. 1
+125,2,Engine,,Specification: Engine 1
+125,3,Transmission,,Specification: Transm. 1
+125,4,Instrument Cluster,,Specification: Instruments 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,4,ESP Sensors,,Specification: ESP Sens. 1
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,2,Airbag,,Specification: Airbag 1
+;
+225,0,CAN-Databus Time-Out (Powertrain)
+225,1,Steering Angle,Sensor
+225,2,Engine
+225,3,Transmission
+225,4,Instrument Cluster
+;
+226,0,CAN-Databus Time-Out (Powertrain)
+226,4,ESP Sensors
+;
+227,0,CAN-Databus Time-Out (Powertrain)
+227,2,Airbag
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics - Bosch 8.0 (J104) Coding
+C01,If necessary request a specific coding directly from us:
+C02,http://www.ross-tech.com/contact.html
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Brake Electronics (J104) Security Access
+S01,40168 = Basic Setting Enabling
+;

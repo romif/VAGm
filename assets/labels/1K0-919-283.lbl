@@ -1,0 +1,91 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P)
+; VW Eos (1F) / VW Golf/Jetta (1K) / VW Touran (1T)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 1K0-919-283-???
+;
+; includes measuring blocks and adaptation
+;
+; created on 15/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Jun/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Direct Echo)
+001,1,Left,Sensor (G203),Specification: 0...60 cm (255 cm = no obstacle recognized)
+001,2,Left Center,Sensor (G204),Specification: 0...160 cm (255 cm = no obstacle recognized)
+001,3,Right Center,Sensor (G205),Specification: 0...160 cm (255 cm = no obstacle recognized)
+001,4,Right,Sensor (G206),Specification: 0...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Distance (Cross/Indirect Echo)
+002,1,Left (G203),Left Center (G204)
+002,2,Left Center (G204),Right Cent. (G205)
+002,3,Right Cent. (G205),Right (G206)
+;
+003,0,Distance
+003,1,Distance,Rear Right,Specification: 0...160 cm (255 cm = no obstacle recognized)
+003,2,Distance,Rear Left,Specification: 0...160 cm (255 cm = no obstacle recognized)
+003,3,Distance,(Total),Specification: 0...160 cm (255 cm = no obstacle recognized)
+;
+004,0,Voltage Supply
+004,1,Voltage,(Terminal 30),Specification: 8.7...16.7 V
+004,2,Voltage,Status,0 = Not OK\n1 = OK
+004,3,Voltage Supply,Sensors,Specification: 7.2...9.2 V
+004,4,Voltage Supply,Buzzer,Specification: 7.5...16.5 V
+;
+005,0,System Status I
+005,1,Transmission,,0 = Manual Transmission\n1 = Automatic Transmission
+005,2,Selected Gear,,Manual Transmission: 0 = No R | 1 = R\n: 0 = P | 1 = D/1/2/3/4 |2 = N | 3 = R
+005,3,Brake Electronics,(J104),0 = Not Installed\n1 = Installed
+;
+006,0,System Status II
+006,1,Trailer,Recognition,0 = Trailer not hitched\n1 = Trailer hitched
+006,2,Trailer (J345),Control Module,0 = Not Installed\n1 = Installed
+006,3,Vehicle Speed
+006,4,Speed Shut-Off,,0 = inactive\n1 = active (above 15 km/h)
+;
+007,0,System Status III
+007,1,Ignition,(Terminal 15),0 = Inition OFF\n1 = Ignition ON
+007,2,System Status,Parking Aid,0 = inactive\n1 = active
+007,3,Acoustical Warning,,0 = inactive\n1 = active
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Rear Buzzer Volume
+A001,1,Current Value
+A001,5,Rear Buzzer Volume
+A001,6,Adaptation of the rear warning buzzer volume.
+A001,7, 
+A001,8,Range: 0...100 %
+;
+A002,0,Trailer Offset
+A002,1,Current Value
+A002,5,Trailer Offset
+A002,6,Trailer offset is the distance
+A002,7,between bumper and trailer hitch.
+A002,8, 
+A002,9,Range: 0...30 cm
+;

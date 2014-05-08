@@ -1,0 +1,200 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Passat (3B)
+;
+; Komponente: Motor (#01) - AVF
+;
+; T/N: 038 906 019 KD - AVF (3B)
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 038-906-019-AVF.LBL (1.9l TDI @ 101 HP - AVF)
+;
+; erstellt am 27.05.2005 von Bernhard Högl (bernhard@hoegl-net.de)
+; überarbeitet am 20.06.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 20.06.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Motordrehzahl,Sollwert (Leerlauf): Frontantrieb 36...42 (790...870 U/min| Allradantrieb 41...46 (860...945 U/min | (Vollast): 136...150 (2850...3150 U/min)
+000,2,Förderbeginn,Sollwert (Leerlauf): 113...133 (4° v.OT ...2° n.OT) | (Vollast): 85...60 (13.0...21.0° v.OT)
+000,3,Gaspedalstellung,Sollwert (Leerlauf): 0 (0 %) | (Vollast): 255 (100 %)
+000,4,Einspritzmenge,Sollwert (Leerlauf): 11...33 (3...9 mg/H) | (Vollast): 171...219 (47...60 mg/H)
+000,5,Saugrohr (Ladedruck),Sollwert (Leerlauf):  88...113 (900...1150 mbar) | (Vollast): 206...255 (2100...2600 mbar)
+000,6,atmosphärischer Druck (Umgebungsluftdruck),Sollwert (Leerlauf): 183...223 (910...1110 mbar) | (Vollast): 183...223 (910...1100 mbar)
+000,7,Kühlmitteltemperatur,Sollwert: 80...35 (80...110 °C)
+000,8,Saugrohrtemperatur,Sollwert: 189...51 (5...100 °C) | Vollast: 189...51 (5...100 °C)
+000,9,Kraftstofftemperatur,Sollwert (Leerlauf): 85...170 (20...80 °C) | (Vollast): 85...199 (20...100 °C)
+000,10,angesaugte Luftmasse,Sollwert (Leerlauf): 63...105 (210...350 mg/H)
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,(G28),Sollwert (Frontantrieb): 790...870 U/min\nSollwert (Allradantrieb): 860...945 U/min
+001,2,Einspritzmenge,,Sollwert: 3.0...9.0 mg/Hub (siehe Labelfile)
+;   < 3,0 mg/Hub => Pumpe-Düse-Einheiten defekt => prüfen/ersetzen
+;   > 9,0 mg/Hub => Kraftstoffmangel bzw. Luft im Kraftstoffsystem => prüfen
+;                   Pumpe-Düse-Einheiten defekt => Pumpe-Düse-Einheiten ersetzen
+001,3,Förderdauer,Magnetventil,Sollwert: 3...8 °KW
+001,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+002,0,Lehrlaufdrehzahl
+002,1,Motordrehzahl,(G28),Sollwert (Frontantrieb): 790...870 U/min\nSollwert (Allradantrieb): 860...945 U/min
+002,2,Gaspedal-,stellung,Sollwert: 0 %
+002,3,Betriebszustand,,Sollwert: 010\n\nxx1 - Klimakompressor EIN\nx1x - Leerlaufschalter geschlossen\n1xx - Leerlaufdrehzahl erhöht
+002,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+003,0,Abgasrückführung (AGR)
+003,1,Motordrehzahl,(G28),Sollwert (Frontantrieb): 790...870 U/min\nSollwert (Allradantrieb): 860...945 U/min
+003,2,angesaugte,Luftmasse (SOLL),Sollwert: 230...310 mg/Hub
+003,3,angesaugte,Luftmasse (IST),Sollwert: 210...350 mg/Hub
+; zu wenig Luftmasse => Falschluft im Ansaugbereich
+;                       zu viel Abgasrückführung => prüfen
+; zu viel Luftmasse  => zu wenig Abgasrückführung => prüfen
+;                       Motor läuft seit 10 min. im Leerlauf => kurzen Gasstoss geben
+003,4,Tastverhältnis,AGR-Ventil,Sollwert: 40...75
+;
+004,0,Ansteuerung Ventile für Pumpe/Düse
+004,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 860...945 U/min\nSollwert (Vollast): 2850...3150 U/min
+004,2,Förderbeginn,SOLL-Wert,Sollwert (Leerlauf): 4 °v.OT...2 °n.OT\nSollwert (Vollast): 13...21 °v.OT
+004,3,Förderdauer,SOLL-Wert,Sollwert (Leerlauf): 3...8 °KW\nSollwert (Vollast): 16...28 °KW
+004,4,Synchronisations-,winkel,Sollwert: -3...+3 °KW (siehe Label-File)
+; Wert außerhalb Toleranz => Hallgeber -G40- defekt
+;                         => Leitungsunterbrechung/Kurzschluss nach Masse (Hallgeber -G40- lose)
+;                         => Geberrad beschädigt/verdreht
+;                         => Spaltmaß zw. Geber und Nockenwellenrad nicht i.O.
+;
+005,0,Startverhältnisse
+005,1,Motordrehzahl,(G28)
+005,2,Startmenge
+005,3,Start-,synchronisation
+005,4,Kühlmittel-,temperatur (G62)
+;
+006,0,Schalterstellungen (Zündung ein)
+006,1,Geschwindigkeit
+006,2,Pedalüberwachung,,xx1 - Bremslichtschalter (F) geschlossen\nx1x - Bremspedalschalter (F47) geöffnet\n1xx - Kupplungspedalschalter (F36) geöffnet
+006,3,Gaspedalstellung,Pedalwertgeber,Sollwert: 0%
+006,4,GRA-Status,,0 - GRA im Steuergerät aktiviert - AUS\n1 - GRA im Steuergerät aktiviert - EIN\n255 - GRA im Steuergerät deaktiviert
+;
+007,0,Temperaturgeber (Motor kalt)
+007,1,Kraftstoff-,temperatur (G81),Sollwert: ca. Umgebungstemperatur
+007,2,Status,Kraftstoffkühlung,Sollwert (AUS): 0 %\nSollwert (EIN): 100 %
+007,3,Saugrohr-,temperatur (G42),Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,temperatur (G62),Sollwert: ca. Umgebungstemperatur
+;
+008,0,Begrenzungsmengen (Vollast)
+008,1,Motordrehzahl,(G28),Sollwert (Vollast): 2850...3150 U/min
+008,2,Einspritzmenge,(Fahrerwunsch),Sollwert (Vollast): 47...60 mg/Hub
+008,3,Drehmoment-,begrenzung,Sollwert (Vollast): 47...51 mg/Hub
+008,4,Rauchvermeidung,,Sollwert: 47...52 mg/Hub (siehe Label-File)
+; < 16 mg/H => erkannte Luftmasse zu gering => Luftmassenmesser prüfen
+;              Abgasrückführung unter Vollast => prüfen
+;
+009,0,Einspritzmengenbegrenzung II
+009,1,Motordrehzahl,(G28)
+009,2,Geschwindigkeits-,regelanlage
+009,3,Automatikgetriebe
+009,4,Begrenzungs-,menge
+;
+010,0,Luftgrössen
+010,1,angesaugte,Luftmasse,Sollwert (Leerlauf): 200...370 mg/Hub\nSollwert (Vollast): > 800 mg/Hub
+010,2,atmosphärischer,Druck
+010,3,Saugrohrdruck,,Sollwert (Vollast): 1850...2250 mbar
+010,4,Gaspedalstellung,,Sollwert (Leerlauf): 0 %\nSollwert (Vollast): 100 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,(G28),Sollwert (Vollast): 2850...3150 U/min
+011,2,Ladedruck,(SOLL-Wert),Sollwert (Vollast): 2200...2400 mbar
+; bei Vollast > 2400 => Ladedruckerhöhung durch Tuning(hoffentlich platzt das Ding nicht ;-)
+011,3,Ladedruck,(IST-Wert),Sollwert (Vollast): 2100...2600 mbar
+011,4,Tastverhältnis,Magnetventil,Sollwert (Vollast): 35...80 %
+;
+012,0,Vorglühanlage
+012,1,Glühstatus,,11111111 - Glühen AUS\n00010000 - Vorglühen\n01110000 - Startglühen\n11110000 - Nachglühen\n00110000 - Starterglühen
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung
+012,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+013,0,Leerlaufruheregelung (Einspritzmengenabweichung - siehe Label-File)
+; +...mg/H: der jeweilige Zylinder ist leistungsschwächer und wird
+;           deshalb mit mehr Kraftstoff versorgt
+; -...mg/H: der jeweilige Zylinder ist leistungsstärker und wird
+;           deshalb mit weniger Kraftstoff versorgt
+013,1,Zylinder 1,,Sollwert: -2.8...+2.8 mg/Hub
+013,2,Zylinder 2,,Sollwert: -2.8...+2.8 mg/Hub
+013,3,Zylinder 3,,Sollwert: -2.8...+2.8 mg/Hub
+013,4,Zylinder 4,,Sollwert: -2.8...+2.8 mg/Hub
+;
+015,0,Kraftstoffverbauch
+015,1,Motordrehzahl
+015,2,Einspritzmenge,(IST-Wert),Sollwert: 3...9 mg/Hub
+015,3,Kraftstoff-,verbrauch
+015,4,Einspritzmenge,(Fahrerwunsch)
+;
+016,0,Zusatzheizung (bei Leerlauf)
+016,1,Generatorlast,,Sollwert: 5...95 %
+016,2,Zusatzheizung,,siehe Label-File
+; xxxxxxx1 - Kühlmitteltemp. > 70 °C...80 °C ODER Ansauglufttemp. > +5 °C
+; xxxxxx1x - Generator defekt
+; xxxxx1xx - Batteriespannung < 9 V
+; xxxx1xxx - Motordrehzahl < 760 U/min
+; xxx1xxxx - Motorstart innerhalb der letzten 10 Sekunden
+; xx1xxxxx - Geber f. Kühlmitteltemp G62 ODER Saugrohrtemp. G72 defekt oder Endstufe für Zusatzheizung defekt
+; x1xxxxxx - Heizanforderung
+; 1xxxxxxx - nicht beachten
+016,3,Schaltausgang,,xxxxxxx1 - Relais für kleine Heizleistung EIN\nxxxxxx1x - Relais für grosse Heizleistung EIN
+016,4,Versorgungs-,spannung
+;
+018,0,Status Ventile für Pumpe/Düse (siehe Label-File)
+; Wenn NICHT 0 => Ventil für Pumpe-Düse-Einheit defekt => Ventile für PDE prüfen
+;                 Kraftstoffmangel bzw. Luft im Kraftstoffsystem => prüfen
+018,1,Ventil für,Pumpe Düse 1,Sollwert: 0
+018,2,Ventil für,Pumpe Düse 2,Sollwert: 0
+018,3,Ventil für,Pumpe Düse 3,Sollwert: 0
+018,4,Ventil für,Pumpe Düse 4,Sollwert: 0
+;
+020,0,Mengeneingriff (ABS über CAN)
+020,1,Motordrehzahl,(G28),Sollwert (Frontantrieb): 790...870 U/min\nSollwert (Allradantrieb): 860...945 U/min
+020,2,Motormoment,,Sollwert: 20...60 Nm
+020,3,ASR-Eingriff,,Sollwert: 0...100 mg/Hub
+020,4,MSR-Eingriff,,Sollwert: 0...100 mg/Hub
+;
+022,0,Schaltzustände
+022,1,GRA,Abschaltstatus,0 = GRA deaktiviert\n1 = GRA aktiv (aus)\n9 = GRA aktiv (ein)
+022,2,GRA,Status,000000 - OFF\n000011 - ON\n000111 - SET\n001011 - RES (Reset)\n000001 - OFF (getastet)
+022,3,Ladedruck-,regelung
+022,4,Klimaabschalt-,status
+;
+023,0,BIP Abweichung
+023,1,Zylinder 1,,Sollwert: -100...+100
+023,2,Zylinder 2,,Sollwert: -100...+100
+023,3,Zylinder 3,,Sollwert: -100...+100
+023,4,Zylinder 4,,Sollwert: -100...+100
+;
+125,0,CAN-Datenbus Kommunikation (siehe Label-File)
+125,1,Status,Getriebe,Sollwert: Airb.1
+125,2,Status,ABS,Sollwert: Kombi 1
+125,3,Status,Kombiinstrument,Sollwert: ABS 1
+125,4,Status,Airbag,Sollwert: Getr. 1
+;Sollwert=1 Es werden die Steuergeräte mit aktivem Datenbus angezeigt.
+;Sollwert=0 bedeutet: keine Verbindung zum Datenbussteuergerät
+;Mögliche Fehlerursache: -Datenbusverbindung defekt
+;												 -kein Datenbussteuergerät verbaut
+;												 -Datenbussteuergerät defekt
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,Klimaanlage
+;

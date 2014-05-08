@@ -1,0 +1,53 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A8 (4E)
+;
+; Komponente: J387 - Türelektronik, Beifahrertür (#52)
+;
+; T/N: 4E1-910-802
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 14.08.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 14.08.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Status Schlösser/Klemmen/CAN-Datenbus
+001,1,Status,Beifahrertür,00?xxxxx - ZV Innenschalter verriegeln\n00x?xxxx - ZV Innenschalter entriegeln\n00xx?xxx - Rückmeldung Schloss safe\n00xxx?xx - Rückmeldung Schloss verriegelt\n00xxxx?x - Türkontaktschalter\n00xxxxx? - Sperrklinke
+001,2,Status,Fahrertür,?x000000 - ZV-Taster\nx?000000 - Türgriffschalter
+001,3,Status,CAN/Klemmen,?xxx - CAN-Komfort Eindrahtbetrieb\nx?xx - Klemme 15\nxx?x - Klemme 30 (Zentralverriegelung)\nxxx? - Klemme 30 (Fensterheber)
+001,4,Versorgungs-,spannung
+;
+002,0,Fensterheberschalter
+002,1,Fensterheber-,schalter (lokal),Wertebereich: automat. auf/automat. zu/manuell auf/manuell zu/unbetätigt/unplausibel
+;
+003,0,Status Fensterheber
+003,1,Fensterheber-,position,Wertebereich: 0.0...100.0 %
+003,2,Temperatur,Fensterhebermotor,Wertebereich: -50.0...200.0 °C/k.Meßwert/k.Komm
+003,3,Fensterheber,Zustand,?xxxxxx - Nachführwert\nx?xxxxx - Umluft-Freigabe\nxx?xxxx - Einklemmschutz aktiviert\nxxx?xxx - Freigabe Fensterheber\nxxxx?xx - Fensterheber Thermoschutz\nxxxxx?x - Fensterheber normiert\nxxxxxx? - Dämmglas
+003,4,Fensterheber,Bewegung,Wertebereich: AUF/ZU/Steht
+;
+004,0,Sitzmemory
+004,3,Status Sitzmemory,Bedientasten,?xxxxx - Memory-Taste\nx?xxxx - Memory-Notaus\nxx?xxx - Positionstaste 4\nxxx?xx - Positionstaste 3\nxxxx?x - Positionstaste 2\nxxxxx? - Positionstaste 1
+;
+005,0,Umgebungsdaten/Spiegelheizung
+005,1,Geschwindigkeit,,Wertebereich: 0.0...255.0 km/h
+005,2,Außentemperatur,,Wertebereich: -50.0...+200.0 °C
+005,3,Spiegelheizung,berechn. Leistung,Wertebereich: 0.0...100.0 %
+005,4,Spiegelheizung,Status,Wertebereich: Heizung EIN/Heizung AUS
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+081,0,Erweiterte Steuergerät Identifikation II
+;

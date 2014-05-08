@@ -1,0 +1,152 @@
+;
+; VAG-COM Label File
+;
+; Skoda Superb (3U)
+;
+; Component: J255 - A/C Heating Electronics (#08)
+;
+; P/N: 3U0-907-044-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; created on 09/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+000,0,Flaps Motors
+000,1,Temp. Regulator,Flap Motor (V68)
+000,2,Central Air,Flap Motor (V70)
+000,3,Footwell/Defroster,Flap Motor (V85)
+000,4,Air Flow,Flap Motor (V71)
+;
+B000,0,Flap Motor Adaptation
+B000,1,Temp. Regulator,Flap Motor (V68),Specified Value: 0
+B000,2,Central Air,Flap Motor (V70),Specified Value: 0
+B000,3,Footwell/Defroster,Flap Motor (V85),Specified Value: 0
+B000,4,Air Flow,Flap Motor (V71),Specified Value: 0
+;
+001,0,General
+001,1,Comprossor,Shut-Off,Specification: 0 = Compressor Running (See Label File for more Details)
+;  0 = Compressor Running
+;  1 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too High
+;  2 = Compressor OFF by Fresh Air Blower (V2) or Fresh Air Blower Control Module (J126) Malfunction
+;  3 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too Low
+;  5 = Compressor OFF by Missing Engine Speed Signal
+;  6 = Compressor OFF by ECON Button
+;  7 = Compressor OFF by OFF Button (via Fresh Air Blower Speed Buttons)
+;  8 = Compressor OFF by Ambient Temperature below 3 °C (37 °F)
+; 10 = Compressor OFF by Voltage below 9.5 V
+; 11 = Compressor OFF by Coolant Temperature too High
+; 12 = Compressor OFF by Engine OR Transmission Control Module
+; 13 = Compressor OFF by Voltage above 17 V
+; 14 = Compressor OFF by Evaporator Temperature
+; 15 = Compressor OFF by Control Module Coding incorrect
+; 16 = Compressor OFF by Climate Control Module (J255) Malfunction
+; 17 = Compressor OFF by Pressure Sensor Malfunction
+001,2,Engine Speed
+001,3,Vehicle Speed,,Display Range: 0...255 km/h
+001,4,Standing Time,,Specification: 0...240 Min\n\n250 = Battery disconnected\n255 = Transfer Malfunction
+;
+002,0,Temperature Regulator Flap Motor (V68)
+002,1,Measured Value,,Display Range: 0...255
+002,2,Specified Value,,Display Range: 0...255
+002,3,Flap Position,(air supply cooled),Specification: 150...250
+002,4,Flap Position,(air supply heated),Specification: 5...100
+;
+003,0,Central Air Flap Motor (V70)
+003,1,Measured Value,,Display Range: 0...255
+003,2,Specified Value,,Display Range: 0...255
+003,3,Flap Position,(air flow to panel),Specification: 150...250
+003,4,Flap Position,(air flow to footwell),Specification: 5...100
+;
+004,0,Footwell/Defroster Flap Motor (V85)
+004,1,Measured Value,,Display Range: 0...255
+004,2,Specified Value,,Display Range: 0...255
+004,3,Flap Position,(air flow to footwell),Specification: 150...250
+004,4,Flap Position,(air flow to defrost.),Specification: 5...100
+;
+005,0,Air Flow Flap Motor (V71)
+005,1,Measured Value,,Display Range: 0...255
+005,2,Specified Value,,Display Range: 0...255
+005,3,Flap Position,(fresh air flow),Specification: 150...250
+005,4,Flap Position,(recirculating),Specification: 5...100
+;
+006,0,Temperatures I && Photo Sensor
+006,1,Calculated,Temperature
+006,2,Fresh Air Duct,Temperature (G89)
+006,3,Outside Air,Temperature (G17)
+006,4,Sunlight Photo,Sensor (G107)
+;
+007,0,Temperatures II
+007,1,Center Vent (G191),Temperature
+007,2,Footwell (G192),Temperature
+007,3,Dash Panel (G56),Temperature 
+007,4,Evaporator (G263),Temperature
+;
+008,0,Voltages
+008,1,Fresh Air Blower,(V2 - specified),Display Range: 0 V = Blower Off / 3.6 V = Blower Speed 1 / 12 V = Blower Speed 7
+008,2,Fresh Air Blower,(V2 - actual),Specification: ± 0.8 V to Specification (in Field 1)
+008,3,Voltage,(Terminal 15)
+008,4,Fresh Air Blower,(V2) Load
+;
+009,0,Map Cooling
+009,1,Relay/Valve,Map Cooling
+009,2,Map Cooling,(Engine)
+009,3,Fresh Air Blower,(V2) Stage 1,Range: ON/OFF
+009,4,Coolant Fan,Request
+;
+010,0,Fresh Air Blower (V2) && Aux. Heater
+010,1,Aux. Heater,Request,Range: ON/OFF
+010,2,Aux. Heater,,Range: ON/OFF
+010,3,Wiper,,Range: ON/OFF
+010,4,Coolant,Temperature
+;
+011,1,Dimming,(Terminal 58d),Range: 0.0...100.0 %
+011,2,Idle Speed,Increase,Range: ON/OFF
+;
+013,0,CAN-Databus Communication (Comfort)
+013,1,CAN-Comfort,Status,Specification: 2-Wire\nDisplay Range: 2-Wire/1-Wire
+013,2,CAN-Gateway,(J533),Specification: Gateway 1\nDisplay Range: Gateway 0/Gateway 1
+013,3,Instrument Cluster,(J285),Specification: Instruments 1\nDisplay Range: Instruments 0/Instruments 1
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,A/C Heating Electronics (J255) Coding
+C01,?xxxx: Compressor Type
+C02,0 = Internally regulated
+C03,1 = Internally regulated with temp. sensor behind evaporator
+C04, 
+C05,x?xxx: Vehicle Type
+C06,7 = Skoda Superb (3U)
+C07, 
+C08,xx?xx: Country
+C09,0 = Rest of World
+C10,1 = Japan
+C11,2 = USA
+C12, 
+C13,xxx?x: Engine Cooling
+C14,0 = w/o characteristic map cooling
+C15,1 = with characteristic map cooling
+C16, 
+C17,xxxx?: Equipment
+C18,0 = with outside temperature indication
+C19,1 = w/o outside temperature indication
+;

@@ -1,0 +1,31 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J255 - Heating/Air Conditioning (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8L-08.LBL
+; 8L0-820-043-1D.LBL (1 Display)
+; 8L0-820-043-2D.LBL (2 Displays)
+;
+; created on 29/Jan/2006 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 29/Jan/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-B   ; 2 Displays
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-C   ; 2 Displays
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-D   ; 2 Displays
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-E   ; 2 Displays
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-M   ; 2 Displays
+REDIRECT,8L0-820-043-2D.LBL,8L0-820-043-N   ; 2 Displays
+REDIRECT,8L0-820-043-1D.LBL,8L0-820-043-H   ; 1 Display
+REDIRECT,8L0-820-043-1D.LBL,8L0-820-043-J   ; 1 Display
+REDIRECT,8L0-820-043-1D.LBL,8L0-820-043-K   ; 1 Display
+REDIRECT,8L0-820-043-1D.LBL,8L0-820-043-L   ; 1 Display
+REDIRECT,8L0-820-043-1D.LBL,8L0-820-043-O   ; 1 Display
+;

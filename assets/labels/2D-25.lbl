@@ -1,0 +1,21 @@
+;
+; VCDS Redirect File
+;
+; VW LT (2D)
+;
+; Component: Immobilizer (#25)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 2D-25.LBL
+; 6N0-953-257.LBL
+;
+; created on 27/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+REDIRECT,6N0-953-257.LBL,2D0-953-257-???
+;

@@ -1,0 +1,79 @@
+;
+; VAG-COM Label File
+;
+; Audi Q7 (4L)
+;
+; Component: J523 - Control Head Front (#07)
+;
+; P/N: 4L0-910-7??-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-07.LBL
+; 4L0-910-7xx-07-H.LBL
+; 4L0-910-7xx-07-L.LBL
+;
+; created on 10/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Control Head Front (J523) Coding - MMI Basic
+C01,0?xxxxx: Options I
+C02,+1 = Driver-Informations-System (DIS) installed
+C03,+2 = Destination Area: South America
+C04,+4 = 4-Button Control installed
+C05,0x?xxxx: External Amplifier (Soundsystem) [0 = installed / 1 = not installed]
+C06,0xx?xxx: Options II
+C07,+1 = Seat Adjustment Front installed
+C08,+2 = Seat Adjustment Rear installed
+C09,+4 = Right-Hand-Drive (RHD) Vehicle
+C10,0xxx?xx: Options III
+C11,+1 = Acoustic Parking System (Parking Aid) Rear installed
+C12,+2 = Tire Pressure Monitoring System installed
+C13,+4 = Adaptive Air Suspension installed
+C14,0xxxx?x: Options IV
+C15,+1 = Adaptive Cruise Control (ACC) installed
+C16,+2 = Ambient Lighting installed
+C17,+4 = Acoustic Parking System (Parking Aid) Front installed
+C18,xxxxxx?: Language
+C19,1 = German / 2 = English (GB) / 3 = English (US) / 4 = Spanish
+C20,5 = Italian / 6 = French / 7 = Portuguese
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;

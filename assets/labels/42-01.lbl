@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 42-01.LBL
+; 42-11.LBL
+; 079-910-560-BYH1.LBL  (4.2l FSI @ 420 HP - BYH - Master)
+; 079-910-560-BYH2.LBL  (4.2l FSI @ 420 HP - BYH - Slave)
+;
+; created on 28/Apr/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Apr/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,079-910-560-BYH1.LBL,420-910-560-??? ; BYH: (42)
+;

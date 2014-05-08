@@ -1,0 +1,131 @@
+;
+; VAG-COM Label File
+;
+; Audi A2 (8Z) / Audi A3 (8L) / Audi A4 (8E) / Audi A6 (4B)
+; Audi A8 (4D) / Audi TT (8N)
+;
+; Component: R - Radio (#56) Generation II
+;
+; P/N: 8E0-035-1??-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-56.LBL
+; 8H-56.LBL
+; 8L-56.LBL
+; 8E0-035-1xx-56.LBL
+;
+; created on 25/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/Nov/2007
+;
+; requires VAG-COM 701.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Information
+001,1,Supply Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Amplifier,Control Output,Display Range: OK/Short Circuit
+001,3,Telephone,Mute
+001,4,Telephone,Mute,Display Range: ON/OFF
+;
+002,0,Loadspeaker Status
+002,1,Front,Loadspeaker
+002,2,Status Front,Loadspeaker,Display Range: OK/Short Circuit/Open Circuit
+;
+003,0,Condition of Remote feed Antenna
+003,1,Type
+003,2,Component
+003,3,Status,,Display Range: OK/Short Circuit/Open Circuit
+;
+004,0,Communication Status CD-Changer (R41)
+004,1,Component
+004,2,Status,,Display Range: OK/not OK
+;
+005,0,Status IF-Output
+005,1,IF-Output
+005,2,Status,IF-Output,Display Range: OK/Short Circuit/Open Circuit
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,VIN & Radio Serial Number
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A005,0,Signal Position
+A005,5,Signal Position
+A005,6,0 = Fader Center / Balance Center
+A005,7,1 = Fader Front / Balance Left
+A005,8,2 = Fader Front / Balance Right
+A005,9,3 = Fader Rear / Balance Left
+A005,10,4 = Fader Rear / Balance Right
+;
+A055,0,External Tuner
+A055,5,External Tuner
+A055,6,+1 = Satellite Tuner (SDARS) installed
+A055,7,+2 = Digital Radio Tuner (DAB) installed
+;
+A066,0,GALA
+A066,5,GALA
+A066,6,0 = GALA active
+A066,7,1 = GALA inactive (or Bose Audio Pilot installed)
+;
+A088,0,Long-Wave Band
+A088,5,Long-Wave Band
+A088,6,0 = Long-Wave Band active
+A088,7,1 = Long-Wave Band inactive 
+;
+A099,0,Transport Mode
+A099,5,Transport Mode
+A099,6,0 = Transport Mode inactive
+A099,7,1 = Transport Mode active
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,?xxxx: Options
+C02,+1 = Front Speaker Diagnosis inactive
+C03,x?xxx: Tone Characteristics (< MY 2001)
+C04,0 = Linear Tone Characteristics (All Radios)
+C05,x?xxx: Tone Characteristics (MY 2002 >)
+C06,0 = Tone Characteristics for all other Models and all Radio Chorus
+C07,1 = Tone Characteristics for A4 (8E)
+C08,2 = Tone Characteristics for A6 (4B) & Audi A2 (MY 2005 >)
+C09,3 = Tone Characteristics for A4 Cabriolet (8H)
+C10,4 = Tone Characteristics for TT (8N)
+C11,5 = Tone Characteristics for A3 (8L) 
+C12,xx?xx: Fader/BOSE/Amplifier
+C13,+1 = Fader-Display OFF
+C14,+2 = BOSE-Display ON
+C15,+4 = Mute Amplifier when using Phone
+C16,xxx?x: Installation Options I
+C17,+1 = Navigation installed
+C18,+2 = Telephone installed
+C19,+4 = Voice Control installed 
+C20,xxxx?: Installation Options II
+C21,+1 = Diversity Antenna installed
+C22,+2 = CD-Changer installed
+C23,+4 = Multifunction Steering Wheel installed
+;

@@ -1,0 +1,36 @@
+;
+; VAG-COM Redirect File
+;
+; Seat Altea (5P)
+;
+; Component: Immobilizer (#25)
+;
+; This is a redirect file that should
+; make all Seat Altea (5P)
+; instrument clusters work with 1 label file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-17.LBL
+; 1T-17.LBL
+; 1Z-17.LBL
+; 2K-17.LBL
+; 5P-17.LBL
+; 1K-25.LBL
+; 1T-25.LBL
+; 1Z-25.LBL
+; 2K-25.LBL
+; 5P-25.LBL
+; 1K0-920-xxx-17.LBL
+; 1K0-920-xxx-25.LBL
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 07/30/2004
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-920-xxx-25.LBL,5P0-920-???-???
+;

@@ -1,0 +1,120 @@
+;
+; VAG-COM Label File
+;
+; Audi Q7 (4L)
+;
+; Component: J104 - Brake Electronics (#03) - MK25E1
+;
+; P/N: 4F0-910-517-???
+;
+; includes measuring blocks, login and coding
+;
+; created on 27/Jun/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Aug/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Specification: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Specification: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Specification: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Specification: 0.0...255.0 km/h
+;
+003,0,Switches and Warning Lights
+003,1,Brake Pressure,Solenoid (F84),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Specification: ON/OFF
+003,3,ABS,Warning L. (K47),Specification: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Specification: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Specification: ± 5.0 °\nRange: -720.0...+720.0 °
+004,2,Lateral,Acceleration,Specification: ± 1.5 m/s²\nRange: -25.0...+25.0 m/s²
+004,3,Rotation Rate,,Specification: ± 2.5 °/s\nRange: -69.0...+69.0 °/s
+;
+005,0,Brake Pressure
+005,1,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+005,2,Steering Angle,Sensor (G85)
+;
+006,0,Longitudinal Acceleration
+006,1,Longitudinal,Acc. Sensor,Specification: ± 1.5 m/s²
+;
+007,0,ASR/ESP Button (E256)
+007,1,ASR/ESP Button,(E256),Range: Not Oper./Operated
+;
+008,0,Clutch Pedal Switch (only Manual Transmission)
+;
+010,0,Additional Functions
+010,1,Trailer,Status,Range: Trailer: Yes/Trailer: No
+010,2,Brake Wiping,(Front),Range: ON/OFF
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+018,0,Parking Brake
+018,2,Parking Brake,Status,Range: Not Oper./Operated
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Drive,,Specification: AWD 1\nRange: AWD 1/AWD 0
+125,4,Transmission,,Specification: Transm. 1\nRange: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+126,3,Immobilizer,,Specification: Immobilizer 1\nRange: Immobilizer 1/Immobilizer 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,Airbag System,(J255),Specification: Airbag 1\nRange: Airbag 1/Airbag 0
+127,2,Level Control,,Specification: Level 1\nRange: Level 1/Level 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Engine Electronics
+225,2,Steering Angle,Sensor (G85)
+225,3,All-Wheel-Drive
+225,4,Transmission
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,Instrument Cluster,(J285)
+226,2,CAN-Gateway,(J533)
+226,3,Immobilizer
+;
+227,0,CAN-Databus Powertrain (Time-Out)
+227,1,Airbag System,(J255)
+227,2,Level Control
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding
+;
+;
+;
+;---------------------------------------------------
+;
+; login/coding-ii information
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics (J104) Login
+L01,40168 = General Basic Setting "Enabling"

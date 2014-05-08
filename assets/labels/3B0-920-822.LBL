@@ -1,0 +1,39 @@
+; 3B0-920-822.LBL file
+; version 2003 Aug. 17
+;
+; 3B0 920 822 instrument clusters used in (european?) Passat (MY2000- )
+; with Multifunction Display ("Midline") and flexible service interval
+;
+; Made by Alberto Salvador (Spain/EU), alberto.salvador@wanadoo.es , berto @ VW group related forums
+;
+1,0,Basic information
+1,1,Speed,(Km/h)
+1,2,RPM
+1,3,Oil Press. sensor,(OK>0.9 bar)
+1,4,Clock,(HH:MM)
+;
+2,0,Basic information
+2,1,Mileage,(Km)
+2,2,Fuel tank cont.,(liters)
+2,3,Fuel level sender,Resistance
+2,4,Exterior Temp,-G17-
+;-G17- temperature only available with climatronic and/or Multifunction display
+;
+3,0,Engine liquids info
+3,1,Coolant temp,(celsius)
+;between 75-107 ºC (or 75-115 if temp curves function controlled cooling) temp. gauge always display 90º C
+3,2,Oil Level,(OK/no OK)
+3,3,Oil Temp,(celsius)
+;
+50,0,Main Information
+50,1,Mileage,(Km)
+50,2,RPM
+50,3,Oil Temp,(celsius)
+50,4,Coolant temp,(celsius)
+;
+125,0,CAN Bus
+125,1,Engine,1=OK 0=No OK
+125,2,Auto Trans,1=OK 0=No OK
+125,3,ABS-ESP,1=OK 0=No OK
+125,4,Airbag,1=OK 0=No OK
+;

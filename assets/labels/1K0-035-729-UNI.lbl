@@ -1,0 +1,76 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K/5M) / VW Touran (1T)
+;
+; Komponente: J412 - Telefon (#77) - Vorbereitung
+;
+; T/N: 1K0-035-729-???
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-77.LBL
+; 1K0-035-729-FIX.LBL
+; 1K0-035-729-UNI.LBL
+;
+; erstellt am 29.08.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 26.09.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Mikrofon
+001,1,Spannung,Mikrofon
+001,2,Mikrofon
+001,3,Status,Mikrofon,Wertebereich: i.O/n.i.O
+001,4,Zustand,Mikrofon,Wertebereich: Ein/Aus
+;
+002,0,Stummschaltung
+002,1,Spannung,Stummschaltung
+002,2,Taster,Stummschaltung
+002,3,Status,Stummschaltung,Wertebereich: i.O/n.i.O
+002,4,Zustand,Stummschaltung,Wertebereich: Ein/Aus
+;
+003,0,Audioausgang (+)
+003,1,Spannung,Audioausgang (+)
+003,2,Audioausgang (+)
+003,3,Status,Audioausgang (+),Wertebereich: i.O/n.i.O
+003,4,Zustand,Audioausgang (+),Wertebereich: Ein/Aus
+;
+004,0,Audioausgang (-)
+004,1,Spannung,Audioausgang (-)
+004,2,Audioausgang (-)
+004,3,Status,Audioausgang (-),Wertebereich: i.O/n.i.O
+004,4,Zustand,Audioausgang (-),Wertebereich: Ein/Aus
+;
+005,0,Versorgungsspannung
+005,1,Spannung,(Klemme 30)
+005,2,Versorgungs-,spannung
+005,3,Status,Spannungsleitung,Wertebereich: i.O/n.i.O
+005,4,Zustand,Spannungsleitung,Wertebereich: Ein/Aus
+;
+006,0,Taster für Pannenruf
+006,1,Pannen-Taster
+006,2,Pannen-Taster,Status,Wertebereich: betätigt/nicht betätigt
+;
+007,0,Taster für Notruf
+007,1,Notruf-Taster
+007,2,Notruf-Taster,Status,Wertebereich: betätigt/nicht betätigt
+;
+008,0,Telefon
+008,1,Telefon
+008,2,Telefon,Status,Wertebereich: nicht angeschlossen/angeschlossen
+;
+080,0,Erweiterte Steuergerät Indentifikation I
+;

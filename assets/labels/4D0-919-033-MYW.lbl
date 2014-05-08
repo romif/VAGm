@@ -1,0 +1,70 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4D)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 4D0-919-033-???
+;
+; includes adaptation and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4D-17.LBL
+; 4D0-919-033-MYW.LBL (             >> 4D-X-004 999)
+; 4D0-919-033-MYX.LBL (4D-X-005 001 >>             )
+;
+; created on 20/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Dec/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,5,Distance to Oil Change (OEL),1000,km
+RD,6,Distance to Inspection 1 (IN1),1000,km
+RD,7,Time to Inspection 1 (IN1),10,Days
+RD,8,Time to Inspection 2 (IN2),10,Days
+;
+RJ,0,0,Service Reset (OIL),,
+RJ,0,1,5,15
+;
+RJ,1,0,Service Reset (INSP),,
+RJ,1,1,6,30
+RJ,1,2,7,36
+RJ,1,3,8,73
+;
+RJ,2,0,Service Reset (OIL &  INSP),,
+RJ,2,1,5,15
+RJ,2,2,6,30
+RJ,2,3,7,36
+RJ,2,4,8,73
+;

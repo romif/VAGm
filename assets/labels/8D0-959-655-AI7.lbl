@@ -1,0 +1,69 @@
+;
+; VCDS Label File
+;
+; Audi A4 (8D)
+;
+; Component: J234 - Airbag (#15): AIRBAG7
+;
+; P/N: 8D0-959-655-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-15.LBL
+; 8D0-959-655-AI7.LBL
+; 8D0-959-655-AI8.LBL
+;
+; created on 18/Dec/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag 7 (J234) Coding
+C01,00?0x: Side Airbags
+C02,0 = Front Side Airbags not installed
+C03,1 = Front Side Airbags installed
+C04, 
+C05,00x0?: Rear Belt Tensioner
+C06,2 = Rear Belt Tensioners not installed
+C07,4 = 2 Rear Belt Tensioners installed
+C08,6 = 3 Rear Belt Tensioners installed
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 = Airbag Enabled (Standard)
+A001,7,1 = Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;

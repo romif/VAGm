@@ -1,0 +1,170 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi A4 (8EC/8ED) / Audi A6 (4F) / Audi A8 (4E)
+; Audi Q7 (4L) / Audi TT (8J)
+;
+; Component: J431 - Headlight Range (#55)
+;
+; P/N: 8P0-907-357-???
+;
+; includes measuring blocks, basic setting, adaptation, coding and selective output tests
+;
+; created on 30/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Mar/2008
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage,(Terminal 15),Specification: min. 10.5 V
+001,2,Light,(Terminal 56b),Specification: ON/OFF
+001,3,Vehicle Speed
+001,4,Acceleration
+;
+B001,0,Adjustment Position && Adjustment Learning
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,1,Front Sensor (G78),(actual),Specification: 12.5...50.0 %
+002,2,Rear Sensor (G76),(actual),Specification: 50.0...87.5 %
+002,3,Actuator Motor,Activation
+002,4,Time Constant
+;
+003,0,Brake && Engine Status
+003,1,Brake
+003,2,Brake Status,,Range: ON/OFF
+003,3,Engine
+003,4,Engine Status,,Range: ON/OFF
+;
+004,1,Voltage at,Light Input
+004,2,Sensor,Voltage Supply
+004,3,Basic Frequency,Sensor Front (G78)
+004,4,Basic Frequency,Sensor Rear (G76)
+;
+005,1,Front Sensor (G78),(learned)
+005,2,Rear Sensor (G76),(learned)
+005,3,Movement,Front Suspension,Range: -127.0...+128.0 mm
+005,4,Movement,Rear Suspension,Range: -127.0...+128.0 mm
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 1/ABS 0
+125,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+125,3,Power Steering,(J500),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,4,Engine,Electronics,Specification: Engine 1\nRange: Engine 1/Engine 0
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+;
+225,0,Electro Magnetic Compatibility (EMC) Counter
+225,1,Brake Electronics,(J104)
+225,2,CAN-Gateway,(J533)
+225,3,Power Steering,(J500)
+225,4,Engine,Electronics
+;
+226,0,Electro Magnetic Compatibility (EMC) Counter
+226,1,Instrument Cluster,(J285)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Dynamic Control Strategy
+A001,5,Dynamic Control Strategy
+A001,6,4 = Standard
+;
+A002,0,Adjustment Range Front (Low Value)
+A002,5,Adjustment Range Front (Low Value)
+A002,6,1 = Standard
+;
+A003,0,Adjustment Range Front (High Value)
+A003,5,Adjustment Range Front (High Value)
+A003,6,7 = Audi A3 (8P)
+A003,7,13 = Audi A4 (8E) / Audi A6 (4F)
+;
+A004,0,Adjustment Range Rear (Low Value)
+A004,5,Adjustment Range Rear (Low Value)
+A004,6,1 = Audi A4 (8E) / Audi A6 (4F)
+A004,7,7 = Audi A3 (8P)
+;
+A005,0,Adjustment Range Rear (High Value)
+A005,5,Adjustment Range Rear (High Value)
+A005,6,13 = Standard
+;
+A006,0,Warning Lamp Enabling
+A006,5,Warning Lamp Enabling
+A006,6,0 = Warning Lamp Activation suppressed
+A006,7,1 = Warning Lamp Activation enabled
+;
+A007,0,Terminal 61 Function Enabling
+A007,5,Terminal 61 Function Enabling
+A007,6,0 = Terminal 61 Function locked (Reference Run after Terminal 15 ON)
+A007,7,1 = Terminal 61 Function enabled (Reference Run after Engine Start)
+;
+A008,0,Sensor Plausibility Enabling
+A008,5,Sensor Plausibility Enabling
+A008,6,0 = Sensor Malfunction Plausibility locked
+A008,7,1 = Sensor Malfunction Plausibility enabled
+;
+A009,0,MIL Enabling
+A009,5,MIL Enabling
+A009,6,0 = MIL locked (in Output Test)
+A009,7,1 = MIL enabled (in Output Test)
+;
+A010,0,Tourist Solution
+A010,5,Tourist Solution
+A010,6,When driving in countries where driving is performed on the
+A010,7,opposite side as in the native country the headlights must
+A010,8,be changed over to avoid blinding the oncoming traffic.
+A010,9, 
+A010,10,0 = Disabled
+A010,11,1 = Enabled
+A010,12, 
+A010,13,Note: Only supported for 8P0-907-357-C @ 0020 or newer!
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Headlight Range Control (J431) Coding
+C01,0000001 = Audi A3 (8P) Front-Wheel-Drive (FWD)
+C02,0000002 = Audi A3 (8P) All-Wheel-Drive (AWD)
+C03,0000003 = Audi A6 (4F) with Steel Suspension
+C04,0000004 = Audi A6 (4F) with Air Suspension
+C05,0000005 = Audi A4 (8E)
+C06,0000006 = Audi A8 (4E)
+C07,0000007 = Audi Q7 (4L) with Steel Suspension
+C08,0000008 = Audi Q7 (4L) with Air Suspension
+C09,0000009 = Audi TT (8J) with Steel Suspension and Front-Wheel-Drive (FWD)
+C10,0000010 = Audi TT (8J) with Steel Suspension and All-Wheel-Drive (AWD)
+C11,0000011 = Audi TT (8J) with Magnetic Ride
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1540,Headlight Range Control: Adjusting to Lowered Position
+T1541,Headlight Range Control: Adjusting to Raised Position
+T2232,Headlight Range Control: Adjusting to Delivery Position
+;

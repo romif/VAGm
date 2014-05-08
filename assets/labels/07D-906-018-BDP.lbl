@@ -1,0 +1,611 @@
+;
+; VAG-COM label file
+;
+; VW Passat (3B)
+;
+; component: Engine (#01) - BDP
+;
+; p/n: 07D-906-018-???
+;
+; includes measuring blocks and readiness
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 07-01.LBL
+; 07D-906-018-BDP.LBL  (4.0l W8  @ 274 HP - BDP)
+;
+; created on 24/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 24/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions
+001,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+001,2,Coolant,Temperature,Specification: 80...110 °C
+001,3,Lambda Control,Bank 1,Specification: -10.0...+10.0 %
+001,4,Lambda Control,Bank 2,Specification: -10.0...+10.0 %
+;
+002,0,Basic Functions (Mass Air Flow)
+002,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+002,2,Engine Load,,Specification: 12.0...26.0 %
+002,3,Injection Timing,,Specification: 1.0...18.0 ms
+002,4,Mass Air Flow,,Specification (Idle): 3.0...8.0 g/s
+;
+003,0,Basic Functions (Mass Air Flow)
+003,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+003,2,Mass Air Flow,,Specification (Idle): 3.0...8.0 g/s
+003,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nSpecification (Idle): 0.2...4.0 %
+003,4,Ignition,Timing Angle,Specification: 8.0...15.0 °BTDC
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+004,2,Supply Voltage,,Specification: 12.0...15.0 V
+004,3,Coolant,Temperature,Specification: 80...110 °C
+004,4,Intake Air,Temperature,Specification: -40.0...+140.0 °C
+;
+005,0,Basic Functions
+005,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+005,2,Engine Load,,Specification: 12.0...26.0 %
+005,3,Vehicle Speed,,Specification: 0 km/h
+005,4,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,Basic Functions
+006,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+006,2,Engine Load,,Specification: 12.0...26.0 %
+006,3,Intake Air,Temperature,Specification: -40.0...+140.0 °C
+006,4,Altitude,Correction Factor
+;
+008,0,Basic Functions
+008,1,Brake Condition,,Display Range: Operated/Not Oper.
+008,2,Vacuum Pump,Condition,Display Range: Pump ON/Pump OFF
+008,3,Brake Booster,Pressure
+008,4,Result,,Display Range: Test OFF/Test ON/Syst. OK/Syst. n.OK\nSpecification: Sys. OK
+;
+010,0,Ignition
+010,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+010,2,Engine Load,,Specification: 12.0...26.0 %
+010,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nSpecification (Idle): 0.2...4.0 %
+010,4,Ignition,Timing Angle,Specification: 8.0...15.0 °BTDC
+;
+011,0,Ignition
+011,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+011,2,Coolant,Temperature,Specification: 80...110 °C
+011,3,Intake Air,Temperature,Specification: -40.0...+140.0 °C
+011,4,Ignition,Timing Angle,Specification: 8.0...15.0 °BTDC
+;
+014,0,Ignition (Misfire Recognition - Total)
+014,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+014,2,Engine Load,,Specification: 12.0...26.0 %
+014,3,Misfire,(total),Specification: 0
+014,4,Misfire,Recognition,Display Range: Disabled/Enabled
+;
+015,0,Ignition (Misfire Recognition - Cylinder 1-3)
+015,1,Misfire Counter,Cylinder 1
+015,2,Misfire Counter,Cylinder 2
+015,3,Misfire Counter,Cylinder 3
+015,4,Misfire,Recognition,Display Range: Disabled/Enabled
+;
+016,0,Ignition (Misfire Recognition - Cylinder 4-6)
+016,1,Misfire Counter,Cylinder 4
+016,2,Misfire Counter,Cylinder 5
+016,3,Misfire Counter,Cylinder 6
+016,4,Misfire,Recognition,Display Range: Disabled/Enabled
+;
+017,0,Ignition (Misfire Recognition - Cylinder 7-8)
+017,1,Misfire Counter,Cylinder 7
+017,2,Misfire Counter,Cylinder 8
+017,4,Misfire,Recognition,Display Range: Disabled/Enabled
+;
+018,0,RPM/Load Barriers
+018,1,Lower,RPM Barrier
+018,2,Upper,RPM Barrier
+018,3,Lower,Load Barrier,
+018,4,Upper,Load Barrier,
+;
+020,0,Ignition (Timing Retardation Cylinder 1-4)
+020,1,Timing Retardation,Cylinder 1,Specification: 0.0...12.0 CF
+020,2,Timing Retardation,Cylinder 2,Specification: 0.0...12.0 CF
+020,3,Timing Retardation,Cylinder 3,Specification: 0.0...12.0 CF
+020,4,Timing Retardation,Cylinder 4,Specification: 0.0...12.0 CF
+;
+021,0,Ignition (Timing Retardation Cylinder 5-8)
+021,1,Timing Retardation,Cylinder 5,Specification: 0.0...12.0 CF
+021,2,Timing Retardation,Cylinder 6,Specification: 0.0...12.0 CF
+021,3,Timing Retardation,Cylinder 7,Specification: 0.0...12.0 CF
+021,4,Timing Retardation,Cylinder 8,Specification: 0.0...12.0 CF
+;
+022,0,Ignition (Timing Retardation Cylinder 1 && 2)
+022,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+022,2,Engine Load,,Specification: 10.0...100.0 %
+022,3,Timing Retardation,Cylinder 1,Specification: 0.0...12.0 CF
+022,4,Timing Retardation,Cylinder 2,Specification: 0.0...12.0 CF
+;
+023,0,Ignition (Timing Retardation Cylinder 3 && 4)
+023,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+023,2,Engine Load,,Specification: 10.0...100.0 %
+023,3,Timing Retardation,Cylinder 3,Specification: 0.0...12.0 CF
+023,4,Timing Retardation,Cylinder 4,Specification: 0.0...12.0 CF
+;
+024,0,Ignition (Timing Retardation Cylinder 5 && 6)
+024,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+024,2,Engine Load,,Specification: 10.0...100.0 %
+024,3,Timing Retardation,Cylinder 5,Specification: 0.0...12.0 CF
+024,4,Timing Retardation,Cylinder 6,Specification: 0.0...12.0 CF
+;
+025,0,Ignition (Timing Retardation Cylinder 7 && 8)
+025,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+025,2,Engine Load,,Specification: 10.0...100.0 %
+025,3,Timing Retardation,Cylinder 7,Specification: 0.0...12.0 CF
+025,4,Timing Retardation,Cylinder 8,Specification: 0.0...12.0 CF
+;
+026,0,Ignition (Knock Control Cylinder 1-4)
+026,1,Voltage,Cylinder 1,Specification: 0.0...4.0 V
+026,2,Voltage,Cylinder 2,Specification: 0.0...4.0 V
+026,3,Voltage,Cylinder 3,Specification: 0.0...4.0 V
+026,4,Voltage,Cylinder 4,Specification: 0.0...4.0 V
+
+027,0,Ignition (Knock Control Cylinder 5-8)
+027,1,Voltage,Cylinder 5,Specification: 0.0...4.0 V
+027,2,Voltage,Cylinder 6,Specification: 0.0...4.0 V
+027,3,Voltage,Cylinder 7,Specification: 0.0...4.0 V
+027,4,Voltage,Cylinder 8,Specification: 0.0...4.0 V
+;
+028,0,Ignition (Knock Sensor Test - Short Trip)
+028,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+028,2,Engine Load,,Specification: 10.0...100.0 %
+028,3,Coolant,Temperature,Specification: 80...110 °C
+028,4,Result,,Display Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Sys. OK
+;
+030,0,Lambda Control (Sensor Status)
+030,1,Bank 1,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,2,Bank 1,Sensor 2
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control active
+030,3,Bank 2,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,4,Bank 2,Sensor 2
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control active
+;
+031,0,Lambda Control (Lambda Sensor Voltages)
+031,1,Lambda Sensor,B1-S1 (actual),Specification: 0.8...2.0
+031,2,Lambda Sensor,B1-S1 (specified),Specification: 0.8...1.0
+031,3,Lambda Sensor,B2-S1 (actual),Specification: 0.8...2.0
+031,4,Lambda Sensor,B2-S1 (specified),Specification: 0.8...1.0
+;
+032,0,Lambda Control (Mixture Adaptation)
+032,1,Adaptation (Idle),Bank 1 Sensor 1,Specification: -4.0...+4.0 %
+032,2,Adaptation (Partial),Bank 1 Sensor 1,Specification: -20.0...+20.0 %
+032,3,Adaptation (Idle),Bank 2 Sensor 1,Specification: -4.0...+4.0 %
+032,4,Adaptation (Partial),Bank 2 Sensor 1,Specification: -20.0...+20.0 %
+;
+033,0,Lambda Control
+033,1,Lambda Control,Bank 1 Sensor 1,Specification: -10.0...+10.0 %
+033,2,Sensor Voltage,Bank 1 Sensor 1,Specification: 1.4...1.6 V
+033,3,Lambda Control,Bank 2 Sensor 1,Specification: -10.0...+10.0 %
+033,4,Sensor Voltage,Bank 2 Sensor 1,Specification: 1.4...1.6 V
+;
+034,0,Lambda Control (Aging Check Bank 1)
+034,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+034,2,Catalytic Converter,Temperature,Specification: min. 250 °C
+034,3,Dynamic Factor,Bank 1 Sensor 1,Specification: min. 0.3
+034,4,Result,Lambda Aging,Display Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK\nSpecification: B1-S1 OK
+;
+035,0,Lambda Control (Aging Check Bank 2)
+035,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+035,2,Catalytic Converter,Temperature,Specification: min. 250 °C
+035,3,Dynamic Factor,Bank 2 Sensor 1,Specification: min. 0.3
+035,4,Result,Lambda Aging,Display Range: Test ON/Test OFF/B2-S1 not OK/B2-S1 OK\nSpecification: B2-S1 OK
+;
+036,0,Lambda Control (Sensor Readiness - After Catalyst)
+036,1,Sensor Voltage,Bank 1 Sensor 2,Specification: 0.0...1.0 V
+036,2,Result,Lambda Availability,Display Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK\nSpecification: B1-S2 OK
+036,3,Sensor Voltage,Bank 2 Sensor 2,Specification: 0.0...1.0 V
+036,4,Result,Lambda Availability,Display Range: Test ON/Test OFF/B2-S2 not OK/B2-S2 OK\nSpecification: B2-S2 OK
+;
+037,0,Lambda Control (Delta Lambda Bank 1)
+037,1,Engine Load,,Specification: 10.0...100.0 %
+037,2,Sensor Voltage,Bank 1 Sensor 2,Specification: 0.0...1.0 V
+037,3,Delta Lambda,Bank 1 Sensor 2,Specification: -0.03...+0.03
+037,4,Result,,Specification: Test ON/Test OFF/B1-S1 OK/B1-S1 n.OK\nSpecification: B1-S1 OK
+;
+038,0,Lambda Control (Delta Lambda Bank 2)
+038,1,Engine Load,,Specification: 10.0...100.0 %
+038,2,Sensor Voltage,Bank 2 Sensor 2,Specification: 0.0...1.0 V
+038,3,Delta Lambda,Bank 2 Sensor 2,Specification: -0.03...+0.03
+038,4,Result,,Specification: Test ON/Test OFF/B2-S1 OK/B2-S1 n.OK\nSpecification: B2-S1 OK
+;
+039,0,Lambda Control (Sensor Exchange)
+039,1,Mass Air Flow,,Specification: min. 10.0 g/s
+039,2,Sensor Voltage,Bank 1 Sensor 2,Specification: 0.0...1.0 V
+039,3,Sensor Voltage,Bank 2 Sensor 2,Specification: 0.0...1.0 V
+039,4,Result,Sensor Exchange,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+041,0,Lambda Sensor Heating Bank 1
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition,,Display Range: Htg. S1 OFF/Htg. S1 ON
+041,3,Resistance,Bank 1 Sensor 2
+041,4,Heater Condition,,Display Range: Htg. S2 OFF/Htg. S2 ON
+;
+042,0,Lambda Sensor Heating Bank 2
+042,1,Resistance,Bank 2 Sensor 1
+042,2,Heater Condition,,Display Range: Htg. S1 OFF/Htg. S1 ON
+042,3,Resistance,Bank 2 Sensor 2
+042,4,Heater Condition,,Display Range: Htg. S2 OFF/Htg. S2 ON
+;
+043,0,Lambda Sensor Aging Bank 1
+043,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+043,2,Catalytic Converter,Temperature,Specification: min. 250 °C
+043,3,Lambda Voltage,Bank 1 Sensor 1,Specification: 0.0...1.0 V
+043,4,Result,Aging,Display Range: Test ON/Test OFF/B1-S2 OK/B1-S2 n.OK\nSpecification: B1-S2 OK
+;
+044,0,Lambda Sensor Aging Bank 2
+044,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+044,2,Catalytic Converter,Temperature,Specification: min. 250 °C
+044,3,Lambda Voltage,Bank 2 Sensor 1,,Specification: 0.0...1.0 V
+044,4,Result,Aging,Display Range: Test ON/Test OFF/B2-S2 OK/B2-S2 n.OK\nSpecification: B2-S2 OK
+;
+046,0,Catalytic Conversion Test Bank 1
+046,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+046,2,Catalytic Converter,Temperature,Specification: 420.0...600.0 °C
+046,3,Catalytic,Conversion,Specification: 0.00...0.45
+046,4,Result,Cat. Conversion,Display Range: Test ON/Test OFF/CatB1 OK/CatB1 n.OK\nSpecification: CatB1 OK
+;
+047,0,Catalytic Conversion Test Bank 2
+047,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+047,2,Catalytic Converter,Temperature,Specification: 420.0...600.0 °C
+047,3,Catalytic,Conversion,Specification: 0.00...0.45
+047,4,Result,Cat. Conversion,Display Range: Test ON/Test OFF/CatB2 OK/CatB2 n.OK\nSpecification: CatB2 OK
+;
+050,0,Engine Speed Increase
+050,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+050,2,Engine Speed,(specified)
+050,3,A/C Readiness,,Display Range: A/C-Low / A/C-High
+050,4,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+;
+051,0,Engine Speed Increase (Gear shifts)
+051,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+051,2,Engine Speed,(specified)
+051,3,Selected Gear,,Display Range: P or N = 0/Gear = 1 - 6/R = 7
+051,4,Supply Voltage,,Specification: 12.0...15.0 V
+;
+052,0,Engine Speed Increase
+052,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+052,2,Engine Speed,(specified)
+052,3,A/C Readiness,,Display Range: A/C-Low / A/C-High
+;
+053,0,Engine Speed Increase (Generator Load)
+053,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+053,2,Engine Speed,(specified)
+053,3,Supply Voltage,,Specification: 12.0...15.0 V
+053,4,Generator Load
+;
+054,0,Idle Speed Stabilization
+054,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+054,2,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Throttle Position,Sensor (G79),Display Range: 0.0...100.0 %\nSpecification: 12.0...97.0 %
+054,4,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %\nSpecification: 3.0...93.0 %
+;
+055,0,Idle Speed Stabilization
+055,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+055,2,Idle Regulator,,Specification: -5.0...+10.0 %
+055,3,Idle Stabilization,Self-Adaptation,Specification: -5.0...+5.0 %
+055,4,Operating,Condition,00xxx1 = A/C Compressor ON\n00xx1x = Gear engaged\n00x1xx = A/C Readiness ON\n001xxx = Rear Window Heater ON
+;
+056,0,Idle Speed Stabilization
+056,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+056,2,Engine Speed,(specified)
+056,3,Idle Regulator,,Specification: -5.0...+10.0 %
+056,4,Operating,Condition,00xxx1 = A/C Compressor ON\n00xx1x = Gear engaged\n00x1xx = A/C Readiness ON\n001xxx = Rear Window Heater ON
+;
+057,0,Idle Speed Stabilization (Air Condition)
+057,1,Engine Speed,(actual),Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+057,2,Engine Speed,(specified)
+057,3,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+057,4,A/C Compressor,Pressure
+;
+058,0,Engine Mounting
+058,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+058,2,Engine Load,,Specification: 10.0...100.0 %
+058,3,Engine Mounting,,Display Range: ON/OFF
+;
+060,0,Electronic Throttle Adaptation
+060,1,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %\nSpecification: 3.0...93.0 %
+060,2,Throttle Drive,Angle Sensor 2,for EPC (G188)\nDisplay Range: 0...100 %\nSpecification: 97.0...3.0 %
+060,3,Self-Adaptation,Steps Counter,Display Range: 0...8\nSpecification: 0
+060,4,Result,Throttle Valve Adp.,Display Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+061,0,Electronic Throttle
+061,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+061,2,Supply Voltage,,Specification: 12.0...15.0 V
+061,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %\nSpecification: 3.0...93.0 %
+061,4,Operating,Condition,00xxx1 = A/C Compressor ON\n00xx1x = Gear engaged\n00x1xx = A/C Readiness ON\n001xxx = Rear Window Heater ON
+;
+062,0,Electronic Throttle
+062,1,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %\nSpecification: 3.0...93.0 %
+062,2,Throttle Drive,Angle Sensor 2,for EPC (G188)\nDisplay Range: 0...100 %\nSpecification: 97.0...3.0 %
+062,3,Throttle Position,Sensor (G79),Display Range: 0.0...100.0 %\nSpecification: 12.0...97.0 %
+062,4,Accelerator Pedal,Position Sensor 2,G185\nSpecification: 4.0...50.0 %
+;
+063,0,Electronic Throttle (Kick-Down Adaptation)
+063,1,Throttle Position,Sensor (G79),Display Range: 0.0...100.0 %\nSpecification: 12.0...97.0 %
+063,2,Kick-Down,Adaptation Value
+063,3,Kick-Down,Switch,Display Range: Kick Down
+063,4,Kick-Down,Adaptation,Display Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+064,0,Throttle Valve Potentiometer Adaption Values
+064,1,Potentiometer 1,Lower Adaptation
+064,2,Potentiometer 2,Lower Adaptation
+064,3,Emergency Air Gap,Potentiometer 1
+064,4,Emergency Air Gap,Potentiometer 2
+;
+066,0,Cruise Control System
+066,1,Current,Vehicle Speed
+; ----1xxx - Cruise control system active
+; ----x1xx - Clutch depressed (always 1 in automatic transmission)
+; ----xx1x - Brake depressed (brake pedal switch)
+; ----xxx1 - Brake depressed (brake light switch)
+066,2,Pedal Settings,,
+066,3,Specified,Vehicle Speed
+066,4,Switch Settings,,
+; ----1xxx - CCS slide handle on RES or RES button on multi-function steering wheel pressed
+; ----x1xx - SET button pressed
+; ----xx1x - CCS slide handle on OFF (not engaged or engaged)/OFF button on multi-function steering wheel pressed
+; ----xxx1 - CCS slide handle on OFF
+;
+070,0,Emission Reduction (TEV - Basic Setting)
+070,1,Evap. Emissions,Sol. Valve (Open),Specification: 0...100 %
+070,2,Lambda Control,,Specification: -10.0...+10.0 %
+070,3,Evap. Emissions,Sol. Valve (Flow)
+070,4,Result,,Display Range: Test ON/Test OFF/TEV OK/TEV not OK
+;
+071,0,Exhaust Reduction (Basic Setting: Leak Diagnostic System)
+071,1,Reed Contact,Condition,Display Range: Reed Open/Reed Closed
+071,2,Malfunction Display,,Display Range: minor leak/significant leak/Open circuit
+071,3,Diagnostic Status,,Display Range: System test/Measurement end
+071,4,Result,Leak Test,Display Range: Test ON/Test OFF/Syst. OK/Syst. not OK
+;
+077,0,Emission Reduction (Bank 1)
+077,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+077,2,Mass Air Flow,,Specification (Idle): 3.0...8.0 g/s
+077,3,Air Mass from,Sec. Air Inj. Bank 1,Specification: -50.0...+50.0 %
+077,4,Result,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK
+;
+078,0,Emission Reduction (Bank 2)
+078,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+078,2,Mass Air Flow,,Specification (Idle): 3.0...8.0 g/s
+078,3,Air Mass from,Sec. Air Inj. Bank 2,Specification: -50.0...+50.0 %
+078,4,Result,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,VIN & IMMO-ID
+;
+082,0,Advanced Control Module Identification III
+;
+086,0,Readiness Code I
+086,1,Readiness Bits
+086,2,Cycle Flags
+086,3,Cycle Flags
+086,4,Cycle Flags
+;
+087,0,Readiness Code II
+087,1,Readiness Bits
+087,2,Error Flags
+087,3,Error Flags
+087,4,Error Flags
+;
+088,0,Readiness Code III
+088,1,Cycle Flags
+088,2,Cycle Flags
+088,3,Cycle Flags
+;
+089,1,Distance Driven,with MIL on
+089,2,Tank Condition,,Display Range: OK/too low
+;
+090,0,Camshaft Adjustment (Exhaust)
+090,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+090,2,Adjustment,Status,Display Range: ON/OFF
+090,3,Adjustment Bank 1
+090,4,Adjustment Bank 2
+;
+091,0,Continuous Camshaft Adjustment (Intake Bank 1)
+091,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+091,2,Duty Cycle
+091,3,Adjustment Bank 1,(specified)
+091,4,Adjustment Bank 1,(actual)
+;
+092,0,Continuous Camshaft Adjustment (Intake Bank 2)
+092,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+092,2,Duty Cycle
+092,3,Adjustment Bank 2,(specified)
+092,4,Adjustment Bank 2,(actual)
+;
+093,0,Continuous Camshaft Adaption Values
+093,1,Phase Position,Bank 1 Intake
+093,2,Phase Position,Bank 2 Intake
+093,3,Phase Position,Bank 1 Exhaust
+093,4,Phase Position,Bank 2 Exhaust
+;
+094,0,Continuous Camshaft Adjustment (Intake)
+094,1,Adjustment Bank 1,(actual)
+094,2,Adjustment Bank 2,(actual)
+094,3,Result Bank 1,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+094,4,Result Bank 2,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+096,0,Continuous Camshaft Adjustment (Exhaust)
+096,3,Phase Position,Bank 1 Exhaust
+096,4,Phase Position,Bank 2 Exhaust
+096,3,Result Bank 1,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+096,4,Result Bank 2,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+098,0,Camshaft Adjustment (Exhaust)
+098,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+098,2,Adjustment,Status,Display Range: ON/OFF
+098,3,Adjustment Bank 1
+098,4,Adjustment Bank 2
+;
+099,0,Lambda Control Shut-Off (Basic Setting)
+099,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+099,2,Coolant,Temperature,Specification: 80...110 °C
+099,3,Lambda Control,(before Catalyst),Specification -10.0...+10.0 %
+099,4,Lambda Control,Status,Display Range: O2-Reg.OFF/O2-Reg.ON
+;
+100,0,Readiness Code
+100,1,Readiness Bits,,see labelfile
+; 1xxxxxxx - Exhaust Gas Recirculation (EGR)
+; x1xxxxxx - Sensor heater
+; xx1xxxxx - Oxygen sensors
+; xxx1xxxx - A/C system
+; xxxx1xxx - Secondary Air Injection (AIR) system
+; xxxxx1xx - Activated charcoal system
+; xxxxxx1x - Catalytic converter heater
+; xxxxxxx1 - Catalytic converter
+100,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+100,3,Time since,Engine Start
+100,4,OBD-Status,,see labelfile
+; 1-xxxxxx - MIL warning lamp on
+; x-1xxxxx - Complete distance
+; x-x1xxxx - At least one malfunction detected
+; x-xx--1x - Heating cycle ended
+; x-xx--x1 - Heating cycle not possible
+;
+101,0,Fuel Injection
+101,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+101,2,Engine Load,,Specification (Idle): 12.0...26.0 %
+101,3,Injection Timing,,Specification: 1.0...18.0 ms
+101,4,Mass Air Flow,,Specification (Idle): 3.0...8.0 g/s
+;
+102,0,Fuel Injection
+102,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+102,2,Coolant,Temperature,Specification: 80...110 °C
+102,3,Intake Air,Temperature,Specification: -40.0...+140.0 °C
+102,4,Injection Timing,,Specification: 1.0...18.0 ms
+;
+104,0,Start Adaption Values
+104,1,Start Engine,Temperature,Specification: -43.0...+143.0 °C
+104,2,Temperature,Adaptation,Specification: 0.0...16.0 %
+104,3,Temperature,Adaptation Factor 1,Specification: 0.0...16.0 %
+104,4,Temperature,Adaptation Factor 2,Specification: 0.0...16.0 %
+;
+105,0,Cylinder Shut-Off
+105,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+105,2,Engine Load,,Specification (Idle): 12.0...26.0 %
+105,3,Coolant,Temperature,Specification: 80...110 °C
+105,4,Status,Cylinder Shut-Off,Display Range: ON/OFF
+;
+107,0,Lambda Control
+107,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+107,2,Lambda Control,Bank 1 (average),Specification: -15.0...+23.0 %
+107,3,Lambda Control,Bank 2 (average),Specification: -15.0...+23.0 %
+107,4,Result,Lambda Control,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+110,0,Load/Full Throttle Enrichment
+110,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+110,2,Coolant,Temperature,Specification: 80...110 °C
+110,3,Injection Timing,,Specification: 1.0...18.0 ms
+110,4,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %
+;
+112,0,Exhaust Gas Temperature
+112,1,Exhaust Gas,Temperature Bank 1
+112,3,Exhaust Gas,Temperature Bank 2
+;
+113,0,Load/Full Throttle Enrichment
+113,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+113,2,Engine Load,,Specification: 10.0...100.0 %
+113,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %
+113,4,Athmospheric,Pressure,Specification: 500...1200 mbar
+;
+120,0,Traction Control (ASR)
+120,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+120,2,Engine Load,(specified),Specification: 0.0...600.0 Nm
+120,3,Engine Load,(actual),Specification: 0.0...420.0 Nm
+120,4,Status,,Specification: ASR OFF/ASR ON
+;
+122,0,Transmission
+122,1,Engine Speed,,Specification (Idle): 640...740 RPM\nSpecification (Load): 3000...3500 RPM\nDisplay Range: 640...6800 RPM
+122,2,Engine Load,(specified),Specification: 0.0...600.0 Nm
+122,3,Engine Load,(actual),Specification: 0.0...420.0 Nm
+122,4,Status,,Display Range: Engine interv./No engine interv.
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Transmission,,Specification: Transm. 1
+125,2,Brake Electronics,,Specification: ABS 1
+125,3,Instrument Cluster,,Specification: Instruments 1
+125,4,A/C Electronics,,Specification: A/C 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Steering Angle,Sensor,Specification: Steer. ang. 1
+126,3,Airbag,,Specification: Airbag 1
+;
+130,0,Map Cooling
+130,1,Engine Outlet,Temperature
+130,2,Radiator Outlet,Temperature
+130,3,Thermostat,Duty Cycle
+130,4,Result
+;
+131,0,Map Cooling
+131,1,Engine Outlet,Temp. (actual)
+131,2,Engine Outlet,Temp. (specified)
+131,3,Radiator Outlet,Temperature
+131,4,Thermostat,Duty Cycle
+;
+132,0,Map Cooling
+132,1,Radiator Outlet,Temperature
+132,2,Temp. Difference,Engine/Radiator
+132,3,Heater Pre-Run,Potentiometer
+132,4,Cooling,Status
+;
+134,0,Temperature
+134,1,Oil Temperature,,Specification: 0.0...150.0 °C
+134,2,Ambient,Temperature,Specification: -40.0...+60.0 °C
+134,3,Intake Air,Temperature,Specification: -40.0...+140.0 °C
+134,4,Engine Outlet,Temperature
+;
+135,0,Coolant Fan Control
+135,1,Radiator Outlet,Temperature
+135,2,Coolant Fan,Actuation 1,Display Range: 0.0...100.0 %
+135,3,Coolant Fan,Actuation 2,Display Range: 0.0...100.0 %
+135,4,Result
+;
+136,3,Additional,Water Pump,Display Range: Pump ON/Pump OFF
+;
+137,0,Air Condition Requirements
+137,1,A/C Readiness,,Display Range: A/C-Low / A/C-High
+137,2,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+137,4,A/C Fan Request,,Display Range: 0.0...100.0 %
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,07D-906-018-BDP
+;

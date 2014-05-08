@@ -1,0 +1,38 @@
+;
+; VAG-COM Redirect File
+;
+; Audi Q7 (4L)
+;
+; Component: Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-47.LBL
+; 4L-47.LBL
+; 4F0-910-223-AS.LBL
+; 4F0-910-223-AS2.LBL
+; 4F0-910-223-BO.LBL
+; 4F0-910-7xx-47.LBL
+; 4L0-910-223-BO.LBL
+;
+; created on 30/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Nov/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,4Fx-910-223-AS.LBL,4L0-910-223      ; Standard
+REDIRECT,4L0-910-223-BO.LBL,4L0-910-223-A    ; Bose
+REDIRECT,4Fx-910-223-AS.LBL,4L0-910-223-B    ; Standard
+;4L0-910-223-C    ; Standard
+REDIRECT,4L0-910-223-BO.LBL,4L0-910-223-D    ; Bose
+;4L0-910-223-E    ; Standard
+REDIRECT,4L0-910-223-BO.LBL,4L0-910-223-G    ; Bose
+;4L0-910-223-H    ; Standard
+;4L0-910-223-J    ; Standard
+;4L0-910-223-K    ; Standard
+;
+REDIRECT,4F0-910-7xx-47.LBL,4L0-910-7??-???  ; integrated in J523
+;

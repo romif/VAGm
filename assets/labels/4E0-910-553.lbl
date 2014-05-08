@@ -1,0 +1,217 @@
+;
+; VAG-COM label file
+;
+; Audi A8 (4E)
+;
+; component: J197 - Self-leveling (#34)
+;
+; p/n: 4E0 910 553 A/D/E/F/H/J
+;
+; UNTESTED
+;
+; includes measuring blocks
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 09/24/2004
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage,terminal 15
+001,2,Voltage,terminal 30
+001,3,Vehicle speed,[km/h]
+001,4,Status,Term. 50,starting/starter active
+;
+002,1,Door,Status,Display range: door closed/door open/door locked
+002,2,Rear lid,status,Display range: Rear lid open/rear lid closed
+002,3,Voltage supply,right,Specified value: 0...10 V
+002,4,Voltage supply,left,Specified value: 0...10 V
+;
+003,1,High level,selected,Display range: Pressed/not operated
+003,2,[N/A]
+003,3,Lower level,selected,Display range: Pressed/not operated
+003,4,Compressor,Status,Display range: relay on/relay off
+;
+004,0,Deviation from standard level
+004,1,Front,Left
+004,2,Front,Right
+004,3,Rear,Left
+004,4,Rear,Right
+;
+005,0,Absolute vehicle height (mirror image of installation position)
+005,1,Front,Left
+005,2,Front,Right
+005,3,Rear,Left
+005,4,Rear,Right
+;
+006,1,Compressor,temperature
+006,2,Pressure,sensor signal
+006,3,Drain valve,Status
+006,4,Pressure,accu. valve
+;
+007,0,Transverse lock-up (air spring valve status) 
+007,1,Front,Left
+007,2,Front,Right
+007,3,Rear,Left
+007,4,Rear,Right
+;
+008,1,Pitch,angle,in increments
+008,2,Pitch angle,duty cycle,signal from headlight range control
+008,3,Workshop,code
+008,4,System,status
+;
+009,1,System,status
+009,2,longitudinal,acceleration
+009,3,deviation from,def. pos. front
+009,4,deviation from,def. pos. rear
+;
+010,0,Vehicle level deviation (mm)
+010,1,Front,Left
+010,2,Front,Right
+010,3,Rear,Left
+010,4,Rear,Right
+;
+011,0,Damper valve current (mA)
+011,1,Front,Left
+011,2,Front,Right
+011,3,Rear,Left
+011,4,Rear,Right
+;
+012,0,Signal for body acceleration
+012,1,front left,[V]
+012,2,front right,[V]
+012,3,rear,[V]
+012,4,[N/A]
+;
+013,0,Damper velocity from height sensor (no-load level 2.5 Volts)
+013,1,front left,[dm/s]
+013,2,front right,[dm/s]
+013,3,rear left,[dm/s]
+013,4,rear right,[dm/s]
+;
+014,1,actuation,status button
+014,2,Current damper,recognition,Display range: comfort=0/normal=1/sport1=2/sport2=3
+014,3,CDC function LED,display status
+014,4,[N/A]
+;
+015,1,Steering,angle
+015,2,Vehicle,speed
+015,3,Weighted,braking signal
+015,4,CDC emergency,running,see labelfile
+; 32 = CDC emergency running A
+; 16 = CDC emergency running B
+;  8 = CDC emergency running C
+;  4 = CDC emergency running D
+;  2 = CDC emergency running E
+;  1 = no emergency running
+;
+016,1,Failsafe,temperature
+016,2,Calculated,compressor,temperature
+016,3,Measured,temperature value
+016,4,Temperature,signal raw value
+;
+017,1,Standard,demand
+017,2,Extreme,level
+017,3,Bend
+017,4,Vehicle skew
+;
+018,1,Heavy vehicle,distortion,Display range: 0 = not recognised / 1= recognised
+018,2,[N/A]
+018,3,[N/A]
+018,4,Slight vehicle,distortion,Display range: 0 = not recognised / 1= recognised
+;
+019,1,[N/A]
+019,2,Level,button,Display range: Not pressed/pressed
+019,3,[N/A]
+019,4,CDC button,,Display range: not pressed/pressed
+;
+020,1,Emergency,running A 
+020,2,Emergency,running B
+020,3,Emergency,running C
+020,4,Emergency,running D
+;
+021,1,Emergency,running E
+021,2,Emergency,running F
+021,3,Emergency,running G
+021,4,Emergency,running H
+;
+022,1,Pressure sensor,signal [V]
+022,2,Pressure sensor,signal
+022,3,Pressure sensor,signal [bar]
+022,4,Accumulator,status,compressor actuation
+;
+023,1,Pressure in,accumulator
+023,2,Pressure,level
+023,3,Level,,Powertrain CAN-Databus
+023,4,Gateway,,Fiber Optic MOST Data Bus
+;
+024,0,see lebelfile
+;Digits 1-13 = part no., antenna FL
+;Digits 13-15 = blank
+;Digits 16-29 = part no., antenna FR
+;
+025,0,see labelfile
+;Digits 1-13 = part no., antenna RL
+;Digits 13-15 = blank
+;Digits 16-29 = part no., antenna RR
+;
+026,0,see labelfile
+;0.0 - 180 s (countdown for BE active; end at 0.0 seconds)
+;
+027,0,see labelfile
+;Digits 1-8	= reception FL
+;Digits 9-16	= reception FR
+;Digits 17-24	= reception RL
+;Digits 25-32	= reception RR
+;Digits 33-40	= reception r
+;
+028,0,see labelfile
+;Digits 1-8     = non-reception FL
+;Digits 9-16     = non-reception FR
+;Digits 17-24     = non-reception RL
+;Digits 25-32     = non-reception RR
+;Digits 33-40     = non-reception RR
+;
+031,1,Warning,lamp
+031,2,LED for manual,operation
+031,3,LED for,up-adjust
+031,4,LED for,lowering
+;
+036,0,Air spring pressure
+036,1,Front,Left [bar]
+036,2,Front,Right [bar]
+036,3,Rear,Left [bar]
+036,4,Rear,Right [bar]
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Vehicle Identification Number (VIN)
+; Serial number
+; Type test number
+;
+125,0,CAN-Databus communication (Powertrain)
+125,1,brake,control module
+125,2,engine,control module
+125,3,steering angle,sensor
+125,4,electrical,ignition lock
+;
+126,0,CAN-Databus communication (Powertrain)
+126,1,CAN-Gateway
+126,2,CAN-Gateway,(diagnosis)
+125,3,[N/A]
+125,4,[N/A]
+;

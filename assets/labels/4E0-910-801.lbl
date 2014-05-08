@@ -1,0 +1,154 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J540 - Parking Brake (#53)
+;
+; P/N: 4E0-910-801-???
+;
+; includes measuring blocks, basic setting, coding and adaptation
+;
+; created on 19/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,System,Configuration,See Label File
+; xxxxxxx? = Readiness Bit "Assembly Check" (0 = OK / 1 = not OK)
+; xxxxxx?x = Readiness Bit "System Calibration" (0 = OK / 1 = not OK)
+; xxxxx?xx = Airbag Belt Lock "DAA" (0 = OFF / 1 = ON "Standard")
+; xxxx?xxx = Auto-Hold (0 = active / 1 = inactive)
+; xxx?xxxx = Pad Replacement Mode (1 = Standard)
+; xx?xxxxx = RWU-ECD Functionality (0 = ECD active / 1 = RWU active)
+; x?xxxxxx = Opening with Brake Pedal (0 = Opening w/o Brake Pedal / 1 = No Opening w/o Brake Pedal)
+; ?xxxxxxx = Readiness Bit "End-Of-Line" (0 = Successfully coded / 1 = EOL not completed)
+001,2,Brake Pad,Replacement Mode,See Label File
+; x111xxx? = Left Brake Open
+; x111xx?x = Right Brake Open
+; x111x?xx = Left Fuse removed
+; x111?xxx = Right Fuse removed
+; ?111xxxx = Maintenance Mode active
+001,3,Maximum ECD,Deceleration,Units: m/s²
+001,4,Current Brake,Pad Thickness,Units: mm (Millimeter)
+;
+002,0,General
+002,1,Battery Voltage,(Terminal 30),Specification: min. 10 V
+002,2,Parking Brake,Switch,Range: Open/Closed/Not Oper.
+002,3,Inclination Angle,(actual)
+002,4,Incl. Angle (Corr.),or Brake Temp.,Corrected Inclination Angle (SW: <0190)\nCalculated Brake Temperature (SW: 0200>)
+;
+003,0,Brake Status
+003,1,Shut-Off Current,Left (Calculated),Specification: min. 15.0 A
+003,2,Shut-Off Current,Right (Calculated),Specification: min. 15.0 A
+003,3,Brake Status,(Left),0 = Open\n8 = Closed\n11 = Faulty
+003,4,Brake Status,(Right),0 = Open\n8 = Closed\n11 = Faulty
+;
+B005,0,Open Rear Parking Brake for Pad Change
+B005,1,Current,Left Motor, 
+B005,2, , , 
+B005,3,Current,Right Motor, 
+B005,4, , , 
+;
+B006,0,Close Rear Parking Brake
+B006,1,Current,Left Motor, 
+B006,2, , , 
+B006,3,Current,Right Motor, 
+B006,4, , , 
+;
+B007,0,Open Rear Parking Brake for Repairs
+B007,1,Current,Left Motor, 
+B007,2, , , 
+B007,3,Current,Right Motor, 
+B007,4, , , 
+;
+B010,0,Parking Brake Function Test
+B010,1,Current,Left Motor, 
+B010,2, , , 
+B010,3,Current,Right Motor, 
+B010,4, , , 
+;
+080,0,Advanced Control Module Identification I
+;
+099,0,Versions
+099,1,Software
+099,2,Software Version
+099,3,Hardware
+099,4,Hardware Version
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Brake,Electronics (J104),Specification: ABS 1\nDisplay Range: ABS 1/ABS 0
+125,2,Airbag System,(J255),Specification: Airbag 1\nDisplay Range: Airbag 1/Airbag 0
+125,3,Transmission,Electronics,Specification: Transm. 1\nDisplay Range: Transm. 1/Transm. 0
+125,4,Engine,Electronics,Specification: Engine 1\nDisplay Range: Engine 1/Engine 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,CAN-Gateway,(J533),Specification: Gateway 1\nDisplay Range: Gateway 1/Gateway 0
+126,2,Instrument Cluster,(J285),Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+126,3,Electrical,Ignition Lock,Specification: El.Ign.Lock 1\nDisplay Range: El.Ign.Lock 1/El.Ign.Lock 0
+;
+225,0,CAN-Databus Powertrain (Timeout)
+225,1,Brake,Electronics (J104)
+225,2,Airbag System,(J255)
+225,3,Transmission,Electronics
+225,4,Engine,Electronics
+;
+226,0,CAN-Databus Powertrain (Timeout)
+226,1,CAN-Gateway,(J533)
+226,2,Instrument Cluster,(J285)
+226,3,Electrical,Ignition Lock
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Brake (J540) Coding
+C01,000??xx: Engine
+C02,01 = 3.0l MPI (Gasoline)
+C03,02 = 3.0l TDI (Diesel)
+C04,03 = 3.7l MPI (Gasoline)
+C05,04 = 4.0l TDI (Diesel)
+C06,05 = 4.2l MPI (Gasoline)
+C07,06 = 6.0l MPI (Gasoline)
+C08,07 = 5.2l FSI (Gasoline)
+C09,09 = 4.2l FSI (Gasoline)
+C10,10 = 4.2l TDI (Diesel)
+C11,12 = 3.2l FSI (Gasoline)
+C12,000xx?x: Transmission
+C13,1 = Multitronic (01J)
+C14,2 = Automatic Transmission (09L/AL420)
+C15,3 = Automatic Transmission (09E/AL600)
+C16,000xxx?: Country
+C17,1 = Rest of World (RoW)
+C18,2 = North American Region (NAR)
+C19,3 = Japan (JP)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A006,0,Pad Thickness
+A006,5,Pad Thickness
+A006,6,Enter the measured thickness of the new pads (excl. back panel)
+A006,7,round down to the next lowest integer.
+A006,8, 
+A006,9,Range: 3...14 mm
+;

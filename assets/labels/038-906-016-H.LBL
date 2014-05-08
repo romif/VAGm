@@ -1,0 +1,380 @@
+;038-906-019-H : Engines: 1.9 PD BEW
+;MOGolf @ TDICLUB.com with help from Rammstein TDI
+;
+;
+;Measuring block 000 data at idle, engine warm, coolant >=80캜
+;0,1-Engine Speed            ;36-42(790-870rpm)
+;All 4WD models              ;41-46(860-945rpm)
+;0,2-Start of Injection      ;113-133(4캛TDC-2캚TDC)
+;0,3-Trottle Position        ;0(0%) 
+;0,4-Injection Quantity      ;11-33(3.0-9.0 mg/H)
+;0;5-Manifold Absolute Press.;88-113(900-1150mbar)
+;0,6-Atmospheric Pressure    ;181-222(900-1110mbar)
+;0,7-Engine Coolant Temp.    ;80-36(80-110캜) 
+;0,8-Intake Manifold Temp.   ;189-51(5-100캜) 
+;0,9-Fuel Temperature        ;85-184 (20-90캜)
+;0,10-Air Mass(EGR on)       ;63-111(210-370 mg/H)
+;EGR is switched off after approx. 2 min. of idle (>2min, restart eng. or blip)
+;
+;Measuring block 000 data at full load, 3rd gear, temp 80캜, at 3000 rpm
+;0,1-Engine Speed            ;136-150(2850-3150rpm)
+;0,2-Start of Injection      ;82-60(14캛TDC-21캛TDC)
+;0,3-Trottle Position        ;255(100%)
+;0,4-Injection Quantity      ;189-219(52-60mg/H)
+;0;5-Manifold Absolute Press.;215-255(2200-2600mbar)
+;0,6-Atmospheric Pressure    ;181-222(900-1110mbar)
+;0,7-Engine Coolant Temp.    ;80-35(80-110캜)
+;0,8-Intake Manifold Temp.   ;189-51(5-100캜)
+;0,9-Fuel Temperature        ;85-199(20-100캜)
+;0,10-Air Mass               ;>255(100 mg/H)
+; 
+
+1,0,Injected quantity
+1,1,Engine speed,idle 860-940,full load:2800-3200
+1,2,Injected quantity,3.0-9.0 idle, 38-50 full load
+1,3,Spec. Inj. duration,3-9� idle,17-26� full load
+1,4,Coolant temp,80-110캜
+
+2,0,Idle Speed (See label file for #3)
+2,1,Engine speed,860-940 RPM
+2,2,Throttle pos,0.0% idle, 100% full load
+2,3,Operating Cond/AC,speed/throttle/AC
+;xxxx
+;   1 AC compressor switched on
+;  1  Slow down switch closed
+; 1   Kick down switch closed
+;1    Inc. idle speed as AC switched on
+2,4,Coolant Temp,80-110캜
+
+3,0,EGR (Exhaust Gas Recycling)
+3,1,Engine speed,860-940 idle,2800-3200 full load
+3,2,MAF (specified),200-280 idle,800-950 full load
+3,3,MAF (actual),180-300 idle,800-1100 full load
+3,4,EGR duty cycle,20-80% idle,90-100% full load
+
+4,0,Unit Injectors valves command
+4,1,Engine speed,860-940 idle,2800-3200 full load
+4,2,Spec start of inj.,5BTDC-2ATDC idle,14-25BTDC full load
+4,3,Spec inj. duration,3-9� idle,19-26� full load
+4,4,Synchro. angle,-3..+3� idle
+
+5,0,Starting conditions
+5,1,Engine speed,860-940 RPM
+5,2,Start inj,quantity,7-19mg/H
+5,3,Start synchro.,see label file
+;000,Basic initialisation
+;001,Basic initialisation
+;002,Engine stopped or something뭩 wrong
+;003,Transitional state
+;004,Verification of plausibility
+;005,Verification of plausibility
+;006,Verification of plausibility
+;008,Verification of plausibility
+;016,Choice of starting phase occuring
+;028,Redundant start
+;032,Phase of synchronisation
+;033,Position of the system
+;048,Calculation sequence active
+;064,System in stopped motor status
+;128,Dynamic verification of plausibility
+5,4,Coolant temp,캜
+
+6,0,Speed Regulation (See lbl file for #2 and #4)
+6,1,Speed, km/h
+6,2,Brake Pedal,F/F47/F36? 
+; xxxxxxxx 
+;        1  Brake light contact closed
+;       1   Cruise,DFI brake switch open
+;      1    Clutch vacuum vent valve switch-f36-, open
+;     1    Free FGR
+;    1     Free ACC
+;   1      Principal contact
+; 00       Acceleration mode/cruise control non active
+; 10       Passed state
+; 01       Acceleration/cruise control in regulation mode
+; 11       ACC not free
+6,3,Accellerator
+6,4,Cruise Control,Cl/Br/Re/Ac/on/on
+; xxxxxxxx
+;        1 CC inactive
+;       1  CC active
+;      1   Decellerate switch operated
+;     1    Accellerate switch operated
+;    1     Reglage
+;   1      Resume speed
+; 1-       Deactivation by calculator
+
+7,0,Temperatures (Engine cold-contact on: ~Amb. temp)
+7,1,Fuel Temp,~Amb.Temp.캜
+;-5.4캜 short circuit or Fuel Temp. Sensor -G81- inoperative
+7,2,Fuel cooling state,On:100%-Off:0%
+7,3,Intake Air Temp,~Amb.Temp.캜
+;~136.8캜 Intake Air Temp. Sensor -G72- inoperative
+7,4,Coolant Temp,~Amb.Temp.캜
+;Short circuit or ECT sensor -G62- inoperative
+
+8,0,Injected Quantity(IQ) limitation
+8,1,Engine speed,860-940 idle,2800-3200 full load
+8,2,Conducting couple,-5..0 Nm idle,240-340Nm full load
+8,3,Limitation couple,100-200Nm idle,200-320Nm full load
+8,4,Smoke limitation,100-200Nm idle,full load > block 3
+
+9,0,Injected Quantity Limitation
+9,1,Engine speed,rpm
+9,2,Injection Limit,CC active
+9,3,Inj. limit,during a/t shift
+9,4,Actual Limit
+
+10,0,Air system (Coolant temp. min. 75캜)
+10,1,MAF,180-300mg/H idle,800-1100mg/H full load
+10,2,Atmos. pressure,sensor -f96-,
+10,3,Intake air press.,900-1150 idle,1850-2400 full load
+10,4,Accel.,0-100%
+
+11,0,Charge pressure control (3rd gear - 3000rpm - full load)
+11,1,Engine speed,860-940 idle,2800-3200 full load
+11,2,Spec. intake press.,900-1150 idle,1900-2200 full load
+11,3,Actual intake press.,900-1150 idle,1850-2400 full load
+11,4,D.cycle MAP,40-90% idle,20-80% full load
+
+
+12,0,Glow Plugs (see label file for #1)
+12,1,Glow status,all 1's=off
+; xxxxxxxx
+; 11111111 Glowing off
+; 00010000 Pre-glow
+; 01110000 Start of glow
+; 11110000 Interim glow
+; 10110000 Post-glow
+; 00110000 Readiness glowing
+; 00000000 Attente de temp. liqu. refroid
+; 00000001 Wait for starting conditions
+; 01010000 Not Pre-glow
+; 11000000 No preglow at start
+; 10110001 Wait post glow
+; 11010000 No post glow
+; 11110001 Intermediate preglow wait
+12,2,Pre-glow period,
+12,3,Supply Voltage,
+12,4,Coolant Temp,*C
+
+13,0,Idle Speed Smooth Running Control
+13,1,Cyl 1,-2.8 to +2.8 mg/H
+13,2,Cyl 2,-2.8 to +2.8 mg/H
+13,3,Cyl 3,-2.8 to +2.8 mg/H
+13,4,Cyl 4,-2.8 to +2.8 mg/H
+
+14,0,Vacant
+14,1,Vacant
+14,2,Vacant
+14,3,Vacant
+14,4,Vacant
+
+15,0,Fuel Consumption
+15,1,Engine speed,rpm
+15,2,Inj Qty (actual),25-60Nm idle
+15,3,Fuel Consumption,
+15,4,Inj Qty requested,(accelerator),-5..0Nm
+
+16,0,Additional Heater
+16,1,Generator loading,
+16,2,Aux. heat,(see label file)
+; xxxxxxxx
+; 1        Not relevant
+;  1       Not relevant
+;   1      Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty
+;    1     Engine start in last 10 seconds
+;     1    Engine below 870 rpm
+;      1   Battery below 9 volts
+;       1  Generator faulty
+;        1 Coolant temp > 70-80C or Intake Air Temp. > 5C
+16,3,Activation,Hi/Lo
+; xx
+; 1  High heat output,J360 on
+;  1 Low heat output,J359 on
+16,4,Voltage supply
+
+17,0,Emissions readiness
+17,1,ignore
+17,2,00000xxx
+17,3,ignore
+17,4,0xxxxxxx
+
+18,0,PD valve status(after 1 min idling- coolant>80캜)
+18,1,Cyl 1,0,
+18,2,Cyl 2,0,
+18,3,Cyl 3,0,
+18,4,Cyl 4,0,
+;if != 0, inoperative valve/open circuit/lack of fuel/bubbles
+;000=OK
+;002 Starting command
+;004 Injection quantity minimal or electrovans closed
+;008 Maximum current attained
+;016 Start of injection outside of expected range
+;032 Sample too low
+;064 Conversion error
+;128 Not possible to estimate start of injection
+
+
+20,0,Injection limits
+20,1,Speed
+20,2,Inj Qty (actual), 25-60Nm idle 
+20,3,undocumented
+20,4,limit, CC active
+
+21,0,Undocumented
+22,0,Undocumented
+
+23,0,Duration electrical activation of injectors
+23,1,Cyl 1,-100..100탎
+23,2,Cyl 2,-100..100탎
+23,3,Cyl 3,-100..100탎
+23,4,Cyl 4,-100..100탎
+
+24,Vacant
+24,1,Vacant
+24,2,Vacant
+24,3,Vacant
+24,4,Vacant
+25,0,Undocumented
+
+25,1,Speed
+26,0,Undocumented
+27,0,ABS input
+27,1,Undocumented
+27,2,Undocumented
+27,3,Wheel speed,0 stopped
+27,4,Wheel speed,255 stopped
+28,0,Throttle Pedal Status
+28,1,Out Voltage 1,0% 300-456mV
+28,2,
+28,3,Switch,see label file
+;xxx1 AC active
+;xx1x Brake active
+;x1xx Kick down switch active
+;1xxx Slowed acceleration
+28,4,Pedal position,0-100%
+30,0,Undocumented
+31,0,Undocumented
+32,0,Intake Air
+32,1,Undocumented
+32,2,Temperature
+32,3,Pressure
+32,4,Undocumented
+33,0,Air Quantity
+33,1,RPM
+33,3,Pressure
+33,4,Air Flow
+34,0,Undocumented
+35,0,Undocumented
+36,0,Undocumented
+37,0,Undocumented
+38,0,Undocumented
+39,0,Undocumented
+39,1,Speed
+40,0,Undocumented
+41,0,Undocumented
+42,0,Undocumented
+43,0,Undocumented
+44,0,Undocumented
+44,2,Coolant Temp
+50,0,Undocumented
+51,0,Undocumented
+51,1,engine speed,rpm
+51,2,cam sensor ?,rpm
+52,0,Wheel speeds?
+52,1,LF
+52,2,RF
+52,3,RR
+52,4,LR
+55,0,Undocumented
+56,0,Undocumented
+60,0,Undocumented
+60,1,engine speed,rpm
+60,2,Inj Qty (actual),25-60Nm idle
+60,3,Coolant Temp.
+60,4,Load
+61,0,Undocumented
+61,1,Temp
+61,2,Coolant Temp.
+61,3,Load
+61,4,Bin. Bits
+62,0,Motor Cooling
+62,1,Coolant Temp.
+62,2,Vacant
+62,3,Ambient Air Temp
+62,4,Intake Air Temp
+63,0,Motor Cooling
+63,1,Pressure,off 0-8 bar,on 5-30 bar
+63,2,Torque,off 0 N,on 2-10Nm
+63,3,Vacant
+63,4,Status compr.,see label file
+;001 Vehicle moving or in action
+;002 Cut because vehicle is running
+;004 Vehicule accelerating
+;008 Cut because vehicule is accelerating
+;016 Cut because vehicule just started
+;032 Error system detected
+;064 Cut because error in system detected
+;128 Cut because lowering of idle
+
+65,0,Undocumented
+65,1,Load
+65,2,Coolant Temp
+65,3,Vacant
+65,4,Bin. Bits
+66,0,Fuel
+66,1,Vacant
+66,2,Fuel Temp
+66,3,Fuel Consump.
+74,0,Undocumented
+74,1,RPM
+74,2,Temp?
+
+74,3,(no units)
+74,4,Inj. Quantity
+80,0,Vehicle data
+81,0,Vehicle data
+81,1,VIN (part)
+81,2,VIN (part)
+81,3,text
+81,4,text
+86,0,Undocumented
+87,0,Undocumented
+89,0,Undocumented
+90,0,Undocumented
+90,1,RPM
+90,2,Inj. Quantity
+90,3,Mass Air/Rev.
+90,4,Bin. Bits
+91,0,Undocumented
+93,0,Undocumented
+125,0,Communication - CAN bus messages
+125,1,Gearbox status,1
+125,2,ABS status,1
+125,3,Instr. status,1
+125,4,Airbag status,1
+;
+131,0,Undocumented
+131,4,Coolant Temp.
+133,0,Undocumented
+133,1,RPM
+133,2,Mass Air/Rev.
+133,3,Intake Air press.
+133,4,(no units)
+134,0,Electrical Status
+134,1,Load
+134,2,System voltage
+134,3,Vacant
+134,4,Vacant
+213,0,Undocumented
+213,1,RPM
+213,2,Throttle,100%
+213,3,Speed
+213,4,(no units)
+225,0,Undocumented
+226,0,Undocumented
+227,0,Undocumented
+228,0,Undocumented
+229,0,Undocumented
+

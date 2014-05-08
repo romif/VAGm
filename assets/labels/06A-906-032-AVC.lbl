@@ -1,0 +1,372 @@
+;
+; VAG-COM Labeldatei
+;
+; VW New Beetle (1C/9C)
+;
+; Komponente: Motor (#01) - APH/AVC 1.8l 110kW/150PS
+;
+; T/N: 06A-906-032-???
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 06A-906-032-AVC.LBL (1.8l TE  @ 150 HP - APH/AVC)
+;
+; erstellt am 21.01.2006 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 21.01.2006
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+;C00,Motor (J220) Codierung
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+001,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+001,3,Lambdaregelung,,Wertebereich: -10.0...+10.0 %
+001,4,Bedingungen für,Grundeinstellung,siehe Labeldatei
+; 0xxxxxxx = Kühlmitteltemperatur unter 80 °C
+; x0xxxxxx = Drehzahl unter 2000/Min.
+; xx0xxxxx = Drosselklappe geschlossen
+; xxx0xxxx = Regulierung Lambda korrekt
+; xxxx0xxx = Zustand Leerlauf
+; xxxxx0xx = Kompressor Klimaanlage deaktiviert
+; xxxxxx0x = Katalysatortemperatur i.O.
+; xxxxxxx0 = Keine Fehler von Eigendiagnose erkannt
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+002,2,Motorlast
+002,3,mittlere,Einspritzzeit
+002,4,angesaugte,Luftmasse (G70),Sollwert (Leerlauf): 2.0...4.5 g/s\nSollwert (Vollast): mind. 100.0 g/s
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+003,2,angesaugte,Luftmasse (G70),Sollwert (Leerlauf): 2.0...4.5 g/s\nSollwert (Vollast): mind. 100.0 g/s
+003,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+003,4,Zündwinkel
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+004,2,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+004,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+004,4,Ansaugluft-,temperatur (G42)
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+005,2,Motorlast
+005,3,Geschwindigkeit
+005,4,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Anreich./Schub/Vollast\nSollwert: Leerlauf
+;
+006,0,Grundfunktionen
+006,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+006,2,Motorlast
+006,3,Ansaugluft-,temperatur (G42)
+006,4,Höhenkorrektur-,faktor,    0.0 % = 0 m\n100.0 % = 10.000 m
+;
+010,0,Zündung
+010,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+010,2,Motorlast
+010,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+010,4,Zündwinkel
+;
+011,0,Zündung
+011,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+011,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+011,3,Ansaugluft-,temperatur (G42)
+011,4,Zündwinkel
+;
+020,0,Klopfregelung (Zylinder 1 - 4)
+020,1,Zündwinkelrück-,nahme Zylinder 1,Sollwert: 0.0...15.0 °KW
+020,2,Zündwinkelrück-,nahme Zylinder 2,Sollwert: 0.0...15.0 °KW
+020,3,Zündwinkelrück-,nahme Zylinder 3,Sollwert: 0.0...15.0 °KW
+020,4,Zündwinkelrück-,nahme Zylinder 4,Sollwert: 0.0...15.0 °KW
+;
+022,0,Klopfregelung (Zylinder 1 && 2)
+022,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+022,2,Motorlast
+022,3,Zündwinkelrück-,nahme Zylinder 1,Sollwert: 0.0...15.0 °KW
+022,4,Zündwinkelrück-,nahme Zylinder 2,Sollwert: 0.0...15.0 °KW
+;
+023,0,Klopfregelung (Zylinder 3 && 4)
+023,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+023,2,Motorlast
+023,3,Zündwinkelrück-,nahme Zylinder 3,Sollwert: 0.0...15.0 °KW
+023,4,Zündwinkelrück-,nahme Zylinder 4,Sollwert: 0.0...15.0 °KW
+;
+026,0,Klopfregelung
+026,1,Klopfsensor-,spannung Zyl. 1
+026,2,Klopfsensor-,spannung Zyl. 2
+026,3,Klopfsensor-,spannung Zyl. 3
+026,4,Klopfsensor-,spannung Zyl. 4
+;
+028,0,Zündung (Grundeinstellung: Klopfsensorprüfung)
+028,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+028,2,Motorlast
+028,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+028,4,Klopfsensor-,prüfung,Wertebereich: Test EIN/Test AUS/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+030,0,Lambdasonden Status
+030,1,Bank 1,Sonde 1,Sollwert: 111\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+030,2,Bank 1,Sonde 2,Sollwert: 110\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+;
+031,0,Lambdaregelung
+031,1,Lambdawert,Bank 1 (IST-Wert)
+031,2,Lambdawert,Bank 1 (SOLL-Wert)
+;
+032,0,Lambdasonden Lernwerte (maximaler Wert)
+032,1,Bank 1 Sonde 1,Leerlauf (additiv)
+032,2,Bank 1 Sonde 1,Teillast (multipl.)
+;
+033,0,Lambdaregelung
+033,1,Lambdaregler,Bank 1
+033,2,Lambdasonden-,spannung Bank 1
+;
+034,0,Lambdasonden-Alterungsprüfung Bank 1 vor Katalysator (Grundeinstellung)
+034,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+034,2,Katalysator-,temperatur,Sollwert: mind. 365.0 °C
+034,3,Periodendauer,Bank 1 Sonde 1,Sollwert: mind. 0.7
+034,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B1-S1 i.O./B1-S1 n.i.O.\nSollwert: B1-S1 i.O.
+;
+036,0,Lambdasonden-Betriebsbereitschaft (Grundeinstellung)
+036,1,Sondenspannung,Bank 1 Sonde 1
+036,2,Katalysator-,temperatur,Sollwert: mind. 365.0 °C
+;
+041,0,Lambdasondenheizung Bank 1
+041,2,Zustand,Bank 1 Sonde 1,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+041,4,Zustand,Bank 1 Sonde 2,Wertebereich: Hzg.nK.ein/Hzg.nK.aus
+;
+050,0,Drehzahlregelung
+050,1,Motordrehzahl,(IST-Wert)
+050,2,Motordrehzahl,(SOLL-Wert)
+050,3,Klimaanforderung,,Wertebereich: AC-Low/AC-High
+050,4,Klimakompressor,,Wertebereich: Kompr. ein/Kompr. aus
+;
+051,0,Drehzahlregelung (Schalteingriffe)
+051,1,Motordrehzahl,(IST-Wert)
+051,2,Motordrehzahl,(SOLL-Wert)
+051,3,Fahrstufe,(nur Automatik),Wertebereich: P/N = 0 / Gang = 1...6 / R = 7\nSollwert: 0
+051,4,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+;
+052,0,Drehzahlregelung
+052,1,Motordrehzahl,(IST-Wert)
+052,2,Motordrehzahl,(SOLL-Wert)
+052,3,Klimaanforderung,,Wertebereich: AC-Low/AC-High
+;
+053,0,Drehzahlregelung aufgrund Generatorlast
+053,1,Motordrehzahl,(IST-Wert)
+053,2,Motordrehzahl,(SOLL-Wert)
+053,3,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+053,4,Generatorlast
+;
+054,0,Drehzahlregelung
+054,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+054,2,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Anreich./Schub/Vollast\nSollwert: Leerlauf
+054,3,Drosselklappen-,winkel (G79),Wertebereich: 0.0...100.0 %
+054,4,Gaspedalstellung,(G187),Wertebereich: 0.0...100.0 %
+;
+055,0,Drehzahlregelung
+055,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+055,2,Leerlaufregler
+055,3,Lernwert,LL-Stabilis.
+055,4,Betriebszustände,,xxxx1 - Klimakompressor EIN\nxxx1x - Fahrstufe eingelegt\nxx1xx - Klimabereitschaft EIN\nx1xxx - Heckscheibenheizung EIN\n1xxxx - Lenkung am Anschlag
+;
+056,0,Drehzahlregelung
+056,1,Motordrehzahl,(IST-Wert)
+056,2,Motordrehzahl,(SOLL-Wert)
+056,3,Eingriff durch,Leerlaufregler
+056,4,Betriebszustände,,00xx1 - Klimakompressor EIN\n00x1x - Fahrstufe eingelegt\n001xx - Klimabereitschaft EIN
+;
+057,0,Drehzahlregelung - Drucksignal Klimakompressor
+057,1,Motordrehzahl,(IST-Wert)
+057,2,Motordrehzahl,(SOLL-Wert)
+057,3,Klima-,kompressor,Wertebereich: Kompr. ein/Kompr. aus
+057,4,Druckaufnahme
+;
+060,0,Drehzahlregelung (Grundeinstellung: Drosselklappensteuereinheit)
+060,1,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+060,2,Drosselklappen-,winkel (G188),Wertebereich: 0.0...100.0 %
+060,3,Lernschrittzähler
+060,4,Anpassungs-,zustand,Wertebereich: ADP läuft/ADP i.O./ERROR\nSollwert: ADP i.O.
+;
+061,0,Drehzahlregelung (E-Gas System)
+061,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+061,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+061,4,Betriebszustand,,--xxx1 - Klimakompressor EIN\n--xx1x - Fahrstufe eingelegt\n--x1xx - Klimabereitschaft EIN\n--1xxx - Heckscheibenheizung EIN
+;
+062,0,Drehzahlregelung (E-Gas System)
+062,1,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+062,2,Drosselklappen-,winkel (G188),Wertebereich: 0.0...100.0 %
+062,3,Gaspedalstellung,(G79),Wertebereich: 0.0...100.0 %
+062,4,Gaspedalstellung,(G185),Wertebereich: 0.0...100.0 %
+;
+066,0,Geschwindigkeitsregelanlage (GRA/Tempomat)
+066,1,Geschwindigkeit,(IST)
+066,2,Schalterstellung,Bremse/Kupplung,Sollwert: 1000
+; 1xxx - GRA freigeschaltet
+; x1xx - Kupplungspedalschalter ein
+; xx1x - Bremspedalschalter ein
+; xxx1 - Bremslichtschalter ein
+066,3,Geschwindigkeit,(SOLL)
+066,4,Schalterstellung,Bedienhebel,Sollwert: 0000\n1xxx - RES (Reset) ein\nx1xx - SET ein\nxx1x - OFF (nicht eingerastet)\nxxx1 - OFF (eingerastet)
+;
+077,0,Sekundärluftsystem - Bank 1
+077,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+077,3,Relative,Luftmasse
+077,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+086,0,Readinessbits und Zyklusflags
+086,1,Readiness-Bits
+086,2,Zyklusflags I
+086,3,Zyklusflags II
+;
+087,0,Readiness- und Errorbits
+087,1,Readinessbits
+087,2,Errorflags
+087,3,Errorflags
+;
+088,0,Zyklusflags
+088,1,Zyklusflags I
+088,2,Zyklusflags II
+088,3,Zyklusflags III
+;
+099,0,Lambdaregelung (Grundeinstellung)
+099,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+099,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+099,3,Lambda,(IST-Wert)
+099,4,Lambdaregelung,,Wertebereich: Ein/Aus
+;
+100,0,Readynesscode
+100,1,Ready-Bits,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Katalysator
+; xxxxxx0x - Katalysator-Heizung
+; xxxxx0xx - Tankentlüftung
+; xxxx0xxx - Sekundärluftsystem
+; xxx0xxxx - Klimaanlage
+; xx0xxxxx - Lambda-Sonden
+; x0xxxxxx - Lambda-Sondenheizung
+; 0xxxxxxx - Abgasrückführung
+100,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+100,3,Zeit seit,Motorstart,Wertebereich: 0...655.35 s
+100,4,OBD-Status,,siehe Labelfile
+; xxxx--x1 - keine Aufwärmphase erkannt
+; xxxx--1x - Aufwärmphase erkannt
+; xxx1--xx - mind. 1 Fehler erkannt
+; xx1x--xx - Kurztrip komplett
+; x1xx--xx - Kurztrip erkannt
+; 1xxx--xx - Abgaswarnleuchte aktiv
+;
+101,0,Einspritzung
+101,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+101,2,Motorlast
+101,3,mittlere,Einspritzzeit
+101,4,angesaugte,Luftmasse (G70),Sollwert (Leerlauf): 2.0...4.5 g/s\nSollwert (Vollast): mind. 100.0 g/s
+;
+102,0,Einspritzung
+102,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+102,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+102,3,Ansaugluft-,temperatur (G42)
+102,4,mittlere,Einspritzzeit
+;
+105,0,Zylinder-Abschaltung
+105,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+105,2,Motorlast
+105,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+105,4,Status,Abschaltung,Wertebereich: EIN/AUS
+;
+107,0,Lambdaregelung (Grundeinstellung)
+107,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+107,2,Lambdaregler,Bank 1
+107,4,Ergebnis,,Wertebereich: Test ein/Test aus/Syst.i.O./Syst.n.i.O.
+;
+110,0,Last-/Vollastanreicherung
+110,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+110,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+110,3,mittlere,Einspritzzeit
+110,4,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+;
+111,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+111,2,Motorlast
+111,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+111,4,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Anreich./Schub/Vollast\nSollwert: Leerlauf
+;
+112,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+112,2,Motorlast
+112,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+;
+113,0,Last-/Vollastanreicherung
+113,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+113,2,Motorlast
+113,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+113,4,Luftdruck,(Atmosphäre)
+;
+114,0,Ladedruckregelung
+114,1,Motorlast,(vor Korrektur)
+114,2,Motorlast,(nach Korrektur)
+114,3,Motorlast,(IST-Wert)
+114,4,Ladedruckventil,(N75)
+;
+115,0,Ladedruckregelung
+115,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+115,2,Motorlast
+115,3,Ladedruck,(SOLL-Wert)
+115,4,Ladedruck,(IST-Wert)
+;
+116,0,Ladedruckregelung
+116,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+116,3,Korrekturfaktor,Kühlmitteltemp.
+116,4,Korrekturfaktor,Ansauglufttemp.
+;
+117,0,Ladedruckregelung
+117,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+117,2,Gaspedalstellung,(G79),Wertebereich: 0.0...100.0 %
+117,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+117,4,Ladedruck,(SOLL-Wert)
+;
+118,0,Ladedruckregelung
+118,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+118,2,Ansaugluft-,temperatur (G42)
+118,3,Ladedruckventil,(N75)
+118,4,Ladedruck,(IST-Wert)
+;
+119,0,Ladedruckregelung
+119,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+119,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+119,3,Ladedruckventil,(N75)
+119,4,Ladedruck,(IST-Wert)
+;
+120,0,Anti-Schlupf-Regelung (ASR)
+120,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+120,2,Sollmoment,ASR
+120,3,Motormoment
+120,4,Status,,Wertebereich: ASR aktiv/ASR n. aktiv
+;
+121,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+121,3,Motormoment
+;
+122,0,Getriebe
+122,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780 U/min
+122,2,Sollmoment,Getriebe
+122,3,Motormoment
+122,4,Status,,Wertebereich: Motoreingriff/kein Eingriff
+;

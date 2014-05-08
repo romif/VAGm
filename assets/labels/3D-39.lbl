@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; VW Phaeton (3D) / VW Touareg (7L)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-29.LBL
+; 3D-39.LBL
+; 3D0-909-15x-LWR.LBL
+;
+; created on 03/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 03/Oct/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3D0-909-15x-LWR.LBL,3D0-909-158-???
+;

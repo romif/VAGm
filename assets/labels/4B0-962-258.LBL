@@ -1,0 +1,69 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 35 -- Central Locking
+; 
+; from USA 2001 Audi allroad quattro
+;      (with solar sunroof)
+;
+; ECU p/n :	8B0-862-258-J
+; Component:	Central Lock/Alarm D33
+; Soft coding:	15885
+;
+; Modification history
+; created:  Paul Cunningham,  6 June 2001 
+; email corrections and comments to cunningham64@home.com
+;
+;suspect sunroof is in here somewhere
+;
+1,0,Status 
+1,1,,Not Op
+1,2,,Not Op
+1,3,LH Drvr,door lock
+1,4,safe,?
+;
+2,0,Status
+2,1,Not Op
+2,2,(no data)
+2,3,RH Fr.Pass,door lock
+2,4,safe,?
+;
+3,0,
+3,1,RH rear,door lock
+3,2,safe,?
+3,3,LH rear,door lock
+3,4,safe,?
+;
+4,0,System Settings
+4,1,LH Front Door
+4,2,RH Front Door
+4,3,RH Rear Door
+4,4,LH Rear Door
+;
+5,0,
+5,1,Not Op
+5,2,Tailgate,Open|Closed
+5,3,Not Op
+5,4,Not Op
+;
+6,0,Lights
+6,1,Auto Dome light
+;not sure which relay
+6,2,,Relay ON|OFF
+6,3,,Not Op
+6,4,,OFF
+;
+7,0,
+7,1,,048 000 000
+7,2,,0000
+7,3,,1100
+7,4,,11
+;
+8,0,
+8,1,Vehicle speed
+8,2,,OFF
+8,3,,000
+8,4,(no data)
+;
+9,0,Bits 011 1110 0000 1101
+;
+

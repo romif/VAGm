@@ -1,0 +1,75 @@
+;
+;VAG-COM measuring block labels for Airbag Control Unit
+;1999-2000 Jetta, Golf, GTI
+;Controller 6QO-909-605A
+
+;Contributed by
+;Steve Tomasic (steve_tomasic@hotmail.com)
+
+;Airbag Control Unit Coding
+
+;VEHICLE EQUIPMENT        PART #     INDEX    CODE#
+;Driver's,Pass. A/B    1J0 909 603    AN      16718  
+;Driver's,Pass. A/B    6Q0 909 601    0C      12355
+;Only Driver's A/B     1J0 909 603    AP      16720
+;Only Driver's A/B     6Q0 909 601    OB      12354
+;Dr's,Pass.+Side A/B   1J0 909 608    AR      16722
+;Driver'ss+Side A/B    1J0 909 608    AS      16723
+;                                     C       00067
+;                                     J       00074
+;Dr's,Pass.+Side A/B+  1J0 909 609    A       00065
+;Elec. Belt Tensioner
+;Dr's,Pass.+Side A/B+  6Q0 909 605A   02      12338
+;Elec. Belt Tensioner
+;Dr's,Pass.+Side+Head  6Q0 909 605F   02      12338
+;A/B+Elec. Belt Tens.
+;Dr,s+Side A/B+Elec.   1J0 909 609    B       00066
+;Belt Tensioner
+;Dr's+Side A/B+Elec.   6Q0 909 605A   01      12337
+;Belt Tensioner
+;Dr's,Side,Head A/B+   6Q0 909 605F   X1      12337
+;Elec. Belt Tensioner
+;Dr's,Pass.,A/B with   6Q0 909 605A   03      12339
+;Kneebar,Side A/B+
+;Elec. Belt Tensioner
+;Dr's,Pass.,A/B with   6Q0 909 605F   03      12339
+;Kneebar,Side+Head A/B
+;Elec. Belt Tensioner  6Q0 909 601    OM      12365
+;Dr's,Pass. A/B with
+;Kneebar
+;Dr's,Pass. A/B with   6Q0 909 605A   OM      12345
+;Kneebar,Side A/B+
+;Elec. Belt Tensioner
+;Dr's,Pass. A/B with   6Q0 909 605F   X4      22580
+;Kneebar,Side+Head A/B+
+;Elec. Belt Tensioner
+
+
+
+
+1,0,Airbag Igniters/Belt Tensioners
+1,1,Driver's,Air Bag
+1,2,Front Pass.,Air Bag
+1,3,Driver's Belt,Tensioner
+1,4,Front Pass.,Belt Tensioner
+
+3,0,
+3,1,Voltage Sup.,Correct
+3,2,Fr.Pass.Seat,Occupied Recog.
+3,3,Dr. Seat Belt,Latch Switch
+3,4,Fr.Pass.Seat,Belt Latch Sw.
+
+5,0,
+5,1,Dr.Side A/B,Igniter
+5,2,Fr.Pass.Side,A/B Igniter
+5,3,Rear Off Side,Side A/B Ign.
+5,4,Rear Near Side,Side A/B Ign.
+
+7,0,
+7,1,Dr.Head,A/B Igniter
+7,2,Fr.Pass.Head,A/B Igniter
+7,3,Rear Off Side,Side A/B Ign.
+7,4,Rear Near Side,Side A/B Ign.
+
+
+

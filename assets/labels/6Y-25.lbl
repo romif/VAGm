@@ -1,0 +1,24 @@
+;
+; VAG-COM Redirect File
+;
+; Skoda Fabia (6Y)
+;
+; Component: Immobilizer (#25)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Y-25.LBL
+; 5J0-920-xxx-25.LBL
+;
+; created on 12/Dec/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Mar/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;6Y0-920-??0-???
+;6Y0-920-??1-??? ;              >> 6Y-5-391 600
+;6Y0-920-??2-??? ; 6Y-5-391 601 >> 6Y-7-646 964
+REDIRECT,5J0-920-xxx-25.LBL,6Y0-920-??3-??? ; 6Y-7-646 965 >>
+;

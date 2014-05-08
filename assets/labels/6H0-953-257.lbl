@@ -1,0 +1,56 @@
+;
+; VAG-COM Label File
+;
+; VW Caddy (9K) / VW Golf Cabriolet (1E) / VW Lupo (6X)
+; VW Polo (6N) / VW Transporter (70/7D)
+;
+; Component: J362 - Immobilizer (#25)
+;
+; P/N: 6H0-953-257
+;
+; includes measuring blocks and coding
+;
+; created on 10/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Apr/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Number of,adapted Keys,Specification: 0...8
+001,2,Reader Coil,Status,Specification: 1 = OK\n\n0 = not OK\n1 = OK
+001,3,Key Status,(Transponder),Specification: 1 = OK\n\n0 = not OK (possibly defective)\n1 = OK
+001,4,Variable Code,authorized,Specification: 1 = Yes\n\n0 = No\n1 = Yes
+;
+002,0,General
+002,1,Key Learning,Time,(in Seconds)
+002,2,Number of Keys,(specified),Specification: 0...8
+002,3,Number of Keys,(actual),Specification: 0...8
+002,4,Key Matching,Status,
+; ?xxx = Fault Status (0 = No Fault / 1 = Fault)
+; x?xx = Adaption (0 = finished / 1 = running)
+; xx?x = Current Key (0 = OK / 1 = Not OK)
+; xxx? = Current Adaptation (0 = OK / 1 = Not OK)
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Immobilizer (J362) Coding
+C01,The coding displays the used baud rate on the w-line for
+C02,communication between immobilizer and engine control unit.
+C03, 
+C04,The coding/baud rate will be automatically determined by the control module.
+;

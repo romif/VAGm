@@ -1,0 +1,405 @@
+;
+; VAG-COM Measuring Block Labels for
+; AEG 2.0L 4-cyl gas engine ECU
+; Part #  06A 906 018 FA
+;
+; NOTE: This is ONLY VERIFIED for AEG engine ECUs!
+; Some AGU engines use the same 9-digit part number,
+; but different suffix letters
+;
+; submitted by Davin Swanson
+;     This version includes best-guess labels for some groups
+;       that are not documented in the Bentley.
+;     These groups are labeled with <UnDoc>
+;
+; NOTE: Most blocks are designed for specific system tests.
+;       Refer to the Bentley CD for test instructions.
+;
+; Measuring Block 0
+; Running at Idle
+; Blk	Description		In-Spec Value	= Physical Value
+;0,1	Engine Coolant Temp	170-204		80-105 *C
+;0,2	Engine Load		10-50		0.5-2.5 ms
+;0,3	Engine Speed		75-82		740-820 RPM
+;0,4	ECM Supply Voltage	170-206		12-14.5 V
+;0,5	Throttle Valve Angle	0-13		0-6 deg
+;0,6	Idle Regulation		120-136		-4 - 4 kg/h
+;0,7	Idel Stab. Learned Val	120-136		-4 - 4 kg/h
+;0,8	O2 Sensor Control 1	77-179		-10 - 10 %
+;0,9	Mix prep add (idle)	243-255		-.64 - .64 ms
+;				0-13
+;0,10	Mix prep mult (part th)	118-138		-8 - 8 %
+;
+1,0,Idling Test
+1,1,Eng Speed
+1,2,Coolant Temp
+1,3,Pre O2 Sens
+1,4,Adjustment,Conditions
+;
+2,0,Load registration
+; air mass should be 2.0-5.0 g/s at idle with unloaded engine
+2,1,Engine,Speed
+2,2,Engine,Load
+2,3,Injection,Period
+2,4,Air Mass,(MAF)
+;
+3,0,General <UnDoc>
+3,1,Engine,Speed
+3,2,Air,Mass
+3,3,Throttle Body,Angle
+3,4,Ignition Angle,(Actual)
+;
+4,0,General engine data
+4,1,Engine,Speed
+4,2,Supply,Voltage
+4,3,Coolant,Temp
+4,4,Intake Air,Temp
+;
+5,0,General engine data
+5,1,Engine,Speed
+5,2,Engine,Load
+5,3,Vehicle,Speed
+5,4,Operating,Mode
+;
+6,0,General <UnDoc>
+6,1,Engine,Speed
+6,2,Load
+6,3,Intake Air,Temp
+6,4,Altitude,Correction
+;
+10,0,Ignition <UnDoc>
+10,1,Engine,Speed
+10,2,Load
+10,3,Throttle Body,Angle
+10,4,Ignition Angle,(Actual)
+;
+11,0,Ignition <UnDoc>
+11,1,Engine,Speed
+11,2,Coolant,Temp
+11,3,Intake Air,Temp
+11,4,Ignition Angle,(Actual)
+;
+14,0,Ignition Misfire Recognition
+14,1,Engine,Speed
+14,2,Engine,Load
+14,3,Total,Misfires
+14,4,Recognition,Status
+;
+15,0,Ignition Misfire Recognition
+15,1,Cyl. 1,Misfires
+15,2,Cyl. 2,Misfires
+15,3,Cyl. 3,Misfires
+15,4,Recognition,Status
+;
+16,0,Ignition Misfire Recognition
+16,1,Cyl. 4,Misfires
+16,2,VACANT
+16,3,VACANT
+16,4,Recognition,Status
+;
+20,0,Knock control <UnDoc>
+20,1,Ignition,Retard (C1)
+20,2,Ignition,Retard (C2)
+20,3,Ignition,Retard (C3)
+20,4,Ignition,Retard (C4)
+;
+22,0,Ignition Knock Control - Cyl 1 and 2
+22,1,Engine,Speed
+22,2,Engine,Load
+22,3,C1 Timing,Retard
+22,4,C2 Timing,Retard
+;
+23,0,Ignition Knock Control - Cyl 3 and 4
+23,1,Engine,Speed
+23,2,Engine,Load
+23,3,C3 Timing,Retard
+23,4,C4 Timing,Retard
+;
+26,0,Knock sensor voltage <UnDoc>
+26,1,Knock,Sensor C1
+26,2,Knock,Sensor C2
+26,3,Knock,Sensor C3
+26,4,Knock,Sensor C4
+;
+28,0,Test knock sensor - short trip <UnDoc>
+28,1,Engine,Speed
+28,2,Load
+28,3,Coolant,Temp
+28,4,Test,Result
+;
+30,0,Operation Condition of O2S Control
+; 111
+; ||\- O2S Control active
+; |\-- O2S Operationally ready
+; \--- O2S Heating On
+30,1,O2S #1,Condition
+30,2,O2S #2,Condition
+30,3,VACANT
+30,4,VACANT
+;
+31,0,O2 Sensor Voltage <UnDoc>
+31,1,B1S1,Voltage
+31,2,B1S2,Voltage
+31,3,VACANT
+31,4,VACANT
+;
+32,0,O2S learned values (Pre-Cat sensor)
+32,1,Idle Value,(Additive)
+32,2,Part Load Val,(Multiply)
+32,3,VACANT
+32,4,VACANT
+;
+33,0,O2S control (Pre-Cat sensor)
+33,1,Pre-Cat O2S,Control
+33,2,Pre-Cat O2S,Voltage
+33,3,VACANT
+33,4,VACANT
+;
+34,0,O2S Control (before TWC) diagnosis
+;maintain 3000 RPM until field 2 >352C
+34,1,Engine,Speed
+34,2,3 Way Cat,Temp
+34,3,O2S Cycle,Duration
+34,4,Diag Cond,and Results
+;
+36,0,Post-cat O2S readiness - short trip <UnDoc>
+36,1,Bank 1,Sensor 2
+36,2,Test,Result
+36,3,VACANT
+36,4,VACANT
+;
+37,0,O2S Control Readiness (Post-Cat sensor)
+37,1,Engine,Load
+37,2,Post-Cat O2S,Voltage
+37,3,Post-Cat O2S,Delay
+37,4,Diag Cond,and Result
+;
+41,0,O2S heater before and after TWC
+; resistances should be 6.4-47.5 ohm
+41,1,Pre-Cat O2S,Resistance
+41,2,Heater,On/Off
+41,3,Post-Cat O2S,Resistance
+41,4,Heater,On/Off
+;
+46,0,3-Way Catalytic Converter (TWC) diagnosis
+46,1,Engine,Speed
+46,2,TWC,Temp
+46,3,Amplitude,Ratio
+46,4,Diag Cond,and Result
+;
+50,0,Signals to ECM
+50,1,Actual,Eng Speed
+50,2,Specified,Eng Speed
+50,3,A/C,Status
+50,4,A/C Comp.,Status
+;
+51,0,RPM and shift initiations <UnDoc>
+51,1,Engine Speed,Actual
+51,2,Engine Speed,Specified
+51,3,Driving,Range (AT)
+51,4,Supply,Voltage
+;
+52,0,RPM increase? <UnDoc>
+52,1,Engine Speed,Actual
+52,2,Engine Speed,Specified
+52,3,A/C,Readiness
+52,4,VACANT
+;
+53,0,RPM increase due to alternator load? <UnDoc>
+53,1,Engine Speed,Actual
+53,2,Engine Speed,Specified
+53,3,Generator,Voltage
+53,4,VACANT
+;
+54,0,Speed control / operating mode
+54,1,Engine,Speed
+54,2,Operating,Condition
+54,3,Throt Valve,Angle
+54,4,TPS,Angle
+;
+55,0,Idle air control <UnDoc>
+; field 4:  xxxx
+;           |||\ A/C compressor ON
+;           ||\- Driving range selected?
+;           |\-- A/C readiness ON
+;           \--- ?
+55,1,Engine,Speed
+55,2,Idle Air,Control?
+55,3,Learning,Value?
+55,4,Operating,Conditions
+;
+56,0,Idling Test
+; field 4:   3210
+;            pos 2 is A/C state
+;            pos 1 is auto trans in gear
+;            pos 0 is A/C compressor state
+56,1,Actual,Speed
+56,2,Specified,Speed
+56,3,Idle,Regulation
+56,4,Operating,Conditions
+;
+60,0,Speed Control / Adapting to TVC module
+60,1,Throttle,Valve Angle
+60,2,TP Sensor,G127
+60,3,Operating,Mode
+60,4,Adaptation,Mode
+;
+61,0,ESB/E-gas <UnDoc>
+; field 4:  xxxx
+;           ||||
+;           |||\- A/C compressor ON
+;           ||\-- Driving range selected?
+;           |\--- A/C readiness ON
+;           \---- ?
+61,1,Engine,Speed
+61,2,Supply,Voltage
+61,3,Throttle,Control?
+61,4,Operating,Condition
+;
+66,0,ECU Signals
+; in field 2:    3210
+;                pos 2 is clutch switch
+;                pos 0,1 is brake switch
+; in field 4:    if 255, switch CC on
+;                3210
+;                pos 3 is switch at "RES"
+;                pos 2 is set button pressed
+;                pos 0,1 are switch at "OFF"
+66,1,?
+66,2,Clutch and,Brakes
+66,3,?
+66,4,Cruise,Control
+;
+70,0,EVAP System Fuel Tank Leak Diagnosis
+; select this block and initiate Basic Settings to test system
+70,1,Solenoid,Opening
+70,2,O2S Ctrl,Deviation
+70,3,Idle Ctrl,Deviation
+70,4,Diag Cond,and Results
+;
+71,0,EVAP System Diagnosis
+; if "Reed open" in block one, open and close fuel cap
+; to release pressure. Then enter Basic Settings to perform test
+; 2 minutes may be required
+71,1,Reed Contact,Condition
+71,2,Leak?
+71,3,Test State
+71,4,Diag Cond,and Results
+;
+77,0,Secondary Air Injection (AIR) system diagnosis
+; select this block and initiate Basic Settings to perform adaptation
+77,1,Engine,Temp
+77,2,Lambda,Deviation
+77,3,VACANT
+77,4,Diagnosis,Condition
+;
+86,0,Undocumented
+87,0,Undocumented
+;
+98,0,Throttle valve control module adaptation
+; select this block and initiate Basic Settings to perform adaptation
+98,1,Throttle,Valve Angle
+98,2,TP Sensor,G127
+98,3,Operating,Condition
+98,4,Adaptation,Condition
+;
+99,0,Shut-off I-Regulation Compatibility <UnDoc>
+99,1,Engine,Speed
+99,2,Coolant,Temp
+99,3,Lambda,Regulation
+99,4,Lambda,Regulation
+;
+100,0,Readiness Code Compatibility <UnDoc>
+; field 1: xxxxxxxx (1=not concluded, 0=concluded)
+;          ||||||||
+;          |||||||\ cat converters
+;          ||||||\- Heat cat
+;          |||||\-- AKF-system
+;          ||||\--- SL-system
+;          |||\---- A/C
+;          ||\----- O2 sensors
+;          |\------ O2 sensor heating
+;          \------- EGR
+; field 4: xxxxxxxx (1=fulfilled, 0=not fulfilled)
+;          ||||||||
+;          |||||||\ no warm-up cycle possible
+;          ||||||\- warm-up cycle finished
+;          |||||\-- N/A
+;          ||||\--- N/A
+;          |||\---- at least one DTC recognized
+;          ||\----- trip complete
+;          |\------ driving cycle fulfilled
+;          \------- MIL ON
+100,1,Ready,Bits
+100,2,Coolant,Temp
+100,3,Time Since,Eng Start
+100,4,OBD-Status
+;
+101,0,Fuel injection <UnDoc>
+101,1,Engine,Speed
+101,2,Load
+101,3,Mean Inj.,Time
+101,4,Air,Mass
+;
+102,0,Fuel injection <UnDoc>
+102,1,Engine,Speed
+102,2,Coolant,Temp
+102,3,Intake,Air Temp
+102,4,Mean Inj.,Time
+;
+110,0,Load - full load enrichment <UnDoc>
+110,1,Engine,Speed
+110,2,Coolant,Temp
+110,3,Avg Inj.,Time
+110,4,Throttle,Angle
+;
+111,0,General <UnDoc>
+111,1,Engine,Speed
+111,2,Coolant,Temp
+111,3,Throttle,Angle
+111,4,Operating,Condition
+;
+112,0,General  <UnDoc>
+112,1,Engine,Speed
+112,2,Load
+112,3,Throttle,Angle
+112,4,Altitude,Correction
+;
+113,0,Load <UnDoc>
+113,1,Engine,Speed
+113,2,Load
+113,3,Throttle,Angle
+113,4,VACANT
+;113,4,Air,Pressure
+;
+122,0,Transmission limits <UnDoc>
+122,1,Engine,Speed
+122,2,Trans Spec.,Moment
+122,3,Engine,Moment
+122,4,Status
+;
+201,0,Undocumented
+202,0,Undocumented
+203,0,Undocumented
+204,0,Undocumented
+205,0,Undocumented
+206,0,Undocumented
+207,0,Undocumented
+208,0,Undocumented
+209,0,Undocumented
+210,0,Undocumented
+211,0,Undocumented
+212,0,Undocumented
+213,0,Undocumented
+;
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,06A-906-018-AEG
+;

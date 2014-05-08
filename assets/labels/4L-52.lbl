@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Audi Q7 (4L)
+;
+; Component: J387 - Passenger's Door Electronics (#52)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-52.LBL
+; 4L0-910-793-52.LBL
+;
+; created on 01/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Jun/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4L0-910-793-52.LBL,4L0-910-79?-???
+;

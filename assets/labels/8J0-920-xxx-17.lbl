@@ -1,0 +1,168 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8J0-920-???-???
+;
+; includes measuring blocks, adaptation, coding, security access
+;          selective output test and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-17.LBL
+; 8J0-920-xxx-17.LBL
+;
+; created on 24/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 03/Dec/2006
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Instrument Cluster (J285) Security Access
+S01,13861 = General Adaptation "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,????xxx: Equipment
+C02,+0001 = 2nd Fuel Tank Characteristic (All-Wheel Drive)
+C03,+0002 = Highline without DIS (for Midline PR-9Q3)
+C04,+0004 = Manual Transmission (not Midline PR-9Q3)
+C05,+0008 = 2nd Tire Circumference Pair (e.g. Winter Tires)
+C06,+0016 = Tire Pressure Monitoring (TPMS)
+C07,+0032 = AFS (Advanced Front Lighting System (cornering lights)
+C08,+0064 = Magnetic Ride Suspension
+C09,xxxx?xx: Country
+C10,0 = Germany / 1 = Rest of World (RoW - Left Hand Steering) / 2 = USA / 3 = Canada
+C11,4 = Great Britain (Right Hand Steering) / 5 = Japan (Left Hand Steering) / 6 = Arabien States
+C12,7 = Australia / 8 = Rest of World (RoW - Right Hand Steering) / 9 = Japan (Right Hand Steering)
+C13,xxxxx?x: Seatbelt Warning
+C14,0 = No Seatbelt Warning  / 1 = Seatbelt Warning (EU-NCAP) / 2 = Seatbelt Warning (NAR Old)
+C15,3 = Seatbelt Warning (NAR New) / 4 = Seatbelt Warning (EU-NCAP incl. Passenger)
+C16,5 = Seatbelt warning (NAR Old incl. Passenger) / 6 = Seatbelt Warning (NAR New incl. Passenger)
+C17,xxxxxx?: Illumination & Washer Fluid Warning
+C18,0 = Needles OFF and Scales OFF (Term. 15 ON / Term. 58 OFF) / 1 = Needles ON and Scales OFF (Term. 15 ON / Term. 58 OFF)
+C19,2 = Needles OFF and Scales ON (Term. 15 ON / Term. 58 OFF) / 3 = Needles ON and Scales ON (Term. 15 ON / Term. 58 OFF)
+C20,+4 = Washer Fluid Warning
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T666,Chime/Buzzer/Gong
+T694,Switch and Instrument Lighting
+T798,Segment Test
+T1150,Analog Indicators
+T1298,Instrument Cluster Lamp Test
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+RD,49,Min Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals (Kilometers),,ST_FIXED
+RJ,1,1,45,1
+RJ,1,2,42,80
+RJ,1,3,43,80
+RJ,1,4,44,365
+RJ,1,5,49,365
+;
+; Change to flexible intervals (kilometers)
+RJ,2,0,Change to Flexible Intervals (Kilometers),ST_DIESEL,ST_FLEXIBLE
+RJ,2,1,45,2
+RJ,2,2,42,150
+RJ,2,3,43,500
+RJ,2,4,44,730
+RJ,2,5,49,730
+;
+; Change to flexible intervals (kilometers)
+RJ,3,0,Change to Flexible Intervals (Kilometers),ST_GASOLINE,ST_FLEXIBLE
+RJ,3,1,45,2
+RJ,3,2,42,150
+RJ,3,3,43,500
+RJ,3,4,44,730
+RJ,3,5,49,365
+;
+; Change to fixed intervals (miles)
+RJ,4,0,Change to Fixed Intervals (Miles),,ST_FIXED
+RJ,4,1,45,1
+RJ,4,2,42,50
+RJ,4,3,43,50
+RJ,4,4,44,365
+RJ,4,5,49,365
+;
+; Change to flexible intervals (miles)
+RJ,5,0,Change to Flexible Intervals (Miles),ST_DIESEL,ST_FLEXIBLE
+RJ,5,1,45,2
+RJ,5,2,42,90
+RJ,5,3,43,310
+RJ,5,4,44,730
+RJ,5,5,49,730
+;
+; Change to flexible intervals (miles)
+RJ,6,0,Change to Flexible Intervals (Miles),ST_GASOLINE,ST_FLEXIBLE
+RJ,6,1,45,2
+RJ,6,2,42,90
+RJ,6,3,43,310
+RJ,6,4,44,730
+RJ,6,5,49,365
+;

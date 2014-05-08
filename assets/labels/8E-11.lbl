@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine II (#11)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-11.LBL
+; 079-910-560-BNS1.LBL (4.2l FSI @ 420 HP - BNS: Master)
+; 079-910-560-BNS2.LBL (4.2l FSI @ 420 HP - BNS: Slave)
+;
+; created on 09/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Mar/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,079-910-560-BNS2.LBL,8E1-910-560-??? ; BNS (8E) Slave
+;

@@ -1,0 +1,74 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R41 - Digital Radio (#0F) - SIRIUS
+;
+; P/N: 4E0-910-593-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-0F.LBL
+; 4E0-910-593-SIR.LBL
+; 4E0-910-593-XM.LBL
+;
+; created on 29/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/May/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,0,Diagnostic Wire
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Electronic Serial Number (ESN)
+004,1,Activation Code
+;
+005,0,Signal Status
+005,1,Signal Quality,,1 = No Signal available \n2 = Too weak\n3 = OK\n4 = Optimal
+005,2,Audio Signal,present,Display Range: Yes/No
+;
+006,0,Status
+006,1,Status,(personalized),Display Range: Yes/No
+006,2,Status,(subscribed),Display Range: Yes/No
+006,3,Status,(activated),Display Range: Yes/No
+;
+008,0,Service Information
+008,1,Provider,Information
+; 0 = Normal Operation
+; 1 = Antenna not connected
+; 2 = Update enabling code
+; 3 = No Signal
+; 4 = Channel Change
+; 5 = Channel not offered
+; 6 = Channel no longer available
+; 7 = Additional channel info not available
+008,2,Satellite,Antenna Status,0 = OK\n1 = Short to Ground\n2 = Short to Plus
+008,3,Terrestrial,Antenna Status,0 = OK\n1 = Short to Ground\n2 = Short to Plus
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;

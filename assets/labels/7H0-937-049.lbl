@@ -1,0 +1,126 @@
+;
+; VCDS Label File
+;
+; VW Touareg (7L)
+;
+; Component: J519 - Central Electronics (#09)
+;
+; P/N: 7H0-937-049-???
+;
+; includes measuring blocks and coding
+;
+; created on 23/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/May/2008
+;
+; requires VCDS 804.0 / LCode 804.0 or above
+;
+;
+;---------------------------------------------------
+;
+; measuaring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage Supply
+001,1,Terminal S,,Range: ON/OFF
+001,2,Terminal 50,,Range: ON/OFF
+001,3,Terminal X,,Range: ON/OFF
+001,4,Terminal 15,,Range: ON/OFF
+;
+002,0,Voltage Supply
+002,1,Battery Voltage
+002,2,Load Managem.,Intervention,Range: active/inactive
+002,3,Blinker,,Range: OK/Not OK (9...15 V)
+002,4,Wiper,,Range: OK/Not OK (9...15 V)
+;
+003,0,Voltage Supply
+003,1,Rear Window,Heating,Range: OK/Not OK (9...15 V)
+003,2,Horn,,Range: OK/Not OK (9...15 V)
+003,3,Interior Light,,Range: OK/Not OK (9...15 V)
+003,4,Mirror,Heating,Range: OK/Not OK (9...15 V)
+;
+004,0,Voltage Supply
+004,1,Back-Up Light,,Range: OK/Not OK (9...15 V)
+;
+005,1,Blinker Switch,Left,Range: Operated/Not Oper.
+005,2,Blinker Switch,Right,Range: Operated/Not Oper.
+005,3,Emergency,Flasher Button,Range: Operated/Not Oper.
+;
+006,0,Wiper Switch
+006,1,Wiper Switch,Interval,Range: Operated/Not Oper.
+006,2,Wiper Switch,Stage 1,Range: Operated/Not Oper.
+006,3,Wiper Switch,Stage 2,Range: Operated/Not Oper.
+006,4,Wiper Switch,Potentiometer,Range (Interval Stage): 1/2/3/4
+;
+007,1,Windshield,Washer Pump,Range: Operated/Not Oper.
+007,2,Horn,,Range: Operated/Not Oper.
+007,3,Hood Contact,Switch,Range: Operated/Not Oper.
+;
+008,0,Door Contact Switch Status
+008,1,Driver's Door,Contact Switch,Range: Door open/Door closed
+008,2,Passenger Door,Contact Switch,Range: Door open/Door closed
+008,3,Rear Left Door,Contact Switchs,Range: Door open/Door closed
+008,4,Rear Right Door,Contact Switch,Range: Door open/Door closed
+;
+009,0,Rear Lid
+009,1,Rear Lid,Pre-Latch,Range: Operated/Not Oper.
+009,2,Rear Lid,Main-Latch,Range: Operated/Not Oper.
+;
+010,0,Buttons
+010,1,Front Windshield,Heater Button,Range: Operated/Not Oper.
+010,2,Front Rear Window,Heater Button,Range: Operated/Not Oper.
+010,3,Heated Mirror,Button,Range: Operated/Not Oper.
+010,4,Central Button,Interior Light,Range: Operated/Not Oper.
+;
+011,0,Cruise Control System (CCS)
+011,1,CCS Switch,SET/(-),Range: Operated/Not Oper.
+011,2,CCS Switch,RES/(+),Range: Operated/Not Oper.
+011,3,CCS Main Switch,Cancel,Range: Operated/Not Oper.
+011,4,CCS Main Switch,ON/OFF,Range: Operated/Not Oper.
+;
+012,1,Dimming,Terminal 58d,Range: 0.0...100.0 %
+012,2,Windshield Wiper,End Position,Range: Operated/Not Oper.
+012,3,Back-Up Light,Switch
+;
+013,1,Rain Sensor,,Range: OK/Not OK/Not Install.
+013,2,P/N-Signal,(Autom. Transm.),Range: PN active/PN inactive
+;
+014,0,Electronic Load Management I
+014,1,Maximum,Shut-Off Priority
+;
+015,0,Electronic Load Management II
+015,1,Shut-Off Priority
+015,2,Counter
+015,3,Critical,Time Part
+;
+016,0,Electronic Load Management III
+016,1,Load Managem.,Intervention
+016,2,Engine Starts
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electric (J519) Coding
+C01,+00001 = Heated Rear Window installed
+C02,+00002 = Trailer Hitch installed
+C03,+00004 = Interior Light with Terminal S installed
+C04,+00008 = Heated Front Window/Windshield installed
+C05,+00016 = Additional Rear Turn Signals (Roof) installed
+C06,+00032 = Electronic Load Management active
+C07,+00064 = Heated Rear View Mirrors installed
+C08,+00128 = Heated Rear View Mirrors switched via Heated Rear Window
+C09,+00256 = Rain Sensor installed
+C10,+00512 = Headlight Washers installed
+C11,+01024 = Electrical Fuel Pump Relay installed
+C12, 
+C13,Note: The Coding is the Sum of the individual Options!
+;

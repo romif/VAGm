@@ -1,0 +1,51 @@
+;
+; VAG-COM label file
+;
+; VW Passat (3B)
+;
+; component: J490 - Auxiliary Fuel Tank (#58)
+;
+; p/n: 3B7-906-268-??
+;
+; includes measuring blocks
+;
+; created on 18/Jul/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 18/Jul/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Main Tank - Fuel Level Sensors
+001,1,Fuel Lvl. Sensor 1,Resistance (G),Specification: 18.0...72.7 ohms
+001,2,Fuel Lvl. Sensor 2,Resistance (G169),Specification: 19.0...121.5 ohms
+001,3,Fuel Lvl. Sensor 3,Resistance (G237),Specification: 29.0...88.5 ohms
+001,4,Main Tank,Content,Specification (for checking G): min. 2 l\nSpecification (for checking G169): min. 23 l\nSpecification (for checking G237): min. 44 l
+;
+002,0,Auxiliary Tank - Fuel Level Sensor
+002,1,Fuel Level Sensor,Resistance (G292),Specification: 19.0...123.2 ohms
+002,2,Auxiliary Tank,Content,Specification (for checking G292): min. 2 l
+002,3,Main Tank,Content
+;
+003,0,Auxiliary Tank - Transfer Fuel Pump
+003,1,Aux. Tank Empty,Sensor (G293),Specification: ON/OFF
+003,2,Transf. Fuel Pump,(G23) Current
+003,3,Transf. Fuel Pump,(G23) Voltage
+003,4,Transf. Fuel Pump,(G23) Status,Display Range: ON/OFF
+;
+004,0,Fuel Pump (G6)
+004,1,Supply Voltage,Status,Display Range: correct/incorrect
+004,2,Supply Voltage,Fuel Pump (G6),Specification: 11.0...14.0 V
+004,3,Fuel Pump (G6),Output
+;
+005,0,Work Shop Code
+;
+080,0,Advanced Control Module Information
+;

@@ -1,0 +1,71 @@
+;
+; VAG-COM Label File
+;
+; VW Polo (9N) / Skoda Fabia (6Y) / Seat Ibiza/Toledo (6L)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 8.0 ABS/EDS
+;
+; P/N: 6Q0-907-37?-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-03.LBL
+; 6R-03.LBL
+; 6Q0-907-37x-ABS.LBL (ABS/EDS 5.7)
+; 6Q0-907-37x-ASR.LBL (ABS/EDS/ASR 5.7)
+; 6Q0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 5.7)
+; 6R0-907-37x-ABS.LBL (ABS/EDS 8.0)
+; 6R0-907-37x-ASR.LBL (ABS/EDS/ASR 8.0)
+; 6R0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 8.0)
+;
+; created on 09/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Aug/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+;
+002,0,Button Status
+002,2,Brake Light Switch,,0 = not operated\n1= operated
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+023,0,Data Variant Coding
+023,1,Data Variant,Coding
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,2,Engine,,Specification: Engine 1
+125,3,Transmission,,Specification: Transm. 1
+125,4,Instrument Cluster,,Specification: Instruments 1
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,2,Airbag,,Specification: Airbag 1
+;
+225,0,CAN-Databus Time-Out (Powertrain)
+225,2,Engine
+225,3,Transmission
+225,4,Instrument Cluster
+;
+227,0,CAN-Databus Time-Out (Powertrain)
+227,2,Airbag
+;

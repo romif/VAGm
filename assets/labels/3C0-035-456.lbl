@@ -1,0 +1,88 @@
+;
+; VCDS Label File
+;
+; VW Eos (1F) / VW Golf/Jetta (1K) VW Passat (3C) / VW Touran (1T)
+;
+; Component: R12/R44 - Sound System (#47) Volkswagen & Dynaudio Sound System
+;
+; P/N: 3C0-035-456-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-47.LBL
+; 1Q-47.LBL
+; 1T-47.LBL
+; 3C0-035-456.LBL
+;
+; includes measuring blocks
+;
+; created on 17/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Supply Voltage
+001,1,Supply Voltage,(Terminal 30)
+;
+002,0,Front Left Speaker (Bass)
+002,1,Location
+002,2,Type
+002,3,Status
+;
+004,0,Front Left Speaker (Mid. Range)
+004,1,Location
+004,2,Type
+004,3,Status
+;
+005,0,Front Left Speaker (Treble)
+005,1,Location
+005,2,Type
+005,3,Status
+;
+006,0,Front Right Speaker (Bass)
+006,1,Location
+006,2,Type
+006,3,Status
+;
+008,0,Front Right Speaker (Mid. Range)
+008,1,Location
+008,2,Type
+008,3,Status
+;
+009,0,Front Right Speaker (Treble)
+009,1,Location
+009,2,Type
+009,3,Status
+;
+010,0,Rear Left Speaker (Bass)
+010,1,Location
+010,2,Type
+010,3,Status
+;
+012,0,Rear Left Speaker (Treble)
+012,1,Location
+012,2,Type
+012,3,Status
+;
+013,0,Rear Right Speaker (Bass)
+013,1,Location
+013,2,Type
+013,3,Status
+;
+015,0,Rear Right Speaker (Treble)
+015,1,Location
+015,2,Type
+015,3,Status
+;
+080,0,Advanced Control Module Identification
+;

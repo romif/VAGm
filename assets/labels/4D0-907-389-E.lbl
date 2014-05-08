@@ -1,0 +1,64 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 ABS/ESP Controller
+; Filename:4D0-907-389-E.LBL
+;
+;   Controller: 4D0 907 389 E 
+;       Module: 03
+;    Component: ABS/ESP allrad D56 
+;       Coding: 08397
+;
+; **Modification History**
+; Created:  Dave Eaton, 3rd February 2004
+; Modified: Dave Eaton, 4th February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+;
+; **********************************************************************
+
+1,0,Wheel Speed Sensors
+1,1,Front Left,(1-19 km/hr)
+1,2,Front Right,(1-19 km/hr)
+1,3,Rear Left,(1-19 km/hr)
+1,4,Rear Right,(1-19 km/hr)
+;
+2,0,Switches 
+2,1,Brake switch
+2,2,Brake light
+2,3,Parking Brake
+2,4,ASR/ESP switch
+;
+3,0,Engine Conditions
+3,1,Engine Speed,(60-8000rpm)
+3,2,Engine Torque,(0-630Nm)
+3,3,Dis. Torque,(0-630Nm)
+3,4,Throttle Valve,Angle (0-100%)
+;
+4,0,Miscellaneous
+4,1,Standing Time
+4,2,EDL deact-,ivation
+4,3,N/A
+4,4,N/A
+;
+5,0,Vehicle Conditions
+5,1,Steering Angle,(-720 to +720 deg)
+;+/- 5 degrees straight ahead
+5,2,Rotation Rate,(-69 to +69 deg/s)
+5,3,Brake Press.,(-41 to +292 bar)
+5,4,Trans. Acc.,(-25 to +25)
+;
+6,0,ABS Hardware
+6,1,Supply Voltage,(10.5-14.5V)
+6,2,Solenoid Relay,On
+;on - specification, off - not permitted
+6,3,Return Pump Volts,Off
+;off - specification, on - not permitted
+6,4,Dealer Code
+;
+125,0,CAN Bus
+125,1,Steering Angle,(1 - on CAN)
+125,2,ECM,(1 - on CAN)
+125,3,TCM,(1 - on CAN)
+125,4,N/A
+;
+; End of File

@@ -1,0 +1,91 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z)
+;
+; Komponente: J234 - Airbag (#15)
+;
+; T/N: 8Z0-959-655-???
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; erstellt am 17.10.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 17.10.2005
+;
+; benötigt VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag (J234) Codierung
+C01,Standard: Fahrer-/Beifahrerairbag und Gurtstraffer vorne
+C02, 
+C03,00002 - Standard
+C04,00102 - Standard + Seitenairbags vorn
+C05,00302 - Standard + Seitenairbags vorn + Kopfairbags
+C06,01002 - Standard + Schlüsselschalter für Abschaltung Beifahrerairbag
+C07,01102 - Standard + Seitenairbags vorn + Schlüsselschalter für Abschaltung Beifahrerairbag
+C08,01302 - Standard + Seitenairbags vorn + Schlüsselschalter für Abschaltung Beifahrerairbag + Kopfairbags
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Zünder Airbags/Gurtstraffer
+001,1,Airbag,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,2,Airbag,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,3,Gurtstraffer,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,4,Gurtstraffer,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+002,0,Zünder Gurtstraffer/Batterietrennelement
+002,1,Gurtstraffer,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,2,Gurtstraffer,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,3,Gurtstraffer,hinten mitte,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+004,0,Gurterkennung (hinten)
+004,1,Gurterkennung,hinten links,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+004,2,Gurterkennung,hinten rechts,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+004,3,Gurterkennung,hinten mitte,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+;
+006,0,Zünder Seitenairbags
+006,1,Seitenairbag,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,2,Seitenairbag,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,3,Seitenairbag,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,4,Seitenairbag,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+008,0,Zünder Airbag 2. Stufe/Kopfairbag
+008,1,Airbag 2. Stufe,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+008,2,Airbag 2. Stufe,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+008,3,Kopfairbag,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+008,4,Kopfairbag,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Deaktivierung Airbag Beifahrerseite
+A001,5,Deaktivierung Airbag Beifahrerseite
+A001,6,Bei Verwendung eines Kindersitzes bei dem das Kind mit dem Rücken
+A001,7,zur Fahrtrichtung sitzt kann der Beifahrer Airbag deaktiviert werden.
+A001,8, 
+A001,9,Zur Deaktivierung ist zusätzlich eine Trennung der elektrischen
+A001,10,Verbindung vorzunehmen welche bei der Aktivierung wiederhergestellt
+A001,11,werden muss.
+A001,12, 
+A001,13,0 - Airbag aktiv
+A001,14,1 - Airbag deaktiktiviert
+;

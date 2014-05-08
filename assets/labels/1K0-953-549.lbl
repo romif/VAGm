@@ -1,0 +1,134 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Seat Altea/Toledo (5P) / Seat Leon (1P)
+; Skoda Octavia II (1Z) / VW Caddy (2K) / VW Golf/Jetta (1K)
+; VW Touran (1T)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 1K0-953-549-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 05/Apr/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 03/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block
+;
+;---------------------------------------------------
+;
+;
+001,1,Blinker,,Display Range: n. operated/left/right
+001,2,Headlamp Flasher,,Display Range: n. operated/operated
+001,3,High Beam,,Display Range: n. operated/operated
+001,4,Front Wiper,,Display Range: n. operated/level/Stage Int./Stage 1/Stage 2
+;
+002,1,Interval Stages,,Display Range: Stage 1/Stage 2/Stage 3/Stage 4
+002,2,Wash Front,,Display Range: n. operated/operated
+002,3,Wiping Rear,,Display Range: n. operated/operated/not installed
+002,4,Washing Rear,,Display Range: n. operated/operated/not installed
+;
+003,1,Terminal Status,,see labelfile
+; ?xxxx - P-Contact
+; x?xxx - S-Contact
+; xx?xx - Terminal 75
+; xxx?x - Terminal 15
+; xxxx? - Terminal 50
+003,2,Horn,,Display Range: n. operated/operated
+003,3,Multi-Function,Display,Display Range: n. installed/n. operated/Reset/Up/Down
+;
+004,0,Cruise-Cntrol-System
+004,1,Main Switch,,Display Range: n. installed/off/on
+004,2,CCS-Set,,Display Range: n. operated/decelerate/accelerate/Reset
+;
+005,1,Park Position in,Selector Lever,Display Range: n. installed/n.Ok/on/recognized
+005,2,Selector Lever,Information (Pos. P),Display Range: n. defined/recognized/on
+005,3,Key,Removal Lock,Display Range: n. installed/on/off
+005,4,Status Key,Removal Lock,Display Range: n. installed/Ok/n.Ok
+;
+006,0,Multi-Function Steering Wheel
+006,1,Communication,,Display Range: n. intalled/Ok/n.Ok
+006,2,Software Version
+006,3,Hardware Version
+006,4,Malfunction,recognized,Display Range: yes/no
+;
+007,0,Multifunction Steering Wheel II
+007,1,Vehicle Type
+; 0 = Volkswagen
+; 1 = Audi
+; 2 = Seat
+; 3 = Skoda
+; 4 = Volkswagen Nutzfahrzeuge
+; 5 = Bugatti
+; 6 = Lamborghini
+; 7 = Bentley
+; 8 = Rolls Royse
+; 14 = Ford
+; 15 = Porsche
+007,2,Vehicle Version
+;
+008,0,Multifunction Steering Wheel III
+008,3,Tiptronic,(Down),Display Range: Not Installed/Not Oper./Operated
+008,4,Tiptronic,(Up),Display Range: Not Installed/Not Oper./Operated
+;
+010,0,Heated Steering Wheel && Heated Seats
+010,1,Steering Wheel,Heater,Display Range: Not Installed/OFF/ON\nSignal Type: Output
+010,2,Temperature,,Display Range: Not Installed/Temperature\nSignal Type: Input
+010,3,Steering Wheel,Heater Output,Signal Type: Output
+010,4,Heated Seats,,Display Range: OFF/Stage\nSignal Type: Input
+;
+011,0,Dimming
+011,1,Dimming,,Display Range: 0.0...100.0 %\nSignal Type: Input
+011,2,Dimming,(Discrete),Display Range: 0.0...100.0 %\nSignal Type: Input
+;
+080,0,Advanced Control Module Identification I
+;
+080,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+C01,0?xxxxx: Vehicle Type
+C02,0 = Normal / 1 = Special Purpose (e.g Taxi)
+C03,0x?xxxx: Transmission
+C04,0 = Manual Transmission
+C05,1 = Automatic Transmission
+C06,0xx?xxx: Steering Wheel
+C07,0 = Steering Wheel without Multifunction
+C08,1 = 3-Spoke Steering Wheel without Multifunction
+C09,2 = 3/4-Spoke Steering Wheel with Multifunction without Cruise & Voice Control
+C10,3 = 3/4-Spoke Steering Wheel with Multifunction with Cruise & Voice Control
+C11,0xxx?xx: Additional Equipment
+C12,+1 = Tiptronic (Shift Paddels)
+C13,0xxxx?x: Board Computer / Cruise Control System (CCS)
+C14,0 = w/o Board Computer and w/o Cruise Control System (CCS)
+C15,1 = with Board Computer and w/o Cruise Control System (CCS)
+C16,2 = w/o Board Computer and with Cruise Control System (CCS)
+C17,4 = with Board Computer and with Cruise Control System (CCS)
+C18,0xxxxx?: Rear Wiper
+C19,1 = Rear Wiper not installed
+C20,2 = Rear Wiper installed
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T194,Ignition Key Removal Lock
+;

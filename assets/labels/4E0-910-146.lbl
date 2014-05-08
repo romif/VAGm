@@ -1,0 +1,123 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R78 - TV-Tuner (#57)
+;
+; P/N: 4E0-910-146-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 25/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Feb/2007
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,TV-Antenna 1
+004,1,Status,TV-Antenna 1,Range: OK/Short to Ground/Short to Plus/Open Circuit\nSpecification: OK
+004,2,Current,TV-Antenna 1,Specification: 0.04..0.06 A
+;
+005,0,TV-Antenna 2
+005,1,Status,TV-Antenna 2,Range: OK/Short to Ground/Short to Plus/Open Circuit\nSpecification: OK
+005,2,Current,TV-Antenna 2,Specification: 0.04..0.06 A
+;
+006,0,TV-Antenna 3
+006,1,Status,TV-Antenna 3,Range: OK/Short to Ground/Short to Plus/Open Circuit\nSpecification: OK
+006,2,Current,TV-Antenna 3,Specification: 0.04..0.06 A
+;
+007,0,TV-Antenna 4
+007,1,Status,TV-Antenna 4,Range: OK/Short to Ground/Short to Plus/Open Circuit\nSpecification: OK
+007,2,Current,TV-Antenna 4,Specification: 0.04..0.06 A
+;
+008,0,Video-Out
+008,1,Status,Video-Out,Range: OK/Short to Ground/Short to Plus/Open Circuit\nSpecification: OK
+;
+009,0,Video-In
+009,1,Status,Video-In 1,Yes = Signal present\nNo = Signal not present
+009,2,Status,Video-In 2,Yes = Signal present\nNo = Signal not present
+;
+010,0,Power Supply Fan
+010,1,Power Supply,Fan Status,Yes = Fan ON\nNo = Fan OFF
+;
+011,0,Temperature
+011,1,TV-Tuner,Temperature,<= 138 = Fan OFF\n>= 153 = Fan ON\n<= 230 = Tuner ON\n>= 250 = Tuner OFF
+;
+012,0,Tuner Status
+012,1,Status,Tuner V1,Yes = Tuner V1 ON\nNo = Tuner V1 OFF
+012,2,Status,Tuner V2,Yes = Tuner V2 ON\nNo = Tuner V2 OFF
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,TV-Tuner (R78) Coding
+C01,000?xxx: Rear-Seat-Entertainment (Active/Passive-Mode)
+C02,0 = Passiv (without RSE or with passive RSE)
+; Without Rear-Seat-Entertainment
+; With Rear-Seat-Entertainment that does NOT use the TV-Tuner as Source
+C03,1 = Active (with active RSE)
+; With Rear-Seat-Entertainment that does use the TV-Tuner as Source
+C04,000x?xx: Model (Antenna)
+C05,0 = Audi A6 (4F2 - Sedan) / Audi A8 (4E)
+C06,3 = Audi A6 (4F5 - Avant/Wagon) / Audi Q7 (4L)
+C07,000xx??: Country
+C08,01 = Central Europe (PAL B/G)
+C09,02 = Italy (PAL B/G) / 03 = UK/Ireland (PAL I)
+C10,04 = Eastern Europe (SECAM D/K) / 05 = France (SECAM L)
+C11,06 = North America (NTSC M) / 07 = Australia (PAL B/H)
+C12,08 = Brasil (PAL M) / 09 = Argentinia (PAL N)
+C13,10 = New Zealand (PAL B) / 11 = Eastern Europe (PAL D/K)
+C14,12 = China (PAL D/K) / 13 = Africa (PAL I)
+C15,14 = Greece/Egypt (SECAM D/K) / 15 = Africa (SECAM K1)
+C16,16 = Japan (NTSC M) / 17 = Marocco (SECAM MAROCCO)
+C17,18 = Eastern Europe (OIRT PAL B/G) / 19 = Eastern Europe (PAL B/G)
+C18,20 = Asia (PAL B/G) / 21 = South America (NTSC)
+C19,22 = Asia (NTSC M) / 23 = Russia (SECAM D/K)
+C20,24 = India (PAL B/G) / 25 = Hongkong (PAL I)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;

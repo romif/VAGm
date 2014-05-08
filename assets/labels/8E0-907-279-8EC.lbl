@@ -1,0 +1,315 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8EC/8ED)
+;
+; Component: J519 - Central Clectronic (#09)
+;
+; P/N: 8E0-907-279-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 14/Apr/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Oct/2007
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,(Output Signals)
+001,1,Supply Voltage
+001,2,Horn,,Display Range: ON/OFF
+001,3,Status,Terminal 75,Display Range: ON/OFF
+001,4,Rotary Light Switch,Supply,Display Range: ON/OFF
+;
+002,0,Turn Signals (Output Signals)
+002,1,Turn Signals,Front Left,Display Range: 0.0...100.0 %
+002,2,Turn Signals,Rear Left,Display Range: 0.0...100.0 %
+002,3,Turn Signals,Front Right,Display Range: 0.0...100.0 %
+002,4,Turn Signals,Rear Right,Display Range: 0.0...100.0 %
+;
+003,0,Parking Lights (Output Signals)
+003,1,Parking Light,Front Left,Display Range: 0.0...100.0 %
+003,2,Parking Light,Rear Left,Display Range: 0.0...100.0 %
+003,3,Parking Light,Front Right,Display Range: 0.0...100.0 %
+003,4,Parking Light,Rear Right,Display Range: 0.0...100.0 %
+;
+004,0,(Output Signals)
+004,1,High Beam,Left,Display Range: 0.0...100.0 %
+004,2,High Beam,Right,Display Range: 0.0...100.0 %
+004,3,License Plate,Light,Display Range: 0.0...100.0 %
+004,4,Emergency Flasher,Illumination,Display Range: 0.0...100.0 %
+;
+005,0,Brake Lights (Output Signals)
+005,1,Brake Light,Left,Display Range: 0.0...100.0 %
+005,2,Brake Light,Right,Display Range: 0.0...100.0 %
+005,3,Brake Light,Center,Display Range: 0.0...100.0 %
+;
+006,0,Back-Up && Fog Lights (Output Signals)
+006,1,Back-Up Light,Rear Left,Display Range: 0.0...100.0 %
+006,2,Back-Up Light,Rear Right,Display Range: 0.0...100.0 %
+006,3,Fog Light,Rear Left,Display Range: 0.0...100.0 %
+006,4,Fog Light,Rear Right,Display Range: 0.0...100.0 %
+;
+007,0,Wiping && Washing (Output Signals)
+007,1,Front Wiping,Display Range: ON/OFF
+007,2,Rear Washing,Display Range: ON/OFF
+007,3,Rear Wiping,Display Range: ON/OFF
+007,4,Rear Washing,Display Range: ON/OFF
+;
+008,0,(Input Signals)
+008,1,Rotary Light Switch
+008,2,Emergency,Flasher Button,Display Range: Not Oper./Activated
+008,3,Status,Terminal 75,Display Range: ON/OFF
+008,4,Wiper Zero,Position,Display Range: ON/OFF
+;
+009,0,(Input Signals)
+009,1,Brake Light Switch,(from J519),Display Range: Not Oper./Activated
+009,2,Brake Light Switch,(via CAN),Display Range: Not Oper./Activated
+009,3,Brake Test Switch,(via CAN),Display Range: Not Oper./Activated
+009,4,Reverse Gear,(via CAN),Display Range: Not Oper./Activated
+;
+010,0,High Beam && Turn Signals (Input Signals)
+010,1,High Beam,,Display Range: Not Oper./Activated
+010,2,High Beam Flash,,Display Range: Not Oper./Activated
+010,3,Turn Signal Left,,Display Range: Not Oper./Activated
+010,4,Turn Signal Right,,Display Range: Not Oper./Activated
+;
+011,0,Wiping && Washing (Input Signals)
+011,1,Front Wiping,Display Range: ON/OFF
+011,2,Rear Washing,Display Range: ON/OFF
+011,3,Rear Wiping,Display Range: ON/OFF
+011,4,Rear Washing,Display Range: ON/OFF
+;
+012,0,(Input Signals)
+012,1,Status,Terminal 15
+012,2,Status,S-Contact
+012,3,Interval Steps
+;
+013,0,Low Beam && Fog Light (Output Signals)
+013,1,Low Beam Left,,Display Range: 0.0...100.0 %
+013,2,Low Beam Right,,Display Range: 0.0...100.0 %
+013,3,Fog Light Left,,Display Range: 0.0...100.0 %
+013,4,Fog Light Right,,Display Range: 0.0...100.0 %
+;
+014,0,High Beam Shutter & Headlight Washer (Output Signals)
+014,1,High Beam Shutter,,Display Range: ON/OFF
+014,2,Headlight Washer,System,Display Range: ON/OFF
+;
+015,0,Daytime Running Light && Coming Home Switch (Input Signals)
+015,1,Daytime Running,Light Switch,Display Range: Not Oper./Activated
+015,2,Coming-Home,Switch,Display Range: Not Oper./Activated
+;
+016,0,(Input Signals)
+016,1,Status,Driver'S Door,Display Range: Door Open/Door Closed
+016,2,Vehicle Speed
+016,3,Outside,Temperature
+;
+017,0,Rain/Light Sensor (LIN Signals)
+017,1,Rain/Light Sensor,Meas. Malfunction
+017,2,Rain/Light Sensor,Comm. Malfunction
+017,3,Rain/Light Sensor,Low Voltage
+017,4,Rain/Light Sensor,Excessive Voltage
+;
+018,0,Rain/Light Sensor (LIN Signals)
+018,1,Rain/Light Sensor,ADP Malfunction
+018,2,Rain/Light Sensor,ADP Malfunction
+018,3,Rain Sensor,Malfunction,Display Range: ON/OFF
+018,4,Light Sensor,Malfunction,Display Range: ON/OFF
+;
+019,0,Rain Sensor (LIN Signals)
+019,1,Wiper Speed
+019,2,Rain Rate
+;
+020,0,Light Sensor (LIN Signals)
+020,1,Light,,Display Range: ON/OFF
+020,2,Light (inverse),,Display Range: ON/OFF
+020,3,Dark/Bright,,Display Range: ON/OFF
+020,4,Brightness
+;
+050,0,LIN-Databus (LIN Signals)
+050,1,LIN-Sensor,Identification
+;
+080,0,Advanced Control Module Identification I
+080,1,Manufacturer etc.
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Ident.,Number (VIN)
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Instrument Cluster,,Specification: Instruments 1
+125,2,Steering Wheel,Electronics,Specification: St. Wheel 1
+125,3,Comfort System,,Specification: Central 1
+125,4,Trailer Electronics,,Specification: Trailer 1
+;
+126,0,CAN-Databus Communication (Comfort)
+126,1,Door Electronics,Driver's Door,Specification: Dr. Door 1
+;
+127,0,LIN-Databus Communication
+127,1,Rain/Light Sensor,,Specification: Slave-A 1
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics (J519) Coding
+C01,?xxxx: Chassis
+C02,0 = Limousine (PR-K8B)
+C03,1 = Avant (PR-K8D)
+C04,2 = Cabriolet (PR-K8K)
+C05,x?xxx: Driving Light Switch
+C06,0 = Rain/Light Sensor (G397) not installed (PR-8K0/8K1/9C6/8K4)
+C07,1 - Rain/Light Sensor (G397) installed (PR-8K3/8K7/9C7/8K9)
+C08,xx?xx: Trailer Hitch
+C09,0 = Trailer Hitch not installed (PR-1D0)
+C10,1 = Trailer Hitch installed (PR-1D2)
+C11,xxx?x: Headlights
+C12,0 = Halogen Headlights w/o Daytime Running Lights (PR-8Q0/8Q1+8K0/8K7)
+C13,1 = Halogen Headlights with Daytime Running Lights (PR-8Q0/8Q1+8K1/8K3/9C6/9C7)
+C14,2 = Bi-Xenon Headlights with Daytime Running Lights (PR-8Q3/8Q5+8K9/8K4)
+C15,3 = Bi-Xenon Headlights w/o Daytime Running Lights (PR-8Q3/8Q5+8K0/8K7)
+C16,4 = Bi-Xenon Headlights with Daytime Running/Tail/License Plate Lights (PR-8Q3/8Q5+8K1/8K3)
+C17,xxxx?: Country
+C18,1 = Rest of World/Nordic Countries/Denmark/Croatia/Baltic Countries with Bi-Xenon
+C19,2 = Nordic Countries/Denmark/Croatia/Baltic Countries without Bi-Xenon
+C20,3 = USA/Canada with Bi-Xenon
+C21,4 = Canada without Bi-Xenon
+C22,5 = Special Vehicles
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Coming Home Time
+A001,5,Coming Home Time
+A001,6,Activation Time of the Coming Home Lighting.
+A001,7,Standard: 30 Seconds
+A001,8,Range: 0...60
+A001,9,Increments: 1 Second
+;
+A002,0,Brake Light Dimming
+A002,5,Brake Light Dimming
+A002,6,Standard: 30 %
+A002,7,Range: 13...40 %
+;
+A003,0,Tail Light Dimming
+A003,5,Tail Light Dimming
+A003,6,Standard: 32 %
+A003,7,Range: 13...40 %
+;
+A004,0,Rear Fog Light Dimming
+A004,5,Rear Fog Light Dimming
+A004,6,Standard: 28 %
+A004,7,Range: 13...40 %
+;
+A005,0,Daytime Running Lights Dimming (Low Beam)
+A005,5,Daytime Running Lights Dimming (Low Beam)
+A005,6,Affective with Halogen only.
+A005,7, 
+A005,8,Standard: 92 %
+A005,9,Range: 51...100 %
+;
+A006,0,Daytime Running Lights Dimming (High Beam)
+A006,5,Daytime Running Lights Dimming (High Beam)
+A006,6,Affective with Bi-Xenon only.
+A006,7, 
+A006,8,Standard: 70 %
+A006,9,Range: 51...100 %
+;
+A007,0,Daytime Running Lights Dimming (Fog Lights)
+A007,5,Daytime Running Lights Dimming (Fog Lights)
+A007,6,Affective for Canada only.
+A007,7, 
+A007,8,Standard: 92 %
+A007,9,Range: 51...100 %
+;
+A008,0,Daytime Running Lights
+A008,5,Daytime Running Lights
+A008,6,Standard: 1 (ON)
+A008,7, 
+A008,8,0 = Daytime Running Lights OFF
+A008,9,1 = Daytime Running Lights ON
+;
+A009,0,Switch-Off Delay (Low Beam)
+A009,5,Switch-Off Delay (Low Beam)
+A009,6,Low Beam Switch-Off Delay with Light Switch in AUTO Position.
+A009,7, 
+A009,8,Standard: 51
+A009,9,Range: 0...64
+;
+A010,0,Low Beam Response
+A010,5,Low Beam Response
+A010,6,0 = Parking Lights OFF after Terminal S OFF
+A010,7,1 = Parking Lights Remain ON after Terminal 15 OFF
+;
+A011,0,Low Beam Response (Terminal 15)
+A011,5,Low Beam Response (Terminal 15)
+A011,6,0 = No Parking Lights
+A011,7,1 = Alarm at Door Open
+A011,8,2 = Parking Lights OFF at Door Open
+;
+A012,0,Highway/Comfort Blinking
+A012,5,Highway/Comfort Blinking
+A012,6,0 = Highway/Comfort Blinking OFF
+A012,7,1 = Highway/Comfort Blinking ON
+;
+A013,0,Wiper Setup
+A013,5,Wiper Setup
+A013,6,Standard: 115
+A013,7, 
+A013,8,+001 = Speed Reset
+A013,9,+002 = Short to Plus Monitoring
+A013,10,+004 = Rain Sensor active
+A013,11,+008 = Long Post Wiping after Washing (Drop/Tear Wiping)
+A013,12,+016 = Speed dependent Wiper interval active
+A013,13,+032 = Headlight Washer System active
+A013,14,+064 = Reverse Gear Wiping active
+;
+A014,0,NAR Parking Light Deactivation
+A014,5,NAR Parking Light Deactivation
+A014,6,0 = Parking Lights inactive
+A014,7,1 = Parking Lights active
+;
+A016,0,Fog Light Cold Diagnosis
+A016,5,Fog Light Cold Diagnosis
+A016,6,0 = Fog Light Cold Lamp Diagnosis active
+A016,7,1 = Fog Light Cold Lamp Diagnosis inactive (i.e. for DTM Edition)
+;
+A020,0,Rain-/Light Sensor Setup
+A020,5,Rain-/Light Sensor Setup
+A020,6,Standard: 2
+A020,7, 
+A020,8,+01 = Highway Light
+A020,9,+02 = Rain Light
+A020,10,+04 = Rain Closing (Sunroof & Windows)
+;
+A021,0,Assistance Light Sensor Correction
+A021,5,Assistance Light Sensor Correction
+A021,6,Standard: 59 %
+;
+A022,0,Transmission Grade (Front Window)
+A022,5,Transmission Grade (Front Window)
+A022,6,Rain Sensor Transmission Grade at 880 nm.
+A022,7, 
+A022,8,Standard: 45 %
+;
+A081,0,Component Protection
+A081,5,Component Protection
+A081,6,To start the process of Vehicle Identification Number (VIN)
+A081,7,learning enter/save 46992 as new value.
+;

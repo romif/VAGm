@@ -1,0 +1,73 @@
+;
+; VAG-COM Labelfile
+;
+; VW Caddy (2K)
+;
+; Component: J234 - Airbag (#15) - VW52
+;
+; P/N: 6Q0-909-605-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-15.LBL
+; 6Q0-909-605-VW5.LBL  (VW5)
+; 6Q0-909-605-VW52.LBL (VW52)
+;
+; created on 10/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 10/Oct/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Airbag,Passenger Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Display Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+005,0,Igniters III (Side Airbags)
+005,1,Side Airbag,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,2,Side Airbag,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,3,Side Airbag,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,4,Side Airbag,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+008,0,Crash Sensor I (Version)
+008,1,Driver Side,Front
+008,2,Passenger Side,Front
+008,3,Driver Side,Rear
+008,4,Passenger Side,Rear
+;
+009,0,Crash Sensor I (Identification)
+009,1,Driver Side,Front
+009,2,Passenger Side,Front
+009,3,Driver Side,Rear
+009,4,Passenger Side,Rear
+;
+010,0,Key Switch
+010,1,Passenger,Airbag Status,Display Range: ON/OFF
+010,2,Key Switch,Logic Contact 1,Display Range: too small/to Ground/to B+/on/off/not installed
+010,3,Key Switch,Logic Contact 2,Display Range: too small/to Ground/to B+/on/off/not installed
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Instrument Cluster,,Specification: Instruments 1
+;
+225,0,CAN-Databus Powertrain (TimeOut)
+225,1,Instrument Cluster
+;

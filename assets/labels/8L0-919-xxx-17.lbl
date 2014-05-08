@@ -1,0 +1,100 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8L)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8L0-919-???-???
+;
+; includes measuring blocks, adaptation, coding, login
+;          and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8L-17.LBL
+; 8L0-919-xxx.LBL
+; 8L0-920-xxx.LBL
+;
+; created on 27/Feb/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,5,Maximum Distance to Oil Change (OEL),1000,km
+RD,6,Maximum Distance to Inspection (IN1),1000,km
+RD,7,Maximum Time to Inspection (IN2),10,Days
+RD,10,Distance to Oil Change (OEL),1000,km
+RD,11,Distance to Inspection (IN1),1000,km
+RD,12,Time to Inspection (IN2),10,Days
+;
+RJ,0,0,Service Reset (OIL &  INSP),,
+RJ,0,1,2,0
+;
+RJ,1,0,Service Reset (OIL),,
+RJ,1,1,2,10
+;
+RJ,2,0,Service Reset (INSP),,
+RJ,2,1,2,1
+;

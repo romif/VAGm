@@ -1,0 +1,63 @@
+;
+; VAG-COM Lable File for
+; 8A0-907-404
+; Engine Code 9A
+; 16 Valve, 2.0 Liter
+; CIS-E Motronic
+; USA Aplications:
+; Golf GTI  1990-1992
+; Jetta GLI 1990-1992
+; Passat GL 1990-1993
+; Scource Bently Publishing VD95 "Scan Tool Companion"
+; created  10/28/03
+; modified 02/07/04 
+; by consch(at)earthlink.net
+; Tested-92 Passat 02/11/04
+;
+0,0,Click on fields for details.
+;
+0,1,Engine Coolent temp,220-35 Corresponds to 0.2C to 106.6C
+;
+0,2,Engine Load,40-64 Corresponds to Warm at idle,255 Corresponds to Wide Open Throttle
+;
+0,3,Engine Speed,20-250 Corresponds to 480-6000 RPM
+;
+0,4,Idle Air Control (Adaptive Value),0-24 or 232-255,A value within either range is OK
+;
+0,5,Idle Air Control (working Value),0-48 or 206-255,A value within either range is OK
+;
+0,6,Differential Fuel Pressure Regulator (Working Value),0-50 Means 000 to +10 mA,206-255 Means -10 to -.001 mA
+;
+0,7,Differential Fuel Pressure Regulator (Adaptive Value),-228-128 Means +10 to +00 mA,128-28 Means -00 to -10 mA
+;    
+0,8,Vehicle Speed,0=Stationary,1-50 Increase with speed
+;
+0,9,ECM Input Signals-Add values to get Spec!,Open lable file for Value Details
+;
+; Value-Meaning:
+;______________________________________________________
+;|  000 Automatic trans in gear                       |
+;| +001 CTP switch (F60) closed                       |
+;| +002 Wot switch (f81) closed                       |
+;| +004 Manual Xsmission or Auto Xmission in P or n   |
+;| +008 AC compressor on                              |
+;| +032 Shift signal Auto Xmiss                       |
+;| +064 Fuel enrichment                               |
+;| +110 Decel shut-off,or                             |
+;| +(128)Decel shut off                               |
+;|-----------------------                             |
+;| Equals Displayed Value                             |
+;|____________________________________________________|
+;
+0,10,Ignition Timeing (Calculateted By ECM),48-230 Means 43.13 BTDC to 21.86 ATDC
+;
+;This file is supported in 08 measuring blocks and 04 basic settings
+;
+;This ECM also supports 03 Output Tests
+;
+;Differential Pressure Regulator-N73
+;Evap Canister Purge Valve-N80
+;Idle Air Control Valve-N71
+;Cold-Start Injector-N17
+;
+;eor

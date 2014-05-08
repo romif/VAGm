@@ -1,0 +1,249 @@
+;
+; VAG-COM label file 3D0-907-553.lbl
+;
+; VW Phaeton (3D) - up to and including early model year 2005 (fully tested with 2004 W12 Phaeton)
+; VW Bentley Continental GT - up to and including early model year 2005 (not tested with this vehicle)
+;
+; Component: Level Control System -J197- (#34)
+;
+; p/n: 3D0 907 553 A Component: LUFTFDR.-CDC- 3C1V0 1090 - Tomasz
+;      3D0 907 553 B Component: LUFTFDR.-CDC- 3C1V0 1101 (NAR and ROW Phaeton) - fully tested on this vehicle
+;      3W0 907 553   Component: LUFTFDR.-CDC- 3C1V0 7014 (NAR and ROW Bentley) - not tested on this vehicle
+;      Not suitable for the Touareg. Use the existing file 7L6-907-553.lbl for the Touareg.
+;      Not suitable for Phaeton controllers 3D0 907 553 with C suffix.  See label file 3D0-907-553-C.lbl for those.
+;
+; includes measured value blocks, coding, and adaptation.  Also user guidance (remarks) embedded in the file.
+;
+; by Sebastian Stange (Sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; last modified: 11/05/2004 (Sebastian)
+; last modified: 22/July/2005 (Michael)
+; - pop-up balloons in adaptation simplified, coding error (10) fixed.
+; last modified: 23/November/2005 (Michael) - files split into A, B suffix (this file) and C suffix files.
+; last modified: 24/November/2005 (Michael) - Security Access Code pop-up balloon added.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; Measured Value Block Information
+;
+;---------------------------------------------------
+;
+001,0,General Vehicle Values
+001,1,Term 15 (Ignition),Voltage,Specified value: 0...20 V
+001,2,Term 30 (Battery),Voltage,Specified value: 0...20 V
+001,3,Vehicle speed,km/h,Specified value: 0...250 km/h
+001,4,Terminal 50,(Starter) status,Specified value: Terminal 50 off/Terminal 50 on
+;
+002,0,General Vehicle Values (continued)
+002,1,Door recognition,status,Door open/Door closed
+002,2,Trunk lid,status,Specified value: Lid open/Lid closed
+002,3,Right Sensor,Supply Voltage,Specified value: 0...10 V
+002,4,Left Sensor,Supply Voltage,Specified value: 0...10 V
+;
+003,0,General Status of level Control Systel
+003,1,Air tank,pressure,,Pressure in the main system accumulator tank, by the compressor.
+003,2,Shock absorber,button,This is the button with the picture of the shock absorber on it. Specified value: pressed/not pressed
+003,3,Level change,button,This is the button with the picture of the car and the up-down arrow. Specified value: pressed/not pressed
+003,4,Compressor,relay,Specified value: Relay off/Relay on
+;
+004,0,Deviation from assigned (normal) level
+004,1,Front Left,,Specified value: -127...+128 mm
+004,2,Front Right,,Specified value: -127...+128 mm
+004,3,Rear Left,,Specified value: -127...+128 mm
+004,4,Rear Right,,Specified value: -127...+128 mm
+;
+005,0,Absolute vehicle height
+005,1,Front Left,,Specified value: 0...255
+005,2,Front Right,,Specified value: 0...255
+005,3,Rear Left,,Specified value: 0...255
+005,4,Right Rear,,Specified value: 0...255
+;
+006,0,Air Compressor assembly (in spare wheel well) system status
+006,1,Compressor,temperature,Specified value: -40...+140 °C
+006,2,Air tank,pressure,Specified value: 0...20 bar
+006,3,Vent valve,status,Specified value: open/closed
+006,4,Accumulator,valve status,Specified value: open/closed
+;
+007,0,Differential lock valves switch status
+007,1,Front Left,,Specified value: off/on
+007,2,Front Right,,Specified value: off/on
+007,3,Rear Left,,Specified value: off/on
+007,4,Rear Right,,Specified value: off/on
+;
+;Remark- need to check all blocks in 08 on Phaeton, these were lifted from the Touareg file.
+008,0,Pitch angle (possibly this may not be used on the Phaeton)
+008,1,Pitch angle,increments
+008,2,Pitch angle,duty cycle (%)
+008,3,System Status
+008,4,Unknown
+;
+009,0,Average axle height deviation
+009,1,System Status
+009,2,Longitudinal,Acceleration
+;Remark - need to check blocks 09-1 and 09-2 on Phaeton, these were lifted from the Touareg file.
+009,3,Front axle,deviation,Specified value: -127...+128 mm
+009,4,Rear axle,deviation,Specified value: -127...+128 mm
+;
+010,0,Vehicle level deviation at each wheel
+010,1,Left Front,,Specified value: -127...+128 mm
+010,2,Right Front,,Specified value: -127...+128 mm
+010,3,Left Rear,,Specified value: -127...+128 mm
+010,4,Right Rear,,Specified value: -127...+128 mm
+;
+011,0,Shock absorber valve current draw
+011,1,Left Front,,Specified value: 0...2050 mA
+011,2,Right Front,,Specified value: 0...2050 mA
+011,3,Left Rear,,Specified value: 0...2050 mA
+011,4,Right Rear,,Specified value: 0...2050 mA
+;
+012,0,Body acceleration signals
+012,1,Left Front,,Specified value: 0...5 V
+012,2,Right Front,,Specified value: 0 .. 5 V
+012,3,Rear Axle,,Specified value: 0 .. 5 V
+;
+013,0,Wheel acceleration signals
+013,1,Left Front,wheel,Specified value: 0...5 V
+013,2,Right Front,wheel,Specified value: 0...5 V
+013,3,Left Rear,wheel,Specified value: 0...5 V
+013,4,Right Rear,wheel,Specified value: 0...5 V
+;
+14,1,Shock Absorber,(CDC) pushbutton,This shows whether the button with the shock absorber icon on it is depressed or not.,pressed/not pressed
+14,2,Current suspension,setting chosen,0/1/2/3,comfort/normal/sport 1/sport 2
+14,3,CDC display,in MFI (Y24),This indicates whether there is a display of suspension status at this moment on the instrument cluster.,on/off
+;
+015,0,Vehicle Operations Information
+015,1,Steering wheel,angle,Specified value: +/- 720 °
+015,2,Vehicle speed,,Specified value: 0...250 km/hs
+015,4,CDC,limp mode,
+;
+016,0,*Next known measuring block is 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Software Flash Version
+;
+082,0,Flash-Tool-Code (FTC)
+; Flash-Date (in dd.mm.yy)
+;
+;---------------------------------------------------
+;
+; Coding Information
+;
+;---------------------------------------------------
+;
+;
+C00,Level Control System (J197) Coding
+C01, 
+C02,?xxxx - Select code to describe the automatic vertical headlight aim control system:
+C03,1- Level sensor mechanism is supplied by level control system control module
+C04,2- Level sensor mechanism is partially supplied by automatic vertical headlight aim control system
+C05, 
+C06,x?xxx - Enter desired difference from standard (407mm from wheel center to base of fender) for FRONT axle
+C07,0= -25mm  1= -20mm  2= -15mm 3= -10mm 4= -5 mm  5= no change  6= +5mm  7= +10mm  8= +15mm  9= +20mm.
+C08, 
+C09,xx?xx - Enter desired difference from standard (401mm from wheel center to base of fender) for REAR axle
+C10,0= -25mm  1= -20mm  2= -15mm 3= -10mm 4= -5 mm  5= no change  6= +5mm  7= +10mm  8= +15mm  9= +20mm.
+C11, 
+C12,xxx?x - Select type of vehicle (normally this will be 0 at all times)
+C13,0 - not coded/independent of vehicle - Bentley
+C14,1 - Porsche
+C15,2 - Phaeton
+C16, 
+C17,xxxx? - Select country code (normally this will be 0 - even in the USA)
+C18,0 - Rest of world 
+C19,1 - USA
+C20, 
+;
+;
+;---------------------------------------------------
+;
+; Adaptation Information
+;
+;---------------------------------------------------
+;
+; Login with security access code (function 16) first when calibrating suspension - the security code code is 31564
+;
+; NOTE: Transport mode activation code: 10273 Transport mode deactivation code: 41172
+;
+; See detailed instructions posted on the Ross-Tech website for suspension calibration
+;
+; If the North American Phaeton is recoded to x55xx - meaning no correction factor - then enter 
+; truthful measurements when re-adapting the suspension to get default European ride heights of 407 and 401 mm
+;
+A01,0,Starting point for suspension calibration, and data entry for front left wheel
+A01,1,Status,WAIT or VALUE
+A01,2,Wheel position,or VALID message
+A01,3,ENTER means,enter new measurement
+A01,5,How to calibrate the level control system for each wheel
+A01,6,Measure the distance from exact wheel center to the lower edge of the fender
+A01,7,then enter the measurement (in millimeters) and press TEST. If the measurement
+A01,8,is accepted, the words VALUE VALID will appear in the boxes above. Once you see
+A01,9,VALUE VALID move up to the next adaptation channel and repeat the process for 
+A01,10,the next wheel.  You CANNOT move backwards - the process must be completed
+A01,11,in the exact sequence of channel 01 - 02 - 03 - 04 then confirmed in channel 05.
+A01,12,  
+A01,13,If you screw up or quit out of this process without confirming your work in channel 05
+A01,14,you must enter the security code 31564 again and start again from channel 01.
+A01,15,  
+A01,16,Your work will not be saved until you confirm it in channel 05 by entering and saving a value of 1.
+A01,17,You cannot calibrate just one wheel - you have to do all 4 wheels. Once your actual measurements are
+A01,18,within 5mm of the stored values - you can consider the process to be finished.
+;
+A02,0,Data entry for front right wheel
+A02,1,Status,WAIT or VALUE
+A02,2,Wheel position,or VALID message
+A02,3,ENTER means,enter new measurement
+;
+A03,0,Data entry for rear left wheel
+A03,1,Status,WAIT or VALUE
+A03,2,Wheel position,or VALID message
+A03,3,ENTER means,enter new measurement
+;
+A04,0,Data entry for rear right wheel
+A04,1,Status,WAIT or VALUE
+A04,2,Wheel position,or VALID message
+A04,3,ENTER means,enter new measurement
+;
+A05,0,This is where you confirm you want to save your measurements by entering a new value of 1.
+A05,5,Confirmation of the work you did in the previous 4 channels
+A05,6,In order for the car to save the entries you just made you must enter and save
+A05,7,a value of 1 (one) in the NEW VALUE box. If you do not do this, all the measurements
+A05,8,that you entered in the previous 4 channels will be discarded and the car will
+A05,9,revert to whatever measurements were previously stored, with no changes made.
+;
+A10,0,Here you can turn the level control system on or off.
+A10,5,Enter the appropriate number to turn the level control system on or off
+A10,6,There are two possible choices - enabled or disabled. Be aware that simply clicking
+A10,7,up or down on the arrow beside the NEW VALUE or entering a number in the NEW VALUE
+A10,8,box will cause the instriction to be executed without any need to press the SAVE button.
+A10,9,The fact that you have entered a security code to get here puts you in 'live fire' mode - so
+A10,10,don't mess with the number in NEW VALUE unless you are prepared to recalibrate the level control
+A10,11,system (via channels 01 to 05 inclusive) all over again.
+;
+;
+;
+;---------------------------------------------------
+;
+; Security Access Code Information
+;
+;---------------------------------------------------
+;
+S00,Security Access Codes for Phaeton Suspension System
+S01,To begin Adaptation (calibration) Process - 31564
+S02,To activate Transport Mode (for car carrier shipping) - 10273
+S03,To deactivate Transport Mode (for normal operations) - 41172
+;
+; NOTE: Phaeton will automatically deactivate transport mode if driven
+;       at a speed above 80 km/h (50 MPH)
+;
+;end of file

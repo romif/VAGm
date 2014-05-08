@@ -1,0 +1,48 @@
+;
+; VCDS Label File
+;
+; Seat Ibiza (6L) / Skoda Fabia (6Y) / Skoda Fabia/Roomster (5J) / VW Polo (9N)
+;
+; Component: J500 - Steering Aid (#44)
+;
+; P/N: 6Q0-423-156-???
+;
+; includes measuring blocks
+;
+; created on 13/Apr/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Apr/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block
+;
+;---------------------------------------------------
+;
+;
+001,0,Electrical System
+001,1,Voltage,(Terminal 30)
+001,2,Pump Motor,Voltage
+001,3,Control Module,Temperature
+001,4,Pump Motor,Status,Range: ON/OFF
+;
+002,0,Steering
+002,1,Steer. Aid Sensor,Angular Velocity
+002,2,Pump Motor Speed,(specified)
+002,3,Pump Motor Speed,(actual)
+002,4,Pump Motor,Voltage
+
+003,0,Vehicle
+003,1,Vehicle Speed
+003,2,Vehicle,Engine Speed
+003,3,Pump Motor,Status,Range: ON/OFF
+003,4,Steering Aid,Sensor (G250)
+;
+004,1,Power Steering,Activation Time
+004,2,Power Steering,Activation Counter
+004,3,Steer. Aid Sensor,Reference Voltage
+004,4,Voltage,(Terminal 15)
+;

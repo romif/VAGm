@@ -1,0 +1,40 @@
+;
+; VAG-COM Redirect File
+;
+; VW New Beetle (1C/9C) / VW New Beetle Cabrio (1Y)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-17.LBL
+; 1C0-919-xxx-MY.LBL ; < 2000
+; 1C0-919-xxx-17.LBL ; < 2000 (USA)
+; 1C0-920-xx0.LBL ; 2000 - 2001
+; 1C0-920-x2x.LBL ; 2002 > 2003
+; 1C0-920-x4x.LBL ; 2004+
+;
+; created on 01/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jan/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1C0-919-xx0.LBL,1C0-919-??0-??? ; >> 1C-X-499 000 / >> 9C-X-999 000
+REDIRECT,1C0-919-xx0.LBL,1C0-919-??1-??? ; >> 1C-X-499 000 / >> 9C-X-999 000
+REDIRECT,1C0-919-95x.LBL,1C0-919-95?-??? ; >> 1C-X-499 000
+;
+
+
+
+
+;
+REDIRECT,1C0-920-xx0.LBL,1C0-920-??0-??? ; 1C-Y-400 001 >> 1C-1-430 000 / 9C-Y-600 001 >> 9C-1-615 000
+REDIRECT,1C0-920-xx0.LBL,1C0-920-??1-??? ; 1C-Y-400 001 >> 1C-1-430 000 / 9C-Y-600 001 >> 9C-1-615 000
+REDIRECT,1C0-920-xx0.LBL,1C0-920-?04-??? ; 1C-1-430 001 >> 1C-1-499 000 / 9C-1-615 001 >> 9C-1-699 000
+REDIRECT,1C0-920-xx0.LBL,1C0-920-?05-??? ; 1C-1-430 001 >> 1C-1-499 000 / 9C-1-615 001 >> 9C-1-699 000
+REDIRECT,1C0-920-xx0.LBL,1C0-920-?06-??? ; 1C-1-430 001 >> 1C-1-499 000 / 9C-1-615 001 >> 9C-1-699 000
+REDIRECT,1C0-920-x2x.LBL,1C0-920-?2?-??? ; 1C-2-400 001 >> 1C-3-499 000 / 9C-2-600 001 >> 9C-3-699 000
+REDIRECT,1C0-920-x4x.LBL,1C0-920-?4?-??? ; 1C-4-400 001 >> / 9C-4-600 001 >>
+;

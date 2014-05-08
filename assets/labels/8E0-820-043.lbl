@@ -1,0 +1,212 @@
+;
+; VAG-COM label file
+;
+; Audi A4 (8E)
+;
+; Component: J255 - A/C Heating Electronics (#08) - Climatronic
+;
+; P/N: 8E0-820-043-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 06/Sep/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 27/Apr/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,A/C Valve (N280),Current
+001,2,A/C Valve (N280),Duty Cycle,Display Range: 0.0...100.0 %
+001,3,High-Pressure,Signal (G65),Specification: 12.0...87.5 %
+001,4,Refrigerant Circuit,Pressure,Display Range: 2.6...29.0 bar
+;
+002,0,Last Compressor Shut-Off Criteria
+002,1,Current Criteria,,see Repair Manual
+002,2,Last Criteria,,see Repair Manual
+002,3,Last but one,Criteria,see Repair Manual
+002,4,Last but two,Criteria,see Repair Manual
+;
+003,0,Left Temperature Flap Control Motor (V158)
+003,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+003,2,Specified Value,,Specification: 10...245
+003,3,Minimum Position,(Cooling),Specification: 9...71
+003,4,Maximum Position,(Heating),Specification: 189...246
+;
+004,0,Right Temperature Flap Control Motor (V159)
+004,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+004,2,Specified Value,,Specification: 10...245
+004,3,Minimum Position,(Cooling),Specification: 9...71
+004,4,Maximum Position,(Heating),Specification: 189...246
+;
+005,0,Defroster Flap Control Motor (V107)
+005,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+005,2,Specified Value,,Specification: 10...165
+005,3,Minimum Position,(Lower Stop),Specification: 9...71
+005,4,Maximum Position,(Upper Stop),Specification: 189...246
+;
+006,0,Central Flap Control Motor (V70)
+006,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+006,2,Specified Value,,Specification: 10...245
+006,3,Minimum Position,(Lower Stop),Specification: 9...71
+006,4,Maximum Position,(Upper Stop),Specification: 189...246
+;
+007,0,Air Flow Flap Control Motor (V71)
+007,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+007,2,Specified Value,,Specification: 10...245
+007,3,Minimum Position,(Lower Stop),Specification: 9...71
+007,4,Maximum Position,(Upper Stop),Specification: 189...246
+;
+008,0,Air Recirculation Flap Control Motor (V113)
+008,1,Current Value,,Specification: 9...251\nTolerance (to Spec.): 3
+008,2,Specified Value,,Specification: 10...245
+008,3,Minimum Position,(Lower Stop),Specification: 9...71
+008,4,Maximum Position,(Upper Stop),Specification: 189...246
+;
+009,0,Temperatures I
+009,1,Left Footwell Vent,Temp. (G261)
+009,2,Right Footwell Vent,Temp. (G262)
+009,3,Left Vent,Temp. (G150)
+009,4,Right Vent,Temp. (G151)
+;
+010,0,Temperatures II
+010,1,Evaporator Outflow,Temp. (G263)
+010,2,Fresh Air Intake,Duct Temp. (G89)
+010,3,Calculated,Ambient Temp.
+010,4,Measured Ambient,Temp. (G17)
+;
+011,0,Temperatures III
+011,1,Dash Panel,Temp. (G65)
+011,2,Temp. Sensor,Blower Speed,(V42) Specification: min. 2000 RPM
+011,3,Coolant,Temperature
+011,4,Idle Speed,Increase Request,Display Range: ON/OFF
+;
+012,1,Engine Speed
+012,2,Vehicle Speed
+012,3,Compressor,Torque Status,Display Range: 0 = Valid/1 = Invalid
+012,4,Required,Engine Torque
+;
+013,1,Fresh Air Blower,Actuation (V2),0.0...5.0 % = Fresh Air Blower (V2) OFF\n12.0...88.0 % = Fresh Air Blower (V2) ON
+013,2,Fresh Air Blower,Speed (V2)
+013,3,Status,Terminal 58d,Display Range: 0.0...100.0 %
+013,4,Status,Terminal 58s,Display Range: 0.0...100.0 %
+;
+014,1,Radiator Fan (V7),Requested Value,Display Range: 0.0...100.0 %
+014,2,Radiator Fan (V7),Actual Value,Display Range: 0.0...100.0 %
+014,3,Air Quality,Sensor (G238),see Repair Manual
+014,4,Fresh/Recirculated,Air Request,see Repair Manual
+;
+015,1,Rear Window,Heating (Z1),Display Range: R.wn.h.ON/R.wn.h.OFF
+015,2,Front Window,Heating (Z2),Display Range: ON/OFF
+015,3,Axiliary Heater,Actuation,Display Range: ON/OFF
+015,4,Convertible Top,,Display Range: Open/Closed/Not Installed
+;
+016,0,Sun Intensity (G107)
+016,1,Sun Intensity,Left Side (G107),Specification: 0.2...4.5 V
+016,2,Sun Intensity,Left Side (G107),Specification: 0.0...1000.0 W
+016,3,Sun Intensity,Right Side (G107),Specification: 0.2...4.5 V
+016,4,Sun Intensity,Right Side (G107),Specification: 0.0...1000.0 W
+;
+017,1,Status,Terminal 15,Display Range: ON/OFF
+017,2,Status,Terminal 75,Display Range: ON/OFF
+017,3,Status,Terminal 75,Display Range: ON/OFF
+017,4,Supply Voltage,(Terminal 30)
+;
+018,1,Time
+018,2,Key Number,(Ignition)
+018,3,Windscreen Wiper,Status,1xxxx = via Rain Sensor\nx1000 = Wipe/Wash Mode\nx0100 = Wiper Speed 2\nx0010 = Wiper Speed 1\nx0001 = Intermittend Wiper Speed
+018,4,Fresh Air Blower,(V2) Duty Cycle,Specification: 45.0...54.0 %
+;
+020,0,Seat Heating (Driver)
+020,1,Switch Position,(knurled Wheel),Display Range: OFF (0...10 %) / ON (10...100 %)
+020,2,Temperature,Actual (G59)
+020,3,Switch Position,(knurled Wheel),0 = Seat Heating OFF\n1 = 16...21 °C (or 18... 24 °C)\n2 = 22...27 °C (or 25... 31 °C)\n3 = 28...34 °C (or 32... 38 °C)\n4 = 35...43 °C (or 39... 46 °C)\n5 = 44...54 °C (or 47... 60 °C)\n6 = 55...65 °C (or 61... 69 °C)
+020,4,Seat Heating,(Passenger),Display Range: ON/OFF
+;
+021,0,Seat Heating (Passenger)
+021,1,Switch Position,(knurled Wheel),Display Range: OFF (0...10 %) / ON (10...100 %)
+021,2,Temperature,Actual (G60)
+021,3,Switch Position,(knurled Wheel),0 = Seat Heating OFF\n1 = 16...21 °C (or 18... 24 °C)\n2 = 22...27 °C (or 25... 31 °C)\n3 = 28...34 °C (or 32... 38 °C)\n4 = 35...43 °C (or 39... 46 °C)\n5 = 44...54 °C (or 47... 60 °C)\n6 = 55...65 °C (or 61... 69 °C)
+021,4,Seat Heating,(Passenger),Display Range: ON/OFF
+;
+022,1,Auxiliary Heater,(J364) active,Display Range: ON/OFF
+022,2,Auxiliary Heater,Signals,0001 = Aux. Heat. Activation Signal\n0010 = Aux. Ventilation Activation Signal\n0100 = Aux. Heating/Ventilation Activation Signal
+022,3,Fresh Air Blower,Requ. by Aux.Heat.,Display Range: ON/OFF
+022,4,Maximum Aux.Heat.,Active-Time
+;
+026,0,Fault Code Conditions I
+026,1,Deactivation,Fault Code
+026,2,Refrigerant Circuit,Pressure
+026,3,Radiator Fan (V7),Requested Value
+026,4,Radiator Fan (V7),Actual Value
+;
+027,0,Fault Code Conditions II
+027,1,Calculated,Ambient Temp.
+027,2,Vehicle Speed
+027,3,Coolant,Temperature
+;
+080,0,Adanced Control Module Identification I
+;
+081,0,Adanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN)
+;
+082,0,Adanced Control Module Identification III
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Instrument Cluster,(J285),Specification: Instruments 1\nDisplay Range: Instruments 0/Instruments 1
+125,2,Comfort System,(J393),Specification: Central 1\nDisplay Range: Central 0/Central 1
+125,3,Comfort System,(J393),Specification: Cent Elec 1\nDisplay Range: Cent Elec 0/Cent Elec 1
+125,4,Steering Column,Electronics (J527),Specification: St. Wheel 1\nDisplay Range: St. Wheel 0/St. Wheel 1
+;
+126,0,CAN-Databus Communication (Comfort)
+126,1,Auxiliary Heater,(J364),Display Range: Aux. Heat 0/Aux. Heat 1/Not Installed
+126,2,Convertible Top,(J256),Display Range: Not Installed
+126,3,Voice Control,,Display Range: VoiceCmd 0/VoiceCmd 1
+126,4,CAN-Comfort,Status,Specification: 2-Wire\nDisplay Range: 2-Wire/1-Wire
+;
+127,0,Version Numbers
+127,1,Network Managem.,Version Number
+127,2,Comm. Matrix Vers.,(CAN-Comfort)
+127,3,Comm. Matrix Vers.,(Climatronic)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+C00,Heating/Air Conditioning (J255) Coding
+C01,00?xx: Chassis
+C02,0 = Sedan/Avant
+C03,1 = Cabrio
+C04, 
+C05,00x?x: Heated Windshield
+C06,0 = Heated Windshield not installed
+C07,1 = Heated Windshield installed
+C08, 
+C09,00xx?: Sunroof
+C10,0 = No Sunroof OR Normal Sunroof
+C11,1 = Sunroof with Solar Cells
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A81,0,Learned Values (Vehicle Data)
+A81,5,Learned Values (Vehicle Data)
+A81,6,To start the process for vehicle data (VIN)
+A81,7,learning enter/save 26467 as new value.
+;

@@ -1,0 +1,41 @@
+;
+; VCDS Redirect File
+;
+; Component: J519 - Central Electronics I (#09)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-09.LBL
+; 1T-09.LBL
+; 3C-09.LBL
+; 1K0-937-049-21-B.LBL  (Basis)
+; 3C0-937-049-23-M.LBL  (Medium  - Supports NO Fogs or Xenons)
+; 3C0-937-049-23-H.LBL  (Highend - Supports Fogs and/or Xenons)
+;
+; created on 26/Jan/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/May/2008
+;
+; requires VCDS 708.0 / LCode 709.0 or newer
+;
+;
+REDIRECT,1K0-937-049-21-B.LBL,1K0-937-049     ; ?? Byte (Basis)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-A   ; 17 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-B   ; 17 Byte (Highend)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-C   ; 21 Byte (Highend?)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-F   ; 17 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-G   ; 17 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-H   ; 17 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-J   ; 17 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-K   ; 17 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-L   ; 17 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-M   ; 21 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-N   ; 21 Byte (Highend)
+REDIRECT,1K0-937-049-21-B.LBL,1K0-937-049-P   ; 17 Byte (Basis)
+REDIRECT,3C0-937-049-23-M.LBL,1K0-937-049-S   ; 17 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,1K0-937-049-T   ; 17 Byte (Highend)
+REDIRECT,1K0-937-049-21-B.LBL,1K0-937-049-AA  ; 21 Byte (Basis)
+REDIRECT,1K0-937-049-21-B.LBL,1K0-937-049-AD  ; ?? Byte (Basis)
+REDIRECT,1K0-937-049-21-B.LBL,1K0-937-049-AG  ; ?? Byte (Basis)
+;

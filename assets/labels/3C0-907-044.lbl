@@ -1,0 +1,115 @@
+;
+; VAG-COM Labelfile
+;
+; VW Passat (3C)
+;
+; Component: J255 - A/C Heating Electronics (#08) - Climatronic
+;
+; P/N: 3C0-907-044-???
+;
+; includes measuring blocks
+;
+; created on 17/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 17/Dec/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Compressor,Shut-Off Code
+001,2,Engine Speed
+001,3,Vehicle Speed
+001,4,Standing Time
+;
+002,0,Compressor
+002,1,Compressor,Current (actual)
+002,2,Compressor,Current (specified)
+002,3,Compressor,Rotations
+002,4,Compressor Load
+;
+003,1,Coolant,Pressure
+003,2,Radiator Fan,Activation (actual)
+003,3,Radiator Fan,Activation (spec.)
+003,4,Engine Speed,(increase)
+;
+004,0,Temperatures
+004,1,Outside Temp.,Unfiltered
+004,2,Outside Temp.,Regulation
+004,3,Fresh Air Intake,Temperature
+004,4,Coolant,Temperature
+;
+005,0,Outlet/Footwell Blower Temperature
+005,1,Left Outlet Blower,Temperature,Display Range: 0...84 °C
+005,2,Right Outlet Blower,Temperature,Display Range: 0...84 °C
+005,3,Left Footwell,Blower Temp.,Display Range: 0...84 °C
+005,4,Right Footwell,Blower Temp.,Display Range: 0...84 °C
+;
+006,1,Evaporator,Temperature
+006,2,Interior,Temperature
+006,3,Sunlight,Intensity (G107),W/m²
+;
+007,0,Fresh Air Blower (V2)
+007,1,Fresh Air Blower,Voltage (act.),Display Range: 0.0...13.0 V
+007,2,Fresh Air Blower,Voltage (spec.),Display Range: 0.0...13.0 V
+007,3,Fresh Air Blower,Load,Display Range: 0.0...100.0 %
+007,4,Voltage,(Terminal 30)
+;
+008,3,Dimming,(Terminal 58d),Display Range: 0.0...100.0 %
+008,4,Country,,1 = Rest of World (RoW)\n2 = North America (NAR)
+;
+009,1,Rear Window,Heater (Z2 / Actual)
+009,2,Rear Window,Heater (Z2 / Spec.)
+009,3,Aux. Heater,Status,Display Range: ON/OFF
+009,4,Aux. Heater,Current
+;
+010,1,Aux. Heater,Request,Display Range: ON/OFF
+010,2,Heater OFF,,Display Range: ON/OFF
+010,3,Back-Up Lights,,Display Range: ON/OFF
+010,4,Front Wiper,,Display Range: ON/OFF
+;
+011,0,Air Recirculation Flap Control Motor (V113) / Potentiometer (G143)
+011,1,Current Value
+011,2,Specified Value
+011,3,Minimum Position,(Lower Stop/Close)
+011,4,Maximum Position,(Upper Stop/Open)
+;
+012,0,Left Temperature Flap Control Motor (V158) / Potentiometer (G220)
+012,1,Current Value
+012,2,Specified Value
+012,3,Minimum Position,(Lower Stop/Close)
+012,4,Maximum Position,(Upper Stop/Open)
+;
+013,0,Right Temperature Flap Control Motor (V159) / Potentiometer (G221)
+013,1,Current Value
+013,2,Specified Value
+013,3,Minimum Position,(Lower Stop/Close)
+013,4,Maximum Position,(Upper Stop/Open)
+;
+014,0,Center Flap Control Motor (V70) / Potentiometer (G112)
+014,1,Current Value
+014,2,Specified Value
+014,3,Minimum Position,(Lower Stop/Close)
+014,4,Maximum Position,(Upper Stop/Open)
+;
+015,0,Defroster Flap Control Motor (V107) / Potentiometer (G135)
+015,1,Current Value
+015,2,Specified Value
+015,3,Minimum Position,(Lower Stop/Close)
+015,4,Maximum Position,(Upper Stop/Open)
+;
+016,0,Air Flow Flap Control Motor (V71) / Potentiometer (G113)
+016,1,Current Value
+016,2,Specified Value
+016,3,Minimum Position,(Lower Stop/Close)
+016,4,Maximum Position,(Upper Stop/Open)
+;
+080,0,Advanced Control Module Identification I
+;

@@ -1,0 +1,24 @@
+;
+; VAG-COM Redirect File
+;
+; Audi Q7 (4L)
+;
+; Component: R41 - CD-Player (#0E/1E)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-0E.LBL
+; 4L-1E.LBL
+; 4E0-910-111.LBL
+;
+; created on 01/Jan/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Jul/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,4E0-910-111.LBL,4L0-910-110-??? ; MP3-Changer
+REDIRECT,4E0-910-111.LBL,4L0-910-111-??? ; CD-Changer
+;

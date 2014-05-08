@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J104 - ABS (#03)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 5Z-03.LBL
+; 5Z0-907-379-ABS.LBL (Bosch 8.0 ABS)
+; 5Z0-907-379-ESP.LBL (Bosch 8.0 ABS/EDS/ASR/ESP)
+;
+; created on 13/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,5Z0-907-379-ABS.LBL,5Z0-907-379-A   ; Bosch 8.0 ABS
+REDIRECT,5Z0-907-379-ESP.LBL,5Z0-907-379-B   ; Bosch 8.0 ABS/EDS/ASR/ESP
+;

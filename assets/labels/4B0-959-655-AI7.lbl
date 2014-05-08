@@ -1,0 +1,105 @@
+;
+; VCDS Label File
+;
+; Audi A6 (4B)
+;
+; Component: J234 - Airbag (#15): AIRBAG7
+;
+; P/N: 4B0-959-655-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-15.LBL
+; 4B0-959-655-AI7.LBL  (Airbag 7)
+; 4B0-959-655-AI8.LBL  (Airbag 8)
+; 4B0-959-655-AI84.LBL (Airbag 8.4)
+;
+; created on 09/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,2,Airbag,Passenger Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+002,0,Ignitiers II (Rear Belt Tensioners)
+002,1,Belt Tensioner,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+002,2,Belt Tensioner,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+002,3,Belt Tensioner,Rear Center,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Display Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+;
+004,0,Belt Inquiry II (Rear)
+004,1,Belt Inquiry,Rear Driver Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Pass. Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+;
+005,0,Igniters III (Side Airbags)
+005,1,Side Airbag,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+005,2,Side Airbag,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+005,3,Side Airbag,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+005,4,Side Airbag,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+006,0,Seat Occupation (Rear)
+006,1,Seat Occupation,Rear Driver Side,Display Range: Too High
+006,2,Seat Occupation,Rear Pass. Side,Display Range: Too High
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 = Airbag Enabled (Standard)
+A001,7,1 = Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag 7 (J234) Coding
+C01,Standard: Front Airbags/Front Belt Tensioners
+C02,00?xx: Side/Head Airbags
+C03,0 = Side/Head Airbags not installed
+C04,1 = Front Side Airbags installed
+C05,2 = Front & Rear Side Airbags installed
+C06,00x?x: Belt Inquiry
+C07,0 = Front Belt Inquiry not installed
+C08,1 = Front Belt Inquiry installed
+C09,00xx?: Rear Belt Tensioner
+C10,4 = 2 Rear Belt Tensioners installed (Rest of World)
+C11,5 = 2 Rear Belt Tensioners installed (North American Region)
+C12,6 = 3 Rear Belt Tensioners installed (Rest of World)
+C13,7 = 3 Rear Belt Tensioners installed (North American Region)
+;

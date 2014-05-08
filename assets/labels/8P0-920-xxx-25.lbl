@@ -1,0 +1,271 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	 "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US"><head><title>STC - Access denied</title>
+</head>
+<body>
+<!--STC_CONF
+#TAG:	pointer_color COLOR
+#	Defines color of pointer in tables
+#	COLOR can be @RRGGBB format
+pointer_color @FFF2C0
+
+#TAG:	green_font COLOR
+#	Defines color of "green" lighted text
+#	COLOR can be @RRGGBB format
+green_font @00BB00
+
+#TAG:	red_font COLOR
+#	Defines color of "red" lighted tex
+#	COLOR can be @RRGGBB format
+red_font @FF0000
+
+#TAG:	grey_font COLOR
+#	Defines color of "grey" lighted tex
+#	COLOR can be @RRGGBB format
+grey_font @666666
+
+STC_END-->
+<style>
+body{
+    font-family:verdana;
+    COLOR:#2C1C13;
+    font-size:12px}
+td{
+    COLOR:#2C1C13;
+    font-size:12px; 
+    vertical-align:top;}
+a{
+    COLOR:#0085C9;
+    text-decoration:none;
+    }
+.error{color:#FF0000; font-weight:bold;}
+.ok{color:#00CC00; font-weight:bold;}
+a:hover{COLOR:#6F0303}
+.a_menu{COLOR:#FFEDAB;font-size:12px;font-family:arial;letter-spacing:0px;font-weight:bold;text-align:left;}
+.a_menu:hover{COLOR:#4E030A}
+h1{COLOR:#000000;text-align:center;font-size:14px;font-weight:bold;line-height:28px;font-family:verdana;}
+.header{COLOR:#893E19;text-align:right;font-size:25px;font-weight:bold;line-height:28px;font-family:verdana;}
+hr{COLOR:#95401D; height:1px;}
+INPUT {  border-color:#e4c06a; border-style: double; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         font-size: 12px; font-style: normal; 
+         border-top-width: 1px; border-right-width: 1px; 
+         border-bottom-width: 1px; border-left-width: 1px;
+         background-color: #fff5d1;
+         color: #663300;
+         background-image: none;
+
+      }
+SELECT {  border-color:#e4c06a; border-style: double; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         font-size: 12px; font-style: normal; 
+         border-top-width: 1px; border-right-width: 1px; 
+         border-bottom-width: 1px; border-left-width: 1px;
+         background-color: #fff5d1;
+         color: #663300;
+         background-image: none;
+
+      }
+TEXTAREA {  border-color:#e4c06a; border-style: double;
+         font-family: Verdana, Arial, Helvetica, sans-serif;
+         font-size: 12px; font-style: normal;
+         border-top-width: 1px; border-right-width: 1px;
+         border-bottom-width: 1px; border-left-width: 1px;
+         background-color: #fff5d1;
+         color: #663300;
+         background-image: none;
+      }                                            
+th	{
+	color: #FFFDF3; font-size: 11px; font-weight : bold;
+	background-color: #A98620; height: 25px;
+	background-image: http://172.17.0.5/stat/themes/wm_standart/images/th_pic.gif;
+}
+td.mess_head {
+	color: #000; font-size: 11px; font-weight : none;
+	background-color: blanchedalmond; height: 20px;
+}
+td.mess_body {
+	color: #000; font-size: 11px; font-weight : none;
+	background-color: beige; height: 25px;
+}
+
+
+.sarg2_logo {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:11px;
+    color:#A98620;
+    background-color: #FFEDAB;
+}
+.sarg2_info {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:9px;
+}
+.sarg2_title {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:12px;
+    color:#A98620;
+    background-color: #FFEDAB;
+}
+.sarg2_header {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:-1;color:#FFFDF3;
+    background-color:#A98620;
+    text-align:left;
+    border-right:1px solid #6A5ACD;
+    border-bottom:1px solid #6A5ACD;
+}
+.sarg2_header2 {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:-1;
+    color:#FFFDF3;
+    background-color:#A98620;
+    text-align:right;
+    border-right:1px solid #6A5ACD;
+    border-bottom:1px solid #6A5ACD;
+}
+.sarg2_header3 {
+    font-family:Verdana,Tahoma,Arial;
+    font-size:-1;
+    color:#FFFDF3;
+    background-color:#A98620;
+    text-align:center;
+    border-right:1px solid #6A5ACD;
+    border-bottom:1px solid #6A5ACD;
+}
+.sarg2_text {
+    font-family:Verdana,Tahoma,Arial;
+    color:#000000;
+    font-size:-1;
+}
+.sarg2_data {
+    font-family:Verdana,Tahoma,Arial;
+    color:#000000;
+    font-size:-1;
+    background-color:#FFEDAB;
+    text-align:right;
+    border-right:1px solid #6A5ACD;
+    border-bottom:1px solid #6A5ACD;
+}
+.sarg2_data2 {
+    font-family:Verdana,Tahoma,Arial;
+    color:#000000;
+    font-size:-1;
+    background-color:#FFEDAB;
+    border-right:1px solid #6A5ACD;
+    border-bottom:1px solid #6A5ACD;
+}
+
+</style>
+
+<BODY  BGCOLOR=#7A7E88 LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+
+<center>
+<table width=722 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<tr>
+    <td bgCOLOR=#5E6169 background="http://172.17.0.5/stat/themes/wm_standart/images/shadows_l.gif">
+	<IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/shadows_l.gif" WIDTH=6 HEIGHT=100% ALT="">
+    </TD>
+    <td>
+	<TABLE WIDTH=710 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	    <TR>
+    		<TD width="175"><IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/header_02.jpg" WIDTH=175 HEIGHT=172 ALT=""></TD>
+    		<TD background="http://172.17.0.5/stat/themes/wm_standart/images/top_bg.gif" width="*"><IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/header_03.jpg" WIDTH=535 HEIGHT=172 ALT=""></TD>
+	    </TR>
+	<!--/TABLE>
+	<TABLE WIDTH=710 BORDER=0 CELLPADDING=0 CELLSPACING=0-->
+	<TR>
+    	    <TD BGCOLOR=#996600>
+		<TABLE WIDTH=175 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+		    <TR>
+    			<TD BGCOLOR=#996600>
+        		    <IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/menu_05.jpg" WIDTH=175 HEIGHT=32 ALT="">
+			</TD>
+		    </TR>
+		    
+
+
+		    <TR>
+    			<TD BGCOLOR=#996600>
+            		    <table border=0 width=100%>
+				<tr>
+				    <td>
+					<A HREF="http://172.17.0.5/cgi/index.cgi" class="a_menu">Главная страница</A>
+				    </td>
+				    <td style="text-align:right"> 
+					<IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/arr_.gif" ALT="" border=0 ALIGN="middle">
+				    </td>
+				</tr>
+			    </table>
+			</TD>
+		    </TR>
+
+
+		    <TR>
+    			<TD BGCOLOR=#996600>
+            		    <table border=0 width=100%>
+				<tr>
+				    <td>
+					<A HREF="http://172.17.0.5/cgi/info.cgi" class="a_menu">Информация</A>
+				    </td>
+				    <td style="text-align:right"> 
+					<IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/arr_.gif" ALT="" border=0 ALIGN="middle">
+				    </td>
+				</tr>
+			    </table>
+			</TD>
+		    </TR>
+
+
+		    <TR>
+    			<TD BGCOLOR=#996600>
+            		    <table border=0 width=100%>
+				<tr>
+				    <td>
+					<A HREF="http://172.17.0.5/cgi/statistic.cgi" class="a_menu">Статистика</A>
+				    </td>
+				    <td style="text-align:right"> 
+					<IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/arr_.gif" ALT="" border=0 ALIGN="middle">
+				    </td>
+				</tr>
+			    </table>
+			</TD>
+		    </TR>
+
+
+	    </TABLE>
+	</TD>
+        <TD BGCOLOR=#FFEDAB  WIDTH=535>
+    	    <table width=100% cellspacing=0 cellpadding=12 border=0 height=100%>
+    		<tr>
+		    <td class="header">
+		        Статистика прокси сервера Микадо
+		    </td>
+		</tr>
+    		<tr>
+		    <td><p align=center><font size=5 color=red>В доступе отказано!</font><BR><font size=4 color=black>Запрещенный ресурс</font><BR><font size=4 color=black>Свяжитесь с вашим администратором</font></p><BR><br><br><br><center><font size="1">Powered by <a href=http://stc.nixdev.org/>stc-2.0.8</a> &copy; 2004 STC Developers Team<br></font></center>            </td></tr>
+            <tr><td style="vertical-align:bottom;">
+		<font size="1">телефон для контакта 3-64-64
+		</font>
+            </td>
+            </tr>
+            </table>
+            </TD>
+    </TR>
+    <TR>
+        <TD BGCOLOR=#FF7700 colspan=2>
+            <IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/spacer.gif" HEIGHT=6 ALT=""></TD>
+    </TR>
+    <TR>
+        <TD BGCOLOR=#B1B7C0 colspan=2>
+            <IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/spacer.gif" HEIGHT=64 ALT=""></TD>
+    </TR>
+</TABLE>
+</td>
+<td bgCOLOR=#5E6169 background="http://172.17.0.5/stat/themes/wm_standart/images/shadows_r.gif"><IMG SRC="http://172.17.0.5/stat/themes/wm_standart/images/shadows_r.gif" WIDTH=6 HEIGHT=100% ALT=""></TD>
+</tr>
+</table>
+
+</center>
+</BODY>
+</HTML>

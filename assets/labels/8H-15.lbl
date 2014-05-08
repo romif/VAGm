@@ -1,0 +1,28 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A4 Cabriolet (8H)
+;
+; Component: J234 - Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8H-15.LBL
+; 8H0-959-655-84.LBL (Airbag 8.4)
+; 8H0-959-655-94.LBL (Airbag 9.4x)
+;
+; created on 09/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8H0-959-655-84.LBL,8H0-959-655     ; Airbag 8.4
+REDIRECT,8H0-959-655-84.LBL,8H0-959-655-B   ; Airbag 8.4
+REDIRECT,8H0-959-655-84.LBL,8H0-959-655-D   ; Airbag 8.4
+REDIRECT,8H0-959-655-94.LBL,8H0-959-655-E   ; Airbag 9.4x
+REDIRECT,8H0-959-655-94.LBL,8H0-959-655-F   ; Airbag 9.4x
+REDIRECT,8H0-959-655-94.LBL,8H0-959-655-G   ; Airbag 9.4x
+REDIRECT,8H0-959-655-94.LBL,8H0-959-655-H   ; Airbag 9.4x
+;

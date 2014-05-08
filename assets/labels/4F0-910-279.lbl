@@ -1,0 +1,233 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi Q7 (4L)
+;
+; Component: J519 - Central Electronics (#09)
+;
+; P/N: 4F0-910-279-???
+;
+; includes measuring blocks, basic setting, adaptation, coding,
+;          security access and selective output tests
+;
+; created on 10/Jul/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Aug/2007
+;
+; requires VAG-COM 701.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage Supply,(Terminal 30 left)
+001,2,Voltage Supply,(Terminal 30 right)
+001,3,Rotary,Light Switch,Step 1 = Automatic Driving Light\nStep 2 = Parking Light\nStep 3 = Low Beam\nStep 4 = Fog Light\nStep 5 = Rear Fog Light
+001,4,Emergency,Flasher Button,Display Range: operated/not operated
+;
+B001,0,Steering Column Basic Setting
+; After replacing the Steering Column or the Central Electronics Control Module (J519)
+; Make sure to approach all 4 end positions (up, down, forward, back) before performing the basic setting.
+;
+002,0,Steering Column Adjustment
+002,1,Adjustment,(Axial)
+002,2,Adjustment,(Vertical)
+002,3,Adjustment,(Memory)
+002,4,Adjustment,(Status),1xxxxxxx - Storage Mode\nx1xxxxxx - Memory Mode\nxx1xxxxx - Manual Adjustment\nxxx1xxxx - Rest Mode\nxxxx1xxx - Extracting\nxxxxx1xx - In\nxxxxxx1x - Lowering\nxxxxxxx1 - Up
+;
+004,0,Hood Contact && Backup Light
+004,1,Hood Contact,Switch,Display Range: ON/OFF
+004,2,Back-Up Light,Switch,Display Range: ON/OFF
+;
+005,0,Parking Lights && Low Beams
+005,1,Left,Parking Light,Display Range: ON/OFF/%
+005,2,Right,Parking Light,Display Range: ON/OFF/%
+005,3,Left,Low Beam,Display Range: ON/OFF/%
+005,4,Right,Low Beam,Display Range: ON/OFF/%
+;
+006,0,High Beams && Fog Lights
+006,1,Left,High Beam,Display Range: ON/OFF/%
+006,2,Right,High Beam,Display Range: ON/OFF/%
+006,3,Left,Fog Light,Display Range: ON/OFF/%
+006,4,Right,Fog Light,Display Range: ON/OFF/%
+;
+007,0,Front && Side Turn Signals
+007,1,Left Front,Turn Signal,Display Range: ON/OFF/%
+007,2,Right Front,Turn Signal,Display Range: ON/OFF/%
+007,3,Left Side,Turn Signal,Display Range: ON/OFF/%
+007,4,Right Side,Turn Signal,Display Range: ON/OFF/%
+;
+008,0,Footwell Lights && Xenon Shutters
+008,1,Left Front,Footwell Light,Display Range: ON/OFF/%
+008,2,Right Front,Footwell Light,Display Range: ON/OFF/%
+008,3,Left,Xenon Shutter,Display Range: ON/OFF/%
+008,4,Right,Xenon Shutter,Display Range: ON/OFF/%
+;
+009,0,Daytime Running Lights
+009,1,Left DRL Lamp,(L174),Display Range: ON/OFF/%
+009,2,Right DRL Lamp,(L175),Display Range: ON/OFF/%
+;
+010,1,Terminal 58,,Display Range: ON/OFF
+010,2,Emergency Flasher,Button LED,Display Range: ON/OFF/%
+010,3,Horn Relay (J4),,Display Range: ON/OFF
+010,4,Headlamp Sys.,Clean. Relay (J39),Display Range: ON/OFF
+;
+011,0,Wash 'n Wipe
+011,1,Front Washer,,Display Range: ON/OFF
+011,2,Front Washer,,Display Range: ON/OFF
+011,3,Rear Wiping,,Display Range: ON/OFF
+;
+012,0,CAN-Messages from Steering Column Control Module (J527)
+012,1,High Beam,,Display Range: ON/OFF
+012,2,High Beam Flash,,Display Range: ON/OFF
+012,3,Left Signal,,Display Range: ON/OFF
+012,4,Right Signal,,Display Range: ON/OFF
+;
+013,1,Vehicle Speed
+013,2,Collective Bit,(Doors)
+;
+014,0,CAN-Messages from Steering Column Control Module (J527) && MMI
+014,1,Wipe Message,from J527,Display Range: OFF/Tip Mode/Stage Int./Stage 1/Stage 2
+014,2,Wash Message,from J527,Display Range: ON/OFF
+014,3,Interval Stage,,01 = Stage 1\n05 = Stage 2\n09 = Stage 3\n13 = Stage 4
+014,4,Service Position,from MMI,Display Range: ON/OFF
+;
+015,0,Terminal Status
+015,1,Terminal 15,,Display Range: ON/OFF
+015,2,Terminal X,,Display Range: ON/OFF
+015,3,Terminal 50,,Display Range: ON/OFF
+;
+016,0,Coming/Leaving Home
+016,1,Coming Home
+016,2,Leaving Home,,Diesplay Range: enabled/disabled
+;
+017,0,LIN Slave Status
+017,1,LIN Slave 1,(Wiper Control),Specification: Slave-A 1
+017,2,LIN Slave 2,(Rain/Light Sensor),Specification: Slave-B 1
+;
+018,0,Communication Error Bit's
+018,1,Wipe Angle Control,,Specification: OFF
+018,2,Rain/Light Sensor,,Specification: OFF
+;
+019,0,Rain/Light Sensor
+019,1,Light,,Display Range: ON/OFF
+019,2,Brightness,,Specification: 0...7
+019,3,Rain Sensor,Stream,Display Range: ON/OFF
+019,4,Rain Rate,,Specification: 0...7
+;
+020,0,Front Wiper
+020,1,Front Wiper,,Display Range: ON/OFF
+020,2,Park Position,,Display Range: ON/OFF
+020,3,Lower Return,Position,Display Range: ON/OFF
+020,4,Upper Return,Position,Display Range: ON/OFF
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,CAN-Gateway,,Specification: Gateway 1
+125,2,Electrical,Ignition Lock,Specification: El.Ign.Lock 1
+;
+126,0,CAN-Databus Communication (Comfort)
+126,1,Central,Convenience (J393),Specification: Central 1
+126,2,Driver's Door,Control Module,Specification: Dr. Door 1
+126,3,Steering Wheel,,Specification: St. Wheel 1
+;
+127,0,CAN-Databus Communication (Comfort)
+127,1,Seat Memory,,Specification: Memory 1
+127,2,Battery Manager,,Specification: Batt.Mgmt 1
+127,3,Databus,Status,Display Range: 1-Wire/2-Wire/No Communication
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T61,Footwell Lights
+T910,Indicator Lamp for Emergency Flashers (K6)
+T1759,Relay for Horn
+T897,Windshield Washer Pump (V5)
+T924,Relay for Headlamp Cleaning System (J39)
+T967,Left Turn Signals
+T968,Right Turn Signals
+T978,Lamp for Low Beam: Left (M29)
+T979,Lamp for Low Beam: Right (M31)
+T1494,Bulb for Parking Lamps: Left (M1) 
+T1498,Bulb for Parking Lamps: Right (M3)
+T1496,Bulb for Fog-Lamps: Left (L22)
+T1500,Bulb for Fog-Lamps: Right (L23)
+T1834,Bulb for Side-Blinkers: Left (M18)
+T1835,Bulb for Side-Blinkers: Right (M19)
+T2377,Wiper: Upper Reverse Point
+T2378,Wiper: Lower Reverse Point
+T2449,Terminal 58
+T2450,Bi-Xenon Shutter Solenoid (F320)
+T2745,Bulb for Daytime Running Light: Left
+T2746,Bulb for Daytime Running Light: Right
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Central Electronics I (J519) Security Access
+S01,12151 = General Adaptation "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A14,0,Daytime Running Lights
+;
+A16,0,Rear Wiper Comfort Function
+A16,5,Rear Wiper Comfort Function
+A16,6,If set to 1 the rear wiper will get activated if the
+A16,7,front wipers are active and the reverse gear is beeing engaged.
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics (J519) Coding
+C01,0?xxxxx: Steering Column Memory
+C02,0 = Steering Column Memory not installed or manual Steering Column
+C03,1 = Steering Column Memory installed
+C04,0x?xxxx: Footwell Lightning
+C05,0 = Footwell Lightning as Light Bulps
+C06,1 = Footwell Lightning as LED's
+C07,0xx?xxx: Headlight Type
+C08,0 = Halogen Headlights w/o Headlight Washer System
+C09,1 = Halogen Headlights with Headlight Washer System
+C10,2 = Bi-Xenon Headlights
+C11,3 = Bi-Xenon Headlights with Advanced Front-Lighting System (AFS)
+C12,4 = Bi-Xenon Headlights w/o Headlight Washer System
+C13,5 = LED Daytime Running Lights with Headlight Washer System
+C14,6 = LED Daytime Running Lights w/o Headlight Washer System
+C15,0xxx?xx: Automatic Driving Light
+C16,0 = w/o Automatic Driving Light (Auto)
+C17,1 = with Automatic Driving Light (Auto) with Rain/Light Sensor (G397)
+C18,0xxxx?x: Daytime Running Lights
+C19,0 = w/o Daytime Running Lights
+C20,1 = with Daytime Running Lights (not selectable via MMI)
+C21,2 = with Daytime Running Lights (selectable via MMI)
+C22,0xxxxx?: Coutry
+C23,1 = Rest of World (RoW)
+C24,2 = Northern European Countries (Sweden/Finland/Norway/Denmark)
+C25,3 = USA
+C26,4 = Canada
+;

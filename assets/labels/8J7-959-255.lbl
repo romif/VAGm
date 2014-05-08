@@ -1,0 +1,122 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J256 - Convertible Top (#26)
+;
+; P/N: 8J7-959-255-???
+;
+; includes measuring blocks and selective output tests
+;
+; created on 27/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/Oct/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block
+;
+;---------------------------------------------------
+;
+;
+001,0,Convertible Top Status (Actual)
+001,1,Convertible Top,Status,See Label File\nSpecification (closed): 11010\nSpecification (open): 01001
+; xxxx? = Convertible Top Open Position Switch (F171)
+; xxx?x = Convertible Top Closed Position Switch (F202)
+; xx?xx = Convertible Top Lock Switch Open (F294)
+; x?xxx = Convertible Top Lock Switch Closed (F295)
+; ?xxxx = Convertible Top Front Lock Switch (F170) and Right (F172) - switched in series
+1,2,Convertible Top,Flap Status,See Label File\nSpecification (closed): 1010\nSpecification (open): 0101
+; xxx? = Convertible Top Flap Sensor Left (G596) closed
+; xx?x = Convertible Top Flap Sensor Left (G596) open
+; x?xx = Convertible Top Flap Sensor Right (G597) closed
+; ?xxx = Convertible Top Flap Sensor Right(G597) open
+001,3,Conv. Top Flap,Sensor Left (G596),Specification (closed): ~42\nSpecification (open): ~184
+001,4,Conv. Top Flap,Sensor Right (G597),Specification (closed): ~42\nSpecification (open): ~184
+;
+002,0,General
+002,1,Convertible Top,Control Sw. (E137),Range: open/closed/n.operated/not OK
+002,2,Status,Terminal 15,Range: ON/OFF
+002,3,Voltage,(Terminal 30),Range: 6.0...18.0 V\nSpecification: 9.5/10.6...16.0 V
+002,4,Ambient,Temperature
+;
+003,0,General
+003,1,Operating,Conditions,See Label File (not relevant)
+; xx-xx-x? = CAN-Message: VS1_Verdeck_Anf
+; xx-xx-?x = CAN-Message: ZK4_Verdeck_enable
+; xx-x?-xx = CAN-Message: ZK1_Verdeck_auf
+; xx-?x-xx = CAN-Message: ZK1_Verdeck_zu
+; x?-xx-xx = CAN-Message: Fenster unten (Windows down)
+; ?x-xx-xx = Operating Conditions not OK
+003,2,Vehicle Speed,,Range: 0.0...254.0 km/h (255.0 km/h = invalid)
+003,3,Status,Buzzer,Range: ON/OFF
+003,4,Conv. Top Disabl.,due Runtime Error,Range: Yes/No
+;
+004,0,Window Regulators
+004,1,Window Position,Driver's Door,Range: 0.0...100.0 (0 = closed/not learned | 100 = completely opened)
+004,2,Window Position,Passenger Door,Range: 0.0...100.0 (0 = closed/not learned | 100 = completely opened)
+004,3,Window Regulator,Operation,See Label File
+; xxx1 = Window Regulator Driver: Up
+; xx1x = Window Regulator Driver: Down
+; x1xx = Window Regulator Passenger: Up
+; 1xxx = Window Regulator Passenger: Down
+;
+005,0,Convertible Top Status (At Fault)
+005,1,Convertible Top,Control Sw. (E137),Range: open/closed/n.operated/not OK
+005,2,Convertible Top,Status,See Label File
+; xxxx? = Convertible Top Open Position Switch (F171)
+; xxx?x = Convertible Top Closed Position Switch (F202)
+; xx?xx = Convertible Top Lock Switch Open (F294)
+; x?xxx = Convertible Top Lock Switch Closed (F295)
+; ?xxxx = Convertible Top Front Lock Switch (F170) and Right (F172) - switched in series
+005,3,Convertible Top,Flap Status,See Label File
+; xxx? = Convertible Top Flap Sensor Left (G596) closed
+; xx?x = Convertible Top Flap Sensor Left (G596) open
+; x?xx = Convertible Top Flap Sensor Right (G597) closed
+; ?xxx = Convertible Top Flap Sensor Right(G597) open
+;
+006,0,Convertible Top Status (Before Fault - While OK)
+006,1,Convertible Top,Status,See Label File
+; xxxx? = Convertible Top Open Position Switch (F171)
+; xxx?x = Convertible Top Closed Position Switch (F202)
+; xx?xx = Convertible Top Lock Switch Open (F294)
+; x?xxx = Convertible Top Lock Switch Closed (F295)
+; ?xxxx = Convertible Top Front Lock Switch (F170) and Right (F172) - switched in series
+006,2,Convertible Top,Flap Status,See Label File
+; xxx? = Convertible Top Flap Sensor Left (G596) closed
+; xx?x = Convertible Top Flap Sensor Left (G596) open
+; x?xx = Convertible Top Flap Sensor Right (G597) closed
+; ?xxx = Convertible Top Flap Sensor Right(G597) open
+;
+007,0,Convertible Top Flap Sensors (Status: Closed)
+007,1,Sw. Thresh. (closed),Flap Left (G596)
+007,2,Conv. Top Flap,Sensor Left (G596)
+007,3,Sw. Thresh. (closed),Flap Right (G597)
+007,4,Conv. Top Flap,Sensor Right (G597)
+;
+008,0,Convertible Top Flap Sensor (Status: Open)
+008,1,Sw. Thresh. (open),Flap Left (G596)
+008,2,Conv. Top Flap,Sensor Left (G596)
+008,3,Sw. Thresh. (open),Flap Right (G597)
+008,4,Conv. Top Flap,Sensor Right (G597)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1107,Convertible Top Indicator Light (K98)
+T1983,Relay 2 for Convertible Top Hydraulic Pump (J588)
+T1997,Motor for Convertible Top Lock (V223)
+T3248,Motor for Convertible Top Flap Left (V383)
+T3249,Motor for Convertible Top Flap Right (V381)
+T3344,Convertible Top Flap Initialisation
+; Required after Replacing the Convertible Top Flap Sensors (G596/G597) notwendig
+;

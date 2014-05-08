@@ -1,0 +1,64 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Seat Toledo (5P) / Skoda Octavia II (1Z)
+;
+; Komponente: J388 - Türsteuergerät, hinten links (#62)
+;
+; T/N: 1K0 959 703 B (links - 1T/5P/1Z)
+;      1K0 959 703 C (links - 1K)
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 14.10.2004
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+; Hinweis: Bei Änderungen auch 1K0-959-704.LBL ändern.
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Fensterheber
+001,1,Fensterheber-,schalter (lokal),Wertebereich: autom. auf/unbetät./autom. zu/man. auf/man. zu
+001,2,Fensterheber-,schalter (Fahrer),Wertebereich: autom. auf/unbetät./autom. zu/man. auf/man. zu
+001,3,Zustand,Fensterheber,Wertebereich: Aufwärts/Abwärts/Position unten/Position oben/Temperatur-Abschaltung/Einklemmschutz/Endanschlag
+001,4,Thermoschutz,Fensterheber,Wertebereich: aktiv/inaktiv
+;
+002,1,Komfort-,steuerung,Wertebereich: auf/zu/unbetätigt
+002,2,Entriegelung,Fensterheber,Wertebereich: ja/nein
+002,3,Dimmungswert,Klemme 58d,Wertebereich: 0...100 %/k.Messwert
+002,4,Geschwindig-,keitssignal
+;
+003,1,Bordspannung,Klemme 30
+003,2,Datenbus-,zustand,Wertebereich: Eindraht/Zweidraht
+003,3,Zündung,Klemme 15,Wertebereich: Kl.15 ein/Kl.15 aus
+003,4,S-Kontakt,,Wertebereich: betätigt/unbetätigt
+;
+004,1,[N/A]
+004,2,[N/A]
+004,3,Fensterheber,öffnen lokal
+004,4,[N/A]
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J388 - Türsteuergerät (hinten links)
+C1,+00008 - Türinnengriffbeleuchtung
+C2,+00016 - Manuel-/Automatischfensteröffnung
+C3,+00064 - Türausstiegs-/Warnleuchten
+;

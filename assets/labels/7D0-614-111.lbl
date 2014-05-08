@@ -1,0 +1,44 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7D)
+;
+; Komponente: Bremsenelektronik - Bosch 5.3 ABS/EDS (#03)
+;
+; T/N: 7D0 614 111 B/C
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 02.12.2004
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Radumfangsgeschwindigkeit
+001,1,vorn,links,Wertebereich: 1...19 Km/h
+001,2,vorn,rechts,Wertebereich: 1...19 Km/h
+001,3,hinten,links,Wertebereich: 1...19 Km/h
+001,4,hinten,rechts,Wertebereich: 1...19 Km/h
+;
+002,1,Bremslicht-,schalter
+002,2,Spannung,Rückförderpumpe,Wertebereich: 0 = keine Spannung / 1 = Spannung (Hydrauliksteuereinheit ersetzen) | Sollwert: 0
+002,3,Relais für,Magnetventile,Wertebereich: 0/1 | Sollwert: 1
+002,4,[N/A]
+;
+004,1,[N/A]
+004,2,EDS-Abschaltung,durch Temperatur
+004,3,EDS-Abschaltung,,Wertebereich: 0 = EDS verfügbar / 1 = EDS nicht verfügbar
+004,4,[N/A]
+;

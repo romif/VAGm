@@ -1,0 +1,37 @@
+;
+; VAG-COM Redirect File
+;
+; Seat Toledo (1L)
+;
+; Component: Engine (#01)
+;
+; This is a redirect file for engine modules.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 06-01.LBL
+; 1L-01.LBL
+; 6K-01.LBL
+; 037-906-025-ADY.LBL (2.0l E   @ 115 HP - ADY/AGG/AKR)
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 09/03/2004
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;-------------------------------------------------------------
+;
+; Enginecode ADY/AGG/AKR 2.0l 85kW/115HP
+;
+; ADY/AGG/AKR 2.0l 85kW/115HP (1L, 6K, 7M)
+;
+;-------------------------------------------------------------
+;
+;
+REDIRECT,037-906-025-ADY.LBL,1L0-906-025-D  ; AGG (1L)
+;

@@ -1,0 +1,102 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Bora/Golf/Jetta (1J)
+; VW Sharan (7M) / VW Transporter (7E/7H)
+;
+; Komponente: Airbag (#15) - VW5/VW6
+;
+; T/N: 1C0 909 605 ???
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; erstellt am 28.07.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 28.07.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Zünder Airbag/Gurtstraffer vorn
+001,1,Airbag,Fahrerseite,Wertebereich: richtig/Endp. Masse/Endp. Plus/zu klein
+001,2,Airbag,Beifahrerseite,Wertebereich: richtig/Endp. Masse/Endp. Plus/zu klein
+001,3,Gurtstraffer,Fahrerseite,Wertebereich: richtig/zu groß/zu klein/Endp. Masse/Endp. Plus/n. verbaut
+001,4,Gurtstraffer,Beifahrerseite,Wertebereich: richtig/zu groß/zu klein/Endp. Masse/Endp. Plus/n. verbaut
+;
+002,0,Zünder Gurtstraffer hinten
+002,1,Gurtstraffer,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus/n. verbaut
+002,2,Gurtstraffer,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus/n. verbaut
+;
+003,1,Versorgungs-,spannung,Wertebereich: richtig/zu klein/zu groß
+003,2,Sitzbelegungs-,sensor Beifahrer,Wertebereich: n. verbaut
+003,3,Micro-/Gurtschalter,Fahrerseite,Wertebereich: zu klein/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut/unplausibel
+003,4,Micro-/Gurtschalter,Beifahrerseite,Wertebereich: zu klein/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut/unplausibel
+;
+004,0,Gurterkennung (hinten)
+004,1,Gurterkennung,hinten links,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+004,2,Gurterkennung,hinten rechts,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+;
+005,0,Zünder Seitenairbag
+005,1,Seitenairbag,Fahrerseite,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus/n. verbaut
+005,2,Seitenairbag,Beifahrerseite,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus/n. verbaut
+005,3,Seitenairbag,hinten links,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus/n. verbaut
+005,4,Seitenairbag,hinten rechts,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus/n. verbaut
+;
+006,0,Sitzbelegungssensoren hinten
+006,1,Sitzbelegungs-,sensor hinten li.,Wertebereich: n.verbaut
+006,2,Sitzbelegungs-,sensor hinten re.,Wertebereich: n.verbaut
+;
+007,0,Zünder Kopfairbag
+007,1,Kopfairbag,Fahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus/n. verbaut
+007,2,Kopfairbag,Beifahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus/n. verbaut
+;
+008,0,Versionsnummern
+008,1,Crashsensor,Fahrerseite
+008,2,Crashsensor,Beifahrerseite
+008,3,Crashsensor,hinten links
+008,4,Crashsensor,hinten rechts
+;
+009,0,Identifikation
+009,1,Crashsensor,Fahrerseite
+009,2,Crashsensor,Beifahrerseite
+009,3,Crashsensor,hinten links
+009,4,Crashsensor,hinten rechts
+;
+010,0,Abschaltung Beifahrerairbag
+010,1,Status,Beifahrerairbag,Wertebereich: ein/aus
+010,2,Schlüsselschalter,Logikkontakt 1,Wertebereich: zu klein/n. Masse/n. Plus/ein/aus/n. verbaut
+010,3,Schlüsselschalter,Logikkontakt 2,Wertebereich: zu klein/n. Masse/n. Plus/ein/aus/n. verbaut
+;
+011,0,Zünder
+011,1,Airbag (Stufe 2),Fahrer
+011,2,Airbag (Stufe 2),Beifahrer
+011,3,Knieairbag,Fahrer
+011,4,Knieairbag,Beifahrer
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Deaktivierung Airbag Beifahrerseite
+A001,5,Deaktivierung Airbag Beifahrerseite
+A001,6,Bei Verwendung eines Kindersitzes bei dem das Kind mit dem Rücken
+A001,7,zur Fahrtrichtung sitzt kann der Beifahrer Airbag deaktiviert werden.
+A001,8, 
+A001,9,Zur Deaktivierung ist zusätzlich eine Trennung der elektrischen
+A001,10,Verbindung vorzunehmen welche bei der Aktivierung wiederhergestellt
+A001,11,werden muss.
+A001,12, 
+A001,13,0 - Airbag aktiv
+A001,14,1 - Airbag deaktiktiviert
+;

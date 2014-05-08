@@ -1,0 +1,46 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A8 (4E)
+;
+; Component: J519 - Central Electronics (#09)
+;
+; P/N: 4E0-910-279-???
+;
+; includes coding
+;
+; created on 04/Mar/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/Mar/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics I (J519) Coding
+C01,0?xxxxx: Footwell Lightning (0 - Light Bulps / 1 - LED)
+C02,0x?xxxx: Headlights
+C03,0 = Halogen Headlights
+C04,1 = Bi-Xenon Headlights (only through Index E)
+C05,2 = Bi-Xenon Headlights w/o LED DRL
+C06,3 = Bi-Xenon Headlights with LED DRL and Advanced Front-Lighting System (AFS)
+C07,4 = Bi-Xenon Headlights with seperate 21W-Halogen DRL and Advanced Front-Lighting System (AFS)
+C08,0xx?xxx: Automatic Driving Light
+C09,0 = w/o Automatic Driving Light
+C10,1 = with Automatic Driving Light with Light Sensor (G399)
+C11,3 = with Automatic Driving Light with Rain/Light Sensor (G397)
+C12,0xxx?xx: Daytime Running Lights (0 = Disabled / 1 = Enabled)
+C13,0xxxx?x: Daytime Running Light MMI Menu
+C14,0 = DRL not selectable in MMI
+C15,1 = DRL selectable in MMI (Default: OFF)
+C16,2 = DRL selectable in MMI (Default: ON)
+C17,0xxxxx?: Country
+C18,1 = Rest of World (RoW) / 2 = Northern European Countries (Sweden/Finland/Norway/Denmark)
+C19,3 = USA / 4 = Canada / 7 = Special Purpose Vehicles
+;

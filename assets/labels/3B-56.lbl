@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-56.LBL
+; 3B7-035-1xx-56.LBL
+;
+; created on 29/Mar/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Mar/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3B7-035-1xx-56.LBL,3B7-035-180-??? ; PREMIUM VI
+REDIRECT,3B7-035-1xx-56.LBL,3B7-035-195-??? ; DELTA VI
+;

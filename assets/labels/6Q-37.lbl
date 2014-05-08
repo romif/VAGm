@@ -1,0 +1,19 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Radio/Navigation System (#37)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-37.LBL
+; 3B0-919-887.LBL
+;
+; created on 05/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Dec/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3B0-919-887.LBL,6Q0-919-887-??? ; MFD
+;

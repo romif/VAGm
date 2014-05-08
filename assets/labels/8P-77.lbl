@@ -1,0 +1,24 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8P)
+;
+; Component: Telephone (#77)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-77.LBL
+; 5P-77.LBL
+; 8P-77.LBL
+; 1K0-035-729-FIX.LBL
+; 1K0-035-729-UNI.LBL
+;
+; created on 19/Oct/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 25/Sep/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-035-729.LBL,8P0-862-335-???
+;

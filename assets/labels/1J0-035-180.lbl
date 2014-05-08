@@ -1,0 +1,42 @@
+;
+; VAG-COM Measuring Block Labels for
+; 56 - Radio
+; Premium IV / Premium V radio
+; U.S. 1999.5+ VW Golf/Jetta/GTI
+; Part #  1J0 035 180 D
+;
+; submitted by Davin Swanson
+;
+1,0,Voltage / Illumination / S-Contact
+1,1,VACANT
+1,2,V,Supply Voltage
+1,3,%,Illumination
+1,4,On/Off,S-contact
+;
+2,0,Speaker Status
+2,1,Front
+2,2,Front,Status
+2,3,Rear
+2,4,Rear,Status
+;
+3,0,Speaker Type and Antenna Status
+3,1,Speaker,Type
+3,2,Antenna
+3,3,Antenna,Status
+3,4,VACANT
+;
+4,0,Active Amplifier Status
+4,1,Power,(0=OK 1=short)
+4,2,VACANT
+4,3,VACANT
+4,4,VACANT
+;
+5,0,CD Changer
+5,1,Installed
+5,2,Status
+5,3,VACANT
+5,4,VACANT
+;
+6,0,Undocumented
+7,0,Undocumented
+25,0,Undocumented

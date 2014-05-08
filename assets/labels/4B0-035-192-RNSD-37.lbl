@@ -1,0 +1,142 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z) / Audi A3 (8L) / Audi A4 (8D/8E) / Audi A6 (4B) / Audi A8 (4D)
+;
+; Komponente: Radio-/Navigationssystem (#37) - RNS-D
+;
+; T/N: ??0-035-192-???
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-37.LBL
+; 4D-37.LBL
+; 8D-37.LBL
+; 8E-37.LBL
+; 8L-37.LBL
+; 8Z-37.LBL
+; 4B0-035-192-RNSD-37.LBL
+;
+; erstellt am 25.02.2006 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 25.02.2006
+;
+; benötigt VAG-COM 505.1 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Allgemein
+001,1,Geschwindigkeits-,signal,Wertebereich: 0 = nicht erkannt / 1 = erkannt
+001,2,Spannung,(Klemme 30)
+001,3,Dimmung,(Klemme 58d)
+001,4,Status,S-Kontakt,Wertebereich: EIN/AUS
+;
+002,0,Eingangssignale
+002,1,Rückfahrlicht-,schalter,Wertebereich: Rückw. AUS/Rückw. EIN
+002,2,Status,Klemme 15,Wertebereich: Kl.15 EIN/Kl.15 AUS
+;
+003,0,GPS-Antenne
+003,1,GPS-Antenne
+003,2,Status,Fernspeisung,Wertebereich: i.O./Kurzschluss/Unterbrechung
+;
+004,0,Zweitdisplay
+004,1,Zweitdisplay
+004,2,Status,,Wertebereich: i.O./n.i.O.
+;
+005,0,CAN-Datenbus Kommunikation
+005,1,CAN-Datenbus
+005,2,CAN-Datenbus,Status,Wertebereich: i.O./n.i.O.
+;
+006,0,Geschwindigkeitssignal
+006,1,ABS-Sensor,vorne links
+006,2,Geschwindigkeit
+;
+007,0,Produktionsdiagnose
+007,1,Status,,Sollwert: 255
+; +001 = CAN-Kommunikation Navigationseinheit i.O.
+; +002 = Stromaufnahme GPS-Antenne (10-30 mA) i.O.
+; +004 = Klemme 15 (Zündung EIN) erkannt
+; +008 = Signal Rückfahrlichtschalter erkannt
+; +016 = CAN-Kommunikation Kombiinstrument i.O.
+; +032 = Signal Radimpuls mind. 1x erkannt
+; +064 = Anpassung Radimpulse i.O.
+; +128 = Anpassung Reifenumfang i.O.
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Reifenumfang
+A001,5,Reifenumfang
+A001,6,Der Reifenumfang wird in "mm" angegeben
+A001,7,eine Reifenumfangtabelle findet sich hier:
+A001,8, 
+A001,9,http://de.openobd.org/audi/rns.htm#reifen
+;
+A002,0,Impulse pro Radumdrehung
+A002,5,Impulse pro Radumdrehung
+A002,6,39 = Audi A2 (8Z) 1.2l Öko
+A002,7,43 = Audi A2 (8Z) Alle anderen Motorvarianten
+A002,7,45 = Audi A3 (8L) / Audi A4 (8D/8E) / Audi A6 (4B) / Audi A8 (4D)
+;
+A003,0,Produktionsdiagnose
+A003,5,Produktionsdiagnose
+A003,6,Das Ergebnis der Produktionsdiagnose wird im
+A003,7,Messwertblock 007 Feld 1 angezeigt.
+A003,8, 
+A003,9,0 = Produktionsdiagnose inaktiv
+A003,10,1 = Produktionsdiagnose aktiv
+;
+A004,0,Kombiinstrument Display
+A004,5,Kombiinstrument Display
+A004,6,Bis KW 44/2001 (RNS 4.0 & 4.1)
+A004,7,0 = monochromes Display
+A004,8,1 = farbiges Display
+A004,9, 
+A004,10,Ab KW 45/2001 (RNS 4.2)
+A004,11,0 = monochromes Display (bis MJ 2001)
+A004,12,1 = monochromes Display (ab MJ 2002)
+;
+A005,0,Ländervariante
+A005,5,Ländervariante
+A005,6,0 = Europa
+A005,7,1 = USA
+;
+A006,0,Telematik
+A006,5,Telematik
+A006,6,1 = Telematik nicht verbaut
+A006,7,3 = Telematik verbaut
+;
+A007,0,Ausstattung
+A007,5,Ausstattung
+A007,6,+1 = Kartenleser verbaut
+A007,7,+2 = Multifunktionslenkrad (MFL) verbaut (ab KW 45/2001 - RNS 4.2)
+A007,8,+4 = TV-Tuner verbaut (ab KW 45/2001 - RNS 4.2)
+A007,9,+8 = Sprachbedienung verbaut (ab KW 45/2001 - RNS 4.2)
+;
+A009,0,Lautsprecher
+A009,5,Lautsprecher
+A009,6,Unterdrücken des Fehlerspeichereintrages im Audi A4 Cabriolet (8H)
+A009,7,dort werden die Lautsprecher über einen Kondensator angeschlossen. 
+A009,8, 
+A009,9,0 = Audi A4 (8E) Limousine/Avant
+A009,10,1 = Audi A4 (8H) Cabriolet
+;
+A099,0,Transportmodus
+A099,5,Transportmodus
+A099,6,0 = Transportmodus AUS
+A099,7,1 = Transportmodus EIN
+;

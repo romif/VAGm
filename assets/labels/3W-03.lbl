@@ -1,0 +1,36 @@
+;
+; VAG-COM Redirect File 3W0-614-517.lbl
+;
+; VW Bentley Continental GT (3W)
+;
+; component: ABS Brakes (#03)
+;
+;     P/N 3W0 614 517 D       Component: 33 ESP 5.7 4WD H01 0021     Coding: 0007878 (Canada)
+;     P/N 3W0 614 517 B       Component: 33 ESP 5.7 4WD H01          Coding: 0007878 (Europe)
+;
+;
+; This file is part of a redirection package,
+; make sure you have both of the following files.
+;
+; 3W0-614-517.lbl (this file)
+; 3D0-614-517.lbl (the Phaeton ABS file that this redirect sends you to)
+;
+; by Michael Moore
+; Moore@ross-tech.com
+;
+; created: 23/September/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,3D0-614-517.lbl,3W0-614-517-???
+;
+;
+;Explanation of why this redirect file exists
+;
+;This file provides measured value block labels for ABS on the Bentley Continental GT
+;by calling up an existing label file for ABS on the Phaeton.  It appears to 
+;the author that both of these controllers (Phaeton and Bentley Continental GT) are identical, however, this
+;label file has not been fully tested on the Bentley.
+;
+;

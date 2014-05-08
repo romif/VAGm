@@ -1,0 +1,66 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8L) / Audi A4 (8D) / Audi A6 (4B)
+;
+; component: J347 - Interior Monitoring (#45)
+;
+; p/n: 4B0-951-173
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 07/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 07/Jun/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+;
+;
+001,0,Basic Functions
+001,1,Switch,Positions,?xxx - Switch for Int. Monitoring\nx?xx - Driver-side door contact switch\nxx?x - Anti-theft warning system\nxxx? - Glass breakage system (Avant only)
+001,2,Sensor,Sensitivity,Specification: 50...100 % (see Adaptation Channel 001)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C0,Interior Monitoring (J247) Coding
+C1,00?xx - Type
+C2,0 - Audi A3 (8L)
+C3,1 - Audi A4 (8D) / Audi A6 (4B)
+C4, 
+C5,00x?x - Arming Mode
+C6,0 - Static
+C7, 
+C8,00xx? - Chassis Type
+C9,1 - Sedan
+C10,2 - Avant
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A1,0,Sensitivity
+A1,5,Sensitivity
+A1,6,Sensitivity settings of the ultra-sound sensors can
+A1,7,be set so that the sensors react with less sensitivity
+A1,8, 
+A1,9,Basic value: 100 (= 100 %)
+A1,10,Specification: 50...100 %
+;

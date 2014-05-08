@@ -1,0 +1,184 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8P) / Audi TT (8N) / Seat Altea (5P) / Seat Toledo (5P)
+; Skoda Octavia (1Z) / VW Golf (1K) / VW New Beetle (1C) / VW Touran (1T)
+;
+; component: Transmission Electronic (#02) - 6-Speed Automatic Transmission 09G
+;
+; p/n: 09G 927 750 ???
+;
+; includes measuring blocks and coding
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 03/27/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Engine speed,,Specification: 0...7650 RPM
+001,2,Transmission,RPM (from G182),Specification: 0...7650 RPM
+001,3,Transmission,Output RPM,from G195 (Specification: 0...7650 RPM)
+001,4,Driving Mode,,see Labelfile
+;  0 = Neutral
+;  R = Reverse gear
+;  N = Neutral
+; 1H = 1. Gear hydraulic
+; 1M = 1. Gear mechanic
+; 2H = 2. Gear hydraulic
+; 2M = 2. Gear mechanic
+; 3H = 3. Gear hydraulic
+; 3M = 3. Gear mechanic
+; 4H = 4. Gear hydraulic
+; 4M = 4. Gear mechanic
+; 5H = 5. Gear hydraulic
+; 5M = 5. Gear mechanic
+; 6H = 6. Gear hydraulic
+; 6M = 6. Gear mechanic
+;
+002,1,Transmission RPM,(from G182),Specification: 0...1650 RPM
+002,2,G182 Voltage,Transmission RPM,Specification: 0...5.00 V
+002,3,Transmission,output RPM,from G195 (Specification: 0...7650 RPM)
+002,4,G195 Voltage,Transmission RPM,Output (Specififcation: 0...5.00 V)
+;
+003,1,Driving Manner,,Specification: DS/SO/WU/TT/AS/AC
+003,2,Accelerator pedal,position,Specification: 0...100 % / Kick-Down / Error
+003,3,Vehicle Speed,,Specification: 0...255 km/h
+003,4,Driving Mode,,see Labelfile
+;  0 = Neutral
+;  R = Reverse gear
+;  N = Neutral
+; 1H = 1. Gear hydraulic
+; 1M = 1. Gear mechanic
+; 2H = 2. Gear hydraulic
+; 2M = 2. Gear mechanic
+; 3H = 3. Gear hydraulic
+; 3M = 3. Gear mechanic
+; 4H = 4. Gear hydraulic
+; 4M = 4. Gear mechanic
+; 5H = 5. Gear hydraulic
+; 5M = 5. Gear mechanic
+; 6H = 6. Gear hydraulic
+; 6M = 6. Gear mechanic
+;
+004,1,Selector Lever,Position,Specification: P/R/N/D/S/Manual/Error
+004,2,Accelerator pedal,position,Specification: 0...100 % / Kick-Down / Error
+004,3,Declination,Recognition,Specification: UP = upward / LEVEL = no declination / DW = downward
+004,4,Driving Mode,,see Labelfile
+;  0 = Neutral
+;  R = Reverse gear
+;  N = Neutral
+; 1H = 1. Gear hydraulic
+; 1M = 1. Gear mechanic
+; 2H = 2. Gear hydraulic
+; 2M = 2. Gear mechanic
+; 3H = 3. Gear hydraulic
+; 3M = 3. Gear mechanic
+; 4H = 4. Gear hydraulic
+; 4M = 4. Gear mechanic
+; 5H = 5. Gear hydraulic
+; 5M = 5. Gear mechanic
+; 6H = 6. Gear hydraulic
+; 6M = 6. Gear mechanic
+;
+005,1,Hill Driving,Factor,Specification: -32...+31.6
+005,2,Throttle valve,factor,Specification: 0...100 %
+005,3,Dynamic Index,,Specification: 0...100 %
+005,4,Accelerator pedal,position,Specification: 0...100 % / Kick-Down / Error
+;
+006,1,ATF Temperature,(G93),Specification: -50...+171 °C
+006,2,Specified Current,Solenoid Valve 4,N91 (Specification: 0...1.000)
+006,3,Lock-Up Clutch,Slip Condition,Specification: 0 = open / 1 = closed / 2 = slipped
+006,4,Lock-Up Clutch,Slip Condition,Specification: -1250...+1250 RPM
+;
+007,1,Solenoid Valve 5,(N92),Specification: 0...1.000 A
+007,2,Solenoid Valve 9,(N282),Specification: 0...1.000 A
+007,3,Solenoid Valve 3,(N90),Specification: 0...1.000 A
+007,4,Solenoid Valve 10,(N283),Specification: 0...1.000 A
+;
+008,1,Solenoid Valve 6,(N93),Specification: 0...1.000 A
+008,2,Solenoid Valve 4,(N91),Specification: 0...1.000 A
+008,3,Solenoid Valve 1,Solenoid Valve 2,N88/N89 (Specification: 0 = inactive / 1 = active)
+008,4,Battery,Voltage,Specification: 0...25.5 V
+;
+009,1,Brake Pedal,Switch,Specification: 0 = not operated / 1 = operated
+009,2,Kick-Down,Switch,Specification:  = not operated / 1 = operated
+009,3,Selector Lever,Position,Specification: P/R/N/D/S/Manual/Error
+009,4,Multi-Function,Switch
+;
+010,1,ATF Temperature,,Specification: -50...+171 °C
+010,2,ATF Temperature,Sensor Voltage
+010,3,Transmission,Condition
+010,4,Voltage Supply,,Specification: 0...25.5 V
+;
+011,1,Brake Pedal Switch,Condition (F47),Specification: ON = switch operated / OFF = switch not operated
+011,2,Locking in P/N,Condition
+011,3,Speed,,Specififcation: 0...255 km/h
+011,4,Selector Lever,Position,Specification: P/R/N/D/S/Manual/Error
+;
+012,1,Selector Lever,Position,Specification: P/R/N/D/S/Manual/Error
+012,2,Tiptronic,Recognition
+012,3,Driving Mode,,see Labelfile
+;  0 = Neutral
+;  R = Reverse gear
+;  N = Neutral
+; 1H = 1. Gear hydraulic
+; 1M = 1. Gear mechanic
+; 2H = 2. Gear hydraulic
+; 2M = 2. Gear mechanic
+; 3H = 3. Gear hydraulic
+; 3M = 3. Gear mechanic
+; 4H = 4. Gear hydraulic
+; 4M = 4. Gear mechanic
+; 5H = 5. Gear hydraulic
+; 5M = 5. Gear mechanic
+; 6H = 6. Gear hydraulic
+; 6M = 6. Gear mechanic
+012,4,Transferrable,Torque,Specification: 0...100
+;
+013,1,Selector Lever,Position,Specification: P/R/N/D/S/Manual/Error
+013,2,Multi-Function,Switch Position
+013,3,Tiptronic,Recognition
+013,4,Transferrable,Torque,Specification: 0...100
+;
+014,1,Accelerator pedal,position,Specification: 0...100 %
+014,2,[N/A]
+014,3,Idle Switch,Condition,Specification: 0 = not operated / 1 = operated
+014,4,Accelerator Pedal,Condition,Specification: 0 = not depressed / 1 = depressed
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine
+125,2,Brake Electronics
+125,3,Instrument Cluster
+125,4,All-Wheel-Drive
+;
+;
+;---------------------------------------------------
+;
+; Measuring block information
+;
+;---------------------------------------------------
+;
+;
+C0,6-Speed Automatic Transmission 09G
+C1,00008 - w/o Tiptronic
+C2,08200 - with TipTronic
+C3, 
+C4,Note: If your coding does not fit in here
+C5,please contact: sebastian@ross-tech.com
+;

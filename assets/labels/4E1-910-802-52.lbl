@@ -1,0 +1,128 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J387 - Passenger's Door Electronics (#52)
+;
+; P/N: 4E1-910-802-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-52.LBL
+; 4E1-910-802-52.LBL
+;
+; created on 02/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Door Status,,0 = inactive\n1 = active
+; 00?xxxxx = Central Locking (CL) Interior Switch locking
+; 00x?xxxx = Central Locking (CL) Interior Switch unlocking
+; 00xx?xxx = Lock Feedback "safed" (not USA)
+; 00xxx?xx = Lock Feedback "locked"
+; 00xxxx?x = Door Contact Switch
+; 00xxxxx? = Catch (for Closing Assistance)
+001,2,Button Status,,0 = inactive\n1 = active
+; ?x000000 = External Central Locking Button
+; x?000000 = External Door Handle Button
+001,3,Voltages and,Databus Status,0 = inactive\n1 = active
+; ?xxx = Terminal 30 (Window Regulator)
+; x?xx = Terminal 30 (Central Locking)
+; xx?x = Terminal 15
+; xxx? = CAN-Comfort in Single-Wire Mode
+001,4,Voltage Supply
+;
+002,0,Window Regulator Buttons (Local)
+002,1,WR-Button (E107),Passenger Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,1,Window Regulator,Position,Range: 0.0...100.0 %
+003,2,Window Regulator,Motor Temperature,Range: -50.0...+200.0 °C
+003,3,Window Regulator,Status,0 = inactive\n1 = active
+; ?xxxxxx = Post-Tracking
+; x?xxxxx = Air Recirculation
+; xx?xxxx = Pinch Protection active
+; xxx?xxx = Window Regulators Enabling
+; xxxx?xx = Thermal Protection
+; xxxxx?x = Standardized
+; xxxxxx? = Insulated Glass
+003,4,Window Regulator,Movement,Range: Still/Open/Closed
+;
+004,3,Memory Buttons,,0 = inactive\n1 = active
+; xxxxx? = Position Button 1
+; xxxx?x = Position Button 2
+; xxx?xx = Position Button 3
+; xx?xxx = Position Button 4
+; x?xxxx = Emergency-Off Button
+; ?xxxxx = Memory Button
+;
+005,1,Vehicle Speed,,Range: 0.0...255.0 km/h
+005,2,Ambient,Temperature,Range: -50.0...+200.0 °C
+005,3,Mirror Heating,(calculated),Range: 0.0...100.0 %
+005,4,Mirror Heating,Status,Range: Heater Off/Heater On
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Driver's Door Electronics (J386) Coding
+C01,+0000001 = Insulated Glass installed (PR-4KV/4KS)
+C02,+0000002 = Right Hand Steering (PR-L0R)
+C03,+0000004 = Lighting Package (Interior Lighting - PR-QQ1/QQ3)
+C04,+0000008 = Lighting Package (Exterior Lighting - PR-QQ2/QQ3)
+C05,+0000016 = Synchronous Mirror Adjustment
+C06,+0000032 = Air Recirculation Closing active
+C07,+0000064 = Electrical Child Safety Lock (PR-GZ2)
+C08,+0000128 = Electrical Side Shades installed (PR-3Y8)
+C09,+0000256 = Safe Function enabled (PR-A8S)
+C10,+0000512 = Folding Mirror installed (PR-6XE/6XF/6XK/6XL/6XS)
+C11,+0001024 = Automatic Dimming Mirror installed (PR-6XJ/6XK/6XL/6XM/6XS)
+C12,+0002048 = Pinch Protection active
+C13,+0004096 = Closing Assistance (PR-GZ2)
+C14,+0008192 = Seat Memory Driver installed (PR-3PN)
+C15,+0016384 = Seat Memory Passenger installed (PR-3PN)
+C16,+0032768 = Child Safety Lock disabled with Door Open
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T379,Terminal 58s
+T1551,Central Locking: Lock
+T1223,Central Locking: Unlock
+T1148,Central Locking: Safe
+T2190,Ambient Lighting: Exterior
+T2220,Ambient Lighting: Interior
+T1339,Door Warning Light
+T2111,Motor for Window Regulator
+T920,Heated Mirror: Passenger Side (Z5)
+T2116,Motor for Mirror Adjusting
+T2117,Motor for Mirror Folding
+T2129,Automatic Dimming Exterior Mirror
+;

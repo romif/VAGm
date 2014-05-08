@@ -1,0 +1,241 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 7L6-920-???-???
+;
+; includes coding, adaptation, measuring blocks
+;          and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-17.LBL
+; 7L6-920-xxx-17.LBL
+;
+; created on 13/Dec/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuaring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Common Informations
+001,1,Vehicle Speed,,via CAN from brake control module
+001,2,Engine Speed,,via CAN from transmission control module
+001,3,Oil Pressure,,Specified Value: Oilpr.2 i.O.
+001,4,Clock
+;
+002,0,Common Informations
+002,1,Mileage
+002,2,Fuel Tank Content
+002,3,[N/A]
+002,4,Ambient,Temperature,Display Range: -45...+65 °C | +70 °C = short circuit | -50 °C = open circuit
+;
+003,0,Coolant && Oil Temperature
+003,1,Coolant,Temperature,via CAN from engine control module
+003,2,Oil Level
+003,3,Oil Temperature
+;
+004,1,Battery Voltage
+;
+005,1,Fuel Gauge
+005,2,Fuel Supply,Sensor 3
+;
+006,1,Tank Content,(Main Chamber)
+006,2,Tank Content,(Side Chamber)
+;
+050,0,Common Informations
+050,1,Mileage
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+060,0,Installation Information (Senders && Sensors)
+;
+061,0,Checking Installation Information
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+082,0,Flash-Tool-Code (FTC)
+; Flash-Date (in dd.mm.yy)
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine
+125,2,Transmission
+125,3,ABS
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Airbag
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,2,All wheel,drive (AWD)
+;
+128,0,CAN-Databus Communication (Powertrain)
+128,2,Electrical Ignition
+128,3,Level Control
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,Comfort-CAN,Condition
+130,2,Comfortsystem
+130,3,Driver Door
+130,4,Passenger Door
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Rear/Left Door
+131,2,Rear/Right Door
+131,3,Driver,Memory Seat
+131,4,Electrical System
+;
+132,0,CAN-Databus Communication (Comfort)
+132,2,Steering Wheel
+132,3,Climate
+132,4,Tire Pressure
+;
+133,0,CAN-Databus Communication (Comfort)
+133,2,Passenger,Memory Seat
+133,4,Parking Aid
+;
+134,0,CAN-Databus Communication (Comfort)
+134,2,Electrical Ignition
+;
+140,0,CAN-Databus Communication (Infotainment)
+140,1,Infotainment-CAN,Condition
+140,3,Radio/Navigation
+140,4,Telephone
+;
+141,0,CAN-Databus Communication (Infotainment)
+141,3,TV-Tuner
+;
+143,0,CAN-Databus Communication (Infotainment)
+143,1,Digital,Sound Package
+143,3,Parking Heater
+143,4,Roof Electronics
+;
+201,1,K-Value
+201,2,Wheel,Circumference
+201,3,Starting impulse,recognized
+;
+202,1,Engine Hood,Switch
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Touareg (7L) - Instrument Cluster Coding
+C01, ??xxx - additional equipment
+C02,+01 - break pad wear indicator
+C03,+02 - seat belt warning
+C04,+04 - windshield washer fluid warning
+C05,Coding of this options is the sum of the individual options
+C06,xx?xx - Country version
+C07,1 - Europe (EU)
+C08,2 - USA (US)
+C09,3 - Canada (CDN)
+C10,4 - Great Britain (GB)
+C11,5 - Japan (JP)
+C12,6 - Saudi Arabia (SA)
+C13,7 - Australia (AUS)
+C14,xxx?x: Service interval extension
+C15,1 - SIE with flexible intervals (QG1)
+C16,2 - SIE with fixed intervals (QG2)
+C17,3 - no service intervals (USA/Canada)
+C18,xxxx? - Engine/Transmission
+C19,1 - Standard
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A04,0,Language selection
+A04,5,Possible selections:
+A04,6,1 - German
+A04,7,2 - English
+A04,8,3 - French
+A04,9,4 - Italian
+A04,10,5 - Spanish
+A04,11,6 - Portuguese
+A04,12,7 - without text (symbols)
+A04,13,8 - Czech
+A04,14, 
+A04,15,NOTE: not all values might be possible.
+;
+A09,0,Mileage
+A09,5,Mileage shown in instrument cluster
+A09,6,Mileage can only be changed once until it
+A09,7,is not over 100 km/mi. On some instrument
+A09,8,clusters you do not need any login/security
+A09,9,code to change the value.
+;
+A30,0,Tank sensor
+A30,5,Tank sensor
+A30,6,Tank sensor can be adjusted by
+A30,7,steps of 1 from 108 to 148.
+;
+A35,0,Undocumented
+;
+A60,0,Undocumented (DATA-BUS Engine)
+;35951
+;
+A61,0,Undocumented (DATA-BUS Comfort)
+;447
+;
+A62,0,Undocumented (DATA-BUS Infotainment)
+;28752 = 111000001010000
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,1000,DIST
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,46,Total Consumption,100,DIST
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;

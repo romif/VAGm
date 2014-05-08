@@ -1,0 +1,43 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A4 (8D) / Audi A6 (4A) / Audi A8 (4D)
+;
+; Component: J234 - Airbags (#15) - AIRBAG V
+;
+; P/N: 8A0-959-655-???
+;
+; includes measuring blocks and coding
+;
+; created on 10/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 22/Mar/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,1111 = Correct\n1011 = Signal too Low\n0111 = Signal too High\n1101 = Short to Ground\n1110 = Short to Plus
+001,2,Airbag,Passenger Side,1111 = Correct\n1011 = Signal too Low\n0111 = Signal too High\n1101 = Short to Ground\n1110 = Short to Plus
+001,3,Belt Tensioner,Front Driver Side,1111 = Correct\n1011 = Signal too Low\n0111 = Signal too High\n1101 = Short to Ground\n1110 = Short to Plus
+001,4,Belt Tensioner,Front Pass. Side,1111 = Correct\n1011 = Signal too Low\n0111 = Signal too High\n1101 = Short to Ground\n1110 = Short to Plus
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Airbags (J234) Coding
+C01,00766 = Driver Airbag & Belt Tensioners
+C02,01022 = Driver/Passenger Airbag & Belt Tensioners
+;

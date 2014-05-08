@@ -1,0 +1,96 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Seat Toledo (5P) / Skoda Octavia II (1Z)
+;
+; Komponente: J386 - Türsteuergerät Fahrerseite (#42) - MIDI
+;
+; T/N: 1K0-959-701-???
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 20.09.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 20.09.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Elektrischer Fensterheber (eFH) Fahrertür
+001,1,eFH-Schalter,Fahrertür (E40),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+001,2,eFH-Schalter,Fahrertür (E40),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+001,3,Status eFH-Motor,Fahrertür (V147),Wertebereich: aufwärts/abwärts/Position oben/Position unten/Ü-temp.Absch./Einklemmschut/Endanschl.gel
+001,4,Thermoschutz,eFH-Motor (V147),Wertebereich: aktiv/inaktiv
+;
+002,1,Komfortbedienung,Fensterheber,Wertebereich: aktiv/inaktiv/unbetätigt
+002,2,Freigabe,Fensterheber,Wertebereich: Ja/Nein
+002,3,Dimmung,Klemme 58d,Wertebereich: 0.0...100.0 %
+002,4,Fahrzeug-,geschwindigkeit,Wertebereich: 0.0...255.0 km/h
+;
+003,1,Spannung,(Klemme 30),Sollwert: 9.0...14.0 V
+003,2,Buszustand,,Sollwert: Zweidraht\nWertebereich: Eindraht/Zweidraht
+003,3,Status,Klemme 15,Wertebereich: Kl. 15 ein/Kl. 15 aus
+003,4,Status,S-Kontakt,Wertebreich: aktiv/inaktiv
+;
+004,1,Dimmung,Klemme 58s,Wertebereich: 0.0...100.0 %
+004,2,Dimmung,Türinnengriffbel.,Wertebereich: 0.0...100.0 %
+004,3,Dimmung,Umfeldbeleuchtg.,Wertebereich: 0.0...100.0 %
+004,4,Innenleuchte,Funktionsanzeige,Wertebereich: aktiv/inaktiv
+;
+005,0,Zentralverriegelung (Fahrertür)
+005,1,Schließeinheit,Fahrertür (F220),Wertebereich: verriegelt/entriegelt/safe
+005,2,Türkontaktschalter,Fahrertür (F2),Wertebereich: Tür auf/Tür zu
+005,3,Taster (E308) für,Innenverriegelung,Wertebereich: verriegeln/entriegeln/unbetätigt
+005,4,Schlüsselschalter,Fahrertür,Wertebereich: auf/zu/unbetätigt
+;
+006,0,Außenspiegel (Fahrertür)
+006,1,Schalter (E43) für,Spiegelauswahl,Wertebereich: links/rechts/n. verbaut
+006,2,Schalter (E43) für,Spiegelverstellung,Wertebereich: Pos X+/Pos X-/Pos Y+/Pos Y-/unbetätigt/n. verbaut
+006,3,Schalter (E43) für,Spiegelheizung,Wertebereich: Ein/Aus
+006,4,Spiegelheizung,Fahrertür (Z4),Wertebereich: aktiv/inaktiv/n. verbaut
+;
+007,1,eFH-Motor,Fahrertür (V147),Wertebereich: 0.0...100.0 %
+007,2,Spiegelblinker,Fahrertür (L131),Wertebreich: aktiv/inaktiv/n. verbaut
+;
+008,0,Schalter Fahrertür I
+008,1,Taster (E233) für,Heckklappenentr.,Wertebereich: betätigt/unbetätigt
+008,2,Taster (E319) für,Tankdeckelentr.,Wertebereich: betätigt/unbetätigt
+008,3,Taster (E318) für,Kindersicherung,Wertebereich: betätigt/unbetätigt
+;
+009,0,Schalter Fahrertür II (Fensterheberschalter)
+009,1,eFH-Schalter,vorn links (E40),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+009,2,eFH-Schalter,vorn rechts (E81),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+009,3,eFH-Schalter,hinten links (E53),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+009,4,eFH-Schalter,hinten rechts (E55),Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Türsteuergerät Fahrerseite (J386) Codierung
+C01,+00001 - Taster für Heckklappenfernentriegelung (E233)
+C02,+00002 - Spiegelumfeldbeleuchtung
+C03,+00004 - Spiegelblinker
+C04,+00008 - Türinnengriffbeleuchtung
+C05,+00016 - Automatiklauf
+C06,+00032 - Spiegelheizung
+C07,+00064 - Türausstiegswarnleuchte
+C08,+00128 - 5-türig
+C09,+00512 - Rechtslenker
+C10,+01024 - Safe-Motor
+C11,+02048 - Überschusskraftbegrenzung (Einklemmschutz)
+;

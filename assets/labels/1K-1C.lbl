@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J603 - Position Sensing (#1C)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-1C.LBL
+; 1Kx-919-xxx-1C.LBL
+;
+; created on 14/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Jul/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1Kx-919-xxx-1C.LBL,1K6-919-879-???
+REDIRECT,1Kx-919-xxx-1C.LBL,1K?-919-965-???
+;

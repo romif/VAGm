@@ -1,0 +1,104 @@
+;
+; VCDS Label File
+;
+; VW Passat (35/3C)
+;
+; Component: J772 - Back-Up Camera (#6C)
+;
+; P/N: 3C?-907-441-???
+;
+; includes measuring blocks, coding and security access
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-6C.LBL
+; 3Cx-910-441.LBL
+;
+; created on 11/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,2,Terminal S,Status,Range: Term. S On/Term. S Off
+001,3,Reverse Gear,Status,Range: Reverse ON/Reverse OFF
+;
+002,0,General (Voltages)
+002,1,Voltage,(Terminal 30)
+002,3,Camera Voltage
+;
+003,0,Video Connections
+003,1,Connection,to Camera
+003,2,Connection,Status (Camera)
+003,3,Connection,to Display
+003,4,Connection,Status (Display)
+;
+004,0,Steering Angle
+004,1,Steering Angle,(Current)
+004,2,Steering Angle,(Left Stop)
+;
+005,0,Calibration
+005,1,Calibration,X-Offset
+005,2,Calibration,Y-Offset
+005,3,Calibration,Turn Angle Offset
+;
+010,0,Camery Settings
+010,1,Color,,Range: 0.0...100.0 %
+010,2,Brightness,,Range: 0.0...100.0 %
+010,3,Contrast,,Range: 0.0...100.0 %
+010,4,Color Vector,,Range: 0.0...100.0 %
+;
+011,1,Terminal 15,Status,Range: Term 15 On/Term 15 Off
+011,2,Back-Up Cam.,Status
+011,3,Vehicle Speed
+011,4,Rear Lid,Status,Range: Lid Closed/Lid Open
+;
+130,0,Calibration
+130,1,Calibration,Mode Status,Range: Deactivated/Activated
+130,2,Calibration,Status,0 = Not calibrated\n1 = Calibrated\n2 = Calibration failed
+130,3,Calibration,Status,0x0000 = No Malfunction\n0x0003 = Marking not recognized\n0x0004 = Correction values out of range\n0x0005 = Picture correction not possible\n0x0066 = Calibration running (Phase 1)\n0x00AA = Calibration running (Phase 2)\n0x00FC = Calibration running\n0x00FD = Calibration still running\n0x00FE = System already calibrated\n0x00FF = Factory setting after production
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Back-Up Camera (J772) Coding
+C01,?xx00xx: Manufacturer
+C02,0 = Volkswagen
+C03,x?x00xx: Market
+C04,0 = Rest of World (RdW)
+C05,1 = North American Region (NAR)
+C06,xx?00xx: Trailer & Parking System
+C07,+1 = Tailer Hitch installed
+C08,+2 = Optical Parking System installed
+C09,x0x00??: Model
+C10,10 = VW Tiguan (5N)
+C11,01 = VW Touareg (7L)
+C12,07 = VW Passat (3C)
+C13,08 = VW Passat CC (35)
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Back-Up Camera (J772) Security Access
+S01,22351 = Adaptation Enabling (e.g. Back-Up Camera Calibration)
+;

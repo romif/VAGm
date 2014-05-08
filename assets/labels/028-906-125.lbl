@@ -1,0 +1,41 @@
+;
+; VAG-COM Label File
+;
+; VW Polo (6N) / Skoda Felicia (6X) / Skoda Pick Up (67)
+;
+; Component: J179 - Glow Time Automatic (#41)
+;
+; P/N: 028-906-125-?
+;
+; includes measuring blocks and coding
+;
+; created on 10/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Oct/2007
+;
+; requires VAG-COM 404.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Engine Speed,(G28)
+001,2,Load Signal,Potentiometer
+001,3,Coolant,Temperature
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Glow Time Automatic (J179) Coding
+C01,00124 = Climate Control installed
+C02,00127 = Climate Control not installed
+;

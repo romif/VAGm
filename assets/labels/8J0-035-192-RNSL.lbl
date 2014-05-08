@@ -1,0 +1,93 @@
+;
+; VCDS Label File
+;
+; Audi A3 (8P) / Audi A4 (8E) / Audi TT (8J)
+;
+; Component: Radio/Navigation System (#37/#56) - RNS-E
+;
+; P/N: 8J0-035-192-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-37.LBL
+; 8E-56.LBL
+; 8J-37.LBL
+; 8J-56.LBL
+; 8P-37.LBL
+; 8P-56.LBL
+; 8J0-035-192-RNSL.LBL
+;
+; created on 06/Jun/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Jun/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C01,00?xxxx: Configuration III
+C02,1 = Treble Speaker Monitoring inactive & Analog Input (AUX) not installed
+C03,2 = Treble Speaker Monitoring active
+C04,3 = Analog Input (AUX) installed
+C05,4 = Treble Speaker Monitoring active & Analog Input (AUX) installed
+C06,00x?xxx: Configuration II
+C07,+1 = GALA iactive
+C08,+2 = Telephone/Cell Phone Preparation installed
+C09,+4 = Diagnosis of Front Speakers inactive
+C10,00xx?xx: Speakers
+C11,0 = Sound System (active Speakers)
+C12,2 = passive Front Speakers
+C13,00xxx?x: Sound Correction
+C14,0 = Linear (No Sound System/No Correction)
+C15,1 = Audi A4 Limousine/Avant (8E)
+C16,2 = Audi A4 Cabrio without high-pass (8H)
+C17,3 = Audi A4 Cabrio with high-pass (8H)
+C18,4 = Audi TT (8J)
+C19,5 = Audi A3 (8P)
+C20,9 = Sound System (Bose)
+C21,00xxxx?: Configuration I
+C22,+1 = Multifunction Steering Wheel
+C23,+2 = CD-Changer
+C24,+4 = Destination input while driving
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T854,Display Test
+T2875,CD/DVD-Drive Read Test: Short Test
+T2876,CD/DVD-Drive Read Test: Random Test
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+
+;

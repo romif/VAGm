@@ -1,0 +1,45 @@
+;
+; VAG-COM label file 3D0-035-704.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: GSM Telephone (#77) 
+;  - Nokia fixed handset with curly cord, not a portable or handy
+;  - handset part number is 3D0 035 624
+;  - for European vehicles only - GSM dual band 900/1800
+;
+;
+; p/n: 3D0 035 704 D  Component: Telefon 8110   Coding: 0000000 
+;   - from 2004 W12, Germany, Daniel
+;   - from 2003 V6, Germany, Tomasz
+;
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 23/November/2005 (Michael)
+;
+;
+;
+;---------------------------------------------------
+;
+; Measured Value Block information
+;
+;---------------------------------------------------
+;
+;NOTE: All 255 blocks have been auto-scanned for data
+;
+001,0,General Information
+;
+002,0,Dimmer and Load values
+;
+005,0,International Mobile Equipment Identity (IMEI)
+;
+080,0,Flash Date - flash software code version (read this in the top measuring block line only)
+;
+81,0,VIN Number and Engine Number (read in top measuring block only)
+;
+86,0,Manufacturing Date
+;
+87,0,Unknown
+;
+126,0,Unknown

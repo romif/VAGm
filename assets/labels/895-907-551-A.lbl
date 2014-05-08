@@ -1,0 +1,66 @@
+;
+; ***************************************************************
+; *                                                             *
+; *  Audi S2 5-cyl Turbo 4WD with ABY Engine (Oct 92 - Jul 95)  *
+; *  Component 2.2l R5 MOTR.RHV HS D02 with ECU #895-907-551-A  *
+; *                                                             *
+; *:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*
+; *                                                             *
+; * Visit http://www.S2central.com for more info on the Audi S2 *
+; * Label file created by Paul Nugent on 31st January 2002, v01 *
+; *                                                             *
+; ***************************************************************
+;
+; Group 000 included here for reference purposes...
+; Labels for Group 000 are not yet supported in VAG-COM.
+;
+; 000,00,ABY Engine Group 0 : General Status
+; 000,01,Coolant Temperature,Idle 184-215
+; 000,02,Engine Load,Idle 20-26
+; 000,03,Engine Speed (RPM),Idle 77-83
+; 000,04,Operating range of IAC valve,Idle 121-135
+; 000,05,IAC curve zero point,Idle 70-125
+; 000,06,IAC load adjustment,Idle 123-137
+; 000,07,IAC curve control,Idle 41-61
+; 000,08,Lambda control,Idle 123-133
+; 000,09,Lambda adaptation,Idle 100-141
+; 000,10,Ignition Timing,Idle 35-37
+;
+001,0,ABY Engine Group 1 : General & Ignition
+001,1,Engine Speed,Idle 770-830 RPM
+001,2,Coolant Temp,70-106 deg C
+001,3,Lambda Factor,~ 1.0
+001,4,Ignition Timing,Idle 8-12 BTDC
+;
+002,0,ABY Engine Group 2 : General & Injection
+002,1,Engine Speed,RPM
+002,2,Injector Duration,Pulse Width
+002,3,Battery Voltage,
+002,4,Atmos.Pressure,Ambient
+;
+003,0,ABY Engine Group 3 : Load, Temp & Throttle Body
+003,1,Engine Speed,RPM
+003,2,Engine Load,
+003,3,Throttle Angle,
+003,4,Intake Air Temp,
+;
+004,0,ABY Engine Group 4 : Load, Speed & Throttle Switches
+004,1,Engine Speed,RPM
+004,2,Engine Load,
+004,3,Vehicle Speed,
+004,4,Throttle Switches,Idle=00010
+;
+005,0,ABY Engine Group 5 : Idle Air Control (IAC) & AirCon Detection
+005,1,Engine Speed,Idle 770-830 RPM
+005,2,IAC Zero Point,Idle 70 - 125
+005,3,IAC Duty Cycle,
+005,4,Load Switches,AirCon ON=0100
+;
+007,0,ABY Engine Group 7 : Idle Air Control (IAC) Valve
+007,1,Operating Range,Idle 121 - 135
+007,2,Curve Zero Point,Idle 70 - 125
+007,3,Curve Control,Idle 41 - 61
+007,4,Load Adaptation,Idle 123 - 137
+;
+; End of file !
+

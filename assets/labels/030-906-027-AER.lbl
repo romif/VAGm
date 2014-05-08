@@ -1,0 +1,117 @@
+;
+; VAG-COM Labeldatei
+;
+; Seat Arosa (6H) / Seat Cordoba (6K)
+;
+; Komponente: Motor (#01) - 1.4l/37kW (50PS) - AER/ALL
+;
+; T/N: 
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 6K-01.LBL
+; 030-906-027-AER.LBL (1.4l E   @  50 HP - AER/ALL)
+;
+; erstellt am 07.02.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 07.02.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Ansaugluft,Sollwert: 75...158 (15...70 °C)
+000,2,Batteriespannung,Sollwert: 170...206 (12.0...14.5 V)
+000,3,Kühlmitteltemperatur,Sollwert: 176...229 (80...115 °C)
+000,4,Motorlast,Sollwert: 30...60 (1.5...3.0 ms)
+000,5,Lambdasonden-Signal,Sollwert: 0...205 (0...1.0 V)
+000,6,Lambda-Integrator,Sollwert: 102...154 (128 = Lambda 1)
+000,7,Lambdasondenstatus,Sollwert: 0...4
+000,8,Drosselklappenwinkel,Sollwert: 7...15 (3.1...6.7 <°)
+000,9,Einspritzzeit,Sollwert: 8...21 (3.1...8.1 ms)
+000,10,Motordrehzahl,Sollwert: 66...74 (660...740 U/min)
+;
+001,1,Motordrehzahl,,Sollwert: 660...740 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 80...115 °C
+001,3,Lambdasonden-,spannung,Sollwert: 0...1.0 (pendelnd)
+001,4,Einstell-,bedingungen,Sollwert: 00000000 (siehe Labelfile)
+; 1xxxxxxx - Fehler im Fehlerspeicher
+; x1xxxxxx - Fahrstufe eingelegt (autom. Getriebe)
+; xx1xxxxx - Klimaanlage eingeschaltet
+; xxx1xxxx - Leerlaufschalter offen
+; xxxx1xxx - Fehler Lambdaregelung
+; xxxxx1xx - Drosselklappe geöffnet
+; xxxxxx1x - Drehzahl über 2500 U/min
+; xxxxxxx1 - Kühlmitteltemperatur < 80 °C
+;
+002,1,Motordrehzahl,,Sollwert: 660...740 U/min
+002,2,Einspritzzeit,,Sollwert: 3.1...8.1 ms
+002,3,Batterie-,spannung,Sollwert: 12.0...14.5 V
+002,4,Ansaugluft-,temperatur,Sollwert: 15...70 °C
+;
+003,1,Motordrehzahl,,Sollwert: 660...740 U/min
+003,2,Motorlast,,Sollwert: 1.5...3.0 ms
+003,3,Drosselklappen-,winkel,Sollwert: 3.1...6.7 <°
+003,4,Drosselklappen-,potentiometer
+;
+004,1,Motordrehzahl,,Sollwert: 660...740 U/min
+004,2,Motorlast,,Sollwert: 1.5...3.0 ms
+004,3,Geschwindigkeit
+004,4,Betriebszustand,,siehe Labelfile
+; 1xxxxxxx - Schubbetrieb
+; x1xxxxxx - Leerlauf
+; xx1xxxxx - Teillast
+; xxx1xxxx - Vollast
+; xxxx1xxx - Beschleunigungsanreicherung
+; xxxxx1xx - Verzögerunsgabmagerung
+; xxxxxx1x - Klimakompressor eingeschaltet
+; xxxxxxx1 - Zylinder 1 erkannt
+;
+005,1,Motordrehzahl,,Sollwert: 660...740 U/min
+005,2,Tastverhältnis,Magnetventil 1,für Aktivkohlebehälter
+005,3,Adaptionswert,Magnetventil 1,für Aktivkohlebehälter
+005,4,Spülrate,Magnetventil 1,für Aktivkohlebehälter
+;
+006,1,Gemisch-,korrekturwert
+006,2,Lernwert für,Gemischkorrektur
+006,3,Lernwert für,DK offen
+006,4,Lernwert für,DK geschlossen
+;
+007,1,Motordrehzahl,,Sollwert: 660...740 U/min
+007,2,Kühlmittel-,temperatur,Sollwert: 80...115 °C
+007,3,Lambdasonden-,spannung,Sollwert: 0...1.0 (pendelnd)
+007,4,Einstell-,bedingungen,Sollwert: 00000000 (siehe Labelfile)
+; 1xxxxxxx - Fehler im Fehlerspeicher
+; x1xxxxxx - Fahrstufe eingelegt (autom. Getriebe)
+; xx1xxxxx - Klimaanlage eingeschaltet
+; xxx1xxxx - Leerlaufschalter offen
+; xxxx1xxx - Fehler Lambdaregelung
+; xxxxx1xx - Drosselklappe geöffnet
+; xxxxxx1x - Drehzahl über 2500 U/min
+; xxxxxxx1 - Kühlmitteltemperatur < 80 °C
+;
+008,0,Drosselklappensteller/-potentiometer
+008,1,Drosselklappen-,steller (IST)
+008,2,Notlaufquerschnitt,Drosselklappe
+008,3,MIN.-Anschlag,DK-Steller
+008,4,MAX.-Anschlag,DK-Steller
+;
+009,1,Lambda,Integrator
+009,2,Lambda,Adaptionswert
+009,3,Lambda,Adaptionswert
+009,4,Lambda,Adaptionswert
+;
+098,0,Drosselklappenadaption (Grundeinstellung)
+098,3,Betriebszustand
+098,4,Status
+;

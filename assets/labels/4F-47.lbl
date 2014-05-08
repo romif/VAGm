@@ -1,0 +1,46 @@
+;
+; VCDS Redirect File
+;
+; Audi A6 (4F)
+;
+; Component: Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-47.LBL
+; 4L-47.LBL
+; 4F0-910-223-AS.LBL
+; 4F0-910-223-AS2.LBL
+; 4F0-910-223-BO.LBL
+; 4F0-910-7xx-47.LBL
+; 4L0-910-223-BO.LBL
+;
+; created on 15/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,4F0-910-223-AS.LBL,4F0-910-223      ; Standard
+REDIRECT,4F0-910-223-BO.LBL,4F0-910-223-A    ; Bose              (HW: 4F0-035-223-A)
+REDIRECT,4F0-910-223-AS.LBL,4F0-910-223-B    ; Standard
+REDIRECT,4F0-910-223-AS.LBL,4F0-910-223-C    ; Standard
+REDIRECT,4F0-910-223-BO.LBL,4F0-910-223-D    ; Bose              (HW: 4F0-035-223-D)
+REDIRECT,4F0-910-223-AS.LBL,4F0-910-223-E    ; Standard
+REDIRECT,4F0-910-223-BO.LBL,4F0-910-223-F    ; Bose              (HW: 4F0-035-223-F)
+REDIRECT,4F0-910-223-AS.LBL,4F0-910-223-G    ; Standard          (HW: 4F0-910-223-E)
+;4F0-910-223-H    ; Standard (4F0-035-223-K)
+REDIRECT,4F0-910-223-BO.LBL,4F0-910-223-J    ; Bose              (HW: 4F0-035-223-G)
+REDIRECT,4F0-910-223-AS2.LBL,4F0-910-223-K   ; Standard Redesign (HW: 4F0-910-223-L @ 0250)
+REDIRECT,4F0-910-223-AS2.LBL,4F0-910-223-M   ; Standard Redesign (HW: 4F0-035-223-N @ 0270)
+;
+REDIRECT,4F0-910-223-BO.LBL,4F5-910-223      ; Bose              (HW: 4F5-035-223-A)
+REDIRECT,4F0-910-223-BO.LBL,4F5-910-223-A    ; Bose              (HW: 4F5-035-223-B)
+REDIRECT,4F0-910-223-BO.LBL,4F5-910-223-B    ; Bose              (HW: 4F5-035-223-C)
+REDIRECT,4F0-910-223-BO.LBL,4F5-910-223-C    ; Bose              (HW: 4F5-035-223-D)
+REDIRECT,4F0-910-223-BO.LBL,4F5-910-223-D    ; Bose              (HW: 4F5-035-223-E)
+;
+REDIRECT,4F0-910-7xx-47.LBL,4F0-910-7??-???  ; J525 integrated in J523
+;

@@ -1,0 +1,245 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8D) / VW Passat (3B)
+;
+; Component: Engine (#01) - ADP/ADR/AEB (07/1996 >)
+;
+; P/N: 8D0-907-557-??
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-01.LBL
+; 8D0-907-557-ADP.LBL  (1.6l     @ 100 HP - ADP) < 06/1996
+; 8D0-907-557-ADR.LBL  (1.8l     @ 125 HP - ADR) < 06/1996
+; 8D0-907-557-AEB.LBL  (1.8l T   @ 150 HP - AEB) < 06/1996
+; 8D0-907-55x-AEB.LBL  (1.8l T   @ 150 HP - ADP/ADR/AEB) 07/1996 >
+;
+; created on 03/Jan/2002 by Bjorn Badowski (bjorn.badowski@online.no)
+; updated/enhanced on 10/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 23/Apr/2007
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+000,0,Basic Function
+000,1,Coolant Temperature,Specification: 170...204 (80..105 °C)
+000,2,Engine Load,Specification: 10...40 (0.5...1.5 ms)
+000,3,Engine Speed,Specification: 76...96 (760...960 RPM)
+000,4,Supply Voltage,Specification: 146...212 (10.0...14.5 V)
+000,5,Throttle Valve Angle,Specification: 0...12 (0.5 <°)
+000,6,Idle Air Control,Specification: 112...144 (-1.10...+1.10 g/s)
+000,7,Idle Air Control (learned),Specification: 112...144 (-1.10...+1.10 g/s)
+000,8,Lambda Regulation (learned),Specification: 78...178
+000,9,Lambda Regulation (learned - additive),Specification: 118...138 (-12.0...+12.0 %)
+000,10,Lambda Regulation (learned - multiplicative),Specification: 118...138 (-12.0...+12.0 %)
+;
+001,0,Basic Function
+001,1,Engine Speed,,Specification (idle): 820...900 RPM
+001,2,Engine Load,,Specification: 0.5...1.5 ms
+001,3,Throttle Body Angle,,Specification (Idle): 0...5 <°\nSpecification (Load): 85...90  <°
+001,4,Ignition Angle,,Specification: 12 °BTDC
+;
+002,0,Basic Function
+002,1,Engine Speed,,Specification (idle): 820...900 RPM
+002,2,Injection Period,(theoretical),Specification: 0.5...1.5 ms
+002,3,Injection Period,(corrected),Specification: 1.0...3.0 ms
+002,4,Intake Air Mass,,Specification: 1.8...4.0 g/s
+;
+003,0,Basic Function
+003,1,Engine Speed,,Specification (idle): 820...900 RPM
+003,2,Supply Voltage,,Specification: 10.0...14.5 V
+003,3,Coolant,Temperature,Specification: 80..105 °C
+003,4,Intake Air,Temperature,Specification: approx. outside Temperature
+;
+004,0,Idling Speed Stabilisation
+004,1,Throttle Body Angle,,Specification: 0...5 <°
+004,2,Intake Air Mass,(idle),Specification: -1.1...1.1 g/s
+004,3,Intake Air Mass,(load),Specification: -1.7...1.7 g/s
+004,4,Operating Mode,,Specification: Idle/Throttle/Enrich
+;
+005,0,Idling Speed Stabilisation
+005,1,Engine Speed,(actual),Specification (idle): 820...900 RPM
+005,2,Engine Speed,(specified),Specification: 820...900 rpm
+005,3,Idle Regulation,,Specification: -10.0...+10.0 %
+005,4,Intake Air Mass,,Specification: 1.8...4.0 g/s
+;
+006,0,Idling Speed Stabilisation
+006,1,Engine Speed,,Specification (idle): 820...900 RPM
+006,2,Idle Regulation,,Specification: -10.0...+10.0 %
+006,3,Lambda,Regulation,Specification: -10.0...+10.0 %
+006,4,Ignition Angle,,Specification: 12 °BTDC
+;
+007,0,Lambda Control
+007,1,Lambda,Regulation,Specification: -10.0...+10.0 %
+007,2,Lambda Probe,Voltage,Specification: +0.1...+1.1 V
+007,3,Charcoal Filter,Solenoid Valve,Specification: 0.0...99.0 %
+007,4,Lambda Correction,Factor,Specification: 0.3...1.2
+;
+008,0,Lambda learnt Values
+008,1,Injection Period,(corrected),Specification: 1.0...3.0 ms
+008,2,Lambda Regulat.,(learned - additive),Specification: -12.0...+12.0 %
+008,3,Lambda Regulat.,(learned - multipl.),Specification: -12.0...+12.0 %
+008,4,Fuel Tank,Venting
+;
+009,0,Lambda learnt Values
+009,1,Engine Speed,,Specification (idle): 820...900 RPM
+009,2,Lambda,Regulation,Specification: -10.0...+10.0 %
+009,3,Lambda Probe,Voltage,Specification: +0.1...+0.3 and +0.7...+1.0 V
+009,4,Lambda Regulat.,(learned - additive),Specification: -12.0...+12.0 %
+;
+010,0,Fuel Tank Breather
+010,1,Charcoal Filter,Solenoid Valve,Specification: 0.0...99.0 %
+010,2,Lambda Correction,Factor,Specification: 0.3...1.2
+010,3,Charcoal Filter,Charge Level,Specification: -3...+32
+010,4,Fuel Tank Venting,Purge Rate,Specification: 0.0...0.3 %
+;
+011,0,Fuel Consumption
+011,1,Engine Speed,,Specification (idle): 820...900 RPM
+011,2,Engine Load,,Specification: 0.5...1.5 ms
+011,3,Vehicle Speed,,Specification: 0 km/h
+011,4,Fuel Consumption,,Specification: 0.5...1.5 l/h
+;
+012,0,Fuel Consumtion (during Idling)
+012,1,Engine Speed,,Specification (idle): 820...900 RPM
+012,2,Supply Voltage,,Specification: 12.0...14.5 V
+012,3,Fuel Consumption,,Specification: 0.5...1.5 l/h
+012,4,Ignition Angle,,Specification: 12 °BTDC
+;
+013,0,Knock Control (Timing Retardation - Cylinder 1 - 4)
+013,1,Timing Retardation,Cylinder 1,Specification: 0...12 °BTDC
+013,2,Timing Retardation,Cylinder 2,Specification: 0...12 °BTDC
+013,3,Timing Retardation,Cylinder 3,Specification: 0...12 °BTDC
+013,4,Timing Retardation,Cylinder 4,Specification: 0...12 °BTDC
+;
+014,0,Knock Control (Timing Retardation - Cylinder 1 && 2)
+014,1,Engine Speed,,Specification (idle): 820...900 RPM
+014,2,Engine Load,,Specification: 0.5...1.5 ms
+014,3,Timing Retardation,Cylinder 1,Specification: 0...12 °BTDC
+014,4,Timing Retardation,Cylinder 2,Specification: 0...12 °BTDC
+;
+015,0,Knock Control (Timing Retardation - Cylinder 3 && 4)
+015,1,Engine Speed,,Specification (idle): 820...900 RPM
+015,2,Engine Load,,Specification: 0.5...1.5 ms
+015,3,Timing Retardation,Cylinder 3,Specification: 0...12 °BTDC
+015,4,Timing Retardation,Cylinder 4,Specification: 0...12 °BTDC
+;
+016,0,Knock Control (Sensor Signal - Cylinder 1 - 4)
+016,1,Knock Sensor,Cylinder 1,Specification: 0.4...1.4 V
+016,2,Knock Sensor,Cylinder 2,Specification: 0.4...1.4 V
+016,3,Knock Sensor,Cylinder 3,Specification: 0.4...1.4 V
+016,4,Knock Sensor,Cylinder 4,Specification: 0.4...1.4 V
+;
+017,0,Not relevant for AEB (catalytic converter too close to engine)
+;
+018,0,Altitude Correction
+018,1,Engine Speed,,Specification (idle): 820...900 RPM
+018,2,Engine Load,(bef. Correction),Specification: 0.5...1.5 ms
+018,3,Engine Load,(aft. Correction)
+018,4,Altitude Correction,Factor,Specification: -30...+20 %
+;
+019,0,Torque Reduction (only with automatic transmission)
+019,1,Engine Speed,,Specification (idle): 820...900 RPM
+019,2,Engine Load,,Specification: 0.5...1.5 ms
+019,3,Ignition Angle,Retardation
+019,4,Ignition Angle,,Specification: 12 °BTDC
+;
+020,0,Operating States
+020,1,Engine Speed,,Specification (idle): 820...900 RPM
+020,2,Selector Lever,Position,Display Range: Neutral/Gear ENG.
+020,3,Air Conditioning,Operating Mode,Display Range: A/C High/Low
+020,4,Air Conditioning,Status,Display Range: Compr. ON/OFF
+;
+021,0,Lambda Control
+021,1,Engine Speed,,Specification (idle): 820...900 RPM
+021,2,Engine Load,,Specification: 0.5...1.5 ms
+021,3,Coolant,Temperature,Specification: 80..105 °C
+021,4,Lambda Control,Operating Mode,Display Range: Reg. ON/OFF
+;
+023,0,Throttle Body Adaptation Information
+023,1,Adaptation Status,,Specification: 100000
+; 0xxxxx - Throttle Potentiometer adjustment with Idling Potentiometer not OK
+; x1xxxx - Throttle Body Adaptation not OK
+; xx1xxx - Learning process Max. Position Throttle Potentiometer not OK
+; xxx1xx - Learning process Min. Position Throttle Potentiometer not OK
+; xxxx1x - Learning process Max. Position Idling Potentiometer not OK
+; xxxxx1 - Learning process Min. Position Idling Potentiometer not OK
+023,2,Throttle Body,Min. Position,Specification: 72...95 %
+023,3,Throttle Body,Emergency Stop,Specification: 60...91 %
+023,4,Throttle Body,Max. Position,Specification: 18...54 %
+;
+024,0,Knock Control
+024,1,Engine Speed
+024,2,Engine Load,,Specification: 0.5...1.5 ms
+024,3,Ignition Angle
+024,4,Timing Retardation,Sum of Cyl. 1-4
+;
+025,0,Charge Pressure Control (Wastegate)
+025,1,Engine Load,(bef. correction),Specification: 3.0...8.0 ms
+025,2,Engine Load,(aft. correction),Specification: 3.0...8.0 ms
+025,3,Engine Load,(actual),Specification: 0.5...8.5 ms
+025,4,Charge Pressure,Solenoid Valve,Specification: 0.0...99.0 %
+;
+026,0,Idling Air Demand
+026,1,Idle Regulation,,Specification: -10.0...+10.0 %
+026,2,Intake Air Mass,,Specification: 1.8...4.0 g/s
+026,3,Coolant,Temperature,Specification: 80..105 °C
+026,4,Engine Speed,,Specification (idle): 820...900 RPM
+;
+027,0,Load Reduction (through Knock Control)
+027,1,Engine Load,(Reduction),Specification: 0.0...5.0 ms
+027,2,Engine Load,(aft. correction),Specification: 0.5...8.0 ms
+027,3,Engine Speed
+027,4,Charge Pressure,Solenoid Valve,Specification: 0.0...99.0 %
+;
+095,0,Basic Function
+095,1,Engine Speed,,Specification (idle): 820...900 RPM
+095,2,Engine Load,,Specification: 0.5...1.5 ms
+095,3,Ignition Angle,,Specification: 12 °BTDC
+095,4,Coolant,Temperature,Specification: 80..105 °C
+;
+098,0,Throttle Body Adaptation (Basic Setting)
+098,1,Throttle Valve,Potentiometer,Specification: 0.5...4.9 V
+098,2,Idling Positioner,Potentiometer
+098,3,Operating Mode,,Specification: Idle/Throttle/Enrich
+098,4,Adaption Status,,Specification: ADP OK\nDisplay Range: ADP OK/ADP RUN/ERROR
+;
+099,0,Lambda Control (Basic Setting)
+099,1,Engine Speed
+099,2,Coolant,Temperature,Specification: 80..105 °C
+099,3,Lambda,Regulation,Specification: -10.0...+10.0 %
+099,4,Status Lambda,Regulation,Display Range: Reg. ON/OFF
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Engine Control Unit (J220) Coding
+C01,??xxx: Country/Emissions
+C02,02 = Non EU-Member (MVEG I)
+C03,04 = EU-Member (MVEG II)
+C04,08 = China and CIS
+C05,xx?xx: Drive/Additional Functions
+C06,0 = Front-Wheel-Drive (FWD)
+C07,2 = All-Wheel-Drive (AWD)
+C08,xxx?x: Transmission
+C09,0 = 5-Speed Manual Transmission
+C10,5 = Automatic Transmission (01V)
+C11,xxxx?: Vehicle Type
+C12,1 = Class B (e.g. Audi A4 / VW Passat)
+;

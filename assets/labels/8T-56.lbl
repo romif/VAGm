@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8T-56.LBL
+; 8Tx-035-152-56.LBL (Chorus III)
+; 8Tx-035-1xx-56.LBL (Concert/Symphony III)
+;
+; created on 12/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8Tx-035-152-56.CLB,8T?-035-152-???   ; Chorus III
+;
+REDIRECT,8Tx-035-1xx-56.CLB,8T?-035-186-???   ; Concert III
+;
+REDIRECT,8Tx-035-1xx-56.CLB,8T?-035-195-???   ; Symphony III
+;

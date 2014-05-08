@@ -1,0 +1,73 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8L) / Audi A4 (8D) / Audi A6 (4A)
+; Audi A8 (4D) / Audi Cabriolet (8G)
+;
+; component: Central Locking System (#35)
+;
+; p/n: 8L0-862-257-???
+;
+; includes measuring blocks and coding
+;
+; created on 25/Mar/2001 by Paolo Sechi
+; enhanced on 27/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 27/Apr/2005
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+1,0,Key/Door/Hood/Lock/Trunk status 
+1,1,Key Position,0000=no key
+1,2,Doors&&Hood,000=closed
+1,3,Lock Actuators,0000=inactive
+1,4,Trunk,0000=clsed&&lghtoff
+;
+2,0,Comfort/Light/Remote/Power status
+2,1,Light/Comfort,0000=lght-off/inact
+2,2,Remote,0000=inactive
+2,3,Power/Radio,001=ign-off/exists
+2,4, ,
+;
+3,0,Remote Transmitter
+3,1,unused
+3,2,Memory Position,4321
+3,3,unused
+3,4,Button Press,0000=no button
+;
+4,0,System Settings
+4,1,Remote Trans,Functions
+4,2,Door Logic &&,Confirmation
+4,3,Anti-theft,Int monitor
+4,4,Anti-theft,Safety lock
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Central Locking System
+C1,+00001 - Tailgate Release Mechanism
+C2,+00002 - Confirmation Anti-theft Warning System (Blink)
+C3,+00004 - Selective Central Locking (SCL)
+C4,+00008 - Anti-Theft Warning System
+C5,+00032 - Comfort Locking via Speed (15 km/h / 10 mph)
+C6,+00064 - Comfort Function via Remote Control
+C7,+00256 - Trunk Logic  (Anti-Theft)
+C8,+00512 - Confirmation Remote Closing (Blink)
+C9,+01024 - Confirmation Anti-Theft Warning Sytem (Horn)
+C10,+02048 - Door/Window Logic (USA)
+C11,+04096 - Confirmation Remote Opening (Blink)
+C12,+08192 - Remote Control
+;

@@ -1,0 +1,68 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8E)
+;
+; Komponente: J234 - Airbag (#15)
+;
+; T/N: 8E0 959 655
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 22.09.2004
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Status Airbag/Gurtstraffer
+001,1,Airbag,Fahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,2,Airbag,Beifahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,3,Gurtstraffer,Fahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,4,Gurtstraffer,Beifahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+002,0,Status Airbag/Gurtstraffer
+002,1,Gurtstraffer,hinten Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,2,Gurtstraffer,hinten Beif.,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,3,Gurtstraffer,hinten Mitte,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,4,[N/A]
+;
+003,0,Status Gurtschalter/Versorgungsspannung
+003,1,Versorgungs-,spannung,Wertebereich: richtig/zu klein
+003,2,[N/A]
+003,3,Gurtschalter,Fahrerseite,Wertebereich: zu klein/zu groß/endp. Masse/endp. Plus/n.definiert/Gurt JA/Gurt NEIN
+003,4,Gurtschalter,Beifahrerseite,Wertebereich: zu klein/zu groß/endp. Masse/endp. Plus/n.definiert/Gurt JA/Gurt NEIN
+;
+004,0,Gurttrageerkennung
+004,1,hinten,Fahrerseite,Wertebereich: zu klein/zu groß/endp. Masse/endp. Plus/n.definiert/Gurt JA/Gurt NEIN
+004,2,hinten,Beifahrerseite,Wertebereich: zu klein/zu groß/endp. Masse/endp. Plus/n.definiert/Gurt JA/Gurt NEIN
+004,3,hinten,Mitte,Wertebereich: zu klein/zu groß/endp. Masse/endp. Plus/n.definiert/Gurt JA/Gurt NEIN
+004,4,[N/A]
+;
+006,0,Zünder für Seitenairbag,
+006,1,vorne,Fahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,2,vorne,Beifahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,3,hinten,Fahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+006,4,hinten,Beifahrerseite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+008,0,Zünder für Kopfairbag
+008,1,[N/A]
+008,2,[N/A]
+008,3,Fahrerseite,,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+008,4,Beifahrer-,seite,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+081,0,Fahrgestellnummer etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Fahrgestellnummer (WVWZZZ1JZWW123456)
+;Baugruppennummer oder Seriennummer (12345678901234)
+;Typprüfnummer (Typprnr)
+;

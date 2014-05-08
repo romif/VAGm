@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Audi TT (8N)
+;
+; Component: J345 - Interior Monitoring (#45)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8N-45.LBL
+; 8E0-951-177.LBL
+;
+; created on 14/Jan/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,8E0-951-177.LBL,8N?-951-177-???
+;

@@ -1,0 +1,521 @@
+;VAG-COM Measuring Block Labels for 12V AFP VR6.
+;USA 2001 VR6 Jetta GLS w/02J 5-speed Manual Transmission.
+;ECU# (number) 021-906-018-R
+;April 2004 last updated
+;Todd Evans  - Email: tddevans@yahoo.com
+;
+;0,0 see M_BLOCK index for more info on Block 0,0 settings
+;
+1,0,General ENG IDLE (BASIC SETTINGS) 
+1,1,Engine idle,650-750 RPM
+1,2,Coolant Temp,80-100C
+1,3,Lambda precat, -10.0-10.0 %
+1,4,Adj.Req's BasicSet,*ABCDEFGH
+;
+; Explanation of field #4 [ABCDEFGH]
+; 1=Condition attained   0=Conditions not attained
+;A  No DTC's
+;B  CAT TEMP
+;C  A/C compressor swithced off
+;D  Idle switch closed
+;E  O2 sensor regulation Lambda - OK
+;F  Throttle valve closed
+;G  RPMs below 2000
+;H  Coolant Temp above 80C
+;
+2,0,General ENG IDLE (MAF sensor / INJ Time)
+2,1,Engine idle,650-750 RPM
+2,2,Engine load, 12-26%
+2,3,Injection on time, 1.0-4.0ms
+2,4,MAF, 3.0-5.0 g/s
+;
+3,0,General ENG IDLE (Timing/Throttle)
+3,1,Engine idle,650-750 RPM
+3,2,MAF, 3.0-5.0 g/s
+3,3,Throttle valve ang,0.2-4.0 %
+3,4,Ign angle actual,9-15degBTDC
+;
+4,0,General ENG IDLE (Intake/Coolant -Temps)
+4,1,Engine idle,650-750 RPM
+4,2,Voltage to ECM,12.0-15.0 V
+4,3,Coolant Temp,80-110 C
+4,4,IntakeAir Temp,-48-143 C
+;
+5,0,General ENG at (ROAD TEST LOAD)
+5,1,Engine RPM,650-7000 RPM
+5,2,Engine load,0-100 %
+5,3,My VR6 speed,0-km/h
+5,4,Operating condition,idle/load
+;
+6,0,General ENG at (ROAD TEST LOAD)
+6,1,Engine RPM,650-7000 RPM
+6,2,Engine load,0-100%
+6,3,Intake air temp,-48-143 C
+6,4,High CorrectFactor,-50-10 %
+;
+;No info on 7 - 9
+;
+10,0,Ignition (LOAD/Timing) at IDLE
+10,1,Engine idle,650-750 RPM
+10,2,Engine load,12-26 %
+10,3,Throttle Valve,.2-4.0 %
+10,4,Ignition angle,9-15degBTDC
+;
+11,0,Ignition (Temp/Timing) at IDLE
+11,1,Engine idle,650-750 RPM
+11,2,Coolant Temp.
+11,3,Intake Temp.
+11,4,Ignition angle,9-15degBTDC
+;
+;No info on 12 - 13
+;
+14,0,Ignition - (Misfire Detection)
+14,1,Engine idle,650-750 RPM
+14,2,Engine load,15-25%
+14,3,# of Misfires, 0 hopefully!
+14,4,Misfire Recog'n.,on/off
+;
+15,0,Ignition (C1 C2 C3 Misfire Count)
+15,1,Count,#C1
+15,2,Count,#C2
+15,3,Count,#C3
+15,4,Disabled
+;
+16,0,Ignition (C4 C5 C6 Misfire Count)
+16,1,Count,#C4
+16,2,Count,#C5
+16,3,Count,#C6
+16,4,Disabled
+;
+;No info on 17
+;
+18,0,Ignition (Misfire Detect Limits)
+18,1,RPM lowlimit, #
+18,2,RPM uprlimit, #
+18,3,RPM lowlimit, %
+18,4,RPM uprlimit, %
+;
+;No info on 19
+;
+20,0,Ignition (Timing retard/advance)
+20,1,IdleStability, C1 KW
+20,2,IdleStability, C2 KW
+20,3,IdleStability, C3 KW
+20,4,IdleStability, C4 KW
+;
+21,0,Ignition (Timing retard/advance)
+21,1,IdleStability, C5 KW
+21,2,IdleStability, C6 KW
+21,3,
+21,4,
+;
+22,0,Knock Control  (ROAD TEST C1 C2 KW)
+22,1,Engine RPM,630 to 7000
+22,2,Engine load,10 to 100%
+22,3,ang retrd #1,K.C. 0-12 KW
+22,4,ang retrd #2,K.C. 0-12 KW
+;
+23,0,Knock Control  (ROAD TEST C3 C4 KW)
+23,1,Engine RPM,630 to 7000
+23,2,Engine load,10 to 100%
+23,3,ang retrd #3,K.C. 0-12 KW
+23,4,ang retrd #4,K.C. 0-12 KW
+;
+24,0,Knock Control  (ROAD TEST C5 C6 KW)
+24,1,Engine RPM,630-7000
+24,2,Engine load,10 to 100%
+24,3,ang retrd #5,K.C. 0-12 KW
+24,4,ang retrd #6,K.C. 0-12 KW
+;
+;Foot Notes for 22 - 24
+;Fields 3 and 4 are as follows
+;Ignition angle retardation cyclinder # via knock control
+;At idle the value should be 0.0 KW
+;
+;No info for 25
+;
+26,0,Knock Control (Sensor V)
+26,1,VOLTAGE, C1 sensV
+26,2,VOLTAGE, C2 sensV
+26,3,VOLTAGE, C3 sensV
+26,4,VOLTAGE, C4 sensV
+;
+27,0,Knock Control (Sensor V)
+27,1,VOLTAGE, C5 sensV
+27,2,VOLTAGE, C6 sensV
+27,3,
+27,4,
+;
+28,0,Knock Control  (Knock Sensor Test)
+28,1,Engine RPM,2200-6800
+28,2,Engine load,10-100%
+28,3,Coolant Temp,80-110 C
+28,4,Knock sensor,TestSys OK
+;
+;No info on 29
+;
+30,0,CAT 02 MIX CTRL/Heat (Sensor status)
+30,1,Status sens1, precat111
+30,2,Status sens2, postcat111
+30,3,
+30,4,
+;
+31,0,CAT 02 MIX CTRL/Heat (Lambda Factors)
+31,1,Lambda F, actual 1.000
+31,2,Lambda F, specified
+31,3,
+31,4,
+;
+32,0,CAT 02 MIX CTRL/Heat (Adaptation Trim Values)
+32,1,S1 B1 idle,-5.4-5.4 %
+32,2,S1 B1 throttle,-10-10 %
+32,3,
+32,4,
+;
+33,0,CAT 02 MIX CTRL/Heat (Control Trim Values)
+33,1,O2 control B1,-10-10 %
+33,2,S1 B1 voltage,1.4 - 1.6 V
+33,3,
+33,4,
+;
+34,0,CAT 02 MIX CTRL/Heat - (Precat Aging Test)
+34,1,Engine RPM speed,2000-2300
+34,2,Cat Temp,>350 C
+34,3,Dynamic Factor,0 to 2
+34,4,Results,B1-S1 OK
+;
+;No info on 35
+;
+36,0,CAT 02 MIX CTRL/Heat - Postcat 04 (basic setting) @ idle
+36,1,O2 sensor voltage,.100-.900 V
+36,2,Results,B1-S2 OK
+36,3,
+36,4,
+;
+37,0,CAT 02 MIX CTRL/Heat  (Linear Sensor Test)
+37,1,Last%
+37,2,Voltage
+37,3,Difference
+37,4,Test OFF
+;
+;No info on 38 - 40
+;
+41,0,CAT 02 MIX CTRL/Heat  (O2 heating Pre/Post Cat B1)
+41,1,
+41,2,O2 precat heater
+41,3,
+41,4,O2 postcat,heater on/off
+;
+;No info on 42
+;
+43,0,CAT 02 MIX CTRL/Heat  (Postcat aging test)
+43,1,Engine speed,2000-2300
+43,2,Exh/Cat temp,>350 C
+43,3,S2 B1,0.0-1.0 V
+43,4,Results, B1-S1 OK
+;
+;No info 44 - 45
+;
+46,0,CAT 02 MIX CTRL/Heat  (CAT Temp - CAT Test)
+46,1,Engine speed,2000-2300
+46,2,Cat temp,> 350 C
+46,3,Cat conv rate,0.0-100.0 %
+46,4,Cat test,Cat B1 OK
+;
+;No info 47 - 49
+;
+50,0,ENG SPEED CTRL (RPM regulation op-conditions)
+50,1,Engine idle,650-750 RPM
+50,2,Idle specif'd*,740 RPM
+50,3,A/C system,high/low
+50,4,A/C compressor,on/off
+;
+;50,2 - Engine speed (specified value-idle speed)
+;
+51,0,ENG SPEED CTRL (SHIFT RPM regulation op-conditions)
+51,1,Engine idle,650-750 RPM
+51,2,Engine specif'd*,740 RPM
+51,3,Count
+51,4,Voltage
+;
+52,0,ENG SPEED CTRL (RPM regulation op-conditions)
+52,1,Engine idle,650-750 RPM
+52,2,Engine speed*,700 RPM
+52,3,A/C system,high/low
+52,4,
+;
+53,0,ENG SPEED CTRL (RPM regulation op-conditions)
+53,1,Engine idle,650-750 RPM
+53,2,Engine speed*,700 RPM
+53,3, Voltage
+53,4,
+;
+54,0,ENG SPEED CTRL (RPM regulation op-conditions)
+54,1,Engine idle,650-750 RPM
+54,2,Op condition,*
+54,3,Throttle Pos,0-97 %
+54,4,Throttle Angle,0.4-100 %
+;
+55,0,ENG SPEED CTRL (RPM regulation op-conditions)
+55,1,Engine idle,650-750 RPM
+55,2,Idle control,-5.0-10.0 %
+55,3,Idle Learn*,-5.0-5.0 %
+55,4,Operation condition,*ABCDE
+;
+;55,3,ENG SPEED CTRL  (Adaptation value idle control)
+;A/C system on (A/C-high)
+;A/C system off (A/C-low)
+;55,4, ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+56,0,ENG SPEED CTRL  (RPM regulation idle stabilization)
+56,1,Engine idle,650-750 RPM
+56,2,Engine speed*,700 RPM
+56,3,Idle control,-5.0-10.0 %
+56,4,Operating condition,*ABCDE
+;
+;56,2,Engine speed (specified value-idle speed)
+;56,4, ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+57,0,ENG SPEED CTRL  
+57,1,Engine idle,650-750 RPM
+57,2,Engine speed*,700 RPM
+57,3,COMPR OFF
+57,4,
+;
+;No info on 58 - 59
+;
+60,0,Throttle Valve CTRL (RPM regulation adaptation e-gas system)
+60,1,Throttle ang G187,3 to 93 %
+60,2,Throttle ang G188,3 to 97 %
+60,3,Adaption counter,0 to 8
+60,4,Adaptation test, ADP OK
+;
+61,0,Throttle Valve CTRL  (RPM regulation e-gas system)
+61,1,Engine RPM,650-7000 RPM
+61,2,
+61,3,Throttle ang G187,0-100 %
+61,4,Operating condition,*ABCD
+;
+;61,4,ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+62,0,Throttle Valve CTRL  (RPM regulation e-gas system)
+62,1,Throttle ang G187,3-93 %
+62,2,Throttle ang G188,3-97 %
+62,3,Throttle pos,12-97 %
+62,4,Sender G185,4-49 %
+;
+63,0,Throttle Valve CTRL  (RPM regulation kick-dowm adaptation)
+63,1,Throttle pos,70-97 %
+63,2,Sender G185,80-100 %
+63,3,
+63,4,Operating test,ADP OK
+;
+;No info on 64 - 65
+;
+66,0,Throttle Valve CTRL  (Cruz control system)
+66,1,Vehicle speed,O-km/h
+66,2,Brake switch,00001000
+66,3,speed stored, on cruzSW
+66,4,Cruz switchs,00000000
+; 
+;No info on 67 - 69
+;
+70,0,Emissions CTRL (EVAP Sec Air EGR)
+70,1,LOAD
+70,2,Lambda
+70,3,
+70,4,Test OFF
+;
+71,0,Emissions CTRL (EVAP Sec Air EGR)
+71,1,Reed Open
+71,2,Abort
+71,3,
+71,4,Test OFF
+;
+72,0,Emissions CTRL (EVAP Sec Air EGR)
+72,1,OK
+72,2,
+72,3,Time Sec
+72,4,Time Sec
+;
+73,0,Emissions CTRL (EVAP Sec Air EGR)
+73,1,LOAD
+73,2,LOAD
+73,3,Lambda
+73,4,Lambda
+;
+;No Info on 74 - 76
+;
+77,0,Emissions CTRL (EVAP Sec Air EGR)
+77,1,RPM
+77,2,Coolant Temp 
+77,3,Mass Air Flow
+77,4,Test OFF
+;
+;No Info on 78 - 85
+;
+86,0,CAM intake manifold CTRL
+86,1,xxxxxxxx
+86,2,xxxxxxxx
+86,3,xxxxxxxx
+86,4,
+;
+87,0,CAM intake manifold CTRL
+87,1,xxxxxxxx
+87,2,xxxxxxxx
+87,3,xxxxxxxx
+87,4,
+;
+88,0,CAM intake manifold CTRL
+88,1,xxxxxxxx
+88,2,xxxxxxxx
+88,3,xxxxxxxx
+88,4,
+;
+89,0,CAM intake manifold CTRL
+89,1,COUNT
+89,2,OK
+89,3,
+89,4,
+;
+;No info on 90 - 94
+;
+95,0,CAM intake manifold CTRL (Power enhancements - intake change over)
+95,1,Engine RPM,650-7000
+95,2,Engine load,0-120 %
+95,3,Coolant temp,80-110 C
+95,4,Stats intake,on/off
+;
+;No info on 96 - 98
+;
+99,0,Compatibility Groups (O2 sensor control)
+99,1,Engine idle,650-750 RPM
+99,2,Coolant temp,80-110 C
+99,3,sensor control,-10.0-10.0%
+99,4,sensor control,on/off "IMC-V off"
+;
+100,0,Compatibility Groups
+100,1,xxxxxxxx
+100,2,Temp
+100,3,Time,Seconds
+100,4,xxxxxxxx
+;
+101,0,FUEL INJ
+101,1,RPM
+101,2,LOAD
+101,3,InjectorTime, (mS)
+101,4,Mass Air Flow
+;
+102,0,FUEL INJ
+102,1,RPM
+102,2,Coolant Temp
+102,3,Intake Temp
+102,4,InjectorTime, (mS)
+;
+;No info on 103
+;
+104,0,FUEL INJ
+104,1,Temp C?
+104,2,Lambda%
+104,3,Lambda%
+104,4,Lambda%
+;
+105,0,FUEL INJ
+105,1,RPM
+105,2,LOAD
+105,3,Temp?
+105,4,
+;
+;No Info on 106
+;
+107,0,FUEL INJ
+107,1,RPM
+107,2,LOAD
+107,3,Temp?
+107,4,Tst on/off
+;
+;No Info on 108 -109
+;
+110,0,LOAD/BOOST Pressure CTRL
+110,1,RPM
+110,2,Temp?
+110,3,InjectorTime, (mS)
+110,4,LOAD
+;
+;No Info on 111
+;
+112,0,LOAD/BOOST Pressure CTRL
+112,1,Temp?
+112,2,
+112,3,
+112,4,
+;
+113,0,LOAD/BOOST Pressure CTRL
+113,1,RPM
+113,2,LOAD
+113,3,Throttle
+113,4,AbsolutePressure,1000.0MBAR
+;
+;No Info on 114 - 119
+;
+120,0,Communications in CTRL modules ASR/DSR
+120,1,RPM
+120,2,Torque
+120,3,Torque
+120,4,ASR OFF
+;
+;No Info on 121
+;
+122,0,Communications in CTRL modules Tranny 02J
+122,1,RPM
+122,2,Torque
+122,3,Torque
+122,4,No Torq Red
+;
+;No Info on 123 - 124
+;
+125,0,Reserved   (CAN bus signals/messages)
+125,1,Tranny stats,Trans 1
+125,2,ABS status,ABS 1
+125,3,
+125,4,
+;
+;No info on 123 - 189
+;
+;unknown info on 190-199 like block 0,0 see m_block index****FIND INDEX****
+;unknown info on 201-212 "02 info" "CAM" "RESISTANCE" ****FIND INDEX****
+;unknown info on 214-240 "CAM stuff " "RESISTANCE Ohms"****FIND INDEX****
+;
+;This is not shown, but saving for identification into new blocks finds in 190 to 240
+;;;;;;;90,0,CAM intake manifold CTRL (Power enhancements - exhaust camshaft)
+;;;;;;;90,1,Engine RPM,650-7000
+;;;;;;;90,2,Cam adjustment,on/off
+;;;;;;;90,3,Cam adjustment,0-25 deg
+;;;;;;;90,4,
+;
+;;;;;;;91,0,CAM intake manifold CTRL (Power enhancement - intake camshaft)
+;;;;;;;91,1,Engine RPM,650-7000
+;;;;;;;91,2,Duty cycle,0-100 %
+;;;;;;;91,3,Cam adjustment,0-52 deg
+;;;;;;;91,4,Cam adjustment,0-52 deg
+;
+;Done/End of 021-906-018-R.lbl
+
+
+
+

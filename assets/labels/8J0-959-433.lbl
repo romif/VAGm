@@ -1,0 +1,442 @@
+;
+; VAG-COM Label File
+;
+; Audi R8 (42) / Audi TT (8J)
+;
+; Component: J393 - Comfort System (#46)
+;
+; P/N: 8J0-959-433-???
+;
+; includes measuring blocks, adaptation, long coding and selective output test
+;
+; created on 13/Sep/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Nov/2007
+;
+; requires VAG-COM 708.0 / LCode 709.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Door Contact Switches
+001,1,Driver Door,Door Contact (F2),Range: Door Closed/Door Open
+001,2,Passenger Door,Door Contact (F3),Range: Door Closed/Door Open
+001,3,Rear Left Door,Door Contact (F10),Range: Door Closed/Door Open
+001,4,Rear Right Door,Door Contact (F11),Range: Door Closed/Door Open
+;
+002,0,Central Locking Units
+002,1,Driver Door,Status (F220),Range: Locked/Unlocked/Safe/Implausible
+002,2,Passenger Door,Status (F221),Range: Locked/Unlocked/Safe/Implausible
+002,3,Rear Left Door,Status (F222),Range: Locked/Unlocked/Safe/Implausible
+002,4,Rear Right Door,Status (F223),Range: Locked/Unlocked/Safe/Implausible
+;
+003,0,Key Switches && Interior Lock Buttons
+003,1,Driver Door,Key Switch,Range: Not Oper./Open/Close/Implausible
+003,2,Passenger Door,Key Switch,Range: Not Oper./Open/Close/Implausible
+003,3,Driver Door,Lock Butt. (E308),Range: Not Oper./Locking/Unlocking/Implausible
+003,4,Passenger Door,Lock Butt. (E308),Range: Not Oper./Locking/Unlocking/Implausible
+;
+004,0,Rear Lid
+004,1,Rear Lid,Key Switch,Range: Open/Close/Not Oper.
+004,2,Rear Lid Handle,Unlock Sw. (E234),Range: Not Oper./Operated
+004,3,Rear Lid Lock Unit,(F256) Main Latch,Range: Open/Closed
+004,4,Rear Lid Lock Unit,(F256) Pre-Latch,Range: Open/Closed
+;
+005,0,Power Supply
+005,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+005,2,Voltage Status,,?x = Terminal 30\nx? = Terminal 30a
+005,3,Terminal 15,Status,Range: Term 15 On/Term 15 Off
+005,4,S-Contact,Status,Range: Activated/Inactive
+;
+006,1,Vehicle Speed
+006,2,Crash Signal,,Range: Yes/No
+006,3,Request to,Open Tank Lid,Range: Yes/No
+;
+007,1,Enabling Sunroof,,Range: Yes/No
+007,2,Sunroof Control,,Range: Not Oper./Open/Closed
+007,3,Comfort Function,,Range: Not Installed
+007,4,Window Break,Detection,Range: Yes/No
+;
+8,0,,
+8,1,,,
+; Not Installed, ,
+8,2,,,
+; Not Installed, ,
+8,3,,,
+; OFF, ,
+8,4,,,
+;0.0°/s,Turn Rate,
+;
+;
+009,1,Central Locking,Thermal Protection,Range: Yes/No
+009,2,Signal:,Doors not Closed,Range: Open/Closed
+;
+010,0,Remote Control
+010,1,Remote Control,Key Number,0 = No Key recognized\n1 = Key 1\n2 = Key 2\n3 = Key 3\n4 = Key 4	
+010,2,Remote Control,Buttons,Range: 0 = Not Operated / 1 = Operated\n\n?xxx = Open\nx?xx = Close\nxx?x = Rear Lid\nxxx? = Panic (USA only)
+010,3,Remote Control,Encryption,Range: Yes/No
+010,4,Remote Control,Memory Position,Range: 0 = Not Occupied / 1 = Occupied
+; ?xxx = Memory Position 1
+; x?xx = Memory Position 2
+; xx?x = Memory Position 3
+; xxx? = Memory Position 4
+;
+011,0,Immobilizer
+011,1,Fixed Code,,Range: No Value/OK/Not OK
+011,2,Code in,Catch Area,Range: No Value/OK/Not OK
+011,3,Algorithm,,Range: No Value/OK/Not OK
+;
+012,1,Immobilizer,Key Recognition,Range: Yes/No
+012,2,Rear Lid Remote,Lock Sw. (E233),Range: Not Oper./Operated
+012,3,Rear Lid Handle,Unlock Sw. (E234),Range: Yes/No
+012,4,Front Hood,Switch (F266),Range: Open/Closed
+;
+013,1,Telematics,,Range: Open/Closed/Not Oper./Not Installed
+013,2,Interior Monitoring,Sensor (G273),Range: Not Installed
+;
+014,0,Interior Monitoring Sensor (G273)
+014,1,Interior Monitoring,Status,Range: Active/Inactive/Not Installed
+014,2,Interior Monitoring,Alarm Recognized,Range: Yes/No/Not Installed
+014,3,Interior Monitoring,Output Active,Range: ON/OFF/Not Installed
+014,4,Interior Monitoring,Output Active,Range: ON/OFF/Not Installed
+;
+015,0,Vehicle Inclination Sensor (G384)
+015,1,Incl. Sensor (G384),Status,Range: Active/Inactive/Not Installed
+015,2,Incl. Sensor (G384),Alarm Recognized,Range: Yes/No/Not Installed
+015,3,Incl. Sensor (G384),Output Active,Range: ON/OFF/Not Installed
+015,4,Incl. Sensor (G384),Indic. Lamp (K188),Range: Operated/Not Operated/Not Installed
+;
+016,0,Alarm Horn (H12)
+016,1,Alarm Horn (H12),Status,Range: Active/Inactive/Not Installed
+016,2,Alarm Horn (H12),Alarm Recognized,Range: Yes/No/Not Installed
+016,3,Alarm Horn (H12),Output Active,Range: ON/OFF/Not Installed
+;
+017,0,Vehicle Inclination Sensor (G384)
+017,1,X-Reference,Angle,Specification: -25.2...+25.4 °\nRange: No Value/Not Installed
+017,2,Current,X-Delta Angle,Specification: -12.6...+12.7 °\nRange: No Value/Not Installed
+017,3,Y-Reference,Angle,Specification: -25.2...+25.4 °\nRange: No Value/Not Installed
+017,4,Current,Y-Delta Angle,Specification: -12.6...+12.7 °\nRange: No Value/Not Installed
+;
+018,0,Alarm Horn (H12) Trigger
+; 0 = No Alarm Trigger
+; 1 = Comfort Control Module
+; 2 = Open Circuit on Ground
+; 3 = Open Circuit on Plus
+; 4 = Intelligent Battery Analysis
+018,1,1st Alarm Trigger,,0 = No Alarm Trigger\n1 = Comfort Control Module\n2 = Open Circuit on Ground\n3 = Open Circuit on Plus\n4 = Intelligent Battery
+018,2,2nd Alarm Trigger,,0 = No Alarm Trigger\n1 = Comfort Control Module\n2 = Open Circuit on Ground\n3 = Open Circuit on Plus\n4 = Intelligent Battery
+018,3,3rd Alarm Trigger,,0 = No Alarm Trigger\n1 = Comfort Control Module\n2 = Open Circuit on Ground\n3 = Open Circuit on Plus\n4 = Intelligent Battery
+018,4,Alarm Trigger,Counter
+;
+019,0,Interior Monitoring Sensor (G273) Trigger
+; 0 = No Alarm
+; 1 = Alarm while Vehicle closed
+; 2 = Alarm while Windows open
+; 3 = Alarm while Fan active
+019,1,1st Alarm Trigger
+019,2,2nd Alarm Trigger
+019,3,3rd Alarm Trigger
+019,4,4th Alarm Trigger
+;
+020,0,Alarm Sources
+;   0 = Drivers Door
+;   1 = Passenger Door
+;   2 = Rear Left Door
+;   3 = Rear Right Door
+;   4 = Rear Lid
+;   5 = Engine Hood
+;   6 = Rear Window Latch
+;   7 = Trailer
+;   8 = Rear Window Broken
+;   9 = Ignition
+;  10 = Interior Monitoring
+;  11 = Inclination Sensor
+;  12 = Intelligent Siren
+;  13 = Central Electronics Control Module
+;  14 = Door Control Module Drivers Door
+;  15 = Door Control Module Passenger Door
+;  16 = Door Control Module Rear Left Door
+;  17 = Door Control Module Rear Right Door
+;  18 = Gateway Control Module
+;  19 = Power-On-Reset (POR) Alarm (after Terminal 30 Reset an unintended Alarm is possible)
+; 255 = No Alarm
+020,1,1st Alarm Source
+020,2,2nd Alarm Source
+020,3,3rd Alarm Source
+020,4,4th Alarm Source
+;
+023,0,Spoiler
+023,1,Spoiler,retracted,Range: Operated/Not Operated/Not Installed
+023,2,Spoiler,deployed,Range: Operated/Not Operated/Not Installed
+023,3,Spoiler Button,,Range: Operated/Not Operated/Not Installed
+023,4,Spoiler,Function-LED,Range: ON/OFF/Not Installed
+;
+024,0,Convertible Top
+024,1,Convertible Top,open/engaged,Range: Operated/Not Operated/Not Installed
+024,2,Convertible Top,closed/engaged,Range: Operated/Not Operated/Not Installed
+;
+025,0,Spoiler Operating Reasons
+025,1,1st Spoiler,Operating Reason,See Label File
+;  1 = Extracting: Standardization Run
+;  2 = Extracting: Intermediate Position recognized when switching Ignition OFF
+;  3 = Extracting: Comfort Retraction cancelled before reaching End/Stop
+; 10 = Extracting: Automatic Extracting at v > 120km/h (75 mph)
+; 11 = Extracting: Manual Extracting
+; 20 = Retracting: Automatic Retracting at v > 80km/h (50 mph)
+; 21 = Retracting: Automatic Retracting at 20 - 120km/h (13 - 75 mph, Tip Button Operation)
+; 22 = Retracting: Automatic Retracting at v < 20km/h (13 mph, Permanent Button Operation)
+; 30 = Extracting: Limp Mode/Emergency Run due Bus OFF (Bus Level Malfunction)
+; 31 = Extracting: Limp Mode/Emergency Run due to Limp Home (Network Management Malfunction)
+; 32 = Extracting: Limp Mode/Emergency Run due to missing Speed Signal
+; 33 = Extracting: Limp Mode/Emergency Run due to outdated/faulty Speed Signal
+; 34 = Extracting: Limp Mode/Emergency Run due to Low Battery Voltage (< 10.5 Volt)
+; 35 = Extracting: Limp Mode/Emergency Run due to implausible End/Stop Recognition
+; 36 = Extracting: Limp Mode/Emergency Run due to RAM Malfunction
+; 37 = Extracting: Limp Mode/Emergency Run due to End/Stop Change without Activation
+025,2,2nd Spoiler,Operating Reason,See Label File
+025,3,3rd Spoiler,Operating Reason,See Label File
+025,4,4th Spoiler,Operating Reason,See Label File
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A000,0,Remote Control Erasing
+A000,5,Remote Control Erasing
+A000,6,0 = Erase all keys
+;
+A001,0,Remote Control Adaptation
+A001,1,Key
+A001,2,Adaptation
+A001,3,Current Number,of Keys
+A001,5,Remote Control Adaptation
+A001,6,Enter the number of keys that should be adapted. Save.
+A001,7, 
+A001,8,Now press button 1 or 2 on every remote that
+A001,9,should be adapted for at least 1 second.
+A001,10, 
+A001,11,Note #1: All keys must be adapted in one procedure.
+A001,12,Note #2: Adaptation of all keys must not exceed 15 seconds.
+;
+A003,0,Selective (Single) Door Locking
+A003,3,Current Status
+A003,5,Selective (Single) Door Locking
+A003,6,Range: 0 = OFF / 1 = ON
+;
+A004,0,Auto-Lock
+A004,1,Auto-Lock
+A004,3,Current Status
+A004,5,Auto-Lock
+A004,6,The doors will lock automatically when the
+A004,7,vehicle reaches a speed of 15 km/h or 10 mph.
+A004,8, 
+A004,9,Specification: 0 = OFF / 1 = ON
+;
+A005,0,Auto-Unlock
+A005,1,Auto-Unlock
+A005,3,Current Status
+A005,5,Auto-Unlock
+A005,6,The doors will unlock automatically when
+A005,7,the key is removed from the ignition switch.
+A005,8, 
+A005,9,Specification: 0 = OFF / 1 = ON
+;
+A007,0,Unlocking Confirmation (Remote Control)
+A007,1,Unlocking,Confirmation
+A007,2,via,Remote Control
+A007,3,Current Status
+A007,5,Unlocking Confirmation (Remote Control)
+A007,6,Type of confirmation when unlocking
+A007,7,the car via remote control.
+A007,8, 
+A007,9,0 = OFF
+A007,10,1 = Blink
+A007,11,2 = Beep (Horn)
+A007,12,3 = Beep (Horn) & Blink
+;
+A008,0,Unlocking Confirmation (Key Switch)
+A008,1,Unlocking,Confirmation
+A008,2,via,Key Switch
+A008,3,Current Status
+A008,5,Unlocking Confirmation (Key Switch)
+A008,6,Type of confirmation when unlocking
+A008,7,the car via key switch.
+A008,8, 
+A008,9,0 = OFF
+A008,10,1 = Blink
+A008,11,2 = Beep (Horn)
+A008,12,3 = Beep (Horn) & Blink
+;
+A010,0,Locking Confirmation (Remote Control)
+A010,1,Locking,Confirmation
+A010,2,via,Remote Control
+A010,3,Current Status
+A010,5,Locking Confirmation (Remote Control)
+A010,6,Type of confirmation when locking
+A010,7,the car via remote control.
+A010,8, 
+A010,9,0 = OFF
+A010,10,1 = Blink
+A010,11,2 = Beep (Horn)
+A010,12,3 = Beep (Horn) & Blink
+;
+A011,0,Locking Confirmation (Key Switch)
+A011,1,Locking,Confirmation
+A011,2,via,Key Switch
+A011,3,Current Status
+A011,5,Locking Confirmation (Key Switch)
+A011,6,Type of confirmation when locking
+A011,7,the car via key switch.
+A011,8, 
+A011,9,0 = OFF
+A011,10,1 = Blink
+A011,11,2 = Beep (Horn)
+A011,12,3 = Beep (Horn) & Blink
+;
+A012,0,Safe Confirmation
+A012,1,Safe,Confirmation
+A012,3,Current Status
+A012,5,Safe Confirmation
+A012,6,Type of confirmation when
+A012,7,the car is beeing safed.
+A012,8, 
+A012,9,0 = OFF
+A012,10,1 = Blink
+A012,11,2 = Beep (Horn)
+A012,12,3 = Beep (Horn) & Blink
+;
+A013,0,Alarm Horn Adjustment
+A013,5,Alarm Horn Adjustment
+A013,6,Country setting for alarm horn. This changes length
+A013,7,and volume of the alarm horn sounding.
+A013,8, 
+A013,9,0 = Great Britain (Frequency Modulated - 10 Tamper Alarms)
+A013,10,1 = Great Britain (Frequency Modulated - 1 Tamper Alarm)
+A013,11,2 = Rest of World (Discontinuous - 10 Tamper Alarms)
+A013,12,3 = Rest of World (Discontinuous - 1 Tamper Alarm)
+;
+A016,0,Battery Monitoring via Alarm Siren
+A016,5,Battery Monitoring via Alarm Siren
+A016,6,Range: 0 = OFF / 5 = ON
+;
+A017,0,Comfort Function (Remote Control)
+A017,1,Comfort Function
+A017,2,Remote Control
+A017,3,Current Status
+A017,5,Comfort Function
+A017,6,Range: 0 = OFF / 1 = ON
+A017,7, 
+A017,8,NOTE: See long coding for more details/options.
+;
+A018,0,Alarm Delay
+A018,1,Alarm Delay
+A018,2,Driver Door
+A018,3,Current Status
+A018,5,Alarm Delay
+A018,6,Deactivation of the anti theft warning delay
+A018,7,when opening drivers door before the anti theft
+A018,8,warning system is beeing activated.
+A018,9, 
+A018,10,Range: 0 = OFF / 1 = ON
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T327,Sliding Sunroof Opening
+T332,Tank Flap
+T379,Terminal 58s
+T1134,Alarm Horn (H12)
+T1338,Signal: Doors Not Closed
+T1356,Signal: Close all Windows and Roof
+T1565,Luggage Compartment Light (W3)
+T1699,Motor for Central Locking Hatch/Trunk (V53)
+T2225,Indicator Lamp for Central Locking
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,Selective Central Locking (Single Door Opening)
+LC,00,3,Auto-Unlock (unlocking after removing key from ignition)
+LC,00,4,Auto-Lock (automatic locking from 15 km/h)
+LC,02,1,Central Locking (Rear Lid) "Security Lock"
+LC,03,1,Electric Rear Spoiler installed
+LC,03,5,Advanced Comfort Menu inactive
+LC,04,6~7,00,Coupé
+LC,04,6~7,40,Roadster with Automatic Roof
+LC,04,6~7,80,Roadster with Manual Roof
+LC,05,0,Comfort Function inactive
+LC,05,1,Comfort Function Power Windows/Sunroof via Drivers Door Lock inactive
+LC,05,2,Comfort Function Power Windows/Sunroof via Passengers Door Lock inactive
+LC,05,3,Comfort Function Power Windows/Sunroof via Rear Lid Door Lock inactive
+LC,05,4,Comfort Function Power Windows/Sunroof via Power Window Switch inactive
+LC,05,5,Comfort Function Power Windows/Sunroof via Remote Control inactive
+LC,05,6,Comfort Function automatic Closing
+LC,05,7,Power Windows/Sunroof disabled after door Opening
+LC,06,0,Comfort Opening Power Windows via Door Lock active
+LC,06,1,Comfort Opening Power Windows via Power Window Switch active
+LC,06,2,Comfort Opening Power Windows via Remote Control active
+LC,06,3,Comfort Closing Power Windows via Door Lock active
+LC,06,4,Comfort Closing Power Windows via Power Window Switch active
+LC,06,5,Comfort Closing Power Windows via Remote Control active
+LC,06,6,Comfort Function after authorized Access only for a limited Time
+LC,07,0,Comfort Opening Sunroof via Door Lock active
+LC,07,1,Comfort Opening Sunroof via Power Window Switch active
+LC,07,2,Comfort Opening Sunroof via Remote Control active
+LC,07,3,Comfort Closing Sunroof via Door Lock active
+LC,07,4,Comfort Closing Sunroof via Power Window Switch active
+LC,07,5,Comfort Closing Sunroof via Remote Control active
+LC,08,0,Unlocking Confirmation (Blink) via Door Locks
+LC,08,1,Unlocking Confirmation (Horn) via Door Locks
+LC,08,2,Unlocking Confirmation (Blink) via Remote Control
+LC,08,3,Unlocking Confirmation (Horn) via Remote Control
+LC,08,7,Horn Confirmation Configuration blocked
+LC,09,0,Locking Confirmation (Blink) via Door Locks
+LC,09,1,Locking Confirmation (Horn) via Door Locks
+LC,09,2,Locking Confirmation (Blink) via Remote Control
+LC,09,3,Locking Confirmation (Horn) via Remote Control
+LC,10,0,Remote Control inactive
+LC,10,1,Remote Control with "Terminal 15 ON" inactive
+LC,10,2,Remote Control Range Limitation active
+LC,10,3,Manual Remote Control learning/unlearning active
+LC,10,6,Anti-Theft-System Activation Confirmation (Blink)
+LC,10,7,Anti-Theft-System Activation Confirmation (Horn)
+LC,11,0,Doors (0 = 2-doors / 1 = 4-doors)
+LC,11,1,Front Power Windows installed
+LC,11,2,Rear Power Windows installed
+LC,11,3,Central Locking installed
+LC,11,4,Model (0 = Left-Hand-Drive/ 1 = Right-Hand-Drive)
+LC,11,6,Synchronised Mirror Adjustment
+LC,11,7,Mirror Lowering with Reverse Rear (only with Memory Seats)
+LC,12,0,Anti-Theft System deactivated
+LC,12,1,Anti-Theft System disarming only via Remote Control or Immobilizer
+LC,12,2,Anti-Theft active with intentional de-safe / Interior Monitoring inactive
+LC,12,3,Anti-Theft Alarm Delay (15 sec) inactive (Thatcham)
+LC,12,5,Anti-Theft System passive arming
+LC,12,6,Inclination Sensor installed
+LC,12,7,Interior Monitoring installed
+LC,13,4,Siren installed
+LC,13,5,Siren Tone Type (0 = frequency modulated / 1 = discontinuoud)
+LC,13,6,Siren Alarm Type (0 = 10 Alarms (GB/Irland) / 1 = 1 Alarm (RoW))
+LC,13,7,Siren Configuration blocked
+;

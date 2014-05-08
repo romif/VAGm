@@ -1,0 +1,49 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F)
+;
+; Component: J525 - Sound System (#47) - in J523
+;
+; P/N: 4F0-910-7??-???
+;
+; includes measuring blocks
+;
+; created on 16/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 16/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,Display Range: 0 = inactive / 1 = active\n\nx000xxx? = Term. S\nx000xx?x = Term. 15\nx000x?xx = Term. X\nx000?xxx = Term. 50\n?000xxxx = Status invalid
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature,Specification: -40.0...+85.0 °C
+;
+003,0,Diagnostic Wire
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Sound System Status
+004,1,Mute Status,,Display Range: 0 = Not Muted/1 = Muted
+004,2,Vehicle Speed
+004,3,Amplifier Output,Temperature,Specification: max. 99 °C
+;
+080,0,Advanced Control Module Information I
+;
+081,0,Advanced Control Module Information II
+081,1,Serial Number
+;

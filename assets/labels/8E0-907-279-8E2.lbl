@@ -1,0 +1,193 @@
+;
+; VAG-COM label file
+;
+; Audi A4 (8E2/8E5)
+;
+; component: J519 - Central electric (#09)
+;
+; p/n: 8E0 907 279  /A/B/C/D/E/F
+;
+; includes measuring blocks, adaptation and coding
+;
+; created by Eric Maurier (eric@ross-tech.com // www.vag.com.fr)
+; adaptation/coding added by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/27/2004
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+1,0,Output signals,
+1,1,Supply voltage,
+1,2,Horn,
+1,3,Terminal 75,
+1,4,Headlight,washer
+
+2,0,Output signals: Turn signals,
+2,1,Turn signal FL,
+2,2,Turn signal RL,
+2,3,Turn signal FR,
+2,4,Turn signal RR,
+
+3,0,Output signals: Park, lights,
+3,1,Park. light FL,
+3,2,Park. light RL,
+3,3,Park. light FR,
+3,4,Park. light RR,
+
+4,0,Output signals,
+4,1,High beam G,
+4,2,High beam D,
+4,3,License plate,light
+4,4,Warning button,illumination,
+
+5,0,Output signals: wipers,
+5,1,Front wiper,
+5,2,Front washer,
+5,3,Rear wiper,
+5,4,Rear washer,
+
+6,0,Input signals,
+6,1,Rotary,light switch
+6,2,Warning button,activation, 
+6,3,Terminal 75,
+6,4,Wiper speed
+
+
+7,0,Input signals on comfort bus,
+7,1,High beams,
+7,2,Flashing,
+7,3,Turn signal L,
+7,4,Turn signal R,
+
+
+8,0,Input signals on comfort bus: wipers,
+8,1,Front wiper,
+8,2,Front washer,
+8,3,Rear wiper,
+8,4,Rear washer,
+
+9,0,Input signals on comfort bus,
+9,1,Terminal 15,
+9,2,S Contact,
+9,3,Speed interval,
+9,4,Vacant,
+
+10,0,Output signals (highline only),
+10,1,Low beam left,
+10,2,Low beam right,
+10,3,Backup light,left
+10,4,Backup light,right
+
+11,0,Output signals (highline only),
+11,1,Fog light FL,
+11,2,Fog light FR,
+11,3,Fog light rear,
+11,4,Vacant,
+
+12,0,Output signals (highline only),
+12,1,Brake light,left
+12,2,Brake light,right
+12,3,Brake light,center
+12,4,Vacant
+
+13,0,Input signals (highline only),
+13,1,Brake switch
+13,2,Brake switch,(test)
+13,3,Light sensor
+13,4,Vacant
+
+14,0,Input signals bus confort(highline only),
+14,1,Driver`s door,open
+14,2,Speed,
+14,3,Outside temp,
+14,4,Vacant,
+
+80,0,Controller advanced ID,
+80,1,Manufacturer,
+80,2,Completion date,
+80,3,Version and,test stand
+80,4,Man. number,
+
+81,0,Controller advanced ID,
+81,1,VIN,
+81,2,Serial number,
+81,3,Vacant,
+81,4,Vacant,
+
+125,0,Communications on comfort bus,
+125,1,Instruments,
+125,2,Steering wheel,
+125,3,Comfort module,
+125,4,Trailer controller,
+
+126,0,Communications on comfort bus,
+126,1,Driver`s door,controller
+126,2,Vacant,
+126,3,Vacant,
+126,4,Vacant,
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics (J519) Coding
+C01,0?xxx: Light Sensor
+C02,0 = Light Sensor not installed
+C03,1 = Light Sensor installed
+C04, 
+C05,0x?xx: Trailer Hitch
+C06,0 = Trailer Hitch not installed
+C07,1 = Trailer Hitch installed
+C08, 
+C09,0xx?x: Headlights
+C10,0 = Halogen Headlights
+C11,1 = Xenon Headlights
+C12, 
+C13,0xxx?: Country
+C14,1 = Rest of World
+C15,2 = Northern Countries (Finland, Sweden, Norway, Denmark)
+C16,3 = USA
+C17,4 = Canada
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A1,0,Coming Home
+A1,5,Coming Home
+A2,6,Note: Only 8E0 907 279 E/F
+A2,7, 
+A1,8,If the system is activated and it's dark
+A1,9,fog lights/parking lights/taillights/lisence plate lights
+A1,10,are switched on as soon as the drivers door is opened.
+A1,11, 
+A1,12,Factory setting: 30 seconds
+A1,13,Range: 30...60 seconds (increments 1 s)
+;
+A2,0,Brake light dimming
+A2,5,Brake light dimming
+A2,6,Note: Only 8E0 907 279 E/F
+A2,7, 
+A2,8,Sedan: 24%
+A2,9,Avant: 0%
+;
+A81,0,Learned Values (Vehicle Data)
+A81,5,Learned Values (Vehicle Data)
+A81,6,To start the process for vehicle data (VIN)
+A81,7,learning enter/save 46992 as new value.
+;

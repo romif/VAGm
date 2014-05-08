@@ -1,0 +1,177 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Komponente: J519 - Elektrische Zentralelektrik (Bordnetz I) (#09)
+;
+; T/N: 7M3 962 258
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 17.10.2004
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Schalter für Zentralverriegelung (Fahrertür [F59]/Beifahrertür [F114]/Heckklappe [F218])
+001,1,Signal Schließen,F59/F114/F218,(Wertebereich: unbetätigt/zu)
+001,2,Signal Öffnen,Fahrertür,F59 (Wertebereich: unbetätigt/auf)
+001,3,Signal Öffnen,Beifahrertür,F114 (Wertebereich: unbetätigt/auf)
+001,4,Signal Öffnen,Klappe hinten,F218 (Wertebereich: unbetätigt/auf)
+;
+002,1,Schalter für,Innenverriegelung,Wertebereich: verriegeln/entriegeln/unbetätigt/unplausibel
+002,2,Heckklappen-,entriegelung,Wertebereich: verriegeln/entriegeln/unbetätigt/unplausibel
+002,3,Türkontaktsch.,Fahrertür,Wertebereich: Tür auf/Tür zu
+002,4,Türkontaktsch.,Beif./Türen hinten,Wertebereich: Tür auf/Tür zu
+;
+003,0,Spannung
+003,1,Bordspannung,(Klemme 30)
+003,2,Status,Klemme 15,Wertebereich: aus/ein
+003,3,Status,Klemme X,Wertebereich: aus/ein
+003,4,Status,S-Kontakt,Wertebereich: aus/ein
+;
+004,1,Sicherung,S157,Verbraucherabschaltung (Wertebereich: i.O./n.i.O.)
+004,2,Signal für,Verbraucherabsch.,Wertebereich: aus/ein
+004,3,Signal für,Innenbeleuchtung,Wertebereich: aus/ein
+004,4,Reduzierung der,Scheibenheizung,Wertebereich: ja/nein
+;
+005,1,Geschwindigkeit,[km/h]
+005,2,Generator,(Klemme DF/DFM),Wertebereich: dreht/steht
+005,3,Generator,(Klemme L),Wertebereich: dreht/steht
+005,4,Crash-Signal,,Wertebereich: ein/aus
+;
+006,0,Scheibenwischerschalter E22
+006,1,Signal,Stufe 1,Wertebereich: aus/ein
+006,2,Signal,Intervallwischen,Wertebereich: aus/ein
+006,3,Signal waschen,Frontscheibe,Wertebereich: aus/ein
+006,4,[N/A]
+;
+007,0,Beheizbare Frontscheibe/Heckscheibe
+007,1,Schalter,Frontscheibe,E180 (Wertebereich: aus/ein)
+007,2,Schalter,Heckscheibe,E15 (Wertebereich: aus/ein)
+007,3,Sicherung,Heckscheibe,S41 (Wertebereich: i.O./n.i.O.)
+007,4,beheizbare,Heckscheibe,Wertebereich: aus/ein
+;
+008,0,Blinkerschalter/Blinkleuchten
+008,1,Schalter,blinken links,Wertebereich: aus/ein
+008,2,Schalter,blinken rechts,Wertebereich: aus/ein
+008,3,Blinkleuchte,links,Wertebereich: aus/ein
+008,4,Blinkleuchte,rechts,Wertebereich: aus/ein
+;
+009,1,Anhänger,erkannt,Wertebereich: ja/nein
+009,2,Spannung,Abblendlicht,Wertebereich: aus/ein
+009,3,Abblendlicht,links,Wertebereich: i.O./n.i.O./k. Messwert (nur bei KI mit Lampenüberwachung)
+009,4,Abblendlicht,rechts,Wertebereich: i.O./n.i.O./k. Messwert (nur bei KI mit Lampenüberwachung)
+;
+010,0,Bremslichter (nur mit Lampenüberwachung)
+010,1,Bremslicht-,schalter,Wertebereich: i.O./n.i.O./k. Messwert (nur bei KI mit Lampenüberwachung)
+010,2,Bremslicht,links,Wertebereich: i.O./n.i.O./k. Messwert (nur bei KI mit Lampenüberwachung)
+010,3,Bremslicht,rechts,Wertebereich: i.O./n.i.O./k. Messwert (nur bei KI mit Lampenüberwachung)
+010,4,[N/A]
+;
+011,0,Standlicht
+011,1,Standlicht,links,Wertebereich: aus/ein
+011,2,Standlicht,rechts,Wertebereich: aus/ein
+011,3,[N/A]
+011,4,[N/A]
+;
+012,1,Scheibenwischer,Intervallstufen,Wertebereich: 1...4
+012,2,ZV-Safe,Signal,Wertebereich: aus/ein
+012,3,Taster für,Innenraumüberw.,Wertebereich: aus/ein/n. verbaut
+012,4,[N/A]
+;
+013,0,Standlicht/Schlusslicht (nur mit Lampenüberwachung)
+013,1,Schalter für,Standlicht li.,Wertebereich: aus/ein/k. Messwert
+013,2,Schalter für,Standlicht re.,Wertebereich: aus/ein/k. Messwert
+013,3,Lampe für,Schlußlicht li.,Wertebereich: i.O./n.i.O./k. Messwert
+013,4,Lampe für,Schlußlicht re.,Wertebereich: i.O./n.i.O./k. Messwert
+;
+014,0,Funkfernbedienung (FFB)
+014,1,Schlüssel-,tasten,Wertebereich: auf/zu/unbetätigt/k. Meßwert (nur mit Funkkfernbedienung)
+014,2,Festcode,bekannt,Wertebereich: i.O./n.i.O./k. Meßwert (nur mit Funkkfernbedienung)
+014,3,Code im,Fangebereich,Wertebereich: i.O./n.i.O./k. Meßwert (nur mit Funkkfernbedienung)
+014,4,Übertragung,,Wertebereich: i.O./n.i.O./k. Meßwert (nur mit Funkkfernbedienung)
+;
+015,0,Diebstahlwarnanlage (DWA)
+015,1,Alarmhorn,H12,Wertebereich: aus/ein/n. verbaut
+015,2,Schalter Motor-.raumbeleuchtung,F214 (Wertebereich: auf/zu/n. verbaut)
+015,3,Türkontakt,Klappe hinten,F160 (Wertebereich: auf/zu)
+015,4,[N/A]
+;
+016,0,Alarmquellen (siehe Label-File)
+; 256                     - Türkontaktschalter Beifahrertür oder Türen hinten
+; 512                     - Türkontaktschalter Fahrertür
+; 2048                    - Heckscheibe gebrochen
+; 4096                    - Heckklappenkontaktschalter
+; 8192                    - Motorhaubenkontaktschalter
+; 16384                   - Zündung
+; 28928/29184/29696/30720 - Ultraschall-Puffer-Überlauf (Mehrfachauslösung Innenraumüberwachung)
+; 32768...49151           - Innenraumüberwachung hinten
+; 49152...65535           - Innenraumüberwachung vorn
+016,1,letzte,Alarmquelle
+016,2,vorletzte,Alarmquelle
+016,3,3. letzte,Alarmquelle
+016,4,4. letzte,Alarmquelle
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J519 - Elektrische Zentralelektrik (Bordnetz I)
+C1,00004 - Zentralverriegelung
+C2,00256 - Zentralverriegelung (DWA)
+C3,04096 - Zentralverriegelung (DWA, FFB)
+C4,16384 - Zentralverriegelung (FFB)
+C5, 
+C6,+00001 - Gesamttüröffnung
+C7,+00002 - Synchronisationszyklen (immer)
+C8,+00008 - Anhängerkupplung
+C9,+00016 - Komfortblinken
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A10,0,Ländervariante
+A10,5,Ländervariante Alarmhorn
+A10,6,Programmierung des Alarmverhaltens bei Alarmauslösung
+A10,7,entsprechend der gesetzlichen Regelungen der Länder.
+A10,8, 
+A10,9,1 - Rest der Welt
+A10,10,2 - Deutschland
+A10,11,3 - Großbritannien
+;
+A11,0,Fehlererkennung
+A11,5,Fehlererkennung Relais Frontscheibenheizung
+A11,6,0 - deaktiviert
+A11,7,1 - aktiviert (Standard)
+;
+A13,0,Timer Heckscheibenheizung
+A13,5,Timer Heckscheibenheizung
+A13,6,0 - Heckscheibenheizung bis zum Abschalten der Zündung (Kl. 15) aktiviert
+A13,7,1 - Heckscheibenheizung nach Ablauf des Timers (20 Minuten) deaktiviert
+;
+A14,0,Komfortfunktion über Heckschloss
+A14,5,Komfortfunktion über Heckschloss
+A14,6,0 - aktiviert
+A14,7,1 - deaktiviert
+;

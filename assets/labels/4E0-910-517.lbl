@@ -1,0 +1,150 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A8 (4E)
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; P/N: 4E0-910-517-???
+;
+; includes measuring blocks, login and coding
+;
+; created on 23/Sep/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 11/Jan/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left,Display Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right,Display Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left,Display Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right,Display Range: 0.0...255.0 km/h
+;
+002,1,Brake test,switch
+002,2,Brake light,switch
+002,3,Parking,brake
+002,4,ESP-button,(center console)
+;
+003,0,Engine Data
+003,1,Engine Speed
+003,2,Engine Torque
+003,3,Engine Torque,(loss)
+003,4,Throttle Valve Angle
+;
+004,1,Standing Time
+004,2,EDL-T Flag,,Display Range: ON/OFF\nSpecification: OFF
+;
+005,1,Steering Angle,Sensor (G85),Display Range: -720.0...+720.0 °\nTolerance (when straight): ±5.0 °
+005,2,Rotation Rate,,Display Range: -69.0...+69.0 °/s
+005,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+005,4,Transverse,Acceleration,Display Range: -25.0...+25.0 m/s²
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+007,0,Installation position - see labelfile (test applies only to room temperature)
+; not OK => check brake temperature (test applies only to room temperature)
+;        => Check installation of sensor (fully inserted, firmly screwed in)
+;        => Check wheel bearing
+;        => Check tolerance of axle
+007,1,Front,Left,Display range: invalid/OK/not OK
+007,2,Front,Right,Display range: invalid/OK/not OK
+007,3,Rear,Left,Display range: invalid/OK/not OK
+007,4,Rear,Right,Display range: invalid/OK/not OK
+;
+008,0,Direction of rotation
+008,1,Front,Left,Display range: invalid/forward/reverse
+008,2,Front,Right,Display range: invalid/forward/reverse
+008,3,Rear,Left,Display range: invalid/forward/reverse
+008,4,Rear,Right,Display range: invalid/forward/reverse
+;
+009,1,Brake test,switch 
+009,2,Brake light,switch
+009,3,Brake,pressure
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 0/Steer. ang. 1
+125,2,Transmission,,Display Range: Transm. 1/Transm. 0
+125,3,Engine,,Specification: Engine 1\nDisplay Range: Engine 0/Engine 1
+125,4,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 0/Instruments 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Adaptive Cruise,Control (ACC)
+126,2,CAN-Gateway
+126,3,Electric Parking,Brake (EPB)
+126,4,Level Control,System
+;
+;
+;---------------------------------------------------
+;
+; login/coding-ii information
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics - Bosch 5.7 (J104) Login/Coding-II
+L01,0?xxx: Chassis
+L02,5 - Audi A8 (Short Wheel Base)
+L03,6 - Audi A8 (Long Wheel Base)
+L04,0x?xx: Brakes
+L05,1 - 2FNR 42 AL 18" (PR-1LJ)
+L06,2 - 2FNR 42 AL 17" (PR-1LL)
+L07,4 - FNRG-60 16" (PR-1LG)
+L08,7 - Brembo M6 AL 19" (PR-1LW)
+L09,0xx?x: Engine
+L10,3 - 12 Cyl. Gasoline
+L11,5 - 6/8 Cyl. Diesel
+L12,6 - 6 Cyl. Diesel (Long Wheel Base)
+L13,9 - 6/8 Cyl. Gasoline
+L14,0xxx?: Transmission
+L15,7 - Automatic (09E/09L)
+L16,9 - Multitronic (01J)
+L17, 
+L18,Note: After Login/Coding-II has been carried out you need to recode the control module.
+L19, 
+L20,40168 - General Login/Coding-II for Basic Settings
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics - Bosch 5.7 (J104) Coding
+C01,0?xxx: Chassis
+C02,7 - Audi A8 (Long Wheel Base)
+C03,8 - Audi A8 (Short Wheel Base)
+C04,0x?xx: Brakes
+C05,3 - FNRG-60 16" (PR-1LG)
+C06,5 - 2FNR 42 AL 17" (PR-1LL)
+C07,6 - 2FNR 42 AL 18" (PR-1LJ)
+C08,7 - Brembo M6 AL 19" (PR-1LW)
+C09,0xx?x: Engine
+C10,3 - 12 Cyl. Gasoline
+C11,5 - 6/8 Cyl. Diesel
+C12,6 - 6 Cyl. Diesel (Long Wheel Base)
+C13,9 - 6/8 Cyl. Gasoline
+C14,0xxx?: Transmission
+C15,7 - Automatic (09E/09L)
+C16,9 - Multitronic (01J)
+C17, 
+C18,Note #1: Coding is accepted after a specific login has been carried out.
+C19,Note #2: After successful coding the steering angle sensor basic setting needs to be carried out.
+;

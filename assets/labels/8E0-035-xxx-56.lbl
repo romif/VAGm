@@ -1,0 +1,60 @@
+;
+; VAG-COM labelfile
+;
+; Audi A4 (8E)
+;
+; component: R - Radio (#56)
+;
+; p/n: 8E0-035-152-??? - Chorus II
+;      8E0-035-186-??? - Concert II
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-56.LBL
+; 8E0-035-xxx-56.LBL
+;
+; created on 25/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 25/Aug/2005
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; Measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Information
+001,1,Supply Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Amplifier,Control Output,Display Range: OK/Short Circuit
+001,3,Telephone,Mute
+001,4,Telephone,Mute,Display Range: ON/OFF
+;
+002,0,Loadspeaker Status
+002,1,Front,Loadspeaker
+002,2,Status Front,Loadspeaker,Display Range: OK/Short Circuit/Open Circuit
+;
+003,0,Condition of Remote feed Antenna
+003,1,Type
+003,2,Component
+003,3,Status,,Display Range: OK/Short Circuit/Open Circuit
+;
+004,0,Communication Status CD-Changer (R41)
+004,1,Component
+004,2,Status,,Display Range: OK/not OK
+;
+005,0,Status IF-Output
+005,1,IF-Output
+005,2,Status,IF-Output,Display Range: OK/Short Circuit/Open Circuit
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,VIN & Radio Serial Number
+;

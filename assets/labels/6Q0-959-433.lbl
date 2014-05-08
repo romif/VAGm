@@ -1,0 +1,221 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Ibiza (6L) / Skoda Fabia (6Y) / VW Polo (9N) / VW Transporter (7H)
+;
+; Component: J393 - Central Module Comfort System (#46)
+;
+; P/N: 6Q0-959-433-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 18/Nov/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 02/Dec/2005
+;
+; requires VAG-COM 402.3 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Window Regulator (Driver Door)
+001,1,WR-Button (E40),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,2,Window Regulator,Therm. Prot. (V147),Display Range: Yes/No
+001,3,Rear Window,Safety Switch (E39),Display Range: Not Installed/ON/OFF
+;
+002,0,Window Regulator Buttons (Driver Door)
+002,1,WR-Button (E81),Passenger Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+002,2,WR-Button (E53),Rear Left Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+002,3,WR-Button (E55),Rear Right Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,0,Mirror Adjustment/Heating
+003,1,Mirror Adjustment,Switch (E43),Display Range: Pos X+/Pos X-/Pos Y+/Pos Y-/Not Oper./Not Installed
+003,2,Mirror Selector,Switch (E48),Display Range: Left/Right/ON (Mirror Heater Switch)/OFF (Mirror Heater Switch)/Not Oper.
+003,3,Mirror Request,Driver Door
+003,4,Mirror Heater,Switch,Display Range: ON/OFF/Not Installed
+;
+004,0,Window Regulator (Passenger Door)
+004,1,WR-Button (E107),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper./Not Installed
+004,2,Window Regulator,Therm. Prot. (V148),Display Range: Yes/No/Not Installed
+004,3,Mirror Request,Passenger Door
+;
+005,0,Window Regulators (Rear)
+005,1,WR-Button (E52),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper./Not Installed
+005,2,Window Regulator,Therm. Prot. (V26),Display Range: Yes/No/Not Installed
+005,3,WR-Button (E54),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper./Not Installed
+005,4,Window Regulator,Therm. Prot. (V27),Display Range: Yes/No/Not Installed
+;
+006,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+006,2,Ignition,(Terminal 15),Display Range: Term 15 On/Term 15 Off
+006,3,S-Contact,,Display Range: Activated
+006,4,Vehicle Speed
+;
+007,0,Key Switches && Interior Lock Buttons
+007,1,Driver Door,Key Switch,Display Range: Not Oper./Open/Close/Implausible
+007,2,Passenger Door,Key Switch,Display Range: Not Oper./Open/Close/Implausible
+007,3,Driver Door,Lock Butt. (E150),Display Range: Not Oper./Locking/Unlocking/Implausible
+007,4,Passenger Door,Lock Butt. (E198),Display Range: Not Oper./Locking/Unlocking/Implausible
+;
+008,1,Hood Contact,Switch (F120),Display Range: Operated/Not Oper./Not Installed
+008,2,Rear Lid,Key Switch,Display Range: Open/Close/Not Oper.
+008,3,Rear Lid,Contact Switch (F124),Dispplay Range: Open/Closed
+008,4,Central Locking,Thermal Protection,Display Range: Yes/No
+;
+009,0,Central Locking Units
+009,1,Driver Door,Status (F220),Display Range: Locked/Unlocked/Safe/Implausible
+009,2,Passenger Door,Status (F221),Display Range: Locked/Unlocked/Safe/Implausible
+009,3,Rear Left Door,Status (F222),Display Range: Locked/Unlocked/Safe/Implausible
+009,4,Rear Right Door,Status (F223),Display Range: Locked/Unlocked/Safe/Implausible
+;
+010,0,Door Contact Switches
+010,1,Driver Door,Door Contact (F2),Display Range: Door Closed/Door Open
+010,2,Passenger Door,Door Contact (F3),Display Range: Door Closed/Door Open
+010,3,Rear Left Door,Door Contact (F10),Display Range: Door Closed/Door Open
+010,4,Rear Right Door,Door Contact (F11),Display Range: Door Closed/Door Open
+;
+011,1,Immobilizer,Key Recognition,Display Range: Yes/No
+011,2,Automatic,Lock/Unlock Switch,Specification: Operated/Not Oper./Implausible/Not Installed
+011,3,Sunroof,Close Signal,Display Range: ON/OFF
+011,4,Databus,Condition,Specification: 2-Wire\nDisplay Range: 1-Wire/2-Wire
+;
+012,0,CAN-Datenbus (Communication)
+012,1,Door Control Module,Driver
+012,2,Door Control Module,Passenger
+012,3,Door Control Module,Rear Left
+012,4,Door Control Module,Rear Right
+;
+013,0,Immobilizer
+013,1,Fixed Code,,Display Range: No Value/OK/Not OK
+013,2,Code in,Catch Area,Display Range: No Value/OK/Not OK
+013,3,Algorithm,,Display Range: No Value/OK/Not OK
+013,4,Key Number
+;
+014,1,Remote Control,Buttons,Display Range: 0 = Not Operated / 1 = Operated\n\n?xxx = Open\nx?xx = Close\nxx?x = Rear Lid\nxxx? = Panic (USA only)
+014,2,Interior Monitoring,Sensor (G209),Display Range: Not Installed
+014,3,Interior Monitoring,Shut-Off,Display Range: Not Installed
+;
+015,0,Alarm Sources
+;   1 = Driver Door Rotary Switch
+;   2 = Passenger Door Rotary Switch
+;   4 = Rear Left Door Rotary Switch
+;   8 = Rear Right Door Rotary Switch
+;  16 = Rear Lid Rotary Switch
+;  17 = Immobilizer Recognition
+;  18 = Backup Horn
+;  32 = Hood Contact Switch
+;  64 = Ignition (Terminal 15)
+; 128 = Interior Monitoring
+; 255 = No Alarm
+015,1,1st Alarm Source
+015,2,2nd Alarm Source
+015,3,3rd Alarm Source
+015,4,4th Alarm Source
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A000,0,Remote Control Erasing
+A000,5,Remote Control Erasing
+A000,6,0 - Erase all keys
+;
+A001,0,Remote Control Adaptation
+A001,1,Key
+A001,2,Adaptation
+A001,3,Current Number,of Keys
+A001,5,Remote Control Adaptation
+A001,6,Enter the number of keys that should be adapted. Save.
+A001,7, 
+A001,8,Now press button 1 or 2 on every remote that
+A001,9,should be adapted for at least 1 second.
+A001,10, 
+A001,11,Note #1: All keys must be adapted in one procedure.
+A001,12,Note #2: Adaptation of all keys must not exceed 15 seconds.
+;
+A003,0,Auto-Lock
+A003,1,Auto-Lock
+A003,3,Current Status
+A003,5,Auto-Lock
+A003,6,The doors will lock automatically when the
+A003,7,vehicle reaches a speed of 15 km/h or 10 mph.
+A003,8, 
+A003,9,Specification: 0 = OFF / 1 = ON
+;
+A004,0,Auto-Unlock
+A004,1,Auto-Unlock
+A004,3,Current Status
+A004,5,Auto-Unlock
+A004,6,The doors will unlock automatically when
+A004,7,the key is removed from the ignition switch.
+A004,8, 
+A004,9,Specification: 0 = OFF / 1 = ON
+;
+A006,0,Unlocking Confirmation (Beep)
+A006,1,Unlocking,Confirmation
+A006,2,Beep
+A006,3,Current Status
+A006,5,Unlocking Confirmation (Beep)
+A006,6,0 = OFF
+A006,7,1 = ON
+;
+A007,0,Locking Confirmation (Beep)
+A007,1,Locking,Confirmation
+A007,2,Beep
+A007,3,Current Status
+A007,5,Locking Confirmation (Beep)
+A007,6,0 = OFF
+A007,7,1 = ON
+;
+A008,0,Unlocking Confirmation (Blink)
+A008,1,Unlocking,Confirmation
+A008,2,Blink
+A008,3,Current Status
+A008,5,Unlocking Confirmation (Blink)
+A008,6,0 = OFF
+A008,7,1 = ON
+;
+A009,0,Locking Confirmation (Blink)
+A009,1,Locking,Confirmation
+A009,2,Blink
+A009,3,Current Status
+A009,5,Locking Confirmation (Blink)
+A009,6,0 = OFF
+A009,7,1 = ON
+;
+A013,0,Alarm Horn Adjustment
+A013,5,Alarm Horn Adjustment
+A013,6,Country setting for alarm horn. This changes length
+A013,7,and volume of the alarm horn sounding.
+A013,8, 
+A013,9,1 = Rest of World (RoW)
+A013,10,2 = Germany
+A013,11,3, = Great Britain (GB)
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System (J393) Coding
+C01,00016 - Central Locking without Power Windows
+C02,00064 - Central Locking with 2 Power Windows (Front)
+C03,00256 - Central Locking with 4 power Windows (Front & Back)
+C04, 
+C05,+00 - 2-Door with Selective (Single) Door Locking active
+C06,+01 - Selective (Single) Door Locking inactive
+C07,+02 - 4-Door
+;

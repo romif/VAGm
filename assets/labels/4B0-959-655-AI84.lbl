@@ -1,0 +1,99 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4B)
+;
+; Component: J234 - Airbag (#15) - AIRBAG 8.4
+;
+; P/N: 4B0-959-655-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-15.LBL
+; 4B0-959-655-AI7.LBL
+; 4B0-959-655-AI8.LBL
+; 4B0-959-655-AI84.LBL
+;
+; created on 30/Apr/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Mar/2008
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Igniter Status (Airbag && Tensioner)
+001,1,Driver Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Passenger Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Driver Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Passenger Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Igniter Status (Tensioner && Battery Disconnect)
+002,1,Rear Left Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Rear Right Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,3,Rear Center Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,4,Battery Disconnect,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,1,Voltage supply,,Display Range: Correct/Signal too Low/Signal too High
+003,2,Seat Occupation,Detection Passenger,Display Range: Child Seat/Light Adult/Medium Adult/Heavy Adult/Not Occup./Short to Ground/Short to Plus/Not Installed
+003,3,Belt Inquiry,Driver,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Passenger,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry (Rear)
+004,1,Belt Inquiry,Rear Left,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Right,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+006,0,Igniter Status (Side Airbag)
+006,1,Front Left Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+006,2,Front Right Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+006,3,Rear Left Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+006,4,Rear Right Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+008,0,Igniter Status (Head Airbag)
+008,3,Driver Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+008,4,Passenger Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+009,0,Key Switch Status
+009,1,Key Switch,Passenger Airbag,Display Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag 8.4 (J234) Coding
+C01,Standard: Front Airbags/Front Belt Tensioners
+C02,0?x0x: Key Switch for Pass. Airbag Deactivation
+C03,0 = not installed
+C04,1 = installed
+C05,0x?0x: Side/Head Airbags
+C06,0 = No Side/Head Airbags
+C07,1 = Front Side Airbags
+C08,2 = Front Side Airbags / Rear Side Airbags (Factory)
+C09,3 = Front Side Airbags / Head Airbags (Factory)
+C10,4 = Front Side Airbags / Rear Side Airbags / Head Airbags (Factory)
+C08,5 = Front Side Airbags / Rear Side Airbags (Service)
+C09,6 = Front Side Airbags / Head Airbags (Service)
+C10,7 = Front Side Airbags / Rear Side Airbags / Head Airbags (Service)
+C11,0xx0?: Rear Belt Tensioners
+C12,4 = 2 Rear Belt Tensioners (Rest of World)
+C13,5 = 2 Rear Belt Tensioners (North America)
+C14,6 = 3 Rear Belt Tensioners (Rest of World)
+C15,7 = 3 Rear Belt Tensioners (North America)
+;

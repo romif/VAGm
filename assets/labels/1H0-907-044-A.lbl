@@ -1,0 +1,41 @@
+;
+; VCDS Label File
+;
+; VW Golf (1H)
+;
+; Component: J255 - Heating/Climate Control Electronics (#08) - Climatronic (from 08/95)
+;
+; P/N: 1H0-907-044-A
+;
+; includes measuring blocks and basic setting
+;
+; created on 13/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Temperatures
+001,1,Ambient,Temperatur (G17)
+001,2,Fresh Air Duct,Temperature (G89)
+001,3,Dashboard,Temperature (G56)
+001,4,Vent,Temperatur (G152)
+;
+002,1,Vehicle Speed,,Range: 0...255 km/h
+002,2,Sunlight Photo,Sensor (G107),Range: 0...100 % (0 % = dark / 100 % = light)
+002,3,Central Air Flap,Adjustment,Range: 0...100 % (0 % = closed / 100 % = open)
+002,4,Supply Voltage,Connector T10/2
+;
+003,1,A/C Shut Off,&& A/C Readiness,1x = Compressor ON\nx1 = Climate Control ready
+003,2,Pressure,Switch (F129),1x = Switch 2 bar/32 bar closed\nx1 = Switch 16 bar closed
+003,3,A/C Readiness,&& Engine Start,1x = Climate Control ready\nx1 = Engine running
+003,4,Kickdow Switch &&,Transmission Type,1x = Kickdow Switch operated\nx1 = Automatic Transmission
+;

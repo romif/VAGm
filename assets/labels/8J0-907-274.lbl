@@ -1,0 +1,92 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J793 - Tire Pressure Monitoring II (#4C)
+;
+; P/N: 8J0-907-274-???
+;
+; includes measuring blocks and coding
+;
+; created on 16/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Aug/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Warning Thresholds I
+001,1,Position,Front Left
+001,2,Pressure Warning,Front Left,Range: 0.0...255.0
+001,3,Position,Front Right
+001,4,Pressure Warning,Front Right,Range: 0.0...255.0
+;
+002,0,Warning Thresholds II
+002,1,Position,Rear Left
+002,2,Pressure Warning,Rear Left,Range: 0.0...255.0
+002,3,Position,Rear Right
+002,4,Pressure Warning,Rear Right,Range: 0.0...255.0
+;
+004,0,Warning Thresholds III
+004,1,Pressure Drop,Warning,Range: 0.0...255.0
+004,2,Tire Brake-Down,Warning,Range: 0.0...255.0
+;
+125,0,CAN-Databus Communication
+125,1,Transmission,Electronics,Range: Transm. 1/Transm. 0
+125,2,Steering Angle,Sensor (G85),Range: Steer. ang. 1/Steer. ang. 0\nSpecification: Steer. ang. 1
+125,3,Brake Electronics,,Range: ABS 1/ABS 0\nSecification: ABS 1
+125,4,Engine Electronics,,Range: Engine 1/Engine 0\nSpecification: Engine 1
+;
+126,0,CAN-Databus Communication && Voltage Supply
+126,1,All-Wheel-Drive,,Range: AWD 1/AWD 0\nSpecification: AWD 1
+126,2,Instrument Cluster,(J285),Range: Instruments 1/Instruments 0\nSpecification: Instruments 1
+126,3,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+126,4,Battery Voltage
+;
+127,0,Wheel Speed
+127,1,Wheel Speed,Front Left
+127,2,Wheel Speed,Front Right
+127,3,Wheel Speed,Rear Left
+127,4,Wheel Speed,Rear Right
+;
+130,0,Tire Pressure Monitoring System (TPMS)
+130,1,Warning Lamp,,Range: Lamp Off/Lamp On
+130,2,Button,,Range: Switch Off/Switch On
+;
+140,0,CAN-Databus Communication
+140,1,CAN-Gateway,(J533),Range: Gateway 1/Gateway 0\Specification: Gateway 1
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring II (J793) Coding
+C01,0?xxx00: System
+C02,6 = Tire Pressure Monitoring System (PR-7K6) 
+C03,0x?xx00: Powertrain
+C04,0 = All-Wheel-Drive (AWD) & Manual Transmission
+C05,1 = All-Wheel-Drive (AWD) & Direct-Shift-Gearbox (DSG)
+C06,2 = Front-Wheel-Drive (FWD) & Manual Transmission
+C07,3 = Front-Wheel-Drive (FWD) & Direct-Shift-Gearbox (DSG) 
+C08,0xx?x00: Tires
+C09,2 = 16"
+C10,3 = 17"
+C11,4 = 18"/19"
+C12,6 = 16" (SST)
+C13,7 = 17" (SST/PAX)
+C14,8 = 18"/19" (SST/PAX) 
+C15,0xxx?00: Country
+C16,1 = Rest of World (RoW) 
+;

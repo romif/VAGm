@@ -1,0 +1,150 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8L)
+;
+; Komponente: J255 - Klima-/Heizungselektronik (#08) - 1 Display
+;
+; T/N:  8L0-820-043-???
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 29.01.2006 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 29.01.2006
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundeinstellung
+000,1,Stellmotor für Temperaturklappe (V68),Sollwert: 0
+000,2,Stellmotor für Zentralklappe (V70),Sollwert: 0
+000,3,Stellmotor für Fußraum-/Defrosterklappe (V85),Sollwert: 0
+000,4,Stellmotor für Staudruckklappe (V71),Sollwert: 0
+;
+001,0,Allgemein
+001,1,Kompressor-,abschaltbedingung,Sollwert: 0 = nicht abgeschaltet
+;  1 = abgeschaltet (Druckschalter für Klimaanlage (F129) zu hoher Druck)
+;  3 = abgeschaltet (Druckschalter für Klimaanlage (F129) wegen zu niedrigem Druck)
+;  6 = abgeschaltet (ECON-Betrieb (kein Defekt))
+;  7 = abgeschaltet (Zufuhrleistung des Außenluftlüfters abgeschaltet wurde (kein Defekt))
+;  8 = abgeschaltet (Umgebungstemperatur unter 2 °C beträgt (gegen Eisbildung, kein Defekt))
+; 10 = abgeschaltet (Spannung des Bordnetzes unter 9.5 V)
+; 12 = abgeschaltet (durch Motorsteuergerät)
+; 13 = abgeschaltet (Einschaltverzögerung des Kompressors)
+; 14 = abgeschaltet (Druckschalter für Klimaanlage (F129) 30 mal in Folge geschaltet)
+001,2,Spannung,(Klemme 15)
+001,3,Standzeit,,Wertebereich: 0...240 Min\n\n250 = Batterie abgeklemmt\n255 = Übertragungsfehler
+;
+002,0,Stellmotor für Temperaturklappe (V68) - Wiedereinspeis. Potentiom. (G92)
+002,1,Potentiom. (G92),IST-Wert,Wertebereich: 5...250\nToleranz zum Sollwert: 3
+002,2,Potentiom. (G92),SOLL-Wert,Wertebereich: 5...250
+002,3,Lernwert,(Kühlung),Sollwert: 190...250
+002,4,Lernwert,(Heizung),Sollwert: 5...50
+;
+003,0,Stellmotor für Mittelklappe (V70) - Wiedereinspeis. Potentiom. (G112)
+003,1,Potentiom. (G112),IST-Wert,Wertebereich: 5...250\nToleranz zum Sollwert: 3
+003,2,Potentiom. (G112),SOLL-Wert,Wertebereich: 5...250
+003,3,Lernwert,(Schalttafel),Sollwert: 190...250
+003,4,Lernwert,(Fußraum),Sollwert: 5...50
+;
+004,0,Stellmotor für Fußraum-/Defrosterklappe (V85) - Wiedereinsp. Potent. (G114)
+004,1,Potentiom. (G114),IST-Wert,Wertebereich: 5...250\nToleranz zum Sollwert: 3
+004,2,Potentiom. (G114),SOLL-Wert,Wertebereich: 5...250
+004,3,Lernwert,(Fußraum),Sollwert: 190...250
+004,4,Lernwert,(Defrost),Sollwert: 5...50
+;
+005,0,Stellmotor für Staudruckklappe (V71) - Wiedereinspeis. Potentiom. (G113)
+005,1,Potentiom. (G113),IST-Wert,Wertebereich: 5...250\nToleranz zum Sollwert: 3
+005,2,Potentiom. (G113),SOLL-Wert,Wertebereich: 5...250
+005,3,Lernwert,(Frischluft),Sollwert: 210...250
+005,4,Lernwert,(Umluft),Sollwert: 5...30
+;
+006,0,Temperaturen && Sonneneinstrahlung
+006,1,errechnete,Außentemperatur
+006,2,Temperatur (G89),Ansaugkanal
+006,3,Außentemperatur,(G17)
+006,4,Sonnenein-,strahlung (G107),Wertebereich: 0...100 % (entspricht 4.5...0.5 V)
+;
+007,0,Temperaturen (Innenraum)
+007,1,Ausströmtemp.,Mitte (G192)
+007,2,Ausströmtemp.,Fußraum (G192)
+007,3,Armaturenbrett,(G56)
+007,4,Kühlmittel-,temperatur
+;
+008,0,Spannung
+008,1,Frischluftgebläse,(V2) SOLL-Wert,Sollwert: 0.0...12.5 V
+008,2,Frischluftgebläse,(V2) IST-Wert,Toleranz zum Sollwert: < 0.7 V
+008,3,Dimmung,Klemme 58d,Wertebereich: 0.0...100.0 % (1.0...12.5 V)
+008,4,Dimmung,Klemme 58s,Wertebereich: 0.0...100.0 % (1.0...12.5 V)
+;
+009,0,Allgemein
+009,1,Motordrehzahl
+009,2,Geschwindigkeit
+009,3,Standlicht,,0 = Standlicht aus\n1 = Standlicht ein
+009,4,Standheizung,,0 = Kein Standheizungsbetrieb\n1 = Standheizungsbetrieb
+;
+010,0,Allgemein
+010,1,Kühlmitteltemp.,zu hoch,0 = Temperaturschalter (im Schalttafeleinsatz) offen\n1 = Temperaturschalter (im Schalttafeleinsatz) geschlossen
+010,2,Klimakompressor-,eingriff,0 = Ausgang Klimakompressoreingriff "offen"\n1 = Ausgang Klimakompressoreingriff "geschlossen"
+010,3,Druckschalt. (F129),Hochdruckg. (G65)
+010,4,Ansteuerung,beh. Heckscheibe,0 = Heckscheibenheizung aus\n1 = Heckscheibenheizung ein
+;
+011,0,Kompressorabschaltbedingungen
+;  1 = abgeschaltet (Druckschalter für Klimaanlage (F129) zu hoher Druck)
+;  3 = abgeschaltet (Druckschalter für Klimaanlage (F129) wegen zu niedrigem Druck)
+;  6 = abgeschaltet (ECON-Betrieb (kein Defekt))
+;  7 = abgeschaltet (Zufuhrleistung des Außenluftlüfters abgeschaltet wurde (kein Defekt))
+;  8 = abgeschaltet (Umgebungstemperatur unter 2 °C beträgt (gegen Eisbildung, kein Defekt))
+; 10 = abgeschaltet (Spannung des Bordnetzes unter 9.5 V)
+; 12 = abgeschaltet (durch Motorsteuergerät)
+; 13 = abgeschaltet (Einschaltverzögerung des Kompressors)
+; 14 = abgeschaltet (Druckschalter für Klimaanlage (F129) 30 mal in Folge geschaltet)
+011,1,letzte,Abschaltbeding.
+011,2,vorletzte,Abschaltbeding.
+011,3,drittletzte,Abschaltbeding.
+011,4,viertletzte,Abschaltbeding.
+;
+012,0,Allgemein
+012,1,Leerlaufdrehzahl-,anhebung,0 = Leerlaufdrehzahlanhebung aus\n1 = Leerlaufdrehzahlanhebung ein
+012,2,Kühlmittelabsperr-,ventil (N147),0 = Kühlmittelabsperrventil (N147) aus\n1 = Kühlmittelabsperrventil (N147) ein
+012,4,Zuordnung,Zündschlüssel
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Klima-/Heizungselektronik (J255) Codierung
+C01,0?xxx: Kennfeldkühlung
+C02,0 - ohne Kennfeldkühlung
+C03,1 - mit Kennfeldkühlung
+C04, 
+C05,0x?xx: Länderauswahl
+C06,0 - Rest der Welt (RdW)
+C07,1 - USA
+C08,2 - Japan
+C09, 
+C10,0xx?x: Zylindervariante
+C11,Hinweis: Die Motorvariante hat keinen Einfluss auf die Funktion (fall 6-Zyl. nicht codierbar auf 4-Zyl. ausweichen).
+C12,4 - 4-Zylinder
+C13,6 - 6-Zylinder
+C14, 
+C15,00xx?: Ausführung
+C16,0 - Linkslenker mit Benzinmotor
+C17,1 - Rechtslenker mit Benzinmotor
+C18,3 - Linkslenker mit Dieselmotor
+C19,4 - Rechtslenker mit Dieselmotor
+;

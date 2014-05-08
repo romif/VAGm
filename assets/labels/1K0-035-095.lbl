@@ -1,0 +1,120 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Golf Plus (5M) / VW Touran (1T)
+; VW Passat (3C)
+;
+; Component: Radio-/Navigation System (#56) - MFD2-DVD
+;
+; P/N: 1K0-035-095-???
+;
+; includes measuring blocks and coding
+;
+; created on 27/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 17/Apr/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5.0...18.0 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Input,Telephone-Mute
+001,4,Input,Telephone-Mute,Display Range: ON/OFF
+;
+002,0,Speaker/Line-Out (Front Left)
+002,1,Location/Type
+002,2,Status
+;
+003,0,Speaker/Line-Out (Front Right)
+003,1,Location/Type
+003,2,Status
+;
+004,0,Speaker/Line-Out (Rear Left)
+004,1,Location/Type
+004,2,Status
+;
+005,0,Speaker/Line-Out (Rear Right)
+005,1,Location/Type
+005,2,Status
+;
+007,0,Remote Feed Antenna I
+007,1,Type
+007,2,Component
+007,3,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+008,3,Signal Strength
+008,4,Signal Strength,Tuner II
+;
+010,0,Remote Feed Antenna II
+010,1,Type
+010,2,Component
+010,3,Status
+;
+011,0,CD-Connection
+011,1,Component
+011,2,Status,,Display Range: OK/not OK
+;
+012,0,CAN-Databus Infotainment (Communication)
+012,1,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+012,2,Telephone,,Display Range: Telephone 1/Telephone 0
+012,3,Steering Wheel,Electronics,Specification: St. Wheel 1\nDisplay Range: St. Wheel 1/St. Wheel 0
+012,4,TV-Tuner,,Display Range: TV-Tuner 1/TV-Tuner 0
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+; 06 = Gyro Module Error
+; 08 = Internal Communication GPS-Receiver
+; 09 = Malfunction at CD/DVD-Drive
+; 0A = Internal Communication (BUS)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio-/Navigation System (MFD2-DVD) Coding
+C01,00?xxxx: Treble Speaker Monitoring
+C02,1 = Front and Rear Monitoring inactive
+C03,2 = Front Monitoring active / Rear Monitoring inactive
+C04,3 = Front Monitoring inactive / Rear Monitoring active
+C05,4 = Front and Rear Monitoring active 
+C06,00x?xxx: Radio Configuration I
+C07,+2 = CAN-Telephone Control 
+C08,00xx?xx: Speaker Channels
+C09,0 = Sound System (active Speakers)
+C10,2 = 2 passive Speakers (Front)
+C11,4 = 4 passive Speakers 
+C13,00xxx?x: Sound System Correction
+C14,0 = No Sound System (No Correction)
+C15,4 = Sound System (Volkswagen Sound)
+C16,7 = Sound System (Dynaudio)
+C18,00xxxx?: Radio Configuration II
+C19,+2 = CD-Changer
+C20,+4 = Digital Satellite Radio (SDARS)
+;

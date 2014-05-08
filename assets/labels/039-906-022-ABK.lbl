@@ -1,0 +1,74 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi 100 (4A)
+;
+; Komponente: Motorelektronik (#01) - ABK (bis 06/1993)
+;
+; T/N: 039 906 022 ??
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 039-906-022-ABK.LBL  (2.0l     @ 115 HP - ABK) - bis 06/1993
+; 039-906-024-ABK.LBL  (2.0l     @ 115 HP - ABK) - ab 07/1993
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 23.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 23.05.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Ansauglufttempratur,Sollwert: 15...70 (12...65 °C)
+000,2,Versorgungsspannung,Sollwert: 115...150 (10.8...14.0 V)
+000,3,Kühlmitteltemperatur,Sollwert: 0...8 (85...115 °C)
+000,4,Motorlast,Sollwert: 35...65 (14...25 %)
+000,5,Lambda-Sondenspannung,Sollwert: 230...80 (0.1...1.1 V)
+000,6,Zeitzähler Lambda-Regelung,Sollwert: 0
+000,7,Zähler Sondenstatus,Sollwert: 0...10
+000,8,Drosselklappenpotentiometer-Spannung,Sollwert: 10...130 (0.2...2.6 V)
+000,9,Einspritzzeit,Sollwert: 3...7 (1.5...3.5 ms)
+000,10,Motordrehzahl,Sollwert: 211...186 (770...870 U/min)
+;
+001,0,Grundfunktionen (Grundeinstellung: Drosselklappe)
+001,1,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+001,2,Motordrehzahl,,Sollwert: 770...870 U/min
+001,3,Lambda,Sondenspannung,Sollwert: 0.1...1.1 V
+001,4,Einspritzzeit,,Sollwert: 1.5...3.5 ms
+;
+002,0,Grundfunktionen
+002,1,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+002,2,Motordrehzahl,,Sollwert: 770...870 U/min
+002,3,Drosselklappen-,winkel,Sollwert (Leerlauf): 0.0...2.0 <°\nSollwert (Vollast): mind. 75 <°
+002,4,Motorlast,,Sollwert: 14...25 %
+;
+003,0,Grundfunktionen
+003,1,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+003,2,Motordrehzahl,,Sollwert: 770...870 U/min
+003,3,Ansaugluft-,temperatur
+003,4,Versorgungs-,spannung,Sollwert: 10.8...14.0 V
+;
+004,0,Grundfunktionen
+004,1,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+004,2,Motordrehzahl,,Sollwert: 770...870 U/min
+004,3,errechneter,Zündwinkel
+004,4,Motorlast,,Sollwert: 14...25 %
+;
+005,0,Grundfunktionen
+005,1,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+005,2,Motordrehzahl,,Sollwert: 770...870 U/min
+005,3,Drosselklappen-,winkel,Sollwert (Leerlauf): 0.0...2.0 <°\nSollwert (Vollast): mind. 75 <°
+005,4,Versorgungs-,spannung,Sollwert: 10.8...14.0 V
+;

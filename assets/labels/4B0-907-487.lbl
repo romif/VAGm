@@ -1,0 +1,57 @@
+;
+; VAG-COM Label File
+;
+; Audi A2 (8Z) / Audi A6 (4B)
+;
+; Component: J453 - Steering Wheel (#16)
+;
+; P/N: 4B0-907-487-???
+;
+; includes measuring blocks and coding
+;
+; created on 15/Mar/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Mar/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J453) Coding
+C01,0?xxx: Radio Remote
+C02,0 = active (Standard)
+C03,1 = inactive
+C04,0x?xx: Language
+C05,0 = German
+C06,1 = English
+C07,2 = French
+C08,3 = Italian
+C09,4 = Dutch
+C10,5 = Spanish
+C11,6 = Portuguese
+C12,7 = Danish
+C13,8 = Swedish
+C14,0xx?x: Tiptronic
+C15,0 = Tiptronic not installed (on Steering Wheel)
+C16,1 = Tiptronic installed (on Steering Wheel)
+C17,0xxx?: Steering Wheel Type
+C18,1 = Radio and Telephone Operation
+C19,2 = Radio Operation (6-Buttons)
+C20,5 = Radio/Telephone and Voice Control
+;

@@ -1,0 +1,102 @@
+;
+; VAG-COM Label File
+;
+; Skoda Fabia (6Y) / Skoda Fabia/Roomster (5J)
+; Seat Ibiza/Toledo (6L) / VW Polo (9N)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 8.0 ABS/EDS/ASR/ESP
+;
+; P/N: 6Q0-907-37?-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-03.LBL
+; 6R-03.LBL
+; 6Q0-907-37x-ABS.LBL (ABS/EDS 5.7)
+; 6Q0-907-37x-ASR.LBL (ABS/EDS/ASR 5.7)
+; 6Q0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 5.7)
+; 6R0-907-37x-ABS.LBL (ABS/EDS 8.0)
+; 6R0-907-37x-ASR.LBL (ABS/EDS/ASR 8.0)
+; 6R0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 8.0)
+;
+; created on 09/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Dec/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+002,0,Button && Switch Status
+002,1,Brake Test Switch,,0 = not operated\n1= operated
+002,2,Brake Light Switch,,0 = not operated\n1= operated
+002,3,Parking Brake,,0 = not operated\n1= operated
+002,4,ESP-Button,,0 = not operated\n1= operated
+;
+003,0,Engine Data
+003,1,Engine Speed
+003,2,Engine Torque
+003,3,Engine Torque,(loss)
+003,4,Throttle Valve Angle
+;
+004,1,Standing Time
+004,2,EDL-T Flag,,Range: ON/OFF\nSpecification: OFF
+;
+005,1,Steering Angle,,Range: -720.0...+720.0 °
+005,2,Rotation Rate,,Range: -69.0...+69.0 °/s
+005,3,Brake Pressure,,Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+005,4,Transverse,Acceleration,Range: -25.0...+25.0 m/s²
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+009,1,Brake Test Switch,,0 = not operated\n1= operated
+009,2,Brake Light Switch,,0 = not operated\n1= operated
+009,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+;
+022,0,Steering Angle Sensor Data
+;
+023,0,Data Variant Coding
+023,1,Data Variant,Coding
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Steering Angle,Sensor,Specification: Steer. ang. 1
+125,2,Engine,,Specification: Engine 1
+125,3,Transmission,,Specification: Transm. 1
+125,4,Instrument Cluster,,Specification: Instruments 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,4,ESP Sensors,,Specification: ESP Sens. 1
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,2,Airbag,,Specification: Airbag 1
+;
+225,0,CAN-Databus Time-Out (Powertrain)
+225,1,Steering Angle,Sensor
+225,2,Engine
+225,3,Transmission
+225,4,Instrument Cluster
+;
+226,0,CAN-Databus Time-Out (Powertrain)
+226,4,ESP Sensors
+;
+227,0,CAN-Databus Time-Out (Powertrain)
+227,2,Airbag
+;

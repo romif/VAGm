@@ -1,0 +1,138 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R36 - Telephone (#77) PR-9ZJ
+;
+; P/N: 4E0-910-333-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 28/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Nov/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General (Battery)
+001,1,Battery
+001,2,Battery,Status,Range: Full/Weak/Empty
+;
+002,0,General (Most-Bus)
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,0,General (Most-Bus)
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+006,0,Telephone SIM
+006,1,Telephone SIM
+006,2,Telephone SIM,Status
+;
+008,0,Component Identification
+;
+010,0,Telephone
+010,1,Telephone
+010,2,Telephone,Status,Range: Acquired/Not Acquired
+010,3,Signal Strength
+010,4,Reception,Signal Strengths
+;
+011,0,Main Antenna
+011,1,Main Antenna
+011,2,Main Antenna,Status
+;
+12,0,Telephone Identification
+12,1,Telephone ID
+;
+014,0,Bluetooth Devices
+014,1,Bluetooth Devices
+014,2,Connected,Bluetooth Devices
+;
+019,0,Microphone
+019,1,Microphone
+019,2,Microphone,Status
+;
+020,0,Bluetooth Devices
+020,1,Connected,BT-Devices,
+;
+040,0,Hardware Version
+040,1,Hardware Version
+;
+041,0,Control Module Temperature
+041,1,Current,Temperature
+041,2,Min. Stored,Temperature
+041,3,Max. Stored,Temperature
+041,4,Temperature,Status,Range: OK/Not OK
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone (R36) Coding
+C01,Software Part Number 4E0-910-333-C and before:
+C02,0000004 = Audi A8 Short Wheel Base (4E2) & Audi A8 Long Wheel Base (4E8)
+C03, 
+C04,Software Part Number 4E0-910-333-D and above:
+C05,0000?0x: Country
+C06,0 = Rest of World (RoW)
+C07,1 = China
+C08, 
+C09,0000x0?: Model
+C10,3 = Audi Q7 (4L)
+C11,4 = Audi A8 Short Wheel Base (4E2)
+C12,5 = Audi A8 Long Wheel Base (4E8)
+C13,6 = Audi A6 (4F2)
+C14,7 = Audi A6 Avant (4F5) & Allroad (4FH)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A006,0,Bluetooth
+A006,1,Bluetooth
+A006,2,Status
+A006,5,Bluetooth
+A006,6,0 = Bluetooth OFF
+A006,7,1 = Bluetooth ON
+;
+A010,0,Control Module Temperature
+A010,1,Current,Temperature
+A010,2,Min. Stored,Temperature
+A010,3,Max. Stored,Temperature
+A010,4,Temperature,Status
+A010,5,Control Module Temperature
+A010,6,Use this adaptation channel to reset the minimum and
+A010,7,maximum stored control module temperature.
+A010,8, 
+A010,9,Save 0 as new value to reset.
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;

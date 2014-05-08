@@ -1,0 +1,812 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8P) / VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Skoda Octavia II (1Z)
+;
+; Komponente: Motorelektronik (#01) - AXW/BHD/BMB/BLR/BLX/BLY
+;
+; T/N: 06F 906 056 ??
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 06F-906-056-AXW.LBL (2.0l FSI @ 150 HP - AXW/BHD/BMB/BLR/BLX/BLY)
+;
+; erstellt am 03.09.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 20.06.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+001,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+001,3,Lambda-Regel-,wert Bank 1 [%],Sollwert: -10...10 %
+001,4,Lambda-Regel-,wert Bank 2 [%],Sollwert: -10...10 %
+;
+002,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+002,2,Last,[%],Sollwert: 10...25 %
+002,3,mittlere,Einspritzzeit,Sollwert: 0.5...1.5 ms
+002,4,Saugrohr-,druck [mbar],Sollwert: 200...400 mbar
+;
+003,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+003,2,Saugrohr-,druck [mbar],Sollwert: 200...400 mbar
+003,3,DK-Winkel,(Poti) [%],Sollwert: 0...3 %
+003,4,Zündwinkel,"Ist" [°v.OT],Sollwert: -6...+8 °v.OT
+;
+004,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+004,2,Bordspannung,[V],Sollwert: 11.0...15.5 V
+004,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+004,4,Ansaugluft-,temperatur,Sollwert: 0...90 °C
+;
+005,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+005,2,Last,[%],Sollwert: 10...25 %
+005,3,Geschwindigkeit,[km/h]
+005,4,Betriebs-,zustand,Sollwert: LL / Wertebereich: LL, TL, VL, SA, BA (siehe Label-File)
+; LL - Leerlauf
+; TL - Teillast
+; VL - Vollast
+; SA - Schubabschaltung
+; BA - Beschleunigungsanreicherung
+;
+006,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+006,2,Last,[%],Sollwert: 10...25 %
+006,3,Ansaugluft-,temperatur,Sollwert: 0...90 °C
+006,4,Höhen-,korrektur [%],Sollwert: -35...+5 %
+;
+007,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+007,2,Last,[%],Sollwert: 10...25 %
+007,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+007,4,Betriebsart,,siehe Label-File
+;
+; xx-xxxx1 - Homogen
+; xx-xxx1x - Homogen Mager
+; xx-xx1xx - Homogen Schicht Doppeleinspritzung
+; xx-x1xxx - Schicht
+; xx-1xxxx - Schicht Kat-heizen Doppeleinspritzung
+; x1-xxxxx - Homogen Split
+; 1x-xxxxx - Homogen Klopfschutz
+;
+008,1,Zustand,Bremse,Wertebereich: betätigt/unbetätigt
+008,2,Zustand,Unterdruckpumpe,Wertebereich: Pumpe ein/Pumpe aus (nur Automatik)
+008,3,Druck Brems-,kraftverstärker,Sollwert: 100...550 mbar
+008,4,Ergebnis,,Wertebereich: Test aus/Test ein/Syst. i.O./Syst. n.i.O.
+;
+009,0,Wartungs-Intervall-Verlängerung
+009,1,Ölfüllstand,[mm],Sollwert: 13...55 mm
+009,2,komp.,Ölwarnschwelle,Sollwert: 22...42 mm
+009,3,Kraftstoff-,verbrauchssignal,Sollwert: 0...32768 [liter]
+009,4,Verbrauchs-,äuqivalent,Faktor 10 / eigentlicher Wertebereich 0...0.00132
+;
+010,0,Zündung I
+010,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+010,2,Last,[%],Sollwert: 10...25 %
+010,3,DK-Winkel,(Poti) [%],Sollwert: 0...3 %
+010,4,Zündwinkel,"Ist" [°v.OT],Sollwert: -6...+8 °v.OT
+;
+011,0,Zündung II
+011,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+011,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+011,3,Ansaugluft-,temperatur,Sollwert: 0...90 °C
+011,4,Zündwinkel,"Ist" [°v.OT],Sollwert: -6...+8 °v.OT
+;
+014,0,Aussetzererkennung I
+014,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+014,2,Last,[%],Sollwert: 10...25 %
+014,3,Aussetzer,Summenzähler,Sollwert: 0...5
+014,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt / Sollwert: aktiviert
+;
+015,0,Aussetzererkennung II
+015,1,Zähler,Zylinder 1,Wertebereich: 0...5
+015,2,Zähler,Zylinder 2,Wertebereich: 0...5
+015,3,Zähler,Zylinder 3,Wertebereich: 0...5
+015,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt / Sollwert: aktiviert
+;
+016,0,Aussetzererkennung III
+016,1,Zähler,Zylinder 4,Wertebereich: 0...5
+016,2,[N/A]
+016,3,[N/A]
+016,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt / Sollwert: aktiviert
+;
+018,0,Last-/Drehzahlfenster Aussetzererkennung
+018,1,untere Dreh-,zahlschwelle
+018,2,obere Dreh-,zahlschwelle
+018,3,untere,Lastschwelle
+018,4,obere,Lastschwelle
+;
+020,0,Klopfregelung I
+020,1,Zündwinkelrück-,nahme Zyl. 1 [°KW]
+020,2,Zündwinkelrück-,nahme Zyl. 2 [°KW]
+020,3,Zündwinkelrück-,nahme Zyl. 3 [°KW]
+020,4,Zündwinkelrück-,nahme Zyl. 4 [°KW]
+;
+022,0,Klopfregelung II
+022,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+022,2,Last,[%],Sollwert: 10...25 %
+022,3,Zündwinkelrück-,nahme Zyl. 1 [°KW]
+022,4,Zündwinkelrück-,nahme Zyl. 2 [°KW]
+;
+023,0,Klopfregelung III
+023,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+023,2,Last,[%],Sollwert: 10...25 %
+023,3,Zündwinkelrück-,nahme Zyl. 3 [°KW]
+023,4,Zündwinkelrück-,nahme Zyl. 4 [°KW]
+;
+026,0,Klopfregelung Klopfsensorspannung (Verstärkungsfaktor eingerechnet)
+026,1,Zyl. 1,[V],Wertebereich: 0...2.0 V
+026,2,Zyl. 2,[V],Wertebereich: 0...2.0 V
+026,3,Zyl. 3,[V],Wertebereich: 0...2.0 V
+026,4,Zyl. 4,[V],Wertebereich: 0...2.0 V
+;
+028,0,Prüfung Klopfsensoren
+028,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+028,2,Last,[%],Sollwert: 10...25 %
+028,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+028,4,Ergebnis,,Wertebereich: Test ein/Test aus/Sys. i.O./Sys. n.i.O.
+;
+030,0,Lambdasonden Status (2-Bank-Systeme)
+030,1,Bank 1,Sonde 1,siehe Label-File
+;
+; xxx1 - Regelung aktiv
+; xx1x - Sonde betriebsbereit
+; x1xx - Sondenheizung ein
+; 1xxx - Katalysator ausräumen
+;
+030,2,Bank 1,Sonde 2,siehe Label-File
+;
+; xxx1 - I-Regelung aktiv
+; xx1x - Sonde betriebsbereit
+; x1xx - Sondenheizung ein
+; 1xxx - Regelung aktiv (P)
+;
+030,3,Bank 2,Sonde 1,siehe Label-File
+;
+; xxx1 - Regelung aktiv
+; xx1x - Sonde betriebsbereit
+; x1xx - Sondenheizung ein
+; 1xxx - Katalysator ausräumen
+;
+030,4,Bank 2,Sonde 2,siehe Label-File
+;
+; xxx1 - I-Regelung aktiv
+; xx1x - Sonde betriebsbereit
+; x1xx - Sondenheizung ein
+; 1xxx - Regelung aktiv (P)
+;
+;
+031,0,Stetige Lambdasonden (2-Bank-Systeme)
+031,1,Lambda "Ist",Bank 1,Sollwert: 0.9...1.1
+031,2,Lambda "Soll",Bank 1,Sollwert: 1.0
+031,3,Lambda "Ist",Bank 2,Sollwert: 0.9...1.1
+031,4,Lambda "Soll",Bank 2,Sollwert: 1.0
+;
+032,0,Lambdasonden Lernwerte (maximaler Wert)
+032,1,Bank 1 Sonde 1,Leerlauf [%],Sollwert: -4...+4 %
+032,2,Bank 1 Sonde 1,Teillast [%],Sollwert: -10...+10 %
+032,3,Bank 2 Sonde 1,Leerlauf [%],Sollwert: -4...+4 %
+032,4,Bank 2 Sonde 1,Teillast [%],Sollwert: -10...+10 %
+;
+033,0,Stetige Lambdasonden-Regelwerk
+033,1,Bank 1,Regelwert [%],Sollwert: -10...+10 %
+033,2,Bank 1,Sondenspannung,Sollwert: 1.3...1.7 V
+033,3,Bank 2,Regelwert [%],Sollwert: -10...+10 %
+033,4,Bank 2,Sondenspannung,Sollwert: 1.3...1.7 V
+;
+034,0,Lambdasonden-Alterungsprüfung Bank 1 vor Frontkat (Kurztrip)
+034,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+034,2,Abgastemperatur,vor Vorkat [°C],Sollwert: 200...800 °C
+034,3,Dynamik-,faktor,Sollwert: 0.5...1.4
+034,4,Ergebnis,,Wertebereich: Test ein/Test aus/B1-S1 i.O./B1-S1 n.i.O.
+;
+035,0,Lambdasonden-Alterungsprüfung Bank 2 vor Frontkat (Kurztrip)
+035,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+035,2,Abgastemperatur,vor Vorkat [°C],Sollwert: 200...800 °C
+035,3,Dynamik-,faktor,Sollwert: 0.5...1.4
+035,4,Ergebnis,,Wertebereich: Test ein/Test aus/B2-S1 i.O./B2-S1 n.i.O.
+;
+036,0,Lambdasonden-Betriebsbereitschaft nach Frontkat
+036,1,Bank 1 Sonde 2,Spannung [V],Sollwert: 0.1...0.8 V
+036,2,Ergebnis,,Wertebereich: Test ein/Test aus/B1-S2 i.O./B1-S2 n.i.O.
+036,3,Bank 2 Sonde 2,Spannung [V],Sollwert: 0.1...0.8 V
+036,4,Ergebnis,,Wertebereich: Test ein/Test aus/B2-S2 i.O./B2-S2 n.i.O.
+;
+037,0,Lambdasondenalterung vor Frontkat, Bank 1 (Kurztrip)
+037,1,Last,[%],Sollwert: 10...25 %
+037,2,Bank 1,Spannung,Sollwert: 0.1...0.8 V
+037,3,Bank 1,I-Anteil,Sollwert: -0.02...+0.02
+037,4,Ergebnis,,Wertebereich: Test ein/Test aus/B1-S1 i.O./B1-S1 n.i.O.
+;
+038,0,Lambdasondenalterung vor Frontkat, Bank 2 (Kurztrip)
+038,1,Last,[%],Sollwert: 10...25 %
+038,2,Bank 2,Spannung,Sollwert: 0.1...0.8 V
+038,3,Bank 2,I-Anteil,Sollwert: -0.02...+0.02
+038,4,Ergebnis,,Wertebereich: Test ein/Test aus/B2-S1 i.O./B2-S1 n.i.O.
+;
+039,0,Lambdasondenvertauschung nach Frontkat (Kurztrip)
+039,1,Luftmasse,[g/s],Sollwert: 1.5...3.5 g/s
+039,2,Bank 1,Spannung,Sollwert: 0.1...0.8 V
+039,3,Bank 2,Spannung,Sollwert: 0.1...0.8 V
+039,4,Ergebnis,,Wertebereich: Test ein/Test aus/Sys. i.O./Sys. n.i.O.
+;
+041,0,Lambdasondenheizung Bank 1 - getrennte Leitungen der Heizungen (2-Bank-Systeme)
+041,1,Widerstand,Bank 1 Sonde 1,Wertebereich: 250...350 Ohm
+041,2,Zustand,Bank 1 Sonde 1,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+041,3,Widerstand,Bank 1 Sonde 2,Wertebereich: 0.05...1 kOhm
+041,4,Zustand,Bank 1 Sonde 2,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+;
+042,0,Lambdasondenheizung Bank 2 - getrennte Leitungen der Heizungen (2-Bank-Systeme)
+042,1,Widerstand,Bank 2 Sonde 1,Wertebereich: 250...350 Ohm
+042,2,Zustand,Bank 2 Sonde 1,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+042,3,Widerstand,Bank 2 Sonde 2,Wertebereich: 0.05...1 kOhm
+042,4,Zustand,Bank 2 Sonde 2,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+;
+044,0,Lambdasondenalterung nach Hauptkat (NOx-Sensor)
+044,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+044,2,Abgastemperatur,[°C],Sollwert: 200...600 °C
+044,3,Sondenspannung,NOx-Sensor [V],Wertebereich: 0...1.1 V
+044,4,[N/A]
+;
+046,0,Konvertierungsprüfung - Frontkat Bank 1
+046,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+046,2,Abgastemperatur,vor Kat [°C],Sollwert: 200...800 °C
+046,3,Meßwert,Kat-Konvert.,Wertebereich: 1...6
+046,4,Ergebnis,,Wertebereich: Test ein/Test aus/Kat B1 i.O./Kat B1 n.i.O.
+;
+047,0,Konvertierungsprüfung - Frontkat Bank 2
+047,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+047,2,Abgastemperatur,vor Kat [°C],Sollwert: 200...800 °C
+047,3,Meßwert,Kat-Konvert.,Wertebereich: 1...6
+047,4,Ergebnis,,Wertebereich: Test ein/Test aus/Kat B2 i.O./Kat B2 n.i.O.
+;
+050,0,Drehzahlanhebung (Systeme mit Trennung Heckscheibe/Klimabereitschaft)
+050,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+050,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+050,3,Klima-,anforderung,Wertebereich: aus/ein
+050,4,Klima-,kompressor,Wertebereich: Kompr. ein/Kompr. aus
+;
+051,0,Drehzahl - Schalteingriffe
+051,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+051,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+051,3,Fahrstufe
+051,4,Bordspannung,[V],Sollwert: 11.0...15.5 V
+;
+052,0,Drehzahlanhebung (Systeme mit Trennung Heckscheibe/Klimabereitschaft)
+052,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+052,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+052,3,Klima-,bereitschaft,Wertebereich: aus/ein
+052,4,Heck-/Front-,scheibenheizung,Wertebereich: aus/ein
+;
+053,0,Drehzahlanhebung aufgrund Generatorlast
+053,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+053,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+053,3,Bordspannung,[V],Sollwert: 11.0...15.5 V
+053,4,[N/A]
+;
+054,0,Leerlaufsteller/-schalter bei E-Gas-Systemen
+054,1,Motor-,drehzahl,Sollwert: 680...800/min (Leerlauf)
+054,2,Betriebs-,zustand,Sollwert: LL / Wertebereich: LL, TL, VL, SA, BA (siehe Label-File)
+; LL - Leerlauf
+; TL - Teillast
+; VL - Vollast
+; SA - Schubabschaltung
+; BA - Beschleunigungsanreicherung
+054,3,Geber 1,Gaspedalstell.,Sollwert: 0.0 %
+054,4,DK-Winkel,Poti [%],Wertebereich: 0...3 %
+;
+055,0,Leerlaufstabilisierung (Systeme mit Trennung Heckscheibe/Klimabereitschaft)
+055,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+055,2,Leerlauf-,regler,Wertebereich: -5...+5 %
+055,3,Lernwert,LL-Stabilis.,Wertebereich: -3...+3 %
+055,4,Betriebs-,zustände,siehe Label-File
+; --x-xxx1 - Klimakompressor Ein
+; --x-xx1x - Fahrstufe eingelegt
+; --x-x1xx - Klimabereitschaft Ein
+; --x-1xxx - Heckscheibenheizung Ein
+; --1-xxxx - Frontscheibenheizung Ein
+;
+056,0,Leerlaufstabilisierung (Systeme mit Trennung Heckscheibe/Klimabereitschaft)
+056,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+056,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+056,3,Leerlauf-,regler,Wertebereich: -5...+5 %
+056,4,Betriebs-,zustände,siehe Label-File
+; --x-xxx1 - Klimakompressor Ein
+; --x-xx1x - Fahrstufe eingelegt
+; --x-x1xx - Klimabereitschaft Ein
+; --x-1xxx - Heckscheibenheizung Ein
+; --1-xxxx - Frontscheibenheizung Ein
+;
+057,0,Leerlaufstabilisierung - Drucksignal Klimakompressor
+057,1,Motor-,drehzahl "Ist",Sollwert: 680...800/min (Leerlauf)
+057,2,Motor-,drehzahl "Soll",Sollwert: 730...750/min (Leerlauf)
+057,3,Klima-,kompressor,Wertebereich: Kompr. ein/Kompr. aus
+057,4,Tastverhältnis,Druckaufnahme,Wertebereich: 0...7 bar
+;
+060,0,E-Gas-Adaption
+060,1,DK-Winkel,Poti 1,Wertebereich: 9...20 %
+060,2,DK-Winkel,Poti 2,Wertebereich: 80...91 %
+060,3,DVE-Adaptions-,status,Wertebereich: 0...4
+060,4,Betriebs-,zustand,Wertebereich: ADP läuft/ADP i.O./ERROR
+;
+061,0,ESB/E-Gas (Systeme mit Trennung Heckscheibe/Klimabereitschaft)
+061,1,Motor-,drehzahl,Sollwert: 680...800/min (Leerlauf)
+061,2,Versorgungs-,spannung,Wertebereich: 11.0...14.5 V
+061,3,Ansteuerung,DK-Steller,Wertebereich: 0...3 %
+061,4,Betriebs-,zustände,siehe Label-File
+; --x-xxx1 - Klimakompressor Ein
+; --x-xx1x - Fahrstufe eingelegt
+; --x-x1xx - Klimabereitschaft Ein
+; --x-1xxx - Heckscheibenheizung Ein
+; --1-xxxx - Frontscheibenheizung Ein
+;
+062,0,E-Gas - Potentiometerspannungen Verhältnis U/Uref
+062,1,Winkelgeber 1,für DK-Antrieb,Wertebereich: 9...20 %
+062,2,Winkelgeber 2,für DK-Antrieb,Wertebereich: 80...91 %
+062,3,Geber 1,Gaspedalstellung,Wertebereich: 12...16 %
+062,4,Geber 2,Gaspedalstellung,Wertebereich: 6...8 %
+;
+063,0,Kick-Down Adaption (nur Automatik)
+063,1,Geber 1,Gaspedalstellung
+063,2,Geber 1,gelernter Punkt,Wertebereich: 81.6...96.4 %
+063,3,Schalter,,Wertebereich: 0 / Kick-Down
+063,4,Ergebnis,,Wertebereich: Betätigt/ADP läuft/ADP i.O./ERROR
+;
+064,0,Drosselklappenpotiadaptionswerte
+064,1,Poti 1,untere Adaption,Wertebereich: 0.3...0.7 V
+064,2,Poti 2,untere Adaption,Wertebereich: 4.3...4.7 V
+064,3,Notluftspalt,Poti 1 [V],Wertebereich: 0.5...1.2 V
+064,4,Notluftspalt,Poti 2 [V],Wertebereich: 3.8...4.5 V
+;
+065,0,Drosselklappenpotiadaptionswerte
+065,1,Winkelgeber 1,für DK-Antrieb,Wertebereich: 9...20 %
+065,2,Winkelgeber 2,für DK-Antrieb,Wertebereich: 80...91 %
+065,3,DV-E Adaptions-,status,Wertebereich: 0...9
+065,4,Ergebnis,,Wertebereich: ADP läuft/ADP i.O./ERROR
+;
+066,0,Geschwindigkeits-Regel-Anlage (GRA/Tempomat)
+066,1,Geschwindigkeit,[km/h]
+066,2,Schalter-,stellungen,siehe Label-File
+; xxxxxxx1 - Bremslichtschalter Pedal betätigt
+; xxxxxx1x - Bremspedalschalter Pedal betätigt
+; xxxxx1xx - Kupplungsschalter Pedal betätigt
+; xxxx1xxx - GRA-Funktion freigeschaltet
+; xxx1xxxx - ADR-Funktion freigeschaltet
+; xx1xxxxx - GRA ein/aus durch Haupt Aus-Taster 
+; 00xxxxxx - ADR/GRA nicht aktiv (steht auch für nicht verbaut)
+; 01xxxxxx - ADR/GRA im Regelbetrieb
+; 10xxxxxx - Zustand "übersteuert", Fahrer gibt mehr "Gas" als GRA-Regler
+; 11xxxxxx - ADR nicht freigegeben
+066,3,Geschwindigkeit,"Soll" [km/h]
+066,4,Schalter-,stellungen,siehe Label-File
+; x-xxxxx1 - GRA ein/aus gerastet(CAN)
+; x-xxxx1x - GRA austasten ja nein Speicher gesetzt
+; x-xxx1xx - Tip down / Verzögern
+; x-xx1xxx - Tip up / Beschleunigen
+; x-x1xxxx - Setzen (SET)
+; x-1xxxxx - Wiederaufnahme  (RESET)
+; 1-xxxxxx - GRA ein/aus gerastet (Hardware PIN)
+;
+070,0,Tankentlüftungs-Ventilprüfung
+070,1,Öffnungsgrad,TEV [%],Wertebereich: 0...100 %
+070,2,Lambdaregler,Diagnosewert,Wertebereich: -8...+8 %
+070,3,Langzeit,TEV-Güte [%],Wertebereich: 20...199.2 %
+070,4,Ergebnis,,Wertebereich: Test ein/Test aus/Abbruch/TEV i.O./TEV n.i.O.
+;
+074,0,AGR-Stelleradaption
+074,1,Null,Position [V],Wertebereich: 0...1.5 V
+074,2,[N/A]
+074,3,Aktueller,Poti-Wert [V],Wertebereich: 0...1.5 V
+074,4,Ergebnis,,Wertebereich: ADP läuft/ADP i.O./ERROR
+;
+075,0,Abgasrückführung
+075,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+075,2,Saugrohr-,druck [mbar],Wertebereich: 200...400 mbar
+075,3,AGR,Massenstrom,Wertebereich: 0...2 mbar
+075,4,Betriebs-,zustände,siehe Label-File
+; ---xxxx1 - Mindestens 1 fehler im System erkannt
+; ---xxx1x - Fehler Heizung Sonde Front-Kat
+; ---xx1xx - Zyklus Heizung Sonde Front-Kat
+; ---x1xxx - Innenwiderstand RI-Messung der Nernstsonde aktiv hinter Front-Kat
+; ---1xxxx - Taupunkt hinter Vorkat überschritten
+;
+076,0,Abgasrückführung
+076,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+076,2,Saugrohr-,druck [hPa],Wertebereich: 200...400 hPa
+076,3,Öffnungsgrad,AGR-Poti [%],Wertebereich: -3...+3 %
+076,4,Tastverhältnis,AGR-Ventil [%],Wertebereich: -15...+5 %
+;
+086,0,Ready- und Zyklusbits (siehe Label-File)
+086,1,Ready-Bits
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxx-x-? - Katalysatoren
+; xxxx-?-x - AKF-System
+; xxx?-x-x - Klimaanlage
+; xx?x-x-x - Lambda-Sonden
+; x?xx-x-x - Lambda-Sondenhzg.
+; ?xxx-x-x - AGR-System
+086,2,Zyklus-Flags I,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxx-x? - Kat Bank 1
+; xxxxx-?x - Kat Bank 2			
+; xxxx?-xx - TEV
+; xxx?x-xx - Hzg. B1-S1
+; xx?xx-xx - Hzg. B1-S2
+; x?xxx-xx - Hzg. B2-S1
+; ?xxxx-xx - Hzg. B2-S2
+086,3,Zyklus-Flags II,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; ---xxxx? - B1-S1 el.
+; ---xxx?x - B1-S2 el.
+; ---xx?xx - B1-S1 (Plausibilitätsprüfung)
+; ---x?xxx - B1-S2 (Sondenalterung)
+; ---?xxxx - B1-S1 (Dynamikprüfung)
+086,4,Zyklus-Flags III,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; --xxxxx? - B2-S1 el.
+; --xxxx?x - B2-S2 el.
+; --xxx?xx - B2-S1 (Plausibilitätsprüfung)
+; --xx?xxx - B2-S2 (Sondenalterung)
+; --x?xxxx - B2-S1 (Dynamikprüfung)
+; --?xxxxx - AGR el.
+;
+087,0,Ready- und Errorbits
+087,1,Ready-Bits,,siehe Label-File
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxx-x-? - Katalysatoren
+; xxxx-?-x - AKF-System
+; xxx?-x-x - Klimaanlage
+; xx?x-x-x - Lambda-Sonden
+; x?xx-x-x - Lambda-Sondenhzg.
+; ?xxx-x-x - AGR-System
+087,2,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; xxxxx-x? - Kat Bank 1
+; xxxxx-?x - Kat Bank 2			
+; xxxx?-xx - TEV
+; xxx?x-xx - Hzg. B1-S1
+; xx?xx-xx - Hzg. B1-S2
+; x?xxx-xx - Hzg. B2-S1
+; ?xxxx-xx - Hzg. B2-S2
+087,3,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; ---xxxx? - B1-S1 el.
+; ---xxx?x - B1-S2 el.
+; ---xx?xx - B1-S1 (Plausibilitätsprüfung)
+; ---x?xxx - B1-S2 (Sondenalterung)
+; ---?xxxx - B1-S1 (Dynamikprüfung)
+087,4,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; --xxxxx? - B2-S1 el.
+; --xxxx?x - B2-S2 el.
+; --xxx?xx - B2-S1 (Plausibilitätsprüfung)
+; --xx?xxx - B2-S2 (Sondenalterung)
+; --x?xxxx - B2-S1 (Dynamikprüfung)
+; --?xxxxx - AGR el.
+;
+088,0,Zyklus-Flags (abgeschlossene Prüfungen [0 = abgeschlossen / 1 = nicht abgeschlossen])
+088,1,Zyklus-Flags I,,siehe Label-File
+; xx--?--- - Nockenw.-Verstellung Bank 1 Einlaß
+; x?--x--- - Klopfsensor 2
+; ?x--x--- - Klopfsensor 1
+088,2,Zyklus-Flags II,,siehe Label-File
+; xxx-xxx? - Bremslichtschalter
+; xxx-xx?x - Kupplungsschalter
+; xxx-x?xx - LL-Regelung
+; xxx-?xxx - Geschwindigkeitssignal
+; xx?-xxxx - Kühlmitteltemp.-Sensor
+; x?x-xxxx - Drosselklappenpoti
+; ?xx-xxxx - Luftmassenmesser
+088,3,Zyklus-Flags III,,siehe Label-File
+; xxx-x?-- - Ansaugtemperatursensor
+; xxx-?x-- - Thermostat
+; xx?-xx-- - GRA-Bedienhebel
+; x?x-xx-- - Lambdaadaption B2 (Summe aus FRA2 und ORA2)
+; ?xx-xx-- - Lambdaadaption B1 (Summe aus FRA und ORA)
+088,4,[N/A]
+;
+089,0,On-Board-Diagnose
+089,1,Gefahrene km,mit MIL [km],Sollwert: 0 km
+089,2,Leertankinfo,,Wertebereich: i.O./zu klein
+089,3,[N/A]
+089,4,[N/A]
+;
+090,0,Nockenwellenverstellung Einlaß
+090,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+090,2,Verstellung,,Wertebereich: NW-St. ein/NW-St. aus
+090,3,Verstellung,Bank 1 [°KW],Wertebereich: 20...28 °KW
+090,4,[N/A]
+;
+091,0,Nockenwellenverstellung Einlaß Bank 1
+091,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+091,2,Tastverhältnis,[%],Wertebereich: 20...55 %
+091,3,Verstellung,"Soll" [°KW],Wertebereich: 20...28 °KW
+091,4,Verstellung,"Ist" [°KW],Wertebereich: 20...28 °KW
+;
+093,0,Kontinuierliche Nockenwellenadaptionswerte
+093,1,Phasenlage,Einlass Bank 1,Sollwert: -5...+5 °KW
+093,2,[N/A]
+093,3,[N/A]
+093,4,[N/A]
+;
+094,0,Kontinuierliche Nockenwellenverstellung Einlaß
+094,1,Verstellung,"Ist" Bank 1,Wertebereich: 20...28 °KW
+094,2,[N/A]
+094,3,Testergebnis,Bank 1,Wertebereich: Test ein/Test aus/Syst. i.O./Syst. n.i.O.
+094,4,[N/A]
+;
+095,0,Saugrohrumschaltung (einstufige Umschaltung)
+095,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+095,2,Last,[%],Sollwert: 10...25 %
+095,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+095,4,Status,,Wertebereich: SU-V ein/SU-V aus
+;
+099,0,Abschaltung Lambda-Regelung
+099,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+099,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+099,3,Lambdaregler,[%],Wertebereich: -10...+10 %
+099,4,Lambda-,regelung,Wertebereich: I-Reg. ein/I-Reg. aus
+;
+100,0,Readynesscode
+100,1,Ready-Bits,,siehe Label-File
+; xxxx-x-1 - Katalysatoren
+; xxxx-1-x - AKF-System
+; xxx1-x-x - Klimaanlage
+; xx1x-x-x - Lambda-Sonden
+; x1xx-x-x - Lambda-Sondenhzg.
+; 1xxx-x-x - AGR-System
+100,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+100,3,Zeit seit,Motorstart,Wertebereich: 0...655.35 s
+100,4,OBD-Status,,siehe Labelfile
+; xxxx--x1 - kein warm-up-cycle möglich
+; xxxx--1x - warmup-cycle beendet
+; xxx1--xx - mind. ein Fehler erkannt
+; xx1x--xx - Trip komplett
+; x1xx--xx - Driving Cycle erfüllt
+; 1xxx--xx - MIL ein
+;
+101,0,Einspritzung
+101,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+101,2,Last,[%],Sollwert: 10...25 %
+101,3,mittlere,Einspritzzeit,Wertebreich: 0.5...1.5 ms
+101,4,Saugrohr-,druck [mbar],Wertebereich: 200...400 mbar
+;
+102,0,Einspritzung
+102,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+102,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+102,3,Ansaugluft-,temperatur,Sollwert: 0...90 °C
+102,4,mittlere,Einspritzzeit,Wertebreich: 0.5...1.5 ms
+;
+103,0,Bedarfsgeregelte Kraftstoffpumpe
+103,1,Kraftstoff,"Ist" [mbar],Wertebereich: 4500...6000 mbar
+103,2,I-Regler,Kraftstoffdruck,Wertebereich: -400...+400 mbar
+103,3,Adaptionswert,EKP,Wertebereich: -2100...+2500 mbar
+103,4,[N/A]
+;
+104,0,Startfaktoren - Adaptionswerte
+104,1,Start-Motor-,temperatur,Wertebereich: -40...+110 °C
+104,2,Kaltstartan-,reicherung 1,Wertebereich: 25...32 %
+104,3,Kaltstartan-,reicherung 2,Wertebereich: 25...32 %
+104,4,Kaltstartan-,reicherung 3,Wertebereich: 25...32 %
+;
+105,0,Zylinderabschaltung
+105,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+105,2,Last,[%],Sollwert: 10...25 %
+105,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+105,4,Abschaltung,,Sollwert: aus / Wertebereich: ein/aus
+;
+106,0,Kraftstoffdruck
+106,1,Raildruck,"Ist" [bar],Sollwert: 30...50 bar
+106,2,EKP,,Sollwert: ein / Wertebereich: ein/aus
+106,4,Abstellzeit,[sec],Wertebereich: 0...8160 sec
+;
+107,0,Lambdaregelung
+107,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+107,2,Lambdaregler,Bank 1,gemittelter Wert (Wertebereich: -10...+10)
+107,3,Lambdaregler,Bank 2,gemittelter Wert (Wertebereich: -10...+10)
+107,4,Ergebnis,,Wertebereich: Test ein/Test aus/Syst.i.O./Syst.n.i.O.
+;
+110,0,Last - Vollastanreicherung
+110,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+110,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+110,3,mittlere,Einspritzzeit,Wertebreich: 0.5...1.5 ms
+110,4,DK-Winkel,Poti [%],Wertebereich: 0...3 %
+;
+112,0,Abgastemperatur
+112,1,Abgastemp.,Bank 1 [°C],Wertebereich: 200...600 °C
+112,2,Anreicherungs-,faktor Bank 1,Wertebereich: -10...+10 %
+112,3,Abgastemp.,Bank 2 [°C],Wertebereich: 200...600 °C
+112,4,Anreicherungs-,faktor Bank 2,Wertebereich: -10...+10 %
+;
+113,0,Last
+113,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+113,2,Last,[%],Sollwert: 10...25 %
+113,3,DK-Winkel,Poti [%],Wertebereich: 0...3 %
+113,4,Umgebungsdruck,[mbar],Wertebereich: 700...1050 mbar
+;
+120,0,ASR/FDR
+120,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+120,2,Sollmoment,ASR/FDR [Nm],Sollwert: 277 Nm
+120,3,Motormoment,[Nm],Wertebereich: -20...+20 Nm
+120,4,Status,,Wertebereich: ASR aktiv/ASR n. aktiv
+;
+122,0,Getriebe
+122,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+122,2,Sollmoment,Getriebe [Nm],Sollwert: 277 Nm
+122,3,Motormoment,[Nm],Wertebereich: -20...+20 Nm
+122,4,Status,,Wertebereich: Motoreingriff/kein Eingriff
+;
+125,0,CAN-Datenbus Antrieb (Kommunikation)
+125,1,Getriebe
+125,2,ABS
+125,3,Kombiinstrument
+125,4,Klimaanlage
+;
+126,0,CAN-Datenbus Antrieb (Kommunikation)
+126,1,Distanzregelung
+126,2,Lenkwinkel
+126,3,Airbag
+126,4,Elektr.,Zentralelektr.
+;
+127,0,CAN-Datenbus Antrieb (Kommunikation)
+127,1,Allrad
+127,3,Lenkrad
+;
+128,0,CAN-Datenbus Antrieb (Kommunikation)
+128,1,Elektr.,Zündschloss
+128,2,NOx Sensor
+;
+130,0,Kennfeldkühlung
+130,1,Motor-,temperatur,Sollwert: 85...110 °C
+130,2,Temperatur,Kühleraustritt,Wertebereich: 0...110 °C
+130,3,Tastverhältnis,Thermostat,Wertebereich: 0...100 %
+130,4,Steuergeräte-,nachlauf,Wertebereich: Nachlauf/aus
+;
+131,0,Kennfeldkühlung
+131,1,Motor-,temperatur,Sollwert: 85...110 °C
+131,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+131,3,Temperatur,Kühleraustritt,Wertebereich: 0...110 °C
+131,4,Tastverhältnis,Thermostat,Wertebereich: 0...100 %
+;
+132,0,Kennfeldkühlung
+132,1,Temperatur,Kühleraustritt,Wertebereich: 0...110 °C
+132,2,Temperatur-,differenz,Motor/Kühleraustritt (Wertebereich: 0...80 °C)
+132,3,Heizungs-,vorlaufpoti,Wertebereich: 0...100 %
+132,4,Status,Kühlung,siehe Label-File
+; xxxxxxx1 - Fehler im System
+; xxxxxx1x - Thermostatansteuerung aktiv
+; xxxxx1xx - Lüftersteuerung aktiv
+; xxxx1xxx - Regelabweichung (0 > Solltemp; 1 < Solltemp)
+; xxx1xxxx - Lüfterstufe 2 aktiv
+; xx1xxxxx - Lüfterstufe 1 aktiv
+; x1xxxxxx - Zusatzwasserpumpe ein
+; 1xxxxxxx - Heißlandfunktion codiert
+;
+134,0,Temperatur
+134,1,Öltempertatur,[°C],Wertebereich: 0...195 °C
+134,2,Umgebungs-,temperatur,Wertebereich: -40...+50 °C
+134,3,Ansaugluft-,temperatur,Wertebereich: 0...90 °C
+134,4,Motoraustritt-,temperatur,Wertebereich: 85...110 °C
+;
+135,0,Lüfteransteuerung
+135,1,Temperatur,Kühleraustritt,Wertebereich: 0...110 °C
+135,2,Tastverhältnis,Lüfteranst. 1,Wertebereich: 0...100 %
+135,3,Tastverhältnis,Lüfteranst. 2,Wertebereich: 0...100 %
+135,4,[N/A]
+;
+137,0,Klimaanforderungen
+137,1,AC-Eingang,,Wertbereich: AC-Low/AC-High
+137,2,Kompressor,,Wertebereich: Kompr. Ein/Kompr. Aus
+137,3,Klima Druck,[bar],Wertebereich: 0...6 bar
+137,4,Lüfterwunsch,Klimaanlage
+;
+140,0,Mengensteuerventil
+140,1,Deltawinkel,öffnen [°KW],Sollwert: 10...30 °KW
+140,2,Raildruck,"Soll" [bar],Sollwert: 30...50 bar
+140,3,Raildruck,"Ist" [bar],Sollwert: 30...50 bar
+140,4,[N/A]
+;
+141,0,Kraftstoffversorgungssystem
+141,1,Raildruck-,regler [%],Wertebereich: -5...+5 %
+141,2,Regler Rail-,drucksystem,Wertebereich: -5...+5 %
+141,3,[N/A]
+141,4,Status Rail-,drucksystem,siehe Label-File
+;   0	Start
+;  10	Normal
+;  30	Limp Home Start
+;  31	Limp Home/Error DSKV
+;  32	Limp Home/Error MSVE
+;  33	Limp Home/Error DSKV & MSVE
+;  34	Limp Home/Ubat >=UBMSVMX
+;  35	Limp Home/B_airbag
+;  36	Limp Home/Error HDR
+;  37	Limp/Home/Error ASVE
+; 100	Initial Fuelling
+; 110	Pressure Reduction
+;
+142,0,Ladungsbewegungsklappe für BDE mit kontinuierlicher Verstellung
+142,1,Spannung,oberer Anschlag,Sollwert: 0...0.2 V
+142,2,Spannung,unterer Anschlag,Sollwert: 0.8...1.1 V
+142,3,Adaptions-,status,Sollwert: 0
+142,4,Anpassungs-,zustand,Sollwert: ADP läuft/ADP i.O./ERROR
+;
+143,0,Ladungsbewegungsklappe für BDE mit kontinuierlicher Verstellung
+143,1,Motordrehzahl,(G28),Wertebereich: 620...6800 U/min\nSollwert (Leerlauf): 620...800 U/min
+143,2,Last,[%],Sollwert: 10...25 %
+143,3,LBK-Öffnungs-,grad [%],Sollwert: 85...100 %
+143,4,Betriebsart,,siehe Label-File
+; xx-xxxx1 - Homogen
+; xx-xxx1x - Homogen Mager
+; xx-xx1xx - Homogen Schicht Doppeleinspritzung
+; xx-x1xxx - Schicht
+; xx-1xxxx - Schicht Kat-heizen Doppeleinspritzung
+; x1-xxxxx - Homgen Split
+; 1x-xxxxx - Homogen Klopfschutz
+;
+145,0,Abgastemperatursensor
+145,1,Abgastemp.,vor NOx-Absorber,aus Modell (Wertebereich: 100...500 °C)
+145,2,Abgastemp.,vor NOx-Absorber,Sensor gemessen (Wertebereich: 100...500 °C)
+145,3,[N/A]
+145,4,[N/A]
+;
+146,0,NOx-Speicherkatalysator
+146,1,Lambda,"Ist",Sollwert: 0.9...1.1
+146,2,Abgastemp.,vor NOx-Absorber,aus Modell (Wertebereich: 100...500 °C)
+146,3,Faktor-Speicher,Katalysator,Wertebereich: 0.5...1.0 %
+146,4,Ergebnis,,Wertebereich: Test ein/Test aus/Syst. i.O./Syst. n.i.O./KV
+;
+148,0,Entschwefelung NOx-Speicherkat
+148,1,Geschwindigkeit,[km/h]
+148,2,Temperatur,NOx-Absorber,Sollwert: 100...400 °C
+148,3,Schwefel-,füllstand [g],Sollwert: 0...0.3 g
+148,4,Ergenis,,Wertebereich: gesperrt/aktiviert/i.O.
+;
+150,0,NOx-Sensor
+150,1,Betriebsart,,siehe Label-File
+;
+; xx-xxxx1 - Homogen
+; xx-xxx1x - Homogen Mager
+; xx-xx1xx - Homogen Schicht Doppeleinspritzung
+; xx-x1xxx - Schicht
+; xx-1xxxx - Schicht Kat-heizen Doppeleinspritzung
+; x1-xxxxx - Homgen Split
+; 1x-xxxxx - Homogen Klopfschutz
+;
+150,2,Temperatur,NOx-Absorber,Sollwert: 100...500 °C
+150,3,NOx-Sensor-,spannung [V],Sollwert: 0.0...1.1 V
+150,4,Lambda "Ist",NOx-Sensor,Sollwert: 0.0...1.1 V
+;
+151,0,NOx-Sensorheizung
+151,1,Versorgungs-,spannung [V],Sollwert: 11.0...14.5 V
+151,2,[N/A]
+151,3,[N/A]
+151,4,[N/A]
+;
+152,0,NOx-Sensor-Offset
+152,1,Lambda,"Ist",Sollwert: 0.9...1.1
+152,2,NOx,"Ist",Sollwert: 0...800
+152,3,NOx-Offset,,Sollwert: 0...90
+152,4,Ergebnis,,Wertebereich: Test ein/Test aus/Syst. i.O./Syst. n.i.O.
+;
+167,0,Schubabgleich Lambdasonden
+167,1,Sauerstoff-,anteil [%],Sollwert: -2...+2 %
+167,2,Diagnose-,schubzähler [%],Sollwert: 0...255 %
+167,3,Korrekturwert,Kennlinie [%],Sollwert: 0.7...1.3 % (Stetige Lambdasonde)
+167,4,Ergebnis,,Wertebereich: Test ein/Test aus/ADP läuft/Syst. i.O./Syst. n.i.O.
+;
+243,0,Bedarfsgeregelte EKP Adaption
+243,1,Istdruck,EKP [mbar],Sollwert: 30000...50000 mbar
+243,2,I-Anteil,EKP [mbar]
+243,3,Adaptionswert,EKP Rohwert [mbar]
+243,4,Ergebnis,,Wertebereich: Test aus/ADP läuft/ADP i.O./ERROR
+;

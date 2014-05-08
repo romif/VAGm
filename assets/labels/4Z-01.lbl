@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4Z-01.LBL
+; 059-907-401-AKE.LBL  (2.5l TDI @ 180 HP - AFB/AKE/AKN/AYM/BAU/BCZ/BDG/BDH/BFC)
+; 078-907-551-AZA.LBL  (2.7l T   @ 230-265 HP - AGB/AJK/APB/ARE/AZA/AZB/BEL/BES)
+;
+; created on 16/Mar/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Jan/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,059-907-401-AKE.LBL,4Z7-907-401     ; AKE: (4B)
+REDIRECT,059-907-401-AKE.LBL,4Z7-907-401-A   ; AKE: (4B)
+REDIRECT,059-907-401-AKE.LBL,4Z7-907-401-B   ; AKE: (4B)
+REDIRECT,059-907-401-AKE.LBL,4Z7-907-401-H   ; BCZ: (4B)
+REDIRECT,059-907-401-AKE.LBL,4Z7-907-401-J   ; BAU: (4B)
+;
+REDIRECT,078-907-551-AZA.LBL,4Z7-907-551-??? ; APB/ARE/BEL/BES: (4B)
+;
+REDIRECT,078-907-551-AZA.LBL,4Z7-997-551-??? ; APB/ARE/BEL/BES: (4B)
+;

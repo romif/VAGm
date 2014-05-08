@@ -1,0 +1,152 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi A4 (8E) / Audi R8 (42) / Audi TT (8J)
+;
+; Component: R - Radio (#56) - Chorus/Concert/Symphony 2+
+;
+; P/N: ??0-035-186-???
+;
+; includes measuring blocks, adaptation, coding and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-56.LBL
+; 8J-56.LBL
+; 8P-56.LBL
+; 8J0-035-1xx-56.LBL
+;
+; created on 15/Apr/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Nov/2007
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,3,Dimming,,Range: 0.0...100.0 %
+001,4,Status,S-Contact,Range: ON/OFF
+;
+002,0,Telephone Mute
+002,1,Telephone
+002,2,Mute Signal,(via PIN),Range: ON/OFF
+002,4,Mute Signal,(via CAN),Range: ON/OFF
+;
+005,0,Speaker/Line-Out (Front Left)
+005,1,Location/Type
+005,2,Status
+;
+006,0,Speaker/Line-Out (Front Right)
+006,1,Location/Type
+006,2,Status
+;
+007,0,Remote Feed Antenna I
+007,1,Type
+007,2,Component
+007,3,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+008,3,Signal Strength
+008,4,Signal Strength,Tuner II
+;
+010,0,Remote Feed Antenna II
+010,1,Type
+010,2,Component
+010,3,Status
+;
+011,0,CD-Connection
+011,1,Component
+011,2,Status,,Display Range: OK/not OK
+;
+017,0,Sattelite Radio
+017,1,Sattelite,Radio,DigitTuner 1 = Communication not OK\nDigitTuner 0 = Communication OK
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status,Specification: 0 (OK)\n(See Label File)
+; 1 = Button(s) jammed
+; 2 = Checksum Error ROM/EPROM/Flash-ROM
+; 3 = Checksum Error EEPROM
+; 4 = CD-Drive
+;
+026,0,Screening Status
+026,1,Screening,Status
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,0xx0xx?: Country
+C02,1 = Europe
+C03,2 = North America
+C04,4 = Japan
+C05,5 = China
+C06,0xx0x?x: Sound System Correction
+C07,0 = Sound System (No passive Speakers/No Correction)
+C08,1 = Sedan/Coupé with passive Speakers
+C09,2 = Wagon/Avant with passive Speakers
+C10,3 = Cabriolet/Roadster with passive Speakers
+C11,0xx0?xx: Options 1
+C12,+1 = Leather Interior
+C13,+2 = Diesel Engine
+C14,0x?0xxx: Options 2
+C15,+1 = Digital Sound System
+C16,+2 = CD-Changer
+C17,+4 = Satellite Radio
+C18,0?x0xxx: Options 3
+C19,+1 = Analog Input (AUX)
+C20,+2 = Multifunction Steering Wheel
+C21,+4 = Telephone
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Driving School Function/Time Display
+A002,5,Driving School Function/Time Display
+A002,6,0 = Speed Display / Time Display blocked
+A002,7,1 = Speed Display possible (selectable via Setup)
+A002,8,2 = Speed Display possible (not selectable via Setup)
+A002,9,3 = Time Display possible (selectable via Setup)
+A002,10,4 = Time Display possible (not selectable via Setup)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T419,Left Front Midrange Speaker (R103)
+T420,Right Front Midrange Speaker (R104)
+T798,Segment Test
+T870,Bass Speaker (R21) or Mid-Range Speaker (R103) Front Left
+T871,Bass Speaker (R23) or Mid-Range Speaker (R104) Front Right
+T874,Treble (R20) Speaker or Mid-Range/Treble Speaker (R26) Front Left
+T875,Treble (R21) Speaker or Mid-Range/Treble Speaker (R27) Front Right
+;

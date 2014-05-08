@@ -1,0 +1,30 @@
+;
+; VCDS Redirect File
+;
+; VW Passat (3B)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-17.LBL
+; 3B0-919-xxx-17.LBL
+; 3B0-920-xx2-17.LBL
+; 3B0-920-xx5-17.LBL
+;
+; created on 27/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Mar/2008
+;
+; requires VCDS 405.0 or newer
+;
+REDIRECT,3B0-919-xxx-17.LBL,3B?-919-???-??? ; 3B-V-000 001 >> 3B-X-600 000
+REDIRECT,3B0-920-xx2-17.LBL,3B0-920-??0-??? ; 3B-Y-000 001 >>
+REDIRECT,3B0-920-xx2-17.LBL,3B0-920-??2-??? ; 3B-Y-000 001 >>
+REDIRECT,3B0-920-xx5-17.LBL,3B0-920-??5-??? ;              >> 3B-1-400 000/3B-2P010 026
+REDIRECT,3B0-920-xx5-17.LBL,3B0-920-??6-??? ; 3B-2-000 001/3B-2P010 027 >> 3B-200 000/3B-2P139 262
+REDIRECT,3B0-920-xx5-17.LBL,3B7-920-??6-??? ; 3B-200 001/3B-2P139 263 >> 3B-3-700 000
+REDIRECT,3B0-920-xx5-17.LBL,3B0-920-??7-??? ; 3B-200 001/3B-2P139 263 >> 3B-3-700 000
+REDIRECT,3B0-920-xx5-17.LBL,3B?-920-??9-??? ; 3B-4-000 001 >>
+;

@@ -1,0 +1,183 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8E) / VW Passat (3B)
+;
+; Komponente: Motor (#01) - AVB 1.9l TDI-PD 74kW/100PS
+;
+; T/N: 038-906-019-??
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 038-906-019-AVB.LBL (1.9l TDI @ 100 HP - ATD/AXR)
+;
+; erstellt am 12.01.2006 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 11.01.2006
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Mengenanpassung
+001,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+001,2,Einspritzmenge,,Sollwert: 3.0...9.0 mg/Hub
+;   < 3,0 mg/Hub => Pumpe-Düse-Einheiten defekt => prüfen/ersetzen
+;   > 9,0 mg/Hub => Kraftstoffmangel bzw. Luft im Kraftstoffsystem => prüfen
+;                   Pumpe-Düse-Einheiten defekt => Pumpe-Düse-Einheiten ersetzen
+001,3,Ansteuerdauer,Magnetventil,Sollwert: 3...8 °KW
+001,4,Kühlmittel-,temperatur,Sollwert: 85.0...110.0 °C
+;
+002,0,Motorleerlauf
+002,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+002,2,Gaspedalstellung,,Sollwert: 0.0...100.0 %
+002,3,Betriebszustand,,xx1 - Klimakompressorsignal (Klima EIN)\nx1x - Leergasschalter geschlossen\n1xx - Leerlaufdrehzahl erhöht (Klima EIN)
+002,4,Kühlmittel-,temperatur,Sollwert: 85.0...110.0 °C
+;
+003,0,Abgasrückführung (AGR)
+003,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+003,2,Luftmasse,(Sollwert),Sollwert: 220...350 mg/Hub
+003,3,Luftmasse,(Istwert),Toleranz zum Sollwert: +/- 20 mg/Hub
+; zu wenig Luftmasse => Falschluft im Ansaugbereich
+;                       zu viel Abgasrückführung => prüfen
+; zu viel Luftmasse  => zu wenig Abgasrückführung => prüfen
+;                       Motor läuft seit 10 min. im Leerlauf => kurzen Gasstoss geben
+003,4,Tastverhältnis,AGR-Ventil
+;
+004,0,Einspritzbeginn
+004,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+004,2,Einspritzbeginn,,Sollwert (Leerlauf): 4 °n.OT...2 °v.OT\nSollwert (Vollast): 13...23 °v.OT
+004,3,Einspritzdauer,,Sollwert (Leerlauf): 3...8 °KW\nSollwert (Vollast): 19...24 °KW
+004,4,Synchronisations-,winkel,Sollwert: -3...+3 °KW
+; Wert außerhalb Toleranz => Hallgeber (G40) defekt
+;                         => Leitungsunterbrechung/Kurzschluss nach Masse (Hallgeber -G40- lose)
+;                         => Geberrad beschädigt/verdreht
+;                         => Spaltmaß zw. Geber und Nockenwellenrad nicht i.O.
+;
+005,0,Startmenge
+005,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+005,2,Startmenge,,Sollwert: 7...19 mg/Hub
+005,3,Start-,synchronisation
+005,4,Kühlmittel-,temperatur,Sollwert: 85.0...110.0 °C
+;
+006,0,Schalterstellungen
+006,1,Geschwindigkeit
+006,2,Pedal-,überwachung,xx1 - Bremslichtschalter (F)\nx1x - Bremspedalschalter (F47)\n1xx - Kupplungspedalschalter (F36)
+006,3,Gaspedalstellung,,Sollwert: 0.0...100.0 %
+006,4,GRA-Status,,000 - GRA im Steuergerät aktiviert - AUS\n001 - GRA im Steuergerät aktiviert - EIN\n255 - GRA im Steuergerät deaktiviert
+;
+007,0,Temperaturgeber
+007,1,Kraftstoff-,temperatur (G81),Sollwert: ca. Umgebungstemperatur
+007,2,Öl-,temperatur (G8),Sollwert: ca. Umgebungstemperatur
+007,3,Ansaugluft-,temperatur (G42),Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,temperatur (G62),Sollwert: ca. Umgebungstemperatur
+;
+008,0,Einspritzmengenbegrenzung I
+008,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+008,2,Einspritzmengen-,begrenzung,Sollwert (Leerlauf): 0 mg/Hub\nSollwert (Vollast): > 52 mg/Hub
+008,3,Drehmoment-,begrenzung,Sollwert (Leerlauf): 25...47 mg/Hub\nSollwert (Vollast): 39...44 mg/Hub
+008,4,Rauch-,begrenzung,Sollwert (Leerlauf): 16...36 mg/Hub\nSollwert (Vollast): 42...52 mg/Hub\n\n< 16 mg/H = erkannte Luftmasse zu gering => Luftmassenmesser prüfen
+;
+009,0,Einspritzmengenbegrenzung II
+009,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+009,2,Geschwindigkeits-,regelanlage (GRA)
+009,3,Getriebeelektronik
+009,4,Begrenzungs-,menge,Sollwert (Leerlauf): 16...36 mg/Hub\nSollwert (Vollast): 39...44 mg/Hub
+;
+010,0,Luftgrössen
+010,1,angesaugte,Luftmasse,Sollwert (Leerlauf): 200...370 mg/Hub\nSollwert (Vollast): 800...1100 mg/Hub
+010,2,Luftdruck,(Atmosphäre)
+010,3,Saugrohrdruck,(Ladedruck),Sollwert (Vollast): 1850...2250 mbar
+010,4,Gaspedalstellung,,Wertebereich: 0.0...100.0 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+011,2,Ladedruck,(Sollwert),Sollwert (Leerlauf): 900...1100 mbar\nSollwert (Vollast): 1900...2100 mbar\n\nbei Vollast > 2100 = Ladedruckerhöhung durch Tuning
+011,3,Ladedruck,(Istwert),Sollwert (Leerlauf): 850...1150 mbar\nSollwert (Vollast): 1850...2250 mbar
+011,4,Magnetventil (N75),Ladedruckbegrenz.,Sollwert (Leerlauf): 15.0...45.0 %\nSollwert (Vollast): 45.0...80.0 %
+;
+012,0,Vorglühanlage
+012,1,Glühstatus
+; 11111111 - Glühen AUS
+; 00010000 - Vorglühen
+; 01110000 - Startglühen
+; 11110000 - Nachglühen
+; 00110000 - STarterglühen
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung
+012,4,Kühlmittel-,temperatur,Sollwert: 85.0...110.0 °C
+;
+013,0,Laufruheregelung (Einspritzmengenabweichung)
+013,1,Zylinder 1,,Sollwert: -2,8...+2,8 mg/Hub
+013,2,Zylinder 2,,Sollwert: -2,8...+2,8 mg/Hub
+013,3,Zylinder 3,,Sollwert: -2,8...+2,8 mg/Hub
+013,4,Zylinder 4,,Sollwert: -2,8...+2,8 mg/Hub
+;
+015,0,Kraftstoffverbauch
+015,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+015,2,Einspritzmenge,(Istwert),Sollwert (Leerlauf): 3...9 mg/Hub
+015,3,Kraftstoff-,verbrauch
+015,4,Einspritz-,mengenwunsch
+;
+016,0,Zusatzheizung
+016,1,Generatorlast,,Sollwert: 5.0...95.0 %
+016,2,Abschalt-,bedingungen,siehe Label-File
+; xxxxxxx1 - Kühlmitteltemp. > 70 °C ODER Ansauglufttemp. > 5 °C
+; xxxxxx1x - Generator defekt
+; xxxxx1xx - Batteriespannung < 9 V
+; xxxx1xxx - Motordrehzahl < 800/min
+; xxx1xxxx - Motorstart innerhalb der letzten 10 Sekunden
+; xx1xxxxx - Geber f. Kühlmitteltemp ODER Saugrohrtemp. defekt
+; x1xxxxxx - Heizanforderung
+; 1xxxxxxx - nicht beachten
+016,3,Schaltausgang,Heizelemente,x1 - Relais für kleine Heizleistung EIN\n1x - Relais für grosse Heizleistung EIN
+016,4,Versorgungs-,spannung
+;
+018,0,Status Magnetventile für Pumpe/Düse (BIP)
+; 000 - Fehlerfreie Regelung
+; 002 - Steuerung bei Start
+; 004 - Kleine Einspritzmenge oder MV aus
+; 008 - Maximaler Strom erreicht
+; 016 - BIP ausserhalb Regelfenster
+; 032 - Zahl der Abtastung zu klein
+; 064 - Wandlungsfehler
+; 128 - Keine BIP-Auswertung möglich
+018,1,Ventil für,Pumpe Düse 1,Sollwert: 0
+018,2,Ventil für,Pumpe Düse 2,Sollwert: 0
+018,3,Ventil für,Pumpe Düse 3,Sollwert: 0
+018,4,Ventil für,Pumpe Düse 4,Sollwert: 0
+;
+020,0,Mengeneingriff (ABS über CAN)
+020,1,Motordrehzahl,,Sollwert (Schaltgetriebe): 820...940/min\nSollwert (Automatik): 790...870/min\nSollwert (Vollast): 2800...3200/min
+020,2,Motormoment,[Nm],Sollwert (Leerlauf): 20...60 Nm
+020,3,ASR-Eingriff,[mg/Hub],Sollwert: 0...100 mg/Hub
+020,4,MSR-Eingriff,[mg/Hub],Sollwert: 0...100 mg/Hub
+;
+022,0,Schaltzustände
+022,1,GRA,Abschaltstatus,0.0 = GRA deaktiviert\n1.0 = GRA aktiv (AUS)\n9.0 = GRA aktiv (EIN)
+022,2,GRA,Status,000000 - OFF\n000011 - ON\n000111 - SET\n001011 - RES (Reset)\n000001 - OFF (getastet)
+022,3,Ladedruck-,regelung
+022,4,Klimaabschalt-,status
+;
+023,0,Schaltzeitabweichung (BIP)
+023,1,Zylinder 1,,Sollwert: -100...+100
+023,2,Zylinder 2,,Sollwert: -100...+100
+023,3,Zylinder 3,,Sollwert: -100...+100
+023,4,Zylinder 4,,Sollwert: -100...+100
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Getriebeelektronik
+125,2,Bremsenelektronik
+125,3,Kombiinstrument
+125,4,Airbag
+;

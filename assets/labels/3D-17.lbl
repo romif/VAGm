@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; VW Phaeton (3D)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This is a redirect file that should make all VW Phaeton (3D) instrument clusters work with 1 label file.
+; 
+; There will be many different suffix letters, depending on the start point of the tachometer redline (by engine type)
+; and the units of measurement printed on the speedometer face. These are cosmetic (paint) differences only, the electronics
+; are the same for all, except for Phaetons with adaptive cruise control, which have additional display capabilities
+; such as the ring of red lights around the perimeter of the speedometer face.
+;
+; This file is part of a redirection package, make sure you have all of the following files.
+;
+; 3D-17.LBL
+; 3D0-920-xxx-17.LBL
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification (Sebastian): 12/06/2004
+; modified by Michael 22/July 2005 - explanation paragraph with note about ADR instrument clusters added.
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3D0-920-xxx-17.LBL,3D0-920-???-???
+;

@@ -1,0 +1,36 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This is a redirect file for engine modules.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1H-01.LBL
+; 3A-01.LBL
+; 8A-01.LBL
+; 051-907-311-ABS.LBL  (1.8l     @  90 HP - ABS/ADZ/ANN/ANP)
+;
+; created on 07/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Aug/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-A   ; ABS: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-C   ; ABS: (1H)
+;1H0-907-311-E   ; AAM: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-H   ; ABS: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-J   ; ABS: (1H)
+;1H0-907-311-K   ; AAM: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-L   ; ABS: (1H)
+;1H0-907-311-N   ; AAM: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-907-311-P   ; ADZ: (1H, 3A)
+REDIRECT,051-907-311-ABS.LBL,1H0-997-311-X   ; ABS: (1H)
+;1H0-997-311-AX  ; AAM: (1H)
+REDIRECT,051-907-311-ABS.LBL,1H0-997-311-BX  ; ABS/ADZ/ANP: (1H, 3A)
+;1H0-997-311-CX  ; AAM: (1H)
+;

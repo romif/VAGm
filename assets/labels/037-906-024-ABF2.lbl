@@ -1,0 +1,99 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf III (1H) / VW Passat
+;
+; Komponente: Motor (#01) - ABF Digifant 3.2
+;
+; T/N: 037 906 024 ??
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; Diese Datei gehört zu einem Redirect-Paket, stellen
+; Sie sicher, das alle folgenden Dateien vorhanden sind.
+;
+; 03-01.LBL
+; 037-906-024-ABF2.LBL (2.0l E   @ 150 HP - ABF 3.2)
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 09.02.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 09.02.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Ansauglufttemperatur,Sollwert: 70...150 (12...65 °C)
+000,2,Batteriespannung,Sollwert: 115...160 (10.8...15.0 V)
+000,3,Kühlmitteltemperatur,Sollwert: 11...20 (79...116 °C)
+000,4,Saugrohr-Unterdruck,Sollwert: 65...100 (300...470 mbar)
+000,5,Lambdasonden-Signal,Sollwert: 100...240 (0.2...0.8 V)
+000,6,Status der Lambdaregelung,Sollwert: 0
+000,7,Regelfrequenz der Lambdasonde,Sollwert: 0...15
+000,8,Drosselklappenpotentiometer-Spannung,Sollwert: 10...55 (0.2...1.0 V)
+000,9,Einspritzzeit,Sollwert: 2...8 (2...5 ms)
+000,10,Motordrehzahl,Sollwert (Leerlauf): 210...202 (780...900 U/min)
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,,Sollwert: 780...900 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 79...116 °C
+001,3,Lambdasonden-,spannung,Sollwert: 0.1...0.9 V
+001,4,Einstell-,bedingungen,Sollwert: 00000000 (siehe Labelfile)
+; 1xxxxxxx - Fehler im Fehlerspeicher
+; x1xxxxxx - Fahrstufe eingelegt (autom. Getriebe)
+; xx1xxxxx - Klimaanlage eingeschaltet
+; xxx1xxxx - Leerlaufschalter offen
+; xxxx1xxx - Fehler Lambdaregelung
+; xxxxx1xx - Drosselklappe geöffnet
+; xxxxxx1x - Drehzahl über 2500 U/min
+; xxxxxxx1 - Kühlmitteltemperatur < 80 °C
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,,Sollwert (Leerlauf): 780...900 U/min
+002,2,Einspritzzeit,,Sollwert: 1.00...2.50 ms
+002,3,batteriespannung,,Sollwert: 10.8...15.0 V
+002,4,Ansaugluft-,tempertatur,Sollwert: 12...70 °C
+;
+003,0,Leerlaufstabilisierung
+003,1,Motordrehzahl,,Sollwert (Leerlauf): 780...900 U/min
+003,2,Motorlast,,Sollwert: 23...36 %
+003,3,Drosselklappen-,winkel,Sollwert: 0 <°
+003,4,Öffnung Ventil für,Leerlaufstabilis.,Sollwert: 13...26
+;
+004,0,Betriebszustände
+004,1,Motordrehzahl,,Sollwert (Leerlauf): 780...900 U/min
+004,2,Motorlast,,Sollwert: 23...36 %
+004,3,[N/A]
+004,4,Betriebszustand,,siehe Labelfile
+; 1xxx---- - Schubbetrieb
+; x1xx---- - Leerlauf
+; xx1x---- - Teillast
+; xxx1---- - Vollast
+;
+005,0,Aktivkohlebehälter-Anlage
+005,1,Motordrehzahl,,Sollwert (Leerlauf): 780...900 U/min
+005,2,Tastverhältnis,Magnetventil 1,für Aktivkohlebehälter (N80)
+005,3,Verbrauchssignal
+005,4,[N/A]
+;
+006,0,Lernwerte
+006,1,Lambda,Integratorwert,Sollwert: 0
+006,2,Lambda,Integratorwert,Sollwert: 0...70
+006,3,Lernwert für,Leerlaufstabil.,Sollwert: 8...48
+006,4,DK-Poti-Lernwert,(DK geschlossen),Sollwert: 24...98
+;
+007,0,Adaptionswerte
+007,1,Leerlauf-,stabilisierung,Sollwert: 20...50
+007,2,Gemisch,,Sollwert: 82...174
+007,3,Lambdasonden,Regelfrequenz,Sollwert: 0 bzw. 15
+007,4,Saugrohrdruck,,Sollwert: 70...90
+;

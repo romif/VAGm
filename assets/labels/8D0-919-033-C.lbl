@@ -1,0 +1,24 @@
+;
+; VAG-COM Measuring Block Labels file.
+;
+; Originally contributed by Mike Sauve www.alientech.net
+; Changed by Alexey V. Gubin 15 Sep 2003
+;  - Now for Audi A4 1996 basic instrument panel
+;    Tested with actual vehicle, no problem found
+
+1,0,Display
+1,1,Road speed,
+1,2,Engine speed,
+1,3,Oil press. switch,
+1,4,None
+
+2,0,Display
+2,1,Total odometer,
+2,2,Fuel gauge,
+2,3,None
+2,4,None
+
+3,0,Temperature
+3,1,Engine coolant,temperature
+
+;

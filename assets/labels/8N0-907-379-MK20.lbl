@@ -1,0 +1,64 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi TT (8N)
+;
+; Komponente: J104 - Bremsenelektronik (#03) - MK20
+;
+; beinhaltet Messwertgruppen, Login und Codierung
+;
+; erstellt am 25.09.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 25.04.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Radgeschwindigkeit
+001,1,vorn,links
+001,2,vorn,rechts
+001,3,hinten,links
+001,4,hinten,rechts
+;
+002,0,Startgeschwindigkeit (im Stand 255 km/h)
+002,1,vorn,links
+002,2,vorn,rechts
+002,3,hinten,links
+002,4,hinten,rechts
+;
+003,1,Bremslicht-,schalter,Wertebereich: unbetätigt/betätigt
+;
+004,1,Kommunikation,Motorelektronik
+;
+006,1,Längs-,beschleunigung,Sollwert: +/- 0.5 m/s²
+;
+;
+;---------------------------------------------------
+;
+; Login Informationen
+;
+;---------------------------------------------------
+;
+;
+L0,Login / Codierung II
+L1,40168 - Grundeinstellung einleiten
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung Bremsenelektronik (MK20)
+C1,13204 - Fahrzeug mit Frontantrieb
+C2,13504 - Fahrzeug mit Allradantrieb
+;

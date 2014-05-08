@@ -1,0 +1,106 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J388/J389 - Rear Door Electronics (#62/72)
+;
+; P/N: 4E0-910-802-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 02/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Door Status,,0 = inactive\n1 = active
+; 00x0xxx? = Catch (for Closing Assistance)
+; 00x0xx?x = Door Contact Switch
+; 00x0x?xx = Lock Feedback "locked"
+; 00x0?xxx = Lock Feedback "safed" (not USA)
+; 00?0xxxx = Central Locking (CL) Interior Switch locking
+001,2,Button Status,,0 = inactive\n1 = active
+; x? = Interior Door Handle Button
+; ?x = External Door Handle Button
+001,3,Voltages and,Databus Status,0 = inactive\n1 = active
+; ?xxx = Terminal 30 (Window Regulator)
+; x?xx = Terminal 30 (Central Locking)
+; xx?x = Terminal 15
+; xxx? = CAN-Comfort in Single-Wire Mode
+001,4,Voltage Supply
+;
+002,0,Window Regulator Buttons (Local)
+002,1,WR-Button,(Local),Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,0,Window Regulator
+003,1,Window Regulator,Position,Display Range: 0.0...100.0 %
+003,2,Window Regulator,Motor Temperature,Display Range: -50.0...+200.0 °C
+003,3,Window Regulator,Status,0 = inactive\n1 = active
+; xxxxxx? = Insulated Glass
+; xxxxx?x = Standardized
+; xxxx?xx = Thermal Protection
+; xxx?xxx = Window Regulators Enabling
+; xx?xxxx = Pinch Protection active
+; x?xxxxx = Air Recirculation
+; ?xxxxxx = Post-Tracking
+003,4,Window Regulator,Movement,Display Range: Still/Open/Closed
+;
+004,0,Optional Equipment
+004,1,Passenger Seat,Remote Control,Range: Forward/Back/Not Oper.
+004,2,Side Shade,Motor Status,Range: Open/Closed
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Rear Door Electronics (J388/J389) Coding
+C01,+0000001 = Insulated Glass installed (PR-4KV/4KS)
+C02,+0000002 = Right Hand Steering (PR-L0R)
+C03,+0000004 = Lighting Package (Interior Lighting - PR-QQ1/QQ3)
+C04,+0000008 = Lighting Package (Exterior Lighting - PR-QQ2/QQ3)
+C05,+0000064 = Electrical Child Safety Lock (PR-GZ2)
+C06,+0000128 = Electrical Side Shades installed (PR-3Y8)
+C07,+0000256 = Safe Function enabled (PR-A8S)
+C08,+0002048 = Pinch Protection active
+C09,+0004096 = Closing Assistance (PR-GZ2)
+C10,+0032768 = Child Safety Lock disabled with Door Open
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T379,Terminal 58s
+T1551,Central Locking: Lock
+T1223,Central Locking: Unlock
+T1148,Central Locking: Safe
+T2131,Central Locking: Child Safety Lock
+T2225,Central Locking: Indicator Lamp
+T2190,Ambient Lighting: Exterior
+T2220,Ambient Lighting: Interior
+T1339,Door Warning Light
+T2111,Motor for Window Regulator
+T2605,Motor for Side Shades
+;

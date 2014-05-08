@@ -1,0 +1,37 @@
+;
+; VAG-COM label file
+;
+; VW Golf/Jetta (1K)
+;
+; component: J603 - Position Sensing (#61)
+;
+; p/n: 1K5-919-965
+;
+; includes measuring blocks
+;
+; created on 15/Jul/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 15/Jul/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Position (Basic Setting: Calibration)
+001,1,Direction
+001,2,Current Angle
+001,3,Zone
+001,4,Magnetic Area
+;
+002,0,Current Status
+002,1,Calibration,Status
+002,2,Sensor,calibrated
+002,3,Malfunction
+002,4,Malfunction
+;

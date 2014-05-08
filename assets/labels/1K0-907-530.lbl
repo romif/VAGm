@@ -1,0 +1,116 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A3 (8P) / VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia II (1Z)
+;
+; Component: J533 - Diagnostic Interface for Databus (#19)
+;
+; P/N: 1K0 907 530 ?
+;
+; includes measuring blocks and selective output tests
+;
+; created on 24/Jun/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Dec/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Line Status
+001,1,Wake-Up Line,,Range: Passive/Active
+001,2,CAN-Comfort,Static,Range: [No Value]/CmfCAN Stat
+001,3,CAN-Infotainment,Static,Range: [No Value]/InfCAN Stat
+001,4,CAN-Powertrain,Static,Range: [No Value]/PwrCAN Stat
+;
+002,0,Transport Mode
+002,1,Unlearn Counter
+002,2,Transport Mode,,Range: Active/Deactivated
+;
+010,0,CAN-Gateway Status
+010,1,CAN-Gateway,Status,0 = No Error\n1 = RAM-Error\n2 = ROM-Error\n3 = EEPROM-Error
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Transmission,Electronics,Specification: Transm. 1\nRange: Transm. 1/Transm. 0
+125,3,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 1/ABS 0
+125,4,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+126,2,Airbag System,(J255),Specification: Airbag 1\nRange: Airbag 1/Airbag 0
+126,3,Steering Aid,(J500),Specification: Steering 1\nRange: Steering 1/Steering 0
+126,4,Headlight Range,(J431),Specification: HdLtRange 1\nRange: HdLtRange 1/HdLtRange 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,All-Wheel-Drive,Electronics (J492),Specification: AWD 1\nRange: AWD 1/AWD 0
+127,3,Immobilizer,,Specification: Immobilizer 1\nRange: Immobilizer 1/Immobilizer 0
+;
+128,0,CAN-Databus Powertrain (Communication)
+128,2,Park Steering,Assist (J791),Range: Parksteeras 1/Parksteeras 0
+128,3,Parking Brake,Electronics (J540),Range: Park Brake 1/Park Brake 0
+;
+130,0,CAN-Databus Comfort (Communication)
+130,1,CAN-Comfort,Status,Specification: 2-Wire\nRange: 2-Wire/1-Wire
+130,2,Central Electronics,(J519),Specification: E.Load.Crtl 1\nRange: E.Load.Crtl 1/E.Load.Crtl 0
+130,3,Comfort System,(J393),Specification: Central 1\nRange: Central 1/Central 0s
+130,4,Door Electronics,Driver (J386),Specification: Dr. Door 1\nRange: Dr. Door 1/Dr. Door 0
+;
+131,0,CAN-Databus Comfort (Communication)
+131,1,Door Electronics,Passenger (J387),Specification: Pas. Door 1\nRange: Pas. Door 1/Pas. Door 0
+131,2,Door Electronics,Rear Left (J388),Specification: RL Door 1\nRange: RL Door 1/RL Door 0
+131,3,Door Electronics,Rear Right (J389),Specification: RR Door 1\nRange: RR Door 1/RR Door 0
+131,4,Seat Memory,Driver (J521),Specification: Memory 1\nRange: Memory 1/Memory 0
+;
+132,0,CAN-Databus Comfort (Communication)
+132,1,Tire Pressure,Monitoring (J502),Specification: Tire 1\nRange: Tire 1/Tire 0
+132,2,Steering Wheel,Electronics (J527),Specification: St. Wheel 1\nRange: St. Wheel 1/St. Wheel 0
+132,3,Heating/Air,Condition (J255),Specification: A/C 1\nRange: A/C 1/A/C 0
+132,4,Parking Aid,Electronics (J446),Specification: Parking 1\nRange: Parking 1/Parking 0
+;
+133,0,CAN-Databus Comfort (Communication)
+133,1,Auxiliary,Heating (J604),Specification: Aux. Htg 1\nRange: Aux. Htg 1/Aux. Htg 0
+133,2,Convertible Top,,Specification: Conv. Top 1\nRange: Conv. Top 1/Conv. Top 0
+133,3,Trailer,Electronics (J345),Specification: Trailer 1\nRange: Trailer 1/Trailer 0
+133,4,Seat Memory,Passenger (J136),Specification: Memory Pax 1\nRange: Memory Pax 1/Memory Pax 0
+;
+134,0,CAN-Databus Comfort (Communication)
+134,1,Special Vehicle,Electronics (J608),Specification: Special Veh 1\nRange: Special Veh 1/Special Veh 0
+;
+140,0,CAN-Databus Infotainment (Communication)
+140,1,CAN-Infotainment,Status,Specification: 2-Wire\nRange: 2-Wire/1-Wire
+140,2,Digital,Soundsystem,Specification: Dig.Soundp. 1\nRange: Dig.Soundp. 1/Dig.Soundp. 0
+140,3,Telematic,,Specification: Telemat 1\nRange: Telemat 1/Telemat 0
+140,4,Navigation,,Specification: Navigation 1\nRange: Navigation 1/Navigation 0
+;
+141,0,CAN-Databus Infotainment (Communication)
+141,1,TV-Tuner,(J415),Specification: TV-Tuner 1\nRange: TV-Tuner 1/TV-Tuner 0
+141,2,Digital Radio,,Specification: DigitRadio 1\nRange: DigitRadio 1/DigitRadio 0
+141,3,Analog Radio,,Specification: Radio 1\nRange: Radio 1/Radio 0
+141,4,Telephone,Electronics,Specification: Telephone 1\nRange: Telephone 1/Telephone 0
+;
+142,0,CAN-Databus Infotainment (Communication)
+142,1,Auxiliary,Heater (J364),Specification: Aux. Heater 1\nRange: Aux. Heater 1/Aux. Heater 0
+142,2,Position Sensing,Electronics (J603),Range: Compass 1/Compass 0
+;
+200,0,Voltage Supply
+200,2,Voltage,(Terminal 30)
+200,3,Voltage,(Terminal 15)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1178,Powertrain Databus: Static
+;

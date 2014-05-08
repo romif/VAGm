@@ -1,0 +1,104 @@
+;
+; VAG-COM Label File
+;
+; VW Eos (1F)
+;
+; Component: J256 - Convertible Top (#26)
+;
+; P/N: 1Q0-959-255-???
+;
+; includes measuring blocks and coding
+;
+; created on 15/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Jun/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage
+001,1,Voltage
+001,2,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,3,Hall Sensor,Voltage Supply,Specification: 9.0...15.0 V
+001,4,5 Volt,Switched,Specification: 4.0...6.0 V
+;
+002,0,Hall Sensor Status
+002,1,Hall Sensor,Status,See Label File
+; Status:
+;  0 = Not Occupied
+;  1 = Occupied
+;  G = Open Circuit/Short to Ground
+;  V = Short to Plus
+;  X = Implausible Signal
+; Sensor:
+;  1 = Front Left Roof Pillar Position Sensor (G556)
+;  2 = Front Right Roof Pillar Position Sensor (G557)
+;  3 = Rear Left Window Frame Lock Sensor (G560)
+;  4 = Rear Right Window Frame Lock Sensor (G561)
+;  5 = Rear Window Frame Opening Sensor  (G562)
+;  6 = Left Parcel Shelf Lock Sensor (G563)
+;  7 = Right Parcel Shelf Lock Sensor (G564)
+;  8 = Top Stowage Sensor (G565)
+;  9 = Left Roof Pillar Opening Sensor (G566)
+; 10 = Left Roof Pillar Locking Sensor (G558)
+; 11 = Right Roof Pillar Locking Sensor (G559)
+; 12 = Right Roof Pillar Opening Sensor (G567)
+;
+003,0,Button Status
+003,1,Button Status,,See Label File
+; Status:
+;  0 = Not Operated
+;  1 = Operated
+;  X = Error
+; Sensor:
+; 1 = Convertible Top Operation Switch: Open (E137)
+; 2 = Convertible Top Operation Switch: Close (E137)
+; 3 = Sunroof Button: Open (E325)
+; 4 = Sunroof Button: Close (E325)
+; 5 = Window Regulator Button: Open (E189)
+; 6 = Window Regulator Button: Close (E189)
+; 7 = Not Used
+; 8 = Not Used
+; 9 = Not Used
+;
+004,0,Parameter Setting
+004,1,Parameter Setting
+004,2,Parameter Setting
+;
+005,0,Luggage Compartemt Cover && Closing Assist
+005,1,Luggage Comp.,Cover
+005,2,Luggage Comp.,Cover Status (F364)
+005,3,Closing Assist
+005,4,Closing Assist,Status
+;
+006,0,Hydraulic Pump && Hydraulic Valves Temperature
+006,1,Hydraulic Pump
+006,2,Hydraulic Pump,Temperature
+006,3,Hydraulic Valves
+006,4,Hydraulic Valves,Temperature
+;
+007,0,Control Module,Temperature
+007,1,Control Module
+007,2,Control Module,Temperature
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Convertible Top (J256) Coding
+C01,0655360 = Sunroof (Sliding & Tilting)
+C02,0655361 = Sunroof (Tilting only)
+C03,0655362 = Parking Aid & Sunroof (Sliding & Tilting)
+C04,0655363 = Parking Aid & Sunroof (Tilting only)
+;

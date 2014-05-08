@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A2 (8Z)
+;
+; Component: Interior Monitoring (#45)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8Z-45.LBL
+; 8E0-951-177.LBL
+;
+; created on 01/Jan/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8E0-951-177.LBL.LBL,8Z0-951-177
+;

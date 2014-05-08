@@ -1,0 +1,39 @@
+;
+; VAG-COM label file
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; component: J255 - A/C Heating Electronics (#08) - Climatronic (MY 2001 >)
+;
+; p/n: 7M3 907 040 ??
+;
+; includes coding
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 14/April/2005
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,A/C System (J255) Coding
+C1,00?xx - Country
+C2,0 - Rest of World (RoW)
+C3,1 - Japan (JP)
+C4, 
+C5,00x?x - A/C System
+C6,1 - Climate control front
+C7,2 - Climate control front and rear
+C8,3 - Climate control front and rear with tinted windows
+C9, 
+C10,00xx? - Engine
+C11,0 - all other Engines
+C12,1 - TDI-PD (96kW/130 HP)
+;

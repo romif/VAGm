@@ -1,0 +1,37 @@
+;
+; VCDS Redirect File
+;
+; Component: J519 - Central Electronics I (#09)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-09.LBL
+; 8P0-907-279-23-B.LBL  (Basis   - Supports NO Fogs or Xenons)
+; 8P0-907-279-23-H.LBL  (Highend - Supports Fogs and/or Xenons)
+; 8P0-907-279-30-B.LBL  (Basis   - Supports NO Fogs or Xenons)
+; 8P0-907-279-30-H.LBL  (Highend - Supports Fogs and/or Xenons)
+;
+; created on 24/Nov/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,8P0-907-279-23-B.LBL,8P0-907-279     ; 17 Byte (Basis)
+REDIRECT,8P0-907-279-23-H.LBL,8P0-907-279-A   ; 17 Byte (Highend)
+REDIRECT,8P0-907-279-23-B.LBL,8P0-907-279-B   ; 21 Byte (Basis)
+REDIRECT,8P0-907-279-23-H.LBL,8P0-907-279-C   ; 21 Byte (Highend)
+REDIRECT,8P0-907-279-23-H.LBL,8P0-907-279-D   ; 17 Byte (Highend)
+REDIRECT,8P0-907-279-23-B.LBL,8P0-907-279-E   ; 23 Byte (Basis)
+REDIRECT,8P0-907-279-23-H.LBL,8P0-907-279-F   ; 23 Byte (Highend)
+REDIRECT,8P0-907-279-23-H.LBL,8P0-907-279-H   ; 24 Byte (Highend)
+REDIRECT,8P0-907-279-30-B.LBL,8P0-907-279-J   ; 30 Byte (Basis)
+REDIRECT,8P0-907-279-30-H.LBL,8P0-907-279-K   ; 30 Byte (Highend)
+REDIRECT,8P0-907-279-30-H.LBL,8P0-907-279-L   ; 30 Byte (Highend)
+;8P0-907-279-M   ; ?? Byte (???)
+REDIRECT,8P0-907-279-30-H.LBL,8P0-907-279-N   ; 30 Byte (Highend)
+;8P0-907-279-P   ; ?? Byte (???)
+;8P0-907-279-Q   ; ?? Byte (???)
+;

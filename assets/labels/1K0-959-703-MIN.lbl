@@ -1,0 +1,72 @@
+;
+; VAG-COM Labelfile
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Touran (1T) / VW Passat (3C)
+; Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+;
+; Component: J388 - Door Electronics Rear Left (#62) - MIN
+;
+; P/N: 1K0-959-703-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-62.LBL
+; 3C-62.LBL
+; 1K0-959-703-MIN.LBL
+; 1K0-959-703-MAX.LBL
+;
+; created on 24/Mar/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/Nov/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Window Regulator
+001,1,WR-Button (E52),Rear Left Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,2,WR-Button (E53),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,3,Window Regulator,Rear Left (V26),Specification: Ends Learned\nDisplay Range: Up/Down/Ends Learned/At Top/At Bottom/Pinch Protect/Over-Temp S/O
+001,4,Thermal Protection,Rear Left,Display Range: Active/Not Active
+;
+002,1,Window Regulator,Comfort Control,Display Range: Open/Closed/Not Oper.
+002,2,Window Regulator,Enabling,Display Range: Yes/No
+002,3,Dimming,(Terminal 58d),Display Range: 0.0...100.0 %
+002,4,Vehicle Speed
+;
+003,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+003,2,Databus,Condition,Specification: 2-Wire\nDisplay Range: 1-Wire/2-Wire
+003,3,Ignition,(Terminal 15),Display Range: Terminal 15 On/Terminal 15 Off
+003,4,S-Contact,,Display Range: Activated/Not Active
+;
+004,1,Window Regulator,Position (V26),Display Range: 0.0...100.0 %
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Door Electronics Rear Left (J388) Coding
+C01,+0000008 - Interior Door Handle Illumination installed (PR-QQ4/QQ6)
+C02,+0000016 - Automatic Run active
+C03,+0000064 - Door Exit/Warning Light installed (PR-QQ4)
+C04,+0000128 - 5-Door Chassis (PR-0A2)
+C05,+0000256 - Seat Memory
+C06,+0000512 - Right Hand Steering (PR-L0R)
+C07,+0001024 - Safe-Motor not installed (PR-5C1)
+C08,+0002048 - Pinch Protection inactive
+;

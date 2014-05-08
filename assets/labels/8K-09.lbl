@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Audi A4 (8K) / Audi A5 (8T)
+;
+; Component: J519 - Central Electronics I (#09)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8K-09.LBL
+; 8K0-907-063.CLB
+;
+; created on 23/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+REDIRECT,8K0-907-063.CLB,8K0-907-279-???
+;

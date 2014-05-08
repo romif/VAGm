@@ -1,0 +1,61 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 Parking Aid
+; Filename: 4D0-919-283.LBL
+; 
+; from 2001 Audi S8
+; Controller: 4D0 919 283 P  
+;     Module: 76
+;  Component: Parkingsystem A8 RDW D07
+;     Coding: 01108
+;
+; **Modification History**
+; Created:  Dave Eaton, 2nd February 2004
+; Modified: Dave Eaton, 3rd February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+; **********************************************************************
+;
+1,0,Distance Sensor Gaps (0-200cm)
+1,1,Left Front,cm
+1,2,L Front Centre,cm
+1,3,R Front Centre,cm
+1,4,Right Front,cm
+;
+2,0,Distance Sensor Gaps (0-200cm)
+2,1,Left Rear,cm
+2,2,L Rear Centre,cm
+2,3,R Rear Centre,cm
+2,4,Right Rear,cm
+;
+3,0,Shortest Distances
+3,1,Front,cm
+3,2,Rear,cm
+3,3,Speed,km/h (0-300)
+3,4,Supply voltage,V (0-15)
+;
+4,0,
+4,1,Warning buzzer,(On/Off)
+4,2,Reverse Gear,(Y/N)
+4,3,Trailer,(Y/N)
+4,4,Boot,(Open/Closed)
+;
+5,0,Dash Button
+5,1,Operated,(On/Off)
+5,2,Light,(On/Off)
+5,3,N/A
+5,4,N/A
+;
+6,0,Attenuation time (msec)
+6,1,Left Front,ms (<4)
+6,2,L Front Centre,ms (<4)
+6,3,R Front Centre,ms (<4)
+6,4,Right Front,ms (<4)
+;
+7,0,Attenuation time (msec)
+7,1,Left Rear,ms (<4)
+7,2,L Rear Centre,ms (<4)
+7,3,R Rear Centre,ms (<4)
+7,4,Right Rear,ms (<4)
+;
+;End of file

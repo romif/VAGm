@@ -1,0 +1,83 @@
+;
+; VAG-COM label file
+;
+; Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Touran (1T)
+;
+; component: J255 - A/C Heating Electronics (#08) - Climatic
+;
+; p/n: 1K0 820 047 ???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1Z-08.LBL
+; 5P-08.LBL
+; 1K0-820-047.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 13/Jul/2005
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,1,Code for,Compressor off
+001,2,Engine Speed,,Display Range: 0...10000
+001,3,Driving Speed,,Display Range: 0...255
+001,4,Standing Time,,Display Range: 0...255
+;
+002,1,Compressor,Current (actual)
+002,2,Compressor,Current (specified)
+002,3,Compressor,Rotations,Display Range: 0...10000
+002,4,Compressor Load,,Display Range: 0...18
+;
+003,1,Coolant,Pressure,Display Range: 0...51
+003,2,Radiator Fan,Activation (actual)
+003,3,Radiator Fan,Activation (spec.)
+003,4,Engine Speed,(increase)
+;
+004,1,Outside Temp.,Unfiltered,Display Range: -50...+63 °C
+004,2,Outside Temp.,Regulation,Display Range: -50...+77 °C
+004,4,Coolant,Temperature,Display Range: -48...+126 °C
+;
+005,0,Outlet/Footwell Blower Temperature
+005,1,Outlet Blower,Temperature,Display Range: 0...84 °C
+005,3,Footwell Blower,Temperature,Display Range: 0...84 °C
+;
+006,1,Temperature,behind Condenser,Specification: -40...+40 °C
+006,2,Interior,Temperature,Display Range: -100...+100 °C
+;
+007,1,Turbine Voltage,(actual),Display Range: 0...13 V
+007,4,System Voltage,(Terminal 30)
+;
+008,1,Terminal 15
+008,3,Signal,Attenuation,Display Range: 0...100
+;
+009,1,Avtual Value,Rear Wind. Heater
+009,2,Specified Value,Rear Wind. Heater
+009,3,PTC Status
+009,4,PTC,Specified Value
+;
+010,1,PTC-Heater,Driver Intention
+010,2,Heater OFF
+010,3,Parking Heater,Condition
+;
+011,0,Fresh Air Recirculating Air Flap 
+011,2,Specified Value,,Specification: 0...255
+;
+012,0,Left Temperature Flap
+012,1,Current Value,,Specification: 0...255
+012,2,Specified Value,,Specification: 0...255
+012,3,Cold-Stop,,Specification: 0...255
+012,4,Warm-Stop,,Specification: 0...255
+;

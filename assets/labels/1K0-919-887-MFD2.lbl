@@ -1,0 +1,91 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Golf Plus (5M) / VW Touran (1T)
+; VW Passat (3C)
+;
+; Component: Radio-/Navigation System (#37) - MFD2-DVD
+;
+; P/N: 1K0-919-887-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-37.LBL
+; 1K0-035-191.LBL
+; 1K0-919-887-MFD2.LBL
+;
+; created on 27/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/Oct/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5...18 V
+001,3,GPS-Antenna
+001,4,GPS-Antenna,Status,Display Range: OK/Short to Plus/Short to Ground
+;
+002,0,GPS-Status
+002,1,Satellite Search
+002,2,Number of,used Satellites,for Position detection
+002,3,Number of,tracked Satellites,Display Range: 0...8
+002,4,Type of,tracked Satellites
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module
+025,2,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+; 06 = Gyro Module Error
+; 08 = Internal Communication GPS-Receiver
+; 09 = Malfunction at CD/DVD-Drive
+; 0A = Internal Communication (BUS)
+;
+031,0,CD/DVD-Drive I
+031,1,CD/DVD-Drive,Read Error
+031,2,CD/DVD-Drive,Status,Specification: OK
+031,3,CD/DVD-Drive,Read Errors,Specification: 0.0
+;
+032,0,CD/DVD-Drive II
+032,1,CD/DVD-Drive,Access Time
+032,2,CD/DVD-Drive,Access Time
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; Coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio/Navigation System MFD2-DVD (J503) Coding
+C01,0000?xx: Destination Input
+C02,0 = only at stand still
+C03,1 = up to 6 km/h
+C04, 
+C05,0000x?x: Configuration
+C06,+1 = TV-Tuner installed
+C07, 
+C08,0000xx?: Dynamic Source
+C09,1 = Standard
+;

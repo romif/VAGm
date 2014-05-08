@@ -1,0 +1,448 @@
+;
+; VAG-COM label file - 3D0-920-xxx-17.LBL
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton)
+;
+; Instrument Cluster - J285 - (#17)
+;
+;  p/n: 3D0 920 881 K Component: KOMBIINSTRUMENT RB4 0312 (Canada spec W12 Phaeton, metric, no ADR)
+;      may work with other part numbers, but was fully tested on the above part number.
+;      There will be many different suffix letters, depending on the start point of the tachometer redline (by engine type)
+;      and the units of measurement printed on the speedometer face. These are cosmetic (paint) differences only, the electronics
+;      are the same for all, except for Phaetons with adaptive cruise control, which have additional display capabilities
+;      such as the ring of red lights around the perimeter of the speedometer face.
+;  p/n: 3D0 920 881 E Component: KOMBIINSTRUMENT RB4 0312 (German spec W12 Phaeton, metric, with ADR) - Daniel
+;  p/n: 3D0 920 881 P Component: KOMBIINSTRUMENT RB8 0414 (German spec W12 Phaeton, metric, with ADR) - DD AM 2662
+;  p/n: 3D0 920 981 K Component: KOMBIINSTRUMENT RB4 0312 (Canada spec W12 Phaeton, metric, no ADR) - Michael
+;  p/n: 3D0 920 981   Component: KOMBIINSTRUMENT RB4 0312 (USA spec W12 Phaeton, imperial, no ADR) - David
+;  p/n: 3D0 920 981 G Component: KOMBIINSTRUMENT RB4 0411 (USA spec W12 Phaeton, imperial, no ADR) - Brent
+;  p/n: 3D0 920 981 H Component: KOMBIINSTRUMENT RB4 0411 (USA spec V8 Phaeton, imperial, no ADR)
+;  p/n: 3W0 920 840 N Component: KOMBIINSTRUMENT RB4 0310 (Bentley Continental GT, Canada spec, metric)
+;  p/n: 3W0 920 840 P Component: KOMBIINSTRUMENT RB4      (Bentley Continental GT, Europe spec, metric)
+;  p/n: 3D0 920 882 H Component: KOMBIINSTRUMENT RB8 0517 (2005 Canada spec V8 Phaeton, metric, no ADR, with GSM phone)
+;  p/n: 3D0 920 981 Q Component: KOMBIINSTRUMENT RB8 0517 (2005 USA spec V8 Phaeton, imperial, no ADR, no phone)
+;  p/n: 3D0 920 981   Component: KOMBIINSTRUMENT RB4 2410 (2003 German spec V6 Benzene Phaeton, Metric, with ADR, with phone)
+;
+; includes measuring blocks, coding, adaptation and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-17.LBL
+; 3D0-920-xxx-17.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com) 12/06/2004
+;
+; Modification History:  
+;
+; 30 August 2005 by Michael Moore (Moore@ross-tech.com) 
+;                                 'PanEuropean' on the VW Vortex forum.
+; 30/Aug/2005   note added above regarding clusters for cars with ADR installed.
+; 30/Aug/2005   PN list added for various countries and engine combinations.
+; 23/Nov/2005 PN list added for additional countries and engines, MY 2005.
+; 29/Nov/2005 Adaptation instructions for resetting service reminder clarified.
+; 30/Nov/2005 All MVB and Adaptation channels mapped.
+; 06/Oct/2006 Editorial correction.
+; 18/Dec/2007 Service Reset added (Sebastian)
+; 
+;
+; ready for VAG-COM 500.9 and above (500.9 supports block labels beginning with asterisks)
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Common Information
+001,1,Vehicle Speed,from ABS controller
+001,2,Engine RPM,from transmission
+001,3,Oil Pressure,from NA 37/31,Possible Values: OK (i.O.) or Not OK (n.i.O.)
+001,4,Time of Day,(clock),Information taken from vehicle clock.
+;
+002,0,Common Information (continued)
+002,1,Odometer,reading,rounded to nearest 10,Possible Values: Actual vehicle odometer reading in km - less last digit on right.
+002,2,Fuel Tank,Total Contents,Display will be in Litres
+002,3,[N/A],,(see block 005 for fuel gauge information)
+002,4,Outside Air,Temperature G17,Display Range: -45...+65 °C | +70 °C = short circuit | -50 °C = open circuit
+;
+003,0,Coolant and Oil Information
+003,1,Coolant Temperature,from ECM via CAN
+003,2,Oil Temperature, Status from G266
+003,3,Oil Temperature,from G266
+;
+004,0,Electrical Information measured at instrument cluster
+004,1,Voltage at,Instrument Cluster
+;
+005,0,Fuel Sensors - Resistance in Ohms
+005,1,Fuel Gauge,(G)
+005,2,Fuel Level,Sensor 2 (G169)
+005,3,Fuel Supply,Sensor 3 (G237)
+005,4,Fuel Supply,Sensor 4 (G393)
+;
+006,0,Tank Contents (Individual Chambers in Litres)
+006,1,Tank Content,(Main Chamber - G),Display will be in Litres
+006,2,Tank Content,(Left Side - G169),Display will be in Litres
+006,3,Tank Content,(Right Side - G237),Display will be in Litres
+006,4,Tank Content,(Reserve - G393),Display will be in Litres
+;
+007,0,Unknown - possibly not used
+;Remark: Could this be oil level, or windshield fluid level? What about trip odometer?
+;
+008,0,Unknown - possibly not used
+;
+009,0,Unknown - possibly not used
+
+010,0,*Next measuring block used is Group 50
+;
+050,0,Common Information
+050,1,Odometer,reading,rounded to nearest 10
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+051,0,*Next measuring block used is Group 60
+;
+060,0,Installation Information (Senders and Sensors - see labelfile to decode binary bits)
+;1.1 - Parking brake
+;1.2 - Insufficient brake fluid
+;1.3 - Insufficient windshield washer fluid
+;1.4 - Insufficient coolant
+;1.5 - Brake pad wear
+;1.6 - empty (not used)
+;1.7 - empty (not used)
+;1.8 - empty (not used)
+;
+061,0,Checking Installation Information (see labelfile)
+;1.1 - Emergency
+;1.2 - Charge monitoring
+;
+062,0,*Next measuring block used is Group 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Next measuring block used is Group 082
+;
+082,0,Flash-Tool-Code (FTC)
+; Flash-Date (in dd.mm.yy)
+;
+083,0,*Next measuring block used is Group 125
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,CAN Status,1 = Connection OK. 0 = Not OK.
+125,2,Transmission,CAN Status,1 = Connection OK. 0 = Not OK.
+125,3,ABS,CAN Status,1 = Connection OK. 0 = Not OK.
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Airbag,CAN Status,1 = Connection OK. 0 = Not OK.
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,3,Automatic,Distance Control,1 = Connection OK. 0 = Not OK. Blank = not installed.
+;
+128,0,CAN-Databus Communication (Powertrain)
+128,1,Battery Monitoring,,1 = Connection OK. 0 = Not OK.
+128,2,Electrical Ignition,Lock,1 = Connection OK. 0 = Not OK.
+128,3,Level Control,CAN Status,,1 = Connection OK. 0 = Not OK.
+;
+129,0,CAN-Databus Communication (Powertrain)
+129,3,Brake Booster,(only with ADR),Only used if Adaptive Cruise Control is installed
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,Comfort-CAN,Condition,Dual Wire = Connection OK. Single Wire = Not OK.
+130,2,Comfort system,,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+130,3,Driver Door,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+130,4,Passenger Door,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Rear Left Door,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+131,2,Rear Right Door,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+131,3,Driver,Memory Seat,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+131,4,Electrical System,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+132,0,CAN-Databus Communication (Comfort)
+132,2,Steering Wheel,CAN Status,1 = Connection OK. 0 = Not OK. Single = 1 wire open. S = Sleep mode
+132,3,Climate,Control,1 = Connection OK. 0 = Not OK. Single = 1 wire open. S = Sleep mode
+132,4,Tire Pressure,Monitoring,1 = Connection OK. 0 = Not OK. Single = 1 wire open. 
+;
+133,0,CAN-Databus Communication (Comfort)
+133,1,Roof Electronics,,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+133,2,Passenger,Memory Seat,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+133,3,Rear,Memory Seat,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+133,4,Parking Distace,Control,1 = Connection OK. 0 = Not OK.
+;
+134,0,CAN-Databus Communication (Comfort)
+134,2,Electrical Ignition,Lock,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+134,3,Wiper Electronics,,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+135,0,CAN-Databus Communication (Comfort)
+135,2,Display/Operation,Unit (front),1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+135,3,Display/Operation,Unit (rear),1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+136,0,Unknown
+136,2,Central,something
+;
+137,0,*Next measuring block used is Group 140
+;
+140,0,CAN-Databus Communication (Infotainment)
+140,1,Infotainment-CAN,Condition,Dual Wire = OK. Single Wire = Not OK.
+140,3,GPS Navigation,,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+140,4,Telephone,(GSM),Refers to cell phone - not OnStar. Will be blank if not installed.
+;
+141,0,CAN-Databus Communication (Infotainment)
+141,3,TV-Tuner,,Will be blank if not installed.
+;
+142,0,CAN-Databus Communication (Infotainment)
+142,1,Display/Operation,Unit (front),1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+141,4,Telematics,(OnStar),1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+143,0,CAN-Databus Communication (Infotainment)
+143,1,Digital,Sound Package,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+143,3,Parking Heater,,Will be blank if not installed.
+143,4,Roof Electronics,,1 = Connection OK. 0 = Not OK. Single = 1 wire open.
+;
+144,0,*Next measuring block used is Group 201
+;
+201,1,K-Value
+201,2,Wheel,Circumference
+201,3,Starting impulse,recognized,Yes or No
+;
+202,1,Engine Hood,Switch,Open or Closed
+;
+203,0,*Next measuring block used is Group 225
+;
+225,0,CAN-Databus Communication
+225,1,Engine
+225,2,Transmission
+225,3,ABS
+;
+226,0,CAN-Databus Communication
+226,1,Unknown
+226,2,Airbag
+;
+227,0,*Next measuring block used is Group 228
+;
+228,0,CAN-Databus Communication
+228,1,Battery,Management
+228,2,Electrical Ignition,Lock
+228,3,Level Control
+;
+229,0,Unknown
+;
+230,0,*End of known measuring blocks in this controller.
+;
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton Instrument Cluster (Y24) Coding  
+C01,??xxx - The SUM of all the codes for the warnings you want goes in the ?? field.
+C02,+01 - Break Pad Wear Indicator active
+C03,+02 - Fasten Seat Belt Warning active
+C04,+04 - Low Windshield Washer Fluid Warning active
+C05,+16 - Radio-Navigation installed (never applicable to North American Phaetons)
+C06,+24 - Navigation display in Y24 (really should not be there - but it works)
+C08,xx?xx - This number (choose one only) sets behavior by Country of operation.
+C07,  
+C09,1 - Europe, no 'key in ignition' door chime, default is kilometres, NO VALET LOCKOUT FUNCTION.
+C10,2 - USA, 'key in ignition' door chime active, default is miles, valet lockout function enabled.
+C11,3 - Canada, 'key in ignition' door chime active, default is kilometres, valet lockout function enabled.
+C12,4 - Great Britain, no 'key in ignition' door chime, default is miles, NO VALET LOCKOUT FUNCTION.
+C13,5 - Japan  6 - Saudi Arabia  7 - Australia  0 - No country assigned.
+C14,NOTE: Default units of measure can be changed later by the driver via the SETTINGS button on J523.
+C15, 
+C16,xxx?x: This number (choose one only) determines how 'service now' warnings are generated.
+C17,1 - Service Interval Display with flexible intervals (QG1 - normal for rest of world)
+C18,2 - Service Interval Display with fixed intervals (QG2 - normal for North America) 
+C19, 
+C20,xxxx? - Distance Impulse Number (normally 1 - No further information available)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+A01,0,*Next adaptation channel available is 02
+;
+A02,0,Resetting Service Interval Reminder
+A02,5,To reset the service interval reminder after service such as an
+A02,6,oil change has been completed - enter a value of 0 in this channel
+A02,7,and save that value. This will reset the calendar and mileage count
+A02,8,in channels 40 and 41 back to zero days and zero mileage since last service.
+A02,9, 
+A02,10,It is not necessary to change ANY of the values in any other channel.
+A02,11, 
+A02,12,If vehicle has been driven since the service was performed and you want to
+A02,13,fine-tune the reminder - reset it to zero in this adaptation channel (02)
+A02,14,then go to channel 40 and enter the number of days since the service was 
+A02,15,performed. Then go to channel 41 and enter the number of kilometers since the
+A02,16,service was performed.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A04,0,Instrument Cluster (Y24) Language selection
+A04,1,
+A04,5,Choose one language only
+A04,6,1 - German
+A04,7,2 - English
+A04,8,3 - French
+A04,9,4 - Italian
+A04,10,5 - Spanish
+A04,11,6 - Portuguese
+A04,12,7 - Without text (symbols only)
+A04,13,8 - Czech
+A04,14, 
+A04,15,NOTE 1: Not all languages listed above may be available.
+A04,16,NOTE 2: This does NOT the affect infotainment screen (J523) language. The J523
+A04,17,language choices depend on what is available from the navigation CD installed.
+;
+A05,0,*Next adaptation channel available is 09
+;
+A09,0,Mileage
+A09,6,Mileage shown in the instrument cluster may be adapted upwards ONCE only.
+A09,7,This is only done when a replacement (new) instrument cluster is installed
+A09,8,in a Phaeton that has already been driven. A security access code may be needed.
+;
+A10,0,*Next adaptation channel available is 30
+;
+A30,0,Fuel Gauge Calibration
+A30,5,Fuel Tank sensor
+A30,6,Fuel Gauge calibration can be adjusted in increments of 1.
+A30,7,The available range is from 108 to 148.
+;
+A31,0,*Next adaptation channel available is 35
+;
+A35,0,Undocumented - Could this be oil quality for service interval extension (SIE) or is that channel 45?
+; Could it also have something to do with the oil pressure warning - as it does on the Audi A8 (D3) for this channel? Or speed threshold for dynamic oil pressure system?
+;
+A36,0,*Next adaptation channel available is 40
+;
+; **************************************************
+;
+; Information related to Service Interval Reminders
+;
+; **************************************************
+A40,0,Distance that has elapsed from last inspection in 100s of km
+A40,5,Distance from inspection
+A40,6,Resolution: 1 = 100 km
+A40,7,This value may be changed if necessary by entering a new value.
+;
+A41,0,Time elapsed from last inspection in days
+A41,5,Time from inspection
+A41,6,Resolution: 1 = 1 day
+A41,7,This value may be changed if necessary by entering a new value.
+;
+A42,0,Minimum value mileage for next oil change
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 unit = 1000 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-48 must be
+A42,9,entered and stored in the following order:
+A42,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A43,0,Maximum value mileage for next oil change
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 unit = 1000 km
+A43,7, 
+A43,8,NOTE: Value should be 16 without longlife oil or 30 with longlife oil.
+A43,7,For North American Phaetons (QG2) - always enter 16 regardless of what oil is used.
+A43,10,
+A43,11,NOTE: Adaptation channels 40-48 must be
+A43,12,entered and stored in the following order:
+A43,13,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A44,0,Maximum time interval for next oil change
+A44,5,Maximum time interval in days
+A44,6, 
+A44,7,NOTE: Value should be 360 days without longlife oil or 720 days with longlife oil.
+A44,8,For North American Phaetons (QG2) - always enter 360 regardless of what oil is used.
+A44,9,  
+A44,10,NOTE: Adaptation channels 40-48 must be
+A44,11,entered and stored in the following order:
+A44,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A45,0,Oil type (specification) - Indicate either Longlife or not Longlife
+A45,5,Oil type
+A45,6,Range available: 0.5 - 2.0
+A45,7,NOTE: Value normally is:  1 = not longlife oil. 2 = longlife oil.
+A45,8,
+A45,9,NOTE: Adaptation channels 40-48 must be
+A45,10,entered and stored in the following order:
+A45,11,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A46,0,Total consumption amount (Gas only)
+A46,0,Total consumption amount (Gas only)
+A46,6, 
+A46,7,NOTE: Adaptation channels 40-48 must be
+A46,8,entered and stored in the following order:
+A46,9,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A47,0,Soot entry (Diesel only)
+A47,5,Soot entry (Diesel only)
+A47,6,Resolution: 1 = 100 km
+A47,7, 
+A47,8,NOTE: Adaptation channels 40-48 must be
+A47,9,entered and stored in the following order:
+A47,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A48,0,Thermal load (Diesel only)
+A48,5,Thermal load (Diesel only)
+A48,6,Resolution: 1 = 100 km
+A48,7, 
+A48,8,NOTE: Adaptation channels 40-48 must be
+A48,9,entered and stored in the following order:
+A48,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A60,0,Undocumented (DATA-BUS Engine)
+;35951
+;
+A61,0,Undocumented (DATA-BUS Comfort)
+;447
+;
+A62,0,Undocumented (DATA-BUS Infotainment)
+;28752
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+RD,49,Min Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;

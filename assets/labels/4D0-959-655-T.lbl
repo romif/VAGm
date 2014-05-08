@@ -1,0 +1,61 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 Airbags
+; Filename: 4D0-959-655-T.lbl
+; 
+; from 2001 Audi S8
+;   Controller: 4D0 959 655 T  
+;    Component: Airbag Front+Kopf  5000
+;       Module: 15
+;       Coding: 00417
+;
+; **Modification History**
+; Created:  Dave Eaton, 4th February 2004
+; Modified: Dave Eaton, 5th February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+; **********************************************************************
+;
+1,0,Electrical Conditions
+1,1,Drivers,Airbag
+1,2,Passenger,Airbag
+1,3,Drivers Belt,Tensioner
+1,4,Pass Belt,Tensioner
+;
+2,0,Rear Belt Tensioners Electrical Conditions
+2,1,Left Rear
+2,2,Right Rear
+2,3,Right Centre
+2,4,Disregard
+;
+3,0,Seats
+3,1,Power Supply,Check
+3,2,Passenger Seat,Occupied?
+3,3,Drivers Belt,Buckled Y/N
+3,4,Fr Pass Belt,Buckled Y/N
+;
+4,0,Sealtbelts Buckled
+4,1,Right Rear,Y/N
+4,2,Centre Rear,Y/N
+4,3,Left Rear,Y/N
+4,4,N/A
+;
+6,0,Igniter Status
+6,1,Drivers, Front
+6,2,Passenger, Front
+6,3,Drivers, Side
+6,4,Passenger,Side
+;
+7,0,Rear Seat Occupancy
+7,1,Right Rear,Occupied
+7,2,Left Rear,Occupied
+7,3,N/A
+7,4,N/A
+;
+8,0,Igniter Status
+8,1,Driver Front,2nd Stage
+8,2,Passenger Front,2nd Stage
+8,3,Drivers Side,2nd Stage
+8,4,Passenger Side,2nd Stage
+;
+;End of File

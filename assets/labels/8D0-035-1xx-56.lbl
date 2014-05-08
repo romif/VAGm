@@ -1,0 +1,87 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8D) / Audi A6 (4B)
+;
+; Component: R - Radio (#56) Generation I
+;
+; P/N: 8D0-035-1??-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-56.LBL
+; 8D-56.LBL
+; 8D0-035-1xx-56.LBL
+;
+; created on 25/Apr/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 08/May/2007
+;
+; requires VAG-COM 701.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Speed Signal,recognized
+001,2,Supply Voltage,(Terminal 30)
+001,3,Illumination,(Terminal 58d)
+001,4,Status,S-Contact,Range: ON/OFF
+;
+002,0,Speaker/Line-Out
+002,1,Location/Type
+002,2,Status
+002,3,Location/Type
+002,4,Status
+;
+003,0,Antenna
+003,1,Antenna Type
+003,2,Component
+003,3,Status
+;
+004,0,General
+004,1,Amplifier,Output,0 = OK\n1 = Short to Ground
+004,3,Telephone
+004,4,Telephone,Mute Status,Range: ON/OFF
+;
+005,0,Communication Status CD-Changer (R41)
+005,1,CD-Changer (R41)
+005,2,Status
+;
+006,0,External Display
+006,1,External Display
+006,2,Status,,Specification: OK/n.OK
+;
+007,0,Steering Wheel Control
+007,1,Steering Wheel,Buttons
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,00?xx: Speakers
+C02,0 = Sound System (No passive Speakers)
+C03,1 = 1 passive Speaker (Front Left for Bose Sound System with Telephone)
+C04,2 = 2 passive Speakers (Front) and 2 active Speakers (Rear)
+C05,5 = 2 passive Speakers (Front) and no active Speakers (Rear)
+C06,00x?x: Sound System Correction
+C07,0 = No Sound System (No Correction)
+C08,1 = Sound System (Bose)
+C09,00xx?: Configuration
+C10,+1 = Active/Remote Supplied Antenna
+C11,+2 = CD-Changer
+C12,+4 = Secondary Display (Board Computer/Navigation)
+;

@@ -1,0 +1,74 @@
+;
+; VAG-COM Label File
+;
+; VW Polo (6N)
+;
+; Component: J217 - Transmission Electronic (#02) - 4-Speed Automatic Transmission (001)
+;
+; P/N: 001-927-731
+;
+; includes measuring blocks and basic setting
+;
+; created on 28/Jan/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+B000,0,Kick-Down Adaptation
+; Press Gas Pedal to Kick-Down and hold for 3 Seconds
+;
+001,1,Vehicle Speed
+001,2,Transmission,Speed (G38)
+001,3,Engine Speed
+001,4,Engaged Gear,,Range: 1/2/3H/3M/4H/4M
+;
+002,1,Accelerator Pedal,Position,Range: 0.0...100.0 %\nSpecification (Idle): 0.0...1.0 %\nSpecification (Full Load):  ~90.0 %\nSpecification (Kickdown):  99.0...100.0 %
+002,2,Solenoid Valve 6,(N93),Range: 0.0...100.0 %\nSpecification (Idle): 0.0...25.0 %\nSollwert (Full Load):  88.0...100.0 %
+002,3,Transmission Fluid,Temperature (G93),Range: -40.0...+150.0 °C\nSpecification (Level Check): 35.0...45.0 °C (See Factory Repair Manual for Details!!!)
+002,4,Voltage,(Terminal 30),Specification: min. 9.0 V
+;
+003,1,Vehicle Speed
+003,2,Accelerator Pedal,Position,Range: 0.0...100.0 %\nSpecification (Idle): 0.0...1.0 %\nSpecification (Full Load):  ~90.0 %\nSpecification (Kickdown):  99.0...100.0 %
+003,3,Engaged Gear,,Range: 1/2/3H/3M/4H/4M
+003,4,Solenoid Valve 4,(N91),Range: 0.0...100.0 %\nSpecification (hydraulic Gear): 4.0...6.0 %\nSpecification (mechanical Gear): 94.0...96.0 %
+;
+004,1,Multi-Function,Switch (F125),Range: P/R/N/D/3/2/1
+004,2,Multi-Function,Switch (F125),See Label File
+; 00000001 = P
+; 00000010 = R
+; 00000100 = N
+; 00001000 = D
+; 00010000 = 3
+; 00100000 = 2
+; 01000000 = 1
+004,3,Switch Position,,See Label File
+; 1 = operated/active / 0 = not operated/inactive
+; ?xxxxxxx = Brake Light Switch (F)
+; x?xxxxxx = Kick-Down Switch
+004,4,Switch Outputs,,See Label File
+; 1 = operated/active / 0 = not operated/inactive
+; xxxxxxx? = Solenoid Valve (N91)
+; xxxxxx?x = Shift Lock Solenoid (N110)
+; xxxxx?xx = Climate Control
+; xxxx?xxx = Cruise Control System (CCS)
+; xxx?xxxx = Engine Control Module Intervention
+; xx?xxxxx = Solenoid Valve (N90)
+; x?xxxxxx = Solenoid Valve (N89)
+; ?xxxxxxx = Solenoid Valve (N88)
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine,Electronics,Specification: Engine 1\nDisplay Range: Engine 1/Engine 0
+125,2,Brake Electronics,,Specification: ABS 1\nRange: ABS 1/ABS 0
+125,3,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+;

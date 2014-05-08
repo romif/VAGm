@@ -1,0 +1,104 @@
+;
+; VCDS Label File
+;
+; VW Passat (3C)
+;
+; Component: J136 - Driver's Seat Adjustment (#36)
+;
+; P/N: 3C0-959-760-???
+;
+; includes measuring blocks and adaptation
+;
+; created on 17/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 11/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Values (Longitudinal && Backrest Rake Adjustment)
+001,1,Longitudinal Seat,Adjustment Button
+001,2,Longitudinal Seat,Adjustment,Display Range: 0...65535
+001,3,Backrest Rake,Adjustment Button
+001,4,Backrest Rake,Adjustment,Display Range: 0...65535
+;
+002,0,Current Values (Seat Height && Seat Rake Adjustment)
+002,1,Seat Height,Adjustment Button
+002,2,Seat Height,Adjustment,Display Range: 0...65535
+002,3,Seat Rake,Adjustment Button
+002,4,Seat Rake,Adjustment,Display Range: 0...65535
+;
+003,0,Current Values (Lumbar Height && Lumbar Fore/Aft Adjustment)
+003,1,Lumbar Height,Adjustment Button
+003,2,Lumbar Height,Adjustment,Display Range: 0...65535
+003,3,Lumbar Fore/Aft,Adjustment Button
+003,4,Lumbar Fore/Aft,Adjustment,Display Range: 0...65535
+;
+006,0,Easy Entry
+006,1,Easy Entry,Switch,Range: ON/OFF
+006,2,Easy Entry,Function,Range: Active/Not Active\n\nSee Adaptation Channel 060.
+;
+007,0,Seat Memory I
+007,1,Memory Position,Button 1 (E218),Display Range: Operated/Not Oper.
+007,2,Memory Position,Button 2 (E219),Display Range: Operated/Not Oper.
+007,3,Memory Position,Button 3 (E220),Display Range: Operated/Not Oper.
+007,4,Memory Position,Button 4 (E282),Display Range: Operated/Not Oper.
+;
+008,0,Seat Memory II
+008,1,Memory,Set-Button,Display Range: Operated/Not Oper.
+008,2,Memory Function,,Display Range: Active/Not Active
+008,4,Initialisation,,Display Range: Learned/Erased
+;
+009,0,Terminal Status
+009,1,Voltage,Terminal 30,Specification: 9.0...15.25 V
+009,2,Status,Terminal X,Display Range: ON/OFF
+009,3,Status,Terminal 15,Display Range: Term 15 On/Term 15 Off
+009,4,Status,Terminal S,Display Range: ON/OFF
+;
+010,1,Driver Door,,Display Range: Open/Closed
+010,2,Key Number
+010,3,Steering Type,,Display Range: Left/Right
+010,4,Vehicle Speed
+;
+011,0,Current Values (Seat Depth)
+011,1,Seat Depth,Adjustment Button
+011,2,Seat Depth,Adjustment,Display Range: 0...65535
+;
+012,0,Massage
+012,1,Massage Button,,Display Range: ON/OFF
+012,2,Massage Function,,Display Range: Not Active/Active
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A000,0,Basic Setting
+A000,5,Basic Setting
+A000,6,This Basic Setting has to be performed when:
+A000,7,A) The Motors can not be adjusted due to functional Problems.
+A000,8,B) The following Parts have been replaced:
+A000,9,- Seat Motor(s) or Sensor(s)
+A000,10,- Seatbelt Height Adjustment Motor(s) or Sensor(s)
+A000,11,- Steering Column Adjustment Motor(s) or Sensor(s)
+A000,12, 
+A000,13,Note: Before replacing the above Components the Basic Settings
+A000,14,has to be performed to avoid unnecessary Installation/Work.
+;
+A060,0,Easy Entry
+A060,5,Easy Entry
+A060,6,0 = Easy Entry inactive
+A060,7,1 = Easy Entry active
+;

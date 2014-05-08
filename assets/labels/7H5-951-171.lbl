@@ -1,0 +1,98 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: J345 - Innenraumüberwachung (#45)
+;
+; T/N: 7H5-951-171-???
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; erstellt am 01.12.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 01.12.2005
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Status,Innenraumüberw.,Wertebereich: aktiv/inaktiv
+001,3,Taster (E183),Innenraumüberw.,Wertebereich: betätigt/unbetätigt
+;
+002,2,Sensor (G305),Innenraumüberw.,Wertebereich: i.O./n.i.O.
+;
+004,1,Alarmquelle
+; 0 = kein Alarm erkannt
+; 2 = Sende-/Empfangsmodul 1 für Innenraumüberwachung (G303)
+; 4 = Sende-/Empfangsmodul 2 für Innenraumüberwachung (G305)
+; 5 = Geber für Fahrzeugneigung (G384)
+; 6 = Geber für Fahrzeugneigung (G384)
+;
+005,1,Staus (G384),Neigungssensor,Wertebereich: aktiv/inaktiv
+005,3,Taster (E360),Neigungssensor,Wertebereich: betätigt/unbetätigt
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Innenraumüberwachung (J345) Codierung
+C01,00001 - Innenraumüberwachung vorn / Steuergerät längs eingebaut
+C02,00002 - Innenraumüberwachung vorn & hinten / Steuergerät längs eingebaut
+C03,00003 - Innenraumüberwachung vorn / Austattung Camper / Steuergerät längs eingebaut
+C04,00004 - Innenraumüberwachung vorn & hinten / Austattung Camper / Steuergerät längs eingebaut
+C05,00011 - Innenraumüberwachung vorn / Neigungssensor / Steuergerät längs eingebaut
+C06,00012 - Innenraumüberwachung vorn & hinten / Neigungssensor / Steuergerät längs eingebaut
+C07,00013 - Innenraumüberwachung vorn / Neigungssensor / Austattung Camper / Steuergerät längs eingebaut
+C08,00014 - Innenraumüberwachung vorn & hinten / Neigungssensor / Austattung Camper / Steuergerät längs eingebaut
+C09,00021 - Innenraumüberwachung vorn / Neigungssensor / Steuergerät quer eingebaut
+C10,00022 - Innenraumüberwachung vorn & hinten / Neigungssensor / Steuergerät quer eingebaut
+C11,00023 - Innenraumüberwachung vorn / Neigungssensor / Austattung Camper / Steuergerät quer eingebaut
+C12,00024 - Innenraumüberwachung vorn & hinten / Neigungssensor / Austattung Camper / Steuergerät quer eingebaut
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Empfindlichkeit Innenraumüberwachung vorn
+A001,5,Empfindlichkeit Innenraumüberwachung vorn
+A001,6,Empfindlichkeit der Sensoren für Innenraumüberwachung vorn.
+A001,7, 
+A001,8,Wertebereich: 50 - 100 %
+A001,9,Werkseinstellung: 100 %
+;
+A002,0,Empfindlichkeit Innenraumüberwachung hinten
+A002,5,Empfindlichkeit Innenraumüberwachung hinten
+A002,6,Empfindlichkeit der Sensoren für Innenraumüberwachung hinten.
+A002,7, 
+A002,8,Wertebereich: 50 - 100 %
+A002,9,Werkseinstellung: 100 %
+;
+A003,0,Empfindlichkeit Neigungssensor längs
+A003,5,Empfindlichkeit Neigungssensor längs
+A003,6,Empfindlichkeit des Neigungssensors längs zur Fahrtrichtung.
+A003,7, 
+A003,8,Wertebereich: 50 - 100 %
+A003,9,Werkseinstellung: 100 %
+;
+A004,0,Empfindlichkeit Neigungssensor quer
+A004,5,Empfindlichkeit Neigungssensor quer
+A004,6,Empfindlichkeit des Neigungssensors quer zur Fahrtrichtung.
+A004,7, 
+A004,8,Wertebereich: 50 - 100 %
+A004,9,Werkseinstellung: 100 %
+;

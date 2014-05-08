@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A8 (4E)
+;
+; Component: J772 - Back-Up Camera (#6C)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-6C.LBL
+; 4F-6C.LBL
+; 4L0-910-441.LBL
+;
+; created on 02/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/Oct/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4L0-910-441.LBL,4E0-910-441-???
+;

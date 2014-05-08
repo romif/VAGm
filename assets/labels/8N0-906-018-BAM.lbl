@@ -1,0 +1,83 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi TT (8N)
+;
+; Komponente: J220 - Motorelektronik (#01) - BAM
+;
+; T/N: 8N0 906 018 ??
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8N-01.LBL
+; 8N0-906-018-BAM.LBL (1.8l TE  @ 225 HP - BAM)
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 03.09.2004
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+030,0,Lambdasonden-Status (siehe Label-File)
+; 1xx - Lambdasondenheizung
+; x1x - Betriebsbereitschaft Lambdasonde
+; xx1 - Lambdaregelung
+030,1,Bank 1,Sonde 1,Sollwert: 111
+030,2,Bank 1,Sonde 2,Sollwert: 110
+030,3,[N/A]
+030,4,[N/A]
+;
+034,0,Lambdasonden-Alterung (Diagnose - Bank 1 Sonde 1)
+034,1,Motordrehzahl,,Sollwert: 2000 U/min
+034,2,Abgastemperatur,,Sollwert: > 350 °C
+034,3,Dynamikfaktor,,Sollwert: 0.5...2.0
+034,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/B1-S1 i.O./B1-S1 n.i.O.
+;
+036,0,Betriebsbereitschaft (Lambdasonde nach Katalysator - Bank 1)
+036,1,Lambdasonden-,spannung B1S1,Sollwert: 0.100...0.950 V
+036,2,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/B1-S1 i.O./B1-S1 n.i.O.
+036,3,[N/A]
+036,4,[N/A]
+;
+037,0,Lambda-Regelungssystem (Bank 1)
+037,1,Last,,Sollwert: 12...30 %
+037,2,Lambdasonden-,spannung B1S2,Sollwert: 0.100...0.950 V
+037,3,Lambdakorrektur,B1S1/B1S2,Sollwert: < 0.02
+037,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.
+;
+043,0,Lambdasonden-Alterung (Diagnose - Bank 1 SOnde 2)
+043,1,Motordrehzahl,,Sollwert: 2000 U/min
+043,2,Abgastemperatur,,Sollwert: > 350 °C
+043,3,Lambdasonden-,spannung B1S2,Sollwert: 0.100...0.950 V
+043,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/B1-S2 i.O./B1-S2 n.i.O.
+;
+046,0,Katalysator (Diagnose - Bank 1)
+046,1,Motordrehzahl,,Sollwert: 2000 U/min
+046,2,Abgastemperatur,,Sollwert: > 320 °C
+046,3,Meßwert,Katkonvertierung,Sollwert: 0.0...0.32
+046,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/Kat B1 i.O./Kat B1 n.i.O.
+;
+060,0,Anpassung der Drosselklappensteuereinheit
+060,1,Drosselklappen-,winkel (Geber 1),Sollwert: 3...93 %
+060,2,Drosselklappen-,winkel (Geber 2),Sollwert: 97...3 %
+060,3,Lernschritt-,zähler,Wertebereich: 0...8 (Nach der Anpassung: 8)
+060,4,Anpassungs-,zustand,Wertebereich: ADP läuft/ADP i.O./ERROR
+;
+070,0,Tankentlüftungsventil (Diagnose)
+070,1,Öffnungsgrad,Entlüftungsventil,Sollwert: 0...99%
+070,2,Lambdaregler,Mittelwert,Sollwert: < -7 % bzw. > +7 %
+070,3,[N/A]
+070,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/TEV i.O./TEV n.i.O.
+;

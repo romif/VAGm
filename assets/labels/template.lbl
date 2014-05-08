@@ -1,0 +1,235 @@
+;
+; VAG-COM Measuring Block Labels Template file.
+;   Updated 14. February 2004 to demonstrate new features
+;   in VAG-COM versions 401.2 and 402.3
+;
+; Lines beginning with a semi-colon(;) are comments.
+;
+; Please always put the part number of the controller
+; in the comment in a file.  For example:
+; AG4 TRansmission, ECU p/n 01M-927-733-xx
+;
+; Also please your name and e-mail address in a comment 
+; in the file:  This template was made by:
+;
+;    Eric Maurier, chief of Carrot Cake Consumption
+;    Andy Smith, Chief Assistant to the Assistant Chief 
+;    Uwe Ross, Chief Cook and Bottle Washer
+;    www.Ross-Tech.com  Support@Ross-Tech.com
+;
+;******************************************************************
+; ***** New in VAG-COM version 401.2:  
+; ****** Labels for Adapatation
+;
+; The format of the data-lines is for adaptation block labels is:
+; nnn,n,xxxxxx,xxxxxxx
+; 
+; Ann is the Adaptation Channel Number (A0 - A99 with leading 0's optional)
+; n is the Field Number 1 numeric digit, 
+;   0-4 (conventional labels) or
+;   5-25 (balloon data)
+; xxxxxxx are the displayed text fields.
+; fields must be separated by commas
+; commas cannot be used within text fields
+;
+A1,0,This is the header for Adaptation channel 01
+A1,1,Field 1,Field 2
+A1,2,This is just,like in meas. blocks
+A1,3,you only have,2 fields
+A1,4,Max field leng., is 13-17 chars
+;
+;
+; ***** New in VAG-COM version 402.3 
+; ***** Ballon to help user figure out a value to put in an Adaptation Channel
+;
+A1,5,This is the header of the Adaptation Value Balloon which starts at 5.
+A1,6,This is the first line of the ADP balloon text
+A1,7,Your are allowed to up to 128 chars per line
+A1,8,One can put up to 20 lines of info in the ballon in addition to the header.
+A1,9,There can be one Adaptation Value Balloon per Adaptation channel.
+A1,10,Only one "Field" per line.
+A1,11,6th line of the Adaptation Value Balloon
+A1,12,7th line of the Adaptation Value Balloon
+A1,13,8th line of the Adaptation Value Balloon
+A1,14,9th line of the Adaptation Value Balloon
+A1,15,10th line of the Adaptation Value Balloon
+A1,16,11th line of the Adaptation Value Balloon
+A1,17,12th line of the Adaptation Value Balloon
+A1,18,13th line of the Adaptation Value Balloon
+A1,19,14th line of the Adaptation Value Balloon
+A1,20,If you want a blank line in a balloon
+A1,21, 
+A1,22,You should have a blank line in the file
+A1,23,as shown for Line 21.
+A1,24,19th line of the Adaptation Value Balloon
+A1,25,20th line of the Adaptation Value Balloon
+;
+;  Another Adaptation Channel
+;
+A2,0,This is the header for Adaptation channel 02
+A2,1,Max field leng., is 13-17 chars
+;
+;  There are 99 possible Adaptation channels
+;  Each can have complete labels and it's own Balloon
+;  as shown for channel 01.
+;
+A99,0,This is the header for Adaptation channel 99
+A99,1,Max field leng., is 13-17 chars
+;
+;
+; **************************************************************
+; ***** New in VAG-COM version 401.2:  
+; ***** Coding *******
+;
+;  Ballon to help user figure out a value to put in Coding for the ECU
+; 
+:  The format of the data-lines for the Coding Balloon is
+;  Cn,xxxxxx
+; 
+;  C stands for Coding
+;  n is the line Number for the text in the Balloon 
+;  xxxxx is the text displayed on that line
+;
+C0,This is the header for the Coding Balloon
+C1,This is the first line of the coding balloon.
+C2,There can be 20 lines in addition to the header
+C3,Your are allowed to up to 128 chars per line
+C4,One can put up to 20 lines of coding in the coding table
+C5,There is only one coding ballon per control module
+C6,6th line of the coding table
+C7,7th line of the coding table
+C8,8th line of the coding table
+C9,9th line of the coding table
+C10,10th line of the coding table
+C11,11th line of the coding table
+C12,12th line of the coding table
+C13,13th line of the coding table
+C14,14th line of the coding table
+C15,15th line of the coding table
+C16,16th line of the coding table
+C17,17th line of the coding table
+C18,18th line of the coding table
+C19,19th line of the coding table
+C20,20th line of the coding table
+;
+;  It's OK to have fewer than 20 lines in a balloon.  
+;  Just delete some of the lines.
+;
+;
+; ***************************************************************
+; ***** New in VAG-COM version 401.2:  
+; ***** Balloon Labels for Measuring Block Group 000
+;       Since there is no room on the screen for these,
+;       all except the Header pop up in Balloons when
+;       the user clicks on a field.
+;       It's probably a good idea to put
+;       "Click on fields for details"  in the header
+;
+0,0,Header for the Group - displayed conventionally. Click on fields for details.
+0,1,Heading,Condition1:Value1...Value2(meaning1-meaning2),Condition2:Value1...Value2(meaning1-meaning2)
+0,2,Each Field can be up to 128 Characters,0,0
+0,3,Heading shows parameter being measured,0,0
+0,4,Condition1 describes a running condition ,Idle for example,0
+0,5,Condition2 describes a different condition ,Full load for example,0
+0,6,Value1 and Value2 are the raw displayed data,0,0
+0,7,Meaning1 and Meaning2 are the real interpretations of the raw values,0,0
+0,8,The popup window will expand in size to fit this text as long as you keep under 128 characters,0,0
+0,9,0,0
+0,10,0,0
+;
+; You can add any other bits of wisdom to these comment fields, 
+; like how long EGR runs after engine start
+;
+;Real example for for one of the above fields
+;0,7,Engine Coolant Temp.,Idle:80...35(80-110*C),Full load:80...35(80-110*C)
+;
+;
+; **************************************************************
+; ***** Now the traditional Measuring Block Labels
+; ***** New in version 401.2:  A third field for each label
+:       which is displayed in a ballon when the user clicks
+;       on the data.
+;
+; The format of the data-lines is for measuring block labels isalways:
+; nnn,n,xxxxxx,xxxxxxx
+; 
+; nnn is the Group Number (1-3 numeric digits, 0-255, leading 0's optional
+; n is the Field Number (1 numeric digit, 0-4)
+; xxxxxxx are the displayed text fields.
+; fields must be separated by commas
+; commas cannot be used within text fields
+;
+1,0,This is the Group Heading. 
+1,1,Line 1,Line 2,Balloon Info
+1,2,Just Line 1
+1,3,,Just Line 2
+1,4,,;nothing at all
+;
+; If you leave line 1 blank, VAG-COM will display the "default" label
+; which is based on a "best guess" from the data-type being sent by
+; control module
+; line 3 will pop up when user clicks on the corresponding field.
+;
+2,0,Group Heading: One Line, Maximum 70 Characters!
+2,1,123456789012345,ABCDEFGHIJKLM,This is the Third Field which is displayed in a balloon
+2,2,Max field leng., is 13-17 chars,except for the third field that can be 80 chars long.
+2,3,Depends on size, of characters
+2,4,ABCDEFGHIJKLM,abcdefghijklmnopq
+;
+; VAG-COM won't die if you exceed the maxumum field lengths,
+; but won't display it all.  Sometimes you'll have to use
+; abbreviations. 
+;
+; A group heading is not required
+;
+3,1,Group 3,Field 1
+3,2,This is way too long and won't be displayed properly,See?
+;
+4,0,This is an example of a Group Heading that is somewhat too long and won't be displayed properly.
+;
+5,0,Group 5
+5,5,This won't display, the Field Number is Invalid
+05,1,This is OK,Field 1
+005,2,This is OK too,Field 2,Field 3
+0005,3,This won't display, Group Number too long
+5,04,This won't display, Field Number is too long
+
+;Basic settings start with a 'B' or a 'b'
+;work much like measuring blocks:
+;4 fields+ 1 header,
+;2 lines+1 balloon for each field.
+;if there is no basic setting info available,
+;VAG-Com will display the measuring blocks info.
+;if you want a field left blank regardless of MB info,
+;put a space in that field
+B11,0,Basic settings row header
+B11,1,BS Line 1,BS Line 2,BS balloon
+B11,2, ,above is blank
+B11,3, , ,both lines blank
+B11,4,,Line1=MB info
+;
+;
+; There is no specific order in which you must put adaptations, coding and measuring 
+; blocks. for instance you could theoretically put coding info in the middle of a
+; measuring block label, all this being surrounded by adaptation labels. 
+; VAG-Com bases itself on the first char of each line
+; (digit,'A', or 'C' to decide which kind of info is contained in the line.
+;
+; The file should end with a comment line 
+; (or at least a blank line after the last line of Data)
+; 
+; Any additional info you want to put in the file
+; such as assorted notes should be in Comment lines
+; which start with a semi-colon like these.
+
+;
+;
+;---------------------------------------------------
+;
+; Long Coding
+;
+;---------------------------------------------------
+;
+;
+
+;

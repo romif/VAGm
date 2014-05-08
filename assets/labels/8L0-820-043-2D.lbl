@@ -1,0 +1,90 @@
+;
+; VAG-COM Measuring Block Labels file.
+;
+; E87 HVAC Controller  ECU p/n 8L0-820-043-D
+;
+; Contributed by Robert Leger
+;
+
+1,0,Compressor Operation
+; Compressor cut-off codes for field 1
+;   Code  On/Off  Reason
+;   0     On
+;   1     Off     A/C Refrigerant High Pressure
+;   2     Not Assigned
+;   3     Off     A/C Refrigerant Low Presssure
+;   4     Not Assigned
+;   5     Off     Engine speed less than 300 rpm
+;   6     Off     System in ECON mode
+;   7     Off     A/C system off because blower speed 0 selected
+;   8     Off     Ambient temperature less than 5 C (42 F)
+;   9     Not Assigned
+;   10    Off     Supply voltage for A/C control (E87) less than 9.5V
+;   11    Off     Excessive engine temperature
+;   12    Off     ECM or TCM has switched off compressor
+;   13    Off     Compressor cut-in lag when Engine RPM > 6000
+;   14    Off     A/C Refrigerant high pressure switch has
+;                 switched on and off 30 times
+1,1,Cut-off Code
+1,2,Not Assigned
+1,3,Supply Voltage
+1,4,Standing Time, min
+
+2,0,Temperature Regulator Flap Motor Position Sensor Feedback Values
+2,1,Actual
+2,2,Specified
+2,3,Full Heating
+2,4,Full Cooling
+
+3,0,Central Flap Motor Position Sensor Feedback Values
+3,1,Actual
+3,2,Specified
+3,3,Footwell/Defrost
+3,4,Center
+
+4,0,Footwell/Defrost Flap Motor Position Sensor Feedback Values
+4,1,Actual
+4,2,Specified
+4,3,Defrost
+4,4,Footwell
+
+5,0,Air Flow Flap Motor Position Sensor Feedback Values
+5,1,Actual
+5,2,Specified
+5,3,Recirculate
+5,4,Fresh Air
+
+6,0,Temperatures
+6,1,Calc. Outside
+6,2,Fresh Air
+6,3,Outside Air
+6,4,Sun Sensor
+
+7,0,Temperatures
+7,1,Center Outlet
+7,2,Floor Outlet
+7,3,Interior
+7,4,Coolant, deg. C
+
+8,0,Voltages: Fresh Air Blower - Illumination
+8,1,Specified
+8,2,Actual
+8,3,Illumination
+8,4,Not Assigned
+
+9,0,Speed Indication
+9,1,Engine
+; Vehicle speed = 0 if no speed signal recognized since ign. on
+; Vehicle speed = 1 if speed signal recognized since ign. on
+; Actual speed displayed when vehicle is driven
+9,2,Vehicle
+9,3,Aux. Heater
+9,4,Not Assigned
+
+10,0,Compressor Intervention
+10,1,Coolant Hot
+; Intervention: ECM or TCM has switched off compressor
+10,2,Intervention Status
+10,3,A/C High Pressure
+10,4,Not Assigned
+;

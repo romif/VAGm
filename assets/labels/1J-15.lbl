@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J234 - Airbag (#15)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1J-15.LBL
+; 8L-15.LBL
+; 1J0-909-60x-VW3.LBL  (VW3)
+;
+; created on 08/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1J0-909-60x-VW3.LBL,1J0-909-60?-??? ; VW3
+;

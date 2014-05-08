@@ -1,0 +1,213 @@
+;
+; VAG-COM Label File
+;
+; VW Eos (1F) / VW Golf/Jetta (1K)
+;
+; Component: R - Radio (#56)
+;
+; P/N: 1K0-035-161-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 20/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Jul/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Supply Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Illumination,(Terminal 58d),Specification: ca. 29...98 %
+001,3,S-Contact,Input Condition,CAN-Message
+;
+002,0,Telephone
+002,1,Component
+002,2,Mute Status
+002,4,Status
+;
+003,0,Speaker/Line-Out (Front Left)
+003,1,Location/Type
+003,2,Status
+;
+004,0,Speaker/Line-Out (Front Right)
+004,1,Location/Type
+004,2,Status
+;
+005,0,Speaker/Line-Out (Rear Left)
+005,1,Location/Type
+005,2,Status
+;
+006,0,Speaker/Line-Out (Rear Right)
+006,1,Location/Type
+006,2,Status
+;
+007,0,Remote Feed Antenna I
+007,1,Antenna Type
+007,2,Component
+007,3,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+;
+011,0,Communication Status CD-Changer (R41)
+011,1,Component
+011,2,Status
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+; 09 = Malfunction at CD/DVD-Drive
+; 0A = Internal Communication (BUS)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,00?xxxx: Treble Speaker Monitoring
+C02,1 = Front and Rear Monitoring inactive
+C03,2 = Front Monitoring active / Rear Monitoring inactive
+C04,3 = Front Monitoring inactive / Rear Monitoring active
+C05,4 = Front and Rear Monitoring active
+C06,00x?xxx: Radio Configuration I
+C07,0 = No CAN-Telephone Control
+C08,2 = CAN-Telephone Control
+C09,00xx?xx: Speaker Channels
+C10,0 = No passive Speakers (Sound System)
+C11,2 = 2 passive Speakers Front and 0 passive Speakers Rear
+C12,4 = 4 passive Speakers
+C13,00xxx?x: Sound System Correction
+C14,0 = No Sound System (No Correction)
+C15,1 = Sound System with Cloth Interior (with Open Circuit Recognition)
+C16,2 = Sound System with Leather Interior (with Open Circuit Recognition)
+C17,3 = Sound System with Cloth Interior (without Open Circuit Recognition)
+C18,00xxxx?: Radio Configuration II
+C19,+2 - CD-Changer
+C20,+4 - CAN-Secondary Display (Board Computer/large Display)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Reception Optimization
+A01,5,Reception Optimization
+A01,6,This channel allows optimization of the reception
+A01,7,behavior for areas with strong FM interference.
+A01,8, 
+A01,9,0 - Normal reception
+A01,10,1 - Optimized reception
+;
+A10,0,
+;0
+A10,1,
+;N/A
+A10,2,
+;N/A
+A10,3,
+;N/A
+A10,4,
+;N/A
+;
+A11,0,
+;0
+A11,1,
+;N/A
+A11,2,
+;N/A
+A11,3,
+;N/A
+A11,4,
+;N/A
+;
+A12,0,
+;0
+A12,1,
+;N/A
+A12,2,
+;N/A
+A12,3,
+;N/A
+A12,4,
+;N/A
+;
+A13,0,
+;0
+A13,1,
+;N/A
+A13,2,
+;N/A
+A13,3,
+;N/A
+A13,4,
+;N/A
+;
+A14,0,
+;40
+A14,1,
+;N/A
+A14,2,
+;N/A
+A14,3,
+;N/A
+A14,4,
+;N/A
+;
+A15,0,
+;0
+A15,1,
+;N/A
+A15,2,
+;N/A
+A15,3,
+;N/A
+A15,4,
+;N/A
+;
+A16,0,
+;0
+A16,1,
+;N/A
+A16,2,
+;N/A
+A16,3,
+;N/A
+A16,4,
+;N/A
+;
+A50,0,
+;0
+A50,1,
+;N/A
+A50,2,
+;N/A
+A50,3,
+;N/A
+A50,4,
+;N/A
+;

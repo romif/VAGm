@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8P) / VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Skoda Octavia II (1Z)
+;
+; Component: J527 - Steering wheel (#16)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-16.LBL
+; 1K0-953-549.LBL
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 09/03/2004
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-953-549.LBL,8P0-953-549-???
+;

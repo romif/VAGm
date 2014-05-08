@@ -1,0 +1,73 @@
+;
+;VAG-COM Measuring Block Labels
+;ECU p/n 023-906-022-G
+;AAF Engines: 2.5L, 10 valve, OBD-1
+;Digifant 1.2;
+;MY 1993-2 USA/Canada Eurovan
+;Based on: Robert Bently-Publication VD95.
+;
+; Tested: USA 005750 MY.93 
+; Errors-omissions? consch(at)earthlink.net
+;
+0,0,Warm engine-Running at idle-click on box for more info
+0,1,Undefined Data
+0,2,Undefined Data
+0,3,Coolant temp sensor,less than 10,lower numbers are hotter
+0,4,Undefined Data,
+0,5,Heated OXS signal,Must vary by at least 14
+0,6,Undefined Data
+0,7,Undefined Data
+0,8,Undefined Data
+0,9,Undefined Data
+0,10,Undefined Data
+;
+1,0,click on box for more info
+1,1,Coolant Temp,,A constant -40 indicates an open circuit
+1,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+1,3,Oxygen Sensor,Output Voltage,Varies rapidly in range <.3 to >.7 volt
+1,4,Fuel Injector,Duration,2-3 ms at warm idle - max 10 ms under load
+;
+2,0,click on box for more info
+2,1,Coolant Temp,,A constant -40 indicates an open circuit
+2,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+2,3,Throttle Valve,Angle,0 at closed throttle to 85 at W.O.T  -An open circuit will show a constan 0
+2,4,Engine load,,20-40% at idle
+;
+3,0,click on box for more info
+3,1,Coolant Temp,,A constant -40 indicates an open circuit
+3,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+3,3,Intake Air,Temperature,A constant -40 indicates an open circuit
+3,4,ECM,Supply Voltage,should not exceed 14.5 Volts
+;
+4,0,click on box for more info
+4,1,Coolant Temp,,A constant -40 indicates an open circuit
+4,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+4,3,Ignition Timeing,Calculated,This is the amount that is added to the base timeing which is adjusted by moveing the disributtor - see also mb 7 and 8
+4,4,Engine load,,20-40% at idle
+;
+5,0,click on box for more info
+5,1,Coolant Temp,,A constant -40 indicates an open circuit
+5,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+5,3,Throttle Valve,Angle,0 at closed throttle to 85 at W.O.T  -An open circuit will show a constant 0
+5,4,ECM,Supply Voltage,should not exceed 14.5 Volts
+;
+6,0,click on box for more info
+6,1,Coolant Temp,,A constant -40 indicates an open circuit
+6,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+6,3,Undefined Data
+6,4,Undefined Data
+;
+7,0,click on box for more info
+7,1,Coolant Temp,,A constant -40 indicates an open circuit
+7,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+7,3,Ignition Timeing,Calculated,This displays as 131 002 xxx - as xxx decreases timeing advances
+7,4,Undefined Data
+;
+8,0,click on box for more info
+8,1,Coolant Temp,,A constant -40 indicates an open circuit
+8,2,Engine Speed,,775-825 at warm idle-Max 5500 governed
+8,3,Ignition Timeing,Calculated,observed range 40-0-255-240
+8,4,Throttle Position,Click for translation,LEERLAUF=Closed throttle TEILLAST=part throttle VOLLAST=Wide open throttle
+;
+;eor
+ 

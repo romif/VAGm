@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine electronics (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-01.LBL
+; 8D0-907-557-ADR.LBL  (1.8l     @ 125 HP - ADR) < 06/1996
+; 8D0-907-55x-AEB.LBL  (1.8l T   @ 150 HP - ADP/ADR/AEB) 07/1996 >
+;
+; created on 10/Apr/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8D0-907-55x-AEB.LBL,8G0-907-557     ; ADR: (8G)
+REDIRECT,8D0-907-55x-AEB.LBL,8G0-907-557-B   ; ADR: (8G)
+REDIRECT,8D0-907-55x-AEB.LBL,8G0-907-557-C   ; ADR: (8G)
+;

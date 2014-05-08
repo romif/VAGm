@@ -1,0 +1,92 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi TT (8N)
+;
+; Komponente: J104 - Bremsenelektronik (#03) - MK60 AWD
+;
+; beinhaltet Messwertgruppen. Login und Codierung
+;
+; erstellt am 25.09.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 25.04.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Radgeschwindigkeit
+001,1,vorn,links
+001,2,vorn,rechts
+001,3,hinten,links
+001,4,hinten,rechts
+;
+002,0,Startgeschwindigkeit (im Stand 255 km/h)
+002,1,vorn,links
+002,2,vorn,rechts
+002,3,hinten,links
+002,4,hinten,rechts
+;
+003,1,Bremslicht-,schalter,Wertebereich: unbetätigt/betätigt
+003,2,Bremsenwarn-,lampe,Wertebereich: ein/aus
+003,3,Kontrollampe,ABS,Wertebereich: ein/aus
+003,4,Kontrollampe,ASR/ESP,Wertebereich: ein/aus
+;
+004,1,Lenkwinkel,,Sollwert: +/- 4.5 ° (links = positiv / rechts = negativ)
+004,2,Quer-,beschleunigung,Sollwert: +/- 1.5 m/s²
+004,3,Drehrate,,Sollwert: +/- 2.5 °/s
+004,4,[N/A]
+;
+005,1,Bremsdruck-,geber 1,Sollwert: +/- 7 bar
+005,2,Bremsdruck-,geber 2,Sollwert: +/- 7 bar
+005,3,[N/A]
+005,4,[N/A]
+;
+006,1,Längs-,beschleunigung,Sollwert: +/- 1.5 m/s²
+006,2,[N/A]
+006,3,[N/A]
+006,4,[N/A]
+;
+007,1,ASR-Taster,,Wertebereich: unbetätigt/betätigt
+007,2,[N/A]
+007,3,[N/A]
+007,4,[N/A]
+;
+125,0,CAN-Datenbus Antrieb (Kommunikation)
+125,1,Motor-,elektronik
+125,2,Lenkwinkel-,sensor
+125,3,Allrad-,elektronik
+125,4,Getriebe-,elektronik
+;
+;
+;---------------------------------------------------
+;
+; Login Informationen
+;
+;---------------------------------------------------
+;
+;
+L0,Login / Codierung II
+L1,40168 - Grundeinstellung einleiten
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung Bremsenelektronik (MK20 ESP)
+C1,19469 - 4-Zylinder/Benzin/Front-Antrieb/Schaltgetriebe (110/132 kW)
+C2,19479 - 4-Zylinder/Benzin/Front-Antrieb/Automatikgetriebe (110/132 kW)
+C3,22544 - 4-Zylinder/Benzin/Allrad-Antrieb (165 kW)
+C4,22548 - 6-Zylinder/Benzin/Allrad-Antrieb (184 kW)
+C5,22549 - 4-Zylinder/Benzin/Allrad-Antrieb (132 kW)
+;

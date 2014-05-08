@@ -1,0 +1,31 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-01.LBL
+; 06F-907-115-AXX.LBL (2.0l TE  @ 200 HP - AXX/BGB/BPJ/BPY/BWA)
+;
+; created on 24/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115      ; BWA: (8J)
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115-B    ; BPY: (8J)
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115-H    ; BWA: (8J)
+;8J0-907-115-K    ; CDAA: (8J)
+;8J0-907-115-L    ; CCZA: (8J)
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115-N    ; BWA: (8J)
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115-P    ; BWA: (8J)
+;8J0-907-115-Q    ; CDLB: (8J)
+;8J0-907-115-S    ; CDLA: (8J)
+REDIRECT,06F-907-115-AXX.LBL,8J0-907-115-T    ; BPY: (8J)
+;8J0-907-115-AC   ; CCZA: (8J)
+;8J0-907-115-AD   ; CDAA: (8J)
+;

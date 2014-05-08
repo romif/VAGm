@@ -1,0 +1,103 @@
+;
+; VAG-COM Labelfile
+;
+; VW Passat (3C)
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; P/N: 3C0-614-095-???
+;
+; includes measuring blocks, coding and coding-ii
+;
+; created on 27/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Mar/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left (G47),Display Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right (G45),Display Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left (G46),Display Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right (G44),Display Range: 0.0...255.0 km/h
+;
+003,1,Brake Light,Switch (F),Display Range: BrkSw. Off/BrkSw. On
+003,2,Brake (K118),Warning Light,Display Range: Brake._WL off/Brake._WL on
+003,3,ABS (K47),Warning Light,Display Range: ABS_warnl off/ABS_warnl on
+003,4,ASR/ESP (K155),Warning Light,Display Range: ASR/ESP_WLoff/ASR/ESP_WLon
+;
+004,1,Steering Angle,Sensor (G85),Specification: ± 4.5 ° (left = positive / right = negative)
+004,2,Transverse (G200),Acceleration,Specification: ± 1.5 m/s²
+004,3,Rotation Rate,(G202),Specification: ± 2.5 °/s²
+004,4,Longitudinal,Acc. Sensor (G251),Specification: ± 2.5 m/s²
+;
+005,1,Brake Pressure,Sensor,Specification: ± 7.0 bar
+005,2,Steering Angle,Sensor Condition,Display Range: initialised/n. initialised/implausible
+005,3,ASR Button,,Display Range: ON/OFF
+005,4,Brake Light,Switch (F),Display Range: BrkSw. Off/BrkSw. On
+;
+006,0,Voltages
+006,1,Voltage,(Terminal 15)
+006,2,Voltage,(Terminal 30)
+;
+007,0,EDL Condition
+007,1,EDL Shut-Off,(Temperature),?xxx = Front Left\nx?xx = Front Right\nxx?x = Rear Left\nxxx? = Rear Right
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine,,Specification: Engine 1\nDisplay Range: Engine 1/Engine 0
+125,2,Transmission,,Display Range: Transm. 1/Transm. 0
+125,3,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+125,4,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 1/Steer. ang. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,CAN-Gateway,,Specification: Gateway 1\nDisplay Range: Gateway 1/Gateway 0
+126,2,Airbag,,Specification: Airbag 1\nDisplay Range: Airbag 1/Airbag 0
+126,4,Parking Brake,,Specification: Park Brake 1\nDisplay Range: Park Brake 1/Park Brake 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,2,Immobilizer,,Specification: Immobilizer 1\nDisplay Range: Immobilizer 1/Immobilizer 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Engine
+225,2,Transmission
+225,3,Instrument Cluster
+225,4,Steering Angle,Sensor (G85)
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,CAN-Gateway
+226,2,Airbag
+226,4,Parking Brake
+;
+227,0,CAN-Databus Powertrain (Time-Out)
+227,2,Immobilizer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding
+;C01,+0016384 - Trailer Stabilisation
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics (J104) Coding-II
+L01,40168 = General Basic Setting Enabling
+;

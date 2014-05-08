@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; VW Polo (6N)
+;
+; Component: G209 - Interior Monitoring (#45)
+;
+; This file is part of a redirection package
+; make sure you have all of the following files.
+;
+; 6N-45.LBL
+; 6Q0-951-171.LBL
+;
+; created on 01/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,6Q0-951-171.LBL,6N0-951-171-???
+;

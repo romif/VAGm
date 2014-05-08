@@ -1,0 +1,113 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 8P0-953-549-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 31/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Apr/2007
+;
+; requires VAG-COM 606.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Blinker,,Range: n. operated/left/right
+001,2,Headlamp Flasher,,Range: n. operated/operated
+001,3,High Beam,,Range: n. operated/operated
+001,4,Front Wiper,,Range: n. operated/level/Stage Int./Stage 1/Stage 2
+;
+002,1,Interval Stages,,Range: Stage 1/Stage 2/Stage 3/Stage 4
+002,2,Wash Front,,Range: n. operated/operated
+002,3,Wiping Rear,,Range: n. operated/operated/not installed
+002,4,Washing Rear,,Range: n. operated/operated/not installed
+;
+003,1,Terminal Status,,?xxxx = P-Contact\nx?xxx = S-Contact\nxx?xx = Terminal 75\nxxx?x = Terminal 15\nxxxx? = Terminal 50
+003,2,Horn,,Range: n. operated/operated
+003,3,Board Computer,Lever,Range: n. installed/n. operated/Reset/Up/Down
+;
+004,0,Cruise Control System (CCS)
+004,1,Cruise Control,Main Switch,Display Range: n. installed/off/on
+004,2,Cruise Control,Activation,Range: n. operated/operated
+004,3,Cruise Control,Status,Display Range: n. operated/decelerate/accelerate/Reset
+;
+005,1,Park Position in,Selector Lever,Display Range: n. installed/n.Ok/on/recognized
+005,2,Selector Lever,Information (Pos. P),Display Range: n. defined/recognized/on
+005,3,Key,Removal Lock,Display Range: n. installed/on/off
+005,4,Status Key,Removal Lock,Display Range: n. installed/Ok/n.Ok
+;
+006,0,Multifunction Steering Wheel
+006,1,Communication,,Range: n. intalled/Ok/n.Ok
+006,2,Software Version
+006,3,Hardware Version
+006,4,Malfunction,recognized,Range: yes/no
+;
+007,0,Multifunction Steering Wheel
+007,1,Buttons pressed
+007,2,Buttons pressed
+007,3,Tiptronic Down,,Range: n. operated/operated/not installed
+007,4,Tiptronic Up,,Range: n. operated/operated/not installed
+;
+008,0,Steering Wheel Heating
+008,1,Steering Wheel,Heating,Range: n. installed/off/on
+008,2,Temprature,Sensor,Range: n. installed/Temperature
+008,3,St.Wheel Heat.,Output
+008,4,Seat Heating,Driver,Range: OFF/Stage
+;
+009,1,Dimming,,Range: 0.0...100.0 %
+009,2,Calculated,Dimming (LIN),Range: 0.0...100.0 %
+;
+080,0,Advanced Control Module Identification I
+;
+080,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+C01,00?xxxx: Transmission
+C02,0 = Manual Transmission
+C03,1 = Automatic Transmission
+C04,00x?xxx: Steering Wheel
+C05,0 = Spoke Steering Wheel without Tiptronic without Multifunction
+C06,1 = Spoke Steering Wheel with Tiptronic without Multifunction
+C07,2 = Multifunction Steering Wheel for Radio Operation
+C08,3 = Multifunction Steering Wheel for Radio/Telephone Operation
+C09,4 = Multifunction Steering Wheel for Radio/Telephone/Voice Control Operation
+C10,00xx?xx: Additional Equipment
+C11,+1 = Tiptronic (Shift Paddels)
+C12,00xxx?x: Board Computer / Cruise Control System (CCS)
+C13,0 = w/o Board Computer and w/o Cruise Control System (CCS)
+C14,1 = with Board Computer and w/o Cruise Control System (CCS)
+C15,2 = w/o Board Computer and with Cruise Control System (CCS)
+C16,4 = with Board Computer and with Cruise Control System (CCS)
+C17,00xxxx?: Rear Wiper
+C18,1 = Rear Wiper not installed
+C19,2 = Rear Wiper installed
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T194,Ignition Key Removal Lock
+;

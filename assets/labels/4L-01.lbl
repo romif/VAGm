@@ -1,0 +1,42 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-01.LBL
+; 057-907-409-BTR.LBL  (4.2l TDI-CR @ 326 HP - BTR)
+; 059-907-401-ASB.LBL  (3.0l TDI-CR @ 211-232 HP - ASB/BKS/BMK/BNG)
+; 079-907-560-BAR.LBL  (4.2l FSI @ 350 HP - BAR)
+;
+; created on 28/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401      ; BUG: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-A    ; BUN: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-D    ; BUG: (4L)
+;4L0-910-401-E    ; ???: (??)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-F    ; BUG: (4L)
+;4L0-910-401-G    ; CASA: (4L)
+;4L0-910-401-H    ; CASB: (4L)
+;4L0-910-401-J    ; CASA: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-K    ; BUG: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-L    ; BUN: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-M    ; BUG: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-N    ; BUG: (4L)
+;4L0-910-401-P    ; ???: (??)
+;4L0-910-401-Q    ; ???: (??)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-R    ; BUG: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-S    ; BUN: (4L)
+REDIRECT,059-907-401-ASB.LBL,4L0-910-401-T    ; BUG: (4L)
+;
+REDIRECT,057-907-409-BTR.LBL,4L0-910-409-???  ; BTR: (4L)
+;
+REDIRECT,079-907-560-BAR.LBL,4L0-910-560-???  ; BAR: (4L)
+;

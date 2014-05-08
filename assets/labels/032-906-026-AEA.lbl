@@ -1,0 +1,128 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf/Jetta/Vento (1H)
+;
+; Komponente: Motor (#01) - ABD/ABU/AEA
+;
+; T/N: 032-906-026 ??
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 032-906-026-AEA.LBL (1.4l E   @ 55/75 HP - ABD/ABU/AEA)
+;
+; erstellt am 21.06.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 21.06.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Kühlmitteltemperatur (G62)
+000,2,Drosselklappenpotentiometer (Bahn 1)
+000,3,Motordrehzahl (G28)
+000,4,Ansauglufttemperatur (G42)
+000,5,Lambda-Integrator
+000,6,Adaptionswert für Gemischkorrektur
+000,7,Adaptionswert für Grundluftbedarf
+000,8,Drehzalregler (Leerrlaufstabilisierung)
+000,9,Batteriespannung
+000,10,Adaptionswert Aktivkohlebehälteranlage
+;
+001,0,Grundfunktionen  - Leerlaufprüfung
+001,1,Motordrehzahl,(G28)
+001,2,Kühlmittel-,temperatur (G62)
+001,3,Lambda,Korrekturfaktor
+001,4,Betriebszustand
+;
+002,0,Grundfunktionen - Einspeitzzeit/Ansauglufttempratur
+002,1,Motordrehzahl,(G28)
+002,2,Eispritzzeit
+002,3,versorgungs-,spannung
+002,4,Ansaugluft-,temperatur (G42)
+;
+003,0,Grundfunktionen - Motorlast
+003,1,Motordrehzahl,(G28)
+003,2,Motorlast
+003,3,Drosselklappen-,winkel
+003,4,Zündzeitpunkt
+;
+004,0,Grundfunktionen - Betriebszustände
+004,1,Motordrehzahl,(G28)
+004,2,Motorlast
+004,3,Geschwindigkeit
+004,4,Betriebszustand
+;
+005,0,Grundfunkltionen - Gemischregelung
+005,1,Motordrehzahl,(G28)
+005,2,Magnetventil 1,Aktivkohlebehälter
+005,3,Lambda,Korrekturfaktor
+005,4,Höhen-,korrekturwert
+;
+006,0,Grundfunktionen - Aktivkohlebehälter
+006,1,Motordrehzahl,(G28)
+006,2,Magnetventil 1,Aktivkohlebehälter
+006,3,Lambda,Korrekturfaktor
+006,4,Korrekturwert,Magnetventil 1
+;
+007,0,Grundfunktionen - Lambdaregelung
+007,1,Motordrehzahl,(G28)
+007,2,Lambdasonden-,spannung
+007,3,Lambda,Korrekturfaktor
+007,4,Betriebszustand
+;
+008,0,Klopfregelung - Zündwinkelrücknahme Zyl. 1 && 2
+008,1,Motordrehzahl,(G28)
+008,2,Motorlast
+008,3,Zündwinkel-,rücknahme Zyl. 1
+008,4,Zündwinkel-,rücknahme Zyl. 2
+;
+009,0,Klopfregelung - Zündwinkelrücknahme Zyl. 3 && 4
+009,1,Motordrehzahl,(G28)
+009,2,Motorlast
+009,3,Zündwinkel-,rücknahme Zyl. 3
+009,4,Zündwinkel-,rücknahme Zyl. 4
+;
+010,0,Klopfregelung
+010,1,Motordrehzahl,(G28)
+010,2,Motorlast
+010,3,Klopfintegral,Zylinder 1
+010,4,Klopfintegral,Zylinder 2
+;
+011,0,Klopfregelung
+011,1,Motordrehzahl,(G28)
+011,2,Motorlast
+011,3,Klopfintegral,Zylinder 3
+011,4,Klopfintegral,Zylinder 4
+;
+0012,1,Motordrehzahl,(G28)
+0012,2,Motorlast
+;
+099,0,Lambdaregelung (Grundeinstellung)
+099,1,Motordrehzahl,(G28)
+099,4,Status,Lamdaregelung
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Leerlaufdrehzahl
+A001,5,Leerlaufdrehzahl (nur AEA)
+A001,6,Die Leerlaufdrehzahl kann in Schritten von 25 U/min erhöht/gesenkt werden.
+;

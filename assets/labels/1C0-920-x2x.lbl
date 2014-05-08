@@ -1,0 +1,239 @@
+;
+; VAG-COM label file
+;
+; VW New Beetle (1C/9C) / VW New Beetle Cabrio (1Y)
+;
+; component: J285 - instrument cluster (#17)
+;
+; p/n: 1C0-920-?2?-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-17.LBL
+; 1C0-919-xx0.LBL ; < 2000
+; 1C0-919-95x.LBL ; < 2000 (USA)
+; 1C0-920-xx0.LBL ; 2000 - 2001
+; 1C0-920-x2x.LBL ; 2002 > 2003
+; 1C0-920-x4x.LBL ; 2004+
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Speed / Engine speed / Oil pressure / Time
+001,1,Speed
+001,2,Engine Speed
+001,3,Oil pressure, 0.9 bar
+001,4,[N/A]
+;
+002,0,Distance / Fuel / Ambient temperature
+002,1,Odometer
+002,2,Fuel level (l)
+002,3,Fuel Sender,Resistance
+002,4,[N/A]
+;
+003,0,Coolant temprature
+003,1,Coolant,temperature
+003,2,[N/A]
+003,3,[N/A]
+003,4,[N/A]
+;
+022,0,Immobilizer
+022,1,Starting,permitted
+022,2,Engine (ECM),responds
+022,3,Key condition,OK
+022,4,Number of,keys coded
+;
+023,0,Immobilizer
+023,1,Variable code,authorized
+023,2,Key status,(transponder)
+023,3,Fixed code,authorized
+023,4,Immobilizer,status,see labelfile
+; 4 - new customer service - delivery condition (replacement part instrument cluster)
+; 5 - customer service locked - adaptation data programmed in customer service
+; 6 - immobilizer adapted - normal function condition
+; 7 - key adaptation active - key adaptation via tester
+;
+024,0,Immobilizer - locking periods
+024,1,Instrument,cluster
+024,2,Engine control, module (ECM)
+024,3,Emergency,release
+024,4,Transponder,recognition
+;
+025,0,Immobilizer Communication
+025,1,Immobilizer,Communication,1 = via CAN-Databus / 2 = via W-Line
+;
+050,0,Misc values
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil,temperature
+050,4,Coolant,temperature
+;
+125,0,CAN-Databus communication (Powertrain)
+125,1,Engine
+125,2,Transmission
+125,3,ABS
+125,4,Instrument,cluster
+;
+126,0,CAN-Databus communication (Powertrain)
+126,1,Steering,sensor
+126,2,Airbag
+126,3,[N/A]
+126,4,[N/A]
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,J285 - Instrument cluster
+C1,??xxx - Additional equipment
+C2,+00 - without additional equipment
+C3,+01 - brake pad display  active
+C4,+02 - seat belt display
+C5,+04 - rear spoiler
+C6, 
+C7,xx?xx - Country version
+C8,0 - Germany / 1 - Europe / 2 - USA / 3 - Canada/Mexico/Latin America
+C9,4 - England / 5 - Japan / 6 - Saudi Arabia / 7 - Australia
+C10, 
+C11,xxx?x - Service intervals
+C12,0 - mini-service intervals
+C13,1 - service intervals
+C14,2 - service intervals with fixed intervals
+C15,3 - without service intervals
+C16, 
+C17,xxxx? - Distance impulse number (K-value)
+C18,2 - 3528 Impulse/Km (5676 Impulse/Miles)
+C19,4 - 3648 Impulse/Km (5869 Impulse/Miles)
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+A2,0,Service reminder
+A2,5,Service reminder reset
+A2,6,displayed values:
+A2,7,0 - no service
+A2,8,1 - service
+A2,9, 
+A2,10,reset:
+A2,11,0 - Service reminder reset
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A9,0,Dinstance (in 10km)
+A9,5,Distance changing
+A9,6,Before the cluster accepts the new
+A9,7,distance you have to login using 13861.
+A9,8, 
+A9,9,The distance can only be changed until
+A9,10,the current value is not over 100km.
+;
+A16,0,Distance impulse identifier (read only)
+;
+A30,0,Tank characteristic
+A30,5,Tank characteristic
+A30,6,Parallel shift of tank characteristic by +/- 32 Ohm
+A30,7, 
+A30,8,Value range: 96...160
+;
+A40,0,Distance from inspection
+A40,5,Distance from inspection
+A40,6,Resolution: 1 = 100 km
+A40,7, 
+A40,8,NOTE: Adaptation channels 40-48 must be
+A40,9,entered and stored in the following order:
+A40,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A41,0,Time from inspection
+A41,5,Time from inspection
+A41,6, 
+A41,7,NOTE: Adaptation channels 40-48 must be
+A41,8,entered and stored in the following order:
+A41,9,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A42,0,Minimum value mileage
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 = 1000 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-48 must be
+A42,9,entered and stored in the following order:
+A42,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A43,0,Maximum value mileage
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 = 1000 km
+A43,7, 
+A43,8,NOTE: Adaptation channels 40-48 must be
+A43,9,entered and stored in the following order:
+A43,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A44,0,Maximum time interval
+A44,5,Maximum time interval
+A44,6, 
+A44,7,NOTE: Adaptation channels 40-48 must be
+A44,8,entered and stored in the following order:
+A44,9,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A45,0,Oil quality
+A45,5,Oil quality
+A45,6,Value range: 0.5 - 2.0
+A45,7, 
+A45,8,NOTE: Adaptation channels 40-48 must be
+A45,9,entered and stored in the following order:
+A45,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A46,0,Total consumption amount (Gas only)
+A46,0,Total consumption amount (Gas only)
+A46,6, 
+A46,7,NOTE: Adaptation channels 40-48 must be
+A46,8,entered and stored in the following order:
+A46,9,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A47,0,Soot entry (Diesel only)
+A47,5,Soot entry (Diesel only)
+A47,6,Resolution: 1 = 100 km
+A47,7, 
+A47,8,NOTE: Adaptation channels 40-48 must be
+A47,9,entered and stored in the following order:
+A47,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A48,0,Thermal load (Diesel only)
+A48,5,Thermal load (Diesel only)
+A48,6,Resolution: 1 = 100 km
+A48,7, 
+A48,8,NOTE: Adaptation channels 40-48 must be
+A48,9,entered and stored in the following order:
+A48,10,45 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;

@@ -1,0 +1,120 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi R8 (42) / Audi TT (8J)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 8P0-919-283-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 11/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/Jun/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Rear)
+001,1,Rear Left,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+001,2,Rear Left,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Rear Right,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Rear Right,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+003,0,Resulting Distance / Vehicle Speed && Voltage
+003,2,Resulting,Distance Rear,Specification: 10...160 cm (255 cm = no obstacle recognized)
+003,3,Vehicle Speed,,Display Range: 0.0...255.0 km/h
+003,4,Sensor,Voltage Supply,Specification: 10.0...14.5 V
+;
+004,0,External Information
+004,1,Reverese Gear,engaged,Display Range: Reverse: Yes/Reverse: No
+004,2,Trailer hitched,,Display Range: YES/NO/Not Installed
+;
+005,0,Volume && Frequency
+005,1,Rear Buzzer,Volume,Display Range: 1...9
+005,2,Rear Buzzer,Frequency,Display Range: 1...9
+;
+006,0,Oscillation Time (Rear)
+006,1,Rear Left,Sensor,Specification: 0.8...1.5 ms
+006,2,Rear Left,Center Sensor,Specification: 0.8...1.5 ms
+006,3,Rear Right,Center Sensor,Specification: 0.8...1.5 ms
+006,4,Rear Right,Sensor,Specification: 0.8...1.5 ms
+;
+008,0,Confirmation Sound
+008,1,Confirm. Sound,(Reverse Gear),Display Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,00?xxxx: Trailer Hitch
+C02,0 = Trailer Hitch not installed
+C03,1 = Trailer Hitch installed
+C04,00x?xxx: Transmission
+C05,0 = Manual Transmission
+C06,1 = Automatic Transmission
+C07,00xx?xx: Specification
+C08,0 = Rest of World (RoW)
+C09,1 = Rest of World (RoW) S/RS
+C10,2 = North America (NAR)
+C11,3 = North America (NAR) S/RS
+C12,00xxx?x: Chassis
+C13,0 = Sedan
+C14,1 = Avant (Wagon)
+C15,2 = Cabriolet
+C16,3 = Coupé
+C17,5 = Sports Car (R8 only)
+C18,00xxxx?: Model
+C19,1 = Audi TT (8J) / Audi R8 (42)
+C20,3 = Audi A3 (8P)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Rear Buzzer Volume
+A001,5,Rear Buzzer Volume
+A001,6,Adaptation of the rear warning buzzer volume.
+A001,7, 
+A001,8,Display Range: 1...9
+;
+A002,0,Rear Buzzer Frequency
+A002,5,Rear Buzzer Frequency
+A002,6,Adaptation of the rear warning buzzer frequency.
+A002,7, 
+A002,8,Display Range: 1...9
+;
+A005,0,Confirmation Sound
+A005,5,Confirmation Sound
+A005,6,Adaptation of confirmation sound when
+A005,7,switching into reverse gear.
+A005,8, 
+A005,9,0 = without confirmation sound
+A005,10,1 = with confirmation sound
+;
+A006,0,Reset Factory Default
+A006,5,Reset Factory Default
+A006,6,To reset all adaptation channels to their
+A006,7,standard settings save "0" as new value.
+;

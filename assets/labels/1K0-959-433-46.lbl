@@ -1,0 +1,279 @@
+;
+; VAG-COM Label File
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Touran (1T)
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia II (1Z)
+;
+; Component: J393 - Comfort System (#46)
+;
+; P/N: 1K0-959-433-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-46.LBL
+; 1K0-959-433-46.LBL
+;
+; created on 10/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Sep/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Rotary Switches
+001,1,Driver Door,Rotary Switch,Display Range: Door open/Door closed
+001,2,Passenger Door,Rotary Switch,Display Range: Door open/Door closed
+001,3,Rear Left Door,Rotary Switch,Display Range: Door open/Door closed
+001,4,Rear Right Door,Rotary Switch,Display Range: Door open/Door closed
+;
+002,0,Central Locking Return Messages
+002,1,Driver Door,,Display Range: implausible/locked/unlocked/safe
+002,2,Passenger Door,,Display Range: implausible/locked/unlocked/safe
+002,3,Rear Left Door,,Display Range: implausible/locked/unlocked/safe/not installed
+002,4,Rear Right Door,,Display Range: implausible/locked/unlocked/safe/not installed
+;
+003,1,Driver Door,Key Switch,Display Range: implausible/open/closed/not operated
+003,2,Passenger Door,Key Switch,Display Range: implausible/open/closed/not operated
+003,3,Lock/Unlock,Button Driver Door,Display Range: limplausible/ocking/unlocking/not operated
+003,4,Function LED,Lock,Display Range: implausible/locking/unlocking/not operated
+;
+004,0,Rear Lid
+004,1,Rear Key Switch,,Display Range: open/closed/not operated
+004,2,Rear Lid,Outside Button,Display Range: operated/not operated
+004,3,Rear Lid,Main Latch,Display Range: open/closed
+004,4,Rear Lid,Pre-Latch,Display Range: open/closed
+;
+005,0,Power Supply
+005,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+005,2,Voltage Status,,?x = Terminal 30\nx? = Terminal 30a
+005,3,Terminal 15,Status,Display Range: Term 15 On/Term 15 Off
+005,4,S-Contact,Status,Display Range: Activated/Inactive
+;
+006,1,Driving Speed,,Specification: 0 km/h
+006,2,Crash Signal,,Display Range: Yes/No
+006,3,Request,Tank Lid Open,Display Range: Yes/No
+006,4,Databus,Condition,Display Range: Single wire/Dual wire
+;
+007,1,Enabling SAD,,Display Range: Yes/No
+007,2,Sunroof Control,,Display Range: open/closed/not operated
+007,3,Comfort Function,Request,Display Range: not installed
+;
+008,1,Request,Terminal 58d,Display Range: 0...100 %
+008,2,Signal,Terminal 58s,Display Range: 0...100 %
+008,3,TIG,Illumination Request,Display Range: 0...100 %
+008,4,TIG,Illumination Signal,Display Range: 0...100 %
+;
+009,0,Central Locking
+009,1,Thermal,Protection,Display Range: Yes/No
+009,2,Signal Doors,not closed,Display Range: open/closed
+009,3,Request Left,Rear Exit Light,Display Range: off/on/not installed
+009,4,Request Right,Rear Exit Light,Display Range: off/on/not installed
+;
+010,0,Remote Control
+010,1,Remote Control,Key Number,Display Range: 0...4 (0 = no key recognized)
+010,2,Remote Control,Buttons,Range: 0 = not operated / 1 = operated\n\n?xxx = Open\nx?xx = Close\nxx?x = Rear Lid\nxxx? = Panic
+010,3,Remote Buttons,encoded,Display Range: yes/no/not installed
+;
+011,0,Remote Control
+011,1,Fixed Code,,Display Range: OK/not OK/no measuring value
+011,2,Code in,Catch Area,Display Range: OK/not OK/no measuring value
+011,3,Algorithm,,Display Range: OK/not OK/no measuring value
+;
+012,1,Immobilizer,Key Recognition,Display Range: Yes/No
+012,2,Interior Button,Rear Lid Remote,Display Range: operated/not operated
+012,3,Enabling Rear,Outside Button,Display Range: Yes/No
+012,4,Hood Contact,,Display Range: open/closed
+;
+013,1,Telematics,,Display Range: open/closed/not operated/not installed
+;
+014,0,Interior monitoring
+014,1,Sensor Status,,Display Range: activated/inactive/not installed
+014,2,Alarm recognized,,Display Range: yes/no/not installed
+014,3,Button,,Display Range: operated/not operated/not installed
+014,4,Interior monitoring,LED,Display Range: off/on/not installed
+;
+015,0,Tilt Sensor
+015,1,Sensor Status,,Display Range: activated/inactive/not installed
+015,2,Alarm recognized,,Display Range: yes/no/not installed
+015,3,Sensor Button,,Display Range: operated/not operated/not installed
+015,4,Interior monitoring,LED,Display Range: off/on/not installed
+;
+016,0,Sounder
+016,1,Sounder,Status,Display Range: activated/inactive/not installed
+016,2,Sounder,Alarm recognized,Display Range: yes/no/not installed
+016,3,Sounder,Output active,Display Range: operated/not operated/not installed
+;
+017,0,Tilt Sensor
+017,1,X-Reference,Angle,Specification: -25.2...+25.4 ° | Display Range: no measuring value/not installed
+017,2,Current,X-Delta Angle,Specification: -12.6...+12.7 ° | Display Range: no measuring value/not installed
+017,3,Y-Reference,Angle,Specification: -25.2...+25.4 ° | Display Range: no measuring value/not installed
+017,4,Current,Y-Delta Angle,Specification: -12.6...+12.7 ° | Display Range: no measuring value/not installed
+;
+018,0,Sounder (Alarm Trigger)
+; 0 = No Alarm Trigger
+; 1 = Comfort Control Module
+; 2 = Open Circuit on Ground
+; 3 = Open Circuit on Plus
+; 4 = Intelligent Battery Analysis
+018,1,1st Alarm Trigger
+018,2,2nd Alarm Trigger
+018,3,3rd Alarm Trigger
+018,4,Alarm Trigger,Counter
+;
+019,0,Interior Monitoring (Alarm Trigger)
+; 0 = No Alarm
+; 1 = Alarm while Vehicle closed
+; 2 = Alarm while Windows open
+; 3 = Alarm while Fan active
+019,1,1st Alarm Trigger
+019,2,2nd Alarm Trigger
+019,3,3rd Alarm Trigger
+019,4,4th Alarm Trigger
+;
+020,0,Alarm Sources
+;   0 = Drivers Door
+;   1 = Passenger Door
+;   2 = Rear Left Door
+;   3 = Rear Right Door
+;   4 = Rear Lid
+;   5 = Engine Hood
+;   6 = Rear Window Latch
+;   7 = Trailer
+;   8 = Rear Window Broken
+;   9 = Ignition
+;  10 = Interior Monitoring
+;  11 = Inclination Sensor
+;  12 = Intelligent Siren
+;  13 = Central Electronics Control Module
+;  14 = Door Control Module Drivers Door
+;  15 = Door Control Module Passenger Door
+;  16 = Door Control Module Rear Left Door
+;  17 = Door Control Module Rear Right Door
+;  18 = Gateway Control Module
+;  19 = Power-On-Reset (POR) Alarm (after Terminal 30 Reset an unintended Alarm is possible)
+; 255 = No Alarm
+020,1,1st Alarm Source
+020,2,2nd Alarm Source
+020,3,3rd Alarm Source
+020,4,4th Alarm Source
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A01,0,Remote control adaptation
+A01,5,Remote control adaptation
+A01,6,Enter the number of keys that should be adapted. Save.
+A01,7, 
+A01,8,Now press button 1 or 2 on every remote that
+A01,9,should be adapted for at least 1 second.
+A01,10, 
+A01,11,Note #1: All keys must be adapted in one procedure.
+A01,12,Note #2: Adaptation of all keys must not exceed 15 seconds.
+;
+A03,0,Door Locking
+A03,5,Door Locking
+A03,6,0 - locking of all doors
+A03,7,1 - selective door locking
+;
+A04,0,Auto-Lock
+A04,5,Auto-Lock
+A04,6,The doors will lock automatically when the vehicle
+A04,7,reaches a speed of 15 km/h or 10 mph.
+A04,8, 
+A04,9,Display Range; 0 = off / 1 = on
+A04,10, 
+A04,11,Note: This option should be used in combination
+A04,12,with "Auto-Unlock" (Channel 005).
+;
+A05,0,Auto-Unlock
+A05,5,Auto-Unlock
+A05,6,The doors will unlock automatically when the key
+A05,7,is removed from the ignition switch.
+A05,8, 
+A05,9,Display Range: 0 = off / 1 = on
+A05,10, 
+A05,11,Note: This option should be used in combination
+A05,12,with "Auto-Lock" (Channel 004).
+;
+A13,0,Alarm horn adjustment
+A13,5,Alarm horn adjustment
+A13,6,Country setting for alarm horn. This changes length
+A13,7,and volume of the alarm horn sounding.
+A13,8, 
+A13,9,0 - Great Britain (10 Tamper Alarms)
+A13,10,1 - Great Britain (1 Tamper Alarm)
+A13,11,2 - Rest of World (10 Tamper Alarms)
+A13,12,3 - Rest of World (1 Tamper Alarm)
+;
+A14,0,Tilt sensor sensitivity
+A14,5,Tilt sensor sensitivity
+A14,6,Display Range: 100 = 50 % / 200 = 100 %
+;
+A15,0,Interior monitoring sensitivity
+A15,5,Interior monitoring sensitivity
+A15,6,Display Range: 1 = 25 % / 2 = 50 % / 3 = 75 % / 4 = 100 %
+;
+A16,0,Battery monitoring via alarm sounder
+A16,5,Battery monitoring via alarm sounder
+A16,6,Display Range: 0 = off / 5 = on
+;
+A17,0,Comfort function
+A17,5,Comfort function
+A17,6,Display Range: 0 = off / 1 = on
+A17,7, 
+A17,8,Note:
+A17,9,This channel is NOT functional. Use long coding
+A17,10,to change the comofort function behavior.
+;
+A18,0,Anti-Theft Delay
+A18,5,Anti-Theft Delay
+A18,6,Deactivation of the anti theft warning delay
+A18,7,when opening drivers door before the anti theft
+A18,8,warning system is beeing activated.
+A18,9, 
+A18,10,Display Range: 0 = off / 1 = on
+;
+A19,0,Factory-Mode
+A19,5,Factory-Mode
+A19,6,Display Range: 0 = off / 1 = on
+;
+;
+;---------------------------------------------------
+;
+; selective output test informations
+;
+;---------------------------------------------------
+;
+;
+T94,Rear Left Central Locking (Lock) Motor (V214)
+T95,Rear Right Central Locking (Lock) Motor (V215)
+T122,Outside Warning Light/Door exit Light RR
+T123,Outside Warning Light/Door exit Light RR
+T223,Vehicle Inclination Sensor Indicator Lamp (K188)
+T327,Signal sliding Sunroof Opening
+T328,Control Circuit for Unlocking Rear Windshield
+T332,Control Circuit for Tank Flap
+T379,Terminal 58s
+T948,Signal: Close sliding Roof
+T1134,Alarm Horn (H12)
+T1337,Interior Door Handle Illumination
+T1338,Signal: Doors Not Closed
+T1348,Interior Monitoring System Indicator Lamp (K162)
+T1699,Motor for Central Locking: Hatch/Trunk (V53)
+T2483,Module for Locking of Rear Lid (F327)
+;

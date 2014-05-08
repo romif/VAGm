@@ -1,0 +1,118 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Komponente: J446 - Einparkhilfe (#76)
+;
+; T/N: 7M3 919 283
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; erstellt am 13.10.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 08.08.2005
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Abstand der einzelnen Sensoren (255cm = kein Hindernis erkannt)
+001,1,vorn,links,Wertebereich: 0...255 cm
+001,2,vorn,links mitte,Wertebereich: 0...255 cm
+001,3,vorn,rechts mitte,Wertebereich: 0...255 cm
+001,4,vorn,rechts,Wertebereich: 0...255 cm
+;
+002,0,Abstand der einzelnen Sensoren (255cm = kein Hindernis erkannt)
+002,1,hinten,links,Wertebereich: 0...255 cm
+002,2,hinten,links mitte,Wertebereich: 0...255 cm
+002,3,hinten,rechts mitte,Wertebereich: 0...255 cm
+002,4,hinten,rechts,Wertebereich: 0...255 cm
+;
+003,1,kürzester,Abstand vorn,Wertebereich: 0...255 cm
+003,2,kürzester,Abstand hinten,Wertebereich: 0...255 cm
+003,3,Geschwindigkeit,[km/h],Wertebereich: 0...255 km/h
+003,4,Versorgungs-,spannung,Sollwert: [ca. Batteriespannung]
+;
+004,1,Schaltzustand,Warnsummer,Wertebereich: Ton aus/Ton ein
+004,2,Schaltzustand,Rückwärtsgang,Wertebereich: Rückw. ja/Rückw. nein
+004,3,Zustand,Anhängerkupplung,Wertebereich: Anh. ja/Anh. nein/nicht verbaut
+004,4,Status,Heckklappe
+;
+005,1,Kontrollampe,Einparkhilfe,Wertebereich: LED aus/LED ein
+005,2,Schalter,Einparkhilfe,Wertebereich Tast. aus/Tast. ein
+;
+006,0,Ausschwingzeit der Sensoren (vorn)
+006,1,vorn,links,Wertebereich: 0.97...1.02 ms
+006,2,vorn,links mitte,Wertebereich: 0.97...1.02 ms
+006,3,vorn,rechts mitte,Wertebereich: 0.97...1.02 ms
+006,4,vorn,rechts,Wertebereich: 0.97...1.02 ms
+;
+007,0,Ausschwingzeit der Sensoren (hinten)
+007,1,hinten,links,Wertebereich: 0.97...1.02 ms
+007,2,hinten,links mitte,Wertebereich: 0.97...1.02 ms
+007,3,hinten,rechts mitte,Wertebereich: 0.97...1.02 ms
+007,4,hinten,rechts,Wertebereich: 0.97...1.02 ms
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J446 - Einparkhilfe
+C1,0?xxx: 0 = Schaltgetriebe / 1 = Automatikgetriebe
+C2,0x?xx: Einschaltsignalton (0 = aus / 1 = ein)
+C3,0xx?x: Fahrzeugtyp (1 = Sharan)
+C4,0xxx?: Karosserievariante (7 = Sharan)
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A01,0,Lautstärke (hinten)
+A01,5,Lautstärke-Warnsummer (hinten)
+A01,6,Die Laustärke lässt sich von 2 bis 7 einstellen
+A01,7,der Wert kann direkt Während der Eingabe überprüft
+A01,8,werden indem dabei der Rückwärtsgang eingelegt wird.
+;
+A02,0,Frequenz (hinten)
+A02,5,Frequenz-Warnsummer (hinten)
+A02,6,Die Frequenz lässt sich von 0 bis 4 einstellen
+A02,7,der Wert kann direkt Während der Eingabe überprüft
+A02,8,werden indem dabei der Rückwärtsgang eingelegt wird
+A02,9, 
+A02,10,Wertebereich:
+A02,11,0 = 500 Hz / 1 = 666 Hz / 2 = 800 Hz
+A02,12,3 = 1000 Hz / 4 = 2000 Hz
+;
+A03,0,Lautstärke (vorn)
+A03,5,Lautstärke-Warnsummer vorn
+A03,6,Die Laustärke lässt sich von 2 bis 7 einstellen
+A03,7,der Wert kann direkt Während der Eingabe überprüft
+A03,8,werden indem dabei der Rückwärtsgang eingelegt wird.
+;
+A04,0,Frequenz (vorn)
+A04,5,Frequenz-Warnsummer (vorn)
+A04,6,Die Frequenz lässt sich von 0 bis 4 einstellen
+A04,7,der Wert kann direkt Während der Eingabe überprüft
+A04,8,werden indem dabei der Rückwärtsgang eingelegt wird
+A04,9, 
+A04,10,Wertebereich:
+A04,11,0 = 500 Hz / 1 = 666 Hz / 2 = 800 Hz
+A04,12,3 = 1000 Hz / 4 = 2000 Hz
+;

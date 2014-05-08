@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A8 (4E)
+;
+; Component: J523 - Control Head Front (#07)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-07.LBL
+; 4E0-910-7xx-07.LBL
+;
+; created on 09/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Feb/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4E0-910-7xx-07.LBL,4E0-910-7??-???
+;

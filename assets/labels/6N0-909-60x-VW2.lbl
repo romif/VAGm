@@ -1,0 +1,15 @@
+;
+; VAG-COM Measuring Block Labels for
+; VW Airbag-2 p/n 6N0-909-603-xx
+;
+1,0,Igniter Resistances
+1,1,Driver Bag,(N95)
+1,2,Passenger Bag,(N131)
+1,3,Left Belt Tens.,(N153)
+1,4,Right Belt Tens.,(N154)
+;
+2,0,Voltage Supply
+2,1,Voltage Supply
+2,2,[empty]
+2,3,[empty]
+2,4,[empty]

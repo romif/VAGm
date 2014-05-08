@@ -1,0 +1,84 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Caddy (9K) / VW Golf Cabriolet (1E) / VW Lupo (6X)
+; VW Polo (6N) / VW Transporter (70/7D)
+;
+; Komponente: Wegfahrsperre (#25)
+;
+; T/N: 6X0 953 257
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 04.10.2004
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Wegfahrsperre
+001,1,Datenbus,Kommunikation,Kommunikationsart der Baudrate
+001,2,Lesespule,,0 = fehlerhaft / 1 = richtig
+001,3,Schlüsselzustand,,0 = defekt / 1 = fehlerfrei
+001,4,Schlüssel,berechtigt,0 = nein / 1 = ja
+;
+002,0,Wegfahrsperre
+002,1,Startvorgang,erlaubt,1=ja/0=nein
+002,2,Motorsteuergerät,antwortet,1=ja/0=nein
+002,3,Schlüsselzustand,i.O.
+002,4,Anzahl,gelernte Schlüssel,bis max. 8 Schlüssel
+;
+003,0,Wegfahrsperre
+003,1,Wechselcode,berechtigt
+003,2,Transpoder,Status
+003,3,Festcode,berechtigt
+003,4,Status,Wegfahrsperre,siehe Labelfile
+;4 - Kundendienst neu/Anlieferungszustand Kundendienst (Ersatzteilkombiinstrument).
+;5 - Kundendienst verriegelt/Anpassdaten im Kundendienst programmiert. 
+;6 - Wegfahrsperre angepasst/Normaler Funktionszustand.
+;7 - Schlüssellernen aktiv
+;
+004,0,Wegfahrsperre (Loginsperre)
+004,1,Loginsperre,(Tester),Bereich: 0-255 Minuten (nach 3 falschen PIN Eingaben)
+004,2,Loginsperre,(CAN),Bereich: 0-255 Minuten (nach 3 falschen PIN Eingaben über Anpassung)
+004,3,[N/A]
+004,4,Sperre,Scanschutz,Bereich: 0-10 Minuten (nach 20 Startversuchen mit unberechtigtem Schlüssel)
+;
+005,0,Wegfahrsperre (Schlüssel-Status)
+005,1,Anlernzeit,der Schlüssel
+005,2,"SOLL"-Anzahl,der Schlüssel,Wertebereich: 0...8
+005,3,"IST"-Anzahl,der Schlüssel,Wertebereich: 0...8
+005,4,Anpassungs-,status,siehe Label-File
+; ?xxx - Fehlerstatus (0 = kein Fehler / 1 = Fehler)
+; x?xx - Anpassungsstatus (0 = beendet / 1 = läuft)
+; xx?x - aktueller Schlüssel (0 = i.O. / 1 = n.i.O.)
+; xxx? - aktuelle Anpassung (0 = i.O. 1 = n.i.O.)
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Steuergerät für Wegfahrsperre - Codierung
+C1,Hinweis: Die Kommunikationsart ist über
+C2,Messwertgruppe 1 Feld 1 zu ermitteln.
+C3, 
+C4,Kommunikation über W-Leitung
+C5,Hinweis: Die Codierung gibt die Baudrate der Kommunikation
+C6,auf der W-Leitung (zum Motorsteuergerät) an.
+C7, 
+C8,Kommunikation über CAN-Datenbus
+C8,00001 - alle Fahrzeuge (Standard)
+;

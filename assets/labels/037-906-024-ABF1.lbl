@@ -1,0 +1,70 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf III (1H) / VW Passat (3A)
+;
+; Komponente: Motor (#01) - ABF Digifant 3.0
+;
+; T/N: 037 906 024 ??
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; Diese Datei gehört zu einem Redirect-Paket, stellen
+; Sie sicher, das alle folgenden Dateien vorhanden sind.
+;
+; 03-01.LBL
+; 037-906-024-ABF1.LBL (2.0l E   @ 150 HP - ABF 3.0)
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 09.02.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 09.02.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Ansauglufttemperatur,Sollwert: 24...73 (15...50 °C)
+000,2,Batteriespannung,Sollwert: 128...150 (12.0...14.2 V)
+000,3,Kühlmitteltemperatur,Sollwert: 4...10 (85...105 °C)
+000,4,Motorlast,Sollwert: 60...90 (23...36 %)
+000,5,Lambdasonden-Signal,Sollwert: 100...240 (0...1.0 V)
+000,6,Zeitzähler der Lambdaregelung,Sollwert: 0
+000,7,Zähler Lambdasondenstatus,Sollwert: 0...20
+000,8,Drosselklappenpotentiometer-Spannung,Sollwert: 12...49 (0.25...0.95 V)
+000,9,Einspritzzeit,Sollwert: 5...8 (2.5...4.0 ms)
+000,10,Motordrehzahl,Sollwert (Leerlauf): 202...212 (770...890 U/min)
+;
+001,1,Kühlmittel-,temperatur,Sollwert: 85...105 °C
+001,2,Motordrehzahl,,Sollwert (Leerlauf): 770...890 U/min
+001,3,Lambdasonden-,spannung,Sollwert: 0.0...1.0 (pendelnd)
+001,4,Einspritzzeit,,Sollwert: 2.5...4.0 ms
+;
+002,1,Kühlmittel-,temperatur,Sollwert: 85...105 °C
+002,2,Motordrehzahl,,Sollwert (Leerlauf): 770...890 U/min
+002,3,Drosselklappen-,winkel,Sollwert: 0...86 <°
+002,4,Motorlast,,Sollwert: 23...36 %
+;
+003,1,Kühlmittel-,temperatur,Sollwert: 85...105 °C
+003,2,Motordrehzahl,,Sollwert (Leerlauf): 770...890 U/min
+003,3,Ansaugluft-,temperatur,Sollwert: 15...50 °C
+003,4,Batterie-,spannung,Sollwert: 12.0...14.2 V
+;
+004,1,Kühlmittel-,temperatur,Sollwert: 85...105 °C
+004,2,Motordrehzahl,,Sollwert (Leerlauf): 770...890 U/min
+004,3,Zündzeitpunkt,,Dieser Wert darf nicht zum prüfen des Zündzeitpunktes benutzt werden.
+004,4,Motorlast,,Sollwert: 23...36 %
+;
+005,1,Kühlmittel-,temperatur,Sollwert: 85...105 °C
+005,2,Motordrehzahl,,Sollwert (Leerlauf): 770...890 U/min
+005,3,Drosselklappen-,winkel,Sollwert: 0...86 <°
+005,4,Batterie-,spannung,Sollwert: 12.0...14.2 V
+;

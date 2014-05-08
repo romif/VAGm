@@ -1,0 +1,148 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 HVAC System
+; Filename: 4d0-820-043-q.lbl
+; 
+; from 2001 Audi S8
+;   Controller: 4D0 820 043 Q 
+;       Module: 08
+;    Component: A8-Klimavollautomat D13
+;       Coding: 00081
+;
+; **Modification History**
+; Created:  Dave Eaton, 3rd February 2004
+; Modified: Dave Eaton, 4th February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+; **********************************************************************
+;
+1,0,Compressor Shut-off Conditions
+1,1,Switch-off status,0=On 1-15=off
+1,2,Voltage AC Clutch,V (>9.5 w/comp off)
+1,3,Voltage at,Terminal 15 (>12)
+1,4,Air Quality Sensor,G238
+;
+2,0,Defroster Flap Motor V107 Position Sensor G135
+2,1,Actual Position,20 < 230
+2,2,Specified Position,(as #1) 20 < 230
+2,3,Basic Setting,Closed (20<60)
+2,4,Basic Setting,Open (190<230)
+;
+3,0,Center Air Flap Motor (V110) Position Sensor Motor G136
+3,1,Actual Position,60 < 230
+3,2,Specified Position,(as #1) 60 < 230
+3,3,Basic Setting,Closed (60<100)
+3,4,Basic Setting,Open (190<230)
+;
+4,0,Right Center Air Flap Motor (V111) Position Sensor Motor G137
+4,1,Actual Position,20 < 190
+4,2,Specified Position,(as #1) 20 < 190
+4,3,Basic Setting,Closed (20<60)
+4,4,Basic Setting,Open (150<190)
+;
+5,0,Center Vent Motor (V102) Position Sensor Motor G138
+5,1,Actual Position,60 < 230
+5,2,Specified Position,(as #1) 60 < 230
+5,3,Basic Setting,Closed (60<100)
+5,4,Basic Setting,Open (190<230)
+;
+6,0,Temperature Flap Motor (V68) Position Sensor Motor G92
+6,1,Actual Position,20 < 185
+6,2,Specified Position,(as #1) 20 < 185
+6,3,Basic Setting,Closed (20<75)
+6,4,Basic Setting,Open (135<185)
+;
+7,0,Center Footwell Flap Motor (V108) Position Sensor Motor G139
+7,1,Actual Position,20 < 190
+7,2,Specified Position,(as #1) 20 < 190
+7,3,Basic Setting,Closed (20<60)
+7,4,Basic Setting,Open (150<190)
+;
+8,0,Right Footwell Flap Motor (V109) Position Sensor Motor G140
+8,1,Actual Position,60 < 240
+8,2,Specified Position,(as #1) 60 < 240
+8,3,Basic Setting,Closed (60<100)
+8,4,Basic Setting,Open (200<240)
+;
+9,0,Rear Footwell Vent Motor (V112) Position Sensor Motor G141
+9,1,Actual Position,60 < 230
+9,2,Specified Position,(as #1) 60 < 230
+9,3,Basic Setting,Closed (60<100)
+9,4,Basic Setting,Open (190<230)
+;
+10,0,Air-flow Flap Motor (V71) Position Sensor Motor G113
+10,1,Actual Position,50 < 215
+10,2,Specified Position,(as #1) 50 < 215
+10,3,Basic Setting,Closed (50<100)
+10,4,Basic Setting,Open (165<215)
+;
+11,0,Recirculation Flap Motor (V113) Position Sensor Motor G143
+11,1,Actual Position,10 < 210
+11,2,Specified Position,(as #1) 10 < 210
+11,3,Basic Setting,Closed (10<50)
+11,4,Basic Setting,Open (170<210)
+;
+12,0,CAN Information
+12,1,ECM Messages,0=Not Rec 1=Rec
+12,2,Instr. Clstr,0=Not Rec 1=Rec
+12,3,N/A
+12,4,N/A
+;
+13,0,Recirculation Flap Motor (V183) Position Sensor Motor G184
+13,1,Left Centre Vent,0=Cl 1=Mid 2=Op
+13,2,Right Centre Vent,0=Cl 1=Mid 2=Op
+13,3,Centre Vent,Cold>5 Warm<250
+13,4,N/A
+;
+14,0,Air Temperature Sensors
+14,1,Outside Air Temp,G17 Celsius
+14,2,Fresh Air Duct,G89 Celsius
+14,3,LF Vent Temp,G150 Celsius
+14,4,RF Vent Temp,G151 Celsius
+;
+15,0,Instrument Panel Interior Temp Sensor G56, Coolant Temp G107
+15,1,G56 Value,Celsius
+15,2,Trans. Coolant,Temp Celsius
+15,3,Sun Sensor,Left G107 %
+15,4,Sun Sensor,Right G107 %
+;
+16,0,Voltage & Fresh Air Blower V2 Parking Light 58D
+16,1,V2 Specified,Volts (3.5 < 12.5)
+16,2,V2 Actual,Volts
+16,3,% of Max Volts,% <10 Light Off
+16,4,Panel Dimmer Sw,% Permissable
+;
+17,0,Engine and Vehicle Speed
+17,1,Engine,Speed RPM
+17,2,Vehicle Speed,Km/h
+17,3,Parking Light,0=Off 1=On
+17,4,Aux Heater,0=No 1=Yes
+;
+18,0,Kick-down, Coolant temp.
+18,1,Rear Wind. Defrost,0=Off 1=On
+18,2,Over Temp Switch,0=<118C 1=OvTmp
+18,3,Compr. Cutin,0=Open 1=Closed
+18,4,High Pr.Sw F118,0=Closed 1=Open
+;
+19,0,Coolant Pump V50 -Heat Reg Valve N175 Right -Heat Reg Valve N176
+19,1,N175,1=Open 0=Closed
+19,2,N176,1=Open 0=Closed
+19,3,V50,0=Off 1=On
+19,4,Windscreen Def
+;
+20,0,Last 4 Compressor Shutoff COnditions > 20 seconds
+;
+21,0,Fan Conditions
+21,1,Idle Control,0=Off 1=On
+21,2,Coolant Fan,Stage 1 0=Off 1=On
+21,3,Coolant Fan,Stage 2 0=Off 1=On
+21,4,W/scr Washer Sw,0=Off 1=On
+;
+22,0,Ignition Conditions
+22,1,Known Key Alloc,0=Ig. Off 1=Ig. On
+22,2,Last Shut Off,Time
+22,3,N/A
+22,4,N/A
+;
+; End of File
+

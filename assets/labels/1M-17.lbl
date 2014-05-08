@@ -1,0 +1,26 @@
+;
+; VAG-COM Redirect File
+;
+; Seat Leon/Toledo (1M)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1M-17.LBL
+; 1M0-919-xxx-17.LBL
+; 1M0-920-xx0-17.LBL
+; 1M0-920-xx2-17.LBL
+;
+; created on 11/May/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Feb/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1M0-919-xxx-17.LBL,1M0-919-???-???  ; 1M-X-000 001 >> 1M-X-034 000
+REDIRECT,1M0-920-xx0-17.LBL,1M0-920-??0-???  ; 1M-Y-000 001 >> 1M-Y-031 000
+REDIRECT,1M0-920-xx2-17.LBL,1M0-920-??1-???  ; 1M-1-000 001 >> 1M-1-090 000
+REDIRECT,1M0-920-xx2-17.LBL,1M0-920-??2-???  ; 1M-2-000 001 >>
+;

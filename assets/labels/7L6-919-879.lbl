@@ -1,0 +1,35 @@
+;
+; VAG-COM label file
+;
+; VW Touareg (7L)
+;
+; component: Level Sensing (#1C)
+;
+; p/n: 7L6 919 879
+;      7L6 919 879 A
+;
+; includes measuring blocks
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 01/12/2004
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measuaring block informations
+;
+;---------------------------------------------------
+;
+;
+001,1,Direction
+001,2,Current Angle,,Specification: 0...359 °
+001,3,Zone
+001,4,Currently,Selected Zone
+;
+002,1,Calibrated
+002,2,Current Calibration,Condition
+;

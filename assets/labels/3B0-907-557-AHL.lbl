@@ -1,0 +1,252 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8D) / VW Passat (3B)
+;
+; Komponente: Motorelektrnik (#01) - AHL/ARM
+;
+; T/N: 3B0 907 557 ??
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-01.LBL
+; 3B0-907-557-AHL.LBL
+;
+; erstellt am 12.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 12.05.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Ansauglufttemperatur,Sollwert: 70...160 (4.5...72.0 °C)
+000,2,Versorgungsspannung,Sollwert: 110...145 (11.0...14.5 V)
+000,3,Kühlmitteltemperatur,Sollwert: 170...205 (80...105 °C)
+000,4,angesaugte Luftmasse,Sollwert: 18...52 (98...280 mg/H)
+000,5,Lambdasondenspannung,Sollwert: 0...50 (0.0...1.0 V)
+000,6,Lernwert-Lambdaregelung (additiv),Sollwert: 0...50 (-0.5...+0.5 ms)
+000,7,Betriebszustand
+000,8,Drosselklappenwinkel,Sollwert: 2...16 (1...8 <°)
+000,9,Einspritzzeit,Sollwert: 2...5 (2...5 ms)
+000,10,Motordrehzahl,Sollwert: 24...30 (760...960 U/min)
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,,Sollwert: 760...960 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+001,3,Lambdasonden-,spannung,Sollwert: 0.0...1.0 V
+001,4,Einstell-,bedingungen
+; 1xxxxxxx = Fehler von Eigendiagnose erkannt
+; x1xxxxxx = Signal vom autom. Getriebe
+; xx1xxxxx = Klimakompressor eingeschaltet
+; xxx1xxxx = Leerlaufschalter offen
+; xxxx1xxx = Fehler in der Lambdaregelung
+; xxxxx1xx = Drosselklappe geöffnet
+; xxxxxx1x = Motor läuft
+; xxxxxxx1 = Kühlmitteltemperatur unter 80 °C
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,,Sollwert: 760...960 U/min
+002,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+002,3,Geschwindigkeit
+002,4,Betriebszustand,,1xxx - Schubbetrieb\nx1xx - Leerlauf\nxx1x - Teillast\nxxx1 - Vollast
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,,Sollwert: 760...960 U/min
+003,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+003,3,Drossel-,klappenwinkel,Sollwert: 1...8 <°
+003,4,Tastverhältnis,Drosselklappenst.
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,,Sollwert: 760...960 U/min
+004,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+004,3,Einspritzzeit,,Sollwert: 2...5 ms
+004,4,angesaugte,Luftmasse,Sollwert: 1.8...5.0 g/s
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,,Sollwert: 760...960 U/min
+005,2,Versorgungs-,spannung,Sollwert: 11.0...14.5 V
+005,3,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+005,4,Ansaugluft-,temperatur,Sollwert: 4.5...72.0 °C
+;
+006,0,Höhenanpassung
+006,1,Motordrehzahl,,Sollwert: 760...960 U/min
+006,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+006,3,Drossel-,klappenwinkel,Sollwert: 1...8 <°
+006,4,Höhenkorrektur-,faktor,Sollwert: 0.7...1.3
+;
+007,0,Leerlaufeinstellung
+007,1,Drossel-,klappenwinkel,Sollwert: 1...8 <°
+007,2,Leerlauflernwert,(ohne Fahrstufe),Sollwert: 0.9...1.1
+007,3,Leerlauflernwert,(mit Fahrstufe),Sollwert: 0.9...1.1
+007,4,Betriebszustand,,1xxx - Schubbetrieb\nx1xx - Leerlauf\nxx1x - Teillast\nxxx1 - Vollast
+;
+008,0,Leerlaufstabilisierung
+008,1,Motordrehzahl,(IST-Wert),Sollwert: 760...960 U/min
+008,2,Motordrehzahl,(SOLL-Wert),Sollwert: 830...860 U/min
+008,3,Leerlaufregler,,Sollwert: -2...+35 %
+008,4,angesaugte,Luftmasse,Sollwert: 1.8...5.0 g/s
+;
+009,0,Leerlaufluftbedarf
+009,1,Leerlaufregler,,Sollwert: -2...+35 %
+009,2,Anpassungs-,zustand,Sollwert: 0000
+; 1xxx - Fehler während einer Drosselklappenanpassung aufgetreten
+; x1xx - Drosselklappensteuereinheit stromlos
+; xx1x - Anpassung abgebrochen wegen zu geringer Batteriespannung (unter 8V)
+; xxx1 - Leerlaufschalter offen
+009,3,Kühlmittel-,temperatur,Sollwer: 80...105 °C
+009,4,Motordrehzahl,,Sollwert: 760...960 U/min
+;
+010,0,Lambdaregelung und AKF-System
+010,1,Lambdaregler,,Sollwert: -25...+25 %
+010,2,Lambdasonden-,spannung,Sollwert: 0.00...1.00 V
+010,3,Magnetventil für,Aktivkohleb. (N80),Sollwert: 0...10 %
+010,4,Lambda,Korrekturfaktor,Sollwert: -10...+15 %
+;
+011,0,Lambda-Lernwerte
+011,1,Einspritzzeit,,Sollwert: 2...5 ms
+011,2,Lambda-Lernwert,(Leerlauf)
+011,3,Lambda-Lernwert,(Teillast)
+011,4,Zustand,TEV-Ventil
+; -1xxxxxx - Übergang zu Tank-Entlüftungs-Ventil Beladungsermittlung
+; -x1xxxxx - Übergang zu Tank-Entlüftungs-Ventil Minimalbetrieb
+; -xx1xxxx - Übergang zu Tank-Entlüftungs-Ventil schließen
+; -xxx1xxx - Entlüftungs-Ventil Beladungsermittlung
+; -xxxx1xx - Tank-Entlüftungs-Ventil Normalbetrieb
+; -xxxxx1x - Tank-Entlüftungs-Ventil Minimalbetrieb
+; -xxxxxx1 - Tank-Entlüftungs-Ventil geschlossen
+;
+012,0,Lambda-Lernwerte
+012,1,Motordrehzahl,,Sollwert: 760...960 U/min
+012,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+012,3,Lambdaregler,,Sollwert: -25...+25 %
+012,4,Lambdasonden-,spannung,Sollwert: 0.00...1.00 V
+;
+013,0,Kraftstoffverbrauch
+013,1,Motordrehzahl,,Sollwert: 760...960 U/min
+013,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+013,3,Geschwindigkeit
+013,4,Kraftstoffverbrauch,,Sollwert: 0.5...1.5 l/h
+;
+014,0,Zündung/Klopfregelung (Zündwinkelrücknahme)
+014,1,Zündwinkel-,rücknahme (Zyl. 1)
+014,2,Zündwinkel-,rücknahme (Zyl. 2)
+014,3,Zündwinkel-,rücknahme (Zyl. 3)
+014,4,Zündwinkel-,rücknahme (Zyl. 4)
+;
+015,0,Zündung/Klopfregelung (Zündwinkelrücknahme)
+015,1,Motordrehzahl,,Sollwert: 760...960 U/min
+015,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+015,3,Zündwinkel-,rücknahme (Zyl. 1)
+015,4,Zündwinkel-,rücknahme (Zyl. 2)
+;
+016,0,Zündung/Klopfregelung (Zündwinkelrücknahme)
+016,1,Motordrehzahl,,Sollwert: 760...960 U/min
+016,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+016,3,Zündwinkel-,rücknahme (Zyl. 3)
+016,4,Zündwinkel-,rücknahme (Zyl. 4)
+;
+017,0,Zündung/Klopfregelung
+017,1,Klopfsensor-,spannung (Zyl. 1)
+017,2,Klopfsensor-,spannung (Zyl. 2)
+017,3,Klopfsensor-,spannung (Zyl. 3)
+017,4,Klopfsensor-,spannung (Zyl. 4)
+;
+018,0,Momentreduzierung (nur autom. Getriebe)
+018,1,Motordrehzahl,,Sollwert: 760...960 U/min
+018,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+018,3,Zündwinkelrückn.,bei Getriebeeingriff
+018,4,Zündwinkel,,Sollwert: 0...10 °v.OT
+;
+019,0,Betriebszustände
+019,1,Motordrehzahl,,Sollwert: 760...960 U/min
+019,2,Wählhebel-,position,Wertebereich: 0 = Neutral | 1 = Fahrstufe EIN
+019,3,Klimaanlage,,Wertebereich: 0 = Klimaanlage AUS | 1 = Klimaanlage EIN
+019,4,Klimakompressor,,Wertebereich: 0 = Komressor AUS | 1 = Kompressor EIN
+;
+020,0,Betriebszustand (Lambdaregelung)
+020,1,Motordrehzahl,,Sollwert: 760...960 U/min
+020,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+020,3,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+020,4,Betriebszustand,Lamda-Regler
+; 1--xxxxx - Fehler im Fehlerspeicher
+; x--1xxxx - Begrenzte Dynamik aktiv
+; x--x1xxx - Lambda-Regler am Anschlag
+; x--xx1xx - Lambdaregler eingeschaltet
+; x--xxx1x - Lambdasonde betriebsbereit
+; x--xxxx1 - Gemischeszustand (0 = mager / 1 = fett)
+;
+021,0,Anpassungszustand (Drosselklappen-Steuereinheit)
+021,1,Status,,Sollwert: 0000
+; 1xxx - Fehler während einer Drosselklappenanpassung aufgetreten
+; x1xx - Drosselklappensteuereinheit stromlos
+; xx1x - Anpassung abgebrochen wegen zu geringer Batteriespannung (unter 8V)
+; xxx1 - Leerlaufschalter offen
+021,2,Min-Anschlag,DK-Poti,Sollwert: 70...93 %
+021,3,Notlauf-Anschlag,DK-Poti,Sollwert: 67...87 %
+021,4,Max-Anschlag,DK-Poti,Sollwert: 6...39 %
+;
+022,0,Stellung der Nockenwelle zur Kurbelwelle
+022,1,Motordrehzahl,,Sollwert: 760...960 U/min
+022,2,angesaugte,Luftmasse,Sollwert: 98...280 mg/H
+022,3,Nr.des KW-Zahns,(low->high),Sollwert: 27...29 (Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel)
+022,4,Nr.des KW-Zahns,(high->low),Sollwert: 87...89 (Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel)
+;
+098,0,Drehzahlregelung (Grundeinstellung Drosselklappen-Steuereinheit)
+098,1,Drosselklappen-,steller (G69)
+098,2,Drosselklappen-,steller (G88)
+098,3,Anpassungs-,zustand
+; 1xxx - Fehler während einer Drosselklappenanpassung aufgetreten
+; x1xx - Drosselklappensteuereinheit stromlos
+; xx1x - Anpassung abgebrochen wegen zu geringer Batteriespannung (unter 8V)
+; xxx1 - Leerlaufschalter offen
+098,4,Betriebszustand
+; 1x - Fehler während der Anpassung der Drosselklappensteuereinheit aufgetreten
+; x1 - Anpassung der Drosselklappensteuereinheit läuft
+;
+099,0,Lambdaregelung (Betriebszustand)
+099,1,Motordrehzahl
+099,2,Kühlmittel-,temperatur
+099,3,Lambda-Regler
+099,4,Betriebszustand
+; 1--xxxxx - Fehler im Fehlerspeicher
+; x--1xxxx - Begrenzte Dynamik aktiv
+; x--x1xxx - Lambda-Regler am Anschlag
+; x--xx1xx - Lambdaregler eingeschaltet
+; x--xxx1x - Lambdasonde betriebsbereit
+; x--xxxx1 - Gemischeszustand (0 = mager / 1 = fett)
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Motorelektronik - Codierung
+C1,??xxx - Land/Abgas
+C2,02 - Nichtmitgliedsländer der Europäischen Union (MVEG I)
+C3,04 - Mitgliedsländer der Europäischen Union (MVEG II)
+C4,07 - Mitgliedsländer der Europäischen Union (D3)
+C5, 
+C6,xx?xx - Antrieb/Zusatzfunktionen
+C8,0 - Frontantrieb
+C9, 
+C10,xxx?x - ESP (Elektronisches Stabilitätsprogramm)
+C11,0 - Fahrzeuge ohne ESP (Elektronisches Stabilitätsprogramm)
+C12,1 - Fahrzeuge mit ESP (Elektronisches Stabilitätsprogramm)
+C13, 
+C14,xxxx? - Getriebe
+C15,1 - Fahrzeuge mit Schaltgetriebe
+C16,3 - Fahrzeuge mit automatischem Getriebe
+;

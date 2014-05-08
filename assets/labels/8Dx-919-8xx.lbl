@@ -1,0 +1,181 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8D)
+;
+; Komponente: J285 - Kombiinstrument (#17)
+;
+; T/N: 8D?-919-8??-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; Diese Datei gehört zu einem Redirect-Paket, stellen
+; Sie sicher, das alle folgenden Dateien vorhanden sind.
+;
+; 8D-17.LBL
+; 8Dx-919-0xx.LBL  ; Modelyear 1995-1997
+; 8Dx-919-8xx.LBL  ; Modelyear 1998-1999
+; 8Dx-920-9xx.LBL  ; Modelyear 2000+
+;
+; erstellt am 21.04.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 15.04.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Geschwindigkeit,[km/h]
+001,2,Motordrehzahl,[U/min]
+001,3,Öldruck-,schalter 2,Wertebereich: Ok/n.Ok
+001,4,[N/A]
+;
+002,1,Wegstrecken-,zähler
+002,2,Tankanzeige,[l]
+002,3,Außen-,temperatur,Wertebereich: -40...+70 °C
+002,4,[N/A]
+;
+003,1,Kühlmittel-,temperatur,Wertebereich: 50...130°C
+003,2,[N/A]
+003,3,[N/A]
+003,4,[N/A]
+;
+050,1,Wegstrecken-,zähler
+050,2,Motordrehzahl,[U/min]
+050,3,[N/A]
+050,4,Kühlmittel-,temperatur,Wertebereich: 50...130°C
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J285 - Kombiinstrument
+C1,??xxx: Mehrausstattung
+C2,+00 - keine Mehrausstattung / +01 - Bremsbelagverschleißanzeige aktiv
+C3,+02 - Sicherheitsgurtwarnanzeige aktiv / +04 - Waschwasseranzeige aktiv
+C4,+16 - Navigation aktiv
+C5, 
+C6,xx?xx: Länderauswahl
+C7,0 - Deutschland (D) / 1 - Europa (EU) / 2 - USA (US) / 3 - Kanada (CDN)
+C8,4 - Großbritannien (GB) / 5 - Japan (JP) / 6 - Saudi Arabien (SA)
+C9,7 - Australien (AUS)
+C10, 
+C11,xxx?x: Zylinderzahl
+C12,4 - 4-Zylinder / 6 - 6-Zylinder / 8 - 8-Zylinder
+C13, 
+C14,xxxx?: Motorvariante
+C15,0 - TDI-Motor / 2 - 4-Zylinder und 6-Zylinder Otto-Motor
+C16,3 - 8-Zylinder Otto-Motor
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A02,0,Serviceintervall
+A02,5,Serviceintervall
+A02,6,Rücksetzen des Serviceinterrvalls.
+A02,7, 
+A02,8,Angezeigte Werte:
+A02,9,01 - Ölservice fällig
+A02,10,10 - Inspektionsservice fällig
+A02,11,11 - Öl- und Inspektionsservice fällig
+A02,12, 
+A02,13,Anpassungswert:
+A02,14,00 - Öl- und Inspektionsservice löschen
+A02,15,01 - Ölservice löschen
+A02,16,10 - Inspektionsservice löschen
+;
+A03,0,Verbrauchsanzeige
+A03,5,Anpassung der Verbrauchsanzeige
+A03,6,Basiswert: 100
+A03,7,Bereich: 85 - 115
+A03,8,Einheit: 5 % (Prozent)s
+;
+A04,0,Sprachvariante für Fehlermeldungen und Navigation (nur MFA)
+A04,1,Sprache
+A04,5,Sprachvariante für Fehlermeldungen und Navigation
+A04,6,1 - Deutsch (German)
+A04,7,2 - Englisch (English)
+A04,8,3 - Französisch (French)
+A04,9,4 - Italienisch (Italian)
+A04,10,5 - Spanisch (Spanish)
+A04,11,6 - Portugiesisch (Portuguese)
+;
+A05,0,"OEL" Meldung
+A05,5,"OEL" Meldung
+A05,6,Der neue Anpassungswert lautet "00015"
+A05,7,für Inspektion alle 15.000km Angabe
+A05,8,erfolgt in 1000km (15x1000=15.000km).
+;
+A06,0,"IN 01" Meldung
+A06,5,"IN 01" Meldung
+A06,6,Der neue Anpassungswert lautet "00030"
+A06,7,für Inspektion alle 30.000km Angabe
+A06,8,erfolgt in 1000km (30x1000=30.000km).
+;
+A07,0,"IN 01" Meldung
+A07,5,"IN 01" Meldung
+A07,6,Der neue Anpassungswert lautet "00036"
+A07,7,für die Jährliche Inspektion Angabe
+A07,8,erfolgt in 10er Tagen (36x10=360 Tage).
+;
+A08,0,"IN 02" Meldung
+A08,5,"IN 02" Meldung
+A08,6,Der neue Anpassungswert lautet "00072"
+A08,7,für die Jährliche Inspektion Angabe
+A08,8,erfolgt in 10er Tagen (72x10=720 Tage).
+;
+A09,0,Kilometerstand (in 10km)
+A09,1,Kilometerstand
+A09,2,in 10
+A09,3,km
+A09,5,Kilometerstand einstellen
+A09,6,Bevor das Kombiinstrument den
+A09,7,neuen Kilometerstand akzeptiert
+A09,8,muss ein Login mit 13861 erfolgen.
+A09,9, 
+A09,10,Der Kilometerstand kann nur eingestellt werden
+A09,11,solange der alte Wert 100km nicht übersteigt.
+;
+A10,0,"OEL" Meldung
+A10,5,"OEL" Meldung
+A10,6,Der neue Anpassungswert lautet "00015"
+A10,7,für Inspektion alle 15.000km Angabe
+A10,8,erfolgt in 1000km (15x1000=15.000km).
+;
+A11,0,"IN 01" Meldung
+A11,5,"IN 01" Meldung
+A11,6,Der neue Anpassungswert lautet "00030"
+A11,7,für Inspektion alle 30.000km Angabe
+A11,8,erfolgt in 1000km (30x1000=30.000km).
+;
+A12,0,"IN 02" Meldung
+A12,5,"IN 02" Meldung
+A12,6,Der neue Anpassungswert lautet "00072"
+A12,7,für die 2 jährliche Inspektion Angabe
+A12,8,erfolgt in 10er Tagen (72x10=720 Tage).
+;
+A30,0,Tankgeberkennlinie
+A30,1,Aktueller,Wert
+A30,5,Tankgeberkennlinie
+A30,6,Basiswert: 100
+A30,7,Bereich: 120 - 136
+A30,8,Einheit: 1 Ohm
+;

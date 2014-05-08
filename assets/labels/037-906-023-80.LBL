@@ -1,0 +1,49 @@
+;
+; 037-906-023-80
+; VAG-COM Measuring Block Labels for
+;037 906 023 S    91-93 Fox,10-1990 to 06-93,Engine code ABG   
+;
+;Un-tested
+;
+0,0,General Engine Data
+0,1,Undocumented
+0,2,Undocumented
+0,3,Coolant Temperature,lower numbers are hotter,temperature must rise (values will decrease) smoothly during warm-up
+0,4,Undocumented
+0,5,O2S Sensor-must vary by at least 14,164-168=Cold sensor or open circuit - 0-5=short to V+ - 230-255=short to ground
+0,6,Undocumented
+0,7,Undocumented
+0,8,Undocumented
+0,9,Undocumented
+0,10,Undocumented
+;
+1,0,Click on box for details - Or open with a text editor
+1,1,Engine Speed,,Idle Specification 750-850 RPM
+1,2,Engine Load,VAF signal,16-26% at warm idle - Working Range 0-100% 
+1,3,Coolant,Temperature,Open circuit shows -40°C - Short circuit shows constant 80°C 
+1,4,Injection,Time,none specified - must increase with load
+;
+2,0,Click on box for details - Or open with a text editor
+2,1,Engine Speed,,Working range = 750-6300 RPM. 
+2,2,Intake,Air Temperature,Open circuit shows -40°C - Short circuit shows constant 80°C 
+2,3,Undocumented
+2,4,Injection,Time,typicaly 1.5-2.5 MS at warm idle
+;
+3,0,Click on box for details - Or open with a text editor
+3,1,Engine Speed,,Soft Governed to 6300 rpm  by fuel shut-off
+3,2,Engine,Temperature,Working Range -40°C to +141°C 
+3,3,Undocumented
+3,4,Injection,Time,Must go to 000ms during deceleration cut-off
+;
+4,0,Click on box for details - Or open with a text editor
+4,1,Engine Speed
+4,2,Engine Load,VAF signal,16-26% at warm idle - 5-15% indiate a vacuum leak - 0-2% indicate an open ciruit in sensor wiring
+4,3,Undocumented
+4,4,Injection,Time
+;
+5,0,Click on box for details - Or open with a text editor
+5,1,Engine Speed
+5,2,Throttle valve,Angle,WOT=90°or more - 0.0°=Open circuit to TPS - 90° or more at idle indicates short to + in TPS wiring  
+5,3,Undocumented
+5,4,Injection,Time
+;

@@ -1,0 +1,133 @@
+;
+; VAG-COM Label File
+;
+; Audi Q7 (4L)
+;
+; Component: J773 - Comfort System II (#6F)
+;
+; P/N: 4L0-910-290-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 29/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/May/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30)
+001,3,Rear Lid,Detection 1,Range: 0...153
+001,4,Rear Lid,Detection 2,Range: 0...153
+;
+002,0,Rear Left Lights
+002,1,Rear Left,Fog Light,Range: 0.0...100.0 %
+002,2,Rear Left,Back-Up Light,Range: 0.0...100.0 %
+002,3,Rear Left,Side Marker Light,Range: 0.0...100.0 %
+;
+003,0,Rear Right Lights
+003,1,Rear Right,Fog Light,Range: 0.0...100.0 %
+003,2,Rear Right,Back-Up Light,Range: 0.0...100.0 %
+003,3,Rear Right,Side Marker Light,Range: 0.0...100.0 %
+;
+004,0,Luggage Compartment Illumination
+004,1,Luggage Comp.,Illumination (High),Range: 0.0...100.0 %
+004,2,Luggage Comp.,Illumination (Low),Range: 0.0...100.0 %
+;
+005,0,Front Sunroof
+005,1,Front Sunroof,Position,Range: 0.0...100.0 %
+005,2,Front Sunroof,Status,Range: Open/Closed
+005,3,Front Sunroof,Reversing,Range: ON/OFF
+005,4,Front Sunroof,Front Switch,See Label File
+; ????-xxx = Pre-Selection
+; xxxx-?xx = Malfunction
+; xxxx-x?x = Pull
+; xxxx-xx? = Pressure
+;
+006,0,Rear Sunroof
+006,1,Rear Sunroof,Position,Range: 0.0...100.0 %
+006,2,Rear Sunroof,Reversing,Range: ON/OFF
+006,3,Rear Sunroof,Front Switch,1xx = Malfunction\nx1x = Close\nxx1 = Open
+006,4,Rear Sunroof,Rear Switch,1xx = Malfunction\nx1x = Close\nxx1 = Open
+;
+007,0,Roof Blinds
+007,1,Roof Blinds,Position,Range: 0.0...100.0 %
+007,2,Roof Blinds,Reversing,Range: ON/OFF
+007,3,Roof Blinds,Front Switch,1xx = Malfunction\nx1x = Close\nxx1 = Open
+007,4,Roof Blinds,Rear Switch,1xx = Malfunction\nx1x = Close\nxx1 = Open
+;
+008,1,LIN Status
+; ?xxxx = Child Safety Lock
+; x?xxx = Sunroof Enabling
+; xx?xx = Communication to Roof Blinds
+; xxx?x = Communication to Rear Sunroof
+; xxxx? = Communication to Front Sunroof
+008,2,LIN Signals
+; 00111111,Bin. Bits,
+; ?xxxxxxx = Comfort Closing
+; x?xxxxxx = Comfort Opening
+; xx?xxxxx = Roof Blinds learning run successful
+; xxx?xxxx = Sunroof standardized
+; xxxx?xxx = Rear Sunroof learning run successful
+; xxxxx?xx = Rear Sunroof standardized
+; xxxxxx?x = Front Sunroof learning run successful
+; xxxxxxx? = Front Sunroof standardized
+008,3,Vehicle Speed
+008,4,Outside,Temperature
+;
+009,3,Rear Lid,Detection 1,Range: 0.00...6.50 V
+009,4,Rear Lid,Detection 2,Range: 0.00...6.50 V
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System II (J773) Coding
+C01,+0000001 = Standard
+C02,+0000002 = Open Sky System installed (PR-3FU)
+C03,+0000004 = 3rd Seat Row NOT installed (PR-5KM/5KY)
+C04,+0000008 = North American Region (PR-A8U)
+C05,+0000256 = Comfort Opening Front Sunroof
+C06,+0000512 = Comfort Opening Rear Sunroof
+C07,+0001024 = Comfort Opening Roof Blinds
+C08,+0002048 = Comfort Closing Roof Blinds
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1502,Fog Light Rear Left (L46)
+T1506,Fog Light Rear Right (L47)
+T1518,Back-Up Light Left (M16)
+T1519,Back-Up Light Right (M17)
+T2911,Side Marker Light Rear Left (M37)
+T2912,Side Marker Light Rear Right (M38)
+T2913,Trunk and Interior Lights
+T2919,Front Sunroof: Open/Raise
+T2920,Front Sunroof: Close/Lower
+T2921,Rear Sunroof: Open/Raise
+T2922,Rear Sunroof: Close/Lower
+T2923,Roof Blinds: Open
+T2924,Roof Blinds: Close
+T2960,Bumper Light Rear Left
+T2961,Bumper Light Rear Right
+T2995,Decalibration Front Sunroof
+T2996,Decalibration Rear Sunroof
+T2997,Decalibration Roof Blinds
+;

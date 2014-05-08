@@ -1,0 +1,86 @@
+;
+; VAG-COM Labelfile
+;
+; VW Passat (3C)
+;
+; Component: Immobilizer (#25)
+;
+; P/N: 3C0-959-433-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-25.LBL
+; 3C0-959-433-25.LBL
+;
+; includes measuring blocks
+;
+; created on 29/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 29/Oct/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Immobilizer I
+001,1,Engine Start,permitted,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+001,2,Engine (ECU),responds,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+001,3,Key Status,,Specification: 1 = Key OK\nDisplay Range: 0 = Key not OK / 1 = Key OK
+001,4,Number of,adapted Keys,Specification: 1...8
+;
+002,0,Immobilizer II
+002,1,Authentification,,Specification: 1 = OK\nDisplay Range: 0 = not OK / 1 = OK
+002,2,Key Status,(Transponder),Display Range: 0 = Not Locked / 1 = Locked
+002,3,Authorization,,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+002,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 0  = End of Assembly Line (Original Condition)
+; 1  = End of Assembly Line (New)
+; 20 = End of Assembly Line (Programmed)
+; 21 = End of Assembly Line (1st ECM adapted)
+; 22 = End of Assembly Line (2nd ECM adapted)
+; 3x = End of Assembly Line (x-th Key adapated)
+; 4  = New Customer Service / Delivery Condition (Replacement Instrument Cluster)
+; 5  = Customer Service locked / Adaptation Data Programmed in Customer Service
+; 6  = Immobilizer adapted / Normal Function Condition
+; 7  = Key Adaptation active
+;
+003,0,Immobilizer III
+003,1,Lock-Time,Tester,Specification: 0.0 Minutes
+003,2,Lock-Time,CAN-Login,Specification: 0.0 Minutes
+003,3,Lock-Time,Scan Protection,Specification: 0.0 Minutes
+003,4,Immobilizer,Status
+; 0 = No Malfunction
+; 1 = Enabling not possible
+; 2 = Adaptation active
+; 3 = Learning Malfunction
+; 4 = Adaptation Malfunction
+; 5 = End of Assembly Line Mode Malfunction
+; 6 = Confirmation Signal active
+;
+004,0,Immobilizer IV (ESCL = Electronic Steering Column Lock)
+004,1,Lock-Time,ESCL,Specification: 0.0 Minutes
+004,2,Lock-Time,Security Access,Specification: 0.0 Minutes
+004,4,ESCL,Voltage Supply,Display Range: ON/OFF
+;
+005,0,Immobilizer V (ESCL = Electronic Steering Column Lock)
+005,1,ESCL Mode,,Specification: 1
+; 0 = End of Assembly Line Mode
+; 1 = Normal Mode
+; 2 = Learning Mode
+005,2,ESCL Status,(Unlocking Bit),Display Range: ON/OFF
+005,3,ESCL Status,(Locking Bit),Display Range: ON/OFF
+;
+008,0,Terminal Status
+008,1,Status,S-Contact,Display Range: Term. S On/Term. S Off
+008,2,Status,Terminal 15,Display Range: Term 15 On/Term 15 Off
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN)
+;

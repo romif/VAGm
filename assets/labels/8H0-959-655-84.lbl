@@ -1,0 +1,96 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 Cabriolet (8H)
+;
+; Component: J234 - Airbag 8.4 (#15)
+;
+; P/N: 8E0-959-655-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-15.LBL
+; 8E0-959-655-84.LBL (Airbag 8.4)
+; 8E0-959-655-94.LBL (Airbag 9.4x)
+;
+; created on 18/Jan/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jul/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Airbag,Passenger Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Ignitiers II (Rear Belt Tensioners)
+002,1,Belt Tensioner,Rear Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Belt Tensioner,Rear Pass. Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Not Installed/Belt Yes/Belt No\nRange: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nRange: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry II (Rear)
+004,1,Belt Inquiry,Rear Driver Side,Specification: Not Installed/Belt Yes/Belt No\nRange: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nRange: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+006,0,Igniter Status (Side Airbag)
+006,1,Front Left Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+006,2,Front Right Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+009,0,Key Switch Status
+009,1,Key Switch,Passenger Airbag,Range: ON/OFF
+;
+010,0,Ingniters VI (Roll-Over Bars)
+010,1,Roll-Over Bar,Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+010,2,Roll-Over Bar,Pass. Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+010,3,Roll-Over Bar,Trigger Counter
+010,4,Work Shop Code,Counter Reset
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Ident.,Number (VIN)
+081,2,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag (J234) Coding
+C01,0011104 = Rest of World
+C02,0010105 = North America
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A081,0,Learned Values (Vehicle Data)
+A081,5,Learned Values (Vehicle Data)
+A081,6,To start the process for vehicle data (VIN)
+A081,7,learning enter/save 02905 as new value.
+;

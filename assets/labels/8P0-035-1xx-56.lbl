@@ -1,0 +1,69 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8P)
+;
+; Komponente: Radio -R- (#56)
+;
+; T/N: 8P0 035 152
+;      8P0 035 186
+;      8P0 035 195
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-56.LBL
+; 8P0-035-1xx.LBL
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 30.11.2004
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Spannung,Klemme 30
+001,2,Steuerausgang,Aktivverstärker,Wertebreich: i.O./Kurzschluss
+001,3,
+001,4,Telefon,Stummschaltung,Wertebereich: ein/aus
+;
+002,1
+002,2,Zustand,Lautsprecher vorn,Wertebereich: i.O./Kurzschluss/Unterbrechung/nicht aktiv
+;
+003,1,
+003,2,
+003,3,Zustand,aktive Antenne,Wertebereich: i.O./Kurzschluss/Unterbrechung
+;
+004,1,
+004,2,Kommunikation,CD-Wechsler,Wertebereich: i.O./n.i.O.
+;
+005,0,Zustand ZF-Ausgang (nur Concert/Symphony)
+005,1,
+005,2,Zustand,ZF-Leitung,Wertebereich: i.O./Kurzschluss/Unterbrechung
+;
+080,0,Herstellerkennzahlen etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Herstellerwerkskennzahl und -kennzeichnung (Hhh-kkk)
+;Tages-Fertigungsdatum (dd.mm.yy)
+;Herstelleränderungsstand (12345678)
+;Hersteller-Prüfstand-Nr. (pppp) 
+;Laufende Hersteller-Nr. (nnnn)
+;
+081,0,Fahrgestellnummer etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Fahrgestellnummer (WVWZZZ1JZWW123456)
+;Baugruppennummer oder Seriennummer (12345678901234)
+;Typprüfnummer (Typprnr)
+;

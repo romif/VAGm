@@ -1,0 +1,126 @@
+;
+;VAG-COM Measuring Blocks label file for 2,6 litre V6 engine, engine code ABC.
+;Control Module Part Number: 4A0-907-473xx
+;
+;Created by Mikael "Knappen" Therell (en_knapp@home.se)
+;
+;Feel free to modify and send modifications to Ross-Tech.
+;
+;Last modified by Knappen on Febuary 21, 2004.
+;
+;Group A0 does not show in adaption but is implemented for completeness and possible future use.
+;
+A0,0,Idling speed stabilisation valve and learned mixture values
+A0,5,Moves the idling speed stabilisation valve to it's basic position and resets learned mixture values to factory default.
+A0,6,The idling speed stabilisation valve -N71 must be moved to it's basic position if:
+A0,7,The -N71 connector has been removed with engine running.
+A0,8,The -N71 has been removed and installed or replaced.
+A0,9,The engine control unit has been removed and installed or replaced.
+A0,10,The intake manifold has been removed and installed or replaced.
+A0,11,The engine has been removed and installed or replaced.
+A0,12,
+A0,13,Save 00 to adapt and reset.
+A0,14,
+A0,15,Idling speed stabilisation valve adaption only can be performed in Basic settings block 001.
+A0,16,Learned mixture values reset only can be performed in Basic settings block 002.
+A0,17,Basic settings can only be performed from software version DO3 and above in ECU version A.
+;
+A1,0,Idling speed adaption
+A1,5,Idling speed adaption
+A1,6,Adaption value 0 is factory set idling speed.
+A1,7,Adaption is 10 rpm per step.
+A1,8,+10 rpm enter 00001. +20 rpm enter 00002.  Works up to +70 rpm or 00007.
+A1,9,-10 rpm enter 00255. -20 rpm enter 00254. Works down to -70 rpm or 00249.
+;
+C0,Coding engine ABC and ACZ
+C1,There's different codings for indexes up to "C" and from "D" and onwards
+C2,
+C3,Number of Lambda probes - Type of Gearbox - Type of drive - Coding up to "C" - Coding from "D" and up
+C4,              2                           -   Manual 012      -      FWD         -          000            -            00060
+C5,              2                           -   Manual 01A      -      4WD         -          001            -            00061
+C6,              2                           -   Auto   01F        -      4WD         -          008            -            00068
+C7,              2                           -   Auto   01K        -      FWD         -          008            -            00068
+C8,              1                           -   Manual 012      -      FWD         -          032            -            00032
+C9,              1                           -   Manual 01A      -      4WD         -          033            -            00033
+C10,              1                           -   Auto   01F        -      4WD         -          040            -            00040
+C11,              1                           -   Auto   01K        -      FWD         -          040            -            00040
+;
+0,0,Group 000 explanations not found in ErWin.
+0,1,Explanations not found in ErWin.
+0,2,Explanations not found in ErWin.
+0,3,Explanations not found in ErWin.
+0,4,Explanations not found in ErWin.
+0,5,Explanations not found in ErWin.
+0,6,Explanations not found in ErWin.
+0,7,Explanations not found in ErWin.
+0,8,Explanations not found in ErWin.
+0,9,Explanations not found in ErWin.
+0,10,Explanations not found in ErWin.
+;
+1,0,Idling control (Basic settings-Idling stabilisation valve to default)
+1,1,Engine speed,,680 rpm-820 rpm at idling
+1,2,Intake manifold,pressure,29-59% OK at idling (100%=1022hPa - 32%=327hPa)
+1,3,Ignition timing,,Ignition firing point
+1,4,Position of idling,stabilisation valve,18-75 OK at idling
+;
+2,0,Open throttle control (Basic settings-Resets learned mixture values)
+2,1,Throttle valve,angle,Idling: 0% - Full load: 95%
+2,2,Intake manifold,pressure,100%=1022hPa - 32%=327hPa
+2,3,Coolant,temperature,81-111°C when warmed up
+2,4,Intake air,temperature,Depends on ambient temperature
+;
+3,0,Lambda control (Basic settings-Ignition timing angle 0.0° ATDC)
+3,1,Lambda learning,value (bank 1),0.75-1.25 (Basic settings-Coolant temperature. Must be at least 85°C.)
+3,2,Lambda learning,value (bank 2),0.75-1.25 (Basic settings-Idling switch. 0=Open 1=Closed.)
+3,3,Lambda control,(bank 1),0.75-1.25 (Basic settings-Ignition timing.)
+3,4,Lambda control,(bank 2),0.75-1.25 (Basic settings-Idling speed.)
+;
+4,0,Lambda control (Basic settings-Learned lambda-/tank venting value)
+4,1,Condition of,lambda control,0=Active 16=Inactive (Basic settings-Coolant temperature. At least 85°C.)
+4,2,Tank venting,learning value,0.75-1.25 (Basic settings-Idling switch. 0=Open 1=Closed.)
+4,3,Lambda control,(bank 1),0.75-1.25 (Basic settings-Lambda learning value (bank 1) 0.75-1.25)
+4,4,Lambda control,(bank 2),0.75-1.25 (Basic settings-Tank venting learning. 1 min constant-1 min variable)
+;
+5,0,Ignition control
+5,1,Engine speed,,Disconnects VAG-COM at approximately 2500 rpm
+5,2,Knock control,depth,Basic value: 60° ATDC
+5,3,Ignition timing,,Average of all ignition timing angles
+5,4,Coolant,temperature,81-111°C when warmed up
+;
+6,0,Idling control
+6,1,Position of idling,stabilisation valve,10-60 OK at idling
+6,2,Learned value for,idling stabilisation,18-75 OK at idling
+6,3,Idling stabilisation,valve interference,0=no interference
+6,4,Idling stabilisation,valve control,Idling stabilisation control
+;
+7,0,Basic Functions
+7,1,Position of idling,stabilisation valve,10-60 OK at idling
+7,2,Coolant,temperature,81-111°C when warmed up
+7,3,Lambda learning,value (bank 1),0.75-1.25
+7,4,Lambda learning,value (bank 2),0.75-1.25
+;
+8,0,Basic Functions
+8,1,Position of idling,stabilisation valve,10-60 OK at idling
+8,2,Coolant,temperature,81-111°C when warmed up
+8,3,Lambda learning,value (bank 1),0.75-1.25
+8,4,Lambda learning,value (bank 2),0.75-1.25
+;
+9,0,Basic Functions
+9,1,Coolant,temperature,81-111°C when warmed up
+9,2,Idling switch,(0=open 1=closed)
+9,3,Ignition timing,,Ignition firing point
+9,4,Engine speed,,Disconnects VAG-COM at approximately 2500 rpm
+;
+10,0,Basic Functions
+10,1,Coolant,temperature,81-111°C when warmed up
+10,2,Idling switch,(0=open 1=closed)
+10,3,Lambda learning,value (bank 1),0.75-1.25
+10,4,Tank venting,learning value,0.75-1.25
+;
+99,0,Basic Functions (from ErWin but not verified since I can't read this block)
+99,1,Engine speed,,Disconnects VAG-COM at approximately 2500 rpm
+99,2,Engine load,,Intake manifold pressure (100% = 1022hPa - 32% = 327hPa)
+99,3,Coolant,temperature,81-111°C when warmed up
+99,4,Lambda control,OFF/ON
+;
+;End of File

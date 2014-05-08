@@ -1,0 +1,104 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L) / VW Transporter (7H/7J)
+;
+; Component: Radio-/Navigations System (#56) - RN-S2 CD
+;
+; P/N: 7L6-035-186-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-56.LBL
+; 7L6-035-186-CD.LBL
+; 7L6-035-186-DVD.LBL
+;
+; includes measuring blocks and coding
+;
+; created on 18/Mar/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Apr/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5.0...18.0 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Input,Telephone-Mute
+001,4,Input,Telephone-Mute,Display Range: ON/OFF
+;
+002,0,Speakers/Line-Out (Front)
+002,1,Location/Type
+002,2,Condition
+002,3,Location/Type
+002,4,Condition
+;
+003,0,Speakers/Line-Out (Rear)
+003,1,Location/Type
+003,2,Condition
+003,3,Location/Type
+003,4,Condition
+;
+004,0,Remote Feed Antenna I
+004,1,Type
+004,2,Component
+004,3,Status
+;
+005,0,IF-Output && CD-Connection
+005,1,IF-Output
+005,2,IF-Output,Status
+005,3,CD-Connection
+005,4,CD-Connection,Status,Display Range: OK/not OK
+;
+006,0,CAN-Databus Infotainment (Communication)
+006,1,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+006,2,Telephone,,Display Range: Telephone 1/Telephone 0
+006,3,Steering Wheel,Electronics,Specification: St. Wheel 1\nDisplay Range: St. Wheel 1/St. Wheel 0
+006,4,TV-Tuner,,Display Range: TV-Tuner 1/TV-Tuner 0
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module
+025,2,Control Module,Status
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio-/Navigation System (R) Coding
+C01,00?xxxx: Configuration I
+C02,+1 = TV-Tuner
+C03,+2 = Levelling Display/Off Road Module
+C04,00x?xxx: Configuration II
+C05,+1 = IF-Output
+C06,+2 = CAN Telephone Control
+C07,+3 = CAN Multi-Function Steering Wheel
+C08,00xx?xx: Speakers
+C09,0 = Sound System (No passive Speakers)
+C10,4 = 8 or 10 passive Speakers (4 Speaker Channels)
+C11,00xxx?x: Sound System Correction
+C12,+1 = Sound System
+C13,+2 = T5-Multivan (USA/CAN)
+C14,+4 = Touareg/T5-Multivan (Rest of World)
+C15,+6 = Touareg (USA/CAN)
+C16,00xxxx?: Configuration III
+C17,+1 = Remote Supplied Antenna
+C18,+2 = CD-Changer
+C19,+4 = CAN-Secondary Display
+;

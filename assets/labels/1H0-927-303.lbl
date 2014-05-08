@@ -1,0 +1,82 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf (1H)
+;
+; Komponente: Kupplungselektronik (#12)
+;
+; T/N: 1H0 927 303
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 09.10.2004
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Motor-,drehzahl,Auflösung: 30 U/min
+001,2,Getriebe-,drehzahl,Auflösung: 30 U/min
+001,3,Gaspedalwert,[%],Potentiometer für Lastsignal G157 (Sollwert (Leerlauf): 0...3 % / Sollwert (Vollast): 96...100 %)
+001,4,Ganginformation,,Wertebereich: R.-Gang/LG 1-2/LG 3-4/1. Gang/2. Gang/3. Gang/4. Gang/5. Gang
+;
+002,1,Lastsignal-,potentiometer,G157 (Sollwert: 0.56...0.76 V (Leerlauf) / 2.50...4.40 V (Vollast)
+002,2,Geber für,Kupplungsweg,siehe Reparaturleitfaden
+002,3,Batterie-,spannung,Sollwert: 10.8...16.0 V
+002,4,Kühlmittel-,temperatur,150 °C => Kurzschluss nach Masse / -60 °C => Leitungsunterbrechung
+;
+003,0,Kupplungsposition
+003,1,Motor-,drehzahl
+003,2,Getriebe-,drehzahl
+003,3,"IST"-Position,Kupplung,Sollwert: 0...10 % (geschlossen) / 80...100 % (offen)
+003,4,"SOLL"-Position,Kupplung,Sollwert: 0...10 % (geschlossen) / 80...100 % (offen)
+;
+004,0,Eingangs-/Ausgangsinformationen (siehe Labelfile)
+004,1,Eingangs-,informationen,siehe Labelfile
+; ?xxxxxxx - Rückwärtsgang (1 = eingelegt / 0 = nicht eingelegt)
+; x?xxxxxx - Schalter fr Gangbetätigung F191 (1 = nicht betätigt / 0 = betätigt)
+; xx?xxxxx - Unterdruck für Bremse (0 = erreicht / 1 = nicht erreicht)
+; xxx?xxxx - Unterdruck für Kupplung (0 = erreicht / 1 = nicht erreicht)
+; xxxx?xxx - Schalter für Ecomatic E163 (1 = nicht betätigt / 0 = betätigt)
+; xxxxx?xx - Bremslichtschalter F  (0 = nicht betätigt / 1 = betätigt)
+; xxxxxx?x - Schalter für Gangüberwachung F209 (0 = Leerlauf/Gang eingelegt / 1 = Leerlauf/Gang nicht eingelegt)
+; xxxxxxx? - Signal vom Zündanlaßschalter (1 = Signal / 0 = kein Signal)
+004,2,Eingangs-,informationen,siehe Labelfile
+; --?--x-- - Türkontaktschalter F2 (0 = offen / 1 = geschlossen)
+; --x--?-- - Motorhaubenkontakt F207 (0 = offen / 1 = geschlossen/eingerastet)
+004,3,Ausgangs-,informationen,siehe Labelfile
+; ?xxxxxxx - Kontrollampe Schaltanzeige K48 (0 = aktiv)
+; x?xxxxxx - Kontrollampe Ecomatic K110 (0 = aktiv)
+; xx?xxxxx - Kontrllampe Motordurchlauf K111 (0 = aktiv)
+; xxx?xxxx - Kontrollampe Öldruck (K3)/Generator (K2) (1 = aktiv)
+; xxxx?xxx - Vorrangschaltventil N185 (0 = angesteuert / 1 = nicht angesteuert)
+; xxxxx?xx - Relais Unterdruckpumpe J318 (0 = angesteuert)
+; xxxxxx?x - Relais Anlasser J53 (0 = angesteuert)
+; xxxxxxx? - Kraftstoffabschaltventil N109 (1 = angesteuert)
+004,4,Ausgangs-,informationen,siehe Labelfile
+; -------? - Relais für Lenkhydraulik J320 (0 = angesteuert / 1 = nicht angesteuert)
+;
+005,0,Belüftungsventil
+005,1,Motor-,drehzahl
+005,2,Batterie-,spannung,Sollwert: 10.8...16.0 V
+005,3,[N/A]
+005,4,Belüftungsventil,N184 [A],Sollwert: 0.7...1.2 A (Leerlauf) / 0...0.1 (1. Gang)
+;
+006,0,Nicht relevant
+;
+007,1,Motor-,drehzahl
+007,2,Getriebe-,drehzahl
+007,3,[N/A]
+007,4,Geschwindigkeit
+;
+008,0,Messwerte für Fahrzeugproduktion
+;

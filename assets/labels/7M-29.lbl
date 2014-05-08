@@ -1,0 +1,19 @@
+;
+; VAG-COM Redirect File
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7M-29.LBL
+; 7M-39.LBL
+; 7M3-907-391-29.LBL
+; 7M3-907-391-39.LBL
+;
+; created on 01/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 01/Jun/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,7M3-907-391-29.LBL,7M3-907-391
+;

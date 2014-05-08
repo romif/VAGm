@@ -1,0 +1,165 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8L) / Audi A4 (8D) / Audi A4 (8E) / Audi A6 (4B) / Audi A8 (4D)
+;
+; Komponente: J523 - Telematik (#75)
+;
+; T/N: ???-035-617-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-75.LBL
+; 4D-75.LBL
+; 8E-75.LBL
+; 8L-75.LBL
+; 8E0-035-61x-75.LBL
+;
+; erstellt am 25.02.2006 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 20.03.2006
+;
+; benötigt mindestens VAG-COM 505.1 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Telefon Status
+001,1,Telefon
+001,2,Status,Telefon,Wertebereich: n.angemeldet/angemeldet
+001,3,Feldstärke
+001,4,Feldstärke,,Wertebereich: 0.0...1.0
+;
+002,0,Notbatterie && Dimmung
+002,1,Notbatterie
+002,2,Status,Notbatterie,Wertebereich: voll/schwach/leer
+002,3,Dimmung,(Klemme 58b)
+002,4,Dimmung,(Klemme 58b),Wertebereich: 0.0...100.0 %
+;
+003,0,Fahrzeuggeschwindigkeit/-bewegung
+003,1,Geschwindigkeit
+003,2,Geschwindigkeit
+003,3,Fahrtrichtung,,Wertebereich: vorwärts/rückwärts
+;
+004,0,Notruf-/Pannentaste
+004,1,Notruftaste
+004,2,Status,Notruftaste,Wertebereich: unbetätigt/betätigt
+004,3,Pannentaste
+004,4,Status,Pannentaste,Wertebereich: unbetätigt/betätigt
+;
+005,0,Gerätenummer (IMEI)
+005,1,Gerätenummer,(IMEI)
+;
+006,0,SIM-Karte
+006,1,Kartennummer,oder Status,Wertebereich: "Kartennummer"/inaktiv
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+081,0,Erweiterte Steuergerät Identifikation II
+;
+125,0,CAN-Datenbuss Kommunikation (Infotainment)
+125,1,Kombiinstrument,(J285),Sollwert: Kombi 1\nWertebereich: Kombi 1/Kombi 0
+125,2,Multifunktions-,lenkrad
+125,3,Radio,,Wertebereich: Radio 1/Radio 0
+125,4,Navigation,,Wertebereich: Navigat 1/Navigat 0
+;
+126,0,CAN-Datenbuss Kommunikation (Infotainment)
+126,1,Sprachbediensystem
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Reifenumfang
+A001,5,Reifenumfang
+A001,6,Der Reifenumfang wird in "mm" angegeben
+A001,7,eine Reifenumfangtabelle findet sich hier:
+A001,8, 
+A001,9,http://de.openobd.org/audi/rns.htm#reifen
+;
+A002,0,Impulse pro Radumdrehung
+A002,5,Impulse pro Radumdrehung
+A002,6,8 = Standard
+A002,7,45 = nur Audi A4 (8D)
+;
+A003,0,Service-Modus
+A003,1,Service-Modus
+A003,2,Status
+A003,5,Service-Modus
+A003,6,Um z.B. im Falle eines Batteriewechsels zu verhindern
+A003,7,das auf die Notbatterie zurückgegriffen wird kann der
+A003,8,Service-Modus aktiviert werden.
+A003,9, 
+A003,10,0 = Service-Modus AUS
+A003,11,1 = Service-Modus EIN
+;
+A005,0,Antennen (Test)
+A005,5,Antennen (Test)
+A005,6,Über diesen Kanal kann der Antennentest initialisiert werden.
+A005,7, 
+A005,8,0 = Kein Antennentest
+A005,9,1 = Test für Hauptantenne aktiv
+A005,10,2 = Test für Notantenne aktiv
+A005,11,3 = Test für beide Antennen aktiv
+;
+A006,0,Antennen (Umschaltung)
+A006,1,Aktueller,Status
+A006,5,Antennen (Umschaltung)
+A006,6,Zur Prüfung lässt sich die Automatische Antennenauswahl abschalten.
+A006,7, 
+A006,8,0 = Automatische Umschaltung
+A006,9,1 = Nur Hauptantenne
+A006,10,2 = Nur Notantenne
+;
+A007,0,Telematikfehlermeldungen
+A007,1,Aktueller,Status
+A007,5,Telematikfehlermeldungen unterdrücken
+A007,6,Im Falle des Ablaufes des Telematikvertrages kann das Telematiksystem
+A007,7,weiterhin als Telefon benutzt werden. Die dann autretende Fehlermeldung
+A007,8,lässt sich mit Hilfe dieses Anpassungskanals unterdrücken.
+A007,9, 
+A007,10,0 = Normal
+A007,11,1 = Fehlermeldung unterdrücken
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Telematik (J526) Codierung
+C01,000?xxx: Fahrzeug
+C02,0 = A3 (8L) / 1 = A4 (8D) / 2 = A6 (4B)
+C03,3 = A8 (4D) / 4 = A2 (8Z) / 5 = A4 (8E)
+C04, 
+C05,000x?xx: Ausstattung
+C06,+1 = Multifunktionslenkrad verbaut
+C07,+2 = Sprachbediensystem verbaut
+C08, 
+C09,000xx?x: Navigation
+C10,0 = ohne Navigationssystem
+C11,1 = Navigationssystem III (BNS 3)
+C12,2 = Navigationssystem II-D (RNS-D)
+C13,3 = Navigationssystem IV (BNS 4)
+C14, 
+C15,000xxx?: Radio
+C16,1 = ohne Radio/Navigationssystem
+C17,2 = Radio (mit CAN)
+C18,3 = Radio (mit CAN) und BOSE Soundsystem
+C19,4 = Radio (ohne CAN) oder Navi. II-D (RNS-D)
+C20,5 = Radio (ohne CAN) oder Navi. II-D (RNS-D) und BOSE Soundsystem
+;

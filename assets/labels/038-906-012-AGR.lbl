@@ -1,0 +1,226 @@
+;
+; VAG-COM Measuring Block Labels Template file.; TDi 1.9 (ALH engine) ECU 038 906 012 BD
+
+;*****SOME MEASURING BLOCKS ARE READ AT WIDE OPEN THROTTLE (WOT) AND INDICATED AS SUCH*******
+
+; contributed by Mike Sauve www.alientech.net
+; modified for Jetta, Golf 1999-2000 by Steve Tomasic www.steve_tomasic@hotmail.com
+; Modified by Ross-Tech Feb 2004 to demonstrate Labels for Adaptation 
+
+0,0,Measuring block 000 data at idle/full load. Click on fields for details.
+0,1,Engine Speed,Idle:42...45(870-950 rpm),Full load:138...148(2900-3100 rpm)
+0,2,Start of Injection,Idle:12...75(2*ATDC-3*BTDC),Full load:138...215(8-14* BTDC)
+0,3,Trottle Position,Idle:0(0%),Full load:255(100%)
+0,4,Injection Quantity,Idle:11...45(2.2-9.0 mg/stroke),Full load:174...184(34.8-36.8 mg/stroke)
+0,5,Manifold Absolute Press.,Idle:Not relevant,Full load:164...202(1700-2080 mbar)
+0,6,Atmospheric Pressure,Idle:Not relevant,Full load:183...224(910-1110 mbar)
+0,7,Engine Coolant Temp.,Idle:80...35(80-110*C),Full load:80...35(80-110*C)
+0,8,Intake Manifold Temp.,Idle:182...50(10-100*C),Full load:182...50(10-100*C)
+0,9,Fuel Temperature,Idle:91-201(20-80*C),Full load:91...201(20-80*C)
+0,10,Air Mass(EGR on),Idle:69-111(230-370 mg/H),Full load:255(800-1100 mg/H)
+;EGR is switched off after approx. 2 min. of idle (>2min, restart eng. or give full throttle)
+
+
+A1,0,Injected quantity-Increase to solve slowdown shudder problem.
+A1,1,Engine speed
+A1,2,IQ,3-5 mg/R
+A1,3,Mod. Piston Displ.,1.45-2.0 V
+A1,4,Coolant Temp.,80-110*C
+
+A2,0,Idle speed
+A2,1,Engine speed,870-950 rpm
+A2,2,Throttle pos,0%
+A2,3,Operating Cond/AC,speed/throttle/AC
+;xxx
+;  1 AC compressor switched on
+; 1  Throttle Position switch closed
+;1   Inc. idle speed as AC switched on
+A2,4,Coolant Temp.,80-110*C
+
+A3,0,EGR - Exhaust Gas Recirculation
+A3,1,Engine speed,870-950 rpm
+A3,2,MAF (specified),230-370 mg/H
+A3,3,MAF (actual),230-370 mg/H
+A3,4,EGR duty cycle,40-75%
+A3,5,EGR Modification
+A3,6,   
+A3,7,To reduce EGR to a minimum
+A3,8,(for off-road use only!)
+A3,9,set this channel to 33768.
+A3,10, 
+A3,11,To restore EGR to stock,
+A3,12,set this channel to 32768
+
+A4,0,Start of Injection - any modification is strongly discouraged
+A4,1,Engine speed,870-950 rpm
+A4,2,Specified start,2*A-3*BTDC
+A4,3,Actual start,2*A-3*BTDC
+A4,4,Cold Start Valve,3-80%
+
+A5,0,Starting Conditions - temporary fix for poorly starting engine
+A5,1,Engine speed,rpm
+A5,2,Start Inj Qty,
+A5,3,Actual Start of Inj,
+A5,4,Coolant temp,*C
+
+1,0,Injected Quantity
+1,1,Engine speed,870-950 rpm
+1,2,Injection Quantity,2.2-9.0 mg/H
+1,3,Mod. Piston Displ.,1.45-2.0 V
+1,4,Coolant Temp.,80-110*C
+
+2,0,Idle Speed (See label file for #3)
+2,1,Engine speed,870-950 rpm
+2,2,Throttle Position,0%
+2,3,Operating Cond/AC,speed/throttle/AC
+;xxx
+;  1 AC compressor switched on
+; 1  Throttle Position switch closed
+;1   Inc. idle speed as AC switched on
+2,4,Coolant Temp,80-110*C
+
+3,0,EGR
+3,1,Engine speed,870-950 rpm
+3,2,MAF (specified),230-370 mg/H
+3,3,MAF (actual),230-370 mg/H
+3,4,EGR duty cycle,40-75%
+
+4,0,Start of Injection
+4,1,Engine speed,870-950 rpm
+4,2,Specified start,2*A-3*BTDC
+4,3,Actual start,2*A-3*BTDC
+4,4,Cold Start Valve,3-80%
+
+5,0,Starting Conditions
+5,1,Engine speed,rpm
+5,2,Start Inj Qty,
+5,3,Actual Start of Inj,
+5,4,Coolant temp,*C
+
+6,0,Switch Positions (See label file for #2, #3)
+6,1,Speed, km/h
+6,2,Brake Pedal,F/F47/F36 
+; xxx 
+;   1  Brake light switch F closed 
+;  1   Cruise,DFI brake switch open
+; 1    Clutch vacuum vent valve switch-f36-, open
+
+6,3,Cruise Control,Cl/Br/Re/Ac/on/on
+; xxxxxx
+;      1 CC Switched switched on
+;     1  CC and memory switched off
+;    1   Acceleration
+;   1    Resume speed
+;  1     Brake pedal operated
+; 1      Clutch pedal operated
+6,4,Cruise System,0
+;1.0 = normal
+;17.0 = brake pressed?
+
+7,0,Temperatures
+7,1,Fuel Temp,~Amb.Temp.*C
+;-5.4*C short circuit or Fuel Temp. Sensor -G81- inoperative
+7,2,n/a
+7,3,Intake Air Temp,~Amb.Temp.*C
+;~136.8*C Intake Air Temp. Sens0r -G72- inoperative
+7,4,Coolant Temp,~Amb.Temp.*C
+;Short circuit or ECT sensor -G62- inoperative
+
+8,0,Injection Quantity Limitation **Done at WOT**(See label file, I.Q.= Inj. Qty.)
+;Read values when engine speed reaches 3000 rpm.
+8,1,Engine speed,rpm
+8,2,I.Q. Driver's req.,40.0-42.0 mg/H
+8,3,I.Q. via rpm(Torq),35.5-36.5 mg/H
+8,4,I.Q. via air mass,36.0-39.0 mg/H
+;#4 injection quantity limited due to air mass drawn in (smoke prevention)
+
+9,0,Injected Quantity Limitation
+9,1,Engine speed,rpm
+9,2,Injection Quantity,CC active
+9,3,Inj. limit,during a/t shift
+9,4,,
+
+10,0,Air system (See label file for #1)
+10,1,MAF Sensor,230-370 mg/H
+;If O.K. road test also
+;Accelerate 3rd gear (2nd for auto.)from 1500 rpm at WOT.
+;At 3000 rpm, Field #4=100%, and Field #1 >800 mg/H
+10,2,Atmos. Pressure,Sensor-f96-
+10,3,Manifold Pressure,MAP sensor-G71-
+10,4,Throttle,%Throttle
+
+11,0,Charge Pressure Control **Done at WOT**(See label file)
+;WOT, 3rd gear manual, 2nd auto., temp>80*C
+;Read values at 3000 rpm or greater.
+11,1,Engine speed,rpm
+11,2,Specified MAP,1850-1950 mbar
+11,3,Actual MAP,1700-2080 mbar
+11,4,D.cycle MAP v.,45-95%
+
+12,0,Glow Plugs (see label file for #1)
+12,1,Glow status,all 1's=off
+; xxxxxxxx
+; 11111111 Glowing off
+; 00010000 Pre-glow
+; 01110000 Start of glow
+; 11110000 Interim glow
+; 10110000 Post-glow
+; 00110000 Readiness glowing
+12,2,Pre-glow period,
+12,3,Supply Voltage,
+12,4,Coolant Temp,*C
+
+13,0, Idle Speed Smooth Running Control
+13,1,Cyl 1,-2 to +2
+13,2,Cyl 2,-2 to +2
+13,3,Cyl 3,-2 to +2
+13,4,Cyl 4,-2 to +2
+
+15,0,Fuel Consumption
+15,1,Engine speed,rpm
+15,2,Inj Qty (actual),
+15,3,Fuel Consumption,
+15,4,Inj Qty requested,(accelerator)
+
+16,0,Additional Heater
+16,1,Generator loading,
+16,2,Aux. heat,(see label file)
+; xxxxxxxx
+; 1        Not relevant
+;  1       Not relevant
+;   1      Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty
+;    1     Engine start in last 10 seconds
+;     1    Engine below 870 rpm
+;      1   Battery below 9 volts
+;       1  Generator faulty
+;        1 Coolant temp > 70-80C or Intake Air Temp. > 5C
+16,3,Activation,Hi/Lo
+; xx
+; 1  High heat output,J360 on
+;  1 Low heat output,J359 on
+16,4,Voltage supply,from ECM
+
+17,0,Readiness Codes (See label file to set Readiness Code)
+17,2,Should be,x000xxxx
+17,4,Should be,0xxxxxxx
+;Clear DTC's
+;Start and idle engine for 35 sec. minimum.
+;Road test-manual in 3rd gear, auto. in 2nd.
+;Drive for at least 5 sec. at 2000 rpm
+;Accelerate at WOT from 2200 rpm for at least 8 sec.
+;Switch engine off and wait 10 sec. minimum.
+;Repeat from 'Start engine'.
+18,0,Undocumented
+
+19,0,Quantity Adjuster
+19,1,Piston sens start,0.5-0.97 V
+19,2,Piston sens stop,4.15-4.740 V
+19,3,n/a,
+19,4,n/a,
+
+20,0,Undocumented
+21,0,Undocumented
+22,0,Undocumented
+23,0,Undocumented
+24,0,Undocumented
+;

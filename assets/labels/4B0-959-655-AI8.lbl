@@ -1,0 +1,109 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4B)
+;
+; Component: J234 - Airbag (#15) - AIRBAG8
+;
+; P/N: 4B0-959-655-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-15.LBL
+; 4B0-959-655-AI7.LBL
+; 4B0-959-655-AI8.LBL
+; 4B0-959-655-AI84.LBL
+;
+; created on 10/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 04/Nov/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,2,Airbag,Passenger Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+002,0,Ignitiers II (Rear Belt Tensioners)
+002,1,Belt Tensioner,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+002,2,Belt Tensioner,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+002,3,Belt Tensioner,Rear Center,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+002,4,Battery Disconnect,Igniter,Display Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Display Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+;
+004,0,Belt Inquiry II (Rear)
+004,1,Belt Inquiry,Rear Driver Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Pass. Side,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Specification: Belt Yes/Belt No\nDisplay Range: Too Low/Too High/Trig.Ground/Trig.Plus/Belt Yes/Belt No
+;
+006,0,Igniters III (Side Airbags)
+006,1,Side Airbag,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+006,2,Side Airbag,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+006,3,Side Airbag,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+006,4,Side Airbag,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Too Low/Too High/Trig.Ground/Trig.Plus
+;
+007,0,Seat Occupation (Rear)
+007,1,Seat Occupation,Rear Driver Side,Display Range: Too High
+007,2,Seat Occupation,Rear Pass. Side,Display Range: Too High
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 = Airbag Enabled
+A001,7,1 = Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag 8 (J234) Coding
+C01,Standard: Front Airbags/Front Belt Tensioners
+C02, 
+C03,0?x0x: Key Switch for Pass. Airbag Deactivation
+C04,0 = not installed
+C05,1 = installed
+C06, 
+C07,0x?0x: Side/Head Airbags
+C08,0 = No Side/Head Airbags
+C09,1 = Front Side Airbags
+C10,2 = Front Side Airbags / Rear Side Airbags
+C11,3 = Front Side Airbags / Head Airbags
+C12,4 = Front Side Airbags / Rear Side Airbags / Head Airbags
+C13, 
+C14,0xx0?: Rear Belt Tensioners
+C15,4 = 2 Rear Belt Tensioners
+C16,6 = 3 Rear Belt Tensioners
+;

@@ -1,0 +1,28 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4A-01.LBL
+; 034-907-551-AAN.LBL  (2.2l SR  @ 230 HP - AAN)
+;
+; created on 05/Sep/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;4A0-907-401-E   ; AAT: (4B)
+;4A0-907-401-F   ; AAT: (4B)
+;4A0-907-401-K   ; AAT: (4B)
+;4A0-907-401-P   ; AEL: (4B)
+;4A0-907-401-Q   ; AAT: (4B)
+;4A0-907-401-R   ; AAT: (4B)
+;
+REDIRECT,034-907-551-AAN.LBL,4A0-907-551-E   ; AAN: Manual (4A)
+REDIRECT,034-907-551-AAN.LBL,4A0-907-551-F   ; AAN: Automatic (4A)
+;

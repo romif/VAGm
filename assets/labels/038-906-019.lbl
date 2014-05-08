@@ -1,0 +1,225 @@
+;038-906-019: Engines: 1.9PD ATD/AVB(100hp), AJM/ATJ/AUY(115hp), AVF/AWX(130hp), ARL(150hp)
+;Eric Maurier eric@ross-tech.com / http://www.vag.com.fr
+;Specified values format:
+;100hp//115hp//130hp//150hp
+;
+;This is the lookup table that will redirect to files displaying the spec values
+REDIRECT,038-906-019-090.LBL,AB,FB,LP,Q;							ANU engine
+;
+REDIRECT,038-906-019-100.LBL,AF,AG,BL,CM,CN,DD,DE,DF,DL,FF,FJ,GC,HQ,HT,JK,JN,KH,KT,LB,R; 	ATD engine
+REDIRECT,038-906-019-100.LBL,BM,CL,CP,EA,EB,EJ,EK,EL,EM,FN,GG,GK,GL,GM,GN,JP,KB,KC,KP,LF;   	AVB engine
+REDIRECT,038-906-019-100.LBL,AT,CR,FH,FS,HR,JM,KR,LC,MQ;					AXR engine
+;
+REDIRECT,038-906-019-115.LBL,A,AN,BR,BS,CD,CE,CJ,H;						AJM engine
+REDIRECT,038-906-019-115.LBL,AJ,BK;								ATJ engine
+REDIRECT,038-906-019-115.LBL,AR,ET,FC,J,LQ;							AUY engine
+;
+REDIRECT,038-906-019-130.LBL,BH,BP,CK,DQ,E,FG,FR,FT,HJ,KJ,LA;					ASZ engine
+REDIRECT,038-906-019-130.LBL,BN,DS,DT,EN,EP,EQ,GD,GE,GF,GQ,GR,GT,JE,JL,JS,JT,KA,KD,KF,LH,LJ;	AVF engine
+REDIRECT,038-906-019-130.LBL,CF,CG,EG,EH,ER,FP,GE,GS,JD,JQ,KE;					AWX engine
+;
+REDIRECT,038-906-019-150.LBL,AQ,CL,FE,FK,HH,HK,KG;                                 		ARL engine
+REDIRECT,038-906-019-150.LBL,MS;                                                  		BPX engine
+REDIRECT,038-906-019-150.LBL,NT;                                                  		BUK engine
+;
+;
+;
+;
+;
+;Measuring block 000 data at idle, engine warm, coolant >=80°C
+;0,1-Engine Speed            ;36-42(790-870rpm)//39-43(820-900 rpm)//36-42(790-870rpm)//36-42(790-870rpm)
+;All 4WD models              ;41-46(860-945rpm)
+;0,2-Start of Injection      ;120-132(2°BTDC-2°ATDC)//124-134(1°BTDC-2.5°ATDC)//113-133(4°BTDC-2°ATDC)//113-133(4°BTDC-2°ATDC)
+;0,3-Trottle Position        ;0(0%) (all versions)
+;0,4-Injection Quantity      ;11-33(3.0-9.0 mg/H)//11-40(3.0-11.0 mg/H)//11-33(3.0-9.0 mg/H)//11-33(3.0-9.0 mg/H)
+;0;5-Manifold Absolute Press.;89-112(910-1140mbar)//90-108(910-1110mbar)//88-113(900-1150mbar)//88-113(900-1150mbar)
+;0,6-Atmospheric Pressure    ;183-223(910-1110mbar)//183-223(910-1110mbar)//181-222(900-1110mbar)//181-222(900-1110mbar)
+;0,7-Engine Coolant Temp.    ;80-35(80-110°C) (all versions)
+;0,8-Intake Manifold Temp.   ;189-51(5-100°C) (all versions)
+;0,9-Fuel Temperature        ;85-170 (20-80°C)//85-170 (20-80°C)//85-170 (20-80°C)//85-184 (20-90°C)
+;0,10-Air Mass(EGR on)       ;69-111(230-370 mg/H)//70-126(230-420 mg/H)//63-105(210-250 mg/H)//63-111(210-370 mg/H)
+;EGR is switched off after approx. 2 min. of idle (>2min, restart eng. or blip)
+;
+;Measuring block 000 data at full load, 3rd gear, temp 80°C, at 3000 rpm
+;0,1-Engine Speed            ;136-150(2850-3150rpm)//136-150(2850-3150 rpm)//136-150(2850-3150rpm)//136-150(2850-3150rpm)
+;0,2-Start of Injection      ;76-55(16°BTDC-22.5°BTDC)//63-53(20°BTDC-23°BTDC)//85-60(13°BTDC-21°BTDC)//82-60(14°BTDC-21°BTDC)
+;0,3-Trottle Position        ;255(100%) (all versions)
+;0,4-Injection Quantity      ;142-153(39-42 mg/H)//160-172(44-47 mg/H)//171-219(47-60mg/H)//189-219(52-60mg/H)
+;0;5-Manifold Absolute Press.;187-211(1900-2150mbar)//197-215(2000-2200mbar)//206-255(2100-2600mbar)//215-255(2100-2600mbar)
+;0,6-Atmospheric Pressure    ;183-223(910-1110mbar)//183-223(910-1110mbar)//183-223(900-1110mbar)//181-222(900-1100mbar)
+;0,7-Engine Coolant Temp.    ;80-35(80-110°C) (all versions)
+;0,8-Intake Manifold Temp.   ;189-51(5-100°C) (all versions)
+;0,9-Fuel Temperature        ;85-199 (20-100°C)//85-201(20-102°C)//85-199(20-100°C)//85-199(20-100°C)
+;0,10-Air Mass               ;>240(800 mg/H)//245-255(820-850 mg/H)//>255(900 mg/H)//>255(1000 mg/H)
+; 
+
+1,0,Injected quantity
+1,1,Engine speed,rpm
+;790-870//820-900//790-870//790-870 4WD:860-945 
+1,2,Injected quantity,mg/H
+;3.0-9.0//3.0-11.0//3.0-9.0//3.0-9.0
+1,3,Spec. Inj. duration,°Ck.
+;5-8//5-7//3-8// 3-8
+1,4,Coolant temp,80-110°C
+
+2,0,Idle Speed (See label file for #3)
+2,1,Engine speed,rpm
+;790-870//820-900//790-870//790-870 4WD:860-945 
+2,2,Throttle pos,0%
+2,3,Operating Cond/AC,speed/throttle/AC
+;xxx
+;  1 AC compressor switched on
+; 1  Throttle Position switch closed
+;1   Inc. idle speed as AC switched on
+2,4,Coolant Temp,80-110°C
+
+3,0,EGR (Exhaust Gases Recycling)
+3,1,Engine speed,rpm
+;790-870//820-900//790-870//790-870 4WD:860-945
+3,2,MAF (specified),mg/H
+;230-310//230-420//230-310//230-350
+3,3,MAF (actual),mg/H
+;210-350//230-420//210-350//210-370
+3,4,EGR duty cycle,%
+;50-70//10-95//40-75//40-75
+
+4,0,Unit Injectors valves command
+4,1,Engine speed,rpm
+;790-870//820-900//790-870//790-870 4WD:860-945
+4,2,Spec start of inj.,
+;2BTDC-2ATDC//1BTDC-2ATDC//4BTDC-2ATDC//4BTDC-2ATDC
+4,3,Spec inj. duration,°Ck.
+;5-8//5-7//3-8//3-8 
+4,4,Synchro. angle,-3..+3°Ck.
+;
+;Group 4 : full load, 3rd gear, 3000 rpm
+;4,1:2850-3150rpm
+;4,2:Spec start of inj. 16-22.5//20-23//13-21//14-21 ° BTDC
+;4,3:Spec inj duration 19-22.5//20-23//16-28//18-28 ° Ck.
+;4,4:Synchro angle -3..+3 °Ck.
+
+5,0,Starting conditions
+5,1,Engine speed,rpm
+5,2,Start inj,quantity
+5,3,Start synchro.,
+5,4,Coolant temp,°C
+
+6,0,Switch Positions (See label file for #2, #3)
+6,1,Speed, km/h
+6,2,Brake Pedal,F/F47/F36 
+; xxx 
+;   1  Brake light switch F closed 
+;  1   Cruise,DFI brake switch open
+; 1    Clutch vacuum vent valve switch-f36-, open
+
+6,3,Cruise Control,Cl/Br/Re/Ac/on/on
+; xxxxxx
+;      1 CC Switched switched on
+;     1  CC and memory switched off
+;    1   Acceleration
+;   1    Resume speed
+;  1     Brake pedal operated
+; 1      Clutch pedal operated
+6,4,Cruise System,0
+;1.0 = normal
+;17.0 = brake pressed?
+
+7,0,Temperatures (Engine cold-contact on: ~Amb. temp)
+7,1,Fuel Temp,~Amb.Temp.*C
+;-5.4*C short circuit or Fuel Temp. Sensor -G81- inoperative
+7,2,Fuel cooling state,On:100%-Off:0%
+7,3,Intake Air Temp,~Amb.Temp.*C
+;~136.8*C Intake Air Temp. Sens0r -G72- inoperative
+7,4,Coolant Temp,~Amb.Temp.*C
+;Short circuit or ECT sensor -G62- inoperative
+
+8,0,Injected Quantity(IQ) limitation (3rd gear - 3000rpm - full load)
+8,1,Engine speed,2850-3150
+8,2,IQ driver's req,mg/H
+;42-50//50-55//65-70//65-70 
+8,3,IQ via rpm(Torq),mg/H
+;39-42//44-47//47-51//52-54
+8,4,IQ via MAF,mg/H
+;48-52//47-52//47-60//52-60
+
+
+9,0,Injected Quantity Limitation
+9,1,Engine speed,rpm
+9,2,Injection Quantity,CC active
+9,3,Inj. limit,during a/t shift
+9,4,Max IQ,
+
+10,0,Air system (3rd gear - 3000rpm - full load)
+10,1,MAF,mg/H
+;800-1100//850-1050//900-1250//1000-1250
+10,2,Atmos. pressure,sensor -f96-
+10,3,Intake air press.,
+;1900-2150//2000-2200//2100-2600//2200-2800
+10,4,Throttle,100%
+
+11,0,Charge pressure control (3rd gear - 3000rpm - full load)
+11,1,Engine speed,2850-3150
+11,2,Spec. intake press.,
+;1900-2150//2000-2150//2200-2400//2300-2600
+11,3,Actual intake press.,
+;1900-2150//2000-2200//2100-2600//2200-2800
+11,4,D.cycle MAP,
+;55-75%//40-95%//35-80%//35-80%
+
+
+12,0,Glow Plugs (see label file for #1)
+12,1,Glow status,all 1's=off
+; xxxxxxxx
+; 11111111 Glowing off
+; 00010000 Pre-glow
+; 01110000 Start of glow
+; 11110000 Interim glow
+; 10110000 Post-glow
+; 00110000 Readiness glowing
+12,2,Pre-glow period,
+12,3,Supply Voltage,
+12,4,Coolant Temp,*C
+
+13,0,Idle Speed Smooth Running Control
+13,1,Cyl 1,-2.8 to +2.8 mg/H
+13,2,Cyl 2,-2.8 to +2.8 mg/H
+13,3,Cyl 3,-2.8 to +2.8 mg/H
+13,4,Cyl 4,-2.8 to +2.8 mg/H
+
+15,0,Fuel Consumption
+15,1,Engine speed,rpm
+15,2,Inj Qty (actual),
+15,3,Fuel Consumption,
+15,4,Inj Qty requested,(accelerator)
+
+16,0,Additional Heater
+16,1,Generator loading,
+16,2,Aux. heat,(see label file)
+; xxxxxxxx
+; 1        Not relevant
+;  1       Not relevant
+;   1      Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty
+;    1     Engine start in last 10 seconds
+;     1    Engine below 870 rpm
+;      1   Battery below 9 volts
+;       1  Generator faulty
+;        1 Coolant temp > 70-80C or Intake Air Temp. > 5C
+16,3,Activation,Hi/Lo
+; xx
+; 1  High heat output,J360 on
+;  1 Low heat output,J359 on
+16,4,Voltage supply,from ECM
+
+18,0,PD valve status(after 1 min idling- coolant>80°C)
+18,1,Cyl 1,0,
+18,2,Cyl 2,0,
+18,3,Cyl 3,0,
+18,4,Cyl 4,0,
+;if != 0, inoperative valve/open circuit/lack of fuel/bubbles
+
+125,0,Communication - CAN bus messages
+125,1,Gearbox status,1
+125,2,ABS status,1
+125,3,Instr. status,1
+125,4,Airbag status,1
+;

@@ -1,0 +1,141 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 02 -- Auto Transmission
+; 
+; from USA 2001 Audi allroad quattro 2.7T biturbo
+; ECU p/n  :  4Z7-927-156-A
+; Component:  AG5 01V 2.7l5VT USA 1414
+; Soft Coding:  00002
+;
+; **Modification history**
+; created:  Paul Cunningham, 4 June 2001
+; please email any comments or corrections: cunningham64@home.com
+;
+;
+1,0,  (Bentley 01-103)
+1,1,Engine RPM	
+1,2,Trans. Input spd,sensor signal
+1,3,Trans. Veh.,speed sensor
+1,4,Gear engaged
+;
+2,0,  (Bentley 01-106)
+2,1,Dynamics index, 0-240+ see file
+;range 0-240 (economy to full sport)				
+;241 (warm-up)				
+;242 (anti-slip active)				
+;243 (tiptronic active)				
+;244 ( selector "2")				
+2,2,Throttle valve,(0-100%)
+2,3,Veh. spd sens,(0-8200)
+2,4,Gear engaged
+;		
+3,0,  (Bentley 01-108)
+3,1,Brake Light Switch
+3,2,P N lock
+3,3,Vehicle speed
+3,4,Supply V pin 54&&55,(10-16V)
+;
+4,0,  (Bentley 01-109)
+4,1,ATF Temp
+4,2,Selector position
+4,3,Multifunctn switch,position
+4,4,Eng. intervention,request
+;
+5,0,Solenoids
+5,1,Solenoid valve 1
+5,2,Solenoid valve 2
+5,3,Solenoid valve 3
+5,4,Gear Engaged
+;
+6,0, Specified Current to Solenoids
+6,1,Solenoid valve 4
+6,2,Solenoid valve 5
+6,3,Solenoid valve 6
+6,4,
+;
+7,0,  (Bentley 01-115)
+7,1,ATF Temp
+7,2,Solenoid valve 7
+7,3,Torque conv.,clutch
+7,4,T. conv. slip spd,(0|20-120|0-10)
+;
+8,0,  (Bentley 01-117)
+8,1,Kick down switch
+8,2,Throttle valve value
+8,3,Throttle valve,on/off ratio
+8,4,Overrun/,Acceleration
+;
+9,0,  (Bentley 01-118)
+9,1,Eng. actual torque
+9,2,Engine RPM
+9,3,Throttle valve value
+9,4,Fuel consumption, signal ?
+;
+10,0,  (Bentley 01-119)
+10,1,Torque increase,in T. conv.
+10,2,Engine RPM
+10,3,Gear engaged
+10,4,Anti-slip regulation
+;
+11,0,  (Bentley 01-120)
+11,1,Selector position
+11,2,Tip. recognition
+11,3,Tiptronic switch
+11,4,A/C kickdown
+;
+12,0,Undocumented
+12,1,
+12,2,
+12,3,
+12,4,
+;
+13,0,Undocumented					
+13,1,,600 Nm
+13,2,,(45)
+13,3,,0
+13,4,,(10)
+;
+60,0,Undocumented
+60,1,,Gear engaged
+60,2,TC status,Open|
+60,3,,load
+60,4,,rpm
+;
+61,0,Undocumented
+61,1,,Accel
+61,2,,0.0
+61,3,,load
+61,4,,rpm
+;
+62,0,Undocumented
+62,1,,Gear engaged
+62,2,,0.0
+62,3,,load
+62,4,,rpm
+;
+63,0,Undocumented
+63,1,
+63,2,
+63,3,
+63,4,
+;
+64,0,Undocumented
+64,1,
+64,2,
+64,3,
+64,4,
+;
+65,0,Undocumented
+65,1,,00000000
+65,2,
+65,3,
+65,4,,00000010
+;
+125,0,Undocumented						
+125,1,,Motor 1
+125,2,,ABS 1
+125,3,
+125,4,
+;
+;
+;<end of file>

@@ -1,0 +1,65 @@
+;
+; VAG-COM label file
+;
+; VW Phaeton (3D)
+;
+; component: Automatic Distance Regulation -J428- (#13)
+;
+; p/n: 3D0 907 563 B
+;      3D0 907 563 C
+;
+; includes measured value blocks
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 11/05/2004 (Sebastian)
+; last modified: 27/March/2005 (Michael) - minor language changes only, no content added.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel speed
+001,1,Left front,wheel speed,Specified value: 0...255 km/h
+001,2,Right front,wheel speed,Specified value: 0...255 km/h
+001,3,Left rear,wheel speed,Specified value: 0...255 km/h
+001,4,Right rear,wheel speed,Specified value: 0...255 km/h
+;
+002,1,Buttons CCS+/-,SET/RESET,Specified value: active/inactive
+002,2,Buttons CANCEL,rolling wheel/ON/OFF,Specified value: active/inactive
+;
+003,1,TRM+ supply,,Specified value: 0...5.1 V
+003,2,TRM- supply,,Specified value: 0...5.1 V
+003,3,Battery voltage,,Specified value: 0...16 V
+;
+006,1,Horizontal,adjustment,Specified value: -12.7...+12.7 °
+006,2,Vertical,adjustment,Specified value: -12.7...+12.7°
+;
+007,1,Operations of,button CCS+,Specified value: -10...+10
+007,2,Operating button,for CCS,Specified value: -10...+10
+007,3,Laser pointer,quadrant,Specified value: 1...4
+;
+008,1,ADR status
+008,2,CCS status
+008,3,SET speed,,Specified value: 0....255 km/h
+;
+009,1,Sensor,temperature,Specified value: -40...+125 °
+;
+010,1,Distance,to object,Specified value: 0...180 m
+010,2,Angle,to object,Specified value: -6.35...+6.35 °
+010,3,Object speed,,Specified value: -255...+255 km/h
+;
+011,3,Steering wheel,turning angle,Specified value: -720...+720 °
+;
+012,1,CANCEL button,,Specified value: off/on
+012,4,ESP-shut-off,,Specified value: off/on
+;
+013,1,Brake pedal,,Specified value: off/on
+;

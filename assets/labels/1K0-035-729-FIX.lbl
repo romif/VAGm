@@ -1,0 +1,66 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K5M) / VW Touran (1T)
+;
+; Komponente: J412 - Telefon (#77) - Festeinbau
+;
+; T/N: 1K0-035-729-???
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-77.LBL
+; 1K0-035-729-FIX.LBL
+; 1K0-035-729-UNI.LBL
+;
+; erstellt am 26.09.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 26.09.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Spannung && Feldstärke
+001,1,Spannung,(Klemme 30)
+001,3,Feldstärke
+001,4,Status,Feldstärke
+;
+002,0,Telefon
+002,1,Telefon
+002,3,Status,Telefon,Wertebereich: nicht angeschlossen/angeschlossen
+002,4,Status,Netz,Wertebereich: nicht angemeldet/angemeldet
+;
+003,0,Mikrofon
+003,1,Mikrofon
+003,2,Status,Mikrofon,Wertebereich: i.O/n.i.O
+003,3,Mikrofon
+003,4,Mikrofonstrom
+;
+004,0,Audiausgänge
+004,1,Audioausgang (+)
+004,2,Status,Audioausgang (+),Wertebereich: i.O/n.i.O
+004,3,Audioausgang (-)
+004,4,Status,Audioausgang (-),Wertebereich: i.O/n.i.O
+;
+005,0,Taster für Pannenruf && Informationsdienste
+005,1,Taster für,Pannenruf
+005,2,Pannen-Taster,Status,Wertebereich: betätigt/nicht betätigt
+005,3,Taster für,Infodienst
+005,4,Infodienst-Taster,Status,Wertebereich: betätigt/nicht betätigt
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+081,0,Erweiterte Steuergerät Identifikation II
+;
+082,0,Erweiterte Steuergerät Identifikation III
+;

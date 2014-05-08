@@ -1,0 +1,145 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 4E0-910-283-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 06/Sep/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Rear)
+001,1,Rear Left,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+001,2,Rear Left,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Rear Right,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Rear Right,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Distance (Front)
+002,1,Front Left,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+002,2,Front Left,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+002,3,Front Right,Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+002,4,Front Right,Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+003,0,Resulting Distance / Vehicle Speed && Voltage
+003,1,Resulting,Distance Front,Specification: 0...120 cm (255 cm = no obstacle recognized)
+003,2,Resulting,Distance Rear,Specification: 0...160 cm (255 cm = no obstacle recognized)
+003,3,Vehicle Speed,,Display Range: 0.0...255.0 km/h
+003,4,Sensor,Voltage Supply
+;
+004,0,External Information
+004,1,Reverese Gear,engaged,Display Range: Reverse: Reverse: Yes/Reverse: No
+004,2,Trailer hitched,,Display Range: Trailer: Yes/Trailer: No
+004,3,Trailer Hitch,installed,ON = Trailer Hitch detected\nOFF = Trailer Hitch not detected
+004,4,Function Button,,Display Range: ON/OFF/Not Oper./Not Installed
+;
+005,0,Volume && Frequency
+005,1,Rear Buzzer,Volume,Display Range: 1...9
+005,2,Rear Buzzer,Frequency,Display Range: 1...9
+005,3,Front Buzzer,Volume,Display Range: 1...9
+005,4,Front Buzzer,Frequency,Display Range: 1...9
+;
+006,0,Oscillation Time (Rear)
+006,1,Rear Left,Sensor,Specification: 0.8...1.5 ms
+006,2,Rear Left,Center Sensor,Specification: 0.8...1.5 ms
+006,3,Rear Right,Center Sensor,Specification: 0.8...1.5 ms
+006,4,Rear Right,Sensor,Specification: 0.8...1.5 ms
+;
+007,0,Oscillation Time (Front)
+007,1,Front Left,Sensor,Specification: 0.8...1.5 ms
+007,2,Front Left,Center Sensor,Specification: 0.8...1.5 ms
+007,3,Front Right,Center Sensor,Specification: 0.8...1.5 ms
+007,4,Front Right,Sensor,Specification: 0.8...1.5 ms
+;
+008,0,Confirmation Sound
+008,1,Confirm. Sound,(Reverse Gear),Display Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,0?xxxxx: Fingerprint Identification
+C02,0 = without Fingerprint Identification
+C03,1 = with Fingerprint Identification
+C04,0x?xxxx: Trailer Hitch
+C05,+1 = with Trailer Hitch
+C06,+2 = with Front Bull Bar
+C07,0xx?xxx: Transmission
+C08,0 = Manual Transmission
+C09,1 = Automatic Transmission
+C10,0xxx?xx: Specification
+C11,0 = ECE Countries (without reinforced bumper)
+C12,1 = ECE-Countries (S-Model without reinforced bumper)
+C13,2 = USA (with reinforced bumper)
+C14,3 = USA (S-Model with reinforced bumper)
+C15,0xxxx?x: Chassis
+C16,0 = Sedan
+C17,0xxxxx?: Model
+C18,8 = Audi A8 (4E)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A01,0,Rear Buzzer Volume
+A01,5,Rear Buzzer Volume
+A01,6,Adaptation of the rear warning buzzer volume.
+A01,7, 
+A01,8,Display Range: 1...9
+;
+A02,0,Rear Buzzer Frequency
+A02,5,Rear Buzzer Frequency
+A02,6,Adaptation of the rear warning buzzer frequency.
+A02,7, 
+A02,8,Display Range: 1...9
+;
+A03,0,Front Buzzer Volume
+A03,5,Front Buzzer Volume
+A03,6,Adaptation of the front warning buzzer volume.
+A03,7, 
+A03,8,Display Range: 1...9
+;
+A04,0,Front Buzzer Frequency
+A04,5,Front Buzzer Frequency
+A04,6,Adaptation of the front warning buzzer frequency.
+A04,7, 
+A04,8,Display Range: 1...9
+;
+A05,0,Confirmation Sound
+A05,5,Confirmation Sound
+A05,6,Adaptation of confirmation sound when
+A05,7,switching into reverse gear.
+A05,8, 
+A05,9,0 = without confirmation sound
+A05,10,1 = with confirmation sound
+;
+A06,0,Reset Factory Default
+A06,5,Reset Factory Default
+;

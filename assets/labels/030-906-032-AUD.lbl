@@ -1,0 +1,186 @@
+#"Seat","Ibiza","AUD","2001"
+§"ME7.5.10  4185","00000","6K0-906-032-AC"
+;
+; VAG-COM Measuring Block Labels for 8V AUD R4.
+; as installed in 2001 Seat Ibiza. EOBD
+; ECU number 6K0-906-032-AC
+;
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 6K-01.LBL
+; 030-906-032-AUD.LBL  (1.4l E   @  60 HP - AUD)
+;
+;
+1,0,Basic functions at idle. 
+1,1,Engine Speed idle,650 to 750 RPM
+1,2,Coolant temp, 80 to 100C
+1,3,O2 sensor before cat, -10.0 to 10.0 %
+1,4,Adjustment requirements,*ABCDEFGH
+;
+;Explanation of field #4 [ABCDEFGH]
+;A  No malfunctions seen by OBD
+;B  X no meaning
+;C  A/C compressor swithced off
+;D  Idle switch closed
+;E  O2 sensor regulation good
+;F  Throttle valve closed
+;G  RPMs below 2000
+;H  Coolant temp above 90C
+;
+2,0,MAP sensor
+2,1,Engine RPM idle, 810 to 890
+2,2,Engine load/throttle, 15 to 25 %
+2,3,Injection period, 3.0 to 7.0 ms
+2,4,Intake manifold, 250 to 450 mbar
+;
+3,0,Throttle sensor
+3,1,Engine RPM idle, 810 to 890
+3,2,Intake manifold, 250 to 450 mbar
+3,3,Throttle valve angle, 0.2 to 4.0 %
+3,4,Ignition angle, 6 to 12 deg BTDC
+;
+4,0,Engine running at idle
+4,1,Engine RPM idle, 810 to 890
+4,2,Voltage to ECM, 12.0 to 15.0 V
+4,3,Coolant temp, 80 to 110 C
+4,4,Intake air temp, -40 to 129 C
+;
+5,0,Engine running at idle
+5,1,Engine RPM idle,810 to 890
+5,2,Engine load,15 to 25 %
+5,3,Road speed,0 km/h
+5,4,Operating condition, idle/part load/enrichment/overrun/full laod
+;
+6,0,Engine running at idle
+6,1,Engine RPM idle,810 to 890
+6,2,Engine load,15 to 25%
+6,3,Intake air temp,-40 to 129 °C
+6,4,Altitude corr. factor, -50 to 10 %
+;
+10,0,Ignition
+10,1,Engine speed idle, 810 to 890
+10,2,Engine load,15 to 25 %
+10,3,Throttle valve angle,0.2 to 4.0 %
+10,4,Ignition angle,6 to 12 deg BTDC
+;
+14,0,Ign - misfire recognition
+14,1,Engine speed idle,810 to 5700
+14,2,Engine load,15 to 100 %
+14,3,Total misfires, 0 hopefully!
+14,4,Misfire recognition,active/blocked
+;
+15,0,Misfire recognition Cyl. 1 to 3
+15,1,Misfires cyl.1, 0
+15,1,Misfires cyl.2, 0
+15,1,Misfires cyl.3, 0
+15,4,Misfire recognition,active/blocked
+;
+16,0,Misfire recognition Cyl. 4
+16,1,Misfires cyl.4, 0
+16,1,Blank
+16,1,Blank
+16,4,Misfire recognition,active/blocked
+;
+20,0,Knock regulation Cyl.1 to 4
+20,1,ang retrd #1 by K.C.,0 to 12.0 KW
+20,2,ang retrd #2 by K.C.,0 to 12.0 KW
+20,3,ang retrd #3 by K.C.,0 to 12.0 KW
+20,4,ang retrd #4 by K.C.,0 to 12.0 KW
+;
+22,0,Knock regulation Cyl.1 to 2
+22,1,Engine speed,810 to 5700
+22,2,Engine load,15 to 100 %
+22,3,ang retrd #1 by K.C.,0 to 12.0 KW
+22,4,ang retrd #2 by K.C.,0 to 12.0 KW
+;
+23,0,Knock regulation Cyl.3 to 4
+23,1,Engine speed,810 to 5700
+23,2,Engine load,15 to 100 %
+23,3,ang retrd #3 by K.C.,0 to 12.0 KW
+23,4,ang retrd #4 by K.C.,0 to 12.0 KW
+;
+;foot notes for 22 - 24
+;fields 3 and 4 are as follows
+;Ignition angle retardation cyclinder # via knock control
+;
+;At idle the value should be 0.0 KW
+;
+28,0,Ignition knock control
+28,1,Engine speed,2200 to 5700
+28,2,Engine load,15 to 100 %
+28,3,Coolant temp,40 to 110 C
+28,4,Knock sensor test,Sys OK
+;
+30,0,Lambda regulation
+30,1,O2 status bank 1 precat,111
+30,2,O2 status bank 2 postcat,111
+30,3,blank
+30,4,blank,Seat rocks
+;
+;1   Lambda sensor heating ON
+; 1  Lambda sensor ready
+;  1 Lambda regulation active
+;
+32,0,O2 sensor control - learnt values 
+32,1,S1 B1 @ idle,-10.0 to 10.0 %
+32,2,S1 B1 @ part throttle,-10 to 10 %
+32,3,blank
+32,4,blank
+;
+33,0,O2 sensor control - control values
+33,1,O2 regulation B1,-10 to 10 %
+33,2,S1 B1 voltage,0.000 to 1.500 V
+33,3,blank
+33,4,blank
+;
+34,0,O2 control - precat aging test 04(basic setting) @ idle
+34,1,Engine speed,1300 to 1400
+34,2,Cat temp,>400 C
+34,3,Dynamic factor, 0.7 to 2.0
+34,4,Results B1-S1,B1-S1 OK
+;
+36,0,O2 control postcat
+36,1,B1-S2 voltage,0.000 to 1.000 V
+36,2,Cat temp,>400 C
+36,3,B1-S2 specification,
+36,4,Results B1-S2,B1-S2 OK
+;
+37,0,O2 regulation
+37,1,Engine load,15 to 100 %
+37,2,B1-S2 voltage,0.000 to 1.000 V
+37,3,B1-S2 reg. duration,
+37,4,Results,B1-S2 OK
+;
+41,0,O2 heating pre & postcat B1
+41,1,blank
+41,2,O2 precat heating
+41,3,blank
+41,4,O2 postcat heating
+;
+43,0,O2 control diagnostic of postcat aging test 04(basic setting)
+43,1,Engine speed,2000 to 2300 RPM
+43,2,Cat temp,>350 C
+43,3,O2 voltage S2 B1,0.00 to 1.00 V
+43,4,Results, B1-S1 OK
+;
+46,0,O2 control - cat test
+46,1,Engine speed,1300 - 1400
+46,2,Cat temp,> 400 C
+46,3,Amplitude relationship,0.0 to 0.4
+46,4,Cat test,Cat B1 OK
+;
+99,0,O2 sensor control
+99,1,Engine idle,650 - 750
+99,2,Coolant temp,80 to 110 C
+99,3,O2 sensor control,-10.0 to 10.0%
+99,4,Op condition O2 control,on or off
+;
+125,0,CAN bus messages
+125,1,Tranny status,Transmission 1
+125,2,ABS status,ABS 1
+125,3,Combi status,Combi 1
+124,4,SUVs,blow
+;

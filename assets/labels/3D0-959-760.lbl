@@ -1,0 +1,132 @@
+;
+; VAG-COM label file 3D0-959-760.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Driver Memory Seat  -J136-  (#36)
+;
+;
+; p/n: 3D0 959 760 B     Component: Memory Seat D1 F 1520   Coding: 0000004 (18 way seat, NAR and ROW)
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; translation from German by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 02/December/2004 (Sebastian)
+; last modified: 30/August/2005 (translated to English by Michael)
+; last modified: 30/October/2005 (fully tested on a NAR Phaeton by Michael)
+;
+; suitable for VAG-COM 402.3 or higher
+;
+;
+;---------------------------------------------------
+;
+; Measured Value Blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Seat Position Adjustments
+001,1,Fore - Aft,switch,Possible Display: not operated - forward - backward - implausible
+001,2,Fore - Aft,position,Possible Display: 0 to 65536
+001,3,Backrest angle,switch,Possible Display: not operated - forward - backward - implausible
+001,4,Backrest angle,position,Possible Display: 0 to 65536
+;
+002,0,Seat and Lumbar Height Adjustments 
+002,1,Seat height,switch,Possible Display: not operated - open - down - implausible
+002,2,Seat height,position,Possible Display: 0 to 65536
+002,3,Lumbar height,switch,Possible Display: not operated - lift - lower - implausible
+002,4,Lumbar height,position,Possible Display: 0 to 65536
+; 
+003,0,Seat Tilt and Lumbar Position Adjustments
+003,1,Seat tilt,switch,Possible Display: not operated - lift - lower - implausible
+003,2,Seat tilt,position,Possible Display: 0 to 65536
+003,3,Lumbar support,in-out switch,Possible Display: not operated - forward - backward - implausible
+003,4,Lumbar,in-out position,Possible Display: 0 to 65536
+;
+004,0,Thigh Support and Headrest Adjustments 
+004,1,Thigh Support,switch,Possible Display: not operated - forward - backward - implausible
+004,2,Thigh Support,position,Possible Display: 0 to 65536
+004,3,Headrest,switch,Possible Display: not operated - lift - lower - implausible
+004,4,Headrest,position,Possible Display: 0 to 65536
+;
+005,0, Upper Backrest and Shoulder Belt Height Adjustments 
+005,1,Upper backrest,switch,Possible Display: not operated - forward - backward - implausible
+005,2,Upper backrest,position,Possible Display: 0 to 65536
+005,3,Shoulder Belt,height switch,Possible Display: not operated - lift - lower - implausible
+005,4,Shoulder Belt,height position,Possible Display: 0 to 65536
+;
+006,0,Steering Column Tilt and Telescope Adjustments
+006,1,Telescope,Switch,Possible Display: not operated - forward - backward - implausible (forward means movement towards the front of the car)
+006,2,Telescope,position,Possible Display: 0 to 65536
+006,3,Tilt,Switch,Possible Display: not operated - up - down - implausible
+006,4,Tilt,position,Possible Display: 0 to 65536
+;
+007,0,Massage Function - Switch Position and Massage Status
+007,1,Massage Switch,position,Possible Display: Switch pressed or not pressed
+007,2,Massage Function,status,Possible Display: Active or Not Active
+;
+008,0,Memory Recall and Memory Set Switch
+008,1,Memory Set,button,Possible Display: Button pressed or not pressed
+008,2,Position 1,button,Possible Display: Button pressed or not pressed
+008,3,Position 2,button,Possible Display: Button pressed or not pressed
+008,4,Position 3,button,Possible Display: Button pressed or not pressed
+;
+009,1,Unknown
+009,2,unknown
+009,3,Rear Footwell,lighting,Possible Display: On or Off
+;
+010,0,Seat Heating and Ventilation
+010,1,Vent / Heat,voltage,Possible Display: voltage varies considerably.
+010,2,Vent / Heat,condition,Possible display: Only heated seat: off - heating - ventilating - heating and ventilating.
+010,3,Seat Base,temperature,Possible Display: Between 25 and 56 degrees Celsius
+010,4,Seat Backrest,temperature,Possible Display: Between 25 and 56 degrees Celsius (30 to 56 if no ventilation installed).
+;
+011,0,Electrical Diagnostics - see label file for more details.
+011,1,Voltage,via fuse SB 87,Possible Display: Between 10 and 15 volts
+011,2,Voltage,via fuse SE 3,Possible Display: Between 10 and 15 volts
+011,3,Main Relay,status,Possible Display: On or Off
+;
+;[fuse SB87] - Belt height adjustment - Headrest adjustment - Upper backrest adjustment - Seat depth adjustment - Steering column height adjustment - Steering column fore/aft adjustment
+;[fuse SE3] - Seatback adjustment - Lumbar Fore/Aft Adjustment - Lumbar Height Adjustment - Seat Seat Fore/Aft Adjustment - Seat height adjustment - Seat Tilt Adjustment
+;
+012,1,Term X,status,Possible Display:On or Off
+012,2,Term 15,status,Possible Display:On or Off
+012,3,Load,management,Possible Display: On or Off
+;
+013,0,Driver Recognition (This is how you troubleshoot the car knowing who the driver is!)
+013,1,Remote Key,Number,Possible Display: Key 1 - 2 - 3 or 4
+013,2,Easy Entry,button status,Possible Display:Function On or Off
+013,3,Driver Door,status,Possible Display: Open or Closed
+;
+;Remark - key 2 = Michael
+;
+014,0,Inventory of Motors installed in this seat (see label file for details)
+014,1,Installed Motors,inventory,Possible Display: 0 = Motor not installed 1 = Motor installed
+;decode for 14-1: Lumbar height adjustment I I I I, Lumbar support fore/aft adjustment I I I Backrest declination adjustment I I,  Seat height adjustment front I, Seat height adjustment rear, Seat fore/aft adjustment
+014,2,Installed Motors,inventory,Possible Display: 0 = Motor not installed 1 = Motor installed
+;decode for 14-2:Horizontal steering column adjustm. I I I I, Vertical steering column adjustment I I I, Belt height adjustment I I, Headrest height adjustment I, Upper backrest adjustment, Seat depth adjustment
+014,3,Standardized motors,installed,Possible Display: 0 = Motor not installed 1 = Motor installed
+;decode for 14-3:Lumbar height adjustment I I I I, Lumbar support fore/aft adjustment I I I,  Backrest declination adjustment I I, Seat height adjustment front I, Seat height adjustment rear, Seat fore/aft adjustment
+014,4,Standardized motors,installed,Possible Display: 0 = Motor not installed 1 = Motor installed
+;decode for 14-4:Horizontal steering column adjustm. I I I I, Vertical steering column adjustment I I I,  Belt height adjustment I I, Headrest height adjustment I, Upper backrest adjustment, Seat depth adjustment
+;
+015,0,*End of Documented Measured Value Blocks.
+;
+;
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+; Coding appears to be 0000004 for all possible configurations.
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+; There does not appear to be any adaptation possibilities for this controller.

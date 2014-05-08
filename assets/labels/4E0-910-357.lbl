@@ -1,0 +1,75 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A8 (4E)
+;
+; Komponente: Leuchtweitenregelung -J431- (#55)
+;
+; T/N: 4E0 910 357
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 06.06.2004
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+001,1,Spannung,Kl.15
+001,2,Licht,Kl.56b,ein/aus
+001,3,Fahrzeug,Geschwindigkeit
+001,4,Fahrzeugs,Beschleunigung
+;
+002,1,Sensorwert,vorn,über CAN-Luftfederung
+002,2,Sensorwert,hinten,über CAN-Luftfederung
+002,3,Stellmotor-,ansteuerung,Schrittmotorposition
+002,4,Zeit-,konstante,Geschwindigkeit der Stellmotorregelung
+;
+003,0,CAN Signale
+003,1,Blinker,links,ein/aus
+003,2,Blinker,rechts,ein/aus
+003,3,Bremse,(ein/aus)
+003,4,Motor,(ein/aus)
+;
+004,0,Kurvenlicht
+004,1,rechts,(ein/aus)
+004,2,links,(ein/aus)
+004,3,hochgedimmt,rechts,ein/aus
+004,4,hochgedimmt,links,ein/aus
+;
+005,1,Lenkwinkel-,sensor,CAN Signal (ein/aus)
+005,2,[N/A]
+005,3,[N/A]
+005,4,[N/A]
+;
+125,0,CAN-Kommunikation
+125,1,Bremsen-,steuergerät
+125,2,Gateway
+125,3,Lenkhilfe
+125,4,Motor-,steuergerät
+;
+126,0,CAN-Kommunikation
+126,1,Niveau-,regelung
+126,2,[N/A]
+126,3,[N/A]
+126,4,[N/A]
+;
+225,0,Zähler für EMV-Störungen (EMV = ElektroMagnetische Verträglichkeit)
+225,1,Bremsen-,steuergerät
+225,2,Gateway
+225,3,Lenkwinkel-,sensor
+225,4,Motor-,steuergerät
+;
+226,0,Zähler für EMV-Störungen (EMV = ElektroMagnetische Verträglichkeit)
+226,1,Niveau-,regelung
+226,2,[N/A]
+226,3,[N/A]
+226,4,[N/A]
+;

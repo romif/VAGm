@@ -1,0 +1,60 @@
+;
+; VAG-COM Label File
+;
+; Aud A3 (8P) / Audi A4 (8E) / Audi TT (8N)
+; VW Golf/Jetta (1K) / VW New Beetle (1C) / VW Passat (3C)
+;
+; Component: R146 - Digital Radio (#0F) - XM
+;
+; P/N: 8E0-035-593-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-0F.LBL
+; 8E0-035-593-SIR.LBL
+; 8E0-035-593-XM.LBL
+;
+; created on 03/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Supply Voltage,(Terminal 30),Specification: 8.5...15.5 V
+;
+004,0,Electronic Serial Number (ESN)
+004,1,Enabling Code
+;
+005,0,Signal
+005,1,Signal Quality,,1 = No Signal\n2 = Too weak\n3 = OK\n4 = Optimum
+005,2,Audio Signal,Status (present),Display Range: Yes/No
+;
+007,0,Status
+007,1,Status,(bounded),Display Range: Yes/No
+007,2,Status,(subscribed),Display Range: Yes/No
+;
+008,0,Service Information
+008,1,Provider,Information
+; 0 = Normal Operation
+; 1 = Antenna not connected
+; 2 = Update enabling code
+; 3 = No Signal
+; 4 = Channel Change
+; 5 = Channel not offered
+; 6 = Channel no longer available
+; 7 = Additional channel info not available
+008,2,Satellite,Antenna Status,0 = OK\n1 = Short to Ground\n2 = Short to Plus
+008,3,Terrestrial,Antenna Status,0 = OK\n1 = Short to Ground\n2 = Short to Plus
+;

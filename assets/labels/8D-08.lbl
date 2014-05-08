@@ -1,0 +1,30 @@
+;
+; VCDS Redirect File
+;
+; Component: J255 - Heating/Air Conditioning (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-08.LBL
+; 8D0-820-043-1D.LBL (1 Display)
+; 8D0-820-043-2D.LBL (2 Displays)
+;
+; created on 29/Jan/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+;
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-D   ; 2 Displays
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-F   ; 2 Displays
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-H   ; 2 Displays
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-J   ; 2 Displays
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-K   ; 2 Displays
+REDIRECT,8D0-820-043-2D.LBL,8D0-820-043-L   ; 2 Displays
+REDIRECT,8D0-820-043-1D.LBL,8D0-820-043-M   ; 1 Display
+REDIRECT,8D0-820-043-1D.LBL,8D0-820-043-N   ; 1 Display
+REDIRECT,8D0-820-043-1D.LBL,8D0-820-043-P   ; 1 Display
+REDIRECT,8D0-820-043-1D.LBL,8D0-820-043-Q   ; 1 Display
+;

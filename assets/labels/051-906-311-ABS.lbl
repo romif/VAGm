@@ -1,0 +1,106 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf (1H) / VW Passat (3A)
+;
+; Komponente: Motorelektronik (#01) - ABS/ACC/ADZ/ANP
+;
+; T/N: 1H0 906 311 ???
+;      3A0 906 311 ???
+;      8A0 906 311 ???
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1H-01.LBL
+; 3A-01.LBL
+; 8A-01.LBL
+; xx0-9xx-311-ABS.LBL (1.8l     @  90 HP - ABS/ACC/ADZ/ANP)
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 07.03.2005
+;
+; benötigt VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Kühlmitteltemperatur
+000,2,Drosselklappenpotentiometer (Bahn 1)
+000,3,Motordrehzahl
+000,4,Ansauglufttemperatur
+000,5,Lambda-Regelung
+000,6,Gemischkorrektur
+000,7,Grundluftbedarf
+000,8,Leerlaufstabilisierung
+000,9,Batteriespannung
+000,10,Magnetventil für Aktivkohlebehälter
+;
+001,0,Leerlaufprüfung
+001,1,Motordrehzahl
+001,2,Kühlmittel-,temperatur
+001,3,Lambda,Korrekturfaktor
+001,4,Betriebszustand
+; x1xxxxxx - Leerlaufschalter geschlossen
+; xxx1xxxx - Klimakompressor eingeschaltet
+; xxxx1xxx - Klimaanlage eingeschaltet
+; xxxxxx1x - Drehmoment-Reduzierung
+; xxxxxxx1 - Fahrstufe eingelegt
+;
+002,0,Einspritzzeit/Ansauglufttemperatur
+002,1,Motordrehzahl
+002,2,Einspritzzeit
+002,3,Batterie-,spannung
+002,4,Ansaugluft-,temperatur
+;
+003,0,Motorlastzustand
+003,1,Motordrehzahl
+003,2,Motorlastsignal
+003,3,Drosselklappen-,winkel
+003,4,Zündzeitpunkt
+;
+004,0,Betriebszustände
+004,1,Motordrehzahl
+004,2,Motorlastsignal
+004,3,Drosselklappen-,winkel
+004,4,Betriebszustand
+; xxx1xxxx - Anreicherung
+; xxxx1xxx - Vollast erkannt
+; xxxxx1xx - Teillast erkannt
+; xxxxxx1x - Leerlaufschalter geschlossen
+; xxxxxxx1 - Schubabschaltung aktiv
+;
+005,0,Gemischregelung
+005,1,Motordrehzahl
+005,2,Magnetventil für,Aktivkohlebehälter
+005,3,Lambda,Korrekturfaktor
+005,4,Gemisch,Korrekturwert
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung
+C1,bis 05/97
+C2,00001 - Schaltgetriebe
+C3,00002 - autom. Getriebe
+C4, 
+C5,ab 06/97
+C6,00011 - Schaltgetriebe
+C7,00012 - autom. Getriebe
+;

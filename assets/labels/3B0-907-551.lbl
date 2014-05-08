@@ -1,0 +1,176 @@
+;
+;  VAG-COM Measuring Block Labels for
+;  US OBD-II  2.8L V6/5V,ECU p/n 3B0 907 551 AN
+;
+;  Passat MY '00 by egeek (Updated)
+;
+1,0,General Engine
+1,1,Engine RPM
+1,2,Coolant Temp
+1,3,Oxy Sensor 1
+1,4,Oxy Sensor 2
+;
+2,0,Air Flow Sensor
+2,1,Engine RPM
+2,2,Engine Load
+2,3,Injection Timing
+2,4,Mass Air  Intake
+;
+3,0,Air Flow Sensor
+3,1,Engine RPM	
+3,2,Mass Air Intake
+3,3,Throttle Angle
+3,4,Ignition Angle
+;
+4,0,General Engine 
+4,1,Engine RPM
+4,2,Voltage (ECM)
+4,3,Coolant Temp
+4,5,Intake Air Temp
+;
+5,0,General Engine 
+5,1,Engine RPM
+5,2,Engine Load
+5,3,Vehicle Speed
+5,4,Operating Cond
+;
+6,0,General Engine 
+6,1,Engine RPM
+6,2,Engine Load
+6,3,Intake Air Temp
+6,4,High Correction
+;
+10,0,General Engine
+10,1,Engine RPM
+10,2,Engine Load	
+10,3,Throttle Angle
+10,4,Ignition Angle
+;
+;11,0,Undocumented
+;
+;14,0,Undocumented
+;
+15,0,Ignition Misfire Recg Bnk 1
+15,1,Dmg Misfires Cy 1
+15,2,Dmg Misfires Cy 2
+15,3,Dmg Misfires Cy 3
+15,4,Misfires Recg
+;
+16,0,Ignition Misfire Recg Bnk2
+16,1,Dmg Misfires Cy 4
+16,2,Dmg Misfires Cy 5
+16,3,Dmg Misfires Cy 6
+16,4,Misfires Recg
+;
+;18,0,Undocumented
+;
+;20,0,Undocumented
+;
+;21,0,Undocumented
+;
+22,0,Ignition Knock Control
+22,1,Engine RPM
+22,2,Engine Load
+22,3,Ignition Timing,Angle Cy 1
+22,4,Ignition Timing,Angle Cy 2
+; 
+23,0,Ignition Knock Control
+23,1,Engine RPM
+23,2,Engine Load
+23,3,Ignition Timing,Angle Cy 3
+23,4,Ignition Timing,Angle Cy 4
+;
+24,0,Ignition Knock Control
+24,1,Engine RPM
+24,2,Engine Load
+24,3,Ignition Timing,Angle Cy 5
+24,4,Ignition Timing,Angle Cy 6
+;
+;26,0,Undocumented
+;
+;27,0,Undocumented
+;
+28,0,Ignition Knock Control
+28,1,Engine RPM
+28,2,Engine Load
+28,3,Collant Temp
+28,4,Knock Sen Test
+;
+30,0,Status Oxy Sensor Control
+30,1,OxySen1 bnk1,bf Cat Conv 
+30,2,OxySen2 bnk1,bh Cat Conv
+30,3,OxySen1 bnk2,bf Cat Conv
+30,4,OxySen2 bnk2,bh Cat Conv 
+;
+32,0,Oxy Sensor Adaptation Values
+32,1,OxySen1 bnk1,OxySen Adpt@Idle
+32,2,OxySen1 bnk1,OxySen Adpt@Par 
+32,3,OxySen1 bnk2,OxySen Adpt@Idle
+32,4,OxySen1 bnk2,OxySen Adpt@Par 
+;
+33,0,Oxy Sensor Control Values
+33,1,OxySen Ctrl bnk1
+33,2,OxySen Voltage,OxySen1 bnk1
+33,3,OxySen Ctrl bnk2
+33,4,OxySen Voltage,OxySen1 bnk2
+;
+34,0,Oxy Sensor Control Diagnostic Bnk1
+34,1,Engine RPM
+34,2,Cat Conv Temp
+34,3,Period Duration
+34,4,Aging Test
+;
+35,0,Oxy Sensor Control Diagnostic Bnk2
+35,1,Engine RPM
+35,2,Cat Conv Temp
+35,3,Period Duration
+35,4,Aging Test
+;
+41,0,Oxy Sensor Heating Bnk1
+41,1,Inner Resist,Sen1 bnk1
+41,2,OxySen HeatSen1,bnk1
+41,3,Inner Resist,Sen2,bnk1
+41,4,OxySen HeatSen2,bnk1
+;
+42,0,Oxy Sensor Heating Bnk2
+42,1,Inner Resist,Sen2 bnk1
+42,2,OxySen HeatSen2,bnk1
+42,3,Inner Resist,Sen2,bnk2
+42,4,OxySen Heat Sen2,bnk2
+;
+43,0,Oxy Sensor Control Diagnostic Bnk1
+43,1,Engine RPM
+43,2,Cat Conv Temp
+43,3,Sensor Voltage,OxySen2 bnk1
+43,4,Aging Test
+;
+44,0,Oxy Sensor Control Diagnostic Bnk2
+44,1,Engine RPM
+44,2,Cat Conv Temp
+44,3,Sensor Voltage,OxySen2 bnk2
+44,4,Aging Test
+;
+50,0,RPM Regulation
+50,1,Engine RPM,@Idle
+50,2,Engine Speed
+50,3,Operating Cond,A/C System
+50,4,Operating Cond,Comp ON/OFF
+;
+54,0,Idle Positioner / Closed Throttle Position Switch
+54,1,Engine RPM
+54,2,Operating Cond,@Deceleration
+54,3,Throttle Position,Sen -G79-
+54,4,Throttle Valve,Sen -G187-
+;
+99,0,OxySensorControl Operating Condition
+99,1,Engine RPM,@Idle
+99,2,Coolant Temp
+99,3,OxySen Control
+99,4,OxySen Control,Operating Cond
+;
+120,0,Anti-Slip Regulation (ASR)
+120,1,Engine RPM
+120,2,Specified Engine,Load
+120,3,Current Engine,Load
+120,4,Status
+;

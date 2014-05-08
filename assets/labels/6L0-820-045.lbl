@@ -1,0 +1,80 @@
+;
+; VAG-COM Labeldatei
+;
+; Seat Cordoba/Ibiza (6L)
+;
+; Komponente: J301 - Klima-/Heizungselektronik (#08) - Climatic
+;
+; T/N: 6L0 820 045 ?
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 16.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 16.05.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Spannung,(Klemme 15)
+001,2,Spannung,Lüfter (V2),Stufe 0 = 0.0 V\nStufe 1 = 3.0...4.5 V\nStufe 2 = 5.0...7.0 V\nStufe 3 = 7.5...10.0 V\nStufe 4 = 10.5...14.0 V
+001,3,1. Lüfterstufe,,Wertebereich: an/aus
+001,4,2. Lüfterstufe,,Wertebereich: an/aus
+;
+002,1,Kompressor-,leistung
+002,2,Kältemittel-,druck (G65),Sollwert: 2...32 bar
+002,3,Abschalt-,bedingungen
+;  0 - nicht abgeschaltet
+;  1 - abgeschaltet (Kältemitteldruck über 32 bar)
+;  2 - abgeschaltet (Kältemitteldruck unter 2 bar)
+;  5 - abgeschaltet (niedrige Motordrehzahl)
+;  6 - abgeschaltet (Funktion A/C nicht aktiviert)
+;  7 - abgeschaltet (Schalter für Lüfter (V2) auf Pos. 0)
+;  8 - abgeschaltet (Außentemperatur unter -3 °C)
+; 10 - abgeschaltet (Versorgungsspannung zu niedrig/hoch)
+; 11 - abgeschaltet (Kühlmitteltemperatur über 118 °C
+; 12 - abgeschaltet (Leistungsbeschränkung vom Motorsteuergerät)
+; 14 - abgeschaltet (Ausgangstemperatur des Verdampfers (G263) unter 1 °C)
+; 16 - abgeschaltet (Geber für Ausgangstemperatur des Verdampfers (G263) defekt ODER Kühlerlüfter defekt)
+002,4,Ausgangstemp.,Verdampfer (G263)
+;
+003,0,Temperaturen (Innenraum)
+003,1,Mittelausströmer,(G191),-51 °C = Kurzschluß nach Masse\n+99 °C = Kurzschluß nach Plus
+003,2,Fußraum-,ausströmer (G192),-51 °C = Kurzschluß nach Masse\n+99 °C = Kurzschluß nach Plus
+003,3,Armaturenbrett,(G56),-51 °C = Kurzschluß nach Masse\n+99 °C = Kurzschluß nach Plus
+003,4,Wärmetauscher,abgeschaltet,nur bei Fahrzeugen mit Kühlung nach Bereichen
+;
+004,0,Stellmotor für Umluftklappe (V154) - Wiedereinspeis. Potentiom. (G113)
+004,1,Potentiom. (G143),IST-Wert,max. Abweichung vom Sollwert: 2
+004,2,Potentiom. (G143),SOLL-Wert,Wertebereich: 0...255
+004,3,Spitzenwert,(Frischluft),gespeichert von Grundeinstellung (Sollwert: 150...250)
+004,4,Spitzenwert,(Umluft),gespeichert von Grundeinstellung (Sollwert: 5...100)
+;
+005,0,Stellmotor für Temperaturklappe (V68) - Wiedereinspeis. Potentiom. (G92)
+005,1,Potentiom. (G92),IST-Wert,max. Abweichung vom Sollwert: 2
+005,2,Potentiom. (G92),SOLL-Wert,Wertebereich: 0...255
+005,3,Spitzenwert,Kühlung,gespeichert von Grundeinstellung (Sollwert: 150...250)
+005,4,Spitzenwert,Heizung,gespeichert von Grundeinstellung (Sollwert: 5...100)
+;
+006,1,Motordrehzahl
+006,2,Motordrehzahl,(erhöht)
+006,3,Geschwindigkeit
+006,4,Rückfahrschalter
+;
+007,1,Standzeit
+007,2,Zustand,(Klemme X)
+007,3,Dimmung,(Klemme 58b)
+007,4,Heizelement (PTC),Zusatzheiz. (Z35)
+;
+008,1,Außen-,temperatur (G17)
+008,2,Kühlmittel-,temperatur (62)
+008,3,Kühlmitteltemp.,zu hoch (Signal)
+008,4,Kompressor,abgeschaltet
+;

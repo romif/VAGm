@@ -1,0 +1,134 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J345 - Trailer (#69)
+;
+; P/N: 4F0-910-383-???
+;
+; includes measuring blocks, coding and selective output tests
+;
+; created on 08/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 08/Feb/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Inputs
+001,1,Voltage,(Terminal 30)
+001,2,Status Term. 30,(switched),Display Range: ON/OFF
+001,3,Status Term. 15,(Emergency Run),Display Range: ON/OFF
+;
+002,0,Inputs
+002,1,ECD/ACC,(ESP/ACC Braking),Display Range: ON/OFF
+002,2,Brake Light Switch,,Display Range: ON/OFF
+002,3,Brake Pressur,Switch,Display Range: ON/OFF
+;
+003,0,Outputs
+003,1,Turn Signal,Rear Left,Display Range: ON/OFF
+003,2,Turn Signal,Rear Right,Display Range: ON/OFF
+003,3,Tail Light,Left,Display Range: ON/OFF
+003,4,Tail Light,Right,Display Range: ON/OFF
+;
+004,0,Outputs
+004,1,Brake Lights,,Display Range: ON/OFF
+004,2,Back-Up Lights,,Display Range: ON/OFF
+004,3,Rear Fog Lights,,Display Range: ON/OFF
+004,4,Status Term. 30,(switched),Display Range: ON/OFF
+;
+007,0,Trailer Hitch
+007,1,Hand Wheel,Contact Switch,Display Range: ON/OFF
+007,2,Locking Pin,Contact Switch,Display Range: ON/OFF
+007,3,Trailer Hitch,Status,Display Range: Locked/Unlocked
+;
+008,0,Input Signals
+008,1,Status,Terminal 15,Display Range: ON/OFF
+008,2,Status,Terminal X,Display Range: ON/OFF
+008,3,Battery Managem.,Shut-Off Stage,Display Range: 0...6
+008,4,Trailer,attached,Display Range: ON/OFF
+;
+009,0,Input Signals
+009,1,Turn Signal,Left,Display Range: ON/OFF
+009,2,Turn Signal,Right,Display Range: ON/OFF
+009,3,Emergency Flasher,Warning Lights,Display Range: ON/OFF
+;
+010,0,Input Signals
+010,1,Brake Light Switch,,Display Range: ON/OFF
+010,2,Brake Test Switch,,Display Range: ON/OFF
+010,3,Brake Pressur,Switch,Display Range: ON/OFF
+;
+011,0,Input Signals
+011,1,Side Marking,Lights,Display Range: ON/OFF
+011,2,Parking Light,Left,Display Range: ON/OFF
+011,3,Parking Light,Right,Display Range: ON/OFF
+;
+012,0,Input Signals
+012,1,Rear Fog Light,,Display Range: ON/OFF
+012,2,Back-Up Light,,Display Range: ON/OFF
+;
+018,0,LED Status
+018,1,LED Status,(green)
+018,2,LED Status,(red)
+;
+019,0,LED Afterrun Time
+019,1,LED Run-Time,(green)
+019,2,LED Run-Time,(red)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,Central Electronics,(J519),Display Range: E.Load.Crtl 1/E.Load.Crtl 0\nSpecification: E.Load.Crtl 1
+130,2,Electrical,Ignition Lock,Display Range: El.Ign.Lock 1/El.Ign.Lock 0\nSpecification: El.Ign.Lock 1
+130,3,CAN-Gateway,(J533),Display Range: Gateway 1/Gateway 0\nSpecification: Gateway 1
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Battery,Management,Display Range: Batt.Mgmt 1/Batt.Mgmt 0\nSpecification: Batt.Mgmt 1
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1019,Relay (Terminal 30G)
+T2562,Brake Lights (Trailer)
+T2564,Tail Lights Left (Trailer - M60)
+T2563,Tail Lights Right (Trailer - M61)
+T2566,Turn Signals Left (Trailer - M62)
+T2565,Turn Signals Right (Trailer - M63)
+T2567,Rear Fog Lights (Trailer - M64)
+T2568,Back-Up Lights (Trailer)
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Trailer (J345) Coding
+C01,0000??x: Trailer Hitch
+C02,00 = Trailer Hitch w/o Swivel Function and w/o Operating Button
+C03,33 = Trailer Hitch with mechanical Swivel Function and with Hand Wheel
+C04, 
+C05,0000xx?: Country
+C06,1 = Rest of World (RoW)
+C07,2 = North America (USA/Canada)
+C08,3 = Australia (AUS)
+;

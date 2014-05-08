@@ -1,0 +1,65 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J644 - Battery Regulation (#61)
+;
+; P/N: 4E0-910-181-???
+;
+; includes measuring blocks
+;
+; created on 30/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Generator Voltage,(specified)
+001,2,Battery Voltage,(actual)
+001,3,Dynamic-Field,Signal
+001,4,Load,Response Time,Display Range: 0...9 sec
+;
+002,0,Battery Tamperatures && Shut-Off Stages
+002,1,Rail Temperature,(actual)
+002,2,Battery Temperat.,(valuation)
+002,3,Emergency,Shut-Off
+002,4,Static-Current,Shut-Off Stage
+;
+003,0,Battery Status I
+003,1,Battery Condition,,same as MMI
+003,2,Internal Battery,Resistance
+003,3,Qv,(Battery Aging)
+;
+004,0,Battery Status II
+004,1,Current Value,from Battery,Display Range: -400...+100 A\n\npositive current = generator charges battery\nnegative current = battery not charged by generator
+004,2,Static-Current,Mean Value,Display Range: 0.01...1.00 A (mean value of all statuc-current measurements)
+004,3,Total Energy,Balance,Display Range: -10000...55025 Ah
+004,4,Total Energy,Throuput,Display Range: 0...65025 Ah
+;
+005,0,Last Standing Time && Last Driving Cycle I
+005,1,Static-Current,Mean Value
+005,2,Total-Current,Mean Value
+005,3,Duration last,Standing Time
+005,4,Duration last,Driving Cycle
+;
+006,0,Last Standing Time && Last Driving Cycle II
+006,1,Duration last,Standing Time,with increased static-current (higher than 20 mA)
+006,2,Energy Balance,of last Drive,Display Range: -120.00...+120.00 Ah
+006,3,Battery State,of Charge (SOC)
+;
+010,0,Generator
+010,1,Generator Voltage,(specified)
+010,2,Dynamic-Field,Signal
+010,3,Generator,Interface,Display Range: OK/not OK
+010,4,Generator,,Display Range: OK/not OK
+;

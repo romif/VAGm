@@ -1,0 +1,44 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P)
+;
+; Component: R44 - Sound System (#47)
+;
+; P/N: 8P?-035-382-?
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-47.LBL
+; 8Px-035-382.LBL
+;
+; created on 17/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Jul/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Supply Voltage
+001,1,Supply Voltage,(Terminal 30)
+;
+002,0,Remote Wire && Temperature
+002,1,Status,Remote Wire,000 = OFF\n001 = ON
+002,2,Amplifier,Temperature
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;

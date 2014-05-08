@@ -1,0 +1,46 @@
+;
+; VCDS Redirect File
+;
+; VW Caddy (2K) / VW Golf/Bora/Jetta (1K) / VW Touran (1T)
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-56.LBL
+; 1Z-56.LBL
+; 5M-56.LBL
+; 5P-56.LBL
+; 5Z-56.LBL
+; 1K0-035-1xx-56.LBL
+; 5M0-035-1xx-56.CLB
+; 7H0-035-1xx-56.LBL
+;
+; created on 26/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/Jun/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;1K0-035-153-B   ; R100
+;1K0-035-153-C   ; R100
+;1K0-035-153-D   ; R100
+REDIRECT,1K0-035-191.LBL,1K0-035-153-E      ; RNS300
+;1K0-035-153-F   ; R100
+REDIRECT,1K0-035-191.LBL,1K0-035-153-H      ; RNS300
+;
+REDIRECT,7H0-035-1xx-56.LBL,1K0-035-161-??? ; Low Entry (NAR)
+;
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-180-??? ; Premium 7 (NAR)
+;
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-186-??? ; RCD300
+;
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-195     ; RCD500
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-195-A   ; RCD500
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-195-C   ; RCD500
+REDIRECT,1K0-035-1xx-56.LBL,1K0-035-195-D   ; RCD500
+REDIRECT,5M0-035-1xx-56.CLB,1K0-035-195-AA  ; RCD510
+REDIRECT,5M0-035-1xx-56.CLB,1K0-035-195-AB  ; RCD510 DAB
+;

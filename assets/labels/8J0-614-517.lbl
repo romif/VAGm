@@ -1,0 +1,185 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J104 - Brake Electronics (#03) - ABS/EDS/ASR/ESP MK60E1
+;
+; P/N: 8J0-614-517-???
+;
+; includes measuring blocks, basic setting and security access
+;
+; created on 31/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Jul/2007
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Range: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±4.5 °
+004,2,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+004,3,Rotation Rate,,Specification: ± 2.5 °/s
+;
+005,0,Brake Pressure && Steering Angle Sensor Status
+005,1,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+005,2,Steering Angle,Sensor Condition,Range: Initialised/N. Initialised/Implausible
+;
+007,0,ASR/ESP Button
+007,1,ASR/ESP Button,(E256),Display Range: Operated/Not Oper.
+;
+010,0,Additional Functions
+010,2,Brake Wiping,(Front),Range: ON/OFF
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+018,0,Parking Brake
+018,2,Parking Brake,Status,Range: Activated/Not Activated
+;
+B060,0,Adjustment of Steering Angle Sensor (G85)
+B060,1,Adjustment
+B060,2,Adjustment,Status
+B060,3,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±4.5 °
+;
+B063,0,Adjustment of Lateral Acceleration Sensor (G200)
+B063,1,Adjustment
+B063,2,Adjustment,Status
+B063,3,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+;
+B066,0,Adjustment of Brake Pressure Sensor (G201)
+B066,1,Adjustment
+B066,2,Adjustment,Status
+B066,3,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+;
+B093,0,Initiation of ESP Driving Test
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Electronics
+125,4,Transmission,,Range: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+126,3,Immobilizer,,Specification: Immobilizer 1\nRange: Immobilizer 1/Immobilizer 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,Airbag,(J234)
+;
+225,0,CAN-Datenbus Powertrain (Timeout)
+225,1,Engine
+225,2,Steering Angle,Sensor (G85)
+225,3,All-Wheel-Electronics
+225,4,Transmission
+;
+226,0,CAN-Datenbus Powertrain (Timeout)
+226,1,Instrument Cluster,(J285)
+226,2,CAN-Gateway,(J533)
+226,3,Immobilizer
+;
+227,0,CAN-Datenbus Powertrain (Timeout)
+227,1,Airbag,(J234)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A10,0,
+;1
+A10,1,
+;Brake Booster
+A10,2,
+;Enabled
+A10,3,
+;N/A
+A10,4,
+;N/A
+;
+A44,0,
+;1
+A44,1,
+;Dis.Em.Br.On
+A44,2,
+;N/A
+A44,3,
+;N/A
+A44,4,
+;N/A
+;
+A45,0,
+;1
+A45,1,
+;WarnTexts On
+A45,2,
+;WarnSound On
+A45,3,
+;N/A
+A45,4,
+;N/A
+;
+A90,0,
+;1
+A90,1,
+;ESP On
+A90,2,
+;N/A
+A90,3,
+;N/A
+A90,4,
+;N/A
+;91 N/A
+;92 N/A
+;93 N/A
+;
+A94,0,
+;0
+A94,1,
+;ParkSteerAss.
+A94,2,
+;not installed
+A94,3,
+;N/A
+A94,4,
+;N/A
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Brake Electronics (J104) Security Access
+S01,40168 = General Basic Setting "Enabling"
+;

@@ -1,0 +1,142 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J520 - Central Electronics II (#4F)
+;
+; P/N: 4F0-910-280-???
+;
+; includes measuring blocks, adaptation, coding, security access and selective output tests
+;
+; created on 11/Jul/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage Supply,(Terminal 30)
+001,2,Outside,Temperature
+;
+002,0,Vehicle Data
+002,1,Engine Speed
+002,2,Vehicle Speed
+002,3,Steering Angle,Sensor
+;
+003,0,Servotronic
+003,2,Servotronic Valve,Adjusted Current
+003,3,Servotronic Valve
+;
+004,0,Sunroof Comfort Function
+004,1,Sunroof Comfort,Opening (CAN)
+004,2,Sunroof Comfort,Closing (CAN)
+004,3,Sunroof Comfort,Opening
+004,4,Sunroof Comfort,Closing
+;
+005,0,Eneryg,
+005,1,Terminal 15,Status
+005,2,Terminal X,Status
+005,3,Energy Manager,Dynamic Shut-Off
+005,4,Energy Manager,Static Shut-Off
+;
+006,0,Inclination Sensor
+006,1,X-Value,(absolute)
+006,2,X-Value,(difference)
+006,3,Y-Value,(absolute)
+006,4,Y-Value,(difference)
+;
+007,0,Sunroof
+007,1,Speed Signal,(Sunroof)
+007,2,Enabling Sunroof
+007,3,Enabling,Comfort Functions
+;
+008,0,Glove Compartment && Central Locking
+008,1,Button for,Glove Compartm.
+008,2,Central Locking,Open
+008,3,Links of,Pre-Conditions
+008,4,Glove Compartm.,Motor
+;
+020,0,Component Protection
+020,1,Component,Protection
+020,2,CAN Lock Counter
+020,3,SA Lock Counter
+;
+140,0,CAN-Databus Communication (Comfort)
+140,1,Battery Manager,,Specification: Batt.Mgmt 1
+140,2,CAN-Gateway,,Specification: Gateway 1
+140,3,Electrical,Ignition Lock,Specification: El.Ign.Lock 1
+;
+141,0,CAN-Databus Communication (Comfort)
+141,1,Climate Control,,Specification: A/C 1
+141,2,Databus,Status,Display Range: 1-Wire/2-Wire/No Communication 
+141,3,Central,Electronics,Specification: Central 1
+;
+;
+;---------------------------------------------------
+;
+; selective output test informations
+;
+;---------------------------------------------------
+;
+;
+T2264,Servotronic Steering: Full Assistance
+T2265,Servotronic Steering: No Assistance
+T2661,Speed Signal (Sunroof)
+T2662,Comfort Opening of Sunroof
+T2663,Comfort Closing of Sunroof
+T2752,Glovebox Unlocking Motor (V327)
+;
+;
+;---------------------------------------------------
+;
+; security access informations
+;
+;---------------------------------------------------
+;
+;
+S0,Central Electronics II (J520) Security Access
+S1,12151 - General Adaptation "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; adaptation informations
+;
+;---------------------------------------------------
+;
+;
+A001,0,Inclination Sensor Threshold
+A001,5,Inclination Sensor Threshold
+A001,6,Alarm threshold in X and Y direction.
+;
+A002,0,Glove Compartment Activation Time
+A002,5,Glove Compartment Activation Time
+A002,6,Time for which the glove compartment opening is
+A002,7,permitted after the ignition is switched off.
+;
+A003,0,Anti-Play Protection Decrease Time
+A003,5,Anti-Play Protection Decrease Time
+A003,6,Time after the anti-play protection counter is decreased by 1.
+;
+A004,0,Anti-Play Protection Threshold
+A004,5,Anti-Play Protection Threshold
+A004,6,Threshold for anti-play protection counter from which an activation is prevented.
+;
+;
+;---------------------------------------------------
+;
+; coding informations
+;
+;---------------------------------------------------
+;
+;
+;C00,Central Electronics II (J520) Coding
+;

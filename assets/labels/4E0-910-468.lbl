@@ -1,0 +1,87 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A8 (4E)
+;
+; Component: J533 - Diagnostic Interface for Databus (#19)
+;
+; P/N: 4E0-910-468-???
+;
+; includes measuring blocks and long coding
+;
+; created on 18/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Oct/2007
+;
+; requires VAG-COM 708.0 / LCode 709.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,[69] Trailer installed
+LC,00,1,[13] Auto Distance regulation installed
+LC,00,2,[15] Airbag system installed
+LC,00,3,[61] Battery regulation installed
+LC,00,4,[38] Roof electronic installed
+LC,00,5,[03] Anti-lock brake (ABS) installed
+LC,00,6,[53] Parking Brake installed
+LC,00,7,[76] Park Assist installed
+LC,01,0,[1D] Driver identification installed
+LC,01,1,[05] Zugangs- und Startberechtigung installed
+LC,01,2,[25] Immobilizer installed
+LC,01,3,[19] CAN-Gateway installed (Standard)
+LC,01,4,[02] Automatic transmission installed
+LC,01,5,[09] Central Electronics installed
+LC,01,6,[4F] Central Electronics II installed
+LC,01,7,[46] Central Convenience installed
+LC,02,0,[17] Instrument Cluster installed
+LC,02,1,[08] Auto HVAC installed
+LC,02,2,[28] Auto HVAC rear installed
+LC,02,3,[34] Level control installed
+LC,02,4,[00] Steering Wheel Sensor (G85) installed
+LC,02,5,[55] Xenon Range installed
+LC,02,6,[01] Engine I installed
+LC,02,7,[11] Engine II installed
+LC,03,0,[65] Tire Pressure Monitoring installed
+LC,03,1,[18] Auxiliary Heating installed
+LC,03,2,[16] Steering Wheel electronic installed
+LC,03,3,[36] Seat Memory (Driver) installed
+LC,03,4,[06] Seat Memory (Passenger) installed
+LC,03,5,[66] Seat Memory (Rear) installed
+LC,03,6,[42] Door Electronics (Driver) installed
+LC,03,7,[52] Door Electronics (Passenger) installed
+LC,04,0,[62] Door Electronics (Rear Left) installed
+LC,04,1,[72] Door Electronics (Rear Right) installed
+LC,04,2,[27] Control Head (Rear) installed
+LC,04,3,[07] Control Head installed
+LC,04,4,[0E] Mediaplayer Position 1 installed
+LC,04,5,[1E] Mediaplayer Position 2 installed
+LC,04,6,[2E] Mediaplayer Position 3 installed
+LC,04,7,[3E] Mediaplayer Position 4 installed
+LC,05,0,[56] Radio (Analog) installed
+LC,05,1,[75] Telematic/Emergency Call installed
+LC,05,2,[57] TV-Tuner installed
+LC,05,3,[0F] Radio (Digital) installed
+LC,05,4,[77] Phone installed
+LC,05,5,[37] Navigation system installed
+LC,05,6,[67] Voice Control installed
+LC,05,7,[4E] Control Head (Rear right) installed
+LC,06,0,[5E] Control Head (Rear left) installed
+LC,06,1,[1F] Radio (Satellit) installed
+LC,06,2,[47] Sound System installed
+;

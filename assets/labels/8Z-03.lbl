@@ -1,0 +1,28 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A2 (8Z)
+;
+; Component: J104 - ABS (#03)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8Z-03.LBL
+; 8Z0-907-379-MK20.LBL (MK20)
+; 8Z0-907-379-MK60.LBL (MK60)
+;
+; created on 17/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 17/Oct/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8Z0-907-379-MK20.LBL,8Z0-907-37?-A   ; MK20
+REDIRECT,8Z0-907-379-MK20.LBL,8Z0-907-37?-B   ; MK20
+;
+REDIRECT,8Z0-907-379-MK60.LBL,8Z0-907-37?-C   ; MK60
+REDIRECT,8Z0-907-379-MK60.LBL,8Z0-907-37?-D   ; MK60
+;

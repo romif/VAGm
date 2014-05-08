@@ -1,0 +1,165 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8D) / Seat Ibiza (6K) / VW Golf (1H)
+; VW Passat (3A) / VW Polo Classic (6V) / VW Sharan (7M)
+;
+; Komponente: Motor (#01) - 1.9l/81kW (110PS) - AFN/AVG
+;
+; T/N: 028 906 021 ???
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 02-01.LBL
+; 028-906-021-AFN.LBL (1.9l TDI @ 110 HP - AFN/AVG)
+;
+; erstellt am 27.02.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 27.02.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Motordrehzahl,Sollwert (Leerlauf): 41...45 (860...945 U/min) | Sollwert (Vollast): 133...155 (2800...3200 U/min)
+000,2,Einspritzbeginn,Sollwert (Leerlauf): 50...100 (1...5 °v.OT) | Sollwert (Vollast): 137...213 (8...14 °v.OT)
+000,3,Gaspedalstellung,Sollwert (Leerlauf): 0 (0 %) | Sollwert (Vollast): 255 (100 %)
+000,4,Einspritzmenge,Sollwert (Leerlauf): 11...45 (2.2..9 mg/H) | Sollwert (Vollast): 180...210 (36...42 mg/H)
+000,5,Saugrohr (Ladedruck),Sollwert (Vollast):  158...194 (1650...2000 mbar)
+000,6,atmosphärischer Druck (Umgebungsluftdruck)
+000,7,Kühlmitteltemperatur,Sollwert: 80...35 (80...110 °C)
+000,8,Saugrohrtemperatur,Sollwert: 51...182 (10...100 °C)
+000,9,Kraftstofftemperatur,Sollwert (Leerlauf): 91...201 (20...80 °C) | Sollwert (Vollast): 91...201 (20...80 °C)
+000,10,angesaugte Luftmasse,Sollwert (Leerlauf): 69...128 (230...420 mg/H) | Sollwert (Vollast): 225...255 (750...890 mg/H)
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,,Sollwert (Leerlauf): 860...945 U/min
+001,2,Einspritzmenge,,Sollwert (Leerlauf): 2.2...9 mg/H
+001,3,Spannung G149,Regelschieberweg,Sollwert (Leerlauf): 1.30...1.90 V
+001,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+002,0,Leerlaufdrehzahl
+002,1,Motordrehzahl,,Sollwert (Leerlauf): 860...945 U/min
+002,2,Gaspedalstellung,,Sollwert (Leerlauf): 0 %
+002,3,Betriebszustand,,Sollwert (Leerlauf): 010
+; 1xx - Klimaanlagensiagnal ein
+; x1x - Leerlaufschalter geschlossen
+; xx1 - Leerlaufdrehzahl erhöht
+002,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+003,0,Abgasrückführung
+003,1,Motordrehzahl,,Sollwert (Leerlauf): 860...945 U/min
+003,2,angesaugte,Luftmasse (SOLL),Sollwert (Leerlauf): 230...370 mg/H
+003,3,angesaugte,Luftmasse (IST),Sollwert (Leerlauf): 230...420 mg/H
+003,4,Tastverhältnis,Abgasrückführung,Sollwert (Leerlauf): 30..80 %
+;
+004,0,Einspirtzbeginn
+004,1,Motordrehzahl,,Sollwert (Leerlauf): 860...945 U/min | Sollwert (Vollast): 2800...3200 U/min
+004,2,Einspritzbeginn,(SOLL),Sollwert (Leerlauf): 1...5 °v.OT | Sollwert (Vollast): 8...14 °v.OT
+004,3,Einspritzbeginn,(IST),Sollwert (Leerlauf): 1...5 °v.OT | Sollwert (Vollast): ca. Einspritzbeginn (SOLL)
+004,4,Tastverhältnis,Einspritzbeginn,Sollwert (Leerlauf): 2...80 % | Sollwert (Vollast): 70...95 %
+;
+005,0,Satrtverhältnisse
+005,1,Motordrehzahl
+005,2,Start-,einspritzmenge
+005,3,Einspritzbeginn
+005,4,Kühlmittel-,tempratur
+;
+006,0,Schalterstellungen
+006,1,Geschwindigkeit
+06,2,Bremspedal-,überwachung
+; 1xx - Bremslichtschalter (F) geschlosen
+; x1x - Bremspedalschalter (F47) geöffnet
+; xx1 - Kupplungspedalschalter (F36) geöffnet
+006,3,Geschwindigkeits-,regelanlage
+; 1xxxxx - Kupplungspedal betätigt
+; x1xxxx - Bremspedal betätigt
+; xx1xxx - Wiederaufnahme/Beschleunigen
+; xxx1xx - Geschwindigkeitsverzögerung
+; xxxx1x - GRA aus mit Speicher
+; xxxxx1 - GRA eingeschaltet
+006,4,Betriebszustand
+; 000 = Steuergerät mit GRA-Funktion
+; 001 = GRA ausgeschaltet
+; 002 = Beschleunigen
+; 004 = Verzögern
+; 008 = Wiederaufnahme
+; 016 = Bremse getreten
+; 032 = Geschwindigkeit halten
+; 064 = nicht beachten
+; 128 = nicht beachten
+; 255 = Steuergerät ohne GRA-Funktion
+;
+007,0,Temperaturen (Motor ausgekühlt)
+007,1,Kraftstoff-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,3,Saugrohr-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,temperaur,Sollwert: ca. Umgebungstemperatur
+;
+008,0,Einspritzmengenbegrenzung
+008,1,Motordrehzahl,,Sollwert (Vollast): 2800...3200 U/min
+008,2,Einspritzmenge,(Fahrerwunsch),via Gaspedal (Sollwert (Vollast): 42...44 mg/H)
+008,3,Begrenzung,über Drehzahl,Drehmomentbegrenzung (Sollwert (Vollast): 41...42 mg/H)
+008,4,Begrenzung,über Luftmasse,Rauchvermeidung (Sollwert (Vollast): 36...44 mg/H)
+;
+009,0,Einspritzmengenbegrenzung
+009,1,Motordrehzahl
+009,2,Begrenzung,(GRA aktiv)
+009,3,Begrenzung,(Schaltvorgang),vom autom. Getriebe
+009,4,Spannung,Regelschieberweg
+;
+010,0,Luftgrößen
+010,1,angesaugte,Luftmasse,Sollwert (Vollast): 750...890 mg/H
+010,2,atmosphärischer,Druck (Luftdruck)
+010,3,Saugrohrdruck,(Ladedruck),Sollwert (Vollast): 1650...2000 mbar
+010,4,Gaspedalstellung,,Sollwert (Vollast): 100 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,,Sollwert (Vollast): 2800...3200 U/min
+011,2,Ladedruck,(SOLL),Sollwert (Vollast): 1650...1950 mbar
+011,3,Ladedruck,(IST),Sollwert (Vollast): 1650...2000 mbar
+011,4,Tastverhältnis,Ladedruckregelung,Sollwert (Vollast): 20...70 %
+;
+012,0,Vorglühanlage
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung
+012,4,Kühlmittel-,temperatur
+;
+013,0,Leerlaufruheregleung (Einspritzmengenabweichung)
+013,1,Abweichung,Zyl. 4 zu Zyl. 3
+013,2,Abweichung,Zyl. 2 zu Zyl. 3
+013,3,Abweichung,Zyl. 1 zu Zyl. 3
+;
+015,0,Kraftstoffverbauch
+015,1,Motordrehzahl
+015,2,Einspritzmenge,(IST)
+015,3,Kraftstoffverbauch
+015,4,Einspritz-,mengenwunsch,(via Gaspedal)
+;
+016,0,Zusatzheizung
+016,1,Generator-,auslastung
+016,2,Abschaltung,Zusatzheizung
+; xx1xxxxx -  Geber für Kühlmitteltemperatur (G62) oder Saugrohrtemperatur (G72) defekt
+; xxx1xxxx - Motorstart innerhalb der letzten 10 sec
+; xxxx1xxx - Motordrehzahl unter 760/min
+; xxxxx1xx - Batteriespannung unter 9 V
+; xxxxxx1x - Generator defekt
+; xxxxxxx1 - Kühlmitteltemp. größer 70 °C...80 °C oder Ansauglufttemp. größer 5 °C
+016,3,Ansteuerung,der Heizelemente
+; 1x - Relais für kleine Heizleistung (J359)
+; x1 - Relais für große Heizleistung (J360)
+016,4,Versorgungs-,spannung
+;
+019,0,Mengenstellwerk
+019,1,Regelschieberweg,unterer Anschlag
+019,2,Regelschieberweg,oberer Anschlag
+;

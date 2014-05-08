@@ -1,0 +1,508 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 1 -- Engine
+; 
+; from USA 2000 Audi S4 2.7T biturbo (Tiptronic)
+;
+; ECU p/n  :  8D0-907-551-B
+; Component:  2.7l V6/5VT G 0003
+;
+; **Modification history**
+; created:  Paul Cunningham, 26 May 2001
+; please email any comments or corrections: paul@centricitysoftware.com
+;
+;
+;   Thanks to Paolo Sechi, USA 1998 Audi A4 2.8L/5V
+;   Thanks to Andrew Smith, (gti20v@yahoo.com) 5-speed VW Golf/Jetta 1.8T
+;
+;
+;  DISREGARD OR CONFIRM ANY STATED VALUES
+;
+;
+;2,0,Group Heading: One Line, Maximum 70 Characters!
+;2,1,123456789012345,ABCDEFGHIJKLM
+;2,2,Max field leng., is 13-17 chars
+;2,3,Depends on size, of characters
+;2,4,ABCDEFGHIJKLM,abcdefghijklmnopq 
+;
+; **********************************************************************
+; Group 0 labels don't display (yet?) -- included for completeness
+;0,0,Engine Status
+;0,1,ECT,170-204
+;0,2,Load,20-50
+;0,3,RPM,62-86
+;0,4,T-ang,0-12
+;0,5,I-air,118-138
+;0,6,I-lrn,118-138
+;0,7,O2S1,77-179
+;0,8,O2S2,77-179
+;0,9,IO2S1,115-141
+;0,10,IO2S2,115-141
+;
+1,0,Engine Idle Speed (specified values listed)
+1,1,Engine speed,
+1,2,Coolant Temp,80-105C
+1,3,O2 Sens Bank1,+/-10%(>2% flct)
+1,4,O2 Sens Bank2,+/-10%(>2% flct)
+;
+2,0,Load Measurement (specified values for idle/2520 RPM)
+2,1,Engine speed
+2,2,Engine load
+2,3,Injection time,2-5/1.6-5ms
+2,4,Mass air flow,2.8-5.6/10-15g/s
+;
+3,0,Throttle Position Sensor check (ign on && eng off -> monitor angle as varied)
+3,1,Engine speed
+3,2,Mass air flow,g/s
+3,3,Throttle angle,0-5deg=closed
+3,4,Ign timing,deg
+;
+4,0,General Engine Data
+4,1,Engine speed
+4,2,Battery voltage,10-14.5V
+4,3,Coolant temp
+4,4,Intake air temp
+;
+5,0,Engine operating conditions (engine oil temp >80C)
+5,1,Engine speed
+5,2,Engine load
+5,3,Vehicle speed,km/h
+5,4,Op condition,idl/prt/fl/dcl/erch
+;
+6,0,General Engine
+6,1,Engine speed
+6,2,Engine load
+6,3,Intake air temp
+6,4,Altitud Corr Factr,-50-20%
+;
+10,0,General Engine
+10,1,Engine speed
+10,2,Engine load
+10,3,Throttle Drive
+10,4,Ignition time
+;
+11,0,General Engine
+11,1,Engine speed
+11,2,Coolant temp
+11,3,Intake air temp
+11,4,Ignition time
+;
+14,0,Misfire recognition (@idle)
+14,1,Engine speed
+14,2,Engine load
+14,3,Total misfires,0-30
+14,4,Misfire status,activated
+;
+15,0,Misfire recognition cylinders 1-3 (@idle)
+15,1,Cyl 1,0-5
+15,2,Cyl 2,0-5
+15,3,Cyl 3,0-5
+15,4,Misfire status,activated
+;
+16,0,Misfire recognition cylinders 4-6 (@idle)
+16,1,Cyl 4,0-5
+16,2,Cyl 5,0-5
+16,3,Cyl 6,0-5
+16,4,Misfire status,activated
+;
+18,0,Misfires
+18,1,Lowest engine,speed@misfire
+18,2,Highest engine,speed@misfire
+18,3,Lowest engine,load@misfire
+18,4,Highest engine,load@misfire
+;
+20,0,Timing correction
+20,1,Cyl 1
+20,2,Cyl 2
+20,3,Cyl 3
+20,4,Cyl 4
+;
+21,0,More Timing correction
+21,1,Cyl 5
+21,2,Cyl 6
+;
+22,0,Knock control Cyl 1&&2 (must road test: RPM>2600 && load>3ms)
+22,1,Engine speed
+22,2,Engine load
+22,3,Ign ang corr 1,0-10deg
+22,4,Ign ang corr 2,0-10deg
+;
+23,0,Knock control Cyl 3&&4 (must road test: RPM>2600 && load>3ms)
+23,1,Engine speed
+23,2,Engine load
+23,3,Ign ang corr 3,0-10deg
+23,4,Ign ang corr 4,0-10deg
+;
+24,0,Knock control Cyl 5&&6 (must road test: RPM>2600 && load>3ms)
+24,1,Engine speed
+24,2,Engine load
+24,3,Ign ang corr 5,0-10deg
+24,4,Ign ang corr 6,0-10deg
+;
+26,0,Knock sensor voltage
+26,1,Cyl 1
+26,2,Cyl 2
+26,3,Cyl 3
+26,4,Cyl 4
+;
+27,0,knock sensor voltage
+27,1,Cyl 5
+27,2,Cyl 6
+;
+28,0,Undocumented
+28,1,Engine speed
+28,2,Engine load
+28,3,Coolant temp
+28,4,Test status
+;
+30,0,O2S ctrl op. condition [B=Bank S=Sensor]   Fields:[heater on][oper.][ctrl active]
+30,1,Status B1S1,111=OK ?
+30,2,Status B1S2,100=OK ?
+30,3,Status B2S1,111=OK ?
+30,4,Status B2S2,100=OK ?
+;
+31,0,Undocumented
+31,1,O2S volts pre TWC
+31,2,O2S volts post TWC
+31,3,b2 pre TWC
+31,4,b2 post TWC
+;
+32,0,O2S control learning values (before Cat. Conv.)   [B=Bank S=Sensor]
+32,1,@idle B1S1,+/-10%
+32,2,@part B1S1,+/-10%
+32,3,@idle B2S1,+/-10%
+32,4,@part B2S1,+/-10%
+;
+33,0,O2S control (before Cat. Conv.)    [B=Bank S=Sensor]
+33,1,Control B1S1,+/-10%(>2% flct)
+33,2,Voltage B1S1,0-1V(>0.3V@30Hz)
+33,3,Control B2S1,+/-10%(>2% flct)
+33,4,Voltage B1S1,0-1V(>0.3V@30Hz)
+;
+34,0,O2S aging B1S1 (Temp >80C && engine 1800-2200 RPM until "OK")(Bentley 01-123)
+34,1,Engine RPM
+34,2,Catalyst?
+34,3,Time Period,0.2-2.1s
+34,4,Diag Status,ON/OFF|OK
+;
+35,0,O2S aging B2S1 (Temp >80C && engine 1800-2200 RPM until "OK")(Bentley 01-124)
+35,1,Engine RPM
+35,2,Catalyst?
+35,3,Time Period,0.2-2.1s
+35,4,Diag Status,ON/OFF|OK
+;
+36,0,O2S (beyond Cat. Conv.) [B=Bank S=Sensor] (Bentley 01-126)
+36,1,Volt Supply B1S2,0-1V
+36,2,Diag Status B1S2,ON/OFF|OK
+36,3,Volt Supply B2S2,0-1V
+36,4,Diag Status B2S2,ON/OFF|OK
+;
+37,0,[for 2.7T] Diag O2S ctrl Bank 1 (road test >10 min) (Bentley 01-128)
+37,1,Engine load
+37,2,O2S Volt S2,0-1V
+37,3,Corr val S1-S2,-500-500ms
+37,4,Diag Status,ON/OFF|OK
+;
+38,0,[for 2.7T] Diag O2S ctrl Bank 2 (road test >10 min) (Bentley 01-129)
+38,1,Engine load
+38,2,O2S Volt S2,0-1V
+38,3,Corr val S1-S2,-500-500ms
+38,4,Diag Status,ON/OFF|OK
+;
+43,0,Oxy sensor aging oxygen sensor behind TWC (bank 1) (Bentley 01-131)
+43,1,Engine speed	
+43,2,Catalyst?	
+43,3,V of O2 sensor,behind TWC (bank 1)	
+43,4,Diag status
+;
+44,0,Oxy sensor aging oxygen sensor behind TWC (bank 2) (Bentley 01-131)
+44,1,Engine speed	
+44,2,,Catalyst?	
+44,3,V of O2 sensor,behind TWC (bank 2)	
+44,4,Diag status
+;
+46,0,Cat. Conv. B1 diagnosis (1800-2200 RPM until "Cat B1 OK") (Bentley 01-134)
+46,1,Engine speed
+46,2,Catalyst?
+46,3,Test time, 0-60s
+46,4,Diag status,ON/OFF|OK
+;
+47,0,Cat. Conv. B2 diagnosis (1800-2200 RPM until "Cat B2 OK") (Bentley 01-135)
+47,1,Engine speed
+47,2,Catalyst?
+47,3,Test time, 0-60
+47,4,Diag status,ON/OFF|OK
+;
+50,0,Signals to Engine Control Module (@idle)
+50,1,Engine speed
+50,2,Spec'd eng spd
+50,3,A/C idle boost
+50,4,A/C compressor,ON/OFF
+;
+51,0,Undocumented
+51,1,Engine speed
+51,2,Spec'd eng spd
+51,3,,Count
+51,4,,Voltage
+;
+53,0,Undocumented
+53,1,Engine speed
+53,2,Spec'd eng spd
+53,3,,Voltage
+53,4,,Load
+;
+54,0,Throttle Position at Speed (700-2520 RPM)
+54,1,Engine speed
+54,2,Op condition,Idle|Part|
+54,3,Throt Position,0-100%
+54,4,Throt Drive,0-100%
+;
+55,0,Idle control (@idle)
+55,1,Engine speed
+55,2,Idle air ctrl,-1.39-+1.39g/s
+55,3,Learn value,-1.39-+1.39g/s
+55,4,Op condition,00000=OK?
+;
+56,0,Idle speed stabilization (@idle)
+56,1,Engine speed
+56,2,Spec'd RPM
+56,3,Ctrl Torque Chg,%
+56,4,Op condition,00000=OK
+;
+60,0,Adaptation of throttle valve control mod.(ign on && engine off) (Bentley 01-111)
+60,1,Throt Sens 1,3-93%
+60,2,Throt Sens 2,97-3%
+60,3,
+60,4,Adapt status,RUN/OK/ERROR
+;
+; 61,62,66 from 1.8T
+;
+61,0,Throttle
+61,1,Engine Speed
+61,2,Throt Voltage,12-15V
+61,3,Throt Drive,0-100%
+61,4,Op condition
+;
+62,0,Ignition on but engine not running
+62,1,Throt Sens 1,3-93%
+62,2,Throt Sens 2,97-3%
+62,3,Throttle Pos,12-97%
+62,4,Sender 2 TPS,4-49%
+;
+63,0,Ignition on but engine not running
+63,1,Throttle Pos,12-97%
+63,2
+63,3
+63,4,Adapt status,RUN/OK/ERR
+;
+64,0,Undocumented
+64,1,,Voltage (<1)
+64,2,,Voltage (<5)
+64,3,,Voltage (<1)
+64,4,,Voltage (<5)
+;
+66,0,Cruise Control
+66,1,Vehicle speed
+66,2,Brake Position,1000 binary
+66,3,Cruise speed,
+66,4,Cruise switches,0000 binary
+;
+70,0,Evap. emissions canister purge valve diagnosis (@idle)  (Bentley 01-113)
+70,1,Purge vlv open,0-93%
+70,2,O2S deviation,+/-15%
+70,3,Idle air vlv dev,-1 to 0 g/s
+70,4,Status,TestON/OFF|OK
+;
+71,0,Fuel tank leak detection (@idle)  (Bentley 01-116)
+71,1,Reed contact,OPEN
+71,2,,Error msg
+71,3,Sys Status,Test/check/end
+71,4,Diag Status,TestON/OFF|OK
+;
+77,0,Diag of secondary air injection sys (bank 1) (Bentley 01-137)
+77,1,Engine speed	
+77,2,Air mass (g/s)	
+77,3,Rel. air mass ,sec. air inj.
+77,4,Diag status,ON/OFF|OK
+;
+78,0,Diag of secondary air injection sys (bank 2) (Bentley 01-138)
+78,1,Engine speed	
+78,2,Air mass (g/s)	
+78,3,Rel. air mass, sec. air inj.
+78,4,Diag status,ON/OFF|OK
+;
+86,0,OBD-II Readiness Code (Bentley 01-101 && 105)
+86,1,Readiness Code,00000000=OK
+86,2,Cycling flags
+86,3,Cycling flags
+86,4,Cycling flags
+;
+87,0,Undocumented
+87,1,Ready bits
+87,2,Error bits
+87,3,Error bits
+87,4,Error bits
+;
+88,0,Undocumented
+88,1,
+88,2,
+88,3,
+88,4,
+;
+89,0,Undocumented
+89,1,,Count (0)
+89,2,,(OK)
+;
+90,0,Camshaft adjustment (values are for idle && road test: accel in 2nd gear)
+90,1,Engine speed
+90,2,Adj ON/OFF,idle=OFF/rt=ON
+90,3,Adj resp Bank1,-3-6/16-25degKW
+90,4,Adj resp Bank2,-3-6/16-25degKW
+;
+91,0,Camshaft adjustment (Bank 1)
+91,1,Engine speed
+91,2,,Load
+91,3,,Cam Ctrl. ON|OFF
+91,4,,Adj resp Bank1
+;
+92,0,Camshaft adjustment (Bank 2)
+92,1,Engine speed
+92,2,,Load
+92,3,,Cam Ctrl. ON|OFF
+92,4,,Adj resp Bank2
+;
+93,0,Undocumented
+93,1,Engine speed
+93,2,Engine load
+93,3,,Dig. Idle Stab.
+93,4,,Dig. Idle Stab.
+;
+94,0,Undocumented
+94,1,Engine speed
+94,2,Cam Ctrl. ON|OFF
+94,3,Test Status
+94,4,Test Status
+;
+99,0,O2S Control (ON in read mode && OFF for diagnosis in Basic Setting)
+99,1,Engine speed,RPM
+99,2,Coolant temp,80-110 C
+99,3,PreCat O2 Reg,-10-10% 
+99,4,O2S control,ON|OFF
+;
+100,0,Undocumented
+100,1,Ready Code,00000000
+100,2,Coolant Temp,80-110 C
+100,3,Running time
+100,4,Diag Status
+;
+101,0,Undocumented
+101,1,Engine speed
+101,2,Engine load
+101,3,,Avg fuel inject time?
+101,4,,0.00 g/s
+;
+102,0,Undocumented
+102,1,Engine speed
+102,2,Coolant temp
+102,3,Intake air temp
+102,4,,inj. on time
+;
+104,0,Undocumented
+104,1,Coolant temp
+104,2,,Lambda(-7.8)
+104,3,,Lambda (4.7)
+104,4,,Lambda 0%
+;
+107,0,Diagnostic of fuel supply  (Bentley 01-118)
+107,1,Engine speed
+107,2,O2 Control 1,%
+107,3,02 Control 2,%
+107,4,Diag. status,Test OFF|
+;
+110,0,Undocumented
+110,1,Engine speed
+110,2,Coolant temp
+110,3,Avg fuel inject time
+110,4,Throttle angle
+;
+111,0,Undocumented
+111,1,,0%
+111,2,,0%
+111,3,,-0.3%
+111,4,,1.3%
+;
+112,0,Undocumented
+112,1,,1035 C
+112,2,0%
+112,3,,1035 C
+112,4,0%
+;
+; 113-120 from 1.8T
+;
+113,0,Atmosphere
+113,1,Engine speed
+113,2,Engine load 
+113,3,Throttle Drive,0-100%
+113,4,Atmos Press,500-1200 mbar 
+;
+114,0,Boost Pressure regulation - Eng load  (Bentley 21-18)
+;load values in 1-3 can vary by 5% from each other
+114,1,Spec'd load, Uncorrected
+114,2,Corrected load,
+114,3,Engine load
+114,4,Wastegate valve,duty cycle
+;
+115,0,Boost pressure regulation  (Bentley 21-14)
+115,1,Engine speed
+115,2,Engine load
+115,3,Spec'd Boost,990-1800 mbar
+115,4,Actual Boost,<=1800 mbar
+;
+116,0,Boost pressure regulation  (Bentley 21-17)
+116,1,Engine speed
+116,2,Fuel Corr Factr,0-20%
+116,3,,0%
+116,4,Air Corr Factr,0-20%
+;
+;116? From Bentley: If display field 2 indicates a correction factor <0 %, 
+;fuel quality is probably incorrect. 
+;If display field 3 indicates a correction factor <0 %, 
+;coolant temperature is too high (heat warning lamp lit 
+;in instrument cluster) or the Engine Control Module is
+;
+117,0,Boost pressure regulation (Bentley 21-16)
+117,1,Engine speed
+117,2,Throttle Position,0-100%
+117,3,ThrottlesDrive,0-100%
+117,4,Spec. Boost,990-1800 mbar
+;
+118,0,Boost pressure regulation
+118,1,Engine speed
+118,2,Intake air temp,<=110 C
+118,3,Boost Duty Cycle,0-100% 
+118,4,Actual Boost,<=1800 mbar
+;
+119,0,Boost pressure regulation
+119,1,Engine speed,700-6800 RPM
+119,2,,Charge Limit %
+119,3,Boost Duty Cycle,0-100% 
+119,4,Actual Boost,<=1800 mbar
+;
+120,0,Traction Control (ASR)
+120,1,Engine speed
+120,2,Spec'd torque,0-399|596 Nm
+120,3,Current torque,0-260 Nm
+120,4,Status,ON|OFF
+;
+122,0,Engine torque reduced during shifting (road test)
+122,1,Engine speed
+122,2,Req. torque,-100-410Nm |599
+122,3,Act. torque,-100-310Nm
+122,4,,[Text 000 120]
+;122,4,Timing retard,act/mtr eng
+;
+125,0,Undocumented, At Idle
+125,1,,Transmission 1
+;
+;
+;<end of file>

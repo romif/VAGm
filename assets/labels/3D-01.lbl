@@ -1,0 +1,37 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A6 (4F) / Audi A8 (4E) / VW Phaeton (3D) / VW Touareg (7L)
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-01.LBL
+; 4E-01.LBL
+; 4F-01.LBL
+; 7L-01.LBL
+; 059-907-401-ASB.LBL (3.0l TDI @ 211-232 HP - ASB/BKS/BMK/BNG)
+;
+; created on 13/Jan/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Mar/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;-------------------------------------------------------------
+;
+; Enginecode ASB/BKS/BMK/BNG 3.0l 155-171kW/211-232HP
+;
+; ASB 3.0l 171kW/232HP (4E)
+; BKS 3.0l 165kW/225HP (7L)
+; BMK 3.0l 165kW/224HP (3D, 4F)
+; BNG 3.0l 155kW/211HP (4E, 4F)
+;
+;-------------------------------------------------------------
+;
+;
+REDIRECT,059-907-401-ASB.LBL,3D0-907-401-???  ; BMK (3D)
+;

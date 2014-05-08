@@ -1,0 +1,49 @@
+;
+; VAG-COM Label File
+;
+; VW Eos (1F)
+;
+; Component: Easy Entry Driver (#63)
+;
+; P/N: 1Q0-959-790-???
+;
+; includes measuring blocks
+;
+; created on 31/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Mar/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+001,2,Door Status,,Range: Door Closed/Door Open
+001,3,Door Open,(over 10 Min.),Range: Yes/No
+001,4,Vehicle Speed
+;
+002,1,Longitudinal Seat,Adjustment Button,Range: Not Oper.
+002,2,Easy Entry,Button,Range: Not Oper.
+002,3,Longitudinal Seat,Adjustment,Range: 0...65535
+002,4,Load Change,Longitudinal Adj.,Range: 0...65535
+;
+3,0,,
+003,1,Entry Assistant,Exiting Position,Range: 0...65536
+003,2,Entry Assistant,Relative Position,Relative to Front Software Stop (See MVB 004.2).\nRange: 0...65536
+;
+004,0,Adjustment
+004,1,Max. Software,Adjstm. Path,Range: 0...65536
+004,2,Front Software,Stop Position,Range: 0...65536
+004,3,Rear Software,Stop Position,Range: 0...65536
+004,4,Seat Fore/Aft,Adjstm. Normed,Range: Yes/No
+;
+005,0,Adjustment Buttons
+005,1,Height/Rake/Backrest,Adjustment Button
+;

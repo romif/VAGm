@@ -1,0 +1,610 @@
+;
+; VCDS Label File
+;
+; Audi TT (8J)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8J0-920-???-???
+;
+; includes measuring blocks, adaptation, coding, security access
+;          selective output test and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-17.LBL
+; 8J0-920-xxx-17.LBL
+;
+; created on 24/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure
+001,4,Time
+;
+002,1,Mileage
+002,2,Remote Clock,(Test Mode)
+002,3,Tank Content
+002,4,Ambient,Temperature
+;
+003,1,Coolant,Temperature
+003,2,Standing Time
+003,3,Dimming Signal,(Terminal 58d)
+003,4,Dimming Signal,(Terminal 58s)
+;
+004,0,Supply Voltage && Outside Temperature
+004,1,Supply Voltage,(Terminal 30)
+004,2,Outside Temp.,(Climate Control)
+004,3,Outside Temp.,(Display)
+004,4,Phototransistor
+;
+005,0,Service Reminder
+005,1,Distance since,Service exceeded,Unit: 100 km
+005,2,Time since,Service exceeded,Unit: 1 day(s)
+005,3,Remaining Dist.,until Service,Unit: 100 km
+005,4,Remaining Time,until Service,Unit: 1 day(s)
+;
+006,1,Min. (M2) Oil Level,in Service Interval
+006,2,Max. (M2) Oil Level,in Service Interval
+006,3,Long Time Average,Oil Level Dif.,
+006,4,Engine Hood,Contact,Display Range: open/closed
+;
+008,1,Short Time Mean,Oil Level Dif.,
+008,2,Current (M2) Value
+;
+010,0,Adaptation Channels 003 && 004
+010,1,Adaptation,Channel
+010,2,Consumption,Correction,See Adaptation Channel 003
+010,3,Adaptation,Channel
+010,4,Language,,See Adaptation Channel 004
+;
+011,0,Adaptation Channels 009 && 019
+011,1,Adaptation,Channel
+011,2,Mileage,,See Adaptation Channel 009
+011,3,Adaptation,Channel
+011,4,Remote Control,Clock Synchron.,See Adaptation Channel 019
+;
+012,0,Adaptation Channels 040 && 041
+012,1,Adaptation,Channel
+012,2,Mileage,since Service,See Adaptation Channel 040
+012,3,Adaptation,Channel
+012,4,Time,since Service,See Adaptation Channel 041
+;
+013,0,Adaptation Channels 042 && 043
+013,1,Adaptation,Channel
+013,2,Minimum Mileage,to Service,See Adaptation Channel 042
+013,3,Adaptation,Channel
+013,4,Maximum Mileage,to Service,See Adaptation Channel 043
+;
+014,0,Adaptation Channels 044 && 049
+014,1,Adaptation,Channel
+014,2,Maximum Time,to Service,See Adaptation Channel 044
+014,3,Adaptation,Channel
+014,4,Minimum Time to Service,See Adaptation Channel 049
+;
+015,0,Adaptation Channel 045
+015,1,Adaptation,Channel
+015,2,Oil Quality,,See Adaptation Channel 045
+;
+016,0,Adaptation Channels 047 && 048
+016,1,Adaptation,Channel
+016,2,Soot Entry,,See Adaptation Channel 047
+016,3,Adaptation,Channel
+016,4,Thermal Load,,See Adaptation Channel 048
+;
+019,0,Adaptation Channel 030
+019,3,Adaptation,Channel
+019,4,Fuel Gauge,Sender 1,See Adaptation Channel 030
+;
+020,0,Adaptation Channels 035 && 037
+020,1,Adaptation,Channel
+020,2,Engine Speed,Threshold,See Adaptation Channel 035
+020,3,Adaptation,Channel
+020,4,Breake Wear,Indicator Install.,See Adaptation Channel 037
+;
+021,0,Adaptation Channels 038 && 039
+021,1,Adaptation,Channel
+021,2,Oil Minimum,Detection Sensor,See Adaptation Channel 038
+021,3,Adaptation,Channel
+021,4,TOG,Installation,See Adaptation Channel 039
+;
+022,0,Adaptation Channels 018 && 020
+022,1,Adaptation,Channel
+022,2,Auxiliary,Heating,See Adaptation Channel 018
+022,3,Adaptation,Channel
+022,4,Configuration,,See Adaptation Channel 020
+;
+023,0,Adaptation Channels 080 && 081
+023,1,Adaptation,Channel
+023,2,Day/Month,of Delivery,See Adaptation Channel 080
+023,3,Adaptation,Channel
+023,4,Year,of Delivery,See Adaptation Channel 081
+;
+024,0,Adaptation Channels 082 && 033
+024,1,Adaptation,Channel
+024,2,Comfort Menu,,See Adaptation Channel 082
+024,3,Adaptation,Channel
+024,4,Full Calibration,,See Adaptation Channel 033
+;
+026,0,Fuel Level Sender
+026,1,Fuel Sender 1,(Resistance)
+026,2,Fuel Sender 1,(Tank Content)
+026,3,Fuel Sender 2,(Resistance)
+026,4,Fuel Sender 2,(Tank Content)
+;
+027,0,Fuel Level Sender
+027,1,Fuel Sensor 1 (R12),Part Resistance
+027,2,Fuel Sensor 1 (R12),Tank Content
+027,3,Fuel Sensor 2 (R22),Part Resistance
+027,4,Fuel Sensor 2 (R22),Tank Content
+;
+028,0,Fuel Level Sender
+28,1,,,
+;229,Anzahl,
+28,2,,,
+;3,Anzahl,
+28,3,,,
+;0,Anzahl,
+28,4,,,
+;0,Anzahl,
+;
+;
+29,0,,
+29,1,,,
+;340,Anzahl,
+29,2,,,
+;0,Anzahl,
+29,3,,,
+;2015,Anzahl,
+29,4,,,
+;2048,Anzahl,
+;
+;
+050,1,Mileage
+050,2,Engine Speed
+050,3,Coolant,Temperature
+050,4,Oil Temoperature,,A Value of -60.0 °C indicated that the Sensor is not installed.
+;
+120,0,Connector Status I
+120,1,Brake Fluid,Connector
+120,2,Washer Fluid,Connector
+120,3,Coolant Level,Connector
+120,4,Oil Level,Connector
+;
+121,0,Connector Status II
+121,1,Brake Pad Waer,Indicator Connect.
+121,2,Parking Brake
+121,3,Learned Keys
+121,4,S-Contact,Status
+;
+122,0,Seat Belt Inquiry
+122,1,Seat Belt Inquiry,Driver,Display Range: Open/Closed
+122,2,Seat Belt Inquiry,Passenger,Display Range: Open/Closed
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,CAN-Gateway,,Specification: Gateway 1
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Instrument Cluster (J285) Security Access
+S01,13861 = Adaptation "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 0 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English (also Japan and Arabic States)
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish (also Mexico)
+A004,11,6 = Portuguese/Brazil 
+A004,12,7 = Chinese
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km or 1 = 10 mi
+A009,9,The distance can only be changed once before
+A009,10,the current value is not over 100 km/62 mi.
+A009,11,After changing the value can be corrected
+A009,12,within the next 5 km/3 mi.
+;
+A18,0,
+;0
+A18,1,
+;N/A
+A18,2,
+;N/A
+A18,3,
+;N/A
+A18,4,
+;N/A
+;
+A19,0,
+;10
+A19,1,
+;N/A
+A19,2,
+;N/A
+A19,3,
+;N/A
+A19,4,
+;N/A
+;
+A20,0,
+;111
+A20,1,
+;N/A
+A20,2,
+;N/A
+A20,3,
+;N/A
+A20,4,
+;N/A
+;
+A29,0,
+;128
+A29,1,
+; Tankgeber
+A29,2,
+;N/A
+A29,3,
+;N/A
+A29,4,
+;N/A
+;
+A30,0,
+;128
+A30,1,
+; Tankgeber
+A30,2,
+;N/A
+A30,3,
+;N/A
+A30,4,
+;N/A
+;
+A33,0,
+;128
+A33,1,
+; 
+A33,2,
+;N/A
+A33,3,
+;N/A
+A33,4,
+;N/A
+;
+A35,0,
+;0
+A35,1,
+;N/A
+A35,2,
+;N/A
+A35,3,
+;N/A
+A35,4,
+;N/A
+;
+A37,0,
+;
+A37,1,
+;FEHLER:
+A37,2,
+;Zugriffs-
+A37,3,
+;berechtigung
+A37,4,
+;benötigt
+;
+A38,0,
+;
+A38,1,
+;FEHLER:
+A38,2,
+;Zugriffs-
+A38,3,
+;berechtigung
+A38,4,
+;benötigt
+;
+A39,0,
+;
+A39,1,
+;FEHLER:
+A39,2,
+;Zugriffs-
+A39,3,
+;berechtigung
+A39,4,
+;benötigt
+;
+A40,0,
+;13
+A40,1,
+; Istwert
+A40,2,
+; Inspek. in 1
+A40,3,
+; 00 km
+A40,4,
+; alte
+;
+A41,0,
+;28
+A41,1,
+; Istwert
+A41,2,
+; Inspek. in 1
+A41,3,
+; Tagen
+A41,4,
+; alte
+;
+A42,0,
+;150
+A42,1,
+; Minimalwert
+A42,2,
+;  Öl in 1
+A42,3,
+; 00 km
+A42,4,
+; alte
+;
+A43,0,
+;300
+A43,1,
+; Maximalwert
+A43,2,
+;  Öl in 1
+A43,3,
+; 00 km
+A43,4,
+; alte
+;
+A44,0,
+;730
+A44,1,
+; Maximalwert
+A44,2,
+; Inspek. in 1
+A44,3,
+; Tagen
+A44,4,
+; alte
+;
+A45,0,
+;2
+A45,1,
+;  Öl-
+A45,2,
+; qualität
+A45,3,
+; 
+A45,4,
+; alte
+;46 N/A
+;
+A47,0,
+;0
+A47,1,
+; Russ-
+A47,2,
+; menge in 1
+A47,3,
+; 00 km
+A47,4,
+; alte
+;
+A48,0,
+;36
+A48,1,
+; thermische
+A48,2,
+; Belastg. in 1
+A48,3,
+; 00 km
+A48,4,
+; alte
+;
+A49,0,
+;365
+A49,1,
+; Minimalwert
+A49,2,
+; Inspek. in 1
+A49,3,
+; Tagen
+A49,4,
+; alte
+;
+A80,0,
+;2603
+A80,1,
+;N/A
+A80,2,
+;N/A
+A80,3,
+;N/A
+A80,4,
+;N/A
+;
+A81,0,
+;2007
+A81,1,
+;N/A
+A81,2,
+;N/A
+A81,3,
+;N/A
+A81,4,
+;N/A
+;
+A82,0,
+;2
+A82,1,
+;N/A
+A82,2,
+;N/A
+A82,3,
+;N/A
+A82,4,
+;N/A
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,????xxx: Equipment
+C02,+0001 = 2nd Fuel Tank Characteristic (All-Wheel Drive)
+C03,+0002 = Highline without DIS (for Midline PR-9Q3)
+C04,+0004 = Manual Transmission (not Midline PR-9Q3)
+C05,+0008 = 2nd Tire Circumference Pair (e.g. Winter Tires)
+C06,+0016 = Tire Pressure Monitoring (TPMS)
+C07,+0032 = AFS (Advanced Front Lighting System (cornering lights)
+C08,+0064 = Magnetic Ride Suspension
+C09,xxxx?xx: Country
+C10,0 = Germany / 1 = Rest of World (RoW - Left Hand Steering) / 2 = USA / 3 = Canada
+C11,4 = Great Britain (Right Hand Steering) / 5 = Japan (Left Hand Steering) / 6 = Arabien States
+C12,7 = Australia / 8 = Rest of World (RoW - Right Hand Steering) / 9 = Japan (Right Hand Steering)
+C13,xxxxx?x: Seatbelt Warning
+C14,0 = No Seatbelt Warning  / 1 = Seatbelt Warning (EU-NCAP) / 2 = Seatbelt Warning (NAR Old)
+C15,3 = Seatbelt Warning (NAR New) / 4 = Seatbelt Warning (EU-NCAP incl. Passenger)
+C16,5 = Seatbelt warning (NAR Old incl. Passenger) / 6 = Seatbelt Warning (NAR New incl. Passenger)
+C17,xxxxxx?: Illumination & Washer Fluid Warning
+C18,0 = Needles OFF and Scales OFF (Term. 15 ON / Term. 58 OFF) / 1 = Needles ON and Scales OFF (Term. 15 ON / Term. 58 OFF)
+C19,2 = Needles OFF and Scales ON (Term. 15 ON / Term. 58 OFF) / 3 = Needles ON and Scales ON (Term. 15 ON / Term. 58 OFF)
+C20,+4 = Washer Fluid Warning
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T666,Chime/Buzzer/Gong
+T694,Switch and Instrument Lighting
+T798,Segment Test
+T1150,Analog Indicators
+T1298,Instrument Cluster Lamp Test
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+RD,49,Min Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals (Kilometers),,ST_FIXED
+RJ,1,1,45,1
+RJ,1,2,42,80
+RJ,1,3,43,80
+RJ,1,4,44,365
+RJ,1,5,49,365
+;
+; Change to flexible intervals (kilometers)
+RJ,2,0,Change to Flexible Intervals (Kilometers),ST_DIESEL,ST_FLEXIBLE
+RJ,2,1,45,2
+RJ,2,2,42,150
+RJ,2,3,43,500
+RJ,2,4,44,730
+RJ,2,5,49,730
+;
+; Change to flexible intervals (kilometers)
+RJ,3,0,Change to Flexible Intervals (Kilometers),ST_GASOLINE,ST_FLEXIBLE
+RJ,3,1,45,2
+RJ,3,2,42,150
+RJ,3,3,43,500
+RJ,3,4,44,730
+RJ,3,5,49,365
+;
+; Change to fixed intervals (miles)
+RJ,4,0,Change to Fixed Intervals (Miles),,ST_FIXED
+RJ,4,1,45,1
+RJ,4,2,42,50
+RJ,4,3,43,50
+RJ,4,4,44,365
+RJ,4,5,49,365
+;
+; Change to flexible intervals (miles)
+RJ,5,0,Change to Flexible Intervals (Miles),ST_DIESEL,ST_FLEXIBLE
+RJ,5,1,45,2
+RJ,5,2,42,90
+RJ,5,3,43,310
+RJ,5,4,44,730
+RJ,5,5,49,730
+;
+; Change to flexible intervals (miles)
+RJ,6,0,Change to Flexible Intervals (Miles),ST_GASOLINE,ST_FLEXIBLE
+RJ,6,1,45,2
+RJ,6,2,42,90
+RJ,6,3,43,310
+RJ,6,4,44,730
+RJ,6,5,49,365
+;

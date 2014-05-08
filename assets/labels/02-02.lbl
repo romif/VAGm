@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8P) / Audi TT (8N) / Seat Altea (5P) / Seat Toledo (5P)
+; Skoda Octavia (1Z) / VW Golf IV (1J) / VW Golf V (1K) / VW Touran (1T)
+;
+; Component: J743 - Transmission Electronic (#02) - Direct Selection Gearbox (DSG) 02E
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 02-02.LBL
+; 02E-300-0xx.LBL
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 05/01/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,02E-300-0xx.LBL,02E-300-0??-???
+;

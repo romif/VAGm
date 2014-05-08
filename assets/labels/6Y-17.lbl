@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Skoda Fabia (6Y)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-17.LBL
+; 6Y-17.LBL
+; 6Y0-920-xx0-17.LBL
+; 6Yx-920-xx0-17.LBL
+; 6Y0-920-xx3-17.LBL
+;
+; created on 21/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Mar/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,6Yx-9xx-xxx-17.LBL,6Y1-9??-???-???
+REDIRECT,6Yx-9xx-xxx-17.LBL,6Y2-9??-???-???
+REDIRECT,6Y0-920-xx0-17.LBL,6Y0-920-??0-???
+REDIRECT,6Y0-920-xx0-17.LBL,6Y0-920-??1-??? ;              >> 6Y-5-391 600
+REDIRECT,6Y0-920-xx0-17.LBL,6Y0-920-??2-??? ; 6Y-5-391 601 >> 6Y-7-646 964
+REDIRECT,6Y0-920-xx3-17.LBL,6Y0-920-??3-??? ; 6Y-7-646 965 >>
+;

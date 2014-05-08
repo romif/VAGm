@@ -1,0 +1,122 @@
+;
+; VCDS Label File
+;
+; VW Passat (3C)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 3C0-953-549-???
+;
+; includes measuring blocks and coding
+;
+; created on 29/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Blinker,,Display Range: Not Oper./Left/Right
+001,2,Headlamp Flasher,,Display Range: Not Oper./Operated
+001,3,High Beam,,Display Range: Not Oper./Operated
+001,4,Front Wiper,,Display Range: Not Oper./Level/Stage Int./Stage 1/Stage 2
+;
+002,0,Wiper && Washer
+002,1,Interval Stages,,Display Range: Stage 1/Stage 2/Stage 3/Stage 4
+002,2,Wash Front,,Display Range: Not Oper./Operated
+002,3,Wiping Rear,,Display Range: Not Oper./Operated/Not Installed
+002,4,Washing Rear,,Display Range: Not Oper./Operated/Not Installed
+;
+003,1,Terminal Status
+; ?xxxx = P-Contact
+; x?xxx = S-Contact
+; xx?xx = Terminal 75
+; xxx?x = Terminal 15
+; xxxx? = Terminal 50
+003,2,Horn,,Display Range: Not Oper./Operated
+003,3,Board Computer,,Display Range: Not Installed/Not Oper./Operated/Switch Reset/Switch UP/Switch DN/Switch Off
+;
+004,0,Cruise Control System (CCS) / Adaptive Cruise Control (ACC)
+004,1,Main Switch,,Display Range: ON/OFF
+004,2,CCS/ACC-Set,,Display Range: Not Oper./Operated/Accel/Delay/Stored Off
+004,3,CCS/ACC-Status,,Display Range: Not Oper./Operated/Accel/Delay/Stored Off
+;
+005,1,Selector Lever,P Lock Switch
+005,2,Selector Lever,P Position (CAN)
+005,3,CCS Soleniod,,Display Range: ON/OFF
+005,4,Ignition Key,Removal Lock
+;
+006,0,Multifunction Steering Wheel I
+006,1,Communication,,Display Range: Not Installed/OK/not OK
+006,2,Software Version
+006,3,Hardware Version
+006,4,Malfunction,recognized,Display Range: Yes/No
+;
+007,0,Multifunction Steering Wheel II
+007,1,Vehicle Type
+007,2,Vehicle Version
+;
+008,0,Multifunction Steering Wheel III
+008,1,Thumb Wheel,(Left),Display Range: Not Installed/Not Oper.
+008,2,Thumb Wheel,(Right),Display Range: Not Installed/Not Oper.
+008,3,Tiptronic,(Down),Display Range: Not Installed/Not Oper./Operated
+008,4,Tiptronic,(Up),Display Range: Not Installed/Not Oper./Operated
+;
+009,0,Multifunction Steering Wheel IV
+009,1,Steering Wheel,Buttons
+;
+010,0,Heated Steering Wheel && Heated Seats
+010,1,Steering Wheel,Heater,Display Range: Not Installed/OFF/ON\nSignal Type: Output
+010,2,Temperature,,Display Range: Not Installed/Temperature\nSignal Type: Input
+010,3,Steering Wheel,Heater Output,Signal Type: Output
+010,4,Heated Seats,,Display Range: OFF/Stage\nSignal Type: Input
+;
+011,0,Dimming
+011,1,Dimming,,Display Range: 0.0...100.0 %\nSignal Type: Input
+011,2,Dimming,(Discrete),Display Range: 0.0...100.0 %\nSignal Type: Input
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+;C01,?xxxxxx: Voice Operation (Symbols)
+;C02,0 = No Voice Operation (Standard Symbols)
+:C03,1 = Voice Operation (Modified Symbols)
+C01,0?xxxxx: Country (Parking Light)
+C02,0 = Rest of World (with Parking Light)
+C03,1 = North America (without Parking Light)
+C04,0x?xxxx: Vehicle Type
+C05,0 = Normal Vehicle
+C06,1 = Special Purpose Vehicle (e.g. Taxi)
+C07,0xx?xxx: Transmission
+C08,0 = Manual Transmission
+C09,1 = Automatic Transmission (Rest of World)
+C10,2 = Automatic Transmission (North America)
+C11,0xxx?xx: Steering Wheel/Tiptronic
+C12,0 = without Multi-Function Steering Wheel
+C13,1 = with Multi-Function Steering Wheel / without Tiptronic
+C14,2 = with Multi-Function Steering Wheel / with Tiptronic
+C15,3 = with Multi-Function Steering Wheel / without Tiptronic / with Push-To-Talk (PTT)
+C16,4 = with Multi-Function Steering Wheel / with Tiptronic / with Push-To-Talk (PTT)
+C17,0xxxx?x: Cruise Control
+C18,0 = without Cruise Control System
+C19,1 = with Cruise Control System
+C20,2 = with Cruise Control System and Distance Regulation
+C21,0xxxxx?: Rear Wiper/Board Computer
+C22,1 = without Rear Wiper (Sedan) / without Board Computer
+C23,2 = with Rear Wiper (Wagon) / without Board Computer
+C24,3 = without Rear Wiper (Sedan) / with Board Computer
+C25,4 = with Rear Wiper (Wagon) / with Board Computer
+;

@@ -1,0 +1,180 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter
+;
+; Komponente: Motor (#01) - AGZ
+;
+; T/N: 071-906-018-???
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 07-01.LBL
+; 071-906-018-AGZ.LBL  (2.3l     @ 150 HP - AGZ)
+;
+; erstellt am 09.06.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 10.06.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Kühlmitteltemperatur,Sollwert: 170...205 (80...105 °C)
+000,2,Motorlast,Sollwert: 28...50 (1.4...2.5 ms)
+000,3,Motordrehzahl,Sollwert: 65...75 (650...750 U/min)
+000,4,Batteriespannung,Sollwert: 172...200 (12.0...14.0 V)
+000,5,Drosselklappenwinkel,Sollwert: 2...18 (1.0...8.0 °<)
+000,6,Regelwert (Leerlaufstabilisierung),Sollwert: 113...142 (-2.0...+2.0 g/s)
+000,7,Lernwert (Leerlaufstabilisierung),Sollwert: 113...142 (-2.0...+2.0 g/s)
+000,8,Regelwert Gemischbildung,Sollwert: 25...229 (-20...+20 %)
+000,9,Lernwert Gemischbildung (Leerlauf),Sollwert: 242...14 (-0.7...+0.7)
+000,10,Lernwert Gemischbildung (Teillast),Sollwert: 115...141 (-10.0...+10.0 %)
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,,Sollwert: 650...750 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+001,3,Lambdaregler,,Sollwert: -20...+20 %
+001,4,Betriebszustände
+; xxxxx1 - Kühlmitteltemperatur über 80 °C
+; xxxx1x - Motordrehzahl unter 2000/min
+; xxx1xx - Drosselklappenwinkel unter 5 <°
+; xx1xxx - Lambdaregelung eingeschaltet
+; x1xxxx - Motor läuft im Leerlauf
+; 1xxxxx - Klimakompressor ausgeschaltet
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,,Sollwert: 650...750 U/min
+002,2,Motorlast,,Sollwert: 10...30 %
+002,3,Einspritzzeit,,Sollwert: 2.0...5.0 ms
+002,4,angesaugte,Luftmasse,Sollwert: 3.0...5.0 g/s
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,,Sollwert: 650...750 U/min
+003,2,angesaugte,Luftmasse,Sollwert: 3.0...5.0 g/s
+003,3,Drosselklappen-,winkel,Sollwert: 0.0...5.0 °<
+003,4,Zündwinkel,,Sollwert: 0...13.5 °v.OT
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,,Sollwert: 650...750 U/min
+004,2,Versorgungs-,spannung,Sollwert: 12.0...14.5 V
+004,3,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+004,4,Ansaugluft-,tempratur,Sollwert: -45.0...108.5 °C
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,,Sollwert: 650...750 U/min
+005,2,Motorlast,,Sollwert: 10...30 %
+005,3,Geschwindigkeit,,Sollwert: 0 km/h
+005,4,Betriebszustände,,Werterbreich: Leerlauf/Teillast/Vollast/Anreicherung/Schub
+;
+006,0,Höhenanpassung
+006,1,Motordrehzahl,,Sollwert: 650...750 U/min
+006,2,Motorlast,,Sollwert: 10...30 %
+006,3,Außentemperatur,,Sollwert: -45.0...108.5 °C
+006,4,Höhenkorrektur-,faktor,Sollwert: -10...+10 %
+;
+010,0,Grundfunktionen
+010,1,Motordrehzahl,,Sollwert: 650...750 U/min
+010,2,Motorlast,,Sollwert: 10...30 %
+010,3,Drosselklappen-,winkel,Sollwert: 0.0...5.0 °<
+010,4,Zündwinkel,,Sollwert: 0...13.5 °v.OT
+;
+020,0,Klopfregelung (Zündwinkelrücknahme)
+020,1,Zylinder 1,,Sollwert: 0...12 °KW
+020,2,Zylinder 2,,Sollwert: 0...12 °KW
+020,3,Zylinder 3,,Sollwert: 0...12 °KW
+020,4,Zylinder 4,,Sollwert: 0...12 °KW
+;
+021,0,Klopfregelung (Zündwinkelrücknahme)
+021,1,Zylinder 5,,Sollwert: 0...12 °KW
+;
+032,0,Lambdaregelung (Lernwerte - Grundeinstellung)
+032,1,Lambda-Lernwert,Leerlauf (additiv),Sollwert: -10.0...+10.0 %
+032,2,Lambda-Lernwert,Teillast (multipl.),Sollwert: -10.0...+10.0 %
+;
+033,0,Lambdaregelung (Lernwerte)
+033,1,Lambdaregler,vor Katalysator,Sollwert: -20.0...+20.0 %
+033,2,Lambdasonden-,spannung v.Kat.,Sollwert: 0.0...1.0 V
+;
+050,0,Drehzahlregelung (Betriebszustände)
+050,1,Motordrehzahl,(IST),Sollwert (Leerlauf): 650...750 U/min
+050,2,Motordrehzahl,(SOLL),Sollwert (Leerlauf): 690...710 U/min
+050,3,Betriebszustand,Klimaanlage,Wertebereich: A/C-High oder A/C-Low
+050,4,Betriebszustand,Klimakompressor,Wertebereich: Kompr. EIN/Kompr. AUS
+;
+060,0,Drehzahlregelung (Grundeinstellung: Drosselklappen-Steuereinheit)
+060,1,Drosselklappen-,winkel,Sollwert: 0...5 <°
+060,2,Drosselklappen-,steller (G127),Sollwert: 74...79 %
+060,3,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Vollast/Schub\nSollwert: Leerlauf
+060,4,Grundeinstellung,(Zustand),Wertebereich: ADP läuft/ADP i.O./ADP ERROR\nSollwert: ADP i.O.
+;
+066,0,Geschwindigkeits-Regel-Anlage (GRA/Tempomat)
+066,1,Geschwindigkeit,(IST)
+066,2,Schalterstellung,(Bremse/Kupplung),1xxx - GRA freigeschaltet\nx1xx - Kupplungspedalschalter ein\nxx1x - Bremspedalschalter ein\nxxx1 - Bremslichtschalter ein
+066,3,Geschwindigkeit,(SOLL)
+066,4,Schalterstellung,(Bedienhebel),1xxx - RES (Reset) ein\nx1xx - SET ein\nxx1x - OFF\nxxx1 - OFF
+;
+077,0,Abgasreduzierung (Grundeinstellung: Diagnose Sekundärluftsystem)
+077,1,Amplitudenzähler,Sonde Bank 1
+077,2,Amplitudenzähler,Sonde Bank 2
+077,3,angesaugte,Luftmasse,Sollwert: 3.0...5.0 g/s
+077,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+088,0,Lambdaregelung
+088,1,Motordrehzahl,,Sollwert: 0...6500 U/min
+088,2,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+088,3,Lambdaregler,,Sollwert: -20.0...+20.0 %
+088,4,Betriebszustand
+;
+095,0,Saugrohrumschaltung
+095,1,Motordrehzahl,,Sollwert (Leerlauf): 650...750 U/min
+095,2,Motorlast,,Sollwert: 10...100 %
+095,3,Kühlmittel-,temperatur,Sollwert: 80...105 °C
+095,4,Saugrohr-,umschaltung,Wertebereich: SU-V EIN/SU-V AUS
+;
+135,0,Drosselklappensteller
+135,1,Drosselklappen-,winkel (Minimum),Sollwert: 80...95 %
+135,2,Drosselklappen-,steller (Maximum),Sollwert: 65...90 %
+135,3,Drosselklappen-,winkel (Maximum),Sollwert: 60...75 %
+135,4,Drosselklappen-,steller (Maximum),Sollwert: 20...35 %
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Motorelektronik (J220) Codierung
+C1,Bis Modelljahr 1999:
+C2,00000 - Schaltgetriebe
+C3,00001 - Automatikgetriebe
+C4,00002 - Allradantrieb
+C5,00010 - Schaltgetriebe mit Geschwindigkeitsregelanlage
+C6,00012 - Allradantrieb mit Geschwindigkeitsregelanlage
+C7,00021 - Automatikgetriebe mit Geschwindigkeitsregelanlage
+C8, 
+C9,Ab Modelljahr 2000:
+C10,?00xx: Geschwindigkeitsregelanlage (GRA)
+C11,0 - Geschwindigkeitsregelanlage (GRA) deaktiviert
+C12,1 - Geschwindigkeitsregelanlage (GRA) aktiviert
+C13,x00?x: CAN-Datenbus
+C14,+1 - ABS
+C15,+2 - Airbag
+C16,x00x?: Getriebe
+C17,1 - 5-Gang Schaltgetriebe
+C18,2 - 6-Gang Schaltgetriebe
+C19,3 - Automatikgetriebe
+C20,4 - Automatikgetriebe (nur Passat Variant)
+;

@@ -1,0 +1,45 @@
+;
+; VAG-COM Measuring Block Labels for
+; All OBD-I G60 PG  Digifant I, ECU p/n 037-906-022-xx
+;
+; Prepared by Chris Gaskell 15/3/2001  England - UK
+;            (Ref.Bentley - Corrado)
+;
+; Unvierfied/Untested!
+;
+0,0,General Engine Data
+0,1,Intake Air,Temperature
+0,2,CO Fuel Trim,Potentiometer
+0,3,Coolant,Temperature
+0,4,O2S Sensor,Active
+;
+1,0,General Engine Data
+1,1,RPM,Engine Speed
+1,2,Engine,Load (%)
+1,3,Coolant,Temperature
+1,4,Injection,Time
+;
+2,0,General Engine Data
+2,1,RPM,Eng Speed
+2,2,Not for,Customer
+2,3,Not for,Customer
+2,4,Injection,Time
+;
+3,0,General Engine Data
+3,1,RPM,Engine Speed
+3,2,Engine,Temperature
+3,3,Not for,Customer
+3,4,Injection,Time
+;
+4,0,General Engine Data
+4,1,RPM,Engine Speed
+4,2,Engine,Load (%)
+4,3,Not for,Customer
+4,4,Injection,Time
+;
+5,0,Idle Control
+5,1,RPM,Engine Speed
+5,2,Throttle,<º
+5,3,Not for,Customer
+5,4,Injection,Time
+;

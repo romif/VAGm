@@ -1,0 +1,542 @@
+;
+; VAG-COM Label File
+;
+; VW Golf (1K)
+;
+; Component: Engine (#01) - BLG
+;
+; P/N: 03C-906-056-???
+;
+; includes measuring blocks and basic setting
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 03C-906-056-BLG.LBL  (1.4l TSI @ 170 HP - BLG)
+;
+; created on 05/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Nov/2006
+;
+; requires VAG-COM 603.4 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+001,2,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+001,3,Lambda Control,Bank 1,Specification: -10.0...+10.0 %
+001,4,Basic Settin,Requirements
+;10110111,Bin. Bits,
+;
+002,0,General
+002,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+002,2,Engine Load
+002,3,Injection Timing
+002,4,Intake Manifold,Pressure (G71)
+;
+003,0,General
+003,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+003,2,Intake Manifold,Pressure (G71)
+003,3,Throttle Valve Angle
+003,4,Ignition,Timing Angle
+;
+004,0,General
+004,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+004,2,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+004,3,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+004,4,Intake Air,Temperature (G42)
+;
+005,0,General
+005,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+005,2,Engine Load
+005,3,Vehicle Speed,,Range: 0.0...300.0 km/h
+005,4,Load Status,,Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,General
+006,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+006,2,Engine Load
+006,3,Intake Air,Temperature (G42)
+006,4,Altitude,Correction Factor
+;
+007,0,General
+007,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+007,2,Engine Load
+007,3,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+007,4,Operating Mode
+;00000001,Bin. Bits,
+;
+008,0,General (Brake System)
+008,1,Brake Condition,,Range: Operated/Not Oper.
+008,2,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+008,3,Intake Manifold,Pressure (G71)
+008,4,Brake Booster,Pressure
+;
+009,0,General (Oil Level && Fuel Consumption)
+009,1,Oil Level (G266)
+009,2,Oil Level (G266),Warning Threshold
+009,3,Fuel Consumption,Signal
+009,4,Fuel Consumption,Equivalent
+;
+010,0,Ignition
+010,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+010,2,Engine Load
+010,3,Throttle Valve Angle
+010,4,Ignition,Timing Angle
+;
+011,0,Ignition
+011,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+011,2,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+011,3,Intake Air,Temperature (G42)
+011,4,Ignition,Timing Angle
+;
+014,0,Ignition (Misfire Recognition - Total)
+014,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+014,2,Engine Load
+014,3,Misfire,(total),Specification: 0
+014,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+015,0,Ignition (Misfire Recognition - Cylinder 1-3)
+015,1,Misfire Counter,Cylinder 1
+015,2,Misfire Counter,Cylinder 2
+015,3,Misfire Counter,Cylinder 3
+015,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+016,0,Ignition (Misfire Recognition - Cylinder 4-6)
+016,1,Misfire Counter,Cylinder 4
+016,2,Misfire Counter,Cylinder 5
+016,3,Misfire Counter,Cylinder 6
+016,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+018,0,RPM/Load Barriers
+018,1,Lower,RPM Barrier
+018,2,Upper,RPM Barrier
+018,3,Lower,Load Barrier
+018,4,Upper,Load Barrier
+;
+020,0,Ignition (Timing Retardation Cylinder 1-4)
+020,1,Timing Retardation,Cylinder 1
+020,2,Timing Retardation,Cylinder 2
+020,3,Timing Retardation,Cylinder 3
+020,4,Timing Retardation,Cylinder 4
+;
+022,0,Ignition (Timing Retardation Cylinder 1 && 2)
+022,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+022,2,Engine Load
+022,3,Timing Retardation,Cylinder 1
+022,4,Timing Retardation,Cylinder 2
+;
+023,0,Ignition (Timing Retardation Cylinder 3 && 4)
+023,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+023,2,Engine Load
+023,3,Timing Retardation,Cylinder 3
+023,4,Timing Retardation,Cylinder 4
+;
+026,0,Ignition (Knock Control Cylinder 1-4)
+026,1,Voltage,Cylinder 1
+026,2,Voltage,Cylinder 2
+026,3,Voltage,Cylinder 3
+026,4,Voltage,Cylinder 4
+;
+028,0,Ignition (Knock Sensor Test - Short Trip)
+028,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+028,2,Engine Load
+028,3,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+028,4,Result,,Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Sys. OK
+;
+030,0,Lambda Control (Sensor Status)
+030,1,Bank 1,Sensor 1,Specification: 00111
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,2,Bank 1,Sensor 2,Specification: 1110
+; 1xxx - Lambda Control (P-Portion) active
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control (I-Portion) active
+;
+031,0,Lambda Control
+031,1,Lambda Control,Bank 1 (actual)
+031,2,Lambda Control,Bank 1 (specified)
+;
+032,0,Lambda Control (Mixture Adaptation)
+032,1,Adaptation (Idle),Bank 1 Sensor 1
+032,2,Adaptation (Partial),Bank 1 Sensor 1
+;
+033,0,Lambda Control
+033,1,Lambda Control,Bank 1 Sensor 1
+033,2,Sensor Voltage,Bank 1 Sensor 1
+;
+034,0,Lambda Control (Aging Check Bank 1)
+034,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+034,2,Catalytic Converter,Bank 1 Temp.
+034,3,Dynamic Factor,Bank 1 Sensor 1
+034,4,Result,Lambda Aging,Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK\nSpecification: B1-S1 OK
+;
+036,0,Lambda Control (Sensor Readiness - After Catalyst)
+036,1,Sensor Voltage,Bank 1 Sensor 2
+036,2,Result,Lambda Availability,Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK\nSpecification: B1-S2 OK
+;
+037,0,Lambda Control (Delta Lambda Bank 1)
+037,1,Engine Load
+037,2,Sensor Voltage,Bank 1 Sensor 2
+037,3,Delta Lambda,Bank 1 Sensor 2
+037,4,Result,,Range: Test ON/Test OFF/B1-S1 OK/B1-S1 n.OK\nSpecification: B1-S1 OK
+;
+041,0,Lambda Control (Lambda Sensor Heating Bank 1)
+041,2,Heater Condition,Bank 1 Sensor 1,Range: Htg. S1 OFF/Htg. S1 ON
+041,4,Heater Condition,Bank 1 Sensor 2,Range: Htg. S2 OFF/Htg. S2 ON
+;
+043,0,Lambda Control (Lambda Sensor Aging Bank 1)
+043,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+043,2,Catalytic Converter,Bank 1 Temp.
+043,3,Lambda Voltage,Bank 1 Sensor 2
+043,4,Result,Aging Check,Range: Test ON/Test OFF/B1-S2 OK/B1-S2 n.OK\nSpecification: B1-S2 OK
+;
+046,0,Lambda Control (Catalytic Conversion Test Bank 1)
+046,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+046,2,Catalytic Converter,Bank 1 Temp.
+046,3,Catalytic,Conversion Bank 1
+046,4,Result,Cat. Conversion,Range: Test ON/Test OFF/CatB1 OK/CatB1 n.OK\nSpecification: CatB1 OK
+;
+050,0,Engine Speed Increase
+050,1,Engine Speed,(actual)
+050,2,Engine Speed,(specified)
+050,3,A/C Readiness,,Range: A/C-Low / A/C-High
+050,4,A/C Compressor,,Range: Compr.OFF/Compr.ON
+;
+051,0,Engine Speed Increase (Gear shifts)
+051,1,Engine Speed,(actual)
+051,2,Engine Speed,(specified)
+051,3,Selected Gear,,Range: P or N = 0/Gear = 1 - 6/R = 7
+051,4,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+;
+052,0,Engine Speed Increase
+052,1,Engine Speed,(actual)
+052,2,Engine Speed,(specified)
+052,3,A/C Readiness,,Range: A/C-Low / A/C-High
+052,4,Rear Window or,Windshield Heater,Range: ON/OFF
+;
+053,0,Engine Speed Increase (Generator Load)
+053,1,Engine Speed,(actual)
+053,2,Engine Speed,(specified)
+053,3,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+053,4,Generator Load,,Range: 0.0...100.0 %
+;
+054,0,Idle Speed Stabilization
+054,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+054,2,Load Status,,Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Accel. Pedal Pos.,Sensor 1 (G79)
+054,4,Throttle Valve Angle
+;
+055,0,Idle Speed Stabilization
+055,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+055,2,Idle Regulator
+055,3,Idle Stabilization,Self-Adaptation
+055,4,Operating,Condition
+;   00000,Bin. Bits,
+;
+056,0,Idle Speed Stabilization
+056,1,Engine Speed,(actual)
+056,2,Engine Speed,(specified)
+056,3,Idle Regulator
+056,4,Operating,Condition
+;   00000,Bin. Bits,
+;
+057,0,Idle Speed Stabilization (Air Condition)
+057,1,Engine Speed,(actual)
+057,2,Engine Speed,(specified)
+057,3,A/C Compressor,,Range: Compr.OFF/Compr.ON
+057,4,A/C Compressor,Pressure
+;
+060,0,Electronic Throttle Adaptation
+060,1,Throttle Valve,Sensor 1 (G187)
+060,2,Throttle Valve,Sensor 2 (G188)
+060,3,Throttle Adaptation,Steps Counter
+060,4,Result,Throttle Valve Adp.,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+061,0,Electronic Throttle
+061,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+061,2,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+061,3,Throttle Valve Angle
+061,4,Operating,Condition
+;   00000,Bin. Bits,
+;
+062,0,Electronic Throttle
+062,1,Throttle Valve,Sensor 1 (G187)
+062,2,Throttle Valve,Sensor 2 (G188)
+062,3,Accel. Pedal Pos.,Sensor 1 (G79)
+062,4,Accel. Pedal Pos.,Sensor 2 (G185)
+;
+063,0,Electronic Throttle (Kick-Down Adaptation)
+063,1,Accel. Pedal Pos.,Sensor 1 (G79)
+063,2,Kick-Down (G79),Adaptation Value
+063,3,Kick-Down,Switch,Range: Kick Down/Not Oper.
+063,4,Kick-Down,Adaptation,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+064,0,Throttle Valve Sensor Adaption Values
+064,1,Lower Adaptation,Sensor 1 (G187)
+064,2,Lower Adaptation,Sensor 2 (G188)
+064,3,Emergency Air Gap,Sensor 1 (G187)
+064,4,Emergency Air Gap,Sensor 2 (G188)
+;
+065,0,Electronic Throttle Adaptation (Original)
+065,1,Throttle Valve,Sensor 1 (G187)
+065,2,Throttle Valve,Sensor 2 (G188)
+065,3,Throttle Adaptation,Steps Counter,Specification: 0\nRange: 0...8
+065,4,Result,Throttle Valve Adp.,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+066,0,Cruise Control System
+066,1,Vehicle Speed,(current)
+066,2,Switch Positions I
+;00001000,Bin. Bits,
+066,3,Vehicle Speed,(specified)
+066,4,Switch Positions II
+;00000000,Bin. Bits,
+;
+070,0,Emission Reduction (TEV - Basic Setting)
+070,1,Evap. Emissions,Sol. Valve (Open)
+070,2,Lambda Control
+070,3,Evap. Emissions,Sol. Valve (Flow)
+070,4,Result,,Range: Test ON/Test OFF/TEV OK/TEV not OK
+;
+086,0,Readiness Code I
+086,1,Readiness Bits
+086,2,Cycle Flags
+086,3,Cycle Flags
+086,4,Cycle Flags
+;
+087,0,Readiness Code II
+087,1,Readiness Bits
+087,2,Error Flags
+087,3,Error Flags
+087,4,Error Flags
+;
+088,0,Readiness Code III
+088,1,Cycle Flags
+088,2,Cycle Flags
+088,3,Cycle Flags
+;
+089,0,On-Board-Diagnostics (OBD)
+089,1,Distance Driven,with MIL on
+089,2,Tank Condition,,Display Range: OK/too low
+;
+090,0,Camshaft Adjustment (Intake)
+090,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+090,2,Camshaft Adjustm.,Status,Range: Cam Ctrl. ON/Cam Ctrl. OFF
+090,3,Camshaft Adjustm.,Bank 1
+;
+091,0,Camshaft Adjustment (Intake Bank 1)
+091,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+091,2,Intake Camshaft,Duty Cycle
+091,3,Camshaft Adjustm.,Bank 1 (specified)
+091,4,Camshaft Adjustm.,Bank 1 (actual)
+;
+093,0,Camshaft Adjustment (Adaption Values)
+093,1,Phase Position,Bank 1 Intake
+;
+094,0,Camshaft Adjustment (Basic Setting)
+094,1,Camshaft Adjustm.,Bank 1
+094,3,Camshaft Adjustm.,Bank 1
+;
+099,0,Lambda Control Shut-Off (Basic Setting)
+099,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+099,2,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+099,3,Lambda Control,Bank 1
+099,4,Lambda Control,Status,Display Range: O2-Reg.OFF/O2-Reg.ON
+;
+100,0,Readiness Code
+100,1,Readiness Bits,,see labelfile
+; 1xxxxxxx - Exhaust Gas Recirculation (EGR)
+; x1xxxxxx - Sensor Heater
+; xx1xxxxx - Oxygen Sensors
+; xxx1xxxx - A/C System
+; xxxx1xxx - Secondary Air Injection (AIR) System
+; xxxxx1xx - Activated Charcoal System
+; xxxxxx1x - Catalytic Converter Heater
+; xxxxxxx1 - Catalytic Converter
+100,3,Time since,Engine Start
+100,4,OBD-Status,,see labelfile
+; 1xxx--xx - MIL Warning Lamp ON
+; x1xx--xx - Driving Cycle detected
+; xx1x--xx - Trip complete
+; xxx1--xx - Malfunction detected (1+)
+; xxxx--1x - Heating cycle ended
+; xxxx--x1 - Heating cycle not possible
+;
+101,0,Fuel Injection
+101,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+101,2,Engine Load
+101,3,Injection Timing
+101,4,Intake Manifold,Pressure (G71)
+;
+102,0,Fuel Injection
+102,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+102,2,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+102,3,Intake Air,Temperature (G42)
+102,4,Injection Timing
+;
+104,0,Start Adaption Values
+104,1,Start Engine,Temperature
+104,2,Temperature,Adaptation Factor 1
+104,3,Temperature,Adaptation Factor 2
+104,4,Temperature,Adaptation Factor 3
+;
+105,0,Cylinder Shut-Off
+105,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+105,2,Engine Load
+105,3,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+105,4,Status,Cylinder Shut-Off,Range: ON/OFF
+;
+106,0,Fuel Pressure
+106,1,Fuel Rail,Pressure
+106,2,Electrical,Fuel Pump
+106,4,Shut-Off Time
+;
+107,0,Lambda Control
+107,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+107,2,Lambda Control,Bank 1 (average)
+107,4,Result,Lambda Control,Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+110,0,Load/Full Throttle Enrichment
+110,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+110,2,Coolant,Temperature (G69),Specification: 80.0...110.0 °C
+110,3,Injection Timing
+110,4,Throttle Valve Angle
+;
+112,0,Exhaust Gas Temperature
+112,1,Exhaust Gas,Temperature Bank 1
+;
+113,0,Load/Full Throttle Enrichment
+113,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+113,2,Engine Load
+113,3,Throttle Position,Sensor (G187)
+113,4,Athmospheric,Pressure
+;
+114,0,Charge Pressure Control
+114,1,Engine Load,(specified)
+114,3,Engine Load,(actual Value)
+114,4,Wastegate (N75),Duty Cycle
+;
+115,0,Charge Pressure Control
+115,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+115,2,Engine Load
+115,3,Boost Pressure,(specified)
+115,4,Boost Pressure,(actual)
+;
+116,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+;
+117,0,Charge Pressure Control
+117,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+117,2,Throttle Position,Sensor (G79)
+117,3,Throttle Valve,Sensor 1 (G187)
+117,4,Boost Pressure,(specified)
+;
+118,0,Charge Pressure Control
+118,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+118,2,Intake Air,Temperature (G42)
+118,3,Wastegate (N75),Duty Cycle
+118,4,Boost Pressure,(actual)
+;
+119,0,Charge Pressure Control
+119,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+119,3,Wastegate (N75),Duty Cycle
+119,4,Boost Pressure,(actual)
+;
+120,0,Traction Control (ASR)
+120,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+120,2,Torque specified,by ASR
+120,3,Engine Torque,(actual)
+120,4,Status,,Range: ASR OFF/ASR ON
+;
+122,0,Transmission
+122,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+122,2,Torque specified,by Transmission
+122,3,Engine Torque,(actual)
+122,4,Status,,Range: No Torq Red/Torq. Reduc.
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Transmission,,Range: Transm. 1/Transm. 0
+125,2,Brake Electronics,,Specification: ABS 1\nRange: ABS 1/ABS 0
+125,3,Instrument Cluster,,Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+125,4,Heating/Air,Condition (J255),Specification: A/C 1\nRange: A/C 1/A/C 0
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+126,3,Airbag,(J234),Specification: Airbag 1\nRange: Airbag 1/Airbag 0
+126,4,Central Electronics,(J519),Specification: Cent Elec 1\nRange: Cent Elec 1/Cent Elec 0
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,3,Steering Wheel,Electronics (J527),Specification: St. Wheel 1\nDisplay Range: St. Wheel 1/St. Wheel 0
+;
+129,0,CAN-Databus Communication (Powertrain)
+129,2,Oil Temp./Level,Sensor (G266),Specification: Oil Level 1\nRange: Oil Level 1/Oil Level 0
+129,3,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+129,4,Parking Brake,,Range: Park Brake 1/Park Brake 0
+;
+130,0,Map Cooling
+130,1,Engine Outlet,Temperature
+130,2,Radiator Outlet,Temperature
+130,4,Result
+;
+131,0,Map Cooling
+131,1,Engine Outlet,Temperature
+131,3,Radiator Outlet,Temperature
+;
+132,0,Map Cooling
+132,1,Radiator Outlet,Temp. (spec.)
+132,2,Temp. Difference,(Engine/Radiator)
+132,4,Cooling Status
+;00001001,Bin. Bits,
+;
+134,0,Temperatures
+134,1,Oil Temperature
+134,2,Ambient,Temperature
+134,3,Intake Air,Temperature (G42)
+134,4,Engine Outlet,Temperature
+;
+135,0,Fan Activation
+135,1,Radiator Outlet,Temperature
+135,2,Fan 1 Activation,Duty Cycle,Range: 0.0...100.0 %
+;
+136,0,Fan Activation (Relay)
+136,4,Fan After-Run
+;
+137,0,Air Condition Requirements
+137,1,A/C Readiness,,Range: A/C-Low / A/C-High
+137,2,A/C Compressor,,Range: Compr.OFF/Compr.ON
+137,3,High-Pressure Sw.,or A/C-Pressure
+137,4,Fan Request,from A/C-System
+;
+140,0,Fuel Supply System
+140,1,Quantity Valve,(N276)
+140,2,Rail Pressure,(specified)
+140,3,Rail Pressure,(actual)
+;
+202,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+;
+212,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+;
+213,1,Engine Speed,(G28),Specification (Idle): 680...730 RPM
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+
+;
+;Component:MED9.5.10       G00 8746, Coding:0000072
+;

@@ -1,0 +1,319 @@
+;label file for 06A 906 032 c  engine ECU for '00 NB
+;I used the golf/jetta file as a template then changed the stuff necessary
+;there are some fields that have ????? beside them,  thats because I have no idea 
+;what they are,  I'm no mechanic.   I did check all the feilds for spelling errors
+;or blatent mistakes and it seems ok, but I'm no  mechanic, so stuff could be wrong
+; 
+; Differences from original 06A-906-032 file at:
+;
+; 36,2
+; 41,1,3
+; 89,1,2,3,4
+; 101, 2,3,4
+; 102,1,2,3,4
+; 101,all
+; 105,all
+; 110,all
+; 111,all
+; 201,all
+;
+;
+1,0,  
+1,1, rpm
+1,2,Coolant Temp C
+1,3,Oxygen Sensor,
+1,4,Adj for Basic??,
+;
+2,0,
+2,1, rpm
+2,2,Engine load,
+2,3,Inj. on time,
+2,4,Air mass in,
+;
+3,0,
+3,1, rpm
+3,2,Air mass in,
+3,3,Throt plate Angle,
+3,4,Ignit Angle,
+;
+4,0,
+4,1, rpm
+4,2,ECM Voltage,12-15V
+4,3,Coolant Temp,80-110 C
+4,4,Intake Temp,-48-110C
+;
+5,0,
+5,1,rpm
+5,2,Engine Load,
+5,3,Vehicle Speed, 
+5,4,Oper. Cond,Idle 
+;
+6,0,
+6,1, rpm
+6,2,Engine Load,
+6,3,Intake Temp,-48-110C
+6,4,Hi Corr Fact?,-50-20%
+;
+10,0,
+10,1, rpm
+10,2,Engine Load,15-25%
+10,3,Throt  plate Angle,0.2-4.0%
+10,4,Ignit Angle,0-12 BTDC
+;
+11,0,
+11,1, RPM
+11,2,coolant temp C
+11,3,intake temp C
+11,4,Ign angle
+;
+14,0,
+14,1, rpm
+14,2,Engine Load,
+14,3,# of Misfires,0-5
+14,4,Misfire Recog,Act
+;
+22,0,
+22,1, RPM
+22,2,Engine Load,
+22,3,Tim. Retard? 1,0.75-12 KW
+22,4,Tim. Retard? 2,0.75-12 KW
+;
+23,0,
+23,1, RPM
+23,2,Engine Load,
+23,3,Tim. Retard? 3,0.75-12 KW
+23,4,Tim. Retard? 4,0.75-12 KW
+;
+28,0,
+28,1, RPM
+28,2,Engine Load,
+28,3,Coolant Temp,80-110 C
+28,4,Knock Sensor, 
+;
+30,0,
+30,1,Pre-Cat O2,111
+30,2,Post-Cat O2,110         
+30,3, , 
+30,4, , 
+;
+32,0,
+32,1,Idle O2 Adapt,-10-10%
+32,2,Run O2 Adapt,-10-10%
+32,3, , 
+32,4, , 
+;
+33,0,pre cat O2 sensor
+33,1,PreCat O2? Reg,-10-10%
+33,2,PreCat O2 V,0-1V
+33,3, , 
+33,4, , 
+;
+34,0,
+34,1, RPM
+34,2,Cat Temp,
+34,3,PreC O2 Durat?, 
+34,4,PreC O2 Age?,
+;
+36,0, post cat O2 sensor
+36,1,PostC O2 V,0-1V
+36,2,temp
+36,3, , 
+36,4,bank 1 sensor 2 ,ok or not ok
+;
+37,0, post cat O2 sensor
+37,1,Engine Load,
+37,2,PostC O2 V,
+37,3,PostC O2 Dwel
+37,4,Result,Sys.OK
+;
+41,0,O2 sensor heaters
+41,1,
+41,2,PreC O2 Heat,on/off
+41,3,
+41,4,PostC O2 Heat,on/off
+;
+43,0,
+43,1, 
+43,2,post cat O2 V
+43,3,mass air flow
+43,4,PostC O2 Test, ok or not ok
+;
+46,0,
+46,1, RPM
+46,2,temp ???
+46,3,Amplit Ratio???, 
+46,4,Cat Test, ok or not ok
+;
+50,0,
+50,1, RPM
+50,2,Spec. Idle??,
+50,3,A/C Cond,high/low
+50,4,A/C Compress,on/off
+;
+54,0,
+54,1, RPM
+54,2,Operat Cond,Idle, enrich, decel, part, full
+54,3,Throt pedal Pos,0-100%
+54,4,Throt plate Angle,0-100%
+;
+55,0,
+55,1,Idle Speed,700-820 RPM
+55,2,Idle Control??,
+55,3,Idle Adaptation??,
+55,4,
+;
+56,0,
+56,1,Idle Speed,
+56,2,Spec. Idle,
+56,3,Idle Control,
+56,4,
+;
+60,0,
+60,1,Throt pedal Sens 1,
+60,2,Throt pedal Sens 2,
+60,3,Adap Step Cnt,0-8
+60,4,Adapt Cond,OK not OK
+;
+61,0,
+61,1, RPM
+61,2,Throt Voltage,12-15V
+61,3,Throt plate angle
+61,4,
+;
+62,0,
+62,1,Throt Sens 1,
+62,2,Throt Sens 2,
+62,3,Throttle Pos????,
+62,4,Sender 2 TPS????,
+;
+66,0,
+66,1,Vehicle Speed,0 MPH
+66,2,Brake Position,???
+66,3,Cruise Speed,
+66,4,Cruise Switch,????
+;
+70,0,
+70,1,load,
+70,2,TVV O2 Deviat,????
+70,3,
+70,4,TVV Test,OK or not OK
+;
+71,0,
+71,1,Emis Reed,
+71,2,Fault Message,
+71,3,Diag. Status,Meas. ????
+71,4,Diag. Test,Sys. OK or not OK 
+;
+77,0,
+77,1, RPM
+77,2,coolant temp
+77,3,
+77,4,Diag. Test,????
+;
+
+;
+99,0,
+99,1, RPM
+99,2,Coolant Temp,80-110 C
+99,3,PreCat O2 Reg,????
+99,4,O2 Sens Cond??,Lambda On/Off
+;
+100,0,
+100,1,Ready Code,00000000
+100,2,Coolant Temp,80-110 C
+100,3,Running time,
+100,4,Diag Status??,
+;
+101,0,
+101,1,RPM
+101,2,Load
+101,3,inj on  time
+101,4,mass air flow
+;
+102,0,
+102,1,RPM
+102,2,Coolant temp
+102,3,intake temp
+102,4,inj on time
+;
+105,0,
+105,1,RPM
+105,2,load
+105,3,coolant temp
+104,4,
+;
+107,0,
+107,1, RPM
+107,2,O2 Control,-23-23%
+107,3,
+107,4,Diagnostic,OK not OK 
+;
+110,0,
+110,1,RPM
+110.2.coolant temp
+110,3,inj on time
+110,4,throt plate angle
+;
+111,0,
+111,1,RPM
+111,2,load
+111,3,throt plate angle
+111,4,pedal cond,idle full accel decel
+;
+113,0,
+113,1, RPM
+113,2,Engine Load,
+113,3,Throttle plate angle,0-100%
+113,4,Air Pressure,absolute 
+;
+114,0,??????
+114,1,Eng Load Call,
+114,2,Corr. Load,
+114,3,Engine Load,
+114,4,Bypas Dut Cyc
+;
+115,0,
+115,1,RPM
+115,2,Engine Load,
+115,3,requested boost, mbar
+115,4,Actual Boost, mbar
+;
+116,0,??????
+116,1,RPM
+116,2,Fuel Corr Fact,
+116,3,n/a,n/a
+116,4,Air Corr Fact,
+;
+117,0,
+117,1,RPM
+117,2,Throt Pos,0-100%
+117,3,Throt plate angle,0-100%
+117,4,Spec. Boost,
+;
+118,0,
+118,1,RPM
+118,2,Air Temp In,
+118,3,Boost Dut Cyc,0-100% 
+118,4,Actual Boost,<=1800 mbar
+;
+119,0,
+119,1, RPM
+119,2,air intake temp
+119,3,Boost Dut Cycl,0-100% 
+119,4,Actual Boost,
+;
+120,0,
+120,1, RPM
+120,2,max torque limit,
+120,3,Curr torque,
+120,4,ASR Status,on off
+;
+201,0,
+201,1,RPM
+201,2,
+201,3,Cat temp
+201,4,
+;
+
+;
+;End of File

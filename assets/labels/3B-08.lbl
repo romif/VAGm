@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; VW Golf/Jetta (1J/9M) / VW Lupo (6E/6X) / VW Passat (3B) / VW Polo (6N)
+;
+; Component: A/C Heating Electronics (J255) (#01) - Climatronic
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-08.LBL
+; 3Bx-907-044.LBL
+;
+; created on 15/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 15/Apr/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3Bx-907-044.LBL,3B?-907-044-???
+;

@@ -1,0 +1,187 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E)
+;
+; Component: J393 - Central Module Comfort System (#46) - MINIMUM
+;
+; p/n: 8E0 959 433 AR/AS/AT/BA
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-46.LBL
+; 8E0-959-433-MAX.LBL
+; 8E0-959-433-MIN.LBL
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 09/26/2004
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Driver side
+001,1,key switch,,Display range: open/ closed/ not operated
+001,2,central locking,interior button,Display range: locking/ unlocking/ not operated
+001,3,lock return,message (feedback),Display range: locked/ unlocked
+001,4,safe return,message (feedback),Display range: safe/ not safe
+;
+002,0,Driver side/Passenger side
+002,1,Driver side,key switch,Display range: open/ closed/ not operated
+002,2,Passenger side,key switch,Display range: locking/ unlocking/ not operated
+002,3,Passenger side,lock return mess.,Display range: locked/ unlocked
+002,4,Passenger side,safe return mess.,Display range: safe/ not safe
+;
+003,0,Rear right/left (Return messages)
+003,1,Lock,rear right,Display range: locked/ unlocked
+003,2,Safe,rear right,Display range: safe/ not safe
+003,3,Lock,rear left,Display range: locked/ unlocked
+003,4,Safe,rear left,Display range: safe/ not safe
+;
+004,0,Contact switches - All doors
+004,1,Driver side,door contact,Display range: door open/ door closed
+004,2,Passenger side,door contact,Display range: door open/ door closed
+004,3,rear right,door contact,Display range: door open/ door closed
+004,4,rear left,door contact,Display range: door open/ door closed
+;
+005,1,Trunk lid,release button,Display range: operated/ not operated
+005,2,Trunk lid,contact switch,Display range: lid open/ lid closed
+005,3,Soft-touch trunk,lid release,Display range: operated/ not operated
+005,4,Engine hood,contact switch,Display range: lid open/ lid closed/ not installed (only installed with anti-theft warning system)
+;
+006,1,Interior,light,Display range: on/ off
+006,2,Relief relay,window regulator,Display range: relay on/relay off
+006,3,Comfort system,opening/closing,Display range: open/ closed/ not operated
+006,4,Luggage,compartment light,Display range: on/ off
+;
+007,1,Key from,adapted position,Number shows memory position of adapted key, which was just operated. 0 indicates an unadapted key.
+007,2,Remote control,command,Display range: 1=opening/2=closing/3=rear lid/4=panic button
+007,3,Adapted key,memory position,Display range: 1234 (0=not occupied/1=occupied)
+007,4,Parking,brake,Display range: operated/ not operated
+;
+008,1,Speed,signal,Display range: cur. value/ no communication/ no measured value
+008,2,Immobilizer,key recognized,Display range: yes/ no/ no communication
+008,3,Radio Ground,contact recognized,Display range: recognized/no/not installed (only with anti-theft warning sys.)
+008,4,Rear windshield,broken,Display range: recognized/no/not installed (only with anti-theft warning sys.)
+;
+009,1,Coding
+009,2,Coding
+009,3,Coding
+009,4,Coding
+;
+010,1,Driver side,contact switch,Display range: door open/door closed
+010,2,Interior monit.,button,Display range: operated/not operated/not installed (only with anti-theft warning sys.)
+010,3,Declin. sensor,deact. button,Display range: operated/not operated/no communication
+010,4,Reversing,light,Display range: off/on
+;
+011,0,Window regulator button
+011,1,Driver side,,Display range: auto. open/auto. close/man. open/man.close/not operated
+011,2,Thermal,protection active
+011,3,Child safety,switch
+011,4,Drivers door,standardized
+;
+012,0,Window regulator button
+012,1,Driver side,,Display range: auto. open/auto. close/man. open/man.close/not operated
+012,2,Driver side,for pass. side,Display range: auto. open/auto. close/man. open/man. close/not operated
+012,3,Driver side,for rear,Display range: auto. open/auto. close/man. open/man. close/not operated
+012,4,Passenger,heated mirror,Display range: on/off
+;
+013,0,Mirror system
+013,1,Mirror,adjustment switch,Display range: pos. X+/pos. X-/pos. Y+/pos. Y-/not operated
+013,2,Mirror,selection switch,Display range; left/right/fold-out/not operated
+013,3,Mirror,disengage switch,Display range: disengaged/engaged/not installed
+013,4,Driver heated,mirror,Display range: on/off
+;
+014,0,Window regulator - passenger side
+014,1,Button,,Display range: auto. open/auto. close/man. open/man. close/not operated
+014,2,Thermal,protection,Display range: on/off
+014,3,Central locking,button,Display range: locking/unlocked/not operated (China only)
+014,4,Standardized,,Display range: on/off
+;
+015,0,Window regulator - rear right
+015,1,Button,,Display range: auto. open/auto. close/man. open/man. close/not operated
+015,2,Thermal,protection,Display range: on/off
+015,3,Central locking,button,Display range: locking/unlocked/not operated (China only)
+015,4,Standardized,,Display range: on/off
+;
+016,0,Window regulator - rear left
+016,1,Button,,Display range: auto. open/auto. close/man. open/man. close/not operated
+016,2,Thermal,protection,Display range: on/off
+016,3,Central locking,button,Display range: locking/unlocked/not operated (China only)
+016,4,Standardized,,Display range: on/off
+;
+017,1,Voltage supply,terminal 30
+017,2,Ignition,terminal 15,Display range: Term. 15 On/Term. 15 Off/no communication
+017,3,S-contact,,Display range: operated/not operated/no communication
+017,4,[N/A]
+;
+018,1,Interior button,rear,Display range: locking/unlocking/not operated (USA only)
+018,2,Driver side,lock return mess.,Display range: locked/unlocked
+018,3,Trunk key,switch,Display range: open/closed/not operated
+018,4,Glas type,,Display range: 1234 - 1=driver door/2=passenger door/3=right rear/4=left rear (0=Normal glass/1=insulated glass)
+;
+125,0,CAN-Databus communication (Comfort) - Door control modules
+125,1,Driver side,door
+125,2,Passenger side,door
+125,3,left rear,door
+125,4,right rear,door
+;
+126,0,CAN-Databus communication (Comfort)
+126,1,Steering Wheel,(SMSC)
+126,2,Intelligent Load,Module (ILM),Vehicle Electrical System Control Module
+126,3,Climatronic
+126,4,Instrument,cluster
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,J393 - Central Module Comfort System (Coding)
+C1,+00001 - GB-Alarm (not USA)
+C2,+00002 - Confirmation Anti-theft warning system blinks
+C3,+00004 - Selective Central Locking (SCL)
+C4,+00008 - Anti-theft warning system - activation of AWS
+C5,+00016 - Rear lid release locking via speed
+C6,+00032 - CL locking via speed
+C7,+00064 - Comfort function by means of remote control (not USA)
+C8,+00128 - Right Hand Drive (RHD)
+C9,+00256 - Avant bit
+C10,+00512 - Confirmation remote closing (1x blink)
+C11,+01024 - Confirmation anti-theft warning sytem horn activation
+C12,+02048 - Door-/ window regulator logic
+C13,+04096 - Thatcham anti-theft warning (not USA)
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+A62,0,Comfort functions
+A62,5,Comfort functions
+A62,6,+001 - Comfort closing via remote for window regulators (not USA)
+A62,7,+002 - Comfort opening via remote for window regulators (not USA)
+A62,8,+004 - Comfort closing via lock cylinder for window regulators
+A62,9,+008 - Comfort opening via lock cylinder for window regulators
+A62,10,+016 - Comfort closing via remote for sunroof (not USA)
+A62,11,+032 - Comfort opening via remote for sunroof (not realized)
+A62,12,+064 - Comfort closing via lock cylinder for sunroof
+A62,13,+128 - Comfort opening via lock cylinder for sunroof (not realized)
+;

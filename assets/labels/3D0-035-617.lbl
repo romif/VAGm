@@ -1,0 +1,170 @@
+;
+; VAG-COM label file 3D0-035-617.lbl
+;
+; VW Phaeton (3D)
+;
+; component: Control Module for Telematics - J499 - (#75) (analog OnStar three button system)
+;
+;    p/n: 3D0 035 617   Telematik NAR1 0101 Coding: 0061860 (2004 Phaeton NAR, no GSM phone)
+;    p/n: 3D0 035 617 A Telematik NAR1 0106 Coding: 0061850 (2005 Phaeton NAR, with GSM phone, no Bluetooth)
+;      refer to 3D0 035 729 for the phone controller (address 77) used for NAR GSM without Bluetooth.
+;
+; includes some measured value blocks and coding - data is incomplete.
+;
+; by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; Modification History
+;
+; 27/March/2005 - Created by Michael
+; 24/November/2005 - p/n added for NAR Phaeton with GSM phone prep.
+; 30/November/2005 - Additional MVB data added, all MVB and adaptation channels mapped.
+; 22/March/2006 - Error corrected in control module number - was given as J526, OnStar controller is J499.
+; 06/October/2006 - Note added to clarify value of Time in MVB 027
+;
+; ready for VAG-COM 402.3 and above
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+C00,Phaeton (3D) - Telematics System (J526) Coding
+C01,61850 - Phaeton with 8 Channel Soundsystem
+C02,61860 - Phaeton with 12 Channel Soundsystem
+C03,61851 - Phaeton with 8 Channel Soundsystem - Information sent to Indicator Unit in Instrument Panel Insert
+C04,61861 - Phaeton with 12 Channel Soundsystem - Information sent to Indicator Unit in Instrument Panel Insert
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+001,0,Telephone Signal Strength Available
+001,2,Communication,with cell station,Possible Value: Acquired
+001,4,Signal Strength,Percentage
+;
+002,0,GPS Satellite Status for OnStar System (NOT Phaeton Navigation GPS System)
+002,3,GPS System,Status,Possible Value: Acquiring Satellites (looking)
+002,4,Satellites,in view,Vehicle must be outside in order to see satellites!
+;
+003,0,Status of Automatically Generated Breakdown Signal (e.g. airbag deployment)
+003,4,OnStar Button,Status,Refers to large blue button
+;
+004,0,Status of Red and White OnStar Buttons
+004,2,Emergency Button,Status,Refers to red button
+004,4,Hang-up Button,Status,Refers to white button
+;
+005,0,Vehicle Electrical System Status
+005,1,Terminal 15,Status
+;
+006,0,*Next measured value block is 20.
+;
+020,0,Longitude (Only valid when GPS constellation has been acquired)
+020,2,Degrees
+020,3,Minutes
+020,4,Seconds
+;
+021,0,Latitude (Only valid when GPS constellation has been acquired)
+021,2,Degrees
+021,3,Minutes
+021,4,Seconds
+;
+022,0,Altitude (Only valid when GPS constellation has been acquired)
+022,2,Height
+;
+023,0,Longitude (Only valid when GPS constellation has been acquired) 
+023,2,Degrees
+023,3,Minutes
+023,4,Seconds
+;
+024,0,Latitude (Only valid when GPS constellation has been acquired)
+024,2,Degrees
+024,3,Minutes
+024,4,Seconds
+;
+025,0,Altitude above sea level (Only valid when GPS constellation has been acquired)
+025,2,Height
+;
+026,0,Date (Only valid when GPS constellation has been acquired)
+026,2,Day
+026,3,Month
+026,4,Year
+;
+027,0,Time in GMT (Only valid when GPS constellation has been acquired)
+027,2,Hour
+027,3,Minute
+027,4,Second
+;
+028,0,Heading, DP (Only valid when GPS constellation has been acquired)
+028,2,Heading
+028,4,DP
+;
+029,0,Vehicle Speed and Antenna Status
+029,2,Vehicle Speed
+029,4,Antenna Status
+;
+030,0,Voltage Supplied to Controller
+030,2,Voltage
+;
+031,0,*Next MVB is 076.
+;
+076,0,Vehicle 10 digit Phone Number - xxx ??????????x (disregard the x numbers)
+;
+077,0,Expanded Control Module Identification
+;
+078,0,Electronic Serial Number (ESN) of Analog Phone Module - xxx ??????????? (disregard the x numbers)
+;
+079,0,Control Module Identification Code (STID) - xxx ??????????? (disregard the x numbers)
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Next MVB is 125.
+;
+125,0,Presumed to be CAN bus status - but not sure.
+;
+126,0,Data Bus Status
+;
+127,0,*Next MVB is 203
+;
+203,0,Unknown
+;
+204,0,Unknown
+;
+205,0,Unknown
+;
+206,0,Unknown
+;
+207,0,Unknown
+;
+208,0,*End of MVB for this controller.
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+A03,0,Enabling Service or Transport Mode
+A03,2,Service Mode,Status
+A03,5,Instructions
+A03,6,To disable transport mode (in other words to enable
+A03,7,normal OnStar operation) enter a value of 0 in channel
+A03,8,three and save this value.
+;
+A07,0,Test Call Status
+A07,2,Test Call Status
+;
+A99,0,Test Mode
+A99,1,Test Mode,Status
+;
+;
+; end of file

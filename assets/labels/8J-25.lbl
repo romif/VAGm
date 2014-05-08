@@ -1,0 +1,19 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Immobilizer (#25)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-25.LBL
+; 1K0-920-xxx-25.LBL
+;
+; created on 24/Jul/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Jul/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-920-xxx-25.LBL,8J0-920-???-???
+;

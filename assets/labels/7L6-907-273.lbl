@@ -1,0 +1,520 @@
+;
+; VCDS Label File
+;
+; VW Touareg (7L6)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; P/N: 7L6-907-273-???
+;
+; includes measuring blocks and long coding
+;
+; created on 14/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/Mar/2008
+;
+; requires VCDS 803.0 / LCode 802.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Front Left Wheel Status I
+001,1,Wheel Sensor,Position
+001,2,Wheel,Temperature,Range: -50.0...+125.0 °C
+001,3,Wheel Pressure,(actual),Range: 0.0...5.5 bar
+001,4,Wheel Pressure,(specified),Range: 1.3...5.5 bar
+;
+002,0,Front Left Wheel Status II
+002,1,Wheel Sensor,Position / Identification / Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+003,0,Front Right Wheel Status I
+003,1,Wheel Sensor,Position
+003,2,Wheel,Temperature,Range: -50.0...+125.0 °C
+003,3,Wheel Pressure,(actual),Range: 0.0...5.5 bar
+003,4,Wheel Pressure,(specified),Range: 1.3...5.5 bar
+;
+004,0,Front Right Wheel Status II
+004,1,Wheel Sensor,Position / Identification / Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+005,0,Rear Left Wheel Status I
+005,1,Wheel Sensor,Position
+005,2,Wheel,Temperature,Range: -50.0...+125.0 °C
+005,3,Wheel Pressure,(actual),Range: 0.0...5.5 bar
+005,4,Wheel Pressure,(specified),Range: 1.3...5.5 bar
+;
+006,0,Rear Left Wheel Status II
+006,1,Wheel Sensor,Position / Identification / Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+007,0,Rear Right Wheel Status I
+007,1,Wheel Sensor,Position
+007,2,Wheel,Temperature,Range: -50.0...+125.0 °C
+007,3,Wheel Pressure,(actual),Range: 0.0...5.5 bar
+007,4,Wheel Pressure,(specified),Range: 1.3...5.5 bar
+;
+008,0,Rear Right Wheel Status II
+008,1,Wheel Sensor,Position / Identification / Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+;
+016,0,Wheel Sensor Status (from last Received Wheel ID) I
+016,1,Wheel Sensor,Identification / Status / Pressure
+;
+017,1,Ambient,Temperature
+;
+019,0,Monitored Pressure
+019,1,Monitored Pressure,Front / Partial Load
+019,2,Monitored Pressure,Front / Full Load
+019,3,Monitored Pressure,Rear / Partial Load
+019,4,Monitored Pressure,Rear / Full Load
+;
+020,0,Specified Pressure 1
+020,1,Spec. Pressure 1,Front / Partial Load
+020,2,Spec. Pressure 1,Front / Full Load
+020,3,Spec. Pressure 1,Rear / Partial Load
+020,4,Spec. Pressure 1,Rear / Full Load
+;
+021,0,Specified Pressure 2
+021,1,Spec. Pressure 2,Front / Partial Load
+021,2,Spec. Pressure 2,Front / Full Load
+021,3,Spec. Pressure 2,Rear / Partial Load
+021,4,Spec. Pressure 2,Rear / Full Load
+;
+022,0,Specified Pressure 3
+022,1,Spec. Pressure 3,Front / Partial Load
+022,2,Spec. Pressure 3,Front / Full Load
+022,3,Spec. Pressure 3,Rear / Partial Load
+022,4,Spec. Pressure 3,Rear / Full Load
+;
+023,0,Specified Pressure 4
+023,1,Spec. Pressure 4,Front / Partial Load
+023,2,Spec. Pressure 4,Front / Full Load
+023,3,Spec. Pressure 4,Rear / Partial Load
+023,4,Spec. Pressure 4,Rear / Full Load
+;
+024,0,Specified Pressure 5
+024,1,Spec. Pressure 5,Front / Partial Load
+024,2,Spec. Pressure 5,Front / Full Load
+024,3,Spec. Pressure 5,Rear / Partial Load
+024,4,Spec. Pressure 5,Rear / Full Load
+;
+025,0,Specified Pressure 6
+025,1,Spec. Pressure 6,Front / Partial Load
+025,2,Spec. Pressure 6,Front / Full Load
+025,3,Spec. Pressure 6,Rear / Partial Load
+025,4,Spec. Pressure 6,Rear / Full Load
+;
+030,0,CAN-Databus Communication
+030,1,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+030,2,Engine Speed
+030,3,Vehicle Speed
+030,4,Ambient,Temperature
+;
+031,0,CAN-Databus Communication
+031,1,Voltage,(Terminal 30)
+031,2,CAN-Gateway,(J533),Range: Gateway 1/Gateway 0
+031,4,Access/Start,Authorization,Specification: El.Ign.Lock 1\nRange: El.Ign.Lock 1/El.Ign.Lock 0
+;
+032,0,Transport Mode
+032,1,Transport Mode,,Range: Yes/No
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,Automatic Activation active/coded
+LC,00,1,Automatic Deactivation active/coded
+LC,00,2,De-/Activation via Menu active/coded
+LC,00,3,Message after Wheel Change active/coded
+LC,00,4,Soft Warning Output immediate
+LC,00,5,Soft Warning active/coded
+LC,00,6,Minimum Pressure 1.4 bar rel.
+LC,00,7,Carrier Frequency 315 MHz
+LC,01,0~0,00,Malfunction Lamp Type "Blinking Light"
+LC,01,0~0,01,Malfunction Lamp Type "Continuous Light"
+; Byte 01 Bit 1 unused
+; Byte 01 Bit 2 unused
+LC,01,3,Full/Partial Load via Menu switchable
+LC,01,4,Specified Pressure Temperature Evaluation active
+LC,01,5,Specified Pressures coded
+LC,01,6,Actual Pressures coded
+LC,01,7,Actual Temperatures coded
+;
+; {Byte 02 unused}
+;
+; {Specified Pressure 1 Rear Axle Partial Load}
+LC,03,0~3,00,Specified Pressure 1 Rear Axle Partial Load 0.0 bar
+LC,03,0~3,01,Specified Pressure 1 Rear Axle Partial Load 2.0 bar
+LC,03,0~3,02,Specified Pressure 1 Rear Axle Partial Load 2.1 bar
+LC,03,0~3,03,Specified Pressure 1 Rear Axle Partial Load 2.2 bar
+LC,03,0~3,04,Specified Pressure 1 Rear Axle Partial Load 2.3 bar
+LC,03,0~3,05,Specified Pressure 1 Rear Axle Partial Load 2.4 bar
+LC,03,0~3,06,Specified Pressure 1 Rear Axle Partial Load 2.5 bar
+LC,03,0~3,07,Specified Pressure 1 Rear Axle Partial Load 2.6 bar
+LC,03,0~3,08,Specified Pressure 1 Rear Axle Partial Load 2.7 bar
+LC,03,0~3,09,Specified Pressure 1 Rear Axle Partial Load 2.8 bar
+LC,03,0~3,0A,Specified Pressure 1 Rear Axle Partial Load 2.9 bar
+LC,03,0~3,0B,Specified Pressure 1 Rear Axle Partial Load 3.0 bar
+LC,03,0~3,0C,Specified Pressure 1 Rear Axle Partial Load 3.1 bar
+LC,03,0~3,0D,Specified Pressure 1 Rear Axle Partial Load 3.2 bar
+LC,03,0~3,0E,Specified Pressure 1 Rear Axle Partial Load 3.3 bar
+LC,03,0~3,0F,Specified Pressure 1 Rear Axle Partial Load 3.4 bar
+; {Specified Pressure 1 Front Axle Partial Load}
+LC,03,4~7,00,Specified Pressure 1 Front Axle Partial Load 0.0 bar
+LC,03,4~7,01,Specified Pressure 1 Front Axle Partial Load 2.0 bar
+LC,03,4~7,02,Specified Pressure 1 Front Axle Partial Load 2.1 bar
+LC,03,4~7,03,Specified Pressure 1 Front Axle Partial Load 2.2 bar
+LC,03,4~7,04,Specified Pressure 1 Front Axle Partial Load 2.3 bar
+LC,03,4~7,05,Specified Pressure 1 Front Axle Partial Load 2.4 bar
+LC,03,4~7,06,Specified Pressure 1 Front Axle Partial Load 2.5 bar
+LC,03,4~7,07,Specified Pressure 1 Front Axle Partial Load 2.6 bar
+LC,03,4~7,08,Specified Pressure 1 Front Axle Partial Load 2.7 bar
+LC,03,4~7,09,Specified Pressure 1 Front Axle Partial Load 2.8 bar
+LC,03,4~7,0A,Specified Pressure 1 Front Axle Partial Load 2.9 bar
+LC,03,4~7,0B,Specified Pressure 1 Front Axle Partial Load 3.0 bar
+LC,03,4~7,0C,Specified Pressure 1 Front Axle Partial Load 3.1 bar
+LC,03,4~7,0D,Specified Pressure 1 Front Axle Partial Load 3.2 bar
+LC,03,4~7,0E,Specified Pressure 1 Front Axle Partial Load 3.3 bar
+LC,03,4~7,0F,Specified Pressure 1 Front Axle Partial Load 3.4 bar
+;
+; {Specified Pressure 1 Rear Axle Full Load}
+LC,04,0~3,00,Specified Pressure 1 Rear Axle Full Load 0.0 bar
+LC,04,0~3,01,Specified Pressure 1 Rear Axle Full Load 2.0 bar
+LC,04,0~3,02,Specified Pressure 1 Rear Axle Full Load 2.1 bar
+LC,04,0~3,03,Specified Pressure 1 Rear Axle Full Load 2.2 bar
+LC,04,0~3,04,Specified Pressure 1 Rear Axle Full Load 2.3 bar
+LC,04,0~3,05,Specified Pressure 1 Rear Axle Full Load 2.4 bar
+LC,04,0~3,06,Specified Pressure 1 Rear Axle Full Load 2.5 bar
+LC,04,0~3,07,Specified Pressure 1 Rear Axle Full Load 2.6 bar
+LC,04,0~3,08,Specified Pressure 1 Rear Axle Full Load 2.7 bar
+LC,04,0~3,09,Specified Pressure 1 Rear Axle Full Load 2.8 bar
+LC,04,0~3,0A,Specified Pressure 1 Rear Axle Full Load 2.9 bar
+LC,04,0~3,0B,Specified Pressure 1 Rear Axle Full Load 3.0 bar
+LC,04,0~3,0C,Specified Pressure 1 Rear Axle Full Load 3.1 bar
+LC,04,0~3,0D,Specified Pressure 1 Rear Axle Full Load 3.2 bar
+LC,04,0~3,0E,Specified Pressure 1 Rear Axle Full Load 3.3 bar
+LC,04,0~3,0F,Specified Pressure 1 Rear Axle Full Load 3.4 bar
+; {Specified Pressure 1 Front Axle Full Load}
+LC,04,4~7,00,Specified Pressure 1 Front Axle Full Load 0.0 bar
+LC,04,4~7,01,Specified Pressure 1 Front Axle Full Load 2.0 bar
+LC,04,4~7,02,Specified Pressure 1 Front Axle Full Load 2.1 bar
+LC,04,4~7,03,Specified Pressure 1 Front Axle Full Load 2.2 bar
+LC,04,4~7,04,Specified Pressure 1 Front Axle Full Load 2.3 bar
+LC,04,4~7,05,Specified Pressure 1 Front Axle Full Load 2.4 bar
+LC,04,4~7,06,Specified Pressure 1 Front Axle Full Load 2.5 bar
+LC,04,4~7,07,Specified Pressure 1 Front Axle Full Load 2.6 bar
+LC,04,4~7,08,Specified Pressure 1 Front Axle Full Load 2.7 bar
+LC,04,4~7,09,Specified Pressure 1 Front Axle Full Load 2.8 bar
+LC,04,4~7,0A,Specified Pressure 1 Front Axle Full Load 2.9 bar
+LC,04,4~7,0B,Specified Pressure 1 Front Axle Full Load 3.0 bar
+LC,04,4~7,0C,Specified Pressure 1 Front Axle Full Load 3.1 bar
+LC,04,4~7,0D,Specified Pressure 1 Front Axle Full Load 3.2 bar
+LC,04,4~7,0E,Specified Pressure 1 Front Axle Full Load 3.3 bar
+LC,04,4~7,0F,Specified Pressure 1 Front Axle Full Load 3.4 bar
+;
+; {Specified Pressure 2 Rear Axle Partial Load}
+LC,05,0~3,00,Specified Pressure 2 Rear Axle Partial Load 0.0 bar
+LC,05,0~3,01,Specified Pressure 2 Rear Axle Partial Load 2.0 bar
+LC,05,0~3,02,Specified Pressure 2 Rear Axle Partial Load 2.1 bar
+LC,05,0~3,03,Specified Pressure 2 Rear Axle Partial Load 2.2 bar
+LC,05,0~3,04,Specified Pressure 2 Rear Axle Partial Load 2.3 bar
+LC,05,0~3,05,Specified Pressure 2 Rear Axle Partial Load 2.4 bar
+LC,05,0~3,06,Specified Pressure 2 Rear Axle Partial Load 2.5 bar
+LC,05,0~3,07,Specified Pressure 2 Rear Axle Partial Load 2.6 bar
+LC,05,0~3,08,Specified Pressure 2 Rear Axle Partial Load 2.7 bar
+LC,05,0~3,09,Specified Pressure 2 Rear Axle Partial Load 2.8 bar
+LC,05,0~3,0A,Specified Pressure 2 Rear Axle Partial Load 2.9 bar
+LC,05,0~3,0B,Specified Pressure 2 Rear Axle Partial Load 3.0 bar
+LC,05,0~3,0C,Specified Pressure 2 Rear Axle Partial Load 3.1 bar
+LC,05,0~3,0D,Specified Pressure 2 Rear Axle Partial Load 3.2 bar
+LC,05,0~3,0E,Specified Pressure 2 Rear Axle Partial Load 3.3 bar
+LC,05,0~3,0F,Specified Pressure 2 Rear Axle Partial Load 3.4 bar
+; {Specified Pressure 2 Front Axle Partial Load}
+LC,05,4~7,00,Specified Pressure 2 Front Axle Partial Load 0.0 bar
+LC,05,4~7,01,Specified Pressure 2 Front Axle Partial Load 2.0 bar
+LC,05,4~7,02,Specified Pressure 2 Front Axle Partial Load 2.1 bar
+LC,05,4~7,03,Specified Pressure 2 Front Axle Partial Load 2.2 bar
+LC,05,4~7,04,Specified Pressure 2 Front Axle Partial Load 2.3 bar
+LC,05,4~7,05,Specified Pressure 2 Front Axle Partial Load 2.4 bar
+LC,05,4~7,06,Specified Pressure 2 Front Axle Partial Load 2.5 bar
+LC,05,4~7,07,Specified Pressure 2 Front Axle Partial Load 2.6 bar
+LC,05,4~7,08,Specified Pressure 2 Front Axle Partial Load 2.7 bar
+LC,05,4~7,09,Specified Pressure 2 Front Axle Partial Load 2.8 bar
+LC,05,4~7,0A,Specified Pressure 2 Front Axle Partial Load 2.9 bar
+LC,05,4~7,0B,Specified Pressure 2 Front Axle Partial Load 3.0 bar
+LC,05,4~7,0C,Specified Pressure 2 Front Axle Partial Load 3.1 bar
+LC,05,4~7,0D,Specified Pressure 2 Front Axle Partial Load 3.2 bar
+LC,05,4~7,0E,Specified Pressure 2 Front Axle Partial Load 3.3 bar
+LC,05,4~7,0F,Specified Pressure 2 Front Axle Partial Load 3.4 bar
+;
+; {Specified Pressure 2 Rear Axle Full Load}
+LC,06,0~3,00,Specified Pressure 2 Rear Axle Full Load 0.0 bar
+LC,06,0~3,01,Specified Pressure 2 Rear Axle Full Load 2.0 bar
+LC,06,0~3,02,Specified Pressure 2 Rear Axle Full Load 2.1 bar
+LC,06,0~3,03,Specified Pressure 2 Rear Axle Full Load 2.2 bar
+LC,06,0~3,04,Specified Pressure 2 Rear Axle Full Load 2.3 bar
+LC,06,0~3,05,Specified Pressure 2 Rear Axle Full Load 2.4 bar
+LC,06,0~3,06,Specified Pressure 2 Rear Axle Full Load 2.5 bar
+LC,06,0~3,07,Specified Pressure 2 Rear Axle Full Load 2.6 bar
+LC,06,0~3,08,Specified Pressure 2 Rear Axle Full Load 2.7 bar
+LC,06,0~3,09,Specified Pressure 2 Rear Axle Full Load 2.8 bar
+LC,06,0~3,0A,Specified Pressure 2 Rear Axle Full Load 2.9 bar
+LC,06,0~3,0B,Specified Pressure 2 Rear Axle Full Load 3.0 bar
+LC,06,0~3,0C,Specified Pressure 2 Rear Axle Full Load 3.1 bar
+LC,06,0~3,0D,Specified Pressure 2 Rear Axle Full Load 3.2 bar
+LC,06,0~3,0E,Specified Pressure 2 Rear Axle Full Load 3.3 bar
+LC,06,0~3,0F,Specified Pressure 2 Rear Axle Full Load 3.4 bar
+; {Specified Pressure 2 Front Axle Full Load}
+LC,06,4~7,00,Specified Pressure 2 Front Axle Full Load 0.0 bar
+LC,06,4~7,01,Specified Pressure 2 Front Axle Full Load 2.0 bar
+LC,06,4~7,02,Specified Pressure 2 Front Axle Full Load 2.1 bar
+LC,06,4~7,03,Specified Pressure 2 Front Axle Full Load 2.2 bar
+LC,06,4~7,04,Specified Pressure 2 Front Axle Full Load 2.3 bar
+LC,06,4~7,05,Specified Pressure 2 Front Axle Full Load 2.4 bar
+LC,06,4~7,06,Specified Pressure 2 Front Axle Full Load 2.5 bar
+LC,06,4~7,07,Specified Pressure 2 Front Axle Full Load 2.6 bar
+LC,06,4~7,08,Specified Pressure 2 Front Axle Full Load 2.7 bar
+LC,06,4~7,09,Specified Pressure 2 Front Axle Full Load 2.8 bar
+LC,06,4~7,0A,Specified Pressure 2 Front Axle Full Load 2.9 bar
+LC,06,4~7,0B,Specified Pressure 2 Front Axle Full Load 3.0 bar
+LC,06,4~7,0C,Specified Pressure 2 Front Axle Full Load 3.1 bar
+LC,06,4~7,0D,Specified Pressure 2 Front Axle Full Load 3.2 bar
+LC,06,4~7,0E,Specified Pressure 2 Front Axle Full Load 3.3 bar
+LC,06,4~7,0F,Specified Pressure 2 Front Axle Full Load 3.4 bar
+;
+; {Specified Pressure 3 Rear Axle Partial Load}
+LC,07,0~3,00,Specified Pressure 3 Rear Axle Partial Load 0.0 bar
+LC,07,0~3,01,Specified Pressure 3 Rear Axle Partial Load 2.0 bar
+LC,07,0~3,02,Specified Pressure 3 Rear Axle Partial Load 2.1 bar
+LC,07,0~3,03,Specified Pressure 3 Rear Axle Partial Load 2.2 bar
+LC,07,0~3,04,Specified Pressure 3 Rear Axle Partial Load 2.3 bar
+LC,07,0~3,05,Specified Pressure 3 Rear Axle Partial Load 2.4 bar
+LC,07,0~3,06,Specified Pressure 3 Rear Axle Partial Load 2.5 bar
+LC,07,0~3,07,Specified Pressure 3 Rear Axle Partial Load 2.6 bar
+LC,07,0~3,08,Specified Pressure 3 Rear Axle Partial Load 2.7 bar
+LC,07,0~3,09,Specified Pressure 3 Rear Axle Partial Load 2.8 bar
+LC,07,0~3,0A,Specified Pressure 3 Rear Axle Partial Load 2.9 bar
+LC,07,0~3,0B,Specified Pressure 3 Rear Axle Partial Load 3.0 bar
+LC,07,0~3,0C,Specified Pressure 3 Rear Axle Partial Load 3.1 bar
+LC,07,0~3,0D,Specified Pressure 3 Rear Axle Partial Load 3.2 bar
+LC,07,0~3,0E,Specified Pressure 3 Rear Axle Partial Load 3.3 bar
+LC,07,0~3,0F,Specified Pressure 3 Rear Axle Partial Load 3.4 bar
+; {Specified Pressure 3 Front Axle Partial Load}
+LC,07,4~7,00,Specified Pressure 3 Front Axle Partial Load 0.0 bar
+LC,07,4~7,01,Specified Pressure 3 Front Axle Partial Load 2.0 bar
+LC,07,4~7,02,Specified Pressure 3 Front Axle Partial Load 2.1 bar
+LC,07,4~7,03,Specified Pressure 3 Front Axle Partial Load 2.2 bar
+LC,07,4~7,04,Specified Pressure 3 Front Axle Partial Load 2.3 bar
+LC,07,4~7,05,Specified Pressure 3 Front Axle Partial Load 2.4 bar
+LC,07,4~7,06,Specified Pressure 3 Front Axle Partial Load 2.5 bar
+LC,07,4~7,07,Specified Pressure 3 Front Axle Partial Load 2.6 bar
+LC,07,4~7,08,Specified Pressure 3 Front Axle Partial Load 2.7 bar
+LC,07,4~7,09,Specified Pressure 3 Front Axle Partial Load 2.8 bar
+LC,07,4~7,0A,Specified Pressure 3 Front Axle Partial Load 2.9 bar
+LC,07,4~7,0B,Specified Pressure 3 Front Axle Partial Load 3.0 bar
+LC,07,4~7,0C,Specified Pressure 3 Front Axle Partial Load 3.1 bar
+LC,07,4~7,0D,Specified Pressure 3 Front Axle Partial Load 3.2 bar
+LC,07,4~7,0E,Specified Pressure 3 Front Axle Partial Load 3.3 bar
+LC,07,4~7,0F,Specified Pressure 3 Front Axle Partial Load 3.4 bar
+;
+; {Specified Pressure 3 Rear Axle Full Load}
+LC,08,0~3,00,Specified Pressure 3 Rear Axle Full Load 0.0 bar
+LC,08,0~3,01,Specified Pressure 3 Rear Axle Full Load 2.0 bar
+LC,08,0~3,02,Specified Pressure 3 Rear Axle Full Load 2.1 bar
+LC,08,0~3,03,Specified Pressure 3 Rear Axle Full Load 2.2 bar
+LC,08,0~3,04,Specified Pressure 3 Rear Axle Full Load 2.3 bar
+LC,08,0~3,05,Specified Pressure 3 Rear Axle Full Load 2.4 bar
+LC,08,0~3,06,Specified Pressure 3 Rear Axle Full Load 2.5 bar
+LC,08,0~3,07,Specified Pressure 3 Rear Axle Full Load 2.6 bar
+LC,08,0~3,08,Specified Pressure 3 Rear Axle Full Load 2.7 bar
+LC,08,0~3,09,Specified Pressure 3 Rear Axle Full Load 2.8 bar
+LC,08,0~3,0A,Specified Pressure 3 Rear Axle Full Load 2.9 bar
+LC,08,0~3,0B,Specified Pressure 3 Rear Axle Full Load 3.0 bar
+LC,08,0~3,0C,Specified Pressure 3 Rear Axle Full Load 3.1 bar
+LC,08,0~3,0D,Specified Pressure 3 Rear Axle Full Load 3.2 bar
+LC,08,0~3,0E,Specified Pressure 3 Rear Axle Full Load 3.3 bar
+LC,08,0~3,0F,Specified Pressure 3 Rear Axle Full Load 3.4 bar
+; {Specified Pressure 3 Front Axle Full Load}
+LC,08,4~7,00,Specified Pressure 3 Front Axle Full Load 0.0 bar
+LC,08,4~7,01,Specified Pressure 3 Front Axle Full Load 2.0 bar
+LC,08,4~7,02,Specified Pressure 3 Front Axle Full Load 2.1 bar
+LC,08,4~7,03,Specified Pressure 3 Front Axle Full Load 2.2 bar
+LC,08,4~7,04,Specified Pressure 3 Front Axle Full Load 2.3 bar
+LC,08,4~7,05,Specified Pressure 3 Front Axle Full Load 2.4 bar
+LC,08,4~7,06,Specified Pressure 3 Front Axle Full Load 2.5 bar
+LC,08,4~7,07,Specified Pressure 3 Front Axle Full Load 2.6 bar
+LC,08,4~7,08,Specified Pressure 3 Front Axle Full Load 2.7 bar
+LC,08,4~7,09,Specified Pressure 3 Front Axle Full Load 2.8 bar
+LC,08,4~7,0A,Specified Pressure 3 Front Axle Full Load 2.9 bar
+LC,08,4~7,0B,Specified Pressure 3 Front Axle Full Load 3.0 bar
+LC,08,4~7,0C,Specified Pressure 3 Front Axle Full Load 3.1 bar
+LC,08,4~7,0D,Specified Pressure 3 Front Axle Full Load 3.2 bar
+LC,08,4~7,0E,Specified Pressure 3 Front Axle Full Load 3.3 bar
+LC,08,4~7,0F,Specified Pressure 3 Front Axle Full Load 3.4 bar
+;
+; {Specified Pressure 4 Rear Axle Partial Load}
+LC,09,0~3,00,Specified Pressure 4 Rear Axle Partial Load 0.0 bar
+LC,09,0~3,01,Specified Pressure 4 Rear Axle Partial Load 2.0 bar
+LC,09,0~3,02,Specified Pressure 4 Rear Axle Partial Load 2.1 bar
+LC,09,0~3,03,Specified Pressure 4 Rear Axle Partial Load 2.2 bar
+LC,09,0~3,04,Specified Pressure 4 Rear Axle Partial Load 2.3 bar
+LC,09,0~3,05,Specified Pressure 4 Rear Axle Partial Load 2.4 bar
+LC,09,0~3,06,Specified Pressure 4 Rear Axle Partial Load 2.5 bar
+LC,09,0~3,07,Specified Pressure 4 Rear Axle Partial Load 2.6 bar
+LC,09,0~3,08,Specified Pressure 4 Rear Axle Partial Load 2.7 bar
+LC,09,0~3,09,Specified Pressure 4 Rear Axle Partial Load 2.8 bar
+LC,09,0~3,0A,Specified Pressure 4 Rear Axle Partial Load 2.9 bar
+LC,09,0~3,0B,Specified Pressure 4 Rear Axle Partial Load 3.0 bar
+LC,09,0~3,0C,Specified Pressure 4 Rear Axle Partial Load 3.1 bar
+LC,09,0~3,0D,Specified Pressure 4 Rear Axle Partial Load 3.2 bar
+LC,09,0~3,0E,Specified Pressure 4 Rear Axle Partial Load 3.3 bar
+LC,09,0~3,0F,Specified Pressure 4 Rear Axle Partial Load 3.4 bar
+; {Specified Pressure 4 Front Axle Partial Load}
+LC,09,4~7,00,Specified Pressure 4 Front Axle Partial Load 0.0 bar
+LC,09,4~7,01,Specified Pressure 4 Front Axle Partial Load 2.0 bar
+LC,09,4~7,02,Specified Pressure 4 Front Axle Partial Load 2.1 bar
+LC,09,4~7,03,Specified Pressure 4 Front Axle Partial Load 2.2 bar
+LC,09,4~7,04,Specified Pressure 4 Front Axle Partial Load 2.3 bar
+LC,09,4~7,05,Specified Pressure 4 Front Axle Partial Load 2.4 bar
+LC,09,4~7,06,Specified Pressure 4 Front Axle Partial Load 2.5 bar
+LC,09,4~7,07,Specified Pressure 4 Front Axle Partial Load 2.6 bar
+LC,09,4~7,08,Specified Pressure 4 Front Axle Partial Load 2.7 bar
+LC,09,4~7,09,Specified Pressure 4 Front Axle Partial Load 2.8 bar
+LC,09,4~7,0A,Specified Pressure 4 Front Axle Partial Load 2.9 bar
+LC,09,4~7,0B,Specified Pressure 4 Front Axle Partial Load 3.0 bar
+LC,09,4~7,0C,Specified Pressure 4 Front Axle Partial Load 3.1 bar
+LC,09,4~7,0D,Specified Pressure 4 Front Axle Partial Load 3.2 bar
+LC,09,4~7,0E,Specified Pressure 4 Front Axle Partial Load 3.3 bar
+LC,09,4~7,0F,Specified Pressure 4 Front Axle Partial Load 3.4 bar
+;
+; {Specified Pressure 4 Rear Axle Full Load}
+LC,10,0~3,00,Specified Pressure 4 Rear Axle Full Load 0.0 bar
+LC,10,0~3,01,Specified Pressure 4 Rear Axle Full Load 2.0 bar
+LC,10,0~3,02,Specified Pressure 4 Rear Axle Full Load 2.1 bar
+LC,10,0~3,03,Specified Pressure 4 Rear Axle Full Load 2.2 bar
+LC,10,0~3,04,Specified Pressure 4 Rear Axle Full Load 2.3 bar
+LC,10,0~3,05,Specified Pressure 4 Rear Axle Full Load 2.4 bar
+LC,10,0~3,06,Specified Pressure 4 Rear Axle Full Load 2.5 bar
+LC,10,0~3,07,Specified Pressure 4 Rear Axle Full Load 2.6 bar
+LC,10,0~3,08,Specified Pressure 4 Rear Axle Full Load 2.7 bar
+LC,10,0~3,09,Specified Pressure 4 Rear Axle Full Load 2.8 bar
+LC,10,0~3,0A,Specified Pressure 4 Rear Axle Full Load 2.9 bar
+LC,10,0~3,0B,Specified Pressure 4 Rear Axle Full Load 3.0 bar
+LC,10,0~3,0C,Specified Pressure 4 Rear Axle Full Load 3.1 bar
+LC,10,0~3,0D,Specified Pressure 4 Rear Axle Full Load 3.2 bar
+LC,10,0~3,0E,Specified Pressure 4 Rear Axle Full Load 3.3 bar
+LC,10,0~3,0F,Specified Pressure 4 Rear Axle Full Load 3.4 bar
+; {Specified Pressure 4 Front Axle Full Load}
+LC,10,4~7,00,Specified Pressure 4 Front Axle Full Load 0.0 bar
+LC,10,4~7,01,Specified Pressure 4 Front Axle Full Load 2.0 bar
+LC,10,4~7,02,Specified Pressure 4 Front Axle Full Load 2.1 bar
+LC,10,4~7,03,Specified Pressure 4 Front Axle Full Load 2.2 bar
+LC,10,4~7,04,Specified Pressure 4 Front Axle Full Load 2.3 bar
+LC,10,4~7,05,Specified Pressure 4 Front Axle Full Load 2.4 bar
+LC,10,4~7,06,Specified Pressure 4 Front Axle Full Load 2.5 bar
+LC,10,4~7,07,Specified Pressure 4 Front Axle Full Load 2.6 bar
+LC,10,4~7,08,Specified Pressure 4 Front Axle Full Load 2.7 bar
+LC,10,4~7,09,Specified Pressure 4 Front Axle Full Load 2.8 bar
+LC,10,4~7,0A,Specified Pressure 4 Front Axle Full Load 2.9 bar
+LC,10,4~7,0B,Specified Pressure 4 Front Axle Full Load 3.0 bar
+LC,10,4~7,0C,Specified Pressure 4 Front Axle Full Load 3.1 bar
+LC,10,4~7,0D,Specified Pressure 4 Front Axle Full Load 3.2 bar
+LC,10,4~7,0E,Specified Pressure 4 Front Axle Full Load 3.3 bar
+LC,10,4~7,0F,Specified Pressure 4 Front Axle Full Load 3.4 bar
+;
+; {Specified Pressure 5 Rear Axle Partial Load}
+LC,11,0~3,00,Specified Pressure 5 Rear Axle Partial Load 0.0 bar
+LC,11,0~3,01,Specified Pressure 5 Rear Axle Partial Load 2.0 bar
+LC,11,0~3,02,Specified Pressure 5 Rear Axle Partial Load 2.1 bar
+LC,11,0~3,03,Specified Pressure 5 Rear Axle Partial Load 2.2 bar
+LC,11,0~3,04,Specified Pressure 5 Rear Axle Partial Load 2.3 bar
+LC,11,0~3,05,Specified Pressure 5 Rear Axle Partial Load 2.4 bar
+LC,11,0~3,06,Specified Pressure 5 Rear Axle Partial Load 2.5 bar
+LC,11,0~3,07,Specified Pressure 5 Rear Axle Partial Load 2.6 bar
+LC,11,0~3,08,Specified Pressure 5 Rear Axle Partial Load 2.7 bar
+LC,11,0~3,09,Specified Pressure 5 Rear Axle Partial Load 2.8 bar
+LC,11,0~3,0A,Specified Pressure 5 Rear Axle Partial Load 2.9 bar
+LC,11,0~3,0B,Specified Pressure 5 Rear Axle Partial Load 3.0 bar
+LC,11,0~3,0C,Specified Pressure 5 Rear Axle Partial Load 3.1 bar
+LC,11,0~3,0D,Specified Pressure 5 Rear Axle Partial Load 3.2 bar
+LC,11,0~3,0E,Specified Pressure 5 Rear Axle Partial Load 3.3 bar
+LC,11,0~3,0F,Specified Pressure 5 Rear Axle Partial Load 3.4 bar
+; {Specified Pressure 5 Front Axle Partial Load}
+LC,11,4~7,00,Specified Pressure 5 Front Axle Partial Load 0.0 bar
+LC,11,4~7,01,Specified Pressure 5 Front Axle Partial Load 2.0 bar
+LC,11,4~7,02,Specified Pressure 5 Front Axle Partial Load 2.1 bar
+LC,11,4~7,03,Specified Pressure 5 Front Axle Partial Load 2.2 bar
+LC,11,4~7,04,Specified Pressure 5 Front Axle Partial Load 2.3 bar
+LC,11,4~7,05,Specified Pressure 5 Front Axle Partial Load 2.4 bar
+LC,11,4~7,06,Specified Pressure 5 Front Axle Partial Load 2.5 bar
+LC,11,4~7,07,Specified Pressure 5 Front Axle Partial Load 2.6 bar
+LC,11,4~7,08,Specified Pressure 5 Front Axle Partial Load 2.7 bar
+LC,11,4~7,09,Specified Pressure 5 Front Axle Partial Load 2.8 bar
+LC,11,4~7,0A,Specified Pressure 5 Front Axle Partial Load 2.9 bar
+LC,11,4~7,0B,Specified Pressure 5 Front Axle Partial Load 3.0 bar
+LC,11,4~7,0C,Specified Pressure 5 Front Axle Partial Load 3.1 bar
+LC,11,4~7,0D,Specified Pressure 5 Front Axle Partial Load 3.2 bar
+LC,11,4~7,0E,Specified Pressure 5 Front Axle Partial Load 3.3 bar
+LC,11,4~7,0F,Specified Pressure 5 Front Axle Partial Load 3.4 bar
+;
+; {Specified Pressure 5 Rear Axle Full Load}
+LC,12,0~3,00,Specified Pressure 5 Rear Axle Full Load 0.0 bar
+LC,12,0~3,01,Specified Pressure 5 Rear Axle Full Load 2.0 bar
+LC,12,0~3,02,Specified Pressure 5 Rear Axle Full Load 2.1 bar
+LC,12,0~3,03,Specified Pressure 5 Rear Axle Full Load 2.2 bar
+LC,12,0~3,04,Specified Pressure 5 Rear Axle Full Load 2.3 bar
+LC,12,0~3,05,Specified Pressure 5 Rear Axle Full Load 2.4 bar
+LC,12,0~3,06,Specified Pressure 5 Rear Axle Full Load 2.5 bar
+LC,12,0~3,07,Specified Pressure 5 Rear Axle Full Load 2.6 bar
+LC,12,0~3,08,Specified Pressure 5 Rear Axle Full Load 2.7 bar
+LC,12,0~3,09,Specified Pressure 5 Rear Axle Full Load 2.8 bar
+LC,12,0~3,0A,Specified Pressure 5 Rear Axle Full Load 2.9 bar
+LC,12,0~3,0B,Specified Pressure 5 Rear Axle Full Load 3.0 bar
+LC,12,0~3,0C,Specified Pressure 5 Rear Axle Full Load 3.1 bar
+LC,12,0~3,0D,Specified Pressure 5 Rear Axle Full Load 3.2 bar
+LC,12,0~3,0E,Specified Pressure 5 Rear Axle Full Load 3.3 bar
+LC,12,0~3,0F,Specified Pressure 5 Rear Axle Full Load 3.4 bar
+; {Specified Pressure 5 Front Axle Full Load}
+LC,12,4~7,00,Specified Pressure 5 Front Axle Full Load 0.0 bar
+LC,12,4~7,01,Specified Pressure 5 Front Axle Full Load 2.0 bar
+LC,12,4~7,02,Specified Pressure 5 Front Axle Full Load 2.1 bar
+LC,12,4~7,03,Specified Pressure 5 Front Axle Full Load 2.2 bar
+LC,12,4~7,04,Specified Pressure 5 Front Axle Full Load 2.3 bar
+LC,12,4~7,05,Specified Pressure 5 Front Axle Full Load 2.4 bar
+LC,12,4~7,06,Specified Pressure 5 Front Axle Full Load 2.5 bar
+LC,12,4~7,07,Specified Pressure 5 Front Axle Full Load 2.6 bar
+LC,12,4~7,08,Specified Pressure 5 Front Axle Full Load 2.7 bar
+LC,12,4~7,09,Specified Pressure 5 Front Axle Full Load 2.8 bar
+LC,12,4~7,0A,Specified Pressure 5 Front Axle Full Load 2.9 bar
+LC,12,4~7,0B,Specified Pressure 5 Front Axle Full Load 3.0 bar
+LC,12,4~7,0C,Specified Pressure 5 Front Axle Full Load 3.1 bar
+LC,12,4~7,0D,Specified Pressure 5 Front Axle Full Load 3.2 bar
+LC,12,4~7,0E,Specified Pressure 5 Front Axle Full Load 3.3 bar
+LC,12,4~7,0F,Specified Pressure 5 Front Axle Full Load 3.4 bar
+;

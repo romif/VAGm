@@ -1,0 +1,248 @@
+;NOTE TO FIT THIS MODEL AND fully UNTESTED at this time
+;Address 02: Auto Trans      
+;Part No SW: 8E1 910 155 A    HW: 01J 927 156 HT
+;Component: V30 01J 2.0TFSI USA 0010
+;Coding: 0000001
+;Shop #: WSC 06335
+;
+;Vag Com label for the 01J CVT Automatic transmission
+;Controller number 8E1-901-155-A
+;Hardware number 01J-927-156-HT
+;TEST FILE ONLY to fit the 2005 A4 TFSI Engine (2.0L)
+;Renaming this file may fit the 01J series transmissions
+;
+;Created by A.Ferron augie@euro-diagnostics.com
+;
+001,0,Switch Inputs, Status
+001,1,Brake Light Sw,BLS ON BLS OFF
+001,2,Brake Test Sw,BLS ON BLS OFF
+001,3,Shift Lock N110,PN deactivated,PN Activated
+001,4,Road speed,KPH
+;
+;
+002,0,Lever Selection - Tiptronic - F125 (READ FILE)
+002,1,Lever Position,P-ZP-R-Z-N-ND
+;P - P(ark)
+;Between P and R - ZP
+;R - R(everse)
+;Between R and N - ZN
+;N - N(eutral)
+;D - D(rive)
+002,2,Multi-function,Hall sensor status
+;In P 0101
+;In ZP 0100
+;In R 0110
+;In ZN 0010
+;In N 0011
+;In D 1010
+002,3,Tiptronic,Recognition F189,M-switch Not Act.
+002,4,Gear Selected,PRND123456
+;D and shifted into the Tiptronic gate 
+;1, 2, 3, 4, 5 or 6
+;
+;
+003,0,Lever Selection - Tiptronic (READ FILE)
+003,1,Lever Position,P-ZP-R-Z-N-ND
+;P - P(ark)
+;Between P and R - ZP
+;R - R(everse)
+;Between R and N - ZN
+;N - N(eutral)
+;D - D(rive)
+003,2,Tiptronic,Recognition F189,M-switch Not Act.
+003,3,Tiptronic,Upshift Sw Not Act.
+;You must activate the upshift switch (+) by tapping the selector lever forward. On vehicles with multi-function steering wheel the upshift switch has to be activated by additionally tapping of the upper left or right button (+) on the steering wheel.
+003,4,Tiptronic,Downshift Sw Not Act.
+;You must activate the downshift switch (-) by tapping the selector lever to the rear. On vehicles with multi-function steering wheel the downshift switch has to be activated by additionally tapping of the lower left or right button (-) on the steering wheel.
+;
+;
+004,0,Lever selection - Output speed (READ FILE)
+004,1,Lever position,P-ZP-R-Z-N-ND
+;P - P(ark)
+;Between P and R - ZP
+;R - R(everse)
+;Between R and N - ZN
+;N - N(eutral)
+;D - D(rive)
+004,2,Direction Display,Not Recognized,Forward backward
+004,3,Output Sender 1,G195 Driving,0 - 2000 RPM
+004,4,Output Sender 2,G196 Driving,0 - 2000 RPM
+;If "0 RPM" is shown in fields 3 OR 4, the corresponding sender is faulty and the Transmission Control Module (TCM) must be replaced.
+;If "0 RPM" is shown in fields 3 AND 4, there is a mechanical defect in the transmission, and the transmission must be replaced.
+;
+;
+005,0,Lever position,P/N,Back-up,T15
+005,1,Lever Position,P-ZP-R-Z-N-ND
+;P - P(ark)
+;Between P and R - ZP
+;R - R(everse)
+;Between R and N - ZN
+;N - N(eutral)
+;D - D(rive)
+002,2,Multi-function,Hall sensor status
+;In P 0101
+;In ZP 0100
+;In R 0110
+;In ZN 0010
+;In N 0011
+;In D 1010
+005,2,Park/Neutral,Position ON/OFF
+;not active,P N Terminal 50 ON
+;active,R D Terminal 50 OFF
+005,3,BAck-up,ON/OFF
+;off P, N, D Relay OFF 
+;on R Relay ON 
+005,4,Supply V,Terminal 15,10 to 15 V
+;
+;
+006,0,Solenoid current (TEST)
+006,1,Undoc
+006,2,Undoc
+006,3,Undoc
+006,4,Undoc
+;
+;
+007,0,Engine and Transmission RPM (READ NOTES)
+007,1,Engine RPM,0 to 7000
+007,2,Transmission,Input RPM G182,0 to 7000
+;G182-Test while driving
+007,3,Transmission,Ouput RPM G195+6,0 to 2200
+;G195-G196-Test while driving
+007,4,Synchronous,Flag SY or AS
+;Synchronous operation SY Engine and transmission input RPM are the same
+;Asynchronous operation AS Engine and transmission input RPM are different, for example, when starting from stop and accelerating.
+;If "AS" is always displayed, the clutch is slipping. The ATF must be changed. If "AS" is still displayed the transmission must be replaced. 
+;
+;
+008,0,TPS,In-Out Transmission RPM (READ NOTES)
+008,1,TPS Output,0 to 100%
+008,2,Actual Trans,Output RPM G195+6,0 to 2200 RPM
+;G195-G196-Test while driving
+008,3,Specified Trans,Output RPM,0 - 7000 RPM
+;Specified and actual transmission input RPM should be approximately the same at a constant speed while driving
+008,4,Actual Trans,Input RPM,0 - 7000 RPM
+;While driving
+;
+;
+009,0,TPS,Kickdown,Torque,RPM (READ NOTES)
+009,1,TPS Output,0 to 100%
+009,2,Kickdown Sw,Not Actuated,Kickdown
+009,3,Actual Engine,Torque Nm
+;The signal for actual engine torque is transmitted by the Engine Control Module (ECM) over the CAN bus line to the Transmission Control Module (TCM) 
+009,4,Engine RPM
+;
+;
+010,0,Clutch Adaptations (Basic Settings)
+010,1,Forward clutch,adaptation curve,Ignore for now
+010,2,Adaptation from,Stop behavior,ADP. O.K. or running
+;referred to "Stop Characteristics"
+010,3,Transmission,Fluid Temp,-60 to 160 deg C
+010,4,Specified,Clutch Value,Ignore for now
+;
+;
+011,0,Clutch Adaptations (Basic Settings)
+011,1,Reverse clutch,adaptation curve,Ignore for now
+011,2,Adaptation from,Stop bahaior,ADP. O.K. or running
+;referred to "Stop Characteristics"
+011,3,Transmission,Fluid Temp,-60 to 160 deg C
+011,4,Specified,Clutch Value,,Ignore for now
+;
+;
+012,0,Solenoid current draw (TEST)
+012,1,Undoc
+012,2,Undoc
+012,3,Undoc
+012,4,Undoc
+;
+;
+013,0,Clutch pressure - Temperatures
+013,1,Clutch Pressure
+013,2,MF Pressure
+013,3,Transmission,Fluid Temp
+013,4,Coolant Temp
+;
+;
+014,0,Solenoid current (TEST)
+014,1,Undoc
+014,2,Undoc
+014,3,Undoc
+014,4,Undoc
+;
+;
+015,0,Solenoid current and pressure
+015,1,Undoc
+015,2,Undoc
+015,3,Undoc
+015,4,Undoc
+;
+;
+016,0,Undoc
+016,1,Undoc
+016,2,Undoc
+016,3,Undoc
+016,4,Undoc
+;
+;
+017,0,Clutch (1) Diagostics (READ NOTES)
+017,1,TPS Output,0 to 100%
+017,2,Engine RPM
+017,3,Actual Engine,Torque Nm
+017,4,Specified clutch,torque (clutch 1)
+;Calculation by the control module 
+;
+;
+018,0,Torque,pressure,current
+018,1,Undoc
+018,2,Undoc
+018,3,Undoc
+018,4,Undoc
+;
+;
+019,0,Pressure,Current,AC Status
+019,1,Undoc
+019,2,Undoc
+019,3,Undoc
+019,4,Undoc
+;
+;
+020,0,Specified RPM (READ NOTES)
+020,1,Engine RPM,0 to 7000
+020,2,Specified Engine,RPM Up to 1200
+;The value in display field 2 must be greater than or the same as the value in display field 3 
+020,3,Specified Trans,RPM Up to 1200
+;If the value in display field 3 is always greater than in display field 2: 
+;Read Transmission (TCM) and Engine Control Module (ECM) DTC memory and repair malfunction  
+020,4,Blank
+;
+;
+021,0,Torque
+021,1,Undoc
+021,2,Undoc
+021,3,Undoc
+021,4,Undoc
+;
+;
+022,0,ABS Status
+022,1,ABS ON-OFF
+022,2,EDL ON-OFF
+022,3,ASR ON-OFF
+022,4,ESP ON-OFF
+;
+;
+023,0,Undoc
+023,1,Undoc
+023,2,Undoc
+023,3,Undoc
+023,4,Undoc
+;
+;
+125,0,CAN STATUS (READ NOTES)
+125,1,ECM Status
+125,2,ABS Status
+125,3,Steering Elect,Status
+125,4,Instrument Clust,Status
+;If "1" is displayed, communication from the corresponding control module to the Transmission Control Module (TCM) is O.K.
+;If "0" is displayed and no trouble code has been set in the DTC memory, the corresponding control module does not have CAN ;capability or is faulty.
+;
+;
+;End of file A.F. Esat Inc.

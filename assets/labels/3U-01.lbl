@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3U-01.LBL
+; 059-907-401-AKE.LBL  (2.5l TDI @ 180 HP - AFB/AKE/AKN/AYM/BAU/BCZ/BDG/BDH/BFC)
+;
+; created on 15/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;-------------------------------------------------------------
+;
+; Enginecode AYM
+;
+; AYM         2.5l 114kW/155HP (3U, 4B)
+;
+;-------------------------------------------------------------
+;
+;
+REDIRECT,059-907-401-AKE.LBL,3U0-907-401     ; AYM: (3U)
+;

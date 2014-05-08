@@ -1,0 +1,125 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z) / Audi A3 (8L) / Audi A4 (8D) / Audi A6 (4B)
+;
+; Komponente: Navigationssystem (#37) - BNS 4.x
+;
+; T/N: 4B0-919-887-?
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-37.LBL
+; 8Z-37.LBL
+; 4B0-919-887-BNS4.LBL
+;
+; erstellt am 25.02.2006 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 25.02.2006
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Pegel,GALA-Signal,0 = Pegel LOW\n1 = Pegel HIGH
+001,2,Spannung,(Klemme 30)
+;
+002,1,Schalter für,Rückfahrlicht,Wertebereich: Rückw. EIN/Rückw. AUS
+002,2,Status,(Klemme 15),Wertebereich: Kl.15 EIN/Kl.15 AUS
+;
+003,0,GPS Antenne
+003,1,GPS Antenne
+003,2,Status,GPS Antenne,Wertebereich: i.O./Kurzschluss/Unterbrech.
+;
+004,0,Zweitdisplay
+004,1,Zweitdisplay
+004,2,Status,Zweitdisplay,Wertebereich: i.O./n.i.O.
+;
+005,0,Interner Datenbus
+005,1,Interner,Datenbus
+005,2,Status,Datenbus,Wertebereich: i.O./n.i.O.
+;
+006,0,Geschwindigkeit
+006,1,ABS-Sensor,hinten links
+006,2,errechnete,Geschwindigkeit,Auf Basis des GALA Signals unter Einbeziehung\nvon Reifenumfang und Radimpulszahl.
+;
+007,0,Funktionsstatusregister
+007,1,Funktionsstatus-,register,siehe Labeldatei
+;   1 = CAN-Kommunikation zur Navigationseinheit ist in Ordnung
+;   2 = Stromaufnahme der GPS-Antenne ist in Ordnung (10 bis 30 mA)
+;   4 = Kl. 15 (Zündung ein) wurde erkannt
+;   8 = Signal vom Rückfahrlichtschalter wurde erkannt
+;  16 = CAN-Kommunikation zum Kombiinstrument ist in Ordnung
+;  32 = GALA-Impulse wurden mindestens einmal erkannt
+;  64 = Anpassung Impulszahl/Radumdrehung ist erfolgt
+; 128 = Anpassung Radumfang ist erfolgt
+;
+008,0,Lautsprecher vorn
+008,1,Lautsprecher,vorn
+008,2,Status,Lautsprecher,Wertebereich: i.O./Kurzschluss/Unterbrech.
+;
+010,0,Zustand Telefon-Mute
+010,1,Telefon-Mute
+010,2,Zustand,Telefon-Mute,Wertebereich: Ein/Aus
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Reifenumfang
+A001,5,Reifenumfang
+;
+A002,0,Impulszahl/Radumdrehungen (GALA)
+A002,5,Impulszahl/Radumdrehungen (GALA)
+A002,6,8 = Audi A3 (8L)
+;
+A003,0,Produktionsdiagnose
+A003,5,Produktionsdiagnose
+A003,6,Aktiviert das Funktionsstatusregisters (siehe Messwertgruppe 007).
+A003,7, 
+A003,8,0 = gesperrt
+A003,9,1 = aktiv
+;
+A004,0,Lautsprecheranschluss
+A004,5,Lautsprecheranschluss
+A004,6,Ist ein Radiosystem verbaut werden die Lautsprecher vorne links verwendet
+A004,7,ansonsten ist ein eigener Lautsprecher (Freisprechlautsprecher) verbaut.
+A004,8, 
+A004,9,0 = externes Radio
+A004,10,1 = eigener Lautsprecher
+;
+A005,0,Länderkennung
+A005,5,Länderkennung
+A005,6,0 = Europa
+A005,7,1 = USA
+;
+A006,0,Dynamische Routenführung
+A006,5,Dynamische Routenführung
+A006,6,0 - ohne Dynamisierung
+A006,7,1 - Dynamisierung über Radio Symphony II
+A006,8,2 - Dynamisierung über Telematik II
+A006,9,3 - Dynamisierung über Radio Symphony II und Telematik II
+;
+A007,0,Elektronisches Fahrtenbuch
+A007,5,Elektronisches Fahrtenbuch
+A007,6,0 = nicht verbaut
+A007,7,1 = verbaut
+;
+A066,0,Deaktivierung GALA-Funktion
+A066,5,Deaktivierung GALA-Funktion
+A066,6,0 = GALA-Funktion aktiv
+A066,7,1 = GALA-Funktion inaktiv
+;

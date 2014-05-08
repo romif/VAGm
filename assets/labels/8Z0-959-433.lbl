@@ -1,0 +1,160 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z)
+;
+; Komponente: J393 - Komfortsystem (#46)
+;
+; T/N: 8Z0-959-433-???
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; erstellt am 17.10.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 17.10.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Fahrertür
+001,1,Schlüsselschalter,Fahrertür,Wertebereich: auf/zu/unbetätigt
+001,2,Schalter,Innenverriegelung,Wertebereich: verriegeln/entriegeln/unbetätigt
+001,3,Rückmeldung,Fahrertür,Wertebereich: verriegelt/entriegelt
+001,4,Safe-Rückmeldung,Fahrertür,Wertebereich: safe/nicht safe
+;
+002,0,Beifahrertür
+002,1,Schlüsselschalter,Fahrertür,Wertebereich: auf/zu/unbetätigt
+002,2,Schlüsselschalter,Beifahrertür,Wertebereich: auf/zu/unbetätigt
+002,3,Rückmeldung,Beifahrertür,Wertebereich: verriegelt/entriegelt
+002,4,Safe-Rückmeldung,Beifahrertür,Wertebereich: safe/nicht safe
+;
+003,0,Türen hinten (Rückmeldungen)
+003,1,Rückmeldung,hinten rechts,Wertebereich: verriegelt/entriegelt
+003,2,Safe-Rückmeldung,hinten rechts,Wertebereich: safe/nicht safe
+003,3,Rückmeldung,hinten links,Wertebereich: verriegelt/entriegelt
+003,4,Safe-Rückmeldung,hinten links,Wertebereich: safe/nicht safe
+;
+004,0,Türkontaktschalter
+004,1,Türkontaktschalter,Fahrertür,Wertebereich: Tür zu/Tür auf
+004,2,Türkontaktschalter,Beifahrertür,Wertebereich: Tür zu/Tür auf
+004,3,Türkontaktschalter,hinten rechts,Wertebereich: Tür zu/Tür auf
+004,4,Türkontaktschalter,hinten links,Wertebereich: Tür zu/Tür auf
+;
+005,1,Schalter Tank-,deckelentriegel.,Wertebereich: betätigt/unbetätigt
+005,2,Kontaktschalter,Heckklappe,Wertbereich: Klappe auf/Klappe zu
+005,3,Softtouch Heck-,klappenentriegel.,Wertebereich: betätigt/unbetätigt
+005,4,Kontaktschalter,Motorhaube,Wertbereich: Klappe auf/Klappe zu/n. verbaut
+;
+006,1,Beleuchtung,Fahrgastraum,Wertebereich: ein/aus
+006,2,Freigabe für,Fensterheber,Wertebereich: Relais EIN/Relais AUS
+006,3,Komfortbedienung,(öffnen/schließen),Wertebereich: auf/zu/unbetätigt
+006,4,Beleuchtung,Kofferraum,Wertebereich: ein/aus
+;
+007,0,Funkfernbedienung
+007,1,Schlüsselnummer,,Wertebereich: 0 = kein Schlüssel betätigt / 1...4 = Schlüsselnummer
+007,2,Befehl von,Funkfernbedienung,0 = kein Befehlt\n1 = Öffnen\n2 = Schliessen\n3 = Heckklappe
+007,3,Angelernete,Funkfernbedienung,Wertebereich: 0 = nicht angelernt / 1 = angelernt\n\n?xxx = Schlüssel 1\nx?xx = Schlüssel 2\nxx?x = Schlüssel 3\nxxx? = Schlüssel 4
+;
+008,1,Fahrzeug,Geschwindigkeit
+008,2,WFS-Schlüssel,erkannt,Wertebereich: Ja/Nein
+008,3,Heckscheiben-,heizung,Wertebereich: ein/aus
+;
+009,0,Codierung
+;
+010,1,Türkontaktschalter,Fahrertür,Wertebereich: Tür zu/Tür auf
+010,2,Taster Innen-,raumüberwachung,Wertebereich: betätig/unbetätigt/n. verbaut
+010,3,Handbremse,,Wertebereich: betätigt/unbetätigt
+010,4,Rückfahrlicht,,Wertebereich: Ein/Aus
+;
+011,0,Fahrertür (Fensterheber)
+011,1,eFH-Schalter,Beifahrertür,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+011,2,eFH-Thermoschutz,Beifahrertür,Wertebereich: Ja/Nein/n. verbaut
+011,3,Sperrschalter,eFH-hinten,Wertebereich: aus/ein
+;
+012,0,Fahrertür (eFH-Schalter)
+012,1,eFH-Schalter,vorne rechts,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+012,2,eFH-Schalter,hinten links,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+012,3,eFH-Schalter,hinten rechts,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+;
+013,0,Außenspiegel
+013,1,Spiegelverstell-,schalter,Wertebereich: Pos X+/Pos X-/Pos Y+/Pos Y-/unbetätigt
+013,2,Spiegelauswahl-,schalter,Wertebereich: links/rechts/anklappen/unbetätigt
+013,3,Spiegelausrast-,schalter,Wertebereich: ausgerastet/eingerastet/nicht verbaut
+013,4,Spiegelheizung,,Wertebereich: Ein/Aus
+;
+014,0,Beifahrertür (Fensterheber)
+014,1,eFH-Schalter,Beifahrertür,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+014,2,eFH-Thermoschutz,Beifahrertür,Wertebereich: Ja/Nein/n. verbaut
+;
+015,0,Türen hinten (Fensterheber)
+015,1,eFH-Schalter,hinten rechts,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+015,2,eFH-Thermoschutz,hinten rechts,Wertebereich: Ja/Nein/n. verbaut
+015,3,eFH-Schalter,hinten links,Wertebereich: autom. auf/autom. zu/man. auf/man. zu/unbetätigt/n. verbaut
+015,4,eFH-Thermoschutz,hinten links,Wertebereich: Ja/Nein/n. verbaut
+;
+016,1,Spannung,(Klemme 30)
+016,2,Status,Klemme 15,Wertebereich: Kl.15 EIN/Kl.15 AUS
+016,3,Status,S-Kontakt,Wertebereich: aktiv/inaktiv
+016,4,Zustand,CAN-Komfort,Sollwert: Zweidraht\nWertebereich: Zweidraht/Eindraht
+;
+017,0,Türsteuergeräte
+017,1,Fahrertür,,Wertebereich: F-Tür 1/F-Tür 0
+017,2,Beifahrertür,,Wertebereich: BF-Tür 1/BF-Tür 0
+017,3,Tür hinten links,,Wertebereich: Tür hl 1/Tür hl 0/n. verbaut
+017,4,Tür hinten rechts,,Wertebereich: Tür hr 1/Tür hr 0/n. verbaut
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Komfortsystem (J393) Codierung
+C01,+00001 - DWA Abschaltung via FFB möglich
+C02,+00002 - DWA schärfen quittieren (Blinker)
+C03,+00004 - Sicherheitszentralverriegelung (SZV)
+C04,+00008 - Diebstahlwarnanlage (DWA) verbaut
+C05,+00016 - Heckklappe ab 5 km/h verriegeln
+C06,+00032 - Autom. Verriegeln ab ca. 15 km/h
+C07,+00064 - Komfortschließen/ -öffnen über Funkfernbedienung
+C08,+00128 - Rechtslenker
+C09,+00512 - Verriegelung via FFB quittieren (Blinker)
+C10,+01024 - DWA schärfen quittieren (Horn)
+C11,+02048 - Fensterheber USA Logik
+C12,+04096 - Entriegelung via FFB quittieren (Blinker)
+C13,+16384 - SZV nur über Schließzylinder
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A021,0,Anpassung von Funkschlüsseln
+;
+A060,0,Klimaanlage
+A060,5,Klimaanlage
+A060,6,Hier wird die Bedienung der Spiegel-/Heckscheibenheizung
+A060,7,über die Anzeige-/Bedieneinheit der Klimaanlage aktiviert/deaktiviert.
+A060,8, 
+A060,9,00000 - keine Klimaanlage verbaut
+A060,10,00001 - Klimaanlage verbaut
+;
+A061,0,Hardware
+A061,5,Hardware
+A061,6,00000 - ohne Funkfernbedienung mit el. Fensterhebern hinten
+A061,7,00001 - ohne Funkfernbedienung mit mech. Fensterhebern hinten
+A061,8,00002 - mit Funkfernbedienung mit el. Fensterhebern hinten
+A061,9,00003 - mit Funkfernbedienung mit mech. Fensterhebern hinten
+;

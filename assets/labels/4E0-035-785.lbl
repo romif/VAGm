@@ -1,0 +1,147 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R199 - Media Player (#0E/#1E) - Audi Music Interface (AMI)
+;
+; P/N: 4E0-035-785-???
+;
+; includes measuring blocks, adaptation and long coding
+;
+; created on 06/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Jan/2008
+;
+; requires VAG-COM 706.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,0000xxx1 = Term. S active\n0000xx1x = Term. 15 active\n0000x1xx = Term. X active\n00001xxx = Term. 50 active
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature
+;
+003,0,MOST-Databus
+003,1,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,MOST-Databus
+004,1,System Status
+004,2,MMI Status
+;
+005,0,MOST-Databus
+005,1,Hardware Instance
+005,2,Ring Break,Diagn. Wire Level,0 = low\n1 = high
+;
+006,0,Freeze Frame Data
+006,1,Unlearn Counter,& Mileage
+006,2,Mileage
+;
+007,0,Freeze Frame Data
+007,1,Time Indic. Bit,Time Stamp
+007,2,Time Stamp
+007,3,Time Stamp
+;
+016,0,Used Drivers
+016,1,Used Drivers,,See Label File
+; 00000000 00010000
+; 00000000 xxxxxxx? = Aux (Driver for 3.5mm Connector active)
+; 00000000 xxxxxx?x = DAP UART (Driver iPod active)
+; 00000000 xxxxx?xx = DAP USB-MC (Driver for USB-Drive active)
+; 00000000 xxxx?xxx = DAP MTP (Driver for USB with Media Transfer Protocol active)
+; 00000000 xxx?xxxx = DSP
+; 00000000 xx?xxxxx = DAP Bluetooth Audio Streaming (Driver for MP3 Player via Bluetooth active)
+; 00000000 x?xxxxxx = DAP Next 1
+; 00000000 ?xxxxxxx = DAP Next 2
+;
+017,0,Adapter Cable
+017,1,Adapter Cable,,See Label File
+; 00000000 00000001
+; 00000000 xxxxxxx? = No Cable connected
+; 00000000 xxxxxx?x = Aux (3.5mm Connector Cable connected)
+; 00000000 xxxxx?xx = DAP UART (iPod Cable connected)
+; 00000000 xxxx?xxx = DAP USB-MC (USB Cable connected)
+; 00000000 xxx?xxxx = DAP MTP (USB-Cable for Player with Media Transfer Protocol connected)
+; 00000000 xx?xxxxx = Zune (Microsoft MP3 Player connected)
+; 00000000 x?xxxxxx = Standard Cable
+; 00000000 ?xxxxxxx = Bluetooth Audio Streaming (Bluetooth Dongle connected)
+;
+018,0,Codec
+018,1,Used Codec,,See Label File
+; 00000000 00000001
+; 00000000 00xxxxx? = No Codec used
+; 00000000 00xxxx?x = MP3
+; 00000000 00xxx?xx = MP3-Pro
+; 00000000 00xx?xxx = WMA
+; 00000000 00x?xxxx = OGG
+; 00000000 00?xxxxx = AAC
+;
+019,0,Power Supply for External Player
+019,1,Ext. Player Power,Supply Status
+019,2,Ext. Player,Power Supply,Range: 0.0..25.5 V\nStandard: ~5.0 V
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A20,0,
+;1
+A20,1,
+;N/A
+A20,2,
+;N/A
+A20,3,
+;N/A
+A20,4,
+;N/A
+;
+A21,0,
+;0
+A21,1,
+;00000000 00000000
+A21,2,
+;0
+A21,3,
+;N/A
+A21,4,
+;N/A
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;
+;
+;---------------------------------------------------
+;
+; long coding (supported by firmware >= 0800)
+;
+;---------------------------------------------------
+;
+;
+; {Country}
+LC,00,0~7,00,Default (Delivery)
+LC,00,0~7,01,Rest of World (RoW)
+LC,00,0~7,02,North American Region (NAR)
+LC,00,0~7,03,Japan (JP)
+LC,00,0~7,04,China (CN)
+LC,00,0~7,05,Russia (RUS)
+LC,00,0~7,06,South Korea (KR)
+;

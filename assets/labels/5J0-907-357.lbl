@@ -1,0 +1,47 @@
+;
+; VAG-COM Label File
+;
+; Skoda Fabia/Roomster (5J)
+;
+; Component: J431 - Corner Light Control (#55)
+;
+; P/N: 5J0-907-357-???
+;
+; includes measuring blocks
+;
+; created on 30/Dec/2007 by profor (dufi2dufi@yahoo.com)
+; updated on 31/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Dec/2007
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Input Signals
+001,1,Turn Signal,Left,Range: ON/OFF
+001,2,Turn Signal,Right,Range: ON/OFF
+001,3,Steering Angle,Sensor (G85)
+001,4,Engine,Status,Range: Engine ON/Engine OFF
+;
+002,0,Input Signals
+002,1,Vehicle Speed,,Range: 0.0...255.0 km/h
+;
+003,0,Input Signals
+003,1,Headlights,(Terminal 56),Range: ON/OFF
+003,2,Fog Lights,,Range: ON/OFF
+003,3,Backup Light,,Range: ON/OFF
+003,4,Voltage,(Terminal 15),Specification: 9.0...15.0 V
+;
+004,0,Cornering Light
+004,3,Dimming Left,Cornering Light,Range: 0.0...100.0 %
+004,4,Dimming Right,Cornering Light,Range: 0.0...100.0 %
+;
+080,0,Advanced Control Module Identification I
+;

@@ -1,0 +1,81 @@
+;
+; VAG-COM Labelfile
+;
+; VW Touareg (7L) / VW Transporter (7H/7J)
+;
+; Component: Radio-/Navigation System (#37) - RN-S2 DVD
+;
+; P/N: 7L6-919-887-??? / 7H0-919-887-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7H-37.LBL
+; 7L-37.LBL
+; 7L6-919-887-CD.LBL
+; 7L6-919-887-DVD.LBL
+;
+; includes measuring blocks and coding
+;
+; created on 14/Mar/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 02/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5...18 V
+001,3,GPS-Antenna
+001,4,GPS-Antenna,Status,Display Range: OK/Short to Plus/Short to Ground
+;
+002,0,GPS-Status
+002,1,Status,GPS Reception
+002,2,Number of,used Satellites,for Position detection
+002,3,Number of,tracked Satellites,Display Range: 0...8
+002,4,Type of,tracked Satellites,Display Range: 25...35
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+;
+031,0,CD/DVD-Drive I
+031,1,CD/DVD-Drive,Read Error
+031,2,CD/DVD-Drive,Status,Specification: OK
+031,3,CD/DVD-Drive,Read Errors,Specification: 0.0
+;
+032,0,CD/DVD-Drive II
+032,1,CD/DVD-Drive,Access Time
+032,2,CD/DVD-Drive,Access Time
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Radio-/Navigation System (R) Coding
+C01,0000?xx: Destination Input
+C02,0 - only at 0 km/h or 9 mph
+C03,1 - up to max. 6 km/h or 4 mph
+C04, 
+C05,0000x?x: CAN-Periphery
+C06,0 - No CAN-Periphery installed
+C07,1 - TV-Tuner installed
+C08, 
+C09,0000xx?: Dynamic Source
+C10,1 - Standard
+;

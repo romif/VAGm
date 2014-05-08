@@ -1,0 +1,135 @@
+; Label file for the 01K series front track A6 Automatic transaxle
+; This label only fits the 55 pin TCM
+; Created for controller number 4A0-927-156-AK
+; By A. Ferron ESAT Inc.
+; augie@euro-diagnostics.com
+;
+; NOTE: Display group numbers 001-005 replaces display group number 000. Display group number 000 does not supply
+; usable displays and should not be selected.
+;
+; NOTE: Engine speed of 2000 RPM must not be exceeded. If exceeded, the function "Read Measuring Value Block" is
+; discontinued.
+;
+; NOTE: In this case after carrying out Read Measuring Value Block, check DTC memory for the engine and transmission
+; control modules and delete all faults
+;
+; Note: After faults are deleted in the TCM, basic settings must be carried out
+; Go to address 02 Transmission Electronics
+; Go to function 04 Basic Settings
+; Type 000 and hold the throttle wide open for 5 seconds and exit. TCM Basic setting is now complete
+;
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4A-02.LBL
+; 01K-927-156.LBL
+;
+;
+001,0,General data (read notes)
+001,1,Engine speed
+001,2,Fuel consumption,Signal L/H
+; In drive mode
+; Signal corresponds to opening time of the fuel injectors in milliseconds
+001,3,Trans. RPM
+; In drive mode with engine running
+; For transmission 01F a message from the four RPM sensors is displayed (wheel speed)
+; For transmission 01K the recognized RPM from transmission Vehicle Speed Sensor (VSS) G38 is displayed
+001,4,Solenoid valves,read table
+; In drive mode	N90	N89	N88
+; 1st Gear	0	1	0
+; 2nd Gear	0	1	1
+; 3rd Gear	0	0	1
+; 4th Gear	0	0	0
+; NOTE: Alternate programs initiated by the transmission control module may hinder shifting 
+; NOTE: If gear shifts do not occur even though they are displayed, a hydraulic fault may be the cause
+;
+;
+002,0,Accelerator Values, Actuator current, Switch Status (read notes)
+002,1,Accelerator,Pedal value
+; Closed throttle 0-1 % 
+; WOT <= 100 %
+002,2,Throttle angle
+; Closed throttle 10-15 %
+; WOT <= 100 %
+002,3,Switch position,read table
+; NOTE: Display in VAG-COM field 3 has 6 positions, e.g. 100000.
+; The 1st position from the left (display 1) refers to brake light switch F
+; The 2nd position from the left (display 2) refers to kick down switch F8 etc etc etc
+;
+; (1) Brake light switch	F	Brake activated	1	or not activated 0
+; (2) Kick down switch		F8	activated 1		or not activated 0
+; (3) Cruise control system	activated in D, 3, 2, 1 = 1	or not activated P, R, N, 1 = 0
+; (4) Kick down signal for A/C	A/C shut off for kick down	Can be disregarded
+; (5) Spontaneous shift		Program increase		active 1 or not active 0 (Can be disregarded)
+; (6) Engine engaged		Vehicle being driven		active 1 or not active 0 
+; NOTE for position (6): Ignition timing angle retarding or injection amount decrease during shifting. 
+; Engine intervention can be activated briefly depending on driving situation. 
+; This means the slow data transfer to the scanner will neglect the engine intervention 
+; display under specific driving conditions
+002,4,Actuator,Voltage Supply,Should be 12V 
+;
+;
+003,0,Lever position (read notes)
+003,1,Selector lever,Position,P_R_N_D_3_2_1
+003,2,Trans. Range,Switch F125,read table
+; This is a stationary test
+; P	1 0 0
+; R	1 1 0
+; N	0 1 0
+; D	0 0 1
+; 3	1 1 1
+; 2	1 0 1
+; 1	0 0 1
+; In case of malfunction	0 0 0
+;
+003,3,Switch positions, Shift programs, read tables
+; NOTE: Display in VAG-COM field 3 has 6 positions, e.g. 100000.
+; The 1st position from the left (display 1) refers to brake light switch F
+; The 2nd position from the left (display 2) refers to kick down switch F8 etc etc etc
+;
+; (1) Brake light switch	F	Brake activated	1	or not activated 0
+; (2) Kick down switch		F8	activated 1		or not activated 0
+; (3) Cruise control system	activated in D, 3, 2, 1 = 1	or not activated P, R, N, 1 = 0
+; (4) Kick down signal for A/C	A/C shut off for kick down	Can be disregarded
+; (5) Spontaneous shift		Program increase		active 1 or not active 0 (Can be disregarded)
+; (6) Engine engaged		Vehicle being driven		active 1 or not active 0 
+; NOTE for position (6): Ignition timing angle retarding or injection amount decrease during shifting. 
+; Engine intervention  can be activated briefly depending on driving situation. 
+; This means the slow data transfer to the scanner will neglect the engine intervention 
+; display under specific driving conditions
+003,4,Current Shift,Program (read note)
+; In drive mode, with engine running	at least: S1 max: S6
+; S1 = Drive mode
+; S5 = Sport drive mode
+; S6 = Warm-up phase
+; NOTE: Warm-up program S6 is activated when ATF temperature is below 71C at each engine start. 
+; After approx. 1 minute a transition to a characteristics map from S1-S5 is made.
+;
+; 
+004,0,N91, Torque, Consumption and ATF Temp (read notes)
+004,1,Pressure,Regulator,valve 4 N91
+; with engine running	at least: 0.1 A
+; at stall speed:	approx. 0.7 A
+; max: 			1.1 A
+; High current = low modulation pressure (e.g. when driving with low engine RPM and low engine torque)
+; Low current = large modulation pressure (e.g. when driving at high engine RPM and high engine torque)
+; 
+004,2,Engine torque,min:0
+; Engine torque is calculated by the transmission control module using the fuel consumption and engine RPM signals
+004,3,Fuel consumption,Signal
+004,4,ATF temperature,Deg C,read note
+; A constant indicated temperature of below -50C signals a short circuit to Ground (GND) 
+; in the wiring connection to transmission fluid temperature sensor G93
+;
+; A constant indicated temperature of under +180 C signals an open circuit or short circuit to plus in the wiring connection ; to transmission fluid temperature sensor G93
+;
+;
+005,0,All 4 wheel speeds
+005,1,Left-front,Wheel speed
+005,2,Right-front,Wheel speed
+005,3,Right-rear,Wheel speed
+005,4,Left-rear,Wheel speed
+; For transmission 01K this display group number displays the transmission RPM from transmission vehicle speed sensor G38
+;
+;e.o.f. - A. Ferron

@@ -1,0 +1,47 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-17.LBL
+; 4F0-910-xxx-17.LBL
+; 4L0-910-xxx-17.LBL
+;
+; created on 25/May/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; old style redirection (pre-706)
+;
+;---------------------------------------------------
+;
+;
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-900      ; A6 (4F2/4F5)
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-900-A    ; A6 (4F2/4F5)
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-900-C    ; A6 Allroad (4FH)
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-930      ; A6 (4F2/4F5)
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-930-A    ; A6 (4F2/4F5)
+;REDIRECT,4F0-910-xxx-17.LBL,4F0-910-930-C    ; A6 (4F2/4F5)
+;
+;REDIRECT,4L0-910-xxx-17.LBL,4F0-910-930-C    ; Q7 (4L)
+;
+;
+;---------------------------------------------------
+;
+; new style redirection (post-706)
+;
+;---------------------------------------------------
+;
+;
+REDIRECT,4F0-910-xxx-17.LBL,4F0-920-???-???,HW  ; A6 (4F)
+;
+REDIRECT,4L0-910-xxx-17.LBL,4L0-920-???-???,HW  ; Q7 (4L)
+;

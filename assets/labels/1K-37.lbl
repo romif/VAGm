@@ -1,0 +1,26 @@
+;
+; VAG-COM Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-37.LBL
+; 1K0-035-191.LBL
+; 1K0-919-887-MFD2.LBL
+;
+; created on 25/Mar/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-919-887-MFD2.LBL,1K0-919-887-B   ; MFD2 DVD
+REDIRECT,1K0-919-887-MFD2.LBL,1K0-919-887-F   ; MFD2 DVD
+REDIRECT,1K0-919-887-MFD2.LBL,1K0-919-887-FX  ; MFD2 DVD
+REDIRECT,1K0-919-887-MFD2.LBL,1K0-919-887-G   ; MFD2 DVD
+REDIRECT,1K0-919-887-MFD2.LBL,1K0-919-887-GX  ; MFD2 DVD
+REDIRECT,1K0-035-191.LBL,1K0-919-887-H        ; RNS300
+REDIRECT,1K0-035-191.LBL,1K0-919-887-K        ; RNS300
+;

@@ -1,0 +1,88 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-01.LBL
+; 4E-01.LBL
+; 4F-01.LBL
+; 7L-01.LBL
+; 06C-909-559-ASN.LBL (3.0l E   @ 220 HP - ASN/BBJ)
+; 059-907-401-ASB.LBL (3.0l TDI @ 211-232 HP - ASB/BKS/BMK/BNG)
+;
+; created on 13/Jan/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Apr/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;4E0-910-018     ; BHT (4E)
+;4E0-910-018-A   ; BHT/BTE (4E)
+;4E0-910-018-B   ; BHT/BSB (4E)
+;4E0-910-018-C   ; BHT (4E)
+;4E0-910-018-D   ; BHT/BTE (4E)
+;4E0-910-018-E   ; BHT (4E)
+;4E0-910-018-F   ; BHT (4E)
+;4E0-910-018-G   ; BHT/BTE (4E)
+;4E0-910-018-H   ; BHT (4E)
+;4E0-910-018-J   ; BSB (4E)
+;4E0-910-018-K   ; BHT (4E)
+;4E0-910-018-L   ; BHT/BTE (4E)
+;4E0-910-018-M   ; BSB (4E)
+;4E0-910-018-N   ; BHT (4E)
+;4E0-910-018-P   ; BHT (4E)
+;4E0-910-018-Q   ; BHT (4E)
+;4E0-910-018-R   ; BHT (4E)
+;4E0-910-018-S   ; BHT (4E)
+;4E0-910-018-T   ; BHT (4E)
+;
+REDIRECT,059-907-401-ASB.LBL,4E0-910-401-??? ; ASB/BNG: (4E, 4F)
+REDIRECT,059-907-401-ASB.LBL,4E0-910-402-??? ; ASB/BNG: (4E, 4F)
+;
+;4E0-910-409-??? ; ASE: (4E)
+;4E1-910-409-??? ; BMC/BVN: (4E)
+;
+;4E0-910-552     ; BSM (4E)
+;4E0-910-552-A   ; BSM (4E)
+;4E0-910-552-B   ; BSM (4E)
+;
+REDIRECT,06C-909-559-ASN.LBL,4E0-910-559     ; ASN: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E0-910-559-A   ; BBJ: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E0-910-559-F   ; BBJ: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E0-910-559-H   ; BBJ: (4E)
+;
+REDIRECT,06C-909-559-ASN.LBL,4E1-910-559     ; BPK: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E1-910-559-A   ; BPK: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E1-910-559-B   ; BPK: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E1-910-559-E   ; BPK: (4E)
+REDIRECT,06C-909-559-ASN.LBL,4E1-910-559-F   ; BPK: (4E)
+;
+;4E0-910-560     ; BFM (4E)
+;4E0-910-560-A   ; BFM (4E)
+;4E0-910-560-B   ; BFM (4E)
+;4E0-910-560-C   ; BFL (4E)
+;4E0-910-560-D   ; BFL (4E)
+;4E0-910-560-E   ; BFM (4E)
+;4E0-910-560-F   ; BFM (4E)
+;4E0-910-560-G   ; BFL (4E)
+;4E0-910-560-H   ; BFL (4E)
+;4E0-910-560-J   ; BFM (4E)
+;4E0-910-560-K   ; BFM (4E)
+;4E0-910-560-L   ; BFL (4E)
+;4E0-910-560-M   ; BFM (4E)
+;4E0-910-560-N   ; BFL (4E)
+;4E0-910-560-P   ; BGK (4E)
+;4E0-910-560-Q   ; BFM (4E)
+;4E0-910-560-R   ; BFL (4E)
+;4E0-910-560-S   ; BFM (4E)
+;4E0-910-560-T   ; BFL (4E)
+;4E0-910-562     ; BFM (4E)
+;
+;4E1-910-560     ; BVJ (4E)
+;4E1-910-560-A   ; BVJ (4E)
+;4E1-910-560-B   ; BVJ (4E)
+;

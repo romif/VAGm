@@ -1,0 +1,227 @@
+;
+; VAG-COM label file
+;
+; VW Passat (3B)
+;
+; component: J285 - instrument cluster (#17)
+;
+; p/n: 3B?-920-??7-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-17.LBL
+; 3Bx-920-xx7.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 03/25/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Speed / Engine speed / Oil pressure / Time
+001,1,Speed
+001,2,Engine Speed
+001,3,Oil pressure, 0.9 bar
+001,4,Time
+;
+002,0,Distance / Fuel / Ambient temperature
+002,1,Mileage
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+002,4,Ambient,Temperature,MFD only
+;
+003,0,Coolant and Oil
+003,1,Coolant,Temperature
+003,2,Oil Level,,Display Range: Ok/n.Ok
+003,3,Oil,Temperature
+;
+022,0,Immobilizer
+022,1,Starting,permitted
+022,2,Engine (ECM),responds
+022,3,Key condition,OK
+022,4,Number of,keys coded
+;
+023,0,Immobilizer
+023,1,Variable code,authorized
+023,2,Key status,(transponder)
+023,3,Fixed code,authorized
+023,4,Immobilizer,status,see labelfile
+; 4 - new customer service - delivery condition (replacement part instrument cluster)
+; 5 - customer service locked - adaptation data programmed in customer service
+; 6 - immobilizer adapted - normal function condition
+; 7 - key adaptation active - key adaptation via tester
+;
+024,0,Immobilizer - locking periods
+024,1,Instrument,cluster
+024,2,Engine control, module (ECM)
+024,3,Emergency,release
+024,4,Transponder,recognition
+;
+025,0,Immobilizer Communication
+025,1,Immobilizer,Communication,1 = via CAN-Databus / 2 = via W-Line
+;
+050,0,Main Information
+050,1,Mileage
+050,2,Engine Speed
+050,3,Oil,Temperature
+050,4,Coolant,Temperature
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine
+125,2,Transmission
+125,3,ABS
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Steering,sensor
+126,2,Airbag
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,CAN-Databus,Status
+130,2,Comfort System
+130,3,Door electronics,driver
+130,4,Door electronics,passenger
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Door electronics,rear left
+131,2,Door electronics,rear right
+;
+132,0,CAN-Databus Communication (Comfort)
+;
+140,0,CAN-Databus Communication (Infotainment)
+140,1,CAN-Databus,Status
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+A2,0,Service reminder
+A2,5,Service reminder reset
+A2,6,displayed values:
+A2,7,0 - no service
+A2,8,1 - service
+A2,9, 
+A2,10,reset:
+A2,11,0 - Service reminder reset
+;
+A4,0,Language for error messages and navigation (MFD only)
+A4,5,Language for error messages and navigation
+A4,6,1 - German
+A4,7,2 - English
+A4,8,3 - French
+A4,9,4 - Italian
+A4,10,5 - Spanish
+A4,11,6 - Portuguese
+A4,12,8 - Czech
+;
+A9,0,Dinstance (in 10km)
+A9,1,Distance
+A9,2,in 10
+A9,3,km
+A9,5,Distance changing
+A9,6,Before the cluster accepts the new
+A9,7,distance you have to login using 13861.
+A9,8, 
+A9,9,The distance can only be changed until
+A9,10,the current value is not over 100km.
+;
+A21,0,Key count (Immobilizer)
+A21,1,Old Key
+A21,2,count
+A21,3,[count]
+;
+A30,0,Fuel gauge adaption
+A30,1,Current,value
+A30,5,Fuel gauge adaption
+A30,6,Basic value: 100
+A30,7,Range: 120 - 136
+A30,8,Unit: 1 Ohm
+;
+A35,0,Engine speed threshold
+A35,5,Engine speed threshold adaption
+A35,6,Basic value: 0
+A35,7,Range: 0 - 1000
+A35,8,Unit: 250 U/min
+;
+A40,0,Distance from inspection
+A40,5,Distance from inspection
+A40,6,Resolution: 1 = 100 km
+A40,7, 
+A40,8,NOTE: Adaptation channels 40-44 must be
+A40,9,entered and stored in the following order:
+A40,10,42 > 43 > 44 > 40 > 41
+;
+A41,0,Time from inspection
+A41,5,Time from inspection
+A41,6, 
+A41,7,NOTE: Adaptation channels 40-44 must be
+A41,8,entered and stored in the following order:
+A41,9,42 > 43 > 44 > 40 > 41
+;
+A42,0,Minimum value mileage
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 = 1000 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-44 must be
+A42,9,entered and stored in the following order:
+A42,10,42 > 43 > 44 > 40 > 41
+;
+A43,0,Maximum value mileage
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 = 1000 km
+A43,7, 
+A43,8,NOTE: Adaptation channels 40-44 must be
+A43,9,entered and stored in the following order:
+A43,10,42 > 43 > 44 > 40 > 41
+;
+A44,0,Maximum time interval
+A44,5,Maximum time interval
+A44,6, 
+A44,7,NOTE: Adaptation channels 40-44 must be
+A44,8,entered and stored in the following order:
+A44,9,42 > 43 > 44 > 40 > 41
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,J285 - Instrument cluster
+C1,??xxx - Additional equipment
+C2,+00 - Without additional equipment
+C3,+01 - Brake pad warning
+C4,+02 - Seatbelt warning
+C5,+04 - Washer fluid level warning
+C6,+16 - Radio/Navigation
+C7, 
+C8,xx?xx - Country version
+C9,1 - Europe / 2 - USA / 3 - Canada/Mexico/Latin America
+C10,4 - England / 5 - Japan / 6 - Saudi Arabia / 7 - Australia
+C11, 
+C12,xxx?x - Service intervals
+C13,0 - Fixed service intervals (PR-QG0)
+C14,1 - Flexible service intervals (PR-QG1)
+C15,2 - Fixed service interval (PR-QG2)
+C16,3 - No service intervals
+C17, 
+C18,xxxx? - Distance impulse number (K-value)
+C19,3 - 4134 - 6-Cylinder (Light armored vehicle)
+C20,5 - 4182 - all other engines / 6 - 4128 - 8-Cylinder (W8)
+;

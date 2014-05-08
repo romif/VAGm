@@ -1,0 +1,100 @@
+;
+; VAG-COM Label File
+;
+; VW Golf/Jetta (1J/9M) / VW Passat (3B)
+;
+; Component: J506 - Radio-/Navigationssystem (#37) - MFD
+;
+; P/N: 3B0-919-887-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 22/Feb/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Feb/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,GALA-Signal,,0 = Signal not recognized\n1 = Signal recognized
+001,2,Supply Voltage,(Terminal 30)
+001,3,Illumination,(Terminal 58d)
+001,4,Status,S-Contact,Range: ON/OFF
+;
+002,0,Input Signals
+002,1,Status,Reverse Gear,Range: ON/OFF
+002,2,Status,Terminal 15,Range: Term.15 ON/Term.15 OFF
+;
+003,0,Communication GPS-Antenna
+003,1,Component
+003,2,Status,,Range: OK/n.OK
+;
+004,0,Communication Secondary Display
+004,1,Component
+004,2,Status,,Range: OK/n.OK
+;
+005,0,Communication Databus/Traffic Message Channel (TMC)
+005,1,CAN-Databus,Infotainment
+005,2,CAN-Infotainment,Status,Range: OK/n.OK
+005,3,Traffic Message,Channel (J559)
+;
+006,0,Speed
+006,1,Speed,ABS-Sensor (left)
+006,2,Speed
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C01,0000?: Options
+C02,1 = Traffic Message Channel Control Module & GSM-Telephone not installed
+C03,2 = Traffic Message Channel Control Module  installed
+C04,3 = GSM-Telephone installed
+C05,4 = Traffic Message Channel Control Module & GSM-Telephone installed
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Wheel Circumference
+;
+A002,0,Distance Impulse
+A002,5,Distance Impulse
+A002,6,Number of Impulses per Wheel turn. There is a difference
+A002,7,between Signals from the Anti-Lock Braking System (ABS)
+A002,8,and from the Speed Dependant Volume Control (GALA).
+A002,9, 
+A002,10,Distance Impulse via GALA:
+A002,11,8 = Standard
+A002,12, 
+A002,13,Distance Impulse via ABS:
+A002,14,43 = VW Golf/Bora/Jetta (1J/9M) & VW Polo (9N)
+A002,15,45 = VW Passat (3B)
+A002,16,48 = VW Sharan (7M) & VW Transporter (7D)
+A002,17, 
+A002,18,If the desired Model is not listed or the values might
+A002,19,be unclear the alternative is to count the number of teeth
+A002,19,of the ABS Impuls Wheel and to enter them as new value.
+;
+A003,0,
+;0
+;
+A008,0,
+;1
+;

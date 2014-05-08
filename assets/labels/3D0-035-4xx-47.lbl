@@ -1,0 +1,67 @@
+;
+; VAG-COM Labelfile 3D0-035-4xx-47.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton, NAR and ROW)
+; not suitable for Bentley Continental GT (no 47 controller in this vehicle - it uses controller 56
+;
+; Controller: Sound System (#47)
+;
+; P/N: 3D0 035 456
+;      3D0 035 465   Component: 08K-AUDIOVERST 0111 (8 channel, 10 speaker) - 2004 Phaeton 
+;      3D0 035 465 A Component: 08K-AUDIOVERST 0112 (8 channel, 10 speaker) - 2005 Phaeton 
+;      3D0 035 466   Component: 12K-AUDIOVERST 0115 (12 channel, 12 speaker) - 2004 Phaeton, NAR and ROW
+;      3D0 035 466 A Component: 12K-AUDIOVERST 0118 (12 channel, 12 speaker) - 2005 Phaeton, NAR and ROW
+;
+; includes Measured Value Blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-47.LBL
+; 3D0-035-4xx-47.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+;
+; last modified: 30.11.2004 (Sebastian)
+; last modified: 30/August/2005 (Michael) 
+; last modified: 23/November/2005 (Michael) MY 2005 information added
+;
+; Modification History: 
+; - added parenthetical notes after part numbers (Michael)
+; - translation to English (Michael)
+;
+; suitable for VAG-COM 405.0 or later
+;
+;
+;---------------------------------------------------
+;
+; Measured Value Blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage Measured directly at the fuse
+001,1,Terminal 30,voltage,Possible Display: 5 to 18 volts
+;
+080,0,Expanded control module identification (see label file for decode)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Herstellerwerkskennzahl und -kennzeichnung (Hhh-kkk)
+;Tages-Fertigungsdatum (dd.mm.yy)
+;Herstelleränderungsstand (12345678)
+;Hersteller-Prüfstand-Nr. (pppp) 
+;Laufende Hersteller-Nr. (nnnn)
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+; There does not appear to be any possibility for adaptation of this controller.
+;
+; end of file
+;
