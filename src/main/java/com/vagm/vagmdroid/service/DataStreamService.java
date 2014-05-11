@@ -108,16 +108,16 @@ public final class DataStreamService {
 	 * encodeGroupData.
 	 * @param blockData1 blockData1
 	 * @param blockData2 blockData2
-	 * @param blockKey blockKey
+	 * @param blockCode blockCode
 	 * @return DataStreamDTO
 	 */
-	public static DataStreamDTO encodeGroupData(final int blockData1, final int blockData2, final int blockKey) {
+	public static DataStreamDTO encodeGroupData( final int blockCode, final int blockData1, final int blockData2) {
 		final DataStreamDTO dto = new DataStreamDTO();
 		String value = "";
 		String unit = "";
 		float valueFloat = 0;
 
-		switch (blockKey) {
+		switch (blockCode) {
 		case 1:
 			value = String.valueOf(round(0.2 * blockData1 * blockData2, 4));
 			unit = " rpm";

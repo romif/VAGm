@@ -14,6 +14,7 @@ import android.test.AndroidTestCase;
 import android.util.Log;
 
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 
 /**
  * The Class BufferServiceTest.
@@ -24,49 +25,38 @@ public class BufferServiceTest extends AndroidTestCase {
 	/**
 	 * testGetControllerInfo.
 	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException 
 	 */
-	public final void testGetControllerInfo() throws ControllerCommunicationException {
-		for (int i = 0; i < BUFFER_STRING_ARRAY.length; i++) {
-			final StringBuilder builder = new StringBuilder();
-			for (int j = 0; j < i + 1; j++) {
-				builder.append(BUFFER_STRING_ARRAY[j]);
-			}
-			BufferService.getControllerInfo(hexStringToByteArray(builder.toString()));
+	public final void testGetControllerInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = { "", "", "" };
+		for (String message : BUFFER_STRING_ARRAY) {
+			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		final StringBuilder builder = new StringBuilder();
-		for (int j = 0; j < BUFFER_STRING_ARRAY.length; j++) {
-			builder.append(BUFFER_STRING_ARRAY[j]);
-		}
-		List<String> list = BufferService.getControllerInfo(hexStringToByteArray(builder.toString()));
-		Assert.assertEquals(3, list.size());
-		Assert.assertEquals(ECU_INFO[0], list.get(0));
-		Assert.assertEquals(ECU_INFO[1], list.get(1));
-		Assert.assertEquals(ECU_INFO[2], list.get(2));
+		Assert.assertEquals(ECU_INFO[0], result[0]);
+		Assert.assertEquals(ECU_INFO[1], result[1]);
+		Assert.assertEquals(ECU_INFO[2], result[2]);
 	}
 
 	/**
 	 * testGetControllerInfo1.
 	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException 
 	 */
-	public final void testGetControllerInfo1() throws ControllerCommunicationException {
-
-		final StringBuilder builder = new StringBuilder();
-		for (int j = 0; j < BUFFER_STRING_ARRAY1.length; j++) {
-			builder.append(BUFFER_STRING_ARRAY1[j]);
+	public final void testGetControllerInfo1() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = { "", "", "" };
+		for (String message : BUFFER_STRING_ARRAY1) {
+			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		List<String> list = BufferService.getControllerInfo(hexStringToByteArray(builder.toString()));
-		Log.d("TEST", list.get(2));
-		Assert.assertEquals(3, list.size());
-		Assert.assertEquals(ECU_INFO1[0], list.get(0));
-		Assert.assertEquals(ECU_INFO1[1], list.get(1));
-		Assert.assertEquals(ECU_INFO1[2], list.get(2));
+		Assert.assertEquals(ECU_INFO1[0], result[0]);
+		Assert.assertEquals(ECU_INFO1[1], result[1]);
+		Assert.assertEquals(ECU_INFO1[2], result[2]);
 	}
 
 	/**
 	 * testGetControllerInfoNegative.
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 */
-	public final void testGetControllerInfoNegative() throws ControllerCommunicationException {
+	/*public final void testGetControllerInfoNegative() throws ControllerCommunicationException {
 		List<String> list = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]));
 		Assert.assertEquals(0, list.size());
 
@@ -81,7 +71,7 @@ public class BufferServiceTest extends AndroidTestCase {
 		} catch (ControllerCommunicationException e) {
 			// success
 		}
-	}
+	}*/
 
 
 }

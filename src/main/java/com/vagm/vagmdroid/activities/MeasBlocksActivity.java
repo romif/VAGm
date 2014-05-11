@@ -13,8 +13,8 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,12 +22,11 @@ import android.widget.Toast;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
-import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
-import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.util.GetLabelsTask;
 
 /**
@@ -235,18 +234,20 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private void proceedMessage(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
 		DataStreamDTO[] dtos = BufferService.getMeasBlocksInfo(buffer);
-		if (dataList.size() > MAX_DATA_LIST_SIZE) {
-			dataList.removeFirst();
+		if (dtos != null) {
+			if (dataList.size() > MAX_DATA_LIST_SIZE) {
+				dataList.removeFirst();
+			}
+			float[] fs = new float[4];
+			for (int i = 0; i < 4; i++) {
+				fs[i] = dtos[i].getValueFloat();
+			}
+			dataList.addLast(fs);
+			((TextView) findViewById(R.id.block11)).setText(dtos[0].getValue() + dtos[0].getUnit());
+			((TextView) findViewById(R.id.block12)).setText(dtos[1].getValue() + dtos[1].getUnit());
+			((TextView) findViewById(R.id.block13)).setText(dtos[2].getValue() + dtos[2].getUnit());
+			((TextView) findViewById(R.id.block14)).setText(dtos[3].getValue() + dtos[3].getUnit());
 		}
-		float[] fs = new float[4];
-		for (int i = 0; i < 4; i++) {
-			fs[i] = dtos[i].getValueFloat();
-		}
-		dataList.addLast(fs);
-		((TextView) findViewById(R.id.block11)).setText(dtos[0].getValue() + dtos[0].getUnit());
-		((TextView) findViewById(R.id.block12)).setText(dtos[1].getValue() + dtos[1].getUnit());
-		((TextView) findViewById(R.id.block13)).setText(dtos[2].getValue() + dtos[2].getUnit());
-		((TextView) findViewById(R.id.block14)).setText(dtos[3].getValue() + dtos[3].getUnit());
 	}
 
 	/**

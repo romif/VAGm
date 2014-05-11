@@ -54,7 +54,7 @@ public final class LabelService {
 		InputStream inputStream = null;
 		BufferedReader reader = null;
 		try {
-			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("labels/Redirect.txt");
+			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
 			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 
 			String st;

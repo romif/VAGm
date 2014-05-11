@@ -1,7 +1,5 @@
 package com.vagm.vagmdroid.activities;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +20,7 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
@@ -60,7 +59,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	/**
 	 * buffer.
 	 */
-	private byte[] buffer = new byte[0];
+	private byte[] message = new byte[0];
 
 	/**
 	 * progressBar.
@@ -92,6 +91,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 */
 	public static final String ECU = "ecu";
 	
+	private String[] controllerInfo = {"", "", ""};
+	
 	
 
 	/**
@@ -104,16 +105,16 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			super.handleMessage(msg);
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				byte[] tempArray = Arrays.copyOf(buffer, buffer.length + msg.arg1);
-				System.arraycopy((byte[]) msg.obj, 0, tempArray, buffer.length, msg.arg1);
-				buffer = tempArray;
+				message = (byte[]) msg.obj;
 				if (D) {
-					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex((byte[]) msg.obj));
+					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex(message));
 				}
 				try {
-					proceedMessage(buffer);
+					proceedMessage(message);
 				} catch (ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
+				} catch (ControllerWrongResponseException e) {
+					Log.w(TAG, e.getMessage());
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -239,18 +240,16 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 *            array
 	 * @throws ControllerCommunicationException
 	 *             if some communication error occurs
+	 * @throws ControllerWrongResponseException 
 	 */
-	private void proceedMessage(final byte[] array) throws ControllerCommunicationException {
-		List<String> controllerInfo = BufferService.getControllerInfo(array);
-		if (controllerInfo.size() == 1) {
-			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
-		}
-		if (controllerInfo.size() == 3) {
-			ecu = controllerInfo.get(1);
-			((TextView) findViewById(R.id.boudRate)).setText(controllerInfo.get(0));
-			((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo.get(1));
-			((TextView) findViewById(R.id.component)).setText(controllerInfo.get(2));
-			progressBar.setVisibility(View.GONE);
+	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
+		controllerInfo = BufferService.getControllerInfo(array, controllerInfo);
+		((TextView) findViewById(R.id.boudRate)).setText(controllerInfo[0]);
+		((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo[1]);
+		((TextView) findViewById(R.id.component)).setText(controllerInfo[2]);
+
+		if (!controllerInfo[1].equals("")) {
+			ecu = controllerInfo[1];
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			stopTimer();
 		}

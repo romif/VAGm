@@ -45,7 +45,7 @@ public final class PropertyService {
 	 * @throws IOException
 	 */
 	private PropertyService() throws IOException {
-		InputStream inputStream = PropertyService.class.getClassLoader().getResourceAsStream(PROPERTY_FILE_NAME);
+		InputStream inputStream = PropertyService.class.getClassLoader().getResourceAsStream("assets/" + PROPERTY_FILE_NAME);
 		 properties = new Properties();
 		 properties.load(inputStream);
 	}

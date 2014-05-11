@@ -2,9 +2,6 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.enums.VAGmConstans.CONTROLLER_NO_ANSWER;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
@@ -15,126 +12,11 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  * @author Roman_Konovalov
  */
 public final class BufferService {
-
+	
 	/**
 	 * Constructor.
 	 */
 	private BufferService() {
-	}
-
-	/**
-	 * Gets ControllerInfo.
-	 * @param buffer
-	 *            buffer
-	 * @return List<String>
-	 * @throws ControllerCommunicationException if some communication error occurs
-	 */
-	public static List<String> getControllerInfo(final byte[] buffer) throws ControllerCommunicationException {
-		int countPos = 0;
-		while (getCount(countPos, buffer) != 0) {
-			if ((buffer[countPos] == 0x01) && (buffer.length > countPos + 1)) {
-				if (buffer[countPos + 1] == CONTROLLER_NO_ANSWER) {
-					throw new ControllerCommunicationException();
-				}
-			}
-			int newCountPos = countPos + getCount(countPos, buffer) + 1;
-			buffer[countPos] = 0;
-			countPos = newCountPos;
-		}
-		return proceedArray(buffer);
-	}
-
-	/**
-	 * getCount.
-	 * @param countPos
-	 *            countPos
-	 * @param buffer
-	 *            buffer
-	 * @return Count
-	 */
-	private static int getCount(final int countPos, final byte[] buffer) {
-		if (countPos >= buffer.length) {
-			return 0;
-		}
-		if (buffer[countPos] < 0) {
-			return buffer[countPos] + 256;
-		} else {
-			return buffer[countPos];
-		}
-	}
-
-	/**
-	 * byteToInt.
-	 * @param b
-	 *            byte
-	 * @return int
-	 */
-	private static int byteToInt(final byte b) {
-		if (b < 0) {
-			return b + 256;
-		} else {
-			return b;
-		}
-	}
-
-	/**
-	 * proceedArray.
-	 * @param array
-	 *            array
-	 * @return List<String>
-	 */
-	private static List<String> proceedArray(final byte[] array) {
-		final List<String> result = new ArrayList<String>(3);
-
-		if ((array.length > 1) && (array[1] != 0)) {
-			result.add(String.valueOf(1000000 / byteToInt(array[1])));
-		}
-		/*
-		 * if (array[0] < 0) { array[0] = (byte) (array[0] + 0x80); }
-		 */
-		final StringBuilder builder = new StringBuilder();
-		for (int i = 1; i < array.length; i++) {
-			if ((array[i] >= 0x20) && (array[i] <= 0x7E)) {
-				builder.append((char) array[i]);
-			}
-		}
-
-		String resultString = builder.toString();
-		if ((resultString.length() > 13)) {
-			result.add(resultString.substring(1, 12));
-			result.add(resultString.substring(13));
-		}
-		return result;
-	}
-
-	/**
-	 * getMeasBlocksInfo.
-	 * @param buffer buffer
-	 * @return DataStreamDTO array
-	 * @throws ControllerCommunicationException if some communication error occurs
-	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 */
-	public static DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
-		int count = getCount(0, buffer);
-		if ((buffer[0] == 0x01) && (buffer.length > 1)) {
-			if (buffer[1] == CONTROLLER_NO_ANSWER) {
-				throw new ControllerCommunicationException();
-			}
-		}
-		if (count + 1 != buffer.length) {
-			return null;
-		} else {
-			if (byteToInt(buffer[1]) == VAGmConstans.VAG_BTI_GROUP_RES) {
-				DataStreamDTO[] dtos = new DataStreamDTO[4];
-				for (int i = 0; i < 4; i++) {
-					dtos[i] = DataStreamService.encodeGroupData(buffer[i * 3 + 2], buffer[i * 3 + 3], buffer[i * 3 + 1]);
-				}
-				return dtos;
-			} else {
-				throw new ControllerWrongResponseException("Wrong response from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
-						+ ", but was: " + byteToInt(buffer[1]));
-			}
-		}
 	}
 
 	/**
@@ -152,6 +34,90 @@ public final class BufferService {
 	}
 
 	/**
+	 * Gets ControllerInfo.
+	 * @param buffer
+	 *            buffer
+	 * @return List<String>
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException 
+	 */
+	public static String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
+			throws ControllerCommunicationException, ControllerWrongResponseException {
+		final String[] result = controllerInfo;
+		if (buffer.length == 1) {
+			if (buffer[0] == CONTROLLER_NO_ANSWER) {
+				throw new ControllerCommunicationException();
+			}
+			if (buffer[0] > 1) {
+				result[0] = String.valueOf(1000000 / byteToInt(buffer[0]));
+			}
+
+		} else {
+
+			int response = byteToInt(buffer[0]);
+			int dataStartPosition = 1;
+			if (response <= 0x01) {
+				response = byteToInt(buffer[1]);
+				dataStartPosition = 2;
+			}
+
+			if (response != VAGmConstans.VAG_BTI_INFO_RES) {
+				throw new ControllerWrongResponseException("Wrong response from controller: expected "
+						+ VAGmConstans.VAG_BTI_INFO_RES + ", but was: " + response);
+			}
+
+			/*
+			 * if (array[0] < 0) { array[0] = (byte) (array[0] + 0x80); }
+			 */
+			final StringBuilder builder = new StringBuilder();
+			for (int i = dataStartPosition; i < buffer.length; i++) {
+				if ((buffer[i] >= 0x20) && (buffer[i] <= 0x7E)) {
+					builder.append((char) buffer[i]);
+				}
+			}
+
+			String resultString = builder.toString();
+			if (controllerInfo[1].equals("")) {
+				if ((resultString.length() > 13)) {
+					result[1] = resultString.substring(0, 11);
+					result[2] = resultString.substring(11);
+				}
+			} else {
+				result[2] = result[2] + resultString;
+			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * getMeasBlocksInfo.
+	 * @param buffer buffer
+	 * @return DataStreamDTO array
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public static DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+		if (buffer.length == 1) {
+			if (buffer[0] == CONTROLLER_NO_ANSWER) {
+				throw new ControllerCommunicationException();
+			}
+		}
+		
+		int response = byteToInt(buffer[0]);
+		if (response != VAGmConstans.VAG_BTI_GROUP_RES) {
+			throw new ControllerWrongResponseException("Wrong response from controller: expected "
+					+ VAGmConstans.VAG_BTI_GROUP_RES + ", but was: " + response);
+		}
+		
+		DataStreamDTO[] dtos = new DataStreamDTO[4];
+		for (int i = 0; i < 4; i++) {
+			dtos[i] = DataStreamService.encodeGroupData(buffer[i * 3 + 1], buffer[i * 3 + 2], buffer[i * 3 + 3]);
+		}
+		return dtos;	
+	}
+
+	/**
 	 * hexStringToByteArray.
 	 * @param s
 	 *            String
@@ -164,6 +130,16 @@ public final class BufferService {
 			data[i / 2] = (byte) Integer.parseInt(s.substring(i, i + 2), 16);
 		}
 		return data;
+	}
+
+	/**
+	 * byteToInt.
+	 * @param b
+	 *            byte
+	 * @return int
+	 */
+	private static int byteToInt(final byte b) {
+		return b < 0 ? b + 256 : b;
 	}
 
 }
