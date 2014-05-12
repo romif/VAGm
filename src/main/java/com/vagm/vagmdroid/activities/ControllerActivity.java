@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +64,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	/**
 	 * progressBar.
 	 */
-	private ProgressBar progressBar;
+	private ProgressDialog progressBar;
 
 	/**
 	 * longTimer.
@@ -185,8 +185,10 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			getBluetoothService().write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
-			progressBar = (ProgressBar) findViewById(R.id.progressBar1);
-			progressBar.setVisibility(View.VISIBLE);
+			progressBar = new ProgressDialog(this);
+			progressBar.setMessage(getString(R.string.connecting_to_controller));
+			progressBar.setCancelable(false);
+			progressBar.show();
 			h = new Handler();
 			longTimer = new Timer();
 			longTimer.schedule(new TimerTask() {
@@ -199,6 +201,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 							longTimer.cancel();
 							longTimer = null;
 							if (!ControllerActivity.this.isFinishing()) {
+								progressBar.dismiss();
 								getControllerNotAnswerAlert().show();
 							}
 						}
@@ -253,6 +256,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 
 		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {
 			ecu = controllerInfo[1];
+			progressBar.dismiss();
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			stopTimer();
 		}

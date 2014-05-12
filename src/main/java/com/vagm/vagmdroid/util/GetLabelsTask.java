@@ -50,7 +50,6 @@ public class GetLabelsTask extends AsyncTask<String, Integer, SparseArray<LabelD
 	protected void onPreExecute() {
 		super.onPreExecute();
 		progressBar = new ProgressDialog(context);
-		progressBar.setCancelable(true);
 		progressBar.setMessage(context.getString(R.string.copying_labels));
 		progressBar.setCancelable(false);
 		progressBar.show();

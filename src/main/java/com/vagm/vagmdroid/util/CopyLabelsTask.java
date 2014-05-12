@@ -54,7 +54,6 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 	protected void onPreExecute() {
 		super.onPreExecute();
 		progressBar = new ProgressDialog(context);
-		progressBar.setCancelable(true);
 		progressBar.setMessage(context.getString(R.string.copying_labels));
 		progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		progressBar.setProgress(0);
