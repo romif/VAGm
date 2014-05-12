@@ -149,9 +149,9 @@ public final class LabelService {
 				}
 
 				String[] tokens = st.split(",");
-				if (tokens.length < 3) {
+				if (tokens.length < 2) {
 					if (D) {
-						Log.d(TAG, "Wrong syntax in line " + lineCount + ": expected tokens length > 3, but was: " + tokens.length);
+						Log.d(TAG, "Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
 					}
 					continue;
 				}
@@ -238,7 +238,11 @@ public final class LabelService {
 	 */
 	private static void fillLabel(final LabelDTO label, final String[] tokens, final int blockNumber) {
 		if (blockNumber == 0) {
-			label.setTitle(tokens[2]);
+			if (tokens.length > 2) {
+				label.setTitle(tokens[2]);
+			} else {
+				label.setTitle("");
+			}
 		} else {
 			label.getGroup()[blockNumber - 1] = getFilledGoup(tokens);
 		}

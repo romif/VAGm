@@ -259,7 +259,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private int getGroup1() {
 		EditText text = (EditText) findViewById(R.id.groupInput1);
-		return Integer.parseInt(text.getText().toString(), 16);
+		return Integer.parseInt(text.getText().toString());
 	}
 
 	/**
@@ -268,7 +268,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private int getGroup2() {
 		EditText text = (EditText) findViewById(R.id.group2);
-		return Integer.parseInt(text.getText().toString(), 16);
+		return Integer.parseInt(text.getText().toString());
 	}
 
 	/**
