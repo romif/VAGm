@@ -25,7 +25,7 @@ public final class VAGmConstans {
 	/**
 	 * START_CONTROLLER_COMMUNICATION.
 	 */
-	public static final int STOP_CONTROLLER_COMMUNICATION = 0x06;
+	public static final int EXIT_COMMAND = 0x06;
 
 	/**
 	 * START_MEAS_BLOCKS.

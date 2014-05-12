@@ -1,6 +1,5 @@
 package com.vagm.vagmdroid.activities;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutionException;
 
@@ -22,6 +21,7 @@ import android.widget.Toast;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
+import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
@@ -44,11 +44,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * D.
 	 */
 	private static final boolean D = true;
-
-	/**
-	 * buffer.
-	 */
-	private byte[] buffer = new byte[0];
 
 	/**
 	 * dataList.
@@ -90,14 +85,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			super.handleMessage(msg);
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				final byte[] tempArray = Arrays.copyOf(buffer, buffer.length + msg.arg1);
-				System.arraycopy((byte[]) msg.obj, 0, tempArray, buffer.length, msg.arg1);
-				buffer = tempArray;
+				byte[] message = (byte[]) msg.obj;
 				if (D) {
-					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex((byte[]) msg.obj));
+					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex(message));
 				}
 				try {
-					proceedMessage(buffer);
+					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
@@ -120,46 +113,57 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			case R.id.bGo1:
 				group = getGroup1();
 				bluetoothService.write(getGroup1());
+				setLabels();
 				break;
 
 			case R.id.bUp1:
 				group = getGroup1();
 				if (group < 0xFF) {
 					group++;
-					((EditText) findViewById(R.id.group1)).setText(group);
+					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
 					bluetoothService.write(group);
 				}
+				setLabels();
 				break;
 
 			case R.id.bDn1:
 				group = getGroup1();
 				if (group > 1) {
 					group--;
-					((EditText) findViewById(R.id.group1)).setText(group);
+					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
 					bluetoothService.write(group);
 				}
+				setLabels();
 				break;
 
 			case R.id.bGo2:
 				bluetoothService.write(getGroup2());
+				setLabels();
 				break;
 
 			case R.id.bUp2:
 				group = getGroup2();
 				if (group < 0xFF) {
 					group++;
-					((EditText) findViewById(R.id.group2)).setText(group);
+					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
 					bluetoothService.write(group);
 				}
+				setLabels();
 				break;
 
 			case R.id.bDn2:
 				group = getGroup2();
 				if (group > 1) {
 					group--;
-					((EditText) findViewById(R.id.group2)).setText(group);
+					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
 					bluetoothService.write(group);
 				}
+				setLabels();
+				break;
+			
+			case R.id.bMeasBlocksBack:
+				bluetoothService.write(VAGmConstans.EXIT_COMMAND);
+				finish();
 				break;
 
 			default:
@@ -169,7 +173,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			Toast.makeText(MeasBlocksActivity.this, getString(R.string.wrong_number), Toast.LENGTH_LONG).show();
 			return;
 		}
-		setLabels();
 	}
 
 	/**
@@ -228,12 +231,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 
 	/**
 	 * proceedMessage.
-	 * @param buffer buffer
+	 * @param message buffer
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
-	private void proceedMessage(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
-		DataStreamDTO[] dtos = BufferService.getMeasBlocksInfo(buffer);
+	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
+		DataStreamDTO[] dtos = BufferService.getMeasBlocksInfo(message);
 		if (dtos != null) {
 			if (dataList.size() > MAX_DATA_LIST_SIZE) {
 				dataList.removeFirst();
@@ -255,7 +258,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * @return group
 	 */
 	private int getGroup1() {
-		EditText text = (EditText) findViewById(R.id.group1);
+		EditText text = (EditText) findViewById(R.id.groupInput1);
 		return Integer.parseInt(text.getText().toString(), 16);
 	}
 

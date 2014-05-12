@@ -132,7 +132,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	public void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.bCloseController:
-			getBluetoothService().write(VAGmConstans.STOP_CONTROLLER_COMMUNICATION);
+			getBluetoothService().write(VAGmConstans.EXIT_COMMAND);
 			stopTimer();
 			finish();
 			break;

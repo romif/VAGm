@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:background="@color/mainBackground"
     android:fillViewport="true"
+    android:keepScreenOn="true"
     tools:context=".ControllerActivity" >
 
     <RelativeLayout
@@ -17,7 +18,7 @@
             android:layout_height="wrap_content" >
 
             <EditText
-                android:id="@+id/group1"
+                android:id="@+id/groupInput1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -35,7 +36,7 @@
                 android:id="@+id/innerLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/group1" >
+                android:layout_toRightOf="@+id/groupInput1" >
 
                 <Button
                     android:id="@+id/bUp1"
