@@ -27,6 +27,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.code.microlog4android.Logger;
+import com.google.code.microlog4android.LoggerFactory;
+import com.google.code.microlog4android.config.PropertyConfigurator;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.ControllerCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
@@ -41,6 +44,8 @@ import com.vagm.vagmdroid.util.CopyLabelsTask;
  * @author Roman_Konovalov
  */
 public class MainActivity extends CustomAbstractActivity implements OnClickListener {
+	
+	private static final Logger logger = LoggerFactory.getLogger();
 
 	/**
 	 * TAG constant.
@@ -222,6 +227,8 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.main);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+		PropertyConfigurator.getConfigurator(this).configure();
+		logger.debug("onCreate");
 
 		try {
 			PropertyService.init();
