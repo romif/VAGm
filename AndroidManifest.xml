@@ -51,6 +51,7 @@
         </activity>
         <activity
             android:name="com.vagm.vagmdroid.activities.MeasBlocksActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_meas_blocks"
             android:parentActivityName="com.vagm.vagmdroid.activities.ControllerActivity" >
             <meta-data
