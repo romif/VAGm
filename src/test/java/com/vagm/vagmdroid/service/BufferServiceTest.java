@@ -25,10 +25,10 @@ public class BufferServiceTest extends AndroidTestCase {
 	/**
 	 * testGetControllerInfo.
 	 * @throws ControllerCommunicationException if some communication error occurs
-	 * @throws ControllerWrongResponseException 
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	public final void testGetControllerInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
-		String[] result = { "", "", "" };
+		String[] result = {"", "", "" };
 		for (String message : BUFFER_STRING_ARRAY) {
 			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
@@ -40,10 +40,10 @@ public class BufferServiceTest extends AndroidTestCase {
 	/**
 	 * testGetControllerInfo1.
 	 * @throws ControllerCommunicationException if some communication error occurs
-	 * @throws ControllerWrongResponseException 
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	public final void testGetControllerInfo1() throws ControllerCommunicationException, ControllerWrongResponseException {
-		String[] result = { "", "", "" };
+		String[] result = {"", "", "" };
 		for (String message : BUFFER_STRING_ARRAY1) {
 			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
@@ -55,23 +55,21 @@ public class BufferServiceTest extends AndroidTestCase {
 	/**
 	 * testGetControllerInfoNegative.
 	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
-	/*public final void testGetControllerInfoNegative() throws ControllerCommunicationException {
-		List<String> list = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]));
-		Assert.assertEquals(0, list.size());
+	public final void testGetControllerInfoNegative() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = {"", "", "" };
 
-		list = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]));
-		Assert.assertEquals(1, list.size());
-		Assert.assertEquals(ECU_INFO1[0], list.get(0));
+		result = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
+		Assert.assertEquals(ECU_INFO1[0], result[0]);
 
 		try {
-			list = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]
-					+ BUFFER_STRING_ARRAY_NEGATIVE[2]));
+			result = BufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
 			Assert.fail("Should have thrown ControllerCommunication Exception");
 		} catch (ControllerCommunicationException e) {
 			// success
 		}
-	}*/
+	}
 
 
 }

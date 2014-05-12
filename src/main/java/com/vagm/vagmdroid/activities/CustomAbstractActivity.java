@@ -30,6 +30,11 @@ public abstract class CustomAbstractActivity extends Activity {
 	protected abstract Handler getHandler();
 
 	/**
+	 * alertDialog.
+	 */
+	private AlertDialog alertDialog;
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
@@ -92,7 +97,15 @@ public abstract class CustomAbstractActivity extends Activity {
 						finish();
 					}
 				});
-		return builder.create();
+		alertDialog = builder.create();
+		return alertDialog;
 	}
 
+	@Override
+	protected void onDestroy() {
+		if (alertDialog != null) {
+			alertDialog.dismiss();
+		}
+		super.onDestroy();
+	}
 }

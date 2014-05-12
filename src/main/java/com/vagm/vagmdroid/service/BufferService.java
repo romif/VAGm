@@ -12,7 +12,7 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  * @author Roman_Konovalov
  */
 public final class BufferService {
-	
+
 	/**
 	 * Constructor.
 	 */
@@ -34,12 +34,12 @@ public final class BufferService {
 	}
 
 	/**
-	 * Gets ControllerInfo.
-	 * @param buffer
-	 *            buffer
-	 * @return List<String>
+	 * gets ControllerInfo.
+	 * @param buffer buffer
+	 * @param controllerInfo controllerInfo
+	 * @return ControllerInfo
 	 * @throws ControllerCommunicationException if some communication error occurs
-	 * @throws ControllerWrongResponseException 
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	public static String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
 			throws ControllerCommunicationException, ControllerWrongResponseException {
@@ -77,14 +77,11 @@ public final class BufferService {
 			}
 
 			String resultString = builder.toString();
-			if (controllerInfo[1].equals("")) {
-				if ((resultString.length() > 13)) {
-					result[1] = resultString.substring(0, 11);
-					result[2] = resultString.substring(11);
-				}
-			} else {
-				result[2] = result[2] + resultString;
-			}
+			int requaredEcuLenth = (VAGmConstans.ECU_LENGTH - result[1].length()) > resultString.length() ? resultString.length()
+					: VAGmConstans.ECU_LENGTH - result[1].length();
+			result[1] = result[1] + resultString.substring(0,  requaredEcuLenth);
+			result[2] = result[2] + resultString.substring(requaredEcuLenth);
+
 		}
 
 		return result;
@@ -103,18 +100,18 @@ public final class BufferService {
 				throw new ControllerCommunicationException();
 			}
 		}
-		
+
 		int response = byteToInt(buffer[0]);
 		if (response != VAGmConstans.VAG_BTI_GROUP_RES) {
-			throw new ControllerWrongResponseException("Wrong response from controller: expected "
-					+ VAGmConstans.VAG_BTI_GROUP_RES + ", but was: " + response);
+			throw new ControllerWrongResponseException("Wrong response from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
+					+ ", but was: " + response);
 		}
-		
+
 		DataStreamDTO[] dtos = new DataStreamDTO[4];
 		for (int i = 0; i < 4; i++) {
 			dtos[i] = DataStreamService.encodeGroupData(buffer[i * 3 + 1], buffer[i * 3 + 2], buffer[i * 3 + 3]);
 		}
-		return dtos;	
+		return dtos;
 	}
 
 	/**

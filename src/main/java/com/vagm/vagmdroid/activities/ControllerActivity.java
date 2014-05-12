@@ -80,7 +80,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * bluetoothService.
 	 */
 	private BluetoothService bluetoothService;
-	
+
 	/**
 	 * ecu.
 	 */
@@ -90,10 +90,11 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * ECU.
 	 */
 	public static final String ECU = "ecu";
-	
-	private String[] controllerInfo = {"", "", ""};
-	
-	
+
+	/**
+	 * controllerInfo.
+	 */
+	private String[] controllerInfo = {"", "", "" };
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -197,7 +198,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 							Log.w(TAG, "No answer from controller");
 							longTimer.cancel();
 							longTimer = null;
-							getControllerNotAnswerAlert().show();
+							if (!ControllerActivity.this.isFinishing()) {
+								getControllerNotAnswerAlert().show();
+							}
 						}
 					});
 				}
@@ -240,7 +243,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 *            array
 	 * @throws ControllerCommunicationException
 	 *             if some communication error occurs
-	 * @throws ControllerWrongResponseException 
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
 		controllerInfo = BufferService.getControllerInfo(array, controllerInfo);
@@ -248,7 +251,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo[1]);
 		((TextView) findViewById(R.id.component)).setText(controllerInfo[2]);
 
-		if (!controllerInfo[1].equals("")) {
+		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {
 			ecu = controllerInfo[1];
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			stopTimer();

@@ -547,8 +547,8 @@ public class BluetoothService implements Parcelable {
 				try {
 					// Read from the InputStream
 					final int bytes = mmInStream.read(buffer);
-					
-					byte[] tempArray  = Arrays.copyOf(message, message.length + bytes);
+
+					byte[] tempArray = Arrays.copyOf(message, message.length + bytes);
 					System.arraycopy(buffer, 0, tempArray, message.length, bytes);
 					message = tempArray;
 					int necessaryMessageLength = (message[0] < 0 ? message[0] + 256 : message[0]) + 1;
@@ -557,7 +557,7 @@ public class BluetoothService implements Parcelable {
 						mHandler.obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), sendMessage.length, -1, sendMessage).sendToTarget();
 						message = Arrays.copyOfRange(message, necessaryMessageLength, message.length);
 					}
-					
+
 				} catch (final IOException e) {
 					Log.e(TAG, "disconnected", e);
 					connectionLost();

@@ -74,7 +74,7 @@ public class ControllerActivityTest extends AbstractActivityTest<ControllerActiv
 	 * testHandleMessageNegative.
 	 */
 	public final void testHandleMessageNegative() {
-		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]);
 		getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition
@@ -83,7 +83,7 @@ public class ControllerActivityTest extends AbstractActivityTest<ControllerActiv
 			assertTrue("Button '" + solo.getButton(i).getText() + "' should be desabled", !solo.getButton(i).isEnabled());
 		}
 
-		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0] + BUFFER_STRING_ARRAY_NEGATIVE[1]  + BUFFER_STRING_ARRAY_NEGATIVE[2]);
+		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
 		getActivity().getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition
@@ -95,7 +95,7 @@ public class ControllerActivityTest extends AbstractActivityTest<ControllerActiv
 	 */
 	public final void testHandleMessageNegative1() {
 		// postcondition
-		assertTrue("Should be error dialog", solo.waitForDialogToOpen());
+		assertTrue("Should be error dialog", solo.waitForDialogToOpen(30000));
 	}
 
 	/**

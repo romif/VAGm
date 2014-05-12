@@ -13,6 +13,11 @@ public final class VAGmConstans {
 	}
 
 	/**
+	 * ECU_LENGTH.
+	 */
+	public static final int ECU_LENGTH = 11;
+
+	/**
 	 * START_CONTROLLER_COMMUNICATION.
 	 */
 	public static final int START_CONTROLLER_COMMUNICATION = 0xFF;

@@ -46,7 +46,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 * TAG constant.
 	 */
 	private static final String TAG = "VAGm_RemoteBluetooth";
-	
+
 	/**
 	 * D.
 	 */
