@@ -108,4 +108,5 @@ public abstract class CustomAbstractActivity extends Activity {
 		}
 		super.onDestroy();
 	}
+
 }

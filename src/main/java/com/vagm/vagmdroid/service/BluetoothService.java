@@ -6,6 +6,9 @@ import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.UUID;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -14,7 +17,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import com.vagm.vagmdroid.activities.MainActivity;
 
@@ -24,16 +26,10 @@ import com.vagm.vagmdroid.activities.MainActivity;
  */
 public class BluetoothService implements Parcelable {
 
-	// Debugging
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_BluetoothCommandService";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = true;
+	private static final Logger LOG = LoggerFactory.getLogger(BluetoothService.class);
 
 	/**
 	 * UUID for RFCOM.
@@ -188,9 +184,8 @@ public class BluetoothService implements Parcelable {
 	 *            ConnectionState
 	 */
 	private synchronized void setState(final ConnectionState state) {
-		if (D) {
-			Log.d(TAG, "setState() " + mState + " -> " + state);
-		}
+		LOG.debug("setState() {} -> {}", mState, state);
+
 		mState = state;
 
 		// Give the new state to the Handler so the UI Activity can update
@@ -210,9 +205,7 @@ public class BluetoothService implements Parcelable {
 	 * session in listening (server) mode. Called by the Activity onResume()
 	 */
 	public synchronized void start() {
-		if (D) {
-			Log.d(TAG, "start");
-		}
+		LOG.debug("start");
 
 		// Cancel any thread attempting to make a connection
 		if (mConnectThread != null) {
@@ -235,9 +228,7 @@ public class BluetoothService implements Parcelable {
 	 *            The BluetoothDevice to connect
 	 */
 	public synchronized void connect(final BluetoothDevice device) {
-		if (D) {
-			Log.d(TAG, "connect to: " + device);
-		}
+		LOG.debug("connect to: " + device);
 
 		// Cancel any thread attempting to make a connection
 		if (mState == ConnectionState.CONNECTING) {
@@ -267,9 +258,7 @@ public class BluetoothService implements Parcelable {
 	 *            The BluetoothDevice that has been connected
 	 */
 	public synchronized void connected(final BluetoothSocket socket, final BluetoothDevice device) {
-		if (D) {
-			Log.d(TAG, "connected");
-		}
+		LOG.debug("connected");
 
 		// Cancel the thread that completed the connection
 		if (mConnectThread != null) {
@@ -306,9 +295,8 @@ public class BluetoothService implements Parcelable {
 	 * Stop all threads.
 	 */
 	public synchronized void stop() {
-		if (D) {
-			Log.d(TAG, "stop");
-		}
+		LOG.debug("stop");
+
 		if (mConnectThread != null) {
 			mConnectThread.cancel();
 			mConnectThread = null;
@@ -434,7 +422,7 @@ public class BluetoothService implements Parcelable {
 			try {
 				tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
 			} catch (final IOException e) {
-				Log.e(TAG, "create() failed", e);
+				LOG.error("create() failed", e);
 			}
 			mmSocket = tmp;
 		}
@@ -444,7 +432,7 @@ public class BluetoothService implements Parcelable {
 		 */
 		@Override
 		public void run() {
-			Log.i(TAG, "BEGIN mConnectThread");
+			LOG.info("BEGIN mConnectThread");
 			setName("ConnectThread");
 
 			// Always cancel discovery because it will slow down a connection
@@ -456,13 +444,13 @@ public class BluetoothService implements Parcelable {
 				// successful connection or an exception
 				mmSocket.connect();
 			} catch (final IOException e) {
-				Log.w(TAG, e.getMessage());
+				LOG.warn(e.getMessage());
 				connectionFailed();
 				// Close the socket
 				try {
 					mmSocket.close();
 				} catch (final IOException e2) {
-					Log.e(TAG, "unable to close() socket during connection failure", e2);
+					LOG.error("unable to close() socket during connection failure", e2);
 				}
 				// Start the service over to restart listening mode
 				BluetoothService.this.start();
@@ -485,7 +473,7 @@ public class BluetoothService implements Parcelable {
 			try {
 				mmSocket.close();
 			} catch (final IOException e) {
-				Log.e(TAG, "close() of connect socket failed", e);
+				LOG.error("close() of connect socket failed", e);
 			}
 		}
 	}
@@ -516,7 +504,7 @@ public class BluetoothService implements Parcelable {
 		 * @param socket BluetoothSocket
 		 */
 		public ConnectedThread(final BluetoothSocket socket) {
-			Log.d(TAG, "create ConnectedThread");
+			LOG.debug("create ConnectedThread");
 			mmSocket = socket;
 			InputStream tmpIn = null;
 			OutputStream tmpOut = null;
@@ -526,7 +514,7 @@ public class BluetoothService implements Parcelable {
 				tmpIn = socket.getInputStream();
 				tmpOut = socket.getOutputStream();
 			} catch (final IOException e) {
-				Log.e(TAG, "temp sockets not created", e);
+				LOG.error("temp sockets not created", e);
 			}
 
 			mmInStream = tmpIn;
@@ -538,7 +526,7 @@ public class BluetoothService implements Parcelable {
 		 */
 		@Override
 		public void run() {
-			Log.i(TAG, "BEGIN mConnectedThread");
+			LOG.info("BEGIN mConnectedThread");
 			final byte[] buffer = new byte[1024];
 			byte[] message = new byte[0];
 
@@ -559,7 +547,7 @@ public class BluetoothService implements Parcelable {
 					}
 
 				} catch (final IOException e) {
-					Log.e(TAG, "disconnected", e);
+					LOG.error("disconnected", e);
 					connectionLost();
 					break;
 				}
@@ -580,7 +568,7 @@ public class BluetoothService implements Parcelable {
 				// buffer)
 				// .sendToTarget();
 			} catch (final IOException e) {
-				Log.e(TAG, "Exception during write", e);
+				LOG.error("Exception during write", e);
 			}
 		}
 
@@ -598,7 +586,7 @@ public class BluetoothService implements Parcelable {
 				// buffer)
 				// .sendToTarget();
 			} catch (final IOException e) {
-				Log.e(TAG, "Exception during write", e);
+				LOG.error("Exception during write", e);
 			}
 		}
 
@@ -610,7 +598,7 @@ public class BluetoothService implements Parcelable {
 				// mmOutStream.write(EXIT_CMD);
 				mmSocket.close();
 			} catch (final IOException e) {
-				Log.e(TAG, "close() of connect socket failed", e);
+				LOG.error("close() of connect socket failed", e);
 			}
 		}
 	}

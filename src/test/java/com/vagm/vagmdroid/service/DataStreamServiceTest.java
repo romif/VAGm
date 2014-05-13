@@ -46,11 +46,11 @@ public class DataStreamServiceTest extends AndroidTestCase {
 	 * testEncodeGroupDataNA37.
 	 */
 	public final void testEncodeGroupDataNA37() {
-		DataStreamDTO dto = DataStreamService.encodeGroupData(3, 1, 37);
+		DataStreamDTO dto = DataStreamService.encodeGroupData(37, 3, 1);
 		assertEquals(DATA_STREAM_DTO_NA37_FIRST, dto);
-		dto = DataStreamService.encodeGroupData(3, 4, 37);
+		dto = DataStreamService.encodeGroupData(37, 3, 4);
 		assertEquals(DATA_STREAM_DTO_NA37_MEDIUM, dto);
-		dto = DataStreamService.encodeGroupData(3, 1287, 37);
+		dto = DataStreamService.encodeGroupData(37, 3, 1287);
 		assertEquals(DATA_STREAM_DTO_NA37_LAST, dto);
 		Log.d("TEST", DataStreamService.encodeGroupData(3, 3, 3).toString());
 	}

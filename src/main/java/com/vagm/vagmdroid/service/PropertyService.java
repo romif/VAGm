@@ -1,5 +1,6 @@
 package com.vagm.vagmdroid.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -13,21 +14,26 @@ import junit.framework.Assert;
 public final class PropertyService {
 
 	/**
-	 * PROPERTY_FILE_NAME.
+	 * DEFAULT_PROPERTIES_FILENAME.
 	 */
-	private static final String PROPERTY_FILE_NAME = "VAGm.properties";
+	private static final String DEFAULT_PROPERTIES_FILENAME = "VAGm.properties";
 
 
 	/**
 	 * DEBUG.
 	 */
-	private static final String DEBUG = "debug";
+	private static final String PRODUCTION_PREFIX_KEY = "vagm.production";
 
 
 	/**
 	 * APP_NAME.
 	 */
-	private static final String APP_NAME = "appName";
+	private static final String NAME_PREFIX_KEY = "vagm.name";
+
+	/**
+	 * propertiesFileName.
+	 */
+	private static String propertiesFileName = null;
 
 
 	/**
@@ -45,9 +51,10 @@ public final class PropertyService {
 	 * @throws IOException
 	 */
 	private PropertyService() throws IOException {
-		InputStream inputStream = PropertyService.class.getClassLoader().getResourceAsStream("assets/" + PROPERTY_FILE_NAME);
-		 properties = new Properties();
-		 properties.load(inputStream);
+		String fileName = propertiesFileName == null ? DEFAULT_PROPERTIES_FILENAME : propertiesFileName;
+		InputStream inputStream = PropertyService.class.getClassLoader().getResourceAsStream("assets" + File.separator + fileName);
+		properties = new Properties();
+		properties.load(inputStream);
 	}
 
 	/**
@@ -61,12 +68,24 @@ public final class PropertyService {
 	}
 
 	/**
+	 * init.
+	 * @param fileName fileName
+	 * @throws IOException
+	 */
+	public static void init(String fileName) throws IOException {
+		if (instance == null) {
+			propertiesFileName = fileName;
+			instance = new PropertyService();
+		}
+	}
+
+	/**
 	 * isDebug.
 	 * @return isDebug
 	 */
-	public static boolean isDebug() {
+	public static boolean isProduction() {
 		Assert.assertNotNull("First init", instance);
-		return properties.getProperty(DEBUG).equals("true");
+		return properties.getProperty(PRODUCTION_PREFIX_KEY, "dev").equals("prod");
 	}
 
 	/**
@@ -75,7 +94,7 @@ public final class PropertyService {
 	 */
 	public static String getAppName() {
 		Assert.assertNotNull("First init", instance);
-		return properties.getProperty(APP_NAME);
+		return properties.getProperty(NAME_PREFIX_KEY);
 	}
 
 }

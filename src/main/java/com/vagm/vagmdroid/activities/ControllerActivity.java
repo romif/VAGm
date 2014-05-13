@@ -3,13 +3,15 @@ package com.vagm.vagmdroid.activities;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -24,6 +26,7 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
+import com.vagm.vagmdroid.service.PropertyService;
 
 /**
  * The Class ControllerActivity.
@@ -32,14 +35,9 @@ import com.vagm.vagmdroid.service.BufferService;
 public class ControllerActivity extends CustomAbstractActivity implements OnClickListener {
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_ControllerActivity";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = true;
+	private static final Logger LOG = LoggerFactory.getLogger(ControllerActivity.class);
 
 	/**
 	 * boudRate.
@@ -107,15 +105,13 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				message = (byte[]) msg.obj;
-				if (D) {
-					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex(message));
-				}
+				LOG.debug("Recieved message from conroller: {}", BufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
-					Log.w(TAG, e.getMessage());
+					LOG.warn("Wrong response", e);
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -179,16 +175,16 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		if (savedInstanceState == null) {
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
 			bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
-			if (D) {
-				Log.d(TAG, "Sending controller code: " + controllerCode);
-			}
+			LOG.debug("Sending controller code: {}", controllerCode);
 			getBluetoothService().write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
 			progressBar = new ProgressDialog(this);
 			progressBar.setMessage(getString(R.string.connecting_to_controller));
 			progressBar.setCancelable(false);
-			progressBar.show();
+			if (!PropertyService.isProduction()) {
+				progressBar.show();
+			}
 			h = new Handler();
 			longTimer = new Timer();
 			longTimer.schedule(new TimerTask() {
@@ -197,7 +193,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 					h.post(new Runnable() {
 
 						public void run() {
-							Log.w(TAG, "No answer from controller");
+							LOG.warn("No answer from controller");
 							longTimer.cancel();
 							longTimer = null;
 							if (!ControllerActivity.this.isFinishing()) {

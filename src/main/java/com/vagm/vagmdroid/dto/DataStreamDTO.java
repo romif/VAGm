@@ -85,6 +85,14 @@ public class DataStreamDTO {
 	}
 
 	/**
+	 * gets DefaultDataStreamDTO.
+	 * @return DefaultDataStreamDTO
+	 */
+	public static DataStreamDTO getDefault() {
+		return new DataStreamDTO("", "", 0);
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override

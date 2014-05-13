@@ -6,15 +6,16 @@
 	<artifactId>vagmdroid</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>apk</packaging>
-	<name>vagmdroid</name>
+	<name>vagm</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<platform.version> 4.1.1.4
-		</platform.version>
+		<platform.version> 4.1.1.4</platform.version>
 		<android.plugin.version>3.5.3</android.plugin.version>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
+		<slf4j.version>1.7.7</slf4j.version>
+		<logback.android.version>1.1.1-2</logback.android.version>
 	</properties>
 
 	<repositories>
@@ -44,6 +45,22 @@
 			<artifactId>achartengine</artifactId>
 			<version>1.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.tony19</groupId>
+			<artifactId>logback-android-core</artifactId>
+			<version>${logback.android.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.tony19</groupId>
+			<artifactId>logback-android-classic</artifactId>
+			<version>${logback.android.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

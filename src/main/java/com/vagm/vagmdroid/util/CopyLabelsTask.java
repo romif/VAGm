@@ -29,7 +29,7 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 	/**
 	 * D.
 	 */
-	private static final boolean D = PropertyService.isDebug();
+	private static final boolean D = PropertyService.isProduction();
 
 	/**
 	 * context.

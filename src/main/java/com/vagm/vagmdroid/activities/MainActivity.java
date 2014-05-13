@@ -2,6 +2,9 @@ package com.vagm.vagmdroid.activities;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -13,7 +16,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,9 +29,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.code.microlog4android.Logger;
-import com.google.code.microlog4android.LoggerFactory;
-import com.google.code.microlog4android.config.PropertyConfigurator;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.ControllerCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
@@ -44,18 +43,11 @@ import com.vagm.vagmdroid.util.CopyLabelsTask;
  * @author Roman_Konovalov
  */
 public class MainActivity extends CustomAbstractActivity implements OnClickListener {
-	
-	private static final Logger logger = LoggerFactory.getLogger();
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_RemoteBluetooth";
-
-	/**
-	 * D.
-	 */
-	private static boolean D;
+	private static final Logger LOG = LoggerFactory.getLogger(MainActivity.class);
 
 	/**
 	 * CONTROLLER_CODE constant.
@@ -222,21 +214,19 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LOG.debug("onCreate");
+
+		try {
+			PropertyService.init();
+		} catch (IOException e) {
+			LOG.error("Error Loading properties", e);
+			finish();
+		}
 
 		// Set up the window layout
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.main);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
-		PropertyConfigurator.getConfigurator(this).configure();
-		logger.debug("onCreate");
-
-		try {
-			PropertyService.init();
-			D = PropertyService.isDebug();
-		} catch (IOException e) {
-			Log.e(TAG, "Error Loading properties", e);
-			finish();
-		}
 
 		// Set up the custom title
 		mTitle = (TextView) findViewById(R.id.title_left_text);
@@ -250,7 +240,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		bluetoothService = BluetoothService.getInstance();
 
 		// If the adapter is null, then Bluetooth is not supported
-		if (!D && bluetoothAdapter == null) {
+		if (!PropertyService.isProduction() && bluetoothAdapter == null) {
 			getControllerNotAnswerAlert().show();
 			return;
 		}
@@ -275,7 +265,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 */
 	@Override
 	public void onDestroy() {
-		Log.d(TAG, "MainActivity onDestroy()");
+		LOG.debug("MainActivity onDestroy()");
 		super.onDestroy();
 		if (bluetoothService != null) {
 			bluetoothService.stop();
@@ -368,7 +358,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		if (controllerCode == null) {
 			return;
 		}
-		Log.d(TAG, "Request for " + controllerCode + " controller");
+		LOG.debug("Request for {} controller", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode.getCode());
 		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, bluetoothService);
@@ -381,7 +371,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 *            controllerCode
 	 */
 	private void selectController(final int controllerCode) {
-		Log.d(TAG, "Request for controller with number: " + controllerCode);
+		LOG.debug("Request for controller with number: {}", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode);
 		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, bluetoothService);

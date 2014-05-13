@@ -25,7 +25,7 @@ public class GetLabelsTask extends AsyncTask<String, Integer, SparseArray<LabelD
 	/**
 	 * D.
 	 */
-	private static final boolean D = PropertyService.isDebug();
+	private static final boolean D = PropertyService.isProduction();
 
 	/**
 	 * context.

@@ -3,11 +3,13 @@ package com.vagm.vagmdroid.activities;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutionException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,17 +35,12 @@ import com.vagm.vagmdroid.util.GetLabelsTask;
  * The Class MeasBlocksActivity.
  * @author Roman_Konovalov
  */
-public class MeasBlocksActivity extends CustomAbstractActivity implements OnClickListener{
+public class MeasBlocksActivity extends CustomAbstractActivity implements OnClickListener {
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_MeasBlocksActivity";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = true;
+	private static final Logger LOG = LoggerFactory.getLogger(MeasBlocksActivity.class);
 
 	/**
 	 * dataList.
@@ -86,15 +83,13 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				byte[] message = (byte[]) msg.obj;
-				if (D) {
-					Log.d(TAG, "Recieved message from conroller: " + BufferService.bytesToHex(message));
-				}
+				LOG.debug("Recieved message from conroller: {}", BufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
-					Log.w(TAG, e.getMessage());
+					LOG.warn("Wrong response", e);
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -188,10 +183,10 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 		try {
 			labels = new GetLabelsTask(this).execute(ecu).get();
 		} catch (InterruptedException e) {
-			Log.e(TAG, "Unable to get labels", e);
+			LOG.error("Unable to get labels", e);
 			finish();
 		} catch (ExecutionException e) {
-			Log.e(TAG, "Unable to get labels", e);
+			LOG.error("Unable to get labels", e);
 			finish();
 		}
 	}

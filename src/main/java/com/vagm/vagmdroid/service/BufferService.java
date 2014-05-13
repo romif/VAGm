@@ -102,6 +102,9 @@ public final class BufferService {
 		}
 
 		int response = byteToInt(buffer[0]);
+		if (response == VAGmConstans.VAG_BTI_ERROR) {
+			return new DataStreamDTO[]{DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault()};
+		}
 		if (response != VAGmConstans.VAG_BTI_GROUP_RES) {
 			throw new ControllerWrongResponseException("Wrong response from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
 					+ ", but was: " + response);
@@ -109,7 +112,8 @@ public final class BufferService {
 
 		DataStreamDTO[] dtos = new DataStreamDTO[4];
 		for (int i = 0; i < 4; i++) {
-			dtos[i] = DataStreamService.encodeGroupData(buffer[i * 3 + 1], buffer[i * 3 + 2], buffer[i * 3 + 3]);
+			dtos[i] = DataStreamService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
+					byteToInt(buffer[i * 3 + 3]));
 		}
 		return dtos;
 	}

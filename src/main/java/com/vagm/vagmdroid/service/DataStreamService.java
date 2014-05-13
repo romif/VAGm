@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import android.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 
@@ -16,14 +17,9 @@ import com.vagm.vagmdroid.dto.DataStreamDTO;
 public final class DataStreamService {
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_DataStreamService";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = true;
+	private static final Logger LOG = LoggerFactory.getLogger(DataStreamService.class);
 
 	/**
 	 * NA37Strings.
@@ -90,13 +86,13 @@ public final class DataStreamService {
 				}
 
 			} catch (final IOException ex) {
-				Log.e(TAG, "Cannot read NA37.txt", ex);
+				LOG.error("Cannot read NA37.txt", ex);
 			} finally {
 				if (reader != null) {
 					try {
 						reader.close();
 					} catch (IOException e) {
-						Log.e(TAG, "Cannot close BufferedReader", e);
+						LOG.error("Cannot close BufferedReader", e);
 					}
 				}
 			}

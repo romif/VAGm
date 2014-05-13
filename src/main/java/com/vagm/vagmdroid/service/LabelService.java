@@ -7,10 +7,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.os.Environment;
-import android.util.Log;
 import android.util.SparseArray;
 
+import com.vagm.vagmdroid.activities.MainActivity;
 import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.dto.LabelDTO.Group;
 
@@ -21,14 +24,9 @@ import com.vagm.vagmdroid.dto.LabelDTO.Group;
 public final class LabelService {
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_LabelService";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = PropertyService.isDebug();
+	private static final Logger LOG = LoggerFactory.getLogger(MainActivity.class);
 
 	/**
 	 * constructor.
@@ -66,9 +64,7 @@ public final class LabelService {
 						System.arraycopy(tokens, 3, liters, 0, liters.length);
 						for (String lit : liters) {
 							if (ecuLit.equals(lit)) {
-								if (D) {
-									Log.d(TAG, "Found label file for ECU: " + fullEcu + ", label: " + tokens[2]);
-								}
+								LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, tokens[2]);
 								return tokens[2];
 							}
 						}
@@ -79,24 +75,24 @@ public final class LabelService {
 			}
 
 		} catch (final IOException ex) {
-			Log.e(TAG, "Cannot read NA37.txt", ex);
+			LOG.error("Cannot read NA37.txt", ex);
 		} finally {
 			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
-					Log.e(TAG, "Cannot close BufferedReader", e);
+					LOG.error("Cannot close BufferedReader", e);
 				}
 			}
 		}
-		if (D) {
-			if (result != null) {
-				Log.d(TAG, "Found label file for ECU: " + fullEcu + ", label: " + result);
-			} else {
-				result = ecu.substring(0, 3) + "-" + ecu.substring(3, 6) + "-" + ecu.substring(6, 9) + ".lbl";
-				Log.d(TAG, "Cannot find label file for ECU: " + fullEcu + ", build default file name: " + result);
-			}
+
+		if (result != null) {
+			LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, result);
+		} else {
+			result = ecu.substring(0, 3) + "-" + ecu.substring(3, 6) + "-" + ecu.substring(6, 9) + ".lbl";
+			LOG.debug("Cannot find label file for ECU: {}, build default file name: ", fullEcu, result);
 		}
+
 		return result;
 	}
 
@@ -119,18 +115,14 @@ public final class LabelService {
 	 * @return Labels
 	 */
 	public static SparseArray<LabelDTO> getLabels(final String ecu) {
-		if (D) {
-			Log.d(TAG, "Begin getting labels for ecu: " + ecu);
-		}
+		LOG.debug("Begin getting labels for ecu: " + ecu);
 		String fileName = getLabelFileName(ecu);
 		SparseArray<LabelDTO> result = new SparseArray<LabelDTO>();
 		BufferedReader reader = null;
 		try {
 			File file = new File(Environment.getExternalStorageDirectory() + "/" + PropertyService.getAppName() + "/labels/" + fileName);
 			if (!file.exists()) {
-				if (D) {
-					Log.d(TAG, "Label file: " + fileName + " doesn't exist");
-				}
+				LOG.debug("Label file: " + fileName + " doesn't exist");
 				return result;
 			}
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
@@ -150,9 +142,7 @@ public final class LabelService {
 
 				String[] tokens = st.split(",");
 				if (tokens.length < 2) {
-					if (D) {
-						Log.d(TAG, "Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
-					}
+					LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
 					continue;
 				}
 
@@ -160,16 +150,12 @@ public final class LabelService {
 					groupNumber = Integer.parseInt(tokens[0]);
 					blockNumber = Integer.parseInt(tokens[1]);
 				} catch (NumberFormatException e) {
-					if (D) {
-						Log.d(TAG, "Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + "," + tokens[1]);
-					}
+					LOG.debug("Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + "," + tokens[1]);
 					continue;
 				}
 
 				if ((blockNumber < 0) || (blockNumber > 4)) {
-					if (D) {
-						Log.d(TAG, "Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
-					}
+					LOG.debug("Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
 					continue;
 				}
 
@@ -193,19 +179,17 @@ public final class LabelService {
 			}
 
 		} catch (final IOException ex) {
-			Log.e(TAG, "Cannot label file", ex);
+			LOG.error("Cannot label file", ex);
 		} finally {
 			if (reader != null) {
 				try {
 					reader.close();
 				} catch (IOException e) {
-					Log.e(TAG, "Cannot close BufferedReader", e);
+					LOG.error("Cannot close BufferedReader", e);
 				}
 			}
 		}
-		if (D) {
-			Log.d(TAG, "Found group records: " + result.size());
-		}
+		LOG.debug("Found group records: " + result.size());
 		return result;
 	}
 
