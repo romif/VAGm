@@ -74,9 +74,12 @@ public final class BufferService {
 						+ VAGmConstans.VAG_BTI_INFO_RES + ", but was: " + response);
 			}
 
-			/*
-			 * if (array[0] < 0) { array[0] = (byte) (array[0] + 0x80); }
-			 */
+			if (result[1].length() == 0) {
+				if (byteToInt(buffer[dataStartPosition]) > 0x80) {
+					buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
+				}
+			}
+			
 			final StringBuilder builder = new StringBuilder();
 			for (int i = dataStartPosition; i < buffer.length; i++) {
 				if ((buffer[i] >= 0x20) && (buffer[i] <= 0x7E)) {

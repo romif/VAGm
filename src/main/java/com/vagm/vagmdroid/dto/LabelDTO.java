@@ -26,7 +26,7 @@ public class LabelDTO {
 	 * @return the title
 	 */
 	public String getTitle() {
-		return title;
+		return title != null ? title : "";
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class LabelDTO {
 		 * @return the title
 		 */
 		public String getTitle() {
-			return title;
+			return title != null ? title : "";
 		}
 
 		/**
@@ -127,7 +127,7 @@ public class LabelDTO {
 		 * @return the description
 		 */
 		public String getDescription() {
-			return description;
+			return description != null ? description : "";
 		}
 
 		/**
@@ -141,7 +141,7 @@ public class LabelDTO {
 		 * @return the specification
 		 */
 		public String getSpecification() {
-			return specification;
+			return specification != null ? specification : "";
 		}
 
 		/**

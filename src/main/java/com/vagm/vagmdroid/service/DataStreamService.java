@@ -1,6 +1,7 @@
 package com.vagm.vagmdroid.service;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -76,7 +77,8 @@ public final class DataStreamService {
 			InputStream inputStream = null;
 			BufferedReader reader = null;
 			try {
-				inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("NA37Strings/NA37.txt");
+				inputStream = DataStreamService.class.getClassLoader().getResourceAsStream(
+						"assets" + File.separator + "NA37Strings" + File.separator + "NA37.txt");
 				reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 				String st;
 				int i = 0;
