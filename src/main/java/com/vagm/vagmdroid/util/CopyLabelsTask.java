@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.util.Log;
 
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.PropertyService;
@@ -22,14 +24,9 @@ import com.vagm.vagmdroid.service.PropertyService;
 public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 
 	/**
-	 * TAG constant.
+	 * LOG.
 	 */
-	private static final String TAG = "VAGm_LabelUtil";
-
-	/**
-	 * D.
-	 */
-	private static final boolean D = PropertyService.isProduction();
+	private static final Logger LOG = LoggerFactory.getLogger(CopyLabelsTask.class);
 
 	/**
 	 * context.
@@ -53,6 +50,7 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
+		LOG.debug("Begin CopyLabelsTask");
 		progressBar = new ProgressDialog(context);
 		progressBar.setMessage(context.getString(R.string.copying_labels));
 		progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -63,9 +61,6 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 
 	@Override
 	protected Boolean doInBackground(final Void... unused) {
-		if (D) {
-			Log.d(TAG, "Begin copying label files");
-		}
 		InputStream in = null;
 		OutputStream out = null;
 		try {
@@ -93,12 +88,10 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 					in.close();
 					out.close();
 				}
-				if (D) {
-					Log.d(TAG, filesCopied + " files copied");
-				}
+				LOG.debug("{} files copied", filesCopied);
 			}
 		} catch (IOException e) {
-			Log.e(TAG, "Error copying label files", e);
+			LOG.error("Error copying label files", e);
 			return false;
 		} finally {
 			try {
@@ -107,7 +100,7 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 					out.close();
 				}
 			} catch (IOException e) {
-				Log.e(TAG, "Cannot close InputStream / OutputStream", e);
+				LOG.error("Cannot close InputStream / OutputStream", e);
 				return false;
 			}
 		}
@@ -117,6 +110,7 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 	@Override
 	protected void onPostExecute(final Boolean unused) {
 		progressBar.dismiss();
+		LOG.debug("End CopyLabelsTask");
 	}
 
 }

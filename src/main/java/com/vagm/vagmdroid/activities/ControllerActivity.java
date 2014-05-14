@@ -75,11 +75,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private Handler h;
 
 	/**
-	 * bluetoothService.
-	 */
-	private BluetoothService bluetoothService;
-
-	/**
 	 * ecu.
 	 */
 	private String ecu;
@@ -105,7 +100,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				message = (byte[]) msg.obj;
-				LOG.debug("Recieved message from conroller: {}", BufferService.bytesToHex(message));
+				LOG.trace("Recieved message from conroller: {}", BufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (ControllerCommunicationException e) {
@@ -164,7 +159,15 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onCreate(final Bundle savedInstanceState) {
+	protected Handler getHandler() {
+		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_controller);
 		/*if (BluetoothService.getInstance().getState() != ConnectionState.CONNECTED) {
@@ -174,7 +177,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		}*/
 		if (savedInstanceState == null) {
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
-			bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
+			//bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
 			LOG.debug("Sending controller code: {}", controllerCode);
 			getBluetoothService().write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
@@ -182,7 +185,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			progressBar = new ProgressDialog(this);
 			progressBar.setMessage(getString(R.string.connecting_to_controller));
 			progressBar.setCancelable(false);
-			if (!PropertyService.isProduction()) {
+			if (PropertyService.isProduction()) {
 				progressBar.show();
 			}
 			h = new Handler();
@@ -216,24 +219,11 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onSaveInstanceState(final Bundle outState) {
+	protected void onSaveInstanceState(final Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putString(BOUD_RATE, ((TextView) findViewById(R.id.boudRate)).getText().toString());
 		outState.putString(VAG_NUMBER, ((TextView) findViewById(R.id.VAGnumber)).getText().toString());
 		outState.putString(COMPONENT, ((TextView) findViewById(R.id.component)).getText().toString());
-	}
-
-	@Override
-	protected BluetoothService getBluetoothService() {
-		return bluetoothService;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
 	}
 
 	/**

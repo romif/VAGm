@@ -2,6 +2,9 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.enums.VAGmConstans.CONTROLLER_NO_ANSWER;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
@@ -12,6 +15,11 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  * @author Roman_Konovalov
  */
 public final class BufferService {
+	
+	/**
+	 * LOG.
+	 */
+	private static final Logger LOG = LoggerFactory.getLogger(BufferService.class);
 
 	/**
 	 * Constructor.
@@ -103,6 +111,7 @@ public final class BufferService {
 
 		int response = byteToInt(buffer[0]);
 		if (response == VAGmConstans.VAG_BTI_ERROR) {
+			LOG.debug("No data for current group");
 			return new DataStreamDTO[]{DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault()};
 		}
 		if (response != VAGmConstans.VAG_BTI_GROUP_RES) {

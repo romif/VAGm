@@ -100,11 +100,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
 	/**
-	 * bluetoothService.
-	 */
-	private BluetoothService bluetoothService;
-
-	/**
 	 * The Handler that gets information back from the BluetoothCommandService.
 	 */
 	@SuppressLint("HandlerLeak")
@@ -117,7 +112,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 				case CONNECTED:
 					mTitle.setText(R.string.title_connected_to);
 					mTitle.append(mConnectedDeviceName);
-					bluetoothService.write(VAGmConstans.START_CONTROLLER_COMMUNICATION);
+					getBluetoothService().write(VAGmConstans.START_CONTROLLER_COMMUNICATION);
 					disableEnableControls(true, (ViewGroup) findViewById(R.id.mainLayout));
 					connectButton.setEnabled(false);
 					break;
@@ -157,28 +152,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	/**
 	 * {@inheritDoc}
 	 */
-	public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-		if (requestCode == REQUEST_SELECT_DEVICE) {
-			if (resultCode == Activity.RESULT_OK) {
-				// Get the device MAC address
-				final String address = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-				final SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-				final SharedPreferences.Editor editor = sharedPref.edit();
-				editor.putString(getString(R.string.savedDevice), address);
-				editor.commit();
-			}
-		} else if (requestCode == REQUEST_ENABLE_BT) {
-			// When the request to enable Bluetooth returns
-			if (resultCode != Activity.RESULT_OK) {
-				Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
-				finish();
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void onClick(final View v) {
 		if (v.getId() == R.id.bConnectAdapter) {
@@ -187,8 +160,8 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 			if (address != null) {
 				connectButton.setEnabled(false);
 				final BluetoothDevice device = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(address);
-				bluetoothService.setmHandler(mHandler);
-				bluetoothService.connect(device);
+				getBluetoothService().setmHandler(mHandler);
+				getBluetoothService().connect(device);
 			} else {
 				Toast.makeText(MainActivity.this, getString(R.string.btn_not_selected), Toast.LENGTH_LONG).show();
 			}
@@ -212,64 +185,10 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		LOG.debug("onCreate");
-
-		try {
-			PropertyService.init();
-		} catch (IOException e) {
-			LOG.error("Error Loading properties", e);
-			finish();
-		}
-
-		// Set up the window layout
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-		setContentView(R.layout.main);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
-
-		// Set up the custom title
-		mTitle = (TextView) findViewById(R.id.title_left_text);
-		mTitle.setText(R.string.app_name);
-		mTitle = (TextView) findViewById(R.id.title_right_text);
-
-		disableEnableControls(false, (ViewGroup) findViewById(R.id.mainLayout));
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.mainLayout), this);
-		connectButton = (Button) findViewById(R.id.bConnectAdapter);
-		connectButton.setEnabled(true);
-		bluetoothService = BluetoothService.getInstance();
-
-		// If the adapter is null, then Bluetooth is not supported
-		if (!PropertyService.isProduction() && bluetoothAdapter == null) {
-			getControllerNotAnswerAlert().show();
-			return;
-		}
-
-		if (isFirstRun()) {
-			new CopyLabelsTask(this).execute();
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		final MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.main_menu, menu);
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onDestroy() {
-		LOG.debug("MainActivity onDestroy()");
-		super.onDestroy();
-		if (bluetoothService != null) {
-			bluetoothService.stop();
-		}
 	}
 
 	/**
@@ -307,19 +226,104 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		return false;
 	}
 
+	@Override
+	protected BluetoothService getBluetoothService() {
+		return BluetoothService.getInstance();
+	}
+
+	@Override
+	protected Handler getHandler() {
+		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+		if (requestCode == REQUEST_SELECT_DEVICE) {
+			if (resultCode == Activity.RESULT_OK) {
+				// Get the device MAC address
+				final String address = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+				final SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+				final SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString(getString(R.string.savedDevice), address);
+				editor.commit();
+			}
+		} else if (requestCode == REQUEST_ENABLE_BT) {
+			// When the request to enable Bluetooth returns
+			if (resultCode != Activity.RESULT_OK) {
+				Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
+				finish();
+			}
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onResume() {
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		LOG.debug("onCreate");
+
+		try {
+			PropertyService.init();
+		} catch (IOException e) {
+			LOG.error("Error Loading properties", e);
+			finish();
+		}
+
+		// Set up the window layout
+		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+		setContentView(R.layout.main);
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+
+		// Set up the custom title
+		mTitle = (TextView) findViewById(R.id.title_left_text);
+		mTitle.setText(R.string.app_name);
+		mTitle = (TextView) findViewById(R.id.title_right_text);
+
+		disableEnableControls(false, (ViewGroup) findViewById(R.id.mainLayout));
+		setButtonOnClickListner((ViewGroup) findViewById(R.id.mainLayout), this);
+		connectButton = (Button) findViewById(R.id.bConnectAdapter);
+		connectButton.setEnabled(true);
+
+		// If the adapter is null, then Bluetooth is not supported
+		if (PropertyService.isProduction() && bluetoothAdapter == null) {
+			getControllerNotAnswerAlert().show();
+			return;
+		}
+
+		if (isFirstRun()) {
+			new CopyLabelsTask(this).execute();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onDestroy() {
+		LOG.debug("MainActivity onDestroy()");
+		super.onDestroy();
+		if (getBluetoothService() != null) {
+			getBluetoothService().stop();
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onResume() {
 		super.onResume();
 		// Performing this check in onResume() covers the case in which BT was
 		// not enabled during onStart(), so we were paused to enable it...
 		// onResume() will be called when ACTION_REQUEST_ENABLE activity
 		// returns.
-		if (bluetoothService != null) {
-			if (bluetoothService.getState() == ConnectionState.NONE) {
-				bluetoothService.start();
+		if (getBluetoothService() != null) {
+			if (getBluetoothService().getState() == ConnectionState.NONE) {
+				getBluetoothService().start();
 				connectButton.setEnabled(true);
 			}
 		}
@@ -329,7 +333,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void onStart() {
+	protected void onStart() {
 		super.onStart();
 		// If BT is not on, request that it be enabled.
 		// setupCommand() will then be called during onActivityResult
@@ -339,14 +343,15 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		}
 	}
 
-	@Override
-	protected BluetoothService getBluetoothService() {
-		return bluetoothService;
-	}
-
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
+	/**
+	 * isFirstRun.
+	 * @return isFirstRun
+	 */
+	private boolean isFirstRun() {
+		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
+		boolean firstRun = p.getBoolean(PREFERENCE_FIRST_RUN, true);
+		p.edit().putBoolean(PREFERENCE_FIRST_RUN, false).commit();
+		return firstRun;
 	}
 
 	/**
@@ -361,7 +366,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		LOG.debug("Request for {} controller", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode.getCode());
-		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, bluetoothService);
+		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
 		startActivityForResult(controller, -1);
 	}
 
@@ -374,19 +379,8 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		LOG.debug("Request for controller with number: {}", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode);
-		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, bluetoothService);
+		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
 		startActivityForResult(controller, -1);
-	}
-
-	/**
-	 * isFirstRun.
-	 * @return isFirstRun
-	 */
-	private boolean isFirstRun() {
-		SharedPreferences p = PreferenceManager.getDefaultSharedPreferences(this);
-		boolean firstRun = p.getBoolean(PREFERENCE_FIRST_RUN, true);
-		p.edit().putBoolean(PREFERENCE_FIRST_RUN, false).commit();
-		return firstRun;
 	}
 
 }

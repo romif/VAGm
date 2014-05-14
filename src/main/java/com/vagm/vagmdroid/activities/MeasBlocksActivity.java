@@ -26,7 +26,6 @@ import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.util.GetLabelsTask;
@@ -51,11 +50,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * MAX_DATA_LIST_SIZE.
 	 */
 	private static final int MAX_DATA_LIST_SIZE = 1000;
-
-	/**
-	 * bluetoothService.
-	 */
-	private BluetoothService bluetoothService;
 
 	/**
 	 * labels.
@@ -83,7 +77,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				byte[] message = (byte[]) msg.obj;
-				LOG.debug("Recieved message from conroller: {}", BufferService.bytesToHex(message));
+				LOG.trace("Recieved message from conroller: {}", BufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
@@ -107,7 +101,8 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			switch (v.getId()) {
 			case R.id.bGo1:
 				group = getGroup1();
-				bluetoothService.write(getGroup1());
+				LOG.debug("Request for group {}", group);
+				getBluetoothService().write(group);
 				setLabels();
 				break;
 
@@ -116,7 +111,8 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group < 0xFF) {
 					group++;
 					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+					LOG.debug("Request for group {}", group);
+					getBluetoothService().write(group);
 				}
 				setLabels();
 				break;
@@ -126,13 +122,14 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group > 1) {
 					group--;
 					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+					LOG.debug("Request for group {}", group);
+					getBluetoothService().write(group);
 				}
 				setLabels();
 				break;
 
 			case R.id.bGo2:
-				bluetoothService.write(getGroup2());
+				getBluetoothService().write(getGroup2());
 				setLabels();
 				break;
 
@@ -141,7 +138,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group < 0xFF) {
 					group++;
 					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+					getBluetoothService().write(group);
 				}
 				setLabels();
 				break;
@@ -151,13 +148,13 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group > 1) {
 					group--;
 					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+					getBluetoothService().write(group);
 				}
 				setLabels();
 				break;
 			
 			case R.id.bMeasBlocksBack:
-				bluetoothService.write(VAGmConstans.EXIT_COMMAND);
+				getBluetoothService().write(VAGmConstans.EXIT_COMMAND);
 				finish();
 				break;
 
@@ -167,27 +164,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 		} catch (NumberFormatException ex) {
 			Toast.makeText(MeasBlocksActivity.this, getString(R.string.wrong_number), Toast.LENGTH_LONG).show();
 			return;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_meas_blocks);
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.measBlocksLayout), this);
-		bluetoothService =  getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
-		ecu = getIntent().getExtras().getString(ControllerActivity.ECU);
-		try {
-			labels = new GetLabelsTask(this).execute(ecu).get();
-		} catch (InterruptedException e) {
-			LOG.error("Unable to get labels", e);
-			finish();
-		} catch (ExecutionException e) {
-			LOG.error("Unable to get labels", e);
-			finish();
 		}
 	}
 
@@ -211,17 +187,50 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
-	protected BluetoothService getBluetoothService() {
-		return bluetoothService;
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected Handler getHandler() {
 		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onCreate(final Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_meas_blocks);
+		setButtonOnClickListner((ViewGroup) findViewById(R.id.measBlocksLayout), this);
+		ecu = getIntent().getExtras().getString(ControllerActivity.ECU);
+		try {
+			labels = new GetLabelsTask(this).execute(ecu).get();
+		} catch (InterruptedException e) {
+			LOG.error("Unable to get labels", e);
+			finish();
+		} catch (ExecutionException e) {
+			LOG.error("Unable to get labels", e);
+			finish();
+		}
+	}
+
+	/**
+	 * getGroup1.
+	 * @return group
+	 */
+	private int getGroup1() {
+		EditText text = (EditText) findViewById(R.id.groupInput1);
+		return Integer.parseInt(text.getText().toString());
+	}
+
+	/**
+	 * getGroup2.
+	 * @return group
+	 */
+	private int getGroup2() {
+		EditText text = (EditText) findViewById(R.id.group2);
+		return Integer.parseInt(text.getText().toString());
 	}
 
 	/**
@@ -246,24 +255,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			((TextView) findViewById(R.id.block13)).setText(dtos[2].getValue() + dtos[2].getUnit());
 			((TextView) findViewById(R.id.block14)).setText(dtos[3].getValue() + dtos[3].getUnit());
 		}
-	}
-
-	/**
-	 * getGroup1.
-	 * @return group
-	 */
-	private int getGroup1() {
-		EditText text = (EditText) findViewById(R.id.groupInput1);
-		return Integer.parseInt(text.getText().toString());
-	}
-
-	/**
-	 * getGroup2.
-	 * @return group
-	 */
-	private int getGroup2() {
-		EditText text = (EditText) findViewById(R.id.group2);
-		return Integer.parseInt(text.getText().toString());
 	}
 
 	/**
