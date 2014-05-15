@@ -6,6 +6,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+import junit.framework.Assert;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +27,13 @@ import com.vagm.vagmdroid.dto.LabelDTO.Group;
  * @author Roman_Konovalov
  */
 public final class LabelService {
+
+	/**
+	 * COMMENT_SYMBOl.
+	 */
+	private static final String COMMENT_SYMBOL = ";";
+	
+	private static final String LABELS_FOLDER = "labels";
 
 	/**
 	 * LOG.
@@ -111,16 +123,18 @@ public final class LabelService {
 
 	/**
 	 * getLabels.
-	 * @param ecu ecu
+	 * @param fileName fileName
 	 * @return Labels
 	 */
-	public static SparseArray<LabelDTO> getLabels(final String ecu) {
-		LOG.debug("Begin getting labels for ecu: " + ecu);
-		String fileName = getLabelFileName(ecu);
+	public static SparseArray<LabelDTO> getLabels(final String fileName) {
+		//LOG.debug("Begin getting labels for ecu: " + ecu);
+		//String fileName = getLabelFileName(ecu);
 		SparseArray<LabelDTO> result = new SparseArray<LabelDTO>();
 		BufferedReader reader = null;
+		Set<Integer> recordsCount = new HashSet<Integer>();
 		try {
-			File file = new File(Environment.getExternalStorageDirectory() + "/" + PropertyService.getAppName() + "/labels/" + fileName);
+			File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName() + File.separator
+					+ "labels" + File.separator + fileName);
 			if (!file.exists()) {
 				LOG.debug("Label file: " + fileName + " doesn't exist");
 				return result;
@@ -132,17 +146,24 @@ public final class LabelService {
 			int groupNumber;
 			int prevGroupNumber = -1;
 			int blockNumber;
-			boolean newGroup = true;
-			LabelDTO labelDTO = new LabelDTO();
+			boolean firstCycle = true;
+			LabelDTO labelDTO = null;
 			while (((st = reader.readLine()) != null)) {
 				lineCount++;
-				if (st.equals("") || st.startsWith(";")) {
+				//skip empty string and comments
+				if (st.equals("") || st.startsWith(COMMENT_SYMBOL)) {
 					continue;
 				}
 
 				String[] tokens = st.split(",");
 				if (tokens.length < 2) {
 					LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
+					continue;
+				}
+
+				//skip adaptation, basic and coding labels
+				if (tokens[0].toUpperCase(Locale.ENGLISH).startsWith("A") || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("B")
+						|| tokens[0].toUpperCase(Locale.ENGLISH).startsWith("C")) {
 					continue;
 				}
 
@@ -159,23 +180,30 @@ public final class LabelService {
 					continue;
 				}
 
+				//skip 0 group
 				if (groupNumber == 0) {
 					continue;
 				}
 
-				if (newGroup) {
+				recordsCount.add(groupNumber);
+
+				if (firstCycle) {
 					prevGroupNumber = groupNumber;
-					newGroup = false;
-					fillLabel(labelDTO, tokens, blockNumber);
-				} else {
-					if (groupNumber != prevGroupNumber) {
-						result.put(prevGroupNumber, labelDTO);
-						newGroup = true;
-						labelDTO = new LabelDTO();
-					}
-					fillLabel(labelDTO, tokens, blockNumber);
+					labelDTO = new LabelDTO();
+					firstCycle = false;
 				}
 
+				if (groupNumber != prevGroupNumber) {
+					result.put(prevGroupNumber, labelDTO);
+					labelDTO = new LabelDTO();
+				}
+
+				prevGroupNumber = groupNumber;
+				fillLabel(labelDTO, tokens, blockNumber);
+
+			}
+			if (labelDTO != null) {
+				result.put(prevGroupNumber, labelDTO);
 			}
 
 		} catch (final IOException ex) {
@@ -189,6 +217,7 @@ public final class LabelService {
 				}
 			}
 		}
+		Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
 		LOG.debug("Found group records: " + result.size());
 		return result;
 	}

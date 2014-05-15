@@ -7,11 +7,19 @@ import java.util.Properties;
 
 import junit.framework.Assert;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The Class PropertyService.
  * @author Roman_Konovalov
  */
 public final class PropertyService {
+
+	/**
+	 * LOG.
+	 */
+	private static final Logger LOG = LoggerFactory.getLogger(PropertyService.class);
 
 	/**
 	 * DEFAULT_PROPERTIES_FILENAME.
@@ -20,15 +28,35 @@ public final class PropertyService {
 
 
 	/**
-	 * DEBUG.
+	 * PRODUCTION_PREFIX_KEY.
 	 */
 	private static final String PRODUCTION_PREFIX_KEY = "vagm.production";
 
 
 	/**
-	 * APP_NAME.
+	 * NAME_PREFIX_KEY.
 	 */
 	private static final String NAME_PREFIX_KEY = "vagm.name";
+
+	/**
+	 * LABELS_FOLDER_PREFIX_KEY.
+	 */
+	private static final String LABELS_FOLDER_PREFIX_KEY = "vagm.labels.folder";
+
+	/**
+	 * DEFAULT_NAME.
+	 */
+	private static final String DEFAULT_NAME = "VAGm";
+
+	/**
+	 * DEFAULT_PRODUCTION.
+	 */
+	private static final String DEFAULT_PRODUCTION = "true";
+
+	/**
+	 * DEFAULT_LABELS_FOLDER.
+	 */
+	private static final String DEFAULT_LABELS_FOLDER = "labels";
 
 	/**
 	 * propertiesFileName.
@@ -48,18 +76,29 @@ public final class PropertyService {
 
 	/**
 	 * constructor.
-	 * @throws IOException
+	 * @throws IOException if an error occurs
 	 */
 	private PropertyService() throws IOException {
+		InputStream inputStream = null;
+		try {
 		String fileName = propertiesFileName == null ? DEFAULT_PROPERTIES_FILENAME : propertiesFileName;
-		InputStream inputStream = PropertyService.class.getClassLoader().getResourceAsStream("assets" + File.separator + fileName);
+		inputStream = PropertyService.class.getClassLoader().getResourceAsStream("assets" + File.separator + fileName);
 		properties = new Properties();
 		properties.load(inputStream);
+		} finally {
+			if (inputStream != null) {
+				try {
+				inputStream.close();
+				} catch (IOException ex) {
+					LOG.error("Cannot close inputStream", ex);
+				}
+			}
+		}
 	}
 
 	/**
 	 * init.
-	 * @throws IOException
+	 * @throws IOException if an error occurs
 	 */
 	public static void init() throws IOException {
 		if (instance == null) {
@@ -70,9 +109,9 @@ public final class PropertyService {
 	/**
 	 * init.
 	 * @param fileName fileName
-	 * @throws IOException
+	 * @throws IOException if an error occurs
 	 */
-	public static void init(String fileName) throws IOException {
+	public static void init(final String fileName) throws IOException {
 		if (instance == null) {
 			propertiesFileName = fileName;
 			instance = new PropertyService();
@@ -85,7 +124,7 @@ public final class PropertyService {
 	 */
 	public static boolean isProduction() {
 		Assert.assertNotNull("First init", instance);
-		return properties.getProperty(PRODUCTION_PREFIX_KEY, "dev").equals("prod");
+		return properties.getProperty(PRODUCTION_PREFIX_KEY, DEFAULT_PRODUCTION).equals("true");
 	}
 
 	/**
@@ -94,7 +133,16 @@ public final class PropertyService {
 	 */
 	public static String getAppName() {
 		Assert.assertNotNull("First init", instance);
-		return properties.getProperty(NAME_PREFIX_KEY);
+		return properties.getProperty(NAME_PREFIX_KEY, DEFAULT_NAME);
+	}
+
+	/**
+	 * getLabelsFolder.
+	 * @return LabelsFolder
+	 */
+	public static String getLabelsFolder() {
+		Assert.assertNotNull("First init", instance);
+		return properties.getProperty(LABELS_FOLDER_PREFIX_KEY, DEFAULT_LABELS_FOLDER);
 	}
 
 }

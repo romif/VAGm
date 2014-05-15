@@ -1,6 +1,15 @@
 package com.vagm.vagmdroid.service;
 
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
+
+import java.io.File;
+
+import android.os.Environment;
 import android.test.AndroidTestCase;
+import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -70,14 +79,69 @@ public class LabelServiceTest extends AndroidTestCase {
 	}
 
 	/**
+	 * testGetLabelFileName4.
+	 */
+	public final void testGetLabelFileName4() {
+		assertEquals("028-906-021-AHU.lbl", LabelService.getLabelFileName(ECU_INFO[1]));
+	}
+
+	/**
+	 * testGetLabelFileName5.
+	 */
+	public final void testGetLabelFileName5() {
+		assertEquals("8E0-614-111-EDS.lbl", LabelService.getLabelFileName(ECU_INFO1[1]));
+	}
+
+	/**
+	 * testGetLabelFileName6.
+	 */
+	public final void testGetLabelFileName6() {
+		assertEquals("3B0-919-xxx-17.lbl", LabelService.getLabelFileName(ECU_INFO2[1]));
+	}
+
+	/**
+	 * testGetLabelFileName7.
+	 */
+	public final void testGetLabelFileName7() {
+		assertEquals("3B0-959-79x-46.lbl", LabelService.getLabelFileName(ECU_INFO3[1]));
+	}
+
+	/**
 	 * testGetLabels.
 	 */
 	public final void testGetLabels() {
-		SparseArray<LabelDTO> array = LabelService.getLabels(ECU);
-		for (int i=0; i<array.size();i++){
-		Log.d("TEST", array.valueAt(i).toString());
+		String fileNAme = LabelService.getLabelFileName(ECU);
+		SparseArray<LabelDTO> array = LabelService.getLabels(fileNAme);
+		for (int i = 0; i < array.size(); i++) {
+			Log.d("TEST", array.valueAt(i).toString());
 		}
-		assertEquals(10, array.size());
+		assertEquals(11, array.size());
+	}
+
+	/**
+	 * testAllLabels.
+	 */
+	@LargeTest
+	public final void testAllLabels() {
+		String[] fileNames = getAllFileNames();
+		for (String fileName:fileNames) {
+			if (fileName.length() < 10) {
+				continue;
+			}
+			Log.d("TEST", fileName + ": records count: " + LabelService.getLabels(fileName).size());
+		}
+	}
+
+	/**
+	 * getAllFileNames.
+	 * @return AllFileNames
+	 */
+	private String[] getAllFileNames() {
+		File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName() + "/labels");
+		if (file.isDirectory()) {
+			return file.list();
+		}
+		return null;
 	}
 
 }

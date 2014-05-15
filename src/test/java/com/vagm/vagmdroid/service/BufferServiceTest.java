@@ -2,16 +2,16 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY1;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY2;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY3;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGATIVE;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
+import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
-
-import java.util.List;
-
 import junit.framework.Assert;
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
@@ -50,6 +50,36 @@ public class BufferServiceTest extends AndroidTestCase {
 		Assert.assertEquals(ECU_INFO1[0], result[0]);
 		Assert.assertEquals(ECU_INFO1[1], result[1]);
 		Assert.assertEquals(ECU_INFO1[2], result[2]);
+	}
+
+	/**
+	 * testGetControllerInfo2.
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public final void testGetControllerInfo2() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = {"", "", "" };
+		for (String message : BUFFER_STRING_ARRAY2) {
+			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
+		}
+		Assert.assertEquals(ECU_INFO2[0], result[0]);
+		Assert.assertEquals(ECU_INFO2[1], result[1]);
+		Assert.assertEquals(ECU_INFO2[2], result[2]);
+	}
+
+	/**
+	 * testGetControllerInfo3.
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public final void testGetControllerInfo3() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = {"", "", "" };
+		for (String message : BUFFER_STRING_ARRAY3) {
+			result = BufferService.getControllerInfo(hexStringToByteArray(message), result);
+		}
+		Assert.assertEquals(ECU_INFO3[0], result[0]);
+		Assert.assertEquals(ECU_INFO3[1], result[1]);
+		Assert.assertEquals(ECU_INFO3[2], result[2]);
 	}
 
 	/**

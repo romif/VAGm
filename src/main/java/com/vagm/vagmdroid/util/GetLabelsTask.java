@@ -54,7 +54,8 @@ public class GetLabelsTask extends AsyncTask<String, Integer, SparseArray<LabelD
 
 	@Override
 	protected SparseArray<LabelDTO> doInBackground(final String... ecu) {
-		return LabelService.getLabels(ecu[0]);
+		String fileName = LabelService.getLabelFileName(ecu[0]);
+		return LabelService.getLabels(fileName);
 	}
 
 	@Override
