@@ -59,6 +59,26 @@ public final class TestConstatnts {
 			"f600200214bf" };
 
 	/**
+	 * BUFFER_MEAS_BLOCKS_4GROUPS.
+	 */
+	public static final String BUFFER_MEAS_BLOCKS_4GROUPS = "e7076401076401076401076401";
+
+	/**
+	 * BUFFER_MEAS_BLOCKS_3GROUPS.
+	 */
+	public static final String BUFFER_MEAS_BLOCKS_3GROUPS = "e7108000102010101010";
+
+	/**
+	 * BUFFER_MEAS_BLOCKS_2GROUPS.
+	 */
+	public static final String BUFFER_MEAS_BLOCKS_2GROUPS = "e7245b81136409";
+
+	/**
+	 * BUFFER_MEAS_BLOCKS_1GROUPS.
+	 */
+	public static final String BUFFER_MEAS_BLOCKS_1GROUPS = "e7050a82";
+
+	/**
 	 * ECU_INFO3.
 	 */
 	public static final String[] ECU_INFO3 = {"9803", "3B0959796 K", " Zentral-SG Komfort  V41 " };

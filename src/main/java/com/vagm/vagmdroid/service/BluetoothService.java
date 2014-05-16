@@ -18,12 +18,14 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.inject.Singleton;
 import com.vagm.vagmdroid.activities.MainActivity;
 
 /**
  * The Class BluetoothCommandService.
  * @author Roman_Konovalov
  */
+@Singleton
 public class BluetoothService implements Parcelable {
 
 	/**

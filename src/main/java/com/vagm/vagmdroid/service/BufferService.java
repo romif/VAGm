@@ -2,9 +2,12 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.enums.VAGmConstans.CONTROLLER_NO_ANSWER;
 
+import javax.inject.Singleton;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
@@ -14,17 +17,24 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  * The Class BufferService.
  * @author Roman_Konovalov
  */
-public final class BufferService {
-	
+@Singleton
+public class BufferService {
+
 	/**
 	 * LOG.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(BufferService.class);
 
 	/**
+	 * dataStreamService.
+	 */
+	@Inject
+	private DataStreamService dataStreamService;
+
+	/**
 	 * Constructor.
 	 */
-	private BufferService() {
+	public BufferService() {
 	}
 
 	/**
@@ -33,7 +43,7 @@ public final class BufferService {
 	 *            in
 	 * @return String
 	 */
-	public static String bytesToHex(final byte[] in) {
+	public String bytesToHex(final byte[] in) {
 		final StringBuilder builder = new StringBuilder();
 		for (final byte b : in) {
 			builder.append(String.format("%02x", b));
@@ -49,7 +59,7 @@ public final class BufferService {
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
-	public static String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
+	public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
 			throws ControllerCommunicationException, ControllerWrongResponseException {
 		final String[] result = controllerInfo;
 		if (buffer.length == 1) {
@@ -105,28 +115,38 @@ public final class BufferService {
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
-	public static DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
 		if (buffer.length == 1) {
 			if (buffer[0] == CONTROLLER_NO_ANSWER) {
 				throw new ControllerCommunicationException();
 			}
 		}
 
-		int response = byteToInt(buffer[0]);
-		if (response == VAGmConstans.VAG_BTI_ERROR) {
+		int responseCode = byteToInt(buffer[0]);
+		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
 			LOG.debug("No data for current group");
 			return new DataStreamDTO[]{DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault()};
 		}
-		if (response != VAGmConstans.VAG_BTI_GROUP_RES) {
-			throw new ControllerWrongResponseException("Wrong response from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
-					+ ", but was: " + response);
+		if (responseCode != VAGmConstans.VAG_BTI_GROUP_RES) {
+			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
+					+ ", but was: " + responseCode);
+		}
+		if ((buffer.length - 1) % 3 != 0) {
+			throw new ControllerWrongResponseException("Wrong response length from controller: expected multiplicity of three, but was: "
+					+ (buffer.length - 1));
 		}
 
+		int groupsCount = (buffer.length - 1) / 3;
+
 		DataStreamDTO[] dtos = new DataStreamDTO[4];
-		for (int i = 0; i < 4; i++) {
-			dtos[i] = DataStreamService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
+		for (int i = 0; i < groupsCount; i++) {
+			dtos[i] = dataStreamService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
 					byteToInt(buffer[i * 3 + 3]));
 		}
+		for (int i = groupsCount - 1; i < 4; i++) {
+			dtos[i] = DataStreamDTO.getDefault();
+		}
+
 		return dtos;
 	}
 
@@ -136,7 +156,7 @@ public final class BufferService {
 	 *            String
 	 * @return byte[]
 	 */
-	public static byte[] hexStringToByteArray(final String s) {
+	public byte[] hexStringToByteArray(final String s) {
 		int len = s.length();
 		byte[] data = new byte[len / 2];
 		for (int i = 0; i < len; i += 2) {

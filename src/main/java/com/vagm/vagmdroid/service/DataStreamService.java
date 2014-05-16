@@ -9,13 +9,15 @@ import java.io.InputStreamReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Singleton;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 
 /**
  * The Class DataStreamService.
  * @author Roman_Konovalov
  */
-public final class DataStreamService {
+@Singleton
+public class DataStreamService {
 
 	/**
 	 * LOG.
@@ -30,7 +32,7 @@ public final class DataStreamService {
 	/**
 	 * constructor.
 	 */
-	private DataStreamService() {
+	public DataStreamService() {
 	}
 
 	/**
@@ -109,7 +111,7 @@ public final class DataStreamService {
 	 * @param blockCode blockCode
 	 * @return DataStreamDTO
 	 */
-	public static DataStreamDTO encodeGroupData( final int blockCode, final int blockData1, final int blockData2) {
+	public DataStreamDTO encodeGroupData( final int blockCode, final int blockData1, final int blockData2) {
 		final DataStreamDTO dto = new DataStreamDTO();
 		String value = "";
 		String unit = "";

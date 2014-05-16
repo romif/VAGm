@@ -2,8 +2,7 @@ package com.vagm.vagmdroid.activities;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import junit.framework.Assert;
-import android.app.Activity;
+import roboguice.activity.RoboActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.exceptions.ExceptionHandler;
 import com.vagm.vagmdroid.service.BluetoothService;
@@ -21,7 +21,7 @@ import com.vagm.vagmdroid.service.BluetoothService;
  * The Class CustomAbstractActivity.
  * @author Roman_Konovalov
  */
-public abstract class CustomAbstractActivity extends Activity {
+public abstract class CustomAbstractActivity extends RoboActivity {
 
 	/**
 	 * defaultUEH.
@@ -32,6 +32,12 @@ public abstract class CustomAbstractActivity extends Activity {
 	 * alertDialog.
 	 */
 	private AlertDialog alertDialog;
+
+	/**
+	 * bluetoothService.
+	 */
+	@Inject
+	protected BluetoothService bluetoothService;
 
 	/**
 	 * @return the defaultUEH
@@ -68,15 +74,6 @@ public abstract class CustomAbstractActivity extends Activity {
 				child.setEnabled(enable);
 			}
 		}
-	}
-
-	/**
-	 * @return the bluetoothService
-	 */
-	protected BluetoothService getBluetoothService() {
-		BluetoothService bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
-		Assert.assertTrue("bluetoothService must not be null, implement getBluetoothService()", bluetoothService != null);
-		return bluetoothService;
 	}
 
 	/**
@@ -125,7 +122,7 @@ public abstract class CustomAbstractActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getBluetoothService().setmHandler(getHandler());
+		bluetoothService.setmHandler(getHandler());
 	}
 
 	/**

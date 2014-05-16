@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import android.os.Environment;
 import android.util.SparseArray;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.vagm.vagmdroid.activities.MainActivity;
 import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.dto.LabelDTO.Group;
@@ -26,24 +28,29 @@ import com.vagm.vagmdroid.dto.LabelDTO.Group;
  * The Class LabelService.
  * @author Roman_Konovalov
  */
-public final class LabelService {
+@Singleton
+public class LabelService {
 
 	/**
 	 * COMMENT_SYMBOl.
 	 */
 	private static final String COMMENT_SYMBOL = ";";
-	
-	private static final String LABELS_FOLDER = "labels";
 
 	/**
 	 * LOG.
 	 */
-	private static final Logger LOG = LoggerFactory.getLogger(MainActivity.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LabelService.class);
+
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
 
 	/**
 	 * constructor.
 	 */
-	private LabelService() {
+	public LabelService() {
 	}
 
 	/**
@@ -52,7 +59,7 @@ public final class LabelService {
 	 *            fullEcu
 	 * @return LabelFileName
 	 */
-	public static String getLabelFileName(final String fullEcu) {
+	public String getLabelFileName(final String fullEcu) {
 		String ecu = fullEcu;
 		String ecuLit = "";
 		String result = null;
@@ -126,14 +133,14 @@ public final class LabelService {
 	 * @param fileName fileName
 	 * @return Labels
 	 */
-	public static SparseArray<LabelDTO> getLabels(final String fileName) {
+	public SparseArray<LabelDTO> getLabels(final String fileName) {
 		//LOG.debug("Begin getting labels for ecu: " + ecu);
 		//String fileName = getLabelFileName(ecu);
 		SparseArray<LabelDTO> result = new SparseArray<LabelDTO>();
 		BufferedReader reader = null;
 		Set<Integer> recordsCount = new HashSet<Integer>();
 		try {
-			File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName() + File.separator
+			File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
 					+ "labels" + File.separator + fileName);
 			if (!file.exists()) {
 				LOG.debug("Label file: " + fileName + " doesn't exist");

@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,7 +22,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.vagm.vagmdroid.R;
-import com.vagm.vagmdroid.service.BluetoothService;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and devices
@@ -32,7 +30,7 @@ import com.vagm.vagmdroid.service.BluetoothService;
  * result Intent.
  * @author Roman_Konovalov
  */
-public class DeviceListActivity extends CustomAbstractActivity {
+public class DeviceListActivity extends Activity {
 
 	/**
 	 * TAG constant.
@@ -214,15 +212,5 @@ public class DeviceListActivity extends CustomAbstractActivity {
 			}
 		}
 	};
-
-	@Override
-	protected BluetoothService getBluetoothService() {
-		return BluetoothService.getInstance();
-	}
-
-	@Override
-	protected Handler getHandler() {
-		return new Handler();
-	}
 
 }

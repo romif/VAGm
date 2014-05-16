@@ -13,6 +13,7 @@ import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.dto.LabelDTO;
 
 /**
@@ -49,69 +50,80 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * ECU.
 	 */
-	public static final String ECU = "3C0959760";
+	public static final String ECU = "028906021GL";
+
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;	
+	
+	/**
+	 * labelService.
+	 */
+	@Inject
+	private LabelService labelService;
 
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		PropertyService.init();
 	}
 
 	/**
 	 * testGetLabelFileName.
 	 */
 	public final void testGetLabelFileName1() {
-		assertEquals("1K0-959-704-GEN2.lbl", LabelService.getLabelFileName("1K0959704E"));
+		assertEquals("1K0-959-704-GEN2.lbl", labelService.getLabelFileName("1K0959704E"));
 	}
 
 	/**
 	 * testGetLabelFileName2.
 	 */
 	public final void testGetLabelFileName2() {
-		assertEquals("1K0-920-xxx-17.lbl", LabelService.getLabelFileName("1P0920A23"));
+		assertEquals("1K0-920-xxx-17.lbl", labelService.getLabelFileName("1P0920A23"));
 	}
 
 	/**
 	 * testGetLabelFileName3.
 	 */
 	public final void testGetLabelFileName3() {
-		assertEquals("3C0-959-760.lbl", LabelService.getLabelFileName("1T0959701Z"));
+		assertEquals("3C0-959-760.lbl", labelService.getLabelFileName("1T0959701Z"));
 	}
 
 	/**
 	 * testGetLabelFileName4.
 	 */
 	public final void testGetLabelFileName4() {
-		assertEquals("028-906-021-AHU.lbl", LabelService.getLabelFileName(ECU_INFO[1]));
+		assertEquals("028-906-021-AHU.lbl", labelService.getLabelFileName(ECU_INFO[1]));
 	}
 
 	/**
 	 * testGetLabelFileName5.
 	 */
 	public final void testGetLabelFileName5() {
-		assertEquals("8E0-614-111-EDS.lbl", LabelService.getLabelFileName(ECU_INFO1[1]));
+		assertEquals("8E0-614-111-EDS.lbl", labelService.getLabelFileName(ECU_INFO1[1]));
 	}
 
 	/**
 	 * testGetLabelFileName6.
 	 */
 	public final void testGetLabelFileName6() {
-		assertEquals("3B0-919-xxx-17.lbl", LabelService.getLabelFileName(ECU_INFO2[1]));
+		assertEquals("3B0-919-xxx-17.lbl", labelService.getLabelFileName(ECU_INFO2[1]));
 	}
 
 	/**
 	 * testGetLabelFileName7.
 	 */
 	public final void testGetLabelFileName7() {
-		assertEquals("3B0-959-79x-46.lbl", LabelService.getLabelFileName(ECU_INFO3[1]));
+		assertEquals("3B0-959-79x-46.lbl", labelService.getLabelFileName(ECU_INFO3[1]));
 	}
 
 	/**
 	 * testGetLabels.
 	 */
 	public final void testGetLabels() {
-		String fileNAme = LabelService.getLabelFileName(ECU);
-		SparseArray<LabelDTO> array = LabelService.getLabels(fileNAme);
+		String fileNAme = labelService.getLabelFileName(ECU);
+		SparseArray<LabelDTO> array = labelService.getLabels(fileNAme);
 		for (int i = 0; i < array.size(); i++) {
 			Log.d("TEST", array.valueAt(i).toString());
 		}
@@ -128,7 +140,7 @@ public class LabelServiceTest extends AndroidTestCase {
 			if (fileName.length() < 10) {
 				continue;
 			}
-			Log.d("TEST", fileName + ": records count: " + LabelService.getLabels(fileName).size());
+			Log.d("TEST", fileName + ": records count: " + labelService.getLabels(fileName).size());
 		}
 	}
 
@@ -137,7 +149,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	 * @return AllFileNames
 	 */
 	private String[] getAllFileNames() {
-		File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName() + "/labels");
+		File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + "/labels");
 		if (file.isDirectory()) {
 			return file.list();
 		}

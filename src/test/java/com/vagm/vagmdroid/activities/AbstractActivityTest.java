@@ -38,10 +38,9 @@ public abstract class AbstractActivityTest <T extends Activity> extends Activity
 	 */
 	public void setUp() throws Exception {
 	    super.setUp();
-	    PropertyService.init();
 	    intent = new Intent();
 		intent.putExtra(MainActivity.CONTROLLER_CODE, 0x01);
-		intent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, BluetoothService.getInstance());
+		//intent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, BluetoothService.getInstance());
 		intent.putExtra(ControllerActivity.ECU, LabelServiceTest.ECU);
 		setActivityIntent(intent);
 		solo = new Solo(getInstrumentation(), getActivity());

@@ -35,6 +35,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.roboguice</groupId>
+			<artifactId>roboguice</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.jayway.android.robotium</groupId>
 			<artifactId>robotium-solo</artifactId>
 			<version>5.1</version>

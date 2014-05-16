@@ -1,7 +1,6 @@
 package com.vagm.vagmdroid.activities;
 
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
@@ -28,7 +28,7 @@ import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
-import com.vagm.vagmdroid.util.GetLabelsTask;
+import com.vagm.vagmdroid.service.LabelService;
 
 /**
  * The Class MeasBlocksActivity.
@@ -67,6 +67,18 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	private Integer group;
 
 	/**
+	 * bufferService.
+	 */
+	@Inject
+	private BufferService bufferService;
+
+	/**
+	 * labelService.
+	 */
+	@Inject
+	private LabelService labelService;
+
+	/**
 	 * The Handler that gets information back from the BluetoothService.
 	 */
 	@SuppressLint("HandlerLeak")
@@ -77,7 +89,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				byte[] message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", BufferService.bytesToHex(message));
+				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
@@ -102,7 +114,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			case R.id.bGo1:
 				group = getGroup1();
 				LOG.debug("Request for group {}", group);
-				getBluetoothService().write(group);
+				bluetoothService.write(group);
 				setLabels();
 				break;
 
@@ -112,7 +124,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 					group++;
 					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
 					LOG.debug("Request for group {}", group);
-					getBluetoothService().write(group);
+					bluetoothService.write(group);
 				}
 				setLabels();
 				break;
@@ -123,13 +135,13 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 					group--;
 					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
 					LOG.debug("Request for group {}", group);
-					getBluetoothService().write(group);
+					bluetoothService.write(group);
 				}
 				setLabels();
 				break;
 
 			case R.id.bGo2:
-				getBluetoothService().write(getGroup2());
+				bluetoothService.write(getGroup2());
 				setLabels();
 				break;
 
@@ -138,7 +150,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group < 0xFF) {
 					group++;
 					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					getBluetoothService().write(group);
+					bluetoothService.write(group);
 				}
 				setLabels();
 				break;
@@ -148,13 +160,13 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				if (group > 1) {
 					group--;
 					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					getBluetoothService().write(group);
+					bluetoothService.write(group);
 				}
 				setLabels();
 				break;
-			
+
 			case R.id.bMeasBlocksBack:
-				getBluetoothService().write(VAGmConstans.EXIT_COMMAND);
+				bluetoothService.write(VAGmConstans.EXIT_COMMAND);
 				finish();
 				break;
 
@@ -201,18 +213,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LOG.debug("onCreate");
 		setContentView(R.layout.activity_meas_blocks);
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.measBlocksLayout), this);
 		ecu = getIntent().getExtras().getString(ControllerActivity.ECU);
-		try {
-			labels = new GetLabelsTask(this).execute(ecu).get();
-		} catch (InterruptedException e) {
-			LOG.error("Unable to get labels", e);
-			finish();
-		} catch (ExecutionException e) {
-			LOG.error("Unable to get labels", e);
-			finish();
-		}
+		String fileName = labelService.getLabelFileName(ecu);
+		labels = labelService.getLabels(fileName);
 	}
 
 	/**
@@ -240,7 +246,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
-		DataStreamDTO[] dtos = BufferService.getMeasBlocksInfo(message);
+		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 		if (dtos != null) {
 			if (dataList.size() > MAX_DATA_LIST_SIZE) {
 				dataList.removeFirst();

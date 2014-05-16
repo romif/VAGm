@@ -1,7 +1,5 @@
 package com.vagm.vagmdroid.activities;
 
-import java.io.IOException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,10 +27,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.ControllerCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
-import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ConnectionState;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.PropertyService;
@@ -98,6 +96,12 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 * bluetoothAdapter.
 	 */
 	private BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+	
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
 
 	/**
 	 * The Handler that gets information back from the BluetoothCommandService.
@@ -112,7 +116,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 				case CONNECTED:
 					mTitle.setText(R.string.title_connected_to);
 					mTitle.append(mConnectedDeviceName);
-					getBluetoothService().write(VAGmConstans.START_CONTROLLER_COMMUNICATION);
+					bluetoothService.write(VAGmConstans.START_CONTROLLER_COMMUNICATION);
 					disableEnableControls(true, (ViewGroup) findViewById(R.id.mainLayout));
 					connectButton.setEnabled(false);
 					break;
@@ -160,8 +164,8 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 			if (address != null) {
 				connectButton.setEnabled(false);
 				final BluetoothDevice device = BluetoothAdapter.getDefaultAdapter().getRemoteDevice(address);
-				getBluetoothService().setmHandler(mHandler);
-				getBluetoothService().connect(device);
+				bluetoothService.setmHandler(mHandler);
+				bluetoothService.connect(device);
 			} else {
 				Toast.makeText(MainActivity.this, getString(R.string.btn_not_selected), Toast.LENGTH_LONG).show();
 			}
@@ -226,10 +230,10 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		return false;
 	}
 
-	@Override
+	/*@Override
 	protected BluetoothService getBluetoothService() {
 		return BluetoothService.getInstance();
-	}
+	}*/
 
 	@Override
 	protected Handler getHandler() {
@@ -266,13 +270,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
 
-		try {
-			PropertyService.init();
-		} catch (IOException e) {
-			LOG.error("Error Loading properties", e);
-			finish();
-		}
-
 		// Set up the window layout
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.main);
@@ -289,7 +286,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		connectButton.setEnabled(true);
 
 		// If the adapter is null, then Bluetooth is not supported
-		if (PropertyService.isProduction() && bluetoothAdapter == null) {
+		if (propertyService.isProduction() && bluetoothAdapter == null) {
 			getControllerNotAnswerAlert().show();
 			return;
 		}
@@ -297,6 +294,26 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		if (isFirstRun()) {
 			new CopyLabelsTask(this).execute();
 		}
+		
+		/*String url = "http://vagm-romif.rhcloud.com/uploadFile";
+		File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName(),
+		        "VAGm.log");
+		try {
+		    HttpClient httpclient = new DefaultHttpClient();
+
+		    HttpPost httppost = new HttpPost(url);
+
+		    InputStreamEntity reqEntity = new InputStreamEntity(
+		            new FileInputStream(file), -1);
+		    reqEntity.setContentType("multipart/form-data");
+		    reqEntity.setChunked(true); // Send in multiple parts if needed
+		    httppost.setEntity(reqEntity);
+		    HttpResponse response = httpclient.execute(httppost);
+		    //Do something with response...
+
+		} catch (Exception e) {
+		    LOG.error("Error", e);
+		}*/
 	}
 
 	/**
@@ -306,9 +323,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	protected void onDestroy() {
 		LOG.debug("MainActivity onDestroy()");
 		super.onDestroy();
-		if (getBluetoothService() != null) {
-			getBluetoothService().stop();
-		}
+		bluetoothService.stop();
 	}
 
 	/**
@@ -321,11 +336,9 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		// not enabled during onStart(), so we were paused to enable it...
 		// onResume() will be called when ACTION_REQUEST_ENABLE activity
 		// returns.
-		if (getBluetoothService() != null) {
-			if (getBluetoothService().getState() == ConnectionState.NONE) {
-				getBluetoothService().start();
-				connectButton.setEnabled(true);
-			}
+		if (bluetoothService.getState() == ConnectionState.NONE) {
+			bluetoothService.start();
+			connectButton.setEnabled(true);
 		}
 	}
 
@@ -366,7 +379,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		LOG.debug("Request for {} controller", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode.getCode());
-		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
 		startActivityForResult(controller, -1);
 	}
 
@@ -379,7 +391,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		LOG.debug("Request for controller with number: {}", controllerCode);
 		final Intent controller = new Intent(this, ControllerActivity.class);
 		controller.putExtra(CONTROLLER_CODE, controllerCode);
-		controller.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
 		startActivityForResult(controller, -1);
 	}
 

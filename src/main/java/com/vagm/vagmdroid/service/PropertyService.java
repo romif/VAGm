@@ -10,11 +10,14 @@ import junit.framework.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.inject.Singleton;
+
 /**
  * The Class PropertyService.
  * @author Roman_Konovalov
  */
-public final class PropertyService {
+@Singleton
+public class PropertyService {
 
 	/**
 	 * LOG.
@@ -70,15 +73,10 @@ public final class PropertyService {
 	private static Properties properties;
 
 	/**
-	 * instance.
-	 */
-	private static PropertyService instance;
-
-	/**
 	 * constructor.
 	 * @throws IOException if an error occurs
 	 */
-	private PropertyService() throws IOException {
+	public PropertyService() throws IOException {
 		InputStream inputStream = null;
 		try {
 		String fileName = propertiesFileName == null ? DEFAULT_PROPERTIES_FILENAME : propertiesFileName;
@@ -97,33 +95,10 @@ public final class PropertyService {
 	}
 
 	/**
-	 * init.
-	 * @throws IOException if an error occurs
-	 */
-	public static void init() throws IOException {
-		if (instance == null) {
-			instance = new PropertyService();
-		}
-	}
-
-	/**
-	 * init.
-	 * @param fileName fileName
-	 * @throws IOException if an error occurs
-	 */
-	public static void init(final String fileName) throws IOException {
-		if (instance == null) {
-			propertiesFileName = fileName;
-			instance = new PropertyService();
-		}
-	}
-
-	/**
 	 * isDebug.
 	 * @return isDebug
 	 */
-	public static boolean isProduction() {
-		Assert.assertNotNull("First init", instance);
+	public boolean isProduction() {
 		return properties.getProperty(PRODUCTION_PREFIX_KEY, DEFAULT_PRODUCTION).equals("true");
 	}
 
@@ -131,8 +106,7 @@ public final class PropertyService {
 	 * getAppName.
 	 * @return AppName
 	 */
-	public static String getAppName() {
-		Assert.assertNotNull("First init", instance);
+	public String getAppName() {
 		return properties.getProperty(NAME_PREFIX_KEY, DEFAULT_NAME);
 	}
 
@@ -140,8 +114,7 @@ public final class PropertyService {
 	 * getLabelsFolder.
 	 * @return LabelsFolder
 	 */
-	public static String getLabelsFolder() {
-		Assert.assertNotNull("First init", instance);
+	public String getLabelsFolder() {
 		return properties.getProperty(LABELS_FOLDER_PREFIX_KEY, DEFAULT_LABELS_FOLDER);
 	}
 

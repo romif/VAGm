@@ -1,5 +1,6 @@
 package com.vagm.vagmdroid.service;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 
 import android.test.AndroidTestCase;
@@ -32,10 +33,16 @@ public class DataStreamServiceTest extends AndroidTestCase {
 	private static final DataStreamDTO DATA_STREAM_DTO_NA37_LAST = new DataStreamDTO("извлечен", "", 0.0f);
 
 	/**
+	 * dataStreamService.
+	 */
+	@Inject
+	private DataStreamService dataStreamService;
+
+	/**
 	 * testEncodeGroupData.
 	 */
 	public final void testEncodeGroupData() {
-		DataStreamDTO dto = DataStreamService.encodeGroupData(3, 3, 3);
+		DataStreamDTO dto = dataStreamService.encodeGroupData(3, 3, 3);
 		assertEquals(DATA_STREAM_DTO, dto);
 	}
 
@@ -43,13 +50,13 @@ public class DataStreamServiceTest extends AndroidTestCase {
 	 * testEncodeGroupDataNA37.
 	 */
 	public final void testEncodeGroupDataNA37() {
-		DataStreamDTO dto = DataStreamService.encodeGroupData(37, 3, 1);
+		DataStreamDTO dto = dataStreamService.encodeGroupData(37, 3, 1);
 		assertEquals(DATA_STREAM_DTO_NA37_FIRST, dto);
-		dto = DataStreamService.encodeGroupData(37, 3, 4);
+		dto = dataStreamService.encodeGroupData(37, 3, 4);
 		assertEquals(DATA_STREAM_DTO_NA37_MEDIUM, dto);
-		dto = DataStreamService.encodeGroupData(37, 3, 1287);
+		dto = dataStreamService.encodeGroupData(37, 3, 1287);
 		assertEquals(DATA_STREAM_DTO_NA37_LAST, dto);
-		Log.d("TEST", DataStreamService.encodeGroupData(3, 3, 3).toString());
+		Log.d("TEST", dataStreamService.encodeGroupData(3, 3, 3).toString());
 	}
 
 }

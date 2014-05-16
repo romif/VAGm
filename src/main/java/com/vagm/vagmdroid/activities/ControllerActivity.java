@@ -18,12 +18,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.PropertyService;
@@ -90,6 +90,18 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private String[] controllerInfo = {"", "", "" };
 
 	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
+
+	/**
+	 * bufferService.
+	 */
+	@Inject
+	private BufferService bufferService;
+
+	/**
 	 * The Handler that gets information back from the BluetoothService.
 	 */
 	@SuppressLint("HandlerLeak")
@@ -100,7 +112,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", BufferService.bytesToHex(message));
+				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (ControllerCommunicationException e) {
@@ -123,7 +135,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	public void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.bCloseController:
-			getBluetoothService().write(VAGmConstans.EXIT_COMMAND);
+			bluetoothService.write(VAGmConstans.EXIT_COMMAND);
 			stopTimer();
 			finish();
 			break;
@@ -136,9 +148,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			break;
 
 		case R.id.bMeasBlocks:
-			getBluetoothService().write(FunctionCode.MEAS_BLOCKS.getCode());
+			bluetoothService.write(FunctionCode.MEAS_BLOCKS.getCode());
 			final Intent measBlocksIntent = new Intent(this, MeasBlocksActivity.class);
-			measBlocksIntent.putExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE, getBluetoothService());
 			measBlocksIntent.putExtra(ECU, ecu);
 			startActivityForResult(measBlocksIntent, -1);
 			break;
@@ -179,13 +190,13 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
 			//bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
 			LOG.debug("Sending controller code: {}", controllerCode);
-			getBluetoothService().write(controllerCode);
+			bluetoothService.write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
 			progressBar = new ProgressDialog(this);
 			progressBar.setMessage(getString(R.string.connecting_to_controller));
 			progressBar.setCancelable(false);
-			if (PropertyService.isProduction()) {
+			if (propertyService.isProduction()) {
 				progressBar.show();
 			}
 			h = new Handler();
@@ -235,7 +246,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
-		controllerInfo = BufferService.getControllerInfo(array, controllerInfo);
+		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
 		((TextView) findViewById(R.id.boudRate)).setText(controllerInfo[0]);
 		((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo[1]);
 		((TextView) findViewById(R.id.component)).setText(controllerInfo[2]);

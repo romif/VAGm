@@ -14,6 +14,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.PropertyService;
 
@@ -37,6 +38,12 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 	 * progressDialog.
 	 */
 	private ProgressDialog progressBar;
+	
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
 
 	/**
 	 * constructor.
@@ -64,14 +71,14 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 		InputStream in = null;
 		OutputStream out = null;
 		try {
-			File labelDir = new File(Environment.getExternalStorageDirectory(), PropertyService.getAppName() + "/labels");
+			File labelDir = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels");
 			if (!labelDir.exists()) {
 				labelDir.mkdirs();
 				String[] labelFiles = context.getAssets().list("labels");
 				progressBar.setMax(labelFiles.length);
 				int filesCopied = 0;
 				for (String file : labelFiles) {
-					File dst = new File(Environment.getExternalStorageDirectory(), PropertyService.getAppName() + "/labels/" + file);
+					File dst = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels/" + file);
 					in = context.getAssets().open("labels/" + file);
 					out = new FileOutputStream(dst);
 
