@@ -79,7 +79,7 @@ public final class BufferService {
 					buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
 				}
 			}
-			
+
 			final StringBuilder builder = new StringBuilder();
 			for (int i = dataStartPosition; i < buffer.length; i++) {
 				if ((buffer[i] >= 0x20) && (buffer[i] <= 0x7E)) {
@@ -90,7 +90,7 @@ public final class BufferService {
 			String resultString = builder.toString();
 			int requaredEcuLenth = (VAGmConstans.ECU_LENGTH - result[1].length()) > resultString.length() ? resultString.length()
 					: VAGmConstans.ECU_LENGTH - result[1].length();
-			result[1] = result[1] + resultString.substring(0,  requaredEcuLenth);
+			result[1] = result[1] + resultString.substring(0, requaredEcuLenth);
 			result[2] = result[2] + resultString.substring(requaredEcuLenth);
 
 		}

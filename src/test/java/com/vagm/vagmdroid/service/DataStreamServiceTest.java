@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.vagm.vagmdroid.service;
 
 import com.vagm.vagmdroid.dto.DataStreamDTO;
