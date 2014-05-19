@@ -4,12 +4,19 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+import java.io.IOException;
+
+import org.codehaus.plexus.util.FileUtils;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowEnvironment;
 
 import android.os.Environment;
-import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.LargeTest;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -20,7 +27,9 @@ import com.vagm.vagmdroid.dto.LabelDTO;
  * The Class LabelServiceTest.
  * @author Roman_Konovalov
  */
-public class LabelServiceTest extends AndroidTestCase {
+@RunWith(RobolectricTestRunner.class)
+@Config(manifest = "AndroidManifest.xml")
+public class LabelServiceTest {
 
 	/**
 	 * GROUP1_TITLE.
@@ -56,22 +65,18 @@ public class LabelServiceTest extends AndroidTestCase {
 	 * propertyService.
 	 */
 	@Inject
-	private PropertyService propertyService;	
-	
+	private PropertyService propertyService;
+
 	/**
 	 * labelService.
 	 */
 	@Inject
 	private LabelService labelService;
 
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
 	/**
 	 * testGetLabelFileName.
 	 */
+	@Test
 	public final void testGetLabelFileName1() {
 		assertEquals("1K0-959-704-GEN2.lbl", labelService.getLabelFileName("1K0959704E"));
 	}
@@ -79,6 +84,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName2.
 	 */
+	@Test
 	public final void testGetLabelFileName2() {
 		assertEquals("1K0-920-xxx-17.lbl", labelService.getLabelFileName("1P0920A23"));
 	}
@@ -86,6 +92,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName3.
 	 */
+	@Test
 	public final void testGetLabelFileName3() {
 		assertEquals("3C0-959-760.lbl", labelService.getLabelFileName("1T0959701Z"));
 	}
@@ -93,6 +100,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName4.
 	 */
+	@Test
 	public final void testGetLabelFileName4() {
 		assertEquals("028-906-021-AHU.lbl", labelService.getLabelFileName(ECU_INFO[1]));
 	}
@@ -100,6 +108,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName5.
 	 */
+	@Test
 	public final void testGetLabelFileName5() {
 		assertEquals("8E0-614-111-EDS.lbl", labelService.getLabelFileName(ECU_INFO1[1]));
 	}
@@ -107,6 +116,7 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName6.
 	 */
+	@Test
 	public final void testGetLabelFileName6() {
 		assertEquals("3B0-919-xxx-17.lbl", labelService.getLabelFileName(ECU_INFO2[1]));
 	}
@@ -114,27 +124,33 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * testGetLabelFileName7.
 	 */
+	@Test
 	public final void testGetLabelFileName7() {
 		assertEquals("3B0-959-79x-46.lbl", labelService.getLabelFileName(ECU_INFO3[1]));
 	}
 
 	/**
 	 * testGetLabels.
+	 * @throws IOException 
 	 */
-	public final void testGetLabels() {
-		String fileNAme = labelService.getLabelFileName(ECU);
-		SparseArray<LabelDTO> array = labelService.getLabels(fileNAme);
+	@Test
+	public final void testGetLabels() throws IOException {
+		copyFiles();
+		String fileName = labelService.getLabelFileName(ECU);
+		SparseArray<LabelDTO> array = labelService.getLabels(fileName);
 		for (int i = 0; i < array.size(); i++) {
 			Log.d("TEST", array.valueAt(i).toString());
 		}
-		assertEquals(11, array.size());
+		assertEquals(15, array.size());
 	}
 
 	/**
 	 * testAllLabels.
+	 * @throws IOException 
 	 */
-	@LargeTest
-	public final void testAllLabels() {
+	@Test
+	public final void testAllLabels() throws IOException {
+		copyFiles();
 		String[] fileNames = getAllFileNames();
 		for (String fileName:fileNames) {
 			if (fileName.length() < 10) {
@@ -147,13 +163,31 @@ public class LabelServiceTest extends AndroidTestCase {
 	/**
 	 * getAllFileNames.
 	 * @return AllFileNames
+	 * @throws IOException 
 	 */
-	private String[] getAllFileNames() {
-		File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + "/labels");
+	private String[] getAllFileNames() throws IOException {
+		File file = new File("assets" + File.separator + "labels");
 		if (file.isDirectory()) {
 			return file.list();
 		}
 		return null;
+	}
+
+	/**
+	 * copyFiles.
+	 * @throws IOException
+	 */
+	private void copyFiles() throws IOException {
+		File file = new File("assets" + File.separator + "labels");
+		ShadowEnvironment.setExternalStorageState(Environment.MEDIA_MOUNTED);
+		File destinationDirectory = new File(ShadowEnvironment.getExternalStorageDirectory(), File.separator + propertyService.getAppName() + File.separator
+				+ "labels");
+		destinationDirectory.mkdirs();
+		for (String fileName : file.list()) {
+			File destinationFile = new File(destinationDirectory, fileName);
+			destinationFile.createNewFile();
+			FileUtils.copyFile(new File("assets" + File.separator + "labels" + File.separator + fileName), destinationFile);
+		}
 	}
 
 }

@@ -1,16 +1,24 @@
 package com.vagm.vagmdroid.service;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
+
+import android.util.Log;
+
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
-
-import android.test.AndroidTestCase;
-import android.util.Log;
 
 /**
  * The Class DataStreamServiceTest.
  * @author Roman_Konovalov
  */
-public class DataStreamServiceTest extends AndroidTestCase {
+@RunWith(RobolectricTestRunner.class)
+@Config(manifest = "AndroidManifest.xml")
+public class DataStreamServiceTest {
 
 	/**
 	 * DATA_STREAM_DTO.
@@ -41,6 +49,7 @@ public class DataStreamServiceTest extends AndroidTestCase {
 	/**
 	 * testEncodeGroupData.
 	 */
+    @Test
 	public final void testEncodeGroupData() {
 		DataStreamDTO dto = dataStreamService.encodeGroupData(3, 3, 3);
 		assertEquals(DATA_STREAM_DTO, dto);
@@ -49,6 +58,7 @@ public class DataStreamServiceTest extends AndroidTestCase {
 	/**
 	 * testEncodeGroupDataNA37.
 	 */
+    @Test
 	public final void testEncodeGroupDataNA37() {
 		DataStreamDTO dto = dataStreamService.encodeGroupData(37, 3, 1);
 		assertEquals(DATA_STREAM_DTO_NA37_FIRST, dto);

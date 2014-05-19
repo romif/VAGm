@@ -14,20 +14,13 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
-import junit.framework.Assert;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import roboguice.RoboGuice;
-import roboguice.activity.RoboActivity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Vibrator;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.util.Modules;
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 
@@ -36,18 +29,15 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  * Astroboy's {@link org.roboguice.astroboy.controller.Astroboy#brushTeeth()} method
  * works properly.
  */
-public class BufferServiceTest  {
+@RunWith(RobolectricTestRunner.class)
+public class BufferServiceTest {
 
-    BufferService bufferService ;
+    /**
+     * bufferService.
+     */
+	@Inject
+    private BufferService bufferService;
 
-
-    
-    @After
-    public void teardown() {
-        // Don't forget to tear down our custom injector to avoid polluting other test classes
-        RoboGuice.util.reset();
-    }
-    
     /**
 	 * testGetControllerInfo.
 	 * @throws ControllerCommunicationException if some communication error occurs
@@ -145,12 +135,4 @@ public class BufferServiceTest  {
 		bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS));
 	}
 
-
-
-    public class MyTestModule extends AbstractModule {
-        @Override
-        protected void configure() {
-            //bind(Vibrator.class).toInstance(vibratorMock);
-        }
-    }
 }

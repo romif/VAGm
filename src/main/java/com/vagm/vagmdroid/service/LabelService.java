@@ -10,8 +10,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +19,6 @@ import android.util.SparseArray;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.vagm.vagmdroid.activities.MainActivity;
 import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.dto.LabelDTO.Group;
 
@@ -71,7 +69,8 @@ public class LabelService {
 		InputStream inputStream = null;
 		BufferedReader reader = null;
 		try {
-			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
+			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream(
+					"assets" + File.separator + "labels" + File.separator + "Redirect.txt");
 			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 
 			String st;
