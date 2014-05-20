@@ -1,0 +1,77 @@
+;
+; VAG-COM label file 3D0-919-146.lbl
+;
+; VW Phaeton (3D)
+; VW Bentley Continental GT (3W)
+;
+; component: TV Tuner (R78) (#57)
+;
+;       p/n: 3D0 919 146  Component: TV Tuner H07 1205  Coding: as shown below (Same PN for Phaeton or Bentley Continental GT)
+;
+;
+; created by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; updated by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 23/September/2005 (Michael)
+; - remark added at top and bottom of coding
+; - additional PN and component information added above, Bentley information added
+; last modification: 16/October/2005 (Michael) MVBs added
+; last modification: 23/November/2005 (Michael) MVB 004/3 corrected.
+; last modification: 23/September/2006 (Michael) MVB 006/1 and 2 corrected.
+:                    Thanks to Niels Ezerman for reporting the error.
+;
+; ready for VAG-COM 402.3 and above
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;NOTE - normally these codes are changed by the driver, from the Front Information Display and Control Module. 
+;It should not be necessary to use a VAG-COM to change the codes, although it can be done that way if desired.
+;
+C00,Phaeton (3D) - TV Tuner (R78) Coding
+C01,00010  Central Europe	PAL B/G 
+C02,00020  Italy		PAL B/G 
+C03,00030  England,Ireland	PAL I 
+C04,00040  Eastern Europe	SECAM D/K 
+C05,00110  Eastern Europe	PAL D/K 
+C06,00050  France		SECAM L 
+C07,00060  North America    	NTSC M 
+C08,00070  Australia		PAL B/H 
+C09,00080  Brazil		PAL M 
+C10,00090  Argentina		PAL M 
+C11,00100  New Zealand		PAL B 
+C12,00120  China		PAL D/K 
+C13,00130  Africa		PAL I 
+C14,00150  Africa     		SECAM K1 
+C15,00140  Greece or Egypt	SECAM D/K 
+C16,00160  Japan          	NTSC M
+;
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+001,1,Monitor 2,Status,Possible Display:On or Off
+001,2,Term 30,voltage,Possible Display:Between 6 and 15 volts
+;
+002,1,TV Antenna,number 1,
+002,2,TV Antenna,number 1,Possible Display:OK - Kurzschl. - Unterbr.
+002,3,TV Antenna,number 2,
+002,4,TV Antenna,number 2,Possible Display:OK - Kurzschl. - Unterbr.
+;
+003,1,TV Antenna,number 3,
+003,2,TV Antenna,number 3,Possible Display:OK - Kurzschl. - Unterbr.
+003,3,TV Antenna,number 4,
+003,4,TV Antenna,number 4,Possible Display:OK - Kurzschl. - Unterbr.
+;
+004,3,Navigation,connection,Possible Display:OK - Kurzschl. - Unterbr.
+;
+006,1,External,Input AV1,Possible Display:AV1 in use/ AV1 open
+;
+006,2,External,Input AV2,Possible Display:AV2 in use/ AV2 open

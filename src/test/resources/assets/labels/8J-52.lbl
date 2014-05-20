@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Component: J387 - Door Electronics Passenger (#52)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-52.LBL
+; 8Jx-959-802-MAX.LBL
+;
+; created on 04/Sep/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,8Jx-959-802-MAX.LBL,8J?-959-802-B   ; MAX
+REDIRECT,8Jx-959-802-MAX.LBL,8J?-959-802-C   ; MAX
+REDIRECT,8Jx-959-802-MAX.LBL,8J?-959-802-E   ; MAX
+;

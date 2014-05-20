@@ -1,0 +1,106 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A3 (8L) / Audi A4 (8D)
+;
+; Component: V94 - Central Locking Pump (#35)
+;
+; P/N: 8D0-862-257-???
+;
+; includes measuring blocks and coding
+;
+; created on 10/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 10/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Rotary Switch,Postions,Display Range: 0 = Not Operated / 1 = Operated
+; ?xxx = Driver/Passenger Door Opening
+; x?xx = Driver/Passenger Door Closing
+; xx?x = Rear Lid Opening
+; xxx? = Rear Lid Closing
+001,2,Door Status,,Display Range: 0 = Closed / 1 = Open\n\n?xx = Rear Doors\nx?x = Driver/Passenger Door\nxx? = Engine Hood
+001,3,Actuator/Interior,Switch,00 = Not Operated\n01 = Locking\n10 = Unlocking\n\n??xx = Passenger Door\nxx?? = Driver Door
+001,4,Rear Lid &&,Luggage Comp.
+; ?xxx = Rear Lid (0 = Closed / 1 = Open)
+; x?xx = Luggage Compartment Light (0 = OFF / 1 = ON)
+; xx?x = Rear Lid Unlocking Switch (0 = Not Operated / 1 = Operated)
+; xxx? = Rear Lid Unlocking Motor (0 = Not Running / 1 = Running)
+;
+002,1,Misc
+; ?xxx = Interior Light (0 = OFF / 1 = ON)
+; x?xx = Window Regulator/Sunroof Control Wire (0 = Ground / 1 = Terminal 87)
+; xx?x = Comfort "Closing" (0 = Not Operated / 1 = Operated)
+; xxx? = Comfort "Opening" (0 = Not Operated / 1 = Operated)
+002,2,Remote Control,Buttons,Display Range: 0 = Not Operated / 1 = Operated
+; ?xxx = Button "Open"
+; x?xx = Button "Close"
+; xx?x = Button "Rear Lid"
+; xxx? = Button "Panic"
+002,3,Signals,,Display Range: 0 = OFF / 1 = ON\n\n?xx = Terminal 15\nx?x = S-Contact\nxx? = Radio Ground Signal
+;
+003,0,Remote Control
+003,1,Not Relevant
+003,2,Remote Control,Memory Position,Display Range: 0 = Not Occupied / 1 = Occupied
+; ?xxx = Memory Position 4
+; x?xx = Memory Position 3
+; xx?x = Memory Position 2
+; xxx? = Memory Position 1
+003,3,Not Relevant
+3,4,Remote Control,Buttons,Display Range: 0 = Not Operated / 1 = Operated
+; ?xxx = Button "Open"
+; x?xx = Button "Close"
+; xx?x = Button "Rear Lid"
+; xxx? = Button "Panic"
+;
+004,0,Coding Explanation (Software D05 and above)
+004,1,Coding I,,Display Range: 0 = No / 1 = Yes
+; ?xx = Remote Control
+; x?x = Selective Locking
+; xx? = Comfort Closing via Remote Control
+004,2,Coding II,,Display Range: 0 = No / 1 = Yes
+; ?xxx = Door/Window Logic (USA)
+; x?xx = Remote Control "Open" Confirmation (2x Blink)
+; xx?x = Anti-Theft Confirmation via Horn
+; xxx? = Remote Control "Close" Confirmation (1x Blink)
+004,3,Coding III,,Display Range: 0 = No / 1 = Yes
+; ?xxx = Anti-Theft-System
+; x?xx = Interior Monitoring
+; xx?x = Locking via Speed
+; xxx? = Cabriolet
+004,4,Coding IV,,Display Range: 0 = No / 1 = Yes
+; ?xxx = Anti-Theft-System
+; x?xx = Selective Locking
+; xx?x = Anti-Theft Confirmation via Blink
+; xxx? = Rear Lid Opening via Rear Lid Lock
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Central Locking Pump (V94) Coding
+C01,+00001 = Rear Lid Opening via Rear Lid Lock
+C02,+00002 - Anti-Theft Confirmation via Blink
+C03,+00004 - Selective Locking
+C04,+00008 - Anti-Theft-System
+C05,+00032 - Locking via Speed
+C06,+00064 - Comfort Closing via Remote Control
+C07,+00256 - Rear Lid Logic
+C08,+00512 - Remote Control "Close" Confirmation (1x Blink)
+C09,+02048 - Door/Window Logic (USA)
+C10,+04096 - Remote Control "Open" Confirmation (2x Blink)
+C11,+08192 - Remote Control
+;

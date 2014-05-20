@@ -1,0 +1,204 @@
+;
+; VAG-COM label file
+;
+; VW Passat (3B)
+;
+; component: Engine (#01) - BHW
+;
+; p/n: 038-906-016-???
+;
+; includes measuring blocks, coding and readiness
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 038-906-016-BHW.LBL  (2.0l TDI  @ 136 HP - BHW)
+;
+; created on 24/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 24/Apr/2008
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; Measuring Block Information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions - Injection Quantity
+001,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+001,2,Injection,Quantity,Specification (Idle): 3...9 mg/str
+001,3,Supply Duration,,Specification (Idle): 3...9 °KW
+001,4,Coolant,Temperature (G62),Specification: 80...110 °C
+;
+002,0,Basic Informations - Idle Speed
+002,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+002,2,Throttle Position,Sensor,Specification: 0 %
+002,3,Operating,Conditions
+002,4,Coolant,Temperature (G62),Specification: 80...110 °C
+;
+003,0,Basic Functions - Exhaust Gas Recirculation (EGR)
+003,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+003,2,Mass Air Flow,(specified),Specification: 200...280 mg/str
+003,3,Mass Air Flow,(actual),Specification: 180...300 mg/str
+003,4,EGR,Duty Cycle,Specification: 20...75 %
+;
+004,0,Basic Functions - Injection Timing
+004,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+004,2,Injection Start,,Specification: +4.0...-2.0 °KW
+004,3,Injection Duration,,Specification: 3...9 °KW
+004,4,Torsion Value,,Specification: -3...+3 °KW
+;
+005,0,Basic Functions - Start Conditions
+005,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+005,2,Injection Quantity,,Specification: 7...19 mg/str
+005,3,Synchronization,,Specification: 000...128
+005,4,Coolant,Temperature (G62),Specification: 80...110 °C
+;
+006,0,Basic Functions - Switch Positions
+006,1,Vehicle Speed,,Specification: 0...300 km/h
+006,2,Switch Positions
+; xxxxxxx1 = Brake Light Switch operated
+; xxxxxx1x = Brake Pedal Switch operated
+; xxxxx1xx = Clutch Pedal Switch operated
+; xxxx1xxx = CCS enabled
+; xxx1xxxx = ACC enabled
+; xx1xxxxx = Main Button
+; 00xxxxxx = ACC/CCS Mode inactive
+; 10xxxxxx = Status surpassed
+; 01xxxxxx = ACC/CCS in Range
+; 11xxxxxx = ACC not enabled
+006,3,Throttle Position,Sensor,Specification: 0 %
+006,4,Cruise Control,Status
+; xxxxxxx1 = Stuck ON
+; xxxxxx1x = Pressed OFF
+; xxxxx1xx = Decelerate (-)
+; xxxx1xxx = Accelerate (+)
+; xxx1xxxx = Set (SET)
+; xx1xxxxx = Resume (RESET)
+; 1xxxxxxx = Stuck ON (Hardware)
+;
+007,0,Basic Functions - Temperatures
+007,1,Fuel Temperature,(G81),Specification: 20...95 °C (~ Ambient Temperature)
+007,2,Fuel Cooling,Status,100 % = ON\n0 % = OFF
+007,3,Intake Air,Temperature (G72),Specification: 5...80 °C
+007,4,Coolant,Temperature (G62),Specification: 80...110 °C
+;
+008,0,Basic Functions - Injection Quantity Limitation
+008,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+008,2,Driver Intention,Torque,Specification: -5...0 Nm
+008,3,Torque Limitation,,Specification: 140...240 Nm
+008,4,Smoke Limitation,,Specification: 100...200 Nm
+;
+009,0,Basic Functions - Injection Quantity Limitation
+009,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+009,2,Desired Torque,Cruise Control
+009,3,Transmission,Intervention Torque,Specification: 380...480 Nm
+009,4,Torque Restriction,,Specification: 100...200 Nm
+;
+010,0,Air System
+010,1,Mass Air Flow,(actual),Specification: 180...300 mg/str
+010,2,Atmospheric,Pressure,Specification: 900...1100 mbar
+010,3,Intake Manifold,Pressure (actual),Specification: 900...1150 mbar
+010,4,Throttle Position,Sensor,Specification: 0 %
+;
+011,0,Charge Pressure Control
+011,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+011,2,Intake Manifold,Pressure (spec.),Specification: 900...1150 mbar
+011,3,Intake Manifold,Pressure (actual),Specification: 900...1150 mbar
+011,4,Charge Pressure,Valve (N75),Specification: 40...90 %
+;
+012,0,Glow Plugs
+012,1,Glow Status,,See Label File
+; 11111111 = Glowing OFF
+; 00010000 = Pre-Glow
+; 01110000 = Glow Start
+; 11110000 = Interim Glow
+; 10110000 = Post-Glow
+; 00110000 = Readiness Glowing
+012,2,Pre-Glow Period,,Specification: 0...2 s
+012,3,Battery Voltage,,Specification: 13.0...15.0 V
+012,4,Coolant,Temperature (G62),Specification: 80...110 °C
+;
+013,0,Idle Stabilization
+013,1,Injection Quantity,Cylinder 1,Specification: -2.8...+2.8 mg/str
+013,2,Injection Quantity,Cylinder 2,Specification: -2.8...+2.8 mg/str
+013,3,Injection Quantity,Cylinder 3,Specification: -2.8...+2.8 mg/str
+013,4,Injection Quantity,Cylinder 4,Specification: -2.8...+2.8 mg/str
+;
+015,0,Fuel Consumption
+015,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+015,2,Engine Torque,,Specification: 20...60 Nm
+015,3,Fuel Consumption,,Specification: 1.0...2.0
+015,4,Driver Intention,Torque,Specification: -5...0 Nm
+;
+016,0,Additional Heater
+016,1,Generator Load,,Specification: 5...95 %
+016,2,Auxiliary,Heating
+; xxxxxxx1 - Coolant Temperatur ABOVE 70...80 °C OR Intake Air Temperature ABOVE 5 °C
+; xxxxxx1x - Generator FAULTY
+; xxxxx1xx - Battery Voltage BELOW 9 V
+; xxxx1xxx - Engine Speed BELOW 800 RPM
+; xxx1xxxx - Engine Start within last 10 Seconds
+; xx1xxxxx - Coolant Temp. Sensor (G62) OR Intake Air Temp. Sensor (G72) FAULTY
+016,3,Heating Element,Activation,1x - High Heating Output\nx1 - Low Heating Output
+016,4,Battery Voltage,,Specification: 13.0...15.0 V
+;
+018,0,PD Injector Valve Status
+018,1,Cylinder 1,Valve Status,Specification: 0
+018,2,Cylinder 2,Valve Status,Specification: 0
+018,3,Cylinder 3,Valve Status,Specification: 0
+018,4,Cylinder 4,Valve Status,Specification: 0
+;
+020,0,Injection Quantity Limitation by ABS
+020,1,Engine Speed,(G28),Specification (Idle): 820...900 RPM
+020,2,Engine Torque,,Specification: 20...60 Nm
+020,3,Limitation by ASR
+020,4,Limitation by MSR
+;
+023,0,Switching Period
+023,1,Solenoid Valve,Cylinder 1,Specification: -100...+100
+023,2,Solenoid Valve,Cylinder 2,Specification: -100...+100
+023,3,Solenoid Valve,Cylinder 3,Specification: -100...+100
+023,4,Solenoid Valve,Cylinder 4,Specification: -100...+100
+;
+062,1,Coolant Temperat.,Engine Output,Specification: min. 75 °C
+062,2,Coolant Temperat.,Radiator Output,Specification: max. 75 °C
+062,3,Ambient,Temperature,Specification: -20.0...+50.0 °C
+;
+063,1,Refrigerant,Pressure (A/C ON),Specification: 5...30 bar
+063,2,Load Torque,(A/C ON),Specification: 2...10 Nm
+063,4,Shut-Off Status,of A/C System
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Transmission,,Specification: Transm. 1
+125,2,Brake Electronics,,Specification: ABS 1
+125,3,Instrument Cluster,,Specification: Instruments 1
+125,4,Airbag,,Specification: Airbag 1
+;
+;
+;---------------------------------------------------
+;
+; Coding Information
+;
+;---------------------------------------------------
+;
+;
+C0,Engine Control Unit (J248) Coding
+C1,0050074 - Automatic Climate Control (Climatronic)
+C2,0150034 - Manual Climate Control
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,038-906-016-BHW
+;

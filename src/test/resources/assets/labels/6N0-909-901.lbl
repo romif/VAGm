@@ -1,0 +1,235 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L)
+;
+; Component: J533 - CAN-Gateway (#19)
+;
+; P/N: 6N0-909-901-???
+;
+; includes measuring, coding and long coding
+;
+; created by Davin Swanson
+; modified on 14/Mar/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+; modified on 30/Aug/2005 by Michael Moore (Moore@Ross-Tech.com)
+;
+; last modification: 18/Oct/2007
+;
+; requires VAG-COM 708.0 / LCode 709.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,*The first 9 blocks do not show error messages, but they do not show data either. 
+;
+002,0,*The first block known to have data in it is block 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*This block not available. Next Available block is 125.
+;
+125,0,CAN-BUS Status (1 = OK / 0 = not OK)
+125,1,Engine
+125,2,Automatic, Transmission
+125,3,ABS,Brake System
+125,4,
+;
+126,0,CAN-BUS Status (1 = OK / 0 = not OK)
+126,1,Steering, Angle
+126,2,Airbag
+126,3,
+126,4,
+;
+127,0,CAN-BUS Status (1 = OK / 0 = not OK)
+127,1,
+127,2,AWD,
+127,3,
+127,4,
+;
+128,0,CAN-BUS Status (1 = OK / 0 = not OK)
+128,1,Battery,Management
+128,2,Electrical,Ignition Lock 1
+128,3,Level control
+;
+129,0,Undocumented
+;
+130,0,CAN-BUS Status (1 = OK / 0 = not OK)
+130,1,Comfort Can Bus,Mode,
+130,2,Central,Convenience
+130,3,Driver,Door
+130,4,Passenger,Door
+;
+131,0,CAN-BUS Status (1 = OK / 0 = not OK)
+131,1,Rear Right,Door
+131,2,Rear Left,Door
+131,3,Driver Seat,Memory
+131,4,Electrical,Load Control
+;
+132,0,CAN-BUS Status (1 = OK / 0 = not OK)
+132,1,
+132,2,Steering,Wheel Electronics
+132,3,Air Conditioning
+132,4,Tire Pressure,Monitoring
+;
+133,0,CAN-BUS Status (1 = OK / 0 = not OK)
+133,1,Roof,Electronics
+133,2,Pax Seat,Memory
+133,3,Rear Seat,Memory
+133,4,Park Distance,Control
+;
+134,0,CAN-BUS Status (1 = OK / 0 = not OK)
+134,1,
+134,2,Electrical,Ignition Lock 1
+134,3,Wiper Control,Module
+134,4,
+;
+135,0,CAN-BUS Status (1 = OK / 0 = not OK)
+135,1,
+135,2,Display Control,Front 1
+135,3,Display Control,Rear 1
+134,4,
+;
+136,0,
+136,1,
+136,2,Central,Locking
+136,3,
+136,4,
+;
+137,0,*This block not available. Next Available block is 140.
+;
+138,0,*This block not available. Next Available block is 140.
+;
+139,0,*This block not available. Next Available block is 140.
+;
+140,0,Optical Data Bus Status (1 = OK / 0 = not OK)
+140,1,Optical Data Bus,Mode,
+140,2,
+140,3,Navigation,System
+140,4,
+;
+141,0,CAN-BUS Status (1 = OK / 0 = not OK)
+141,1,
+141,2,
+141,3,
+141,4,Telematics
+;
+142,0,CAN-BUS Status (1 = OK / 0 = not OK)
+142,1,Display Control,Front 1
+142,2
+142,3,
+142,4,
+;
+143,0,CAN-BUS Status (1 = OK / 0 = not OK)
+143,1,Digital Sound,Processor,
+143,2,
+143,3,
+143,4,
+;
+144,0,*This block not available. No further blocks available between here and 254.
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Diagnostic Interface for Datenbus (J533) Coding
+C01,+00001 = Automatic Transmission (through MY 2001 and all PQ24 | Polo/Fabia/Ibiza/Cordoba)
+C02,+00002 = Brake Electronics
+C03,+00004 = Airbags
+C04,+00008 = Steering Aid (only PQ24 | Polo/Fabia/Ibiza/Cordoba)
+C05,+00016 = All-Wheel-Drive (only Transporter/Multivan)
+C05, 
+C06,Note: Recoding (even with the same value) results in refreshing the
+C07,Gateway Installation List (e.g. useful/necessary after retrofits).
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,[01] Engine Electronics I
+LC,00,1,[02] Transmission Electronics
+LC,00,2,[03] Brake Electronics
+LC,00,3,[34] Level Control
+LC,00,4,[15] Airbags
+LC,00,5,[55] Headlight Aim Control
+LC,00,6,[22] All Wheel Electronics
+LC,00,7,[13] Distance Regulation
+LC,01,0,[64] Stabilizers
+LC,01,1,[17] Instrument Cluster
+LC,01,2,[3C] Lane Change Assist
+LC,01,3,[32] Differential Locks
+LC,01,4,[11] Engine Electronics II
+LC,01,5,[04] Steering Angle
+LC,01,6,[46] Comfort System
+LC,01,7,[42] Door Electronics Driver
+LC,02,0,[52] Door Electronics Passenger
+LC,02,1,[62] Door Electronics Rear Left
+LC,02,2,[72] Door Electronics Rear Right
+LC,02,3,[36] Seat Memory (Driver)
+LC,02,4,[65] Tire Pressure Monitoring
+LC,02,5,[16] Steering Wheel Electronics
+LC,02,6,[08] Heating/Air Conditioning (Front)
+LC,02,7,[76] Parking Assist
+LC,03,0,[05] Access/Start Authorization
+LC,03,1,[69] Trailer Function
+LC,03,2,[06] Seat Memory (Passenger)
+LC,03,3,[09] Central Electronics
+LC,03,4,[6D] Rear Lid Electronics
+LC,03,5,[28] Heating/Air Conditioning (Rear)
+LC,03,6,[6C] Rear View Camera
+LC,03,7,[68] Wiper Electronics
+LC,04,0,[6E] Control Head (Roof)
+LC,04,1,[47] Sound System
+LC,04,2,[75] Telematics
+LC,04,3,[37] Navigation
+LC,04,4,[57] TV-Tuner
+LC,04,5,[0F] Radio (Digital)
+LC,04,6,[56] Radio (Analog)
+LC,04,7,[77] Telephone
+LC,05,0,[18] Auxiliary Heating
+LC,05,1,[1C] Compass/Position Sensing
+LC,05,2,[19] CAN-Gateway
+; {Manufacturer}
+LC,06,0~3,00,Volkswagen
+LC,06,0~3,01,Audi
+LC,06,0~3,02,Seat
+LC,06,0~3,03,Skoda
+LC,06,0~3,04,VW Commercial Vehicles
+LC,06,0~3,05,Bugatti
+LC,06,0~3,06,Lamborghini
+LC,06,0~3,07,Bentley
+LC,06,0~3,08,Rolls Royce
+LC,06,0~3,0E,Ford
+LC,06,0~3,0F,Porsche
+; {Model}
+LC,06,4~7,00,Shortback/Hatchback
+LC,06,4~7,01,Sedan/Limousine
+LC,06,4~7,02,Variant/Station Wagon
+LC,06,4~7,03,Fastback
+LC,06,4~7,04,Coupe/Sports Car
+LC,06,4~7,05,Cabriolet/Roadstar
+LC,06,4~7,06,Offroad
+LC,06,4~7,07,CityVan/PickUp
+LC,06,4~7,08,Multi Purpose Vehicle (MPV)
+LC,06,4~7,09,Other
+; {Other}
+LC,07,0,Right Hand Drive
+LC,07,1,>= 4 Doors
+;

@@ -1,0 +1,78 @@
+; VAG-COM Measuring Block Labels 
+; VW Golf 1.4 (1998-2001)
+; Code: AHW,AKQ
+; ECU:  036 906 014AN (MARELLI 4CV)
+; Also: MARELLI 4AV
+;
+; File created by:
+;   Charles D.H. Williams <c.d.h.williams@ex.ac.uk>
+;
+;0,0,Measured Value Block
+;0,1,Air intake temp,156-44 = 15-70 C
+;0,2,Battery voltage,120-160 = 12.0-14.5V
+;0,3,Engine temp,37-18 = 80-110 C
+;0,4,Air intake pressure,32-71 = 240-420mbar
+;0,5,Lambda probe voltage,0-184 = 0.00-0.90V
+;0,6,Lambda control
+;0,7,Not used,0
+;0,8,Throttle pot.,200-240 = 4.0-4.5V
+;0,9,Injection period,5-14 = 3.00-7.00ms
+;0,10,Engine speed,21-25 = 700-800rpm
+;
+1,0,Engine - Basic State
+1,1,Engine speed,700-800
+1,2,Coolant temp.,85-110
+1,3,Lambda probe,0.000-0.900
+1,4,Conditions,00000000
+;              1        -A fault is stored in memory
+;               1       -Gear box intervention during gear shift
+;                1      -Air conditioner compressor on
+;                 1     -Idling switch (F60) open
+;                  1    -Fault in lambda control
+;                   1   -Throttle valve open
+;                    1  -Engine speed above 1800rpm
+;                     1 -Coolant temp below 80C
+;
+2,0,Engine - Basic State
+2,1,Engine speed,700-800
+2,2,Injection period,2.56-5.12
+2,3,ECU supply,11.5-14.5
+2,4,Air intake temp,15-70
+;
+3,0,Engine - Basic State
+3,1,Engine speed,700-800
+3,2,Engine load,12-40
+3,3,Throttle angle,1-7
+3,4,TV positioner,duty cycle
+;
+4,0,Engine - Operating Mode
+4,1,Engine speed,700-800
+4,2,Engine load,12-40
+4,3,Vehicle speed,0
+4,4,OR-ID-PT-FT,0100XXXX
+;   Overrun/Idling/Part throttle/Full throttle
+;
+5,0,Throttle Valve Control - Operating Condition
+5,1,Engine speed,700-800
+5,2,Filter duty,6.0-19.0
+5,3,Fuel usage,0.50-1.10
+5,4,TV cal.,XX000000
+;             1      -Battery Voltage too low
+;              1     -Speed signal recognised
+;               1    -F60 open before basic setting
+;                1   -Implausible signal between G88&G69
+;                 1  -Voltage Between G88&G69 out of tol.
+;                  1 -F60 open during basic setting
+;
+6,0,Engine - Basic State
+6,1,Mixture correction
+6,2,Unused
+6,3,Unused
+6,4,Throttle,cal. param.
+;
+98,0,Adapting Throttle Control Basic Setting
+98,1,Throttle G69,0.500-5.000
+98,2,Throttle G88,0.500-5.000
+98,3,Engine mode
+98,4,Adaptation mode,Idle/OK/ERROR
+;

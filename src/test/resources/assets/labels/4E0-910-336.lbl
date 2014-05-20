@@ -1,0 +1,148 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R36 - Telephone Preperation (#77) PR-9ZF/9ZG/9W5
+;
+; P/N: 4E0-910-336-???
+;      4F0-910-336-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-77.LBL
+; 4E0-910-336.LBL
+;
+; created on 12/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Nov/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+005,0,Input Signals
+005,1,Input Signals,,1xxx = Communication to Mobile Phone active\nx1xx = Mobile Phone Switched ON\nxx1x = Mobile Phone inserted\nxxx1 = Push-To-Talk (PTT) Button pressed
+;
+010,0,Signal Strengths
+010,1,Signal Strengths
+010,2,Reception,Signal Strengths,Display Range: -113.0...33.0 dBm\n128.0 dBM = No Communication with Mobile Phone
+;
+011,0,Main Antenna
+011,1,Main Antenna
+011,2,Main Antenna,Status,Display Range: OK/Short Circuit/Open Circuit/Not Possible
+;
+014,0,Bluetooth Devices
+014,1,Bluetooth Devices
+014,2,Connected,Bluetooth Devices
+;
+019,0,Microphone Input
+019,1,Microphone Input,Voltage
+019,2,Microphone Input,Status
+;
+020,0,Connected Bluetooth Devices && Reception Signal Strength
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+133,0,Bluetooth Antenna
+133,1,Bluetooth Antenna
+133,2,Bluetooth Antenna,Status
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone Preperation (R36) Coding
+C01,00?0xx0: MMI System
+C02,1 = MMI High
+C03,2 = MMI Standard
+C04, 
+C05,00x0?x0: Installation List
+C06,9 = Vehicle with MOST-Databus
+C07, 
+C08,00x0x?0: Voice Control Language
+C09,0 = Voice Control OFF
+C10,1 = German (Rest of World)
+C11,2 = English (United Kingdom)
+C12,3 = French (Rest of World)
+C13,4 = Italian (Rest of World)
+C14,5 = Spanish (Rest of World)
+C15,6 = Spanish (USA)
+C16,7 = English (USA)
+C17,8 = French (Canada)
+C18,9 = Speaker depend Voice Selection
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;
+A128,0,Volume Output
+;
+A129,0,Afterrun Time
+A129,5,Afterrun Time
+A129,6,The time the mobile phone plate is active after "Ignition OFF".
+A129,7, 
+A129,8,Range: 0...6 (30 Seconds to 30 Minutes)
+A129,9,Increments: 1 = 5 Minutes (0 = 30 Seconds)
+;
+A130,0,Delay Time
+A130,5,Delay Time
+A130,6,Adjustment of the delay times to compensate the
+A130,7,audio component delay and acoustic running times.
+A130,8, 
+A130,9,Range: 0...12 ms
+;
+A131,0,Microphone Sensitivity
+;
+A133,0,Bluetooth
+A133,5,Bluetooth
+A133,6,0 = Bluetooth OFF
+A133,7,1 = Bluetooth ON
+;
+A134,0,Hands Free Function
+A134,5,Hands Free Function
+A134,6,0 = Hands-free active while Bluetooth connection is active but without cell phone engaged
+A134,7,1 = Hands-free only active with cell phone engaged
+;
+A135,0,Bluetooth Pass Key
+A135,5,Bluetooth Pass Key
+A135,6,Set the 4-digit Bluetooth pass key using this channel.
+;

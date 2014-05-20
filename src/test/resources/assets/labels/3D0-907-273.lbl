@@ -1,0 +1,267 @@
+;Remark - This one is post 504.0  - Michael , April 4 2005
+;
+; VAG-COM label file 3D0-907-273.lbl
+;
+; VW Phaeton (3D) - up to and including SOME model year 2005 (fully tested with 2004 W12 Phaeton)
+; VW Bentley Continental GT - up to and including model year 2005 (not tested with this vehicle)
+;
+; IMPORTANT NOTE: For controllers suffix D and higher and with software version 25 and higher use 3D0-907-273-D.lbl
+;
+; Component: Tire Pressure Monitoring -J502- (address #65)
+;
+; p / n: 3D0 907 273 A
+;      3D0 907 273 B
+;      3D0 907 273 C Component: Reifendruckueberw. 0021 Coding: see below (2004 NAR Phaeton) - fully tested on this vehicle NAR and ROW.
+;      3W0 907 273   Component: Reifendruckueberw.      Coding: 011344 (Bentley Continental GT ROW) - not tested on this vehicle
+;
+; NB: Canada Bentley had 3D0 prefix, Europe Bentley had 3W0 with no suffix - the above is not a typographical error.
+;
+;
+; includes measured value blocks, coding, and adaptation.  Also user guidance (remarks) embedded in the file.
+;
+; by Sebastian Stange (Sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 11 / 05 / 2004 (Sebastian)
+; last modified: 30 / August / 2005 (Michael) 'PanEuropean' on the VW Vortex forum.
+; - minor editorial changes
+; - Bentley PNs, note added
+; last modified: 10 / December / 2005 (Michael) 
+; - new file created for D suffix controllers due to different coding.
+; - the changeover appears to be with software version 25. 24 and under use this coding scheme (this labelfile).
+; - software version 25 and higher use the new coding scheme (3D0-907-273-D.lbl).
+;
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;NOTES CONCERNING TPMS ADAPTATION:
+;Measure Value Blocks 3, 6, 9, 12 and 15 are stored only when the system is relearned. 
+;Therefore this information is not always an accurate representation of current wheel location and status.
+;In addition, one faulty wheel sensor has the potential to create faults at multiple wheel locations.
+;
+;How to identify current tire pressure monitoring sensor locations:
+; – Vehicle must be parked 4 meters (12 feet) AWAY from other vehicles with same or similar tire pressure monitoring system.
+;If vehicles with same or similar systems (e.g. other Phaetons or Touaregs) are parked too close to one another there is a 
+;high probability of the systems interfering with each other.
+;
+;Battery life shown in MVB 2,5,8 and 11 Field 2 is only usable if the system has learned all wheel
+;locations. If this is the case it can be determined in MVB 19, where 00025 is the standard value for
+;a system that is active and set. If the system is not active (showing any other number in MVB 19), it
+;will still show the last values that were stored the last time it was operating correctly. During the
+;learning drive MVB 19 will start with 00265 and will add numbers to this field, until it reaches a
+;maximum of 63545. This can be observed during the learning drive with the VAG-COM. If the setting
+;value not reached within 30 minutes, an error message is generated. The duration of the test or
+;learn drive depends on how fast the tires warm up. Highway will be faster than within the city, stop
+;and go traffic might not set at all.
+;
+001,0,Front Left Wheel
+001,1,Front Left,wheel position
+001,2,Temperature,of wheel,Possible values: -40°C to 120°C  /  not recognized
+001,3,Current pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+001,4,Specified pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+;
+002,0,Front Left Wheel Transmitter Battery Status
+002,1,Position
+002,2,Remaining monthss,of battery life,Possible values: 0 to 99 monthss
+;
+003,0,Transmitter Status - 'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK
+003,1,Position,,'Rad' means wheel in German. vl (vor links) means front left in German.
+003,2,Transmitter ID,,A unique ID number - sort of like a computer MAC address - assigned to that specific transmitter
+003,3,Transmitter,Status
+003,4,Last known status,of sensor,Possible values: 00h (defective) 01h (no pressure change noted) 02h (rapid sending speed - pressure change noted) 03h (thermal cut-out) 04h (sensor malfunctioning - replace it) UB. i.O. / UB. n.i.O. / no Signal
+;
+004,0,Front Right Wheel
+004,1,Front Right,wheel position
+004,2,Temperature,of wheel,Possible values: -40°C to 120°C / not recognized
+004,3,Current pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+004,4,Specified pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+;
+005,0,Transmitter Battery Status
+005,1,Position
+005,2,Remaining monthss,of battery life,Possible values: 0 to 99 monthss
+;
+006,0,Transmitter Status - 'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK
+006,1,Position,,'Rad' means wheel in German. vr (vor rechts) means front right in German
+006,2,Transmitter ID,,A unique ID number - sort of like a computer MAC address - assigned to that specific transmitter
+006,3,Transmitter,Status
+006,4,Last known status,of sensor,Possible values: 00h (defective) 01h (normal sending speed) 02h (rapid sending speed) UB. i.O. / UB. n.i.O. / no Signal
+;
+007,0,Rear Left Wheel
+007,1,Wheel position
+007,2,Temperature,of wheel,Possible values: -40°C to 120°C / not recognized
+007,3,Current pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+007,4,Specified pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+;
+008,0,Transmitter Battery Status
+008,1,Position
+008,2,Remaining monthss,of battery life,Possible values: 0 to 99 months
+;
+009,0,Transmitter Status - 'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK
+009,1,Position,,:'Rad' means wheel in German. hl (hinten links) means rear left in German
+009,2,Transmitter ID,,A unique ID number - sort of like a computer MAC address - assigned to that specific transmitter
+009,3,Transmitter,Status
+009,4,Last known status,of sensor,Possible values: 00h (defective) 01h (normal sending speed) 02h (rapid sending speed) UB. i.O. / UB. n.i.O. / no Signal
+;
+010,0,Rear Right Wheel
+010,1,Wheel position
+010,2,Temperature,of wheel,Possible values: -40°C to 120°C / not recognized
+010,3,Current pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+010,4,Specified pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+;
+011,0,Transmitter Battery Status
+011,1,Position
+011,2,Remaining monthss,of battery life,Possible values: 0 to 99 months
+;
+012,0,Transmitter Status - 'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK
+012,1,Position,,'Rad' means wheel in German. hr (hinten rechts) means rear right in German
+012,2,Transmitter ID,,A unique ID number - sort of like a computer MAC address - assigned to that specific transmitter
+012,3,Transmitter,Status
+012,4,Last known status,of sensor,Possible values: 00h (defective) 01h (normal sending speed) 02h (rapid sending speed) UB. i.O. / UB. n.i.O. / no Signal
+;
+013,0,Spare Wheel
+013,1,Wheel position
+013,2,Temperature,of wheel,Possible values: -40°C to 120°C / not recognized
+013,3,Current pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+013,4,Specified pressure,corrected to 20°C,Possible values: 0 to 5.37 bar
+;
+014,0,Transmitter Battery Status
+014,1,Position
+014,2,Remaining monthss,of battery life,Possible values: 0 to 99 months
+;
+015,0,Transmitter Status - 'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK
+015,1,Position,,'Rad' means wheel in German. rr (reserve rad) means spare tire in German
+015,2,Transmitter ID,,A unique ID number - sort of like a computer MAC address - assigned to that specific transmitter
+015,3,Transmitter,Status
+015,4,Last known status,of sensor,Possible values: 00h (defective) 01h (normal sending speed) 02h (rapid sending speed) UB. i.O. / UB. n.i.O. / no Signal
+;
+016,0,Current  /  real time scrolling status of messages being received from the wheel sensors.
+016,1,,,Note that '01h' is normal sending speed and '02h' is rapid sending speed (2h = leak detected). 00h = defective sensor.
+;
+;NOTE: A pressure release of more than 3.0 psi. (0.2 bar) will change the sensor in wheel from 01h to 02h (normal sending speed to rapid sending speed).
+;It will remain in rapid sending speed for 3 minutes following the loss of pressure.
+;'UB. i.O' means Monitoring OK - 'UB. n.i.O.' means Monitoring not OK (Translated from German)
+;
+017,1,,,ID number of the dealership who last adapted this controller
+017,2,Controller,Voltage supply,Possible values: 0 to 25.5 V
+017,3,Vehicle status,,Possible values: 1 = stopped / 0 = driving
+017,4,Vehicle speed,,Possible values: 0 to 255 km / h
+;
+018,0,Atmospheric Conditions
+018,1,Outside air,temperature,Possible values: -40°C to 120°C
+;
+019,0,Operational status of the control module (read the label file for decoding information)
+019,1,,,25 -> after 15 Power cycles -> Ideal value. See labelfile for additional codes.
+;Examples:
+;25 -> after 15 Power cycle -> Ideal
+;265 -> System has wheel and is learning
+;63545 -> Final value of every learn confirmation drive
+;
+20,0,Convenience Controller Area Network (CAN) Bus Status
+20,1,CAN Bus,Mode,2 wire is OK. 1 Wire indicates a defect.
+;
+021,0,Status of the Antenna Diagnosis Process, after a test has been initiated via Adaptation channel 17.
+021,1,Antenna,diagnosis,inactive / wait / Message End (read the label file for decoding information)
+;Antenna diagnosis runs -> wait
+;Antenna diagnosis finished -> MESS end
+;Read fault error. After that there will be a fault entry for every antenna that is not OK
+;The test takes approximately 50 seconds to complete. Antenna resistance is approximately 210K ohms.
+;
+022,0,*Next measuring block used is 26
+;
+026,0,Front left wheel - Condition memory of the last 32 ignition cycles
+026,1,,, A display of 32 dashes (---------------------------) is ideal.
+;Examples:
+;6 -> soft warning
+;7 -> rejected calibration
+;8 -> hard warning
+;If two different conditions in the same 15 power cycle arise, the highest is registered
+;
+027,0,Front right wheel - Condition memory of the last 32 ignition cycles
+027,1,,, A display of 32 dashes (---------------------------) is ideal.
+
+;
+028,0,Rear left wheel - Condition memory of the last 32 ignition cycles
+028,1,,, A display of 32 dashes (---------------------------) is ideal.
+;
+029,0,Rear right wheel - Condition memory of the last 32 ignition cycles
+029,1,,, A display of 32 dashes (---------------------------) is ideal.
+;
+030,0,Spare wheel - Condition memory of the last 32 ignition cycles
+030,1,,, A display of 32 dashes (---------------------------) is ideal.
+;
+031,0,*Next known measuring block is 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*End of documented MVB for this controller.
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring System (J502) Coding
+C01, 
+C02,?xxxx - Identification of manufacturer of the TPMS.
+C03,1 - Volkswagen
+C04, 
+C05,x?xxx - Time interval for system operation.
+C06,0 - Standard
+C07, 
+C08,xx?xx - Total number of tires to be monitored
+C09,2 - 5 tires (vehicle has a full size spare)
+C10,3 - 4 tires (vehicle has no spare tire)
+C11, 
+C12,xxx?x - Type of engine installed (this affects the minimum accepted tire pressure)
+C13,0 - V6 Europe OR V8 North America
+C14,2 - V8 Europe OR W12 North America
+C15,4 - V10 Europe
+C16,8 - W12 Europe
+C17, 
+C18,xxxx? -Full load specified pressures
+C19,4 - Standard
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+;Remark: Security code is required for adaptation functions.
+;
+;
+A017,0,Antenna Diagnosis - Entering a 1 (one) in this channel initiates a diagnosis cycle
+A017,5,Antenna Diagnosis
+A017,6,Here you can enable the Antenna Diagnosis mode.
+A017,7
+A017,8,   
+A017,9,Choices: 1 = Enables antenna diagnosis mode.
+A017,10, 
+A017,11,View status of test in measuring block 21
+A017,12,Test takes about 1 minute to complete.
+A017,13,'Check END' will be displayed in block 21-01 when test is finished.
+A017,14,  
+A017,15,WARNING - be sure vehicle is at least 4 meters (12 feet) away from any other
+A017,16,vehicle or loose wheels equipped with TPMS sensors when performing this test!
+A017,17,  
+A017,18,The progress of the antenna diagnostic test and the test results can
+A017,19,be observed in measured value block 21 AND in fault codes - check both.
+A017,20,The test takes about 50 seconds to complete.
+;

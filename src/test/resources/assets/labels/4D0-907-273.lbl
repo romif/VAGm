@@ -1,0 +1,197 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4D)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; P/N: 4D0-907-273-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 28/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/May/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Sensor 1 Status I
+001,1,Wheel Sensor,Position,No Display = Not yet recognized
+001,2,Wheel,Temperature,Range: -40.0...120.0 °C
+001,3,Wheel Pressure,(actual),No Display = Not yet recognized
+001,4,Wheel Pressure,(specified),at 20.0 °C
+;
+002,0,Wheel Sensor 1 Status II
+002,1,Wheel Sensor,Position,No Display = Not yet recognized
+002,2,Remaining,Battery Life (Month)
+;
+003,0,Wheel Sensor 1 Status III
+003,1,Wheel Sensor,Position,No Display = Not yet recognized
+003,2,Wheel Sensor,Identification
+003,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+003,4,Wheel Sensor,Battery Status
+;
+004,0,Wheel Sensor 2 Status I
+004,1,Wheel Sensor,Position,No Display = Not yet recognized
+004,2,Wheel,Temperature,Range: -40.0...120.0 °C
+004,3,Wheel Pressure,(actual),No Display = Not yet recognized
+004,4,Wheel Pressure,(specified),at 20.0 °C
+;
+005,0,Wheel Sensor 2 Status II
+005,1,Wheel Sensor,Position,No Display = Not yet recognized
+005,2,Remaining,Battery Life (Month)
+;
+006,0,Wheel Sensor 2 Status II
+006,1,Wheel Sensor,Position,No Display = Not yet recognized
+006,2,Wheel Sensor,Identification
+006,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+006,4,Wheel Sensor,Battery Status
+;
+007,0,Wheel Sensor 3 Status I
+007,1,Wheel Sensor,Position,No Display = Not yet recognized
+007,2,Wheel,Temperature,Range: -40.0...120.0 °C
+007,3,Wheel Pressure,(actual),No Display = Not yet recognized
+007,4,Wheel Pressure,(specified),at 20.0 °C
+;
+008,0,Wheel Sensor 3 Status II
+008,1,Wheel Sensor,Position,No Display = Not yet recognized
+008,2,Remaining,Battery Life (Month)
+;
+009,0,Wheel Sensor 3 Status III
+009,1,Wheel Sensor,Position,No Display = Not yet recognized
+009,2,Wheel Sensor,Identification
+009,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+009,4,Wheel Sensor,Battery Status
+;
+010,0,Wheel Sensor 4 Status I
+010,1,Wheel Sensor,Position,No Display = Not yet recognized
+010,2,Wheel,Temperature,Range: -40.0...120.0 °C
+010,3,Wheel Pressure,(actual),No Display = Not yet recognized
+010,4,Wheel Pressure,(specified),at 20.0 °C
+;
+011,0,Wheel Sensor 4 Status II
+011,1,Wheel Sensor,Position,No Display = Not yet recognized
+011,2,Remaining,Battery Life (Month)
+;
+012,0,Wheel Sensor 4 Status III
+012,1,Wheel Sensor,Position,No Display = Not yet recognized
+012,2,Wheel Sensor,Identification
+012,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+012,4,Wheel Sensor,Battery Status
+;
+013,0,Spare Tire/Wheel Sensor I
+013,1,Wheel Sensor,Position,No Display = Not yet recognized
+013,2,Wheel,Temperature,Range: -40.0...120.0 °C
+013,3,Wheel Pressure,(actual),No Display = Not yet recognized
+013,4,Wheel Pressure,(specified),at 20.0 °C
+;
+014,0,Spare Tire/Wheel Sensor II
+014,1,Wheel Sensor,Position,No Display = Not yet recognized
+014,2,Remaining,Battery Life (Month)
+;
+015,0,Spare Tire/Wheel Sensor III
+015,1,Wheel Sensor,Position,No Display = Not yet recognized
+015,2,Wheel Sensor,Identification
+015,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+015,4,Wheel Sensor,Battery Status
+;
+016,0,Wheel Sensor Status (from last Received Wheel ID) I
+016,1,Wheel Sensor,Identification
+016,2,Wheel Sensor,Status,No Display = Not yet recognized
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+016,3,Wheel Sensor,Battery Status
+016,4,Wheel Pressure,(actual)
+;
+017,0,General
+017,1,Work Shop Code,(Last Adaptation)
+017,2,Voltage,(Terminal 30)
+017,3,Vehicle Status,,0 = Vehicle driving (> 5 km/h)\n1 = Vehicle standing
+017,4,Vehicle Speed
+;
+018,0,General
+018,1,Outside,Temperature
+;
+020,0,General
+020,1,CAN-Databus,Status (Comfort),Range: 2-Wire/1-Wire\nSpecification: 2-Wire
+;
+021,0,Antenna Diagnosis
+021,1,Diagnosis,Status,See Adaptation Channel 17
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring (J502) Coding
+C01,?0xxx: Manufacturer
+C02,1 = Volkswagen
+C03,2 = Audi
+C04, 
+C05,x0?xx: Variant
+C06,1 = 4 Antennas / 5 Wheels / 4-Wheel Monitoring
+C07,2 = 4 Antennas / 5 Wheels / 5-Wheel Monitoring ("Full Size" Spare Tire)
+C08,3 = 4 Antennas / 4 Wheels / 4-Wheel Monitoring ("Space Saving" Spare Tire)
+C09, 
+C10,x0x?x: Spec. Pressure (partial load)
+C11,0 = 2.0 bar / 1 = 2.1 bar / 2 = 2.2 bar / 3 = 2.3 bar / 4 = 2.4 bar
+C12,5 = 2.5 bar / 6 = 2.6 bar / 7 = 2.7 bar / 8 = 2.8 bar / 9 = 1.9 bar
+C13, 
+C14,x0xx?: Spec. Pressure (full load)
+C05,0 = 3.0 bar / 1 = 3.1 bar / 2 = 3.2 bar / 3 = 3.3 bar / 4 = 2.4 bar
+C16,5 = 2.5 bar / 6 = 2.6 bar / 7 = 2.7 bar / 8 = 2.8 bar / 9 = 2.9 bar
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A017,0,Antenna Diagnosis
+A017,5,Antenna Diagnosis
+A017,6,0 = ON
+A017,7,1 = OFF
+A017,8, 
+A017,9,See Measuring Block 021.
+;

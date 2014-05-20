@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A5 (8T)
+;
+; Component: CD-Player (#0E/1E)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-0E.LBL
+; 4L-1E.LBL
+; 8T-0E.LBL
+; 8T-1E.LBL
+; 4E0-910-111.LBL
+;
+; created on 11/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,4E0-910-111.LBL,8T?-035-110-???
+;

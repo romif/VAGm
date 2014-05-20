@@ -1,0 +1,14 @@
+;
+; VAG-COM Measuring Block Labels for
+; OBD-I UK Models, Ignition Key Immobiliser p/n 1H0-953-257-xx
+; OBD-II Version Golf 3 
+; Contributed by Chris Gaskell 19/3/2001  England - UK
+; Tested BY Claudio Gonella www.mectronik.com            
+; (31/03/2001)
+;
+1,0,Ignition Key Immobiliser  (1=Yes  0=No)
+1,1,Authorised,Start?
+1,2,ECU,Answers?
+1,3,Key,Condition OK?
+1,4,No. of,Matched Keys
+;

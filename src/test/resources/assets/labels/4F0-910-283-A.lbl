@@ -1,0 +1,83 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A6 (4F)
+;
+; Komponente: J446 - 8-Kanal Einparkhilfe (#76)
+;
+; T/N: 4F0 910 283 A
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 08.09.2004
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Abstand der Sensoren (hinten)
+001,1,hinten,links,Wertebereich: 10...60 cm
+001,2,hinten,links mitte,Wertebereich: 10...160 cm
+001,3,hinten,rechts mitte,Wertebereich: 10...160 cm
+001,4,hinten,rechts,Wertebereich: 10...60 cm
+;
+002,0,Abstand der Sensoren (vorne)
+002,1,vorne,links,Wertebereich: 10...60 cm
+002,2,vorne,links mitte,Wertebereich: 10...120 cm
+002,3,vorne,rechts mitte,Wertebereich: 10...120 cm
+002,4,vorne,rechts,Wertebereich: 10...60 cm
+;
+003,1,Resultierender,Abstand vorne,Wertebereich: 10...120 cm (Berechneter Wert aus den vier gemessenen Abständen)
+003,2,Resultierender,Abstand hinten,Wertebereich: 10...160 cm (Berechneter Wert aus den vier gemessenen Abständen)
+003,3,Geschwindigkeit,,Wertebereich: 0...255 km/h
+003,4,Versorgungs-,spannung [V]
+;
+004,1,Rückwärtsgang,eingelegt,Wertebereich: Rückw. ja/Rückw. nein
+004,2,Anhänger,angesteckt,Wertebereich: Anh. ja/Anh. nein
+004,3,Tonausgabe,unterdrücken,bei Wählhebelstellung P
+004,4,Funktions-,taster,Wertebereich: betätigt / unbetätigt
+;
+005,0,Lautstärke/Frequenz
+005,1,Lautstärke,hinten,Wertebereich: 1...9
+005,2,Frequenz,hinten,Wertebereich: 1...9
+005,3,Lautstärke,vorne,Wertebereich: 1...9
+005,4,Frequenz,vorne,Wertebereich: 1...9
+;
+006,0,Ausschwingzeit der Sensoren (hinten)
+006,1,hinten,links,Wertebereich: 0,8...1,5 ms
+006,2,hinten,links mitte,Wertebereich: 0,8...1,5 ms
+006,3,hinten,rechts mitte,Wertebereich: 0,8...1,5 ms
+006,4,hinten,rechts,Wertebereich: 0,8...1,5 ms
+;
+007,0,Ausschwingzeit der Sensoren (vorne)
+007,1,vorne,links,Wertebereich: 0,8...1,5 ms
+007,2,vorne,links mitte,Wertebereich: 0,8...1,5 ms
+007,3,vorne,rechts mitte,Wertebereich: 0,8...1,5 ms
+007,4,vorne,rechts,Wertebereich: 0,8...1,5 ms
+;
+008,1,Quittierton,,beim Einlegen des Rückwärtsgangs
+008,2,Funkschlüssel-,nummer,0 = keine Schlüsselinformation
+008,3,Fingerprint,,0 = keine Fingerprintinformation oder kein Fingerprint codiert
+008,4,[N/A]
+;
+009,0,Lautstärken - Frequenzen - Fingerprints (siehe Label-File)
+; 8 Viererblöcke getrennt durch jeweils ein Leerzeichen
+; Funkschlüssel 1 bis 4, dann Fingerprint 1 bis 4
+; jeweils Lautstärke hinten, Frequenz hinten, Lautstärke vorne, Frequenz vorne
+;
+081,0,Fahrgestellnummer etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Fahrgestellnummer
+;Baugruppennummer oder Seriennummer
+;Typprüfnummer
+;

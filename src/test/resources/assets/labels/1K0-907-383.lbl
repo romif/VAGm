@@ -1,0 +1,108 @@
+;
+REDIRECT,1K0-907-383-D.LBL,D,E
+;
+; VAG-COM Label File
+;
+; VW Jetta (1K) / VW Passat (3C) / VW Eos (1F)
+;
+; Component: J345 - Trailer (#69)
+;
+; P/N: 1K0-907-383/A/B/C / 8P0-907-383-???
+;
+; includes measuring blocks, coding and selective output tests
+;
+; created on 02/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block
+;
+;---------------------------------------------------
+;
+;
+001,0,Inputs
+001,1,Voltage,(Terminal 30)
+001,3,Status Term. 15,(Emergency Run),Range: ON/OFF
+;
+002,0,Inputs
+002,2,Brake Light Switch,,Range: ON/OFF
+;
+003,0,Outputs
+003,1,Turn Signal,Rear Left,Range: ON/OFF
+003,2,Turn Signal,Rear Right,Range: ON/OFF
+003,3,Tail Light,Left,Range: ON/OFF
+003,4,Tail Light,Right,Range: ON/OFF
+;
+004,0,Outputs
+004,1,Brake Lights,,Range: ON/OFF
+004,2,Back-Up Lights,,Range: ON/OFF
+004,3,Rear Fog Lights,,Range: ON/OFF
+;
+008,0,Input Signals
+008,1,Status,Terminal 15,Range: ON/OFF
+008,2,Status,Terminal X,Range: ON/OFF
+008,4,Trailer,attached,Range: ON/OFF
+;
+009,0,Input Signals
+009,1,Turn Signal,Left,Range: ON/OFF
+009,2,Turn Signal,Right,Range: ON/OFF
+009,3,Emergency Flasher,Warning Lights,Range: ON/OFF
+;
+010,0,Input Signals
+010,1,Brake Light Switch,,Range: ON/OFF
+;
+011,0,Input Signals
+011,1,Side Marking,Lights,Range: ON/OFF
+011,2,Parking Light,Left,Range: ON/OFF
+011,3,Parking Light,Right,Range: ON/OFF
+;
+012,0,Input Signals
+012,1,Rear Fog Light,,Range: ON/OFF
+012,2,Back-Up Light,,Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+130,0,CAN-Databus Communication (Comfort)
+130,1,Central Electronics,(J519),Range: E.Load.Crtl 1/E.Load.Crtl 0\nSpecification: E.Load.Crtl 1
+130,2,Electrical,Ignition Lock,Range: El.Ign.Lock 1/El.Ign.Lock 0\nSpecification: El.Ign.Lock 1
+130,3,CAN-Gateway,(J533),Range: Gateway 1/Gateway 0\nSpecification: Gateway 1
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1019,Relay (Terminal 30G)
+T2562,Trailer Brake Lights
+T2564,Trailer Tail Light Left (M60)
+T2563,Trailer Tail Light Right (M61)
+T2566,Trailer Turn Signals Left (M62)
+T2565,Trailer Turn Signals Right (M63)
+T2567,Trailer Rear Fog Lights (M64)
+T2568,Trailer Back-Up Lights
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Trailer (J345) Coding
+C01,0000001 = Rest of World (RoW)
+C02,0000002 = North America (USA/Canada)
+C03,0000003 = Australia
+;

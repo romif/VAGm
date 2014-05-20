@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; VW Passat (3C)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-65.LBL
+; 3C-65.LBL
+; 3C0-959-433-65.LBL
+;
+; created on 27/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Oct/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3C0-959-433-65.LBL,1K0-959-433-???
+;

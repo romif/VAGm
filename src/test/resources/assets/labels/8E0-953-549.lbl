@@ -1,0 +1,144 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 8E0-953-549-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 26/Sep/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 03/Jun/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Ignition,switch,Display range: 12345 (1=P-contact/2=S-contact/3=term. 75/4=term. 15/5=term. 50)
+001,2,Signal light,,Display range: not activated/left/right
+001,3,Light horn,,Display range: not activated/activated
+001,4,High beam,,Display range: not activated/activated
+;
+002,1,Horn,,Display range: not activated/activated
+002,2,Wiping front,,Display range: not activated/interval step 1/step 1/step 2
+002,3,Interval,steps,Display range: step 1/step 2/step 3/step 4
+002,4,Washing,front,Display range: not activated/activated
+;
+003,1,Wiping rear,,Display range: not installed/not activated/activated
+003,2,Washing rear,,Display range: not installed/not activated/activated
+003,3,Board computer,,Display range: not installed/button reset/button on/button down
+003,4,[N/A]
+;
+004,0,Cruise control switch
+004,1,Cruise control,,Display range: on/off
+004,2,Cruise control,-SET-,Display range: not activated/activated
+004,3,Cruise control,,Display range: not activated/accelerating/decelerating/stored Off/Resume
+004,4,[N/A]
+;
+005,0,Steering wheel (M-equipment)
+005,1,Tip down,,Display range: not installed/not activated/activated
+005,2,Tip up,,Display range: not installed/not activated/activated
+005,3,Steering wheel,heater,Display range: not installed/on/off
+005,4,Sensor,[°C],127 = open circuit / 248 = not installed
+;
+006,0,Multi-function steering wheel
+006,1,Communication,,Display range: OK/not OK
+006,2,Electronic,version
+006,3,Malfunction,recognized?,Display range: yes/no
+006,4,[N/A]
+;
+007,0,Multi-function buttons
+007,1,Button 1,,Display range: not activated/activated
+007,2,Button 2,,Display range: not activated/activated
+007,3,Button 3,,Display range: not activated/activated
+007,4,Button 4,,Display range: not activated/activated
+;
+008,0,Multi-function buttons
+008,1,Button 5,,Display range: not activated/activated
+008,2,Button 6,,Display range: not activated/activated
+008,3,[N/A]
+008,4,[N/A]
+;
+009,0,Inputs via Comfort CAN-bus
+009,1,Diming,,Display range: diming value
+009,2,Right hand,steering,Display range: yes/no
+009,3,Left,heated seat,Display range: off/step
+009,4,Right,heated seat,Display range: off/step
+;
+010,0,Inputs via Comfort CAN-bus
+010,1,M-path,Tiptronic,Display range: not activated/activated
+010,2,[N/A]
+010,3,[N/A]
+010,4,[N/A]
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus communication (Comfort)
+125,1,Instrument,cluster
+125,2,Central comfort,electric
+125,3,Climate control
+125,4,[N/A]
+;
+126,0,CAN-Databus communication (Comfort) - Door control modules
+126,1,driver,side
+126,2,passenger,side
+126,3,rear,left,only with electrical power windows
+126,4,rear,right,only with electrical power windows
+;
+127,0,CAN-Databus communication (Comfort)
+127,1,Radio
+127,2,Telephone
+127,3,Voice activation,input
+127,4,[N/A]
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+C01,0?xxx: Steering Wheel
+C02,0 = Standard (without Multifunction)
+C03,1 = 3-Spoke Steering Wheel (Sport Steering Wheel)
+C04,2 = Multifunction Steering Wheel with Radio Control
+C05,3 = Multifunction Steering Wheel with Radio/Telephone Control
+C06,4 = Multifunction Steering Wheel with Radio/Telephone/Voice Control
+C07,5 = Multifunction Steering Wheel with Radio/Voice Control
+C08,0x?xx: Options
+C09,+1 = Tiptronic
+C10,0xx?x: Board Computer & Cruise Control
+C11,0 = Board Computer & Cruise Control not installed
+C12,1 = Board Computer installed
+C13,2 = Cruise Control installed
+C14,4 = Board Computer & Cruise Control installed
+C15,0xxx?: Rear Wiper (Chassis)
+C16,1 = Rear Wiper not installed (Sedan/Cabriolet)
+C17,2 = Rear Wiper installed (Avant)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A081,0,Learned Values (Vehicle Data)
+A081,5,Learned Values (Vehicle Data)
+A081,6,To start the process for vehicle data (VIN)
+A081,7,learning enter/save 00111 as new value.
+;

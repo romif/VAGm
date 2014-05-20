@@ -1,0 +1,80 @@
+;
+; VCDS Label File
+;
+; Audi A3 (8L) / Audi A4 (8D) / Audi A6 (4B) / Audi A8 (4D)
+; Audi TT (8N) / VW Passat (3B)
+;
+; Component: J431 - Headlight Aim Control (#55)
+;
+; P/N: 4B0-907-357
+;
+; includes measuring blocks, basic setting and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-55.LBL
+; 4Z-55.LBL
+; 4B0-907-357-AUT.LBL
+; 4B0-907-357-DYN.LBL
+;
+; created on 02/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage Supply,(Terminal 15),Specifcation: 0.0...15.0 V
+001,2,Voltage Low Beam,(Terminal 56b),Specifcation: 0.0...15.0 V
+001,3,Vehicle Speed,,Specification: 0.0...300.0 km/h
+;
+B001,0,Adjustment Position
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,General
+002,1,Voltage front,level sensor (G78),Specification: 1.56...3.45 V\n0.00 V = level sensor faulty\n5.00 V = wiring faulty
+002,2,Voltage rear,level sensor G76),Specification: 1.56...3.45 V\n0.00 V = level sensor faulty\n5.00 V = wiring faulty
+002,3,Adjustment,Status,Specification: ADP i.O.
+;
+B001,0,Adjustment Learning
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Head Light Aim Control (J431) Coding
+C01,00001 = Audi A3 (8L) Front-Wheel-Drive (through MY 2000)
+C02,00002 = Audi A3/S3 (8L) All-Wheel-Drive (through MY 2000)
+C03,00003 = Audi A4 (8D) Front-Wheel-Drive
+C04,00004 = Audi A4/S4 (8D) All-Wheel-Drive
+C05,00005 = Audi A6 (4B) Front-Wheel-Drive
+C06,00006 = Audi A6 (4B) All-Wheel-Drive
+C07,00007 = Audi A8 (4D) Front-Wheel-Drive
+C08,00008 = Audi A8/S8 (4D) All-Wheel-Drive
+C09,00009 = Audi TT (8N) Front-Wheel-Drive
+C10,00010 = Audi TT (8N) All-Wheel-Drive
+C11,00013 = Audi A3 (8L) Front-Wheel-Drive (from MY 2001)
+C12,00014 = Audi A3/S3 (8L) All-Wheel-Drive (from MY 2001)
+C13,00015 = VW Passat (3B) Front-Wheel-Drive
+C14,00016 = VW Passat (3B) All-Wheel-Drive
+;

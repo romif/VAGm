@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; Skoda Octavia (1U)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1U-17.LBL
+; 1Ux-919-xxx-17.LBL
+; 1U0-920-xxx-17.LBL
+;
+; created on 12/Jan/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jan/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1Ux-919-xxx-17.LBL,1U?-919-???-???
+REDIRECT,1U0-920-xxx-17.LBL,1U0-920-???-???
+;

@@ -1,0 +1,79 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi 80 (8A)
+;
+; Komponente: Motorelektronik (#01) - ABT (ab MJ 1993)
+;
+; T/N: 8A0 906 311 ???
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8A-01.LBL
+; 8A0-907-311-ABT.LBL (2.0l     @  90 HP - ABT)
+;
+; erstellt am 11.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 11.05.2005
+;
+; benötigt VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Kühlmitteltemperatur
+000,2,Drosselklappenpotentiometer (Bahn 1)
+000,3,Motordrehzahl
+000,4,Ansauglufttemperatur
+000,5,Lambda-Regelung,Sollwert: 98...158
+000,6,Lambda-Sondenspannung,Sollwert: 0...31 bzw. 224...255
+000,7,Grundluftbedarf
+000,8,Leerlaufstabilisierung
+000,9,Batteriespannung
+000,10,Magnetventil für Aktivkohlebehälter
+;
+001,0,Leerlaufprüfung (Grundeinstellung: Drosselklappe)
+001,1,Motordrehzahl,,Sollwert: 750...1000 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+001,3,Lambda,Korrekturfaktor,Sollwert: ~1.0 V
+001,4,Betriebszustand
+; -1-xx-xx - Leerlaufschalter geschlossen
+; -x-1x-xx - Klimakompressor eingeschaltet
+; -x-x1-xx - Klimaanlage eingeschaltet
+; -x-xx-1x - Drehmoment-Reduzierung
+; -x-xx-x1 - Fahrstufe eingelegt
+;
+002,0,Einspritzzeit/Ansauglufttemperatur
+002,1,Motordrehzahl,,Sollwert: 750...1000 U/min
+002,2,Einspritzzeit
+002,3,Batteriespannung,Sollwert: 10.8...14.0 V
+002,4,Ansaugluft-,temperatur
+;
+003,0,Motorlastzustand
+003,1,Motordrehzahl,,Sollwert: 750...1000 U/min
+003,2,Motorlastsignal
+003,3,Drosselklappen-,winkel,Sollwert (Leerlauf): 0.0...2.0 <°\nSollwert (Vollast): mind. 75 <°
+003,4,Zündzeitpunkt
+;
+004,0,Betriebszustände
+004,1,Motordrehzahl,,Sollwert: 750...1000 U/min
+004,2,Motorlastsignal
+004,3,Geschwindigkeit
+004,4,Betriebszustand,,---1xxxx - Anreicherung\n---x1xxx - Vollast\n---xx1xx - Teillast\n---xxx1x - Leerlauf\n---xxxx1 - Schubabschaltung
+;
+005,0,Gemischregelung
+005,1,Motordrehzahl,,Sollwert: 750...1000 U/min
+005,2,Magnetventil für,Aktivkohlebehälter
+005,3,Lambda,Korrekturfaktor,Sollwert: ~1.0 V
+005,4,Gemisch,Korrekturwert
+;

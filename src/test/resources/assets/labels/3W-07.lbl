@@ -1,0 +1,28 @@
+;
+; VAG-COM Redirect File
+;
+; Bentley Continental GT (3W)
+;
+; Component: Front Information Display Control Head (#07)
+;
+;       P/N: 3W0-035-007-? (Bentley Continental GT - Rest of World)
+;       P/N: 3W0-035-008-? (Bentley Continental GT - North America)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-07.LBL
+; 3W-07.LBL
+; 3D0-035-00x-07.LBL
+;
+; created on 27/Feb/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 03/Aug/2005
+;
+; last modification: 23/September/2005 (Michael Moore) - Bentley part numbers added above.
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,3D0-035-00x.LBL,3W0-035-007-??? ; RoW (Rest of World)
+REDIRECT,3D0-035-00x.LBL,3W0-035-008-??? ; NAR (North America)
+;

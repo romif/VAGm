@@ -1,0 +1,128 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8PA)
+;
+; component: J234 - Airbag 9.41 (#15)
+;
+; p/n: 8P0-959-655-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-15.LBL
+; 8P0-959-655-8P1.LBL (8P1: 2 door)
+; 8P0-959-655-8PA.LBL (8PA: 4 door)
+;
+; created on 01/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 22/Aug/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Igniter Status (Airbag && Tensioner)
+001,1,Driver Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Passenger Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Driver Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Passenger Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Igniter Status (Tensioner && Battery Disconnect)
+002,1,Rear Left Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Rear Right Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,3,Rear Center Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,4,Battery Disconnect,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,1,Voltage supply,,Display Range: Correct/Signal too Low/Signal too High
+003,2,Seat Occupation,Detection Passenger,Display Range: Child Seat/Light Adult/Medium Adult/Heavy Adult/Not Occup./Short to Ground/Short to Plus/Not Installed
+003,3,Belt Inquiry,Driver,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Passenger,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry (Rear)
+004,1,Belt Inquiry,Rear Left,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Right,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+005,0,Igniter Status (Side Airbag)
+005,1,Front Left Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,2,Front Right Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,3,Rear Left Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,4,Rear Right Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+007,0,Igniter Status (Head Airbag)
+007,1,Driver Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+007,2,Passenger Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+010,0,Key Switch Status
+010,1,Key Switch,Passenger Airbag,Display Range: ON/OFF
+010,2,Key Switch,(HW Path),Display Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+010,3,Key Switch,(SW Path),Display Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+011,0,Igniter Status (Airbag Stage 2 && Knee Airbag)
+011,1,Driver Airbag,Igniter (Stage 2),Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,2,Passenger Airbag,Igniter (Stage 2),Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,3,Driver Knee,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,4,Passenger Knee,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+016,0,Seat Occupation Recognition (J706)
+016,1,Control Module,Serial: 1st/2nd digit
+016,2,Control Module,Serial: 3rd/4th digit
+016,3,Control Module,Serial: 5th digit
+016,4,Control Module,Calibration
+;
+018,0,Seat Occupation Detection
+018,1,Pressure Sensor
+018,2,Belt Force Sensor
+018,3,Acceleration Sensor
+;
+019,0,Workshop Codes
+019,1,Workshop Code,(Last Coding),of seat occupation detection
+019,2,Workshop Code,(Last 0 Calibration),of seat occupation detection
+;
+021,0,Igniter Resistance (Airbag && Tensioner)
+021,1,Driver Airbag,Igniter,Specification: 2.1...5.6 Ohm
+021,2,Passenger Airbag,Igniter,Specification: 1.6...5.6 Ohm
+021,3,Driver Belt,Tensioner Igniter,Specification: 1.6...5.6 Ohm
+021,4,Passenger Belt,Tensioner Igniter,Specification: 1.6...5.6 Ohm
+;
+022,0,Igniter Resistance (Tensioner && Battery)
+022,1,Rear Left Belt,Tensioner Igniter,Specification: 1.6...5.6 Ohm
+022,2,Rear Right Belt,Tensioner Igniter,Specification: 1.6...5.6 Ohm
+022,3,Rear Center Belt,Tensioner Igniter,Specification: 1.6...5.6 Ohm
+022,4,Battery Disconnect,Igniter,Specification: 1.6...5.6 Ohm
+;
+025,0,Igniter Resistance (Side Airbag)
+025,1,Front Left Side,Airbag Igniter,Specification: 1.6...5.6 Ohm
+025,2,Front Right Side,Airbag Igniter,Specification: 1.6...5.6 Ohm
+025,3,Rear Left Side,Airbag Igniter,Specification: 1.6...5.6 Ohm
+025,4,Rear Right Side,Airbag Igniter,Specification: 1.6...5.6 Ohm
+;
+027,0,Igniter Resistance (Head Airbag)
+027,1,Driver Head,Airbag Igniter,Specification: 1.6...5.6 Ohm
+027,2,Passenger Head,Airbag Igniter,Specification: 1.6...5.6 Ohm
+;
+031,0,Igniter Resistance (Airbag Stage 2 && Knee Airbag)
+031,1,Driver Airbag,Igniter (Stage 2),Specification: 2.1...5.6 Ohm
+031,2,Passenger Airbag,Igniter (Stage 2),Specification: 1.6...5.6 Ohm
+031,3,Driver Knee,Airbag Igniter,Specification: 1.6...5.6 Ohm
+031,4,Passenger Knee,Airbag Igniter,Specification: 1.6...5.6 Ohm
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Instrument Cluster,,Specification: Instruments 1
+125,2,Brake Electronics,,Specification: ABS 1
+;
+225,0,CAN-Databus Time-Out (Powertrain)
+225,1,Instrument Cluster
+225,2,Brake Electronics
+;

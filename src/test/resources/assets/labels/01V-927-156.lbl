@@ -1,0 +1,146 @@
+;
+; VAG-COM Label File
+;
+; VW Passat (3B)
+;
+; Component: J217 - Transmission (#02) - 5-Speed Automatic Transmission 01V
+;
+; P/N: 01V-927-733-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 16/Mar/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Mar/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Engine Speed
+001,2,Transmission,Input Speed (G182)
+001,3,Transmission,Output Speed (G195)
+001,4,Current Gear,,Range: 1m/1/2/3/4/5/R
+;
+002,0,General
+002,1,Current Program,,Range: S0/DS/WL/TT/AS/GR
+; DS = Dynamisches Shift Program active
+; WL = Warm-Up Program active
+; TT = TipTronic Recognition active
+; AS = Anti-Slip-Regulatiopn (ASR) active
+002,2,Accel. Pedal,Position,Range (Idle): 0.0...1.0 %\nRange (Load): 99.0...100.0 %
+002,3,Transmission,Output Speed (G195)
+002,4,Current Gear,,Range: 1m/1/2/3/4/5/R
+;
+003,0,General
+003,1,Brake Light,Switch (F)
+003,2,Shift Lock,Solenoid (N110),Range: PN active/PN not active
+003,3,Vehicle Speed
+003,4,Supply Voltage,(Terminal 15),Specification: 10.0...16.0 V
+;
+004,0,General
+004,1,Transmission Fluid,Temperature (G93),-50.0 °C = Short to Ground\n-180.0 °C = Open/Short to Plus
+004,2,Selector Lever,Position (F125),Range: P/R/N/D/S/Z1/Z2/Z3
+004,3,Multi-Function,Switch (F125),P = 1000\nR = 0100\nN = 1110\nD = 1011\nS = 0111\nZ3 = 1111\nZ2 = 1010\nZ1 = 1100
+004,4,On-Board-Diag.,(OBD) Information,Range 0 = No / 1 = Yes\n\n?xxx = Malfunction Display active\nx?xx = Trip complete\nxx?x = Transmission Wam-Up complete\nxxx? = Engine Start recognized
+;
+005,0,Solenoid Valves
+005,1,Solenoid Valve 1,(N88),O = not active\nX = active (D = Gear 3/4)
+005,2,Solenoid Valve 2,(N89),O = not active / X = active
+005,3,Solenoid Valve 3,(N90),O = not active / X = active
+005,4,Current Gear,,Range: 1m/1/2/3/4/5/R
+;
+006,0,Pressure Control Valves (Specified Current)
+006,1,Pressure Control,Valve 1 (N215),Range: 0.000...2.000 A
+006,2,Pressure Control,Valve 2 (N216),Range: 0.000...2.000 A
+006,3,Pressure Control,Valve 3 (N217),Range: 0.000...2.000 A
+;
+007,0,Pressure Control Valve (Specified Current) && Torque Converter
+007,1,Transmission Fluid,Temperature (G93),-50.0 °C = Short to Ground\n-180.0 °C = Open/Short to Plus
+007,2,Pressure Control,Valve 4 (N218),Range: 0.000...2.000 A
+007,3,Torque Converter,Clutch,Range: TC Open/TC Control/TC Closed
+007,4,Torque Converter,Slip Speed,Specification (at "TC Open"): 0 RPM\nSpecification (at "TC Control"): 20...120 RPM\nSpecification (at "TC Closed"): 0...20 RPM
+;
+008,0,
+008,1,Kick-Down,Switch (F8),Range: Operated/Not Oper.
+008,2,Accel. Pedal,Position,Range (Idle): 0.0...1.0 %\nRange (Load): 99.0...100.0 %
+008,3,Deceleration,Signal,Range: No Display/Deceleration
+;
+009,0,
+009,1,Engine Torque
+009,2,Engine Speed
+009,3,Accel. Pedal,Position,Range (Idle): 0.0...1.0 %\nRange (Load): 99.0...100.0 %
+009,4,Transmission,Input Torque
+;
+010,0,
+010,1,Torque Increase in,Torque Converter
+010,2,Engine Speed
+010,3,Current Gear,,Range: 1m/1/2/3/4/5/R
+010,4,Vehicle,Acceleration
+;
+011,0,
+011,1,Selector Lever,Position (F125),Range: P/R/N/D/S/Z1/Z2/Z3
+011,2,Tiptronic Switch,(F189) Gate Status,Range: No Display/M-Shift
+011,3,Tiptronic Switch,(F189) Status,Range: No Display/Up-Shift/Down-Shift
+;
+012,0,
+012,1,Surface,Recognition,E = Flat Surface\nB = Hill
+012,2,Dynamic Index
+012,3,Driving Resistance,Index
+012,4,Driving,Evaluation
+;
+013,0,
+013,1,Standard Torque,via CAN
+013,2,Engine Code Digit,via CAN
+013,3,Transmission Coding,in Engine
+013,4,CAN-Data Version
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+084,0,Advanced Control Module Identification V
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Range: Engine 1/Engine 0\nSpecification: Engine 1
+125,2,Brake Electronics,(J104),Range: ABS 1/ABS 0\nSpecification: ABS 1
+125,3,Steering Wheel,Electronics (J527),Range: St. Wheel 1/St. Wheel 0
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Transmission (J217) Coding
+C01,Non-DBW (Drive-by-Wire) Cars:
+C02,00000 = Standard (DSP active)
+C03,00010 = Standard (DSP inactive)
+C04, 
+C05,DBW (Drive-by-Wire) Cars:
+C06,0?xxx: Tiptronic Installation
+C07,0 = Tiptronic Buttons/Paddels not installed
+C08,1 = Tiptronic Buttons/Paddels installed
+C09,0x?xx: Tiptronic Strategy
+C10,0 = Old Strategy (Shifts to first Gear when braked to Standstill)
+C11,1 = New Strategy (Automatic Up/Down Shift before RPM Limit & Down Shift at Kick-Down)
+C12,0xx?x: Dynamic Shift Program (DSP)
+C13,0 = DSP active
+C14,1 = DSP inactive
+C15,0xxx?: Region/Powertrain
+C16,1 = All-Wheel-Drive (Rest of World)
+C17,2 = All-Wheel-Drive (North American Region)
+C18,3 = Front-Wheel-Drive (Rest of World)
+C19,4 = Front-Wheel-Drive (North American Region)
+;

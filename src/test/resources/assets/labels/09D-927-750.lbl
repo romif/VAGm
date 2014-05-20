@@ -1,0 +1,58 @@
+;
+; VAG-COM Labelfile
+;
+; VW Touareg (7L)
+;
+; Component: Automatic Transmission (#02) - 09D
+;
+; P/N: 09D-927-750-???
+;
+; includes measuring blocks and coding
+;
+; created on 24/Mar/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 15/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+008,4,Voltage Supply,,Specification: 9.0...16.0 V
+;
+012,3,Selected Gear
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine
+125,2,Brake Electronics
+125,3,Instrument Cluster
+125,4,All-Wheel-Drive
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Automatic Transmission 09D (J217) Coding
+C01,Country:
+C02,+0004136 - Rest of World (through MY 2005)
+C03,+0004153 - USA (through MY 2005)
+C04,+0004200 - Rest of World (from MY 2006)
+C05,+0004216 - USA (from MY 2006)
+C06, 
+C07,Exhaust (Rest of World MY 2005/2006 V8 AXQ only):
+C08,+0000000 - with Sound Package Exhaust (PR-0P8)
+C09,+0000002 - w/o Sound Package Exhaust (PR-0P0)
+C10, 
+C11,Steering Wheel Tiptronic Paddels:
+C12,+000000 - w/o Steering Wheel Tiptronic Paddels
+C13,+008192 - with Steering Wheel Tiptronic Paddels
+;

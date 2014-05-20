@@ -1,0 +1,212 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J518 - Access/Start Authorization (#05)
+;
+; P/N: 4F0-910-852-???
+;
+; includes measuring blocks and coding
+;
+; created on 08/Sep/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/Sep/2005
+;
+; requires VAG-COM 403.2 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Terminal Status
+001,1,Status,Terminal 15,Display Range: Term 15 On/Term 15 Off
+001,3,Status,Terminal 75X,Display Range: ON/OFF
+001,4,Status,Terminal 50,Display Range: Term 50 On/Term 50 Off
+;
+002,0,Entry and Start Authorisation Buttons
+002,1,Start Auth. Button,(E408) ON,Display Range: ON/OFF
+002,2,Start Auth. Button,(E408) START,Display Range: ON/OFF
+002,3,Start Auth. Button,(E408) STOP,Display Range: ON/OFF
+002,4,Door Touch,Sensors,0000xxx? = Front Left\n0000xx?x = Rear Left\n0000x?xx = Front Right\n0000?xxx = Rear Right
+;
+003,0,Ignition Switch (E415) I
+003,1,Status,S-Contact,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+003,2,Status,Terminal 15,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+003,3,Status,Terminal 50,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+;
+004,0,Ignition Switch (E415) II
+004,1,Start Auth. Button,(E408) ON,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+004,2,Start Auth. Button,(E408) START,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+004,3,Start Auth. Button,(E408) STOP,On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+004,4,Brake Light Switch,(F),On Data Wire from Ignition Switch (E415)\nDisplay Range: ON/OFF
+;
+005,0,Recovery Data
+005,1,Current,Recovery Buffer
+005,2,Recovery Data 0
+005,3,Recovery Data 1
+;
+006,1,Serial Bus
+006,2,Terminal 15R,Relay Circuit,Display Range: ON/OFF
+006,3,Terminal 75X,Relay Circuit,Display Range: ON/OFF
+006,4,Terminal 50R,Relay Circuit,Display Range: ON/OFF
+;
+007,0,Voltages
+007,1,Supply Voltage
+007,2,Output Voltage to,activate Term. 15
+007,3,Output Voltage to,activate Term. 75X
+007,4,Output Voltage to,activate Term. 50
+;
+008,0,Ignition Switch (E415)
+008,2,Locked 1,,Display Range: Not Oper./Activated
+008,3,Locked 2,,Display Range: Not Oper./Activated
+008,4,Unlocked,,Display Range: Not Oper./Activated
+;
+009,1,Switch Motor 1,Relay 1 Term. 15,Display Range: Not Oper./Activated
+009,2,Switch Motor 2,Relay 2 Term. 15,Display Range: Not Oper./Activated
+009,3,K15/P Wire from,Ignition Sw. (E415),Display Range: ON/OFF
+009,4,K15/S Wire from,Ignition Sw. (E415),Display Range: ON/OFF
+;
+010,1,Jump-Start,Counter
+010,2,Unlock Counter
+010,4,Wait-Time Preset
+;
+011,1,Remote Control,Key,0000xxxx = 0 = Sender-ID Unknown\nxxxx1xxx = Battery Low\nxxxxx1xx = Open\nxxxxxx?x = Rear\nxxxxxxx? = Close
+011,2,Remote Control,Command,1xxxxxxx = Wrong Response\nx1xxxxxx = No Response\nxx1xxxxx = Carfinder Error\nxxx1xxxx = CAN Carfinder\nxxxx1xxx = CAN Panic\nxxxxx1xx = CAN Rear\nxxxxxx1x = CAN Close\nxxxxxxx1 = CAN Open
+011,3,Reception Strength,of Remote Control
+;
+022,0,Keys I
+022,4,Number of,matched Keys
+;
+023,0,Keys II
+023,1,Authentication,,Specification: Yes = OK\nDisplay Range: Yes = OK / No = Not OK
+023,2,Engine Control,Unit authorized,Specification: Yes = OK\nDisplay Range: Yes = OK / No = Not OK
+023,3,Key-ID,authorized,Specification: Yes = OK\nDisplay Range: Yes = OK / No = Not OK
+023,4,Immobilizer Status,,0 = End of Line (Original)\n1 = End of Line (New)\n6 = Immobilizer adapted
+;
+024,1,Login-Lock,(for Adaptation),in Minutes
+024,2,Remaining,Free Starts,Terminal 15 ON Cycles
+024,3,Drive Enable
+024,4,End of Line,Timeout,
+;
+025,1,Warning Text,to Instr. Cluster,via CAN
+025,2,Warning Message,to Instr. Cluster,via CAN
+025,3,Advanced Key,Error Message
+;
+026,0,Advanced Key
+026,4,Total Number of,Authentications
+;
+027,0,Door Touch Sensors
+027,1,Lock-Out Time,Touch Sensors
+027,2,False Triggering,Configuration
+027,3,Current Counter,False Triggering
+;
+050,0,CAN-Messages from Central Electronics (J519)
+050,1,Tailgate Lock
+050,2,Locked,(internal)
+050,3,Locked,(external)
+050,4,Safed,(external)
+;
+051,0,CAN-Messages from Driver's Door Control Unit (J386)
+051,1,Driver's Door,Opened,Display Range: ON/OFF
+051,2,Driver's Door,Locked,Display Range: ON/OFF
+051,3,Driver's Door,Safed,Display Range: ON/OFF
+;
+052,0,CAN-Messages from Passenger Door Control Unit (J387)
+052,1,Passenger Door,Opened,Display Range: ON/OFF
+052,2,Passenger Door,Locked,Display Range: ON/OFF
+052,3,Passenger Door,Safed,Display Range: ON/OFF
+;
+053,0,CAN-Messages from Rear Left Door Control Unit (J388)
+053,1,Door Rear Left,Opened,Display Range: ON/OFF
+053,2,Door Rear Left,Locked,Display Range: ON/OFF
+053,3,Door Rear Left,Safed,Display Range: ON/OFF
+;
+054,0,CAN-Messages from Rear Right Door Control Unit (J389)
+054,1,Door Rear Right,Opened,Display Range: ON/OFF
+054,2,Door Rear Right,Locked,Display Range: ON/OFF
+054,3,Door Rear Right,Safed,Display Range: ON/OFF
+;
+055,0,CAN-Messages from Door Control Units
+055,1,Driver's Door,Opening,Display Range: 0.0...100.0 %
+055,2,Passenger Door,Opening,Display Range: 0.0...100.0 %
+055,3,Door Rear Left,Opening,Display Range: 0.0...100.0 %
+055,4,Door Rear Right,Opening,Display Range: 0.0...100.0 %
+;
+057,1,CAN-Diagnosis 1,Unlearn Counter
+057,2,CAN-Diagnosis 1,Error-Bit Mileage
+057,3,CAN-Diagnosis 1,Error-Bit Time
+;
+058,1,CAN-Diagnoses 1
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN) & Serial Number
+;
+082,0,Advanced Control Module Identification III
+;
+090,0,CAN-Gateway
+090,1,Engine 1 Old,,Display Range: ON/OFF
+090,2,Clutch Switch,,Display Range: ON/OFF
+090,3,Brake Light Switch,,Display Range: ON/OFF
+090,4,Brake Test Switch,,Display Range: ON/OFF
+;
+091,0,CAN-Gateway
+091,2,Selector Lever,Position,Display Range: ON/OFF
+091,3,Brake 1 Old,,Display Range: ON/OFF
+091,4,Gearbox 1 Old,,Display Range: ON/OFF
+;
+128,0,Terminals
+128,1,Status,Terminal S,Display Range: ON/OFF
+128,3,Status,Terminal P,Display Range: ON/OFF
+;
+129,0,Gear Status
+129,2,Gear P,,Display Range: ON/OFF
+129,3,Gear PN,,Display Range: PN Inactive/PN Active
+;
+137,1,Locking Voltage,St. Column Lock
+137,2,Minimum,Locking Voltage
+;
+177,0,Intelligent Load Management (ILM)
+177,1,ILM Rear 1,Softtouch pressed,Display Range: ON/OFF
+;
+178,0,CAN-Messages from Driver's Door Control Unit (J386)
+178,1,Driver's Door,Keyswitch Close,Display Range: ON/OFF
+178,2,Driver's Door,Tag Pressed,Display Range: ON/OFF
+178,3,Driver's Door,Lock Button,Display Range: ON/OFF
+;
+179,0,CAN-Messages from Passenger Door Control Unit (J387)
+179,2,Passenger Door,Tag Pressed,Display Range: ON/OFF
+179,3,Passenger Door,Lock Button,Display Range: ON/OFF
+;
+180,0,CAN-Messages from Rear Left Door Control Unit (J388)
+180,2,Door Rear Left,Tag Pressed,Display Range: ON/OFF
+180,3,Door Rear Left,Lock Button,Display Range: ON/OFF
+;
+181,0,CAN-Messages from Rear Right Door Control Unit (J389)
+181,2,Door Rear Right,Tag Pressed,Display Range: ON/OFF
+181,3,Door Rear Right,Lock Button,Display Range: ON/OFF
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Access/Start Authorization (J518) Coding
+C1,+001 - Standard (Coding Check)
+C2,+002 - Automatic Transmission
+C3,+004 - Advanced Key
+C4,+008 - North American Region (USA/Canada)
+C5,+016 - Right Hand Steering (RHD)
+C6,+032 - Performance Reduction (Japan/South Korea)
+C7,+064 - Special Vehicles
+C8,+128 - Avant
+;

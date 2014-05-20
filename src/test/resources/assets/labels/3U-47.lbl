@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Skoda Superb (3U)
+;
+; Component: Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3U-47.LBL
+; 1J0-035-456.LBL
+;
+; created on 23/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+REDIRECT,1J0-035-456.LBL,3U0-035-456-???
+;

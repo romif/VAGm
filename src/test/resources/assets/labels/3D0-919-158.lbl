@@ -1,0 +1,31 @@
+;
+; VAG-COM label file 3D0-919-158.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Rear HVAC Control Panel  -E265-  (#28)
+; - this is the rear display panel that control air condition functions only, it is NOT
+;   the very rare 'Control Unit, Rear Information Display' that duplicates all J523 functions.
+;
+;
+; p/n: 3D0 919 158 G  Component: Component: Klima-Bedienteil D1 0117   Coding: 000000 
+;      (2004 Phaeton W12, German specification)
+;      (2005 Phaeton V8, NAR specification)
+;
+;
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 30/August/2005 (Michael)
+; last modified: 23/November/2005 (Michael) - MY 2005 information added above
+;
+; there is only one block in this controller, it is block 80
+;
+001,0,*The only MVB in this whole controller is block 080
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach

@@ -1,0 +1,516 @@
+;
+; VAG-COM label file
+;
+; VW New Beetle (1C) / New Beetle Cabriolet (1Y)
+;
+; component: Engine (#01) - BKF
+;
+; p/n: 06A-906-032-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 06A-906-032-BKF.LBL  (1.8l T   @ 150 HP - BKF)
+;
+; created on 24/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 24/Apr/2008
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions
+001,1,Engine Speed,,Specification (idle): 780 RPM
+001,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+001,3,Lambda,Controller,Specification: -10.0...+10.0
+001,4,Basic Setting,Requirements
+; 1xxxxxxx - Coolant Temperature below 80 °C
+; x1xxxxxx - Engine Speed below 2000 RPM
+; xx1xxxxx - Throttle Valve closed
+; xxx1xxxx - Lambda Regulation correct
+; xxxx1xxx - Idle Condition
+; xxxxx1xx - A/C System Compressor deactivated
+; xxxxxx1x - Catalyst Temperature correct
+; xxxxxxx1 - No Malfunctions detected
+;
+002,0,Basic Functions (Mass Air Flow)
+002,1,Engine Speed,,Specification (idle): 780 RPM
+002,2,Engine Load,,Specification: 16.0...35.0 %
+002,3,Injection,Timing
+002,4,Intake Air Mass,,Specification: 2.0...4.5 g/s
+;
+003,0,Basic Functions (Mass Air Flow)
+003,1,Engine Speed,,Specification (idle): 780 RPM
+003,2,Intake Air Mass,,Specification: 2.0...4.5 g/s
+003,3,Throttle Drive,Angle Sensor 1,for EPC (G187)
+003,4,Ignition,Timing Angle
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification (idle): 780 RPM
+004,2,Voltage Supply,,Specification: 11.0...15.0 V
+004,3,Coolant,Temperature,Specification: 80...110 °C
+004,4,Intake Air,Temperature
+;
+005,0,Basic Functions
+005,1,Engine Speed,,Specification (idle): 780 RPM
+005,2,Engine Load,,Specification: 16.0...35.0 %
+005,3,Vehicle Speed,,Specification: 0 km/h
+005,4,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,Basic Functions
+006,1,Engine Speed,,Specification (idle): 780 RPM
+006,2,Engine Load,,Specification: 16.0...35.0 %
+006,3,Intake Air,Temperature
+006,4,Altitude,Correction Factor
+;
+008,0,Basic Functions
+008,1,Brake Condition,,Display Range: Operated/Not Oper.
+008,2,Voltage Supply,,Specification: 11.0...15.0 V
+008,3,Brake Vacuum,Pump Condition,Display Range: Pump ON/OFF
+008,4,Brake Booster,Pressure
+;
+010,0,Ignition
+010,1,Engine Speed,,Specification (idle): 780 RPM
+010,2,Engine Load,,Specification: 16.0...35.0 %
+010,3,Throttle Drive,Angle Sensor 1,for EPC (G187)
+010,4,Ignition,Timing Angle
+;
+011,0,Ignition
+011,1,Engine Speed,,Specification (idle): 780 RPM
+011,2,Coolant,Temperature,Specification: 80...110 °C
+011,3,Intake Air,Temperature
+011,4,Ignition,Timing Angle
+;
+014,0,Ignition (Misfire Recognition)
+014,1,Engine Speed,,Specification (idle): 780 RPM
+014,2,Engine Load,,Specification: 16.0...35.0 %
+014,3,Misfire,(total),Specification: 0
+014,4,Misfire,recognition,Specification: active | Display Range: active/inactive
+;
+015,0,Misfire Recognition
+015,1,Cylinder 1
+015,2,Cylinder 2
+015,3,Cylinder 3
+015,4,Malfunction,Recognition,Display Range: activated/blocked
+;
+016,0,Misfire Recognition
+016,1,Cylinder 4
+016,4,Malfunction,Recognition,Display Range: activated/blocked
+;
+018,1,Lower,RPM Barrier
+018,2,Upper,RPM Barrier
+018,3,Lower,Load Barrier
+018,4,Upper,Load Barrier
+;
+020,0,Ignition (Knock Control)
+020,1,Cylinder 1 Ignition,Angle Delay
+020,2,Cylinder 2 Ignition,Angle Delay
+020,3,Cylinder 3 Ignition,Angle Delay
+020,4,Cylinder 4 Ignition,Angle Delay
+;
+023,0,Ignition (Knock Control - Cyl 1 && 2)
+023,1,Engine Speed
+023,2,Engine Load,,Specification: 16.0...35.0 %
+023,3,Cylinder 1 Ignition,Angle Delay
+023,4,Cylinder 2 Ignition,Angle Delay
+;
+023,0,Ignition (Knock Control - Cyl 3 && 4)
+023,1,Engine Speed
+023,2,Engine Load,,Specification: 16.0...35.0 %
+023,3,Cylinder 3 Ignition,Angle Delay
+023,4,Cylinder 4 Ignition,Angle Delay
+;
+026,0,Ignition (Knock Control)
+026,1,Voltage,Cylinder 1,Specification: max. 5 V
+026,2,Voltage,Cylinder 2,Specification: max. 5 V
+026,3,Voltage,Cylinder 3,Specification: max. 5 V
+026,4,Voltage,Cylinder 3,Specification: max. 5 V
+;
+028,0,Knock Sensor Test (Short Trip)
+028,1,Engine Speed
+028,2,Engine Load
+028,3,Engine Coolant,Temperature
+028,4,Result,,Specification: Test ON/Test OFF/Sys. OK/Sys. not OK
+;
+030,0,Oxygen Sensor Status
+030,1,Bank 1,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Regulation active
+030,2,Bank 1,Sensor 2
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Regulation active
+030,3,Bank 1,Sensor 3
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Regulation active
+;
+031,0,Lambda Regulation
+031,1,Lambda Sensor,(actual)
+031,2,Lambda Sensor,(specified)
+;
+032,0,Lambda Regulation
+032,1,Lambda (Idle),Self-Adaptation,Specification: -5...+5 %
+032,2,Lambda (Partial),Self-Adaptation,Specification: -10...+10 %
+;
+034,0,Lambda Regulation (befor Catalyst - Basic Setting: Aging Check)
+034,1,Engine Speed
+034,3,Period,Duration Sensor
+034,4,Result,Lambda Aging,Display Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK
+;
+037,0,Lambda Regulation (after Catalyst - Basic Setting)
+037,1,Engine Load,,Specification: 16...35.0 %
+037,2,Bank 1 Sensor 1,Voltage
+037,3,Lambda Regulator,Dwell Period
+037,4,Result,,Specification: Test ON/Test OFF/Sys. OK/Sys. not OK
+;
+039,0,Lambda Regulation (Sensor Exchange)
+039,1,Intake Air Mass,,Specification: 2.0...4.5 g/s
+039,2,Bank 1 Sensor 2,Voltage
+039,3,Bank 1 Sensor 3,Voltage
+039,4,Lambda Sensor,Exchange Result,Specification: Test ON/Test OFF/Sys. OK/Sys. not OK
+;
+041,0,Lambda Regulation (Lambda Probe Heating)
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition
+041,3,Resistance,Bank 1 Sensor 2
+041,4,Heater Condition
+;
+042,0,Lambda Regulation (Lambda Probe Heating)
+042,1,Resistance,Bank 1 Sensor 3
+042,2,Heater Condition
+;
+043,0,Oxygen Sensor Control (Bank 1 Sensor 2)
+043,1,Engine Speed
+043,2,Catalyst,Temperature
+043,3,Lambda Sensor,Voltage (B1-S2)
+043,4,Result,Aging Check,Specification: B1-S2 OK | Display Range: Test OFF/Test ON/B1-S2 OK/B1-S2 nOK
+;
+044,0,Oxygen Sensor Control (Bank 1 Sensor 3)
+044,1,Engine Speed
+044,2,Catalyst,Temperature
+044,3,Lambda Sensor,Voltage (B1-S3)
+044,4,Result,Aging Check,Specification: B1-S3 OK | Display Range: Test OFF/Test ON/B1-S3 OK/B1-S3 nOK
+;
+046,0,Oxygen Sensor Control (Pre-Catalytic Converter)
+046,1,Engine Speed
+046,2,Catalyst,Temperature
+046,3,Amplitude Ratio
+046,4,Result,Catalyst Test,Specification: Cat B1 OK | Display Range: Test OFF/Test ON/Cat B1 OK/Cat B1 nOK
+;
+047,0,Oxygen Sensor Control (Main-Catalytic Converter)
+047,1,Engine Speed
+047,2,Catalyst,Temperature
+047,3,Amplitude Ratio
+047,4,Result,Catalyst Test,Specification: Cat B1 OK | Display Range: Test OFF/Test ON/Cat B1 OK/Cat B1 nOK
+;
+050,0,Speed Regulation
+050,1,Engine Speed,(actual),Specification (idle): 780 RPM
+050,2,Engine Speed,(specified)
+050,3,Condition,of A/C system,Display Range: A/C-High / A/C-Low
+050,4,Operating condition,of A/C Compressor,Display Range: Compr.ON/Compr.OFF
+;
+051,0,Speed Regulation
+051,1,Engine Speed,(actual),Specification (idle): 780 RPM
+051,2,Engine Speed,(specified)
+051,3,Selected Gear,,0 = P/N\n1...6 = Gear 1...6\n7 = R
+051,4,Voltage Supply,,Specification: 11.0...15.0 V
+;
+052,0,Speed Regulation
+052,1,Engine Speed,(actual),Specification (idle): 780 RPM
+052,2,Engine Speed,(specified)
+052,3,Condition,of A/C system,Display Range: A/C-High / A/C-Low
+;
+053,0,Speed Regulation
+053,1,Engine Speed,(actual),Specification (idle): 780 RPM
+053,2,Engine Speed,(specified)
+053,3,Voltage Supply,,Specification: 11.0...15.0 V
+;
+054,0,Speed Regulation
+054,1,Engine Speed,,Specification (idle): 780 RPM
+054,2,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Sender 2 for,Acc. Pedal Pos.,G79 (Specification: 0...100 %)
+054,4,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0...100 %
+;
+055,0,Speed Regulation
+055,1,Engine Speed,,Specification (idle): 780 RPM
+055,2,Idle Regulator
+055,3,Idle Stabilization,Self-Adaptation
+055,4,Load Status,,see labelfile
+; 1xxxx - Power assisted steering pressure switch on
+; x1xxx - Rear window defroster
+; xx1xx - Air conditioning system switched on
+; xxx1x - Gear engaged
+; xxxx1 - Air conditioner compressor switched on
+;
+056,0,Speed Regulation
+056,1,Engine Speed,(actuial)
+056,2,Engine Speed,(specified)
+056,3,Idle Regulator
+056,4,Load Status
+; 1xxxx - Power assisted steering pressure switch on
+; x1xxx - Rear window defroster
+; xx1xx - Air conditioning system switched on
+; xxx1x - Gear engaged
+; xxxx1 - Air conditioner compressor switched on
+;
+057,0,Idle Air Control (A/C Compressor)
+057,1,Engine Speed,(actuial)
+057,2,Engine Speed,(specified)
+057,3,A/C Compressor,Status
+;
+058,1,Engine Speed,,Specification (idle): 780 RPM
+058,2,Engine Load,,Specification: 12...175 %
+;
+060,0,Speed Regulation (Basic Setting: Throttle Body Adaptation)
+060,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0...100 %
+060,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 100...0 %
+060,3,Learn Step,Counter,Specification: 0...8
+060,4,Result,Throttle Valve Adp.,Display Range: ADP runs/ADP OK/ADP ERROR
+;
+061,0,Speed Regulation (EPC)
+061,1,Engine Speed,,Specification (idle): 780 RPM
+061,2,Voltage Supply,,Specification: 11.0...15.0 V
+061,3,Activation Throttle,Position Actuator,G186 (Specification: 0...100 %)
+061,4,Operating,Condition
+; 1xxxx - Power assisted steering pressure switch on
+; x1xxx - Rear window defroster
+; xx1xx - Air conditioning system switched on
+; xxx1x - Gear engaged
+; xxxx1 - Air conditioner compressor switched on
+
+;
+062,0,Speed Regulation (Basic Setting: EPC Adaptation)
+062,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0...100 %
+062,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 100...0 %
+062,3,Throttle Position,Sensor (G79),Specification: 0...100 %
+062,4,Accelerator Pedal,Position Sensor 2,G185 (Specification: 0...100 %)
+;
+063,0,Speed Regulation (Basic Setting: Kick-Down Adaptation)
+063,1,Throttle Position,Sensor (G79),Display Range: 0...100 %
+063,2,Accelerator Pedal,Position Sensor 2,G185
+063,3,Kick-Down,Switch,Display Range: Kick Down
+063,4,Kick-Down,Adaptation,Display Range: ADP runs/ADP OK/ADP ERROR
+;
+064,0,Throttle Valve Potentiometer Adaption Values
+064,1,Potentiometer 1,Lower Adaptation
+064,2,Potentiometer 2,Lower Adaptation
+064,3,Emergency Air Gap,Potentiometer 1
+064,4,Emergency Air Gap,Potentiometer 2
+;
+066,0,Cruise Cntrol System
+066,1,Current,Vehicle Speed
+066,2,Brake switch,clutch and CCS,Specification: ----1000
+; ----1xxx - Cruise control system active
+; ----x1xx - Clutch depressed (always 1 in automatic transmission)
+; ----xx1x - Brake depressed (brake pedal switch)
+; ----xxx1 - Brake depressed (brake light switch)
+066,3,Specified,Vehicle Speed
+066,4,CCS Control,Positions,Specification: ----0011
+; ----1xxx - CCS slide handle on RES or RES button on multi-function steering wheel pressed
+; ----x1xx - SET button pressed
+; ----xx1x - CCS slide handle on OFF (not engaged or engaged)/OFF button on multi-function steering wheel pressed
+; ----xxx1 - CCS slide handle on OFF
+;
+070,0,Emission Reduction (TEV - Basic Setting)
+070,1,Evap. Emissions,Sol. Valve (Open),Specification: 0...100 %
+070,2,Lambda Regulator,Deviation
+070,3,Evap. Emissions,Sol. Valve (Flow)
+070,4,Result,Evap. Emissions,Display Range: Test ON/Test OFF/TEV OK/TEV not OK
+;
+071,0,Exhaust Reduction (Basic Setting: Leak Diagnostic System)
+071,1,Reed Contact,Condition,Display Range: Reed closed/Reed open
+071,2,Malfunction Display,,Display Range: minor leak/significant leak/Open circuit
+071,3,Diagnostic Status,,Display Range: System test/Measurement end
+071,4,Result,Leak Test,Display Range: Test ON/Test OFF/Syst. OK/Syst. not OK
+;
+077,0,Emission Reduction (Basic Setting: Secondary Air System Diagnostic)
+077,1,Engine Speed,,Specification (idle): 780 RPM
+077,2,Intake Air Mass,,Specification: 2.0...4.5 g/s
+077,3,Secondary Air,System Air Mass,Specification: -100...+100 %
+077,4,Diagnostic,Result,Specification: Sys. OK\nDisplay Range: Test ON/Test OFF/Syst. OK/Syst. nOK
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,VIN & IMMO-ID
+;
+082,0,Advanced Control Module Identification III
+;
+089,0,Trip Odometer (MIL On)
+089,1,Trip Distance,with MIL on
+089,2,Tank empty,,Display Range: OK/too small
+;
+090,0,Camshaft Adjustment
+090,1,Engine Speed,,Specification (idle): 780 RPM
+090,2,Camshaft,Adjustment,Display Range: ON/OFF
+090,3,Active Camshaft,Adjustment Angle
+;
+091,0,Camshaft Adjustment
+091,1,Engine Speed,,Specification (idle): 780 RPM
+091,2,Engine Load,,Specification: 12...175 %
+091,3,Camshaft,Adjustment,Display Range: ON/OFF
+091,4,Active Camshaft,Adjustment Angle
+;
+093,0,Camshaft Adaption Values (Intake)
+093,1,Engine Speed,,Specification (idle): 780 RPM
+093,2,Angle Deviation,(current vs. Spec.)
+093,3,Phase Position,Bank 1
+;
+094,0,Camshaft Adjustment (Basic Setting)
+094,1,Engine Speed,,Specification (idle): 780 RPM
+094,2,Camshaft,Adjustment,Specification: Cam Ctrl. ON\nDisplay Range: Cam Ctrl. ON/OFF
+094,3,Diagnostic,Result,Specification: Syst. OK\nDisplay Range: Test OFF/Test ON/Syst.OK/Syst. nOK
+;
+099,0,Oxygen Sensor Control (Basic Setting: Oxygen Sensor Operating Condition)
+099,1,Engine Speed,,Specification (idle): 780 RPM
+099,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+099,3,Lambda Sensor,Control
+099,4,Lambda Sensor,Condition,Specification: O2-Reg ON/OFF
+;
+100,0,Readiness
+100,1,Readiness Bits,,see labelfile
+; 1xxxxxxx - Exhaust Gas Recirculation (EGR)
+; x1xxxxxx - Sensor heater
+; xx1xxxxx - Oxygen sensors
+; xxx1xxxx - A/C system
+; xxxx1xxx - Secondary Air Injection (AIR) system
+; xxxxx1xx - Activated charcoal system
+; xxxxxx1x - Catalytic converter heater
+; xxxxxxx1 - Catalytic converter
+100,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+100,3,Time since,Engine Start
+100,4,OBD-Status,,see labelfile
+; 1-xx--xx - MIL warning lamp on
+; x-1x--xx - Complete distance
+; x-x1--xx - At least one malfunction detected
+; x-xx--1x - Heating cycle ended
+; x-xx--x1 - Heating cycle not possible
+;
+101,0,Fuel Injection
+101,1,Engine Speed,,Specification (idle): 780 RPM
+101,2,Engine Load,,Specification: 12...175 %
+101,3,Mean Injection,Timing
+101,4,Intake Air Mass,,Specification: 2.0...4.5 g/s
+;
+102,0,Fuel Injection
+102,1,Engine Speed,,Specification (idle): 780 RPM
+102,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+102,3,Intake Air,Temperature
+102,4,Mean Injection,Timing
+;
+104,1,Start Engine,Temperature
+104,2,Temperature,Adaptation Factor 1
+104,3,Temperature,Adaptation Factor 2
+104,4,Temperature,Adaptation Factor 3
+;
+105,0,Cylinder Deactivation
+105,1,Engine Speed,,Specification (idle): 780 RPM
+105,2,Engine Load,,Specification: 12...175 %
+105,3,Coolant,Temperature,Specification: 80.0...110.0 °C
+105,4,Shut-Off Status,,Display Range: ON/OFF
+;
+107,0,Oxygen Sensor Control (Basic Setting: Diagnostic of Fuel System)
+107,1,Engine Speed,,Specification (idle): 780 RPM
+107,2,Oxygen Sensor,Control Bank 1
+107,4,Result,Lambda Control,Display Range: Test ON/Test OFF/Syst. OK/Syst. not OK
+;
+110,0,Load/Full Load Enrichment
+110,1,Engine Speed,,Specification (idle): 780 RPM
+110,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+110,3,Average,Injection Time
+110,4,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %
+;
+111,0,Charge Pressure Control
+111,1,RPM Range 1,,Specification: -33.0...+33.0 %
+111,2,RPM Range 2,,Specification: -33.0...+33.0 %
+111,3,RPM Range 3,,Specification: -33.0...+33.0 %
+111,4,RPM Range 4,,Specification: -33.0...+33.0 %
+;
+113,0,Charge Pressure Control
+113,1,Engine Speed,,Specification (idle): 780 RPM
+113,2,Engine Load,,Specification: 12...175 %
+113,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %
+113,4,Athmospheric,Pressure
+;
+114,0,Charge Pressure Control
+114,1,Engine Load,(specified),Specification: max. 175.0 %
+114,2,Engine Load,(spec. corrected),Specification: max. 175.0 %
+114,3,Engine Load,(actual Value),Specification: 12.0...175.0 %
+114,4,Wastegate (N75),Duty Cycle,Specification: 0...100 %
+;
+115,0,Charge Pressure Control
+115,1,Engine Speed,,Specification (idle): 780 RPM
+115,2,Engine Load,,Specification: 12...175 %
+115,3,Boost Pressure,(specified),Specification: max. 2000 mbar
+115,4,Boost Pressure,(actual),Specification: max. 2000 mbar
+;
+116,0,Charge Pressure Control
+116,1,Engine Speed,,Specification (idle): 780 RPM
+116,2,Fuel Temp.,Correction Factor
+116,3,Coolant Temp.,Correction Factor
+116,4,Intake Air Temp.,Correction Factor
+;
+117,0,Charge Pressure Control
+117,1,Engine Speed,,Specification (idle): 780 RPM
+117,2,Throttle Position,Sensor (G79),Display Range: 0...100 %
+117,3,Throttle Drive,Angle Sensor 1,for EPC (G187)\nDisplay Range: 0...100 %
+117,4,Boost Pressure,(specified),Specification : max. 2000 mbar
+;
+118,0,Charge Pressure Control
+118,1,Engine Speed,,Specification (idle): 780 RPM
+118,2,Intake Air,Temperature
+118,3,Wastegate (N75),Duty Cycle,Specification: 0...100 %
+118,4,Boost Pressure,(actual),Specification: max. 2000 mbar
+;
+119,0,Charge Pressure Control
+119,1,Engine Speed,,Specification (idle): 780 RPM
+119,2,Charge Limit
+119,3,Wastegate (N75),Duty Cycle,Specification: 0...100 %
+119,4,Boost Pressure,(actual),Specification: max. 2000 mbar
+;
+120,0,Traction Control (ASR)
+120,1,Engine Speed,,Specification (idle): 780 RPM
+120,2,Engine Load,(specified)
+120,3,Engine Load,(actual)
+120,4,Status,,Specification: active/not active
+;
+122,0,Transmission (automatic only)
+122,1,Engine Speed,,Specification (ilde): 780 RPM
+122,2,Engine Load,(specified
+122,3,Engine Load,(actual)
+122,4,Status,,Display Range: Engine interv./No engine interv.
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Transmission
+125,2,Brake Electronics
+125,3,Instrument Cluster
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,3,Airbag
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,06A-906-032-BKF
+;

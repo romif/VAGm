@@ -1,0 +1,91 @@
+;
+;VAG-COM Adaption and Coding label file for instrument cluster in C4-chassis A6/S6.
+;Control Module Part Number 4A1-919-033xx
+;
+;Created by Mikael "Knappen" Therell (en_knapp@home.se)
+;
+;Feel free to modify and send modifications to Ross-Tech. 
+;
+;Last modified by Knappen on Febuary 21, 2004
+;
+A3,0,Econometer adaption
+A3,5,Econometer adaption
+A3,6,Enter adaption value between 85% (00085) and 115% (00115)
+A3,7,Factory default is 100% (00100)
+A3,8,
+A3,9,I think it adapts the "How far until fueltank is empty"-function in the onboard computer.
+A3,10,ErWin only says "Econometer adaption" so I don't know for sure.
+;
+A5,0,Service Reminder Indicator - Oil
+A5,5,Oil service adaption
+A5,6,Enter adaption value between 0 km (00000) and 15000 km (00015)
+A5,7,Standard oil change intervals is 12000 km
+A5,8,-Example: 11000 km - enter 00011
+A5,9,
+A5,10,It counts backwards and start indicating when there's 1000 km (00001) until oilservice.
+;
+A6,0,Service Reminder Indicator - In1
+A6,5,Inspection 1 service - Distance adaption
+A6,6,Enter adaption value between 0 km (00000) and 30000 km (00030)
+A6,7,Standard interval between Inspection 1 services is 24000 km
+A6,8,Reset In1 time adaption as well since service is done whichever come first: Time or Distance
+A6,9,-Example: 27000 km - enter 00027
+A6,10,
+A6,11,It counts backwards and start indicating when there's 1000 km (00001) until Inspection 1 service
+;
+A7,0,Service Reminder Indicator - In1
+A7,5,Inspection 1 service - Time adaption
+A7,6,Enter adaption value between 0 days (00000) and 360 days (00036)
+A7,7,Standard time between Inspection 1 services is 360 days
+A7,8,Reset In1 distance adaption as well since service is done whichever come first: Time or Distance
+A7,9,-Example: 320 days - enter 00032
+A7,10,
+A7,11,It counts backwards and start indicating when there's 10 days (00001) until Inspection 1 service
+;
+A8,0,Service Reminder Indicator - In2
+A8,5,Inspection 2 service - Time adaption
+A8,6,Enter adaption value between 0 days (00000) and 720 days (00072)
+A8,7,Standard time between Inspection 2 services is 720 days
+A8,8,-Example: 660 days - enter 00066
+A8,9,
+A8,10,It counts backwards and start indicating when there's 10 days (00001) until Inspection 2 service
+;
+A9,0,Odometer adaption
+A9,5,Adaption can only be performed on new clusters with a maximum milage of 100 km.
+A9,6,The procedure can only be performed once on any given cluster.
+A9,7,The entered value must be higher than the existing value.
+A9,8,An entered an confirmed value is not possible to change,so make sure you enter it right.
+A9,9,
+A9,10,You may have to login to do this adaption. Login code is 13861.
+A9,11,
+A9,12,
+A9,13, Example - 89627 km 
+A9,14, 0 8 9 6 3
+A9,15, 0               Hundred thousands km: 100000 - 900000
+A9,16,    8            Ten thousands km:        10000 -  90000
+A9,17,       9         Thousands km:              1000 -   9000
+A9,18,          6      Hundreds km:                 100 -    900
+A9,19,             3   Tens km:                        10 -     90
+A9,20,                  Units km:                         Round up to nearest 10 km
+;
+C0,Coding instrumentcluster
+C1,00     Filler locations, meaningless in C4-chassis A6/S6
+C2,    0    Germany
+C3,    1    Europe
+C4,    2    USA
+C5,    3    Canada
+C6,    4    Great Britain
+C7,    5    Japan
+C8,    6    Saudia Arabia
+C9,    7    Australia
+C10,      4    4 cylinders
+C11,      5    5 cylinders
+C12,      6    6 cylinders
+C13,      8    8 cylinders
+C14,         0    TDI engine
+C15,         2    Petrol engine - 4- 5- and 6-cylinder
+C16,         3    Petrol engine - 8-cylinder
+C17,         4    Petrol engine - 5-cylinder turbo
+C18,         5    Swirl chamber Diesel engine
+;
+;End of file

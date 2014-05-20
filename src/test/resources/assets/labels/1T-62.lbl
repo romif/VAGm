@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J388 - Door Electronics Rear Left (#62)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-62.LBL
+; 1Q-62.LBL
+; 1T-62.LBL
+; 3C-62.LBL
+; 1K0-959-703-GEN1.LBL
+; 1K0-959-703-GEN2.LBL
+; 1K0-959-703-GEN3.LBL
+;
+; created on 04/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Oct/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;1T0-959-703-B   ; GEN?
+;1T0-959-703-C   ; GEN?
+;1T0-959-703-G   ; GEN?
+;

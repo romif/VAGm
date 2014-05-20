@@ -1,0 +1,73 @@
+;
+; VAG-COM Label File
+;
+; Skoda Fabia (6Y) / VW Polo (9N)
+;
+; Component: J104 - Brake Electronics (#03) - MK60 ABS
+;
+; P/N: 6Q0-907-37?-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-03.LBL
+; 6R-03.LBL
+; 6Q0-907-37x-ABS.LBL  (ABS/EDS 5.7)
+; 6Q0-907-37x-ABS2.LBL (ABS/EDS MK60)
+; 6Q0-907-37x-ASR.LBL  (ABS/EDS/ASR 5.7)
+; 6Q0-907-37x-ESP.LBL  (ABS/EDS/ASR/ESP 5.7)
+; 6R0-907-37x-ABS.LBL  (ABS/EDS 8.0)
+; 6R0-907-37x-ASR.LBL  (ABS/EDS/ASR 8.0)
+; 6R0-907-37x-ESP.LBL  (ABS/EDS/ASR/ESP 8.0)
+;
+; created on 22/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+002,0,Starting Wheel Speed
+002,1,Speed Sensor,Front Left (G47),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,2,Speed Sensor,Front Right (G45),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,3,Speed Sensor,Rear Left (G46),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,4,Speed Sensor,Rear Right (G44),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,4,Transmission,,Range: Transm. 1/Transm. 0
+;
+225,0,CAN-Databus Timeout (Communication)
+225,1,Engine
+225,4,Transmission
+;

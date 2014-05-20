@@ -1,0 +1,34 @@
+;
+; VCDS Redirect File
+;
+; Component: J386 - Driver's Door Electronics (#42)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-42.LBL
+; 1Q-42.LBL
+; 1T-42.LBL
+; 1K0-959-701-MAX1.LBL
+; 1K0-959-701-MAX2.LBL
+; 1K0-959-701-MAX3.LBL
+; 1K0-959-701-MIN1.LBL
+; 1K0-959-701-MIN2.LBL
+; 1K0-959-701-MIN3.LBL
+;
+; created on 21/Sep/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,1K0-959-701-MIN1.LBL,1T0-959-701     ; MIN GEN1
+REDIRECT,1K0-959-701-MAX1.LBL,1T0-959-701-A   ; MAX GEN1
+REDIRECT,1K0-959-701-MIN2.LBL,1T0-959-701-B   ; MIN GEN2
+REDIRECT,1K0-959-701-MAX2.LBL,1T0-959-701-C   ; MAX GEN2
+REDIRECT,1K0-959-701-MIN3.LBL,1T0-959-701-D   ; MIN GEN3
+REDIRECT,1K0-959-701-MAX3.LBL,1T0-959-701-E   ; MAX GEN3
+REDIRECT,1K0-959-701-MIN3.LBL,1T0-959-701-F   ; MIN GEN3
+REDIRECT,1K0-959-701-MAX3.LBL,1T0-959-701-G   ; MAX GEN3
+;

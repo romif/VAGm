@@ -1,0 +1,102 @@
+;
+; VAG-COM Label File
+;
+; Component: R - Radio (#56) - DELTA 6/Premium 6
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-56.LBL
+; 3B7-035-1xx-56.LBL
+;
+; created on 02/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Mar/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Supply Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Telephone-Mute
+001,4,Telephone-Mute,Status,Range: ON/OFF
+;
+002,0,Speaker/Line-Out (Front)
+002,1,Location/Type
+002,2,Status
+002,3,Location/Type
+002,4,Status
+;
+003,0,Speaker/Line-Out (Rear)
+003,1,Location/Type
+003,2,Status
+003,3,Location/Type
+003,4,Status
+;
+004,0,Remote Feed Antenna
+004,1,Type
+004,2,Component
+004,3,Status
+;
+005,0,IF-Output
+005,1,Component
+005,2,Status
+;
+007,0,Communication Status CD-Changer (R41)
+007,1,Component
+007,2,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,000?xxx: Radio Configuration I
+C02,+1 = IF-Output
+C03,+2 = Telephone (via CAN)
+C04,+4 = Multi-Function Steering Wheel (via CAN)
+C05,000x?xx: Speaker Channels
+C06,0 = No passive Speakers (Sound System)
+C07,2 = 2 passive Speakers (Front)
+C08,4 = 4 passive Speakers (Front & Rear)
+C09,000xx?x: Sound System Correction
+C10,0 = No Sound System (No Correction)
+C11,1 = Sound System with Cloth Interior
+C12,2 = Sound System with Leather Interior
+C13,3 = Monsoon (USA only)
+C14,000xxx?: Radio Configuration II
+C15,+1 = Active/Remote Supplied Antenna
+C16,+2 = CD-Changer
+C17,+4 = CAN-Secondary Display (Board Computer/large Display)
+;

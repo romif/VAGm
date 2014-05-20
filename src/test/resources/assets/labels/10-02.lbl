@@ -1,0 +1,30 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Transmission (#02)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 10-02.LBL
+; 3B-02.LBL
+; 3U-02.LBL
+; 4B-02.LBL
+; 4D-02.LBL
+; 4F-02.LBL
+; 8D-02.LBL
+; 8E-02.LBL
+; 01J-927-156.LBL
+; 01L-927-156.LBL
+; 01V-927-156.LBL
+; 09L-927-156.LBL
+;
+; created on 10/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,01V-927-156.LBL,100-927-156-L    ; 01V: (4D)
+;

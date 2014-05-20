@@ -1,0 +1,78 @@
+;
+; VAG-COM labelfile
+;
+; component: R - Radio (#56) - ALPHA/BETA
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-56.LBL
+; 1J-56.LBL
+; 1J0-035-15x.LBL
+; 1J0-035-18x.LBL
+;
+; created on 02/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 21/Jun/2007
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions
+001,1,GALA-Signal
+001,2,Supply Voltage,(Terminal 30)
+001,3,Illumination,(Terminal 58d)
+001,4,Status,S-Contact
+;
+002,0,Speakers
+002,1,Speakers,front
+002,2,Status,,Specification: OK/short/open
+;
+003,0,Antenna
+003,1,Antenna Type,,Specification: active/passive
+003,2,Antenna
+003,3,Status,,Specification: OK/short/open
+;
+004,0,Amplifier / Telephone-Mute
+004,3,Telephone,Mute
+004,4,Status,,Specification: on/off
+;
+005,0,CD-Player/Changer
+005,1,CD-Drive
+005,2,Status,,Specification: OK/n.OK
+;
+006,0,External Display
+006,1,External Display
+006,2,Status,,Specification: OK/n.OK
+;
+007,0,Steering Wheel Control
+007,1,Steering Wheel,Buttons
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,0000?: Radio-Configuration
+C02,+1 = Active/Remote Supplied Antenna
+C03,+2 = CD-Player/Changer (including builtin CD)
+C04,+4 = Secondary Display (Instrument Cluster)
+;

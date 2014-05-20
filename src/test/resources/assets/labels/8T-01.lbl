@@ -1,0 +1,30 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8K-01.LBL
+; 8T-01.LBL
+; 06E-907-559-CAL.LBL (3.2l V6 FSI @ 265 HP - CALA)
+; 06H-907-115-CAB.LBL (1.8l   TFSI @ 170 HP - CABA/CABB/CABD)
+; 079-907-560-CAU.LBL (4.2l V8 FSI @ 360 HP - CAUA/CAUB)
+;
+; created on 17/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,06H-907-115-CAB.LBL,8T0-907-115      ; CABD: (8T)
+REDIRECT,06H-907-115-CAB.LBL,8T0-907-115-A    ; CABD: (8T)
+;
+REDIRECT,06E-907-559-CAL.CLB,8T0-907-559-???  ; CALA: (8K, 8T)
+REDIRECT,06E-907-559-CAL.CLB,8T0-997-559-???  ; CALA: (8K, 8T)
+;
+REDIRECT,079-907-560-CAU.CLB,8T0-907-560-???  ; CAUA/CAUB: (8T)
+REDIRECT,079-907-560-CAU.CLB,8T0-997-560-???  ; CAUA/CAUB: (8T)
+;

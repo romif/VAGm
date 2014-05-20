@@ -1,0 +1,43 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A3 (8P) / Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+; VW Golf/Jetta (1K) / VW Golf Plus (5M) / VW Passat (3C)
+;
+; Component: J604 - Auxiliary Heater (#7D)
+;
+; P/N: 1K0-963-235-??
+;
+; includes measuring blocks
+;
+; created on 26/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 26/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Heating Element,(Z35),Display Range: ON/OFF
+001,2,Voltage,(Terminal 30),Specification: min. 12.0 V
+001,3,Heating Element,(Z35) Current,Display Range: 0.00...77.00 A\n\n< 0.05 A = PTC OFF\n1.00...77.00 A = PTC ON
+001,4,Heating Element,(Z35) Output,Display Range: 0.0...1000.0 W\n\n< 0.5 W = PTC OFF\n12.0...1000.0 W = PTC ON
+;
+002,1,Heat Output,Request,0 = Request from J255 or Temp. Selection Knob\n1 = No Request
+002,2,Shut-Off,(Coolant Temp.),Display Range: 0/1\n\n0 = PTC ON (Coolant Temperature = < 75.0 °C)\n1 = PTC OFF (Coolant Temperature = > 75.0 °C)
+002,3,Shut-Off,(Engine Speed),Display Range: 0/1\n\n0 = PTC ON (Engine Speed = > 500 RPM)\n1 = PTC OFF (Engine Speed = < 500 RPM)
+002,4,Shut-Off,(Voltage),Display Range: 0/1\n\n0 = PTC ON\n1 = PTC OFF
+;
+003,1,Power Reduction,,100 % = PTC ON\n25/50/75 % = PTC ON (reduced Output)\n0 % = PTC OFF
+003,2,Vehicle,Equipment,AC = Air Conditioning\nHt = Heater
+;
+004,1,Coolant,Temperature,via CAN-Databus from J285
+004,2,Engine Speed,,via CAN-Databus from J533
+004,3,Generator Load,,> 16 % = PTC OFF\n17...92 % = PTC ON (Power Reserve exists)\n92...98 % = PTC ON (limited Output)\n> 98 % = PTC ON (limited Output)
+;

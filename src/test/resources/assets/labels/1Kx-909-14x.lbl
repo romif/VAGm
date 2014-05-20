@@ -1,0 +1,76 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi TT (8J) / VW Caddy (2K) / VW Golf/Jetta (1K)
+; VW Passat (3C) / VW Touran (1T) / Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+;
+; Component: J500 - Steering Aid (#44)
+;
+; P/N: 1K?-909-14?-??? / 3C?-909-144-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-44.LBL
+; 3C-44.LBL
+; 8J-44.LBL
+; 1Kx-909-14x.LBL
+;
+; created on 13/Apr/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 19/Aug/2006
+;
+; requires VAG-COM 405.0 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Temperature,Output Stage,Range: 0.0...150.0 °C\nSpecification: < 100.0 °C
+001,2,Steering Torque,(G269)
+001,3,Rotor Speed,of Power Steering
+;
+002,1,Relay Voltage
+002,2,Battery Voltage,(Terminal 30)
+002,3,Sensor Supply,(G269)
+002,4,Battery since,Term. 30 Recogn.
+;
+003,1,Vehicle,Engine Speed
+003,2,Vehicle Speed
+003,3,Engine,Status,Range: Engine ON/Engine OFF
+;
+004,1,System Status,,0 = Off\n1 = Init\n2 = Power Up\n3 = Normal\n4 = Power Down\n5 = Post Run\n6 = Error
+004,2,Status,Terminal 15
+004,3,Relay Condition
+;
+005,1,Torque,Assistance
+005,2,Limited Torque,Assistance
+005,3,Torque,Engine
+005,4,Torque,Stabilizer
+;
+006,1,Temperature,Output Stage,Range: 0.0...150.0 °C\nSpecification: < 100.0 °C
+006,2,Actuator
+006,3,End Impact
+006,4,Angle,Straight Ahead
+;
+007,0,Steering Angle Sensor
+007,1,Steering Angle
+007,2,Angular,Acceleration
+007,3,Basic Setting,Condition,Range: OK/not OK/Reading impossible
+007,4,Initialization
+;
+009,0,Charecteristic Curve
+009,1,Charecteristic,Curve Index
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Powertrain)
+;
+126,0,CAN-Databus Communication (Powertrain)
+;

@@ -1,0 +1,69 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8L) / VW Golf IV (1J) / VW New Beetle (1C/9C/1Y)
+;
+; Component: J104 - Brake Electronics (#03) - MK60 ASR
+;
+; P/N: 1C0-907-37?-???
+;
+; includes measuring blocks and basic setting
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-03.LBL
+; 1C0-907-37x-ABS.LBL
+; 1C0-907-37x-ASR.LBL
+; 1C0-907-37x-ESP-A.LBL
+; 1C0-907-37x-ESP-F.LBL
+;
+; created on 30/Jan/2006 by MOGolf
+; updated on 28/Mar/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Mar/2007
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+B001,0,Brake Pump Bleeding
+B001,1, , , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,Starting Wheel Speed
+002,1,Speed Sensor,Front Left (G47),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,2,Speed Sensor,Front Right (G45),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,3,Speed Sensor,Rear Left (G46),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,4,Speed Sensor,Rear Right (G44),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Activated
+003,2,Brake System,Warning Light,Range: ON/OFF
+003,3,ABS,Warning Light,Range: ON/OFF
+003,4,ASR/ESP,Warning Light,Range: ON/OFF
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine
+125,4,Transmission
+;
+225,0,CAN-Databus Timeout (Powertrain)
+225,1,Engine
+225,4,Transmission
+;

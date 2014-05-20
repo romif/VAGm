@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A4 (8E)
+;
+; Component: J446 - Parking Aid (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-76.LBL
+; 8E0-919-283-8E2.LBL (8E2/8E5: pre-facelift)
+; 8E0-919-283-8EC.LBL (8EC/8ED: facelift)
+;
+; created on 26/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Apr/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8E0-919-283-8E2.LBL,8E0-919-283     ; 8E2/8E5: pre-facelift
+REDIRECT,8E0-919-283-8E2.LBL,8E0-919-283-A   ; 8E2/8E5: pre-facelift
+REDIRECT,8E0-919-283-8EC.LBL,8E0-919-283-B   ; 8EC/8ED: facelift
+REDIRECT,8E0-919-283-8EC.LBL,8E0-919-283-C   ; 8EC/8ED: facelift
+REDIRECT,8E0-919-283-8EC.LBL,8E0-919-283-D   ; 8EC/8ED: facelift
+REDIRECT,8E0-919-283-8EC.LBL,8E0-919-283-E   ; 8EC/8ED: facelift
+;

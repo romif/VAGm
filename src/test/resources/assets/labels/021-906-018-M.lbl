@@ -1,0 +1,183 @@
+;2000 GTi VR6 Engine
+;Researched by Bob Taylor
+;If you find any problems, please e-mail me the corrections.
+;jroberttaylor_20164@yahoo.com
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;Block 000 won't display, but I added it here for reference.  (Bentley 01-110)
+;
+;000,0,Measuring Value Block                     	   Specified Value	            Corresponds To
+;000,1,Engine Coolant Temperature					185-205				85-105Deg. C
+;000,2,Engine load							-------				---------			
+;000,3,RPM									16-18					680-720
+;000,4,ECM voltage							170-213				12.0-14.5V						
+;000,5,Throttle Valve Angle						0-13					0-5%
+;000,6,Idle Regulation							103-180				-5.0-10.0%
+;000,7,Idle Stabilization Learned					103-153				-4.9-4.9%
+;000,8,O2s b1								116-140				-10.0-10.0%
+;000,9,O2s Additive Learned Idle					112-144				-3.0-3.0%
+;000,10,O2s Multiplicative Learned Partial Load			116-140				-10.0-10.0
+;
+;
+;
+;
+001,0,Idling Test						(Bentley 24-109)
+001,1,RPM,680-720
+001,2,Coolant Temp,85-105
+001,3,O2s Before Cat,must fluct +/-2%
+001,4,1x111111,adjust. conditions
+;
+;
+002,0,Load Registration					(Bentley 23-46)
+002,1,RPM,680-720
+002,2,Engine Load
+002,3,Injector Period
+002,4,Air Mass,1.0-25.0 g/s
+;
+;
+004,0,Gen Engine Data					(Bentley 24-154)
+004,1,RPM
+004,2,ECM Volts
+004,3,Coolant Temp
+004,4,Intake Air Temp
+;
+;
+005,0,Engine Operating Mode				(Bentley 24-149)
+005,1,RPM
+005,2,Engine Load
+005,3,Speed,KM/H
+005,4,Operating Mode
+;
+;
+014,0,Missfire Recog.					(Bentley 28-27)
+014,1,RPM
+014,2,Engine Load
+014,3,TWC Damaging Msfrs
+014,4,Recogn. Status
+;
+;
+015,0,TWC Damaging Missfires				(Bentley 28-29)
+015,1,Cyl.1
+015,2,Cyl.2
+015,3,Cyl.3
+015,4,Recogn. Status
+;
+;
+016,0,TWC Damaging Missfires				(Bentley 28-31)
+016,1,Cyl.4
+016,2,Cyl.5
+016,3,Cyl.6
+016,4,Recogn. Status
+;
+;
+028,0,Knock Control					(Bentley 28-21)
+028,1,RPM,>2000
+028,2,Engine Load,>40%
+028,3,Coolant Temp,85-105Deg.C
+028,4,Test/Results
+;
+;
+030,0,O2s Regulation					(Bentley 24-122)
+030,1,O2s Before TWC,xxx
+;                      1	control active 
+;			    1		operationally ready								
+;                    1		heating on
+030,2,O2s After TWC,xxx					(Bentley 24-135)
+;			    1		control active	
+;                    1 		operationally ready
+;                   1		heating on
+;
+032,0,O2s Before TWC Learned Values			(Bentley 24-124)
+032,1,O2s Additive
+032,2,O2s Multiplicative
+;
+;
+033,0,O2s Before TWC Control						(Bentley 24-126)
+033,1,-10.0-10.0,must fluctuate 2%
+;
+034,0,diag aging of O2s 				(Bentley 26-9)
+034,1,RPM
+034,2,TWC Temp
+034,3,sens dynamics,B1S1
+034,4,Status
+;
+;
+036,0,O2s After TWC Operational Readiness		(Bentley 24-137)
+036,1,O2s Voltage
+036,2,TWC Temp
+036,3,Actual Lambda
+036,4,Test/results
+;
+;
+041,0,O2s heater Before/After TWC			(Bentley 24-32)
+041,2,Before TWC
+041,3,O2s After Resistance,Ohm
+041,4,After TWC
+;
+;
+046,0,Diag Cat. Converter				(Bentley 26-11)
+046,1,RPM
+046,2,ConverterTemp,400-650 Deg
+046,3,Ampl. Ratio,0.50 Max
+046,4,Status
+;
+;
+050,0,A/C Signals						(Bentley 24-177)
+050,1,RPM Actual
+050,2,RPM Specified
+050,3,A/C Status
+050,4,Compressor Status
+;
+;
+051,0,Driving Range					(Bentley 24-192)
+051,1,RPM
+051,2,RPM
+051,3,Selector Position
+051,4,ECM Voltage
+;
+;
+062,0,Elec. Spd Cntrl					(Bentley 20-40)
+062,1,Angl.Snsr.1,3-93%
+062,2,Angl.Snsr.2,93-3%
+062,3,TP Sensor,12-97%
+062,4,Accel.PedalPos.,4-49%
+;
+;
+066,0,Clutch/Brake/Cruise Switches			(Bentley 24-182)
+066,2,x1xx Clutch,xx11 Brake				(Bentley 24-187)
+066,4,Cruise Buttons,xxxx
+;                    0000	switch off 
+;                    0001	switch not off
+;                    0011	switch on
+;			   1011	switch at res
+;			   0111	b on A pressed
+;
+070,0,Evap. System					(Bentley 20-52,01-102)
+070,1,Char.Canist.Valve
+070,2,Lambda Cntrl.Valve
+070,3,Soln.Valve 1
+070,4,Test/Result
+;
+;
+071,0,Evap.Emis.Test					(Bentley 20-58,01-100)
+071,1,Reed-contact,status
+071,2,Error
+071,3,Syst.Status
+071,4,Test/Result
+;
+;
+;
+
+
+
+
+ 
+
+

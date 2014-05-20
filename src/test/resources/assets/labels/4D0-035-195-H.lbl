@@ -1,0 +1,54 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 Symphony II
+; Filename: 4d0-820-043-q.lbl
+; 
+; from 2001 Audi S8
+;       Module: 08
+;    Component:  symphony II NP2    0001
+;   Controller: 4D0 035 195 H  
+;       Coding: 00015
+;
+; **Modification history**
+; created:  Dave Eaton, 4th February 2004
+; modified: Dave Eaton, 5th February: Corrections & Test
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+;
+;**********************************************************************
+;
+1,0,Conditions
+1,1,Battery,Volts
+1,2,Active Amp,Status,
+1,3,Telephone?
+1,4,Phone Status
+;
+2,0,Speaker Status
+2,1,Front
+2,2,Status
+2,3,N/A
+2,4,N/A
+;
+3,0,Antenna Type & Status
+3,1,Antenna,Type
+3,2,
+3,3,Status
+3,4,N/A
+;
+4,0,CD Changer
+4,1,Installed
+4,2,Status,Not OK=Not Installed
+4,3,N/A
+4,4,N/A
+;
+5,0,Antenna
+5,1,
+5,2,Status
+5,3,N/A
+5,4,N/A
+;
+80,0,Software Level & Date
+;
+81,0,Serial Code
+;
+; End of File

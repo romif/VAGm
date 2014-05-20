@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J104 - ABS (#03)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-03.LBL
+; 7L0-907-379-MK25.LBL   (MK25)
+; 7L0-907-379-MK25E1.LBL (MK25E1)
+;
+; created on 16/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Feb/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379        ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-A      ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-B      ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-C      ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-D      ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-E      ; MK25
+REDIRECT,7L0-907-379-MK25.LBL,7L0-907-379-G      ; MK25
+REDIRECT,7L0-907-379-MK25E1.LBL,7L0-907-379-K    ; MK25E1
+REDIRECT,7L0-907-379-MK25E1.LBL,7L0-907-379-L    ; MK25E1
+;

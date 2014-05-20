@@ -1,0 +1,163 @@
+;
+; VAG-COM Label File
+;
+; VW Passat (3B)
+;
+; Component: J393 - Comfort System (#46) - Generation I (< MY 1997)
+;
+; P/N: 3B0-959-79?-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-46.LBL
+; 3B0-959-79x-46.LBL
+;
+; created on 22/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Jun/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Child Safety,Switch (E39),Range: Yes/No/not installed
+001,2,Interior Locking,Driver Sw. (E150),Range: lock/unlock/not operated/implausible)
+001,3,Electric Window,Hall Signal,Range: rotating/stop
+;
+002,0,Driver's door (driver's switch for window regulators)
+002,1,WR-Button (E40),Drivers Side,Display Range: auto. open/auto. close/man. open/man. close/close not operated/implausible
+002,2,WR-Button (E81),Passenger Side,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+002,3,WR-Button (E53),Rear Left,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+002,4,WR-Button (E55),Rear Right,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+;
+003,0,Driver Door
+003,1,Driver Door,Key Switch,Display Range: implausible/open/closed/not operated
+003,2,Driver Door,Rotary Switch,Display Range: Door open/Door closed
+003,3,CL-Feedback,Drivers Side,Display Range: locked/unlocked
+003,4,Safe-Feedback,Drivers Side,Display Range: safe/not safe
+;
+004,0,Driver Door (Mirror)
+004,1,Mirror adjustment,switch driver (E43),Display Range: Pos X+/Pos X-/Pos Y+/Pos Y-/not operated
+004,2,Mirror selection,switch driver (E48,Display Range: left/right/fold/not operated
+004,3,Mirror folding,switch (E263),Display Range: released/engaged/not installed
+;
+005,0,Passenger Door
+005,1,WR-Button (E107),Passenger Side,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+005,2,Interior locking,passenger switch,E198 - USA only (Display Range: lock/unlock/not operated/implausible)
+005,3,Mirror folding,switch (E263),Display Range: released/engaged/not installed
+;
+006,0,Passenger Door
+006,1,Central Locking,Key Switch Pass.,Display Range: open/closed/not operated/implausible
+006,2,Thermal-Protection,Rotary Latch,Display Range (Rotary Latch): 0x = door closed / 1x = door open\nDisplay Range (Thermal-Protection): x0 = active / x1 = inactive
+006,3,CL-Feedback,Passenger Side,Display Range: locked/unlocked
+006,4,Safe-Feedback,Passenger Side,Display Range: safe/not safe
+;
+007,0,Door Rear Right
+007,1,WR-Button (E54),Rear Right,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+007,2,Thermal-Protection,Rotary Latch,Display Range (Rotary Latch): 0x = door closed / 1x = door open\nDisplay Range (Thermal-Protection): x0 = active / x1 = inactive
+007,3,CL-Feedback,Rear Right,Display Range: locked/unlocked
+007,4,Safe-Feedback,Rear Right,Display Range: safe/not safe
+;
+008,0,Door Rear Left
+008,1,WR-Button (E52),Rear Left,Display Range: autom. open/autom. close/man. open/man. close/not operated/implausible
+008,2,Thermal-Protection,Rotary Latch,Display Range (Rotary Latch): 0x = door closed / 1x = door open\nDisplay Range (Thermal-Protection): x0 = active / x1 = inactive
+008,3,CL-Feedback,Rear Left,Display Range: locked/unlocked
+008,4,Safe-Feedback,Rear Left,Display Range: safe/not safe
+;
+009,1,Instrument,illumination,Display Range: 0...100 %
+009,2,Speed Signal,,Steps: 2 km/h
+009,3,Remote control,button,Display Range: open/closed/RLR/panic (RLR = rear lid release)
+009,4,Interior monitor,sensor (G273),Display Range: yes/no/not installed
+;
+010,1,S-Terminal,,Display Range: operated/not operated
+010,2,Mirror heating,(E231),Display Range: on/off/not installed
+010,3,Rear lid/tailgate,key switch (E165),Display Range: open/closed/not operated/implausible
+010,4,Ignition,,Display Range: Terminal 15 on/Terminal 15 off
+;
+011,1,Hood contact,switch (F120),Display Range: operated/not operated/not installed
+011,2,Rear lid/tailgate,contact sw. (F124),Display Range: open/closed
+011,3,Sliding/tilting,sunroof released,Display Range: yes/no
+011,4,Central Locking,Thermal Prot.,Range:: Yes/No
+;
+012,0,CAN-Databus Communication
+012,1,Status,CAN-Databus,Specification: 2-wire
+012,2,Door Control,Modules (front),Display Range: Driver/Passenger
+012,3,Door Control,Modules (rear),Display Range: rl/rl and rr/rr
+012,4,Additional,Equipment,Display Range: Memory
+;
+013,0,Remote Control
+013,1,Permanent code,known,Display Range: OK/n.OK
+013,2,Code within,effective range,Display Range: OK/n.OK
+013,3,Algorithm,,Display Range: OK/n.OK
+;
+014,0,Remote Control
+014,1,Key number,,Display Range: 0...4 (0 = not operated)
+;
+015,0,Alarm source
+;   1 - Rear lid/tailgate contact switch
+;   2 - Rear left rotary latch switch
+;   4 - Rear right rotary latch switch
+;   8 - Front passenger rotary latch switch
+;  16 - Ignition
+;  17 - Immobilizer
+;  32 - Interior monitoring
+;  64 - Engine hood contact switch
+; 128 - Driver's rotary latch switch
+; 255 - No alarm
+015,1,Last source
+015,2,2nd last source
+015,3,3rd last source
+015,4,4th last source
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System (J393) Coding
+C01,Central Locking (2-Power Windows):
+C02,00256 - Selective unlocking
+C03,00257 - Unlocking of all doors
+C04, 
+C05,Central Locking (2-Power Windows and Memory Seats):
+C06,00258 - Selective unlocking
+C07,00259 - Unlocking of all doors
+C08, 
+C09,Central Locking (4-Power Windows):
+C10,04096 - Selective unlocking
+C11,04097 - Unlocking of all doors
+C12, 
+C13,Central Locking (4-Power Windows and Memory Seats):
+C14,04098 - Selective unlocking
+C15,04099 - Unlocking of all doors
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Remote control adaptation
+A01,5,Remote control adaptation
+A01,6,Enter the number of keys that should be adapted. Save.
+A01,7, 
+A01,8,Now press button 1 or 2 on every remote that
+A01,9,should be adapted for at least 1 second.
+A01,10, 
+A01,11,Note #1: All keys must be adapted in one procedure.
+A01,12,Note #2: Adaptation of all keys must not exceed 15 seconds.
+;

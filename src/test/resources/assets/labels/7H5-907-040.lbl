@@ -1,0 +1,108 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: J255 - Klima-/Heizungselektronik (#08)
+;
+; T/N: 7H5 907 040 ???
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 17.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 18.05.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Stellmotor für Mittenausströmer (V102) [Grundeinstellung]
+;
+002,0,(Grundeinstellung: Servicefall)
+;
+003,0,Stellmotor für Seitenanströmer (V262)
+;
+005,0,Stellmotor für Fußraumklappe (V261)
+;005,4,Relais (J163),Frischluftgebläse,hinten - nur bei Fhzg. mit zweitem Wärmetauscher (Wertebereich: aus/ein)
+;
+006,2,Spannungs,(Klemme 30),Sollwert: 10...16 V
+;
+007,0,Stellmotor für Temperaturklappe links (V158)
+;
+008,0,Stellmotor für Temperaturklappe rechts (V159)
+;
+009,0,Stellmotor für Frisch-/Umluftklappe (V154)
+;
+010,0,Stellmotor für Defrostklappe (V107)
+;
+011,1,Außentemperatur,(G17)
+011,3,Temperatur (G89),Ansaugkanal
+;
+012,0,Ausströmtemperaturen
+012,1,Mittelausströmer,vorn links (G385)
+012,2,Mittelausströmer,vorn rechts (G386)
+012,3,Fußraum links,(G261)
+012,4,Fußraum rechts,(G262)
+;
+013,1,Abschalt-,bedingungen,des Kompressors (Sollwert: 0 = nicht abgeschaltet)
+;  1 = Magnetkupplung (N25) wegen zu hohem Druck abgeschaltet
+;  2 = Magnetkupplung (N25) wegen zu niedriger Gebläsespannung (unter 2 V) abgeschaltet
+;  3 = Magnetkupplung (N25) wegen zu niedrigem Druck abgeschaltet
+;  5 = Magnetkupplung (N25) abgeschaltet (Motor nicht gestartet ODER kein Drehzahlsignal erkannt)
+;  6 = Magnetkupplung (N25) abgeschaltet (Anlage im ECON-Betrieb)
+;  7 = Magnetkupplung (N25) abgeschaltet (Gebläseregler auf Stufe 0)
+;  8 = Magnetkupplung (N25) abgeschaltet (Außentemperatur unter 3.5 °C)
+; 10 = Magnetkupplung (N25) wegen zu niedriger Versorgungsspannung abgeschaltet
+; 12 = Magnetkupplung (N25) abgeschaltet vom Motorsteuergerät via CAN
+; 13 = Magnetkupplung (N25) wegen zu hoher Versorgungsspannung abgeschaltet
+; 14 = Magnetkupplung (N25) abgeschaltet (Verdampfertemperatur unter 0 °C)
+; 16 = Magnetkupplung (N25) abgeschaltet (Ansteuerung Magnetkupplung für Klimaanlage (J246) fehlerhaft)
+; 17 = Magnetkupplung (N25) abgeschaltet (Ansteuerung Hochdruckgeber (G65) fehlerhaft)
+; 18 = Magnetkupplung (N25) abgeschaltet (Motordrehzahl über 3000 U/min UND Geschwindigkeit = 0 km/h)
+; 19 = Magnetkupplung (N25) abgeschaltet vom Bordnetzsteuergerät via CAN
+; 20 = Magnetkupplung (N25) abgeschaltet (Kältemittelverlust)
+; 22 = Magnetkupplung (N25) abgeschaltet (Gebläseregler hinten auf Stufe 0)
+013,2,Strom,Regelventil (N280)
+013,3,Ansteuerung,Regelventil (N280)
+;
+015,1,Kältemitteldruck,(G65)
+015,2,Temperatur (G308),Verdampfer
+;
+022,2,Luftgütesensor,(G238)
+;
+024,1,Fotosensor,(links),Wertebereich: 0...100 % (0 % = dunkel / 100 % = hell)
+024,2,Fotosensor,(rechts),Wertebereich: 0...100 % (0 % = dunkel / 100 % = hell)
+;
+025,3,Versorgungs-,spannung (J255),Klemme 30 (Sollwert: 10.0...16.0 V)
+025,4,Referenzspannung,,Sollwert: 4.5...5.5 V
+;
+029,0,Stellmotor für Temperaturklappe hinten (V137)
+;
+030,0,Stellmotor für Luftverteilung hinten (V136)
+;
+031,1,Ausströmtemp.,hinten (G174)
+031,3,Versorgungs-,spannung (E265),Klemme 30 (Sollwert: 10.0...16.0 V)
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Steuergerät für Klima-/Heizungselektronik (J255) Codierung
+C1,00020 - Standard-Verglasung
+C2,00030 - Wärmeschutz-Verglasung
+C3,00040 - Scheiben im Fondbereich dunkel
+C4,00040 - Doppel-Verglasung hinten & Wärmeschutz-Verglasung vorn
+C5,00040 - Seiten- und Heckfenster aus Kunststoff
+C6,00040 - Seitenfenster aus Kunststoff und Heckfenster aus Glas
+;

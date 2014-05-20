@@ -1,0 +1,274 @@
+;
+; VAG-COM Label File
+;
+; VW Golf/Jetta (1J)
+;
+; Component: Engine (#01) - AJQ/APP/ARY/AUQ
+;
+; P/N: 06A 906 032 ??
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 8L-01.LBL
+; 8N-01.LBL
+; 06A-906-032-AJQ.LBL (1.8l TE  @ 180 HP - AJQ/APP/ARY/AUQ)
+;
+; created on 24/Mar/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 05/Jan/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions
+001,1,Engine Speed,,Specification (ilde): 700...820 RPM
+001,2,Coolant,Temperature,Specifiation: 80.0...110.0 °C
+001,3,Lambda,Controller,Specification: -10.0...+10.0 %
+001,4,Basic Setting,Requirements,see labelfile
+; 1xxxxxxx - Coolant temperature above 80 °C
+; x1xxxxxx - Engine speed below 2000 RPM
+; xx1xxxxx - Throttle valve closed
+; xxx1xxxx - Lambda regulation correct
+; xxxx1xxx - State of idle
+; xxxxx1xx - A/C system compressor deactivated
+; xxxxxxx1 - No malfunction detected by Self-Diagnosis
+;
+002,0,Basic Functions
+002,1,Engine Speed,,Specification (ilde): 700...820 RPM
+002,2,Engine Load,,Specification: 15...25 %
+002,3,Injection,Timing,Specification: 2.0...4.0 ms
+002,4,Intake Air Mass,,Specification: 2.0...4.5 g/s
+;
+003,0,Basic Functions
+003,1,Engine Speed,,Specification (ilde): 700...820 RPM
+003,2,Intake Air Mass,,Specification: 2.0...4.5 g/s
+003,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0.2...4.0 %
+003,4,Ignition,Timing Angle,Specification: 6.0...12.0 °BDTC
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification (ilde): 700...820 RPM
+004,2,Voltage Supply,,Specification: 12.0...15.0 V
+004,3,Coolant,Temperature,Specifiation: 80.0...110.0 °C
+004,4,Intake Air,Temperature,Specification: -48.0...+110.0 °C
+;
+005,0,Basic Functions
+005,1,Engine Speed,,Specification (ilde): 700...820 RPM
+005,2,Engine Load,,Specification: 15...25 %
+005,3,Speed,,Specification: 0 km/h
+005,4,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,Basic Functions
+006,1,Engine Speed,,Specification (ilde): 700...820 RPM
+006,2,Engine Load,,Specification: 15...25 %
+006,3,Intake Air,Temperature,Specification: -48.0...+110.0 °C
+006,4,Heights Correction,Factor
+;
+010,0,Ignition
+010,1,Engine Speed,,Specification (ilde): 700...820 RPM
+010,2,Engine Load,,Specification: 15...25 %
+010,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0.2...4.0 %
+010,4,Ignition,Timing Angle,Specification: 5.0...15.0 °BDTC
+;
+020,0,Ignition Timing Angle  Retardation
+020,1,Cylinder 1 Ignition,Angle Delay,Specification: 0.0...12.7 °
+020,2,Cylinder 2 Ignition,Angle Delay,Specification: 0.0...12.7 °
+020,3,Cylinder 3 Ignition,Angle Delay,Specification: 0.0...12.7 °
+020,4,Cylinder 4 Ignition,Angle Delay,Specification: 0.0...12.7 °
+;
+022,0,Ignition Timing Angle  Retardation
+022,1,Engine Speed,,Specification: 700...6800 RPM
+022,2,Engine Load,,Specification: 16...175.0 %
+022,3,Cylinder 1 Ignition,Angle Delay,Specification: 0.0...12.0 °
+022,4,Cylinder 2 Ignition,Angle Delay,Specification: 0.0...12.8
+;
+023,0,Ignition Timing Angle  Retardation
+023,1,Engine Speed,,Specification: 700...6800 RPM
+023,2,Engine Load,,Specification: 16...175.0 %
+023,3,Cylinder 3 Ignition,Angle Delay,Specification: 0.0...12.0 °
+023,4,Cylinder 4 Ignition,Angle Delay,Specification: 0.0...12.8 °
+;
+026,0,Knock Sensor Voltage
+026,1,Voltage Cyl. 1,Knock Sensor,Specification: 0.0...31.25 V
+026,2,Voltage Cyl. 2,Knock Sensor,Specification: 0.0...31.25 V
+026,3,Voltage Cyl. 3,Knock Sensor,Specification: 0.0...31.25 V
+026,4,Voltage Cyl. 4,Knock Sensor,Specification: 0.0...31.25 V
+;
+028,1,Engine Speed,,Specification: 2200...6800 RPM
+028,2,Engine Load,,Specification: 15.0...175.0 %
+028,3,Coolant,Temperature,Specification: 40.0...110.0 °C
+028,4,Result,Knock Sensor Test,Display Range: Test ON/Test OFF/Syst. OK/Syst. not OK
+;
+030,0,Oxygen Sensor Status
+030,1,Bank 1,Sensor 1,see labelfile (Specification: 111)
+; 1xx - Sensor heater
+; x1x - Oxygen sensor ready
+; xx1 - Lambda regulation active
+;
+031,1,Lambda Sensor,Current Value,Specification: 0.00...1.00 V
+031,2,Lambda Sensor,Specified Value
+;
+032,1,Lambda (add.),Self-Adaptation,Specification: -10.0...+10.0 %
+032,2,Lambda (mult.),Self-Adaptation,Specification: -10.0...+10.0 &
+;
+033,1,Bank 1,Lambda Control,Specification: -10.0...+10.0 %
+033,2,Bank 1 Voltage,of Oxygen Sensors,Specification: 0.00...1.00 V
+;
+036,1,Bank 1 Sensor 2,Voltage,Specification: 0.00...1.00 V
+036,2,Result,Lambda Availability,Display Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK
+;
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition
+;
+050,0,Speed Regulation
+050,1,Engine Speed,,Specification (ilde): 700...820 RPM
+050,2,Engine Speed,(Specified)
+050,3,Condition,of A/C system,Display Range: A/C-High / A/C-Low
+050,4,Operating condition,of A/C Compressor,Display Range: Compr.ON/Compr.OFF
+;
+053,0,Speed Regulation
+053,1,Engine Speed,,Specification (ilde): 700...820 RPM
+053,2,Engine Speed,(Specified)
+053,3,Voltage Supply,,Specification: 12.0...15.0 V
+053,4,Current,Consumption,Display Range: 0...100 %
+;
+054,0,Speed Regulation
+054,1,Engine Speed,,Specification (ilde): 700...820 RPM
+054,2,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Sender 2 for,Acc. Pedal Pos.,G79 (Display Range 0...100 %)
+054,4,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+;
+055,0,Speed Regulation
+055,1,Engine Speed,,Specification (ilde): 700...820 RPM
+055,2,Idle Regulator,,Specification: -4.30...12.20 %
+055,3,Idle Stabilization,Self-Adaptation,Specification (A/C-High): -6.0...+6.0 % | Specification (A/C-Low): -3.0...+3.0 %
+055,4,Load Status,,see labelfile
+; 1-xxx - Power assisted steering pressure switch on
+; x-1xx - Air conditioning system switched on
+; x-x1x - Heating switched on
+; x-xx1 - Air conditioner compressor switched on
+;
+056,0,Speed Regulation
+056,1,Engine Speed,,Specification (ilde): 700...820 RPM
+056,2,Engine Speed,(Specified)
+056,3,Idle Regulator,,Specification: -4.30...12.20 %
+056,4,Load Status,,see labelfile
+; 1-xxx - Power assisted steering pressure switch on
+; x-1xx - Air conditioning system switched on
+; x-x1x - Heating switched on
+; x-xx1 - Air conditioner compressor switched on
+;
+060,0,Speed Regulation (EPC Adaptation)
+060,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 3...93 %
+060,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 97...3 %
+060,3,Self-Adaptation,Steps Counter,Specification: 0...8
+060,4,Result,Throttle Valve Adp.,Display Range: ADP runs/ADP OK/ADP ERROR
+;
+061,0,Speed Regulation (EPC System)
+061,1,Engine Speed,,Specification: 700...6800 RPM
+061,2,Voltage Supply,,Specification: 12.0...15.0 V
+061,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+061,4,Load Status,,see labelfile
+; 1-xxx - Power assisted steering pressure switch on
+; x-1xx - Air conditioning system switched on
+; x-x1x - Heating switched on
+; x-xx1 - Air conditioner compressor switched on
+;
+062,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 3...93 %
+062,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 97...3 %
+062,3,Throttle Position,Sensor (G79),Specification: 12...97 %
+062,4,Accelerator Pedal,Position Sensor 2,G185 (Specification: 4...49 %)
+;
+066,1,Speed
+066,2,Brake switch,clutch and CCS,see labelfile
+; ----1xxx - Cruise control system active
+; ----x1xx - Clutch depressed (always 1 in automatic transmission)
+; ----xx1x - Brake depressed (brake pedal switch)
+; ----xxx1 - Brake depressed (brake light switch)
+066,3,Specified Speed
+066,4,CCS Control,Positions,see labelfile
+; ----1xxx - CCS slide handle on RES or RES button on multi-function steering wheel pressed
+; ----x1xx - SET button pressed
+; ----xx1x - CCS slide handle on OFF (not engaged or engaged)/OFF button on multi-function steering wheel pressed
+; ----xxx1 - CCS slide handle on OFF
+;
+113,0,Charge Pressure Control
+113,1,Engine Speed,,Specification: 700...6800 RPM
+113,2,Engine Load,,Specification: 15.0...175.0 %
+113,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+113,4,Athmospheric,Pressure,Specification: 500...1200 mbar
+;
+114,0,Charge Pressure Control
+114,1,Engine Load,(specified),Specification: < 175.0 %
+114,2,Engine Load,(spec. corrected),Specification: < 175.0 %
+114,3,Engine Load,(actual Value),Specification: 15.0...175.0 %
+114,4,Charge Pressure,Solenoid Valve,Display Range: 0.0...100.0 %
+;
+115,0,Charge Pressure Control
+115,1,Engine Speed,,Specification: 700...6800 RPM
+115,2,Engine Load,,Specification: 15.0...175.0 %
+115,3,Charge Pressure,(specified Value),Specification: 990...2200 mbar
+115,4,Charge Pressure,(actual Value),Specification: < 2000 mbar
+;
+117,0,Charge Pressure Control
+117,1,Engine Speed,,Specification: 700...6800 RPM
+117,2,Throttle Position,Sensor (G79),Display Range: 0...100 %
+117,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+117,4,Charge Pressure,(specified Value),Specification: 990...2200 mbar
+;
+118,0,Charge Pressure Control
+118,1,Engine Speed,,Specification: 700...6800 RPM
+118,2,Intake Air,Temperature,Specification: -48.0...+110.0 °C
+118,3,Charge Pressure,Solenoid Valve,Display Range: 0.0...100.0 %
+118,4,Charge Pressure,(actual Value),Specification: < 2000 mbar
+;
+120,0,Traction Control System (ASR/TCS)
+120,1,Engine Speed,,Specification: 700...6800 RPM
+120,2,Engine Torque,specified by ASR,Specification: 0...399 Nm
+120,3,Current,Engine Torque,Specification: 0...260 Nm
+120,4,ASR Condition,,Display Range: ASR active/ASR not active
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Transmission
+125,2,Brake Electronics
+125,3,Instrument Cluster
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,3,Airbag
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Engine (J220) Coding
+C01,??xxx: Country/Emission
+C02,05 = Emissions (EURO3)
+C03,11 = Emissions (EURO4)
+C04,xx?xx: Additional Functions
+C05,0 = Front-Wheel-Drive (FWD) w/o ASR/ESP and Databus
+C06,5 = Front-Wheel-Drive (FWD) with ASR/ESP and Databus
+C07,6 = All-Wheel-Drive (AWD) w/o ASR/ESP and Databus
+C08,7 = All-Wheel-Drive (AWD) with ASR/ESP and Databus
+C09,xxx?x: Transmission
+C10,0 = 5-Speed Manual Transmission
+C11,1 = 6-Speed Manual Transmission
+C12,3 = 4-Speed Automatic Transmission (01M)
+C13,5 = 5-Speed Automatic Transmission
+C14,7 = 6-Speed Automatic Transmission (09G)
+C15,xxxx?: Vehicle Type
+C16,0 = A Class (Seat Leon/Audi A3/Audi TT)
+;

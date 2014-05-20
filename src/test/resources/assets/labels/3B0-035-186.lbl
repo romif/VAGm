@@ -1,0 +1,83 @@
+;
+; VAG-COM Label File
+;
+; VW Golf/Jetta (1J/9M) / VW Passat (3B)
+;
+; Component: R - Radio (#56) - MFD
+;
+; includes measuring blocks and coding
+;
+; created on 22/Feb/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Feb/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,GALA-Signal,,0 = Signal not recognized\n1 = Signal recognized
+001,2,Supply Voltage,(Terminal 30)
+001,3,Illumination,(Terminal 58d)
+001,4,Status,S-Contact,Range: ON/OFF
+;
+002,0,Speakers
+002,1,Speakers,Front
+002,2,Status,,Specification: OK/Short/Open
+002,3,Speakers,Rear
+002,4,Status,,Specification: OK/Short/Open
+;
+003,0,Antenna
+003,1,Antenna Type,,Range: Active/Passive
+003,2,Antenna
+003,3,Status,,Range: OK/Short/Open
+;
+004,0,Amplifier / Telephone-Mute
+004,1,Amplifier,Output,Range: 0 = OK / 1 = Short to Ground
+004,3,Telephone,Mute
+004,4,Mute Status,,Range: ON/OFF
+;
+005,0,CD-Player/Changer
+005,1,Component
+005,2,Status,,Range: OK/n.OK
+;
+006,0,External Display
+006,1,Component
+006,2,Status,,Range: OK/n.OK
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,??xxx: Sound-Adjustment
+C02,00 = Standard/Other / 01 = Golf (1J)
+C03,02 = Bora/Jetta (1J/9M) / 03 = Golf/Bora Variant/Wagon (1J) 
+C04,04 = Passat Sedan (3B) / 05 = Passat Variant/Wagon (3B)
+C05,06 = Lupo/Polo (6X/9N) / 07 = Golf-Cabriolet (1E)
+C06,08 = Sharan (7M) & New Beetle (1C)
+C07,09 = Transporter/Caravelle/Multivan/Eurovan (7D)
+C08,xx?xx: Speakers
+C09,0 = No passive Speakers (Sound System)
+C10,2 = 2 passive Speakers (Front)
+C11,3 = 2 passive Speakers (Rear)
+C12,4 = 4 passive Speakers (Front and Rear)
+C13,xxx?x: Sound System Correction
+C14,0 = Sound System not installed (No Correction)
+C15,1 = Sound System (Bose) installed
+C16,2 = Sound-System (DSP) installed
+C17,xxxx?: Configuration
+C18,+1 = Active/Remote Supplied Antenna
+C19,+2 = CD-Player/Changer
+C20,+4 = Secondary Display (Instrument Cluster)
+;

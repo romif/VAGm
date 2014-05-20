@@ -1,0 +1,102 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi 100 (4A)
+;
+; Komponente: Motorelektronik (#01) - ABK (ab 07/1993)
+;
+; T/N: 039 906 024 ??
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 039-906-022-ABK.LBL  (2.0l     @ 115 HP - ABK) - bis 06/1993
+; 039-906-024-ABK.LBL  (2.0l     @ 115 HP - ABK) - ab 07/1993
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 23.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 23.05.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Ansauglufttempratur,Sollwert: 15...70 (12...65 °C)
+000,2,Versorgungsspannung,Sollwert: 115...150 (10.8...14.0 V)
+000,3,Kühlmitteltemperatur,Sollwert: 0...8 (85...115 °C)
+000,4,Motorlast,Sollwert: 35...65 (14...25 %)
+000,5,Lambda-Sondenspannung,Sollwert: 230...80 (0.1...1.1 V)
+000,6,Zeitzähler Lambda-Regelung,Sollwert: 0
+000,7,Zähler Sondenstatus,Sollwert: 0...5
+000,8,Drosselklappenpotentiometer-Spannung,Sollwert: 10...130 (0.2...2.6 V)
+000,9,Einspritzzeit,Sollwert: 3...7 (1.5...3.5 ms)
+000,10,Motordrehzahl,Sollwert: 211...186 (770...870 U/min)
+;
+001,0,Grundfunktionen (Grundeinstellung: Drosselklappe)
+001,1,Motordrehzahl,,Sollwert: 770...870 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 85..115 °C
+001,3,Lambda,Sondenspannung,Sollwert: 0.1...1.1 V
+001,4,Einstell-,bedingungen
+; -1xxxxxx - Zündwinkelrücknahme beim Schaltvorgang aktiv (Automatisches Getriebe)
+; -x1xxxxx - Klimakompressor nicht abgeschaltet (in "Grundeinstellung" automatisch abgeschaltet)
+; -xx1xxxx - Leerlaufschalter nicht geschlossen
+; -xxx1xxx - Lambdaregelung abgeschaltet
+; -xxxx1xx - Drosselklappe geöffnet
+; -xxxxx1x - Drehzahl im ungültigen Bereich
+; -xxxxxx1 - Kühlmitteltemperatur kleiner 80 °C
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,,Sollwert: 770...870 U/min
+002,2,Einspritzzeit,,Sollwert: 1.5...3.5 ms
+002,3,Versorgungs-,spannung,Sollwert: 10.8...14.0 V
+002,4,Ansaugluft-,temperatur
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,,Sollwert: 770...870 U/min
+003,2,Motorlast,,Sollwert: 14...25 %
+003,3,Drosselklappen-,winkel,Sollwert (Leerlauf): 0.0...2.0 <°\nSollwert (Vollast): mind. 75 <°
+003,4,Tastverhältnis,Leerlaufstabil.,Sollwert (Leerlauf): 0...35 %
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,,Sollwert: 770...870 U/min
+004,2,Motorlast,,Sollwert: 14...25 %
+004,3,Geschwindigkeits-,signal,Wertebereich: 0 = fährt / 255 = steht
+004,4,Betriebszustand
+; 10000000 - Schubabschaltung
+; 01000000 - Leerlauf
+; 00100000 - Teillast
+; 00010000 - Vollast
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,,Sollwert: 770...870 U/min
+005,2,Tastverhältnis,Magnetventil (N80),Wertebereich: 0 % = geschlossen / 100 % = offen
+005,3,Verbrauchssignal
+005,4,Kaltstartventil,,Wertevereich: offen/geschlossen
+;
+006,1,Lambdaregelung,Anzeigewert 1,Wertebereich: 0 = fett / 255 = mager
+006,2,Lambdaregelung,Anzeigewert 2
+006,3,Lernwert,Leerlaufregelung,Sollwert: 0...100
+006,4,Lernwert,Drosselklappe,Sollwert: 10...104
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Motorelektronik
+C1,00001 - Audi 80
+C2,00002 - Audi 100/A6 (4A)
+;

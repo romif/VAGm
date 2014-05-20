@@ -1,0 +1,101 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F)
+;
+; Component: J387 - Passenger's Door Electronics (#52)
+;
+; P/N: 4F0-910-792-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-52.LBL
+; 4F0-910-792-52.LBL
+;
+; created on 16/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 19/Nov/2005
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Pasenger's Door Electronics (J387) Coding
+C01,+0000002 - Interior Door Handle Illumination (Standard)
+C02,+0000004 - Insulated Glass installed (PR-4KR/4KV)
+C03,+0000008 - Door Warning Lights (Standard)
+C04,+0000016 - Right Hand Steering (PR-L0R)
+C05,+0000032 - Lighting Package (Interior Lighting - PR-QQ1)
+C06,+0000064 - Lighting Package (Exterior Lighting - PR-QQ1)
+C07,+0000128 - Outside Mirror Adjustment (Memory - PR-6XF/6XL)
+C08,+0000256 - Without Mirror Heating
+C09,+0000512 - Interior Lock Switch
+C10,+0001024 - Avant (Wagon)
+C11,+0002048 - Electrical Child Safety Lock (PR-4H5)
+C12,+0004096 - Opening Assistance
+C13,+0008192 - Closing Assistance (PR-GZ2)
+C14,+0016384 - Keyless-Entry (PR-4F2/4K5/4K7)
+C15,+0032768 - Without Safe Function (PR-A8U)
+C16,+0065536 - Window Regulator Comfort Function
+C17,+0131072 - Handicapped Vehicle
+C18,+0262144 - Special Protection Vehicle
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1482,Motors for Central Locking
+T2111,Motor for Window Regulator
+T2117,Motor for Mirror Folding
+T2188,Lighting/Illumination
+T2189,Mirror Function Test
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Door Status,,Display Range: 0 = inactive / 1 = active\n\nxxxxx?00 = Central Locking (CL) Interior Switch locking\nxxxx?x00 = Central Locking (CL) Interior Switch unlocking\nxxx?xx00 = Lock Feedback "locked"\nxx?xxx00 = Lock Feedback "safed" (not USA)\nx?xxxx00 = Door Contact Switch\n?xxxxx00 = Catch (for Closing Assistance)
+001,2,Button Status,,Display Range: 0 = inactive / 1 = active\n\n000000x? = Interior Door Handle Button\n000000?x = External Door Handle Button
+001,3,Voltages and,Databus Status,Display Range: 0 = inactive / 1 = active\n\n0000xxx? = Terminal 30 (Window Regulator)\n0000xx?x = Terminal 30 (Central Locking)\n0000x?xx = Terminal 15\n0000?xxx = CAN-Comfort in Single-Wire Mode
+001,4,Voltage Supply
+;
+002,0,Window Regulator Buttons (Local)
+002,1,WR-Button (E107),Drivers Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,1,Window Regulator,Position,Display Range: 0.0...100.0 %
+003,2,Window Regulator,Motor Temperature,Display Range: -50.0...+200.0 °C
+003,3,Window Regulator,Status,Display Range: 0 = inactive / 1 = active\n\nxxx? = Window Regulators present\nxx?x = Thermal Protection\nx?xx = Standardized\n?xxx = Insulated Glass
+003,4,Window Regulator,Movement,Display Range: Still/Open/Closed
+;
+005,1,Vehicle Speed,,Display Range: 0.0...255.0 km/h
+005,2,Ambient,Temperature,Display Range: -50.0...+200.0 °C
+005,3,Mirror Heating,(calculated),Display Range: 0.0...100.0 %
+005,4,Mirror Heating,Status,Display Rannge: Heater Off/Heater On
+;
+006,1,Memory Buttons,,Display Range: 0 = inactive / 1 = active\n\nxxxxx? = Memory Button\nxxxx?x = Emergency-Off Button\nxxx?xx = Position Button 1\nxx?xxx = Position Button 2\nx?xxxx = Position Button 3\n?xxxxx = Position Button 4
+006,2,Mirror Position X,(Potentiometer),Display Range: 0.0...5.0 V
+006,3,Mirror Position Y,(Potentiometer),Display Range: 0.0...5.0 V
+006,4,Miscellaneous,,00000001 = Kessy Lock Button active
+;
+007,1,Closing,Assistance,Display Range: Not Installed
+007,2,Opening,Assistance,Display Range: Not Installed
+007,3,Child Safety,Lock Button,Display Range: Operated/Not Oper./Not Installed
+007,4,Window Regulator,Current Consumpt.
+;

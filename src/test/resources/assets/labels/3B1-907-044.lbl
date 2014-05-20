@@ -1,0 +1,54 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Golf IV Climatronic (A/C) 3B1 907 044B
+;
+; contributed by Jens Ulmer, 27.08.2001
+;
+1,0,General values
+1,1,A/C clutch,sw-off cond. 1-12 
+1,2,Eng. speed recog,(0=no/1=yes)
+1,3,Road Speed
+1,4,Standing time,(0-240 min.)
+;
+2,0,Temperature Regulator Flap
+2,1,Measured value
+2,2,Specified value
+2,3,Position: air,supply cooled
+2,4,Position: air,supply heated
+;
+3,0,Center Air Flap
+3,1,Measured value
+3,2,Specified value
+3,3,Position: air,flow to panel
+3,4,Position: air,flow to footwell
+;
+4,0,Footwell/Defroster Flap
+4,1,Measured value
+4,2,Specified value
+4,3,Position: air,flow to footwell
+4,4,Position: air,flow to defroster
+;
+5,0,Air Flow Flap
+5,1,Measured value
+5,2,Specified value
+5,3,Position:,fresh air
+5,4,Position:,recirculating
+;
+6,0,Temperatures & Photo Sensor
+6,1,Temp. displayed,on panel
+6,2,Temp. air,intake duct
+6,3,Outside air,temperature
+6,4,Sun photo,sensor (0-120%)
+; 
+7,0,More temperatures
+7,1,Outlet temp.,panel (G191)
+7,2,Outlet temp.,floor (G192)
+7,3,Panel temp.,near LCD (G56)
+7,4,n/a
+;
+8,0,Voltages
+8,1,Specif. Voltage,air blower
+8,2,Measured Voltage,air blower
+8,3,Measured Voltage,Terminal 15
+8,3,Measured Voltage,A/C clutch
+;

@@ -1,0 +1,453 @@
+;
+; VAG-COM label file 3D0-959-933.lbl
+;
+; VW Phaeton (3D) - up to and including 2005 model year
+;
+; component: Central Control Module for Comfort System -J393- (#46)
+;
+;**************************************************************
+;
+;  NOTE!  VW Campaign 97J9, dated 03.02.05 states the following:
+;  "If a central module with the number 3D0 959 933 and the index "A", "D" or "E" is fitted, 
+;  it must be replaced."  (Reference criteria 12 of 97J9).
+;
+;**************************************************************
+;
+;      p/n: 3D0 959 933 E Component: 6P HSG 3212 Coding: 0000040
+;                        (2004 North American W12 Phaeton with full power trunk open/close hydraulics)
+;           3D0 959 933 F Component: HSG 0101 Coding: 0000040 
+;                        (2003 European Phaeton, also with full power trunk open/close hydraulics)
+;           3D0 959 933 E Component: 1B HSG 3211 Coding: 0000040 
+;                        (2004 European W12 Phaeton, also with full power trunk open/close hydraulics)
+;           3D0 959 933 F Component: 1X HSG 0101 Coding: 0000032 
+;                        (2004 Canada Bentley Continental GT)
+;           3D0 959 933 E Component: 04 HSG  Coding: 0000032 
+;                        (2004 European Bentley Continental GT)
+;           3D0 959 933 F Component: 29 HSG 0101 Coding: 0000040 
+;                        (2005 NAR Phaeton, also with full power trunk open/close hydraulics)
+;           3D0 959 933 F Component: HSG 0101 Coding: 0000040 
+;                        (2005 NAR Phaeton, also with full power trunk open/close hydraulics)
+;
+; Phaeton Slave Controllers to this module can include the following:
+;
+;   Part No: 3D1 959 701 E
+;   Component: Tuersteuergeraet FS 0104 (Driver door controller - without soft close door)
+;
+;   Part No: 3D1 959 701 F
+;   Component: Tuersteuergeraet FS 5616 (Driver door controller - soft close door)
+;
+;   Part No: 3D1 959 702 E
+;   Component: Tuersteuergeraet FS 0104 (Passenger door controller - without soft close door)
+;
+;   Part No: 3D1 959 702 F
+;   Component: Tuersteuergeraet BF 5616 (Passenger door controller - soft close door)
+;
+;   Part No: 3D1 959 703 E
+;   Component: Tuersteuergeraet FS 0104 (Rear left door controller - without soft close door)
+;
+;   Part No: 3D0 959 703 F
+;   Component: Tuersteuergeraet HL 5616 (Rear left door controller - soft close door)
+;
+;   Part No: 3D1 959 704 E
+;   Component: Tuersteuergeraet FS 0104 (Rear right door controller - without soft close door)
+;
+;   Part No: 3D0 959 704 F
+;   Component: Tuersteuergeraet HR 5616 (Rear right door controller - soft close door)
+;
+;   Part No: 3D0 909 610 C  (hydraulic powered trunk opening and closing controller)
+;   Component: 3L HDSG  
+;
+;   Part No: 7L0 907 719 (level sensor for tow-away protection)
+;   Component:    Neigungssensor   0020
+;
+; includes measuring blocks, coding, and adaptation.
+;
+; by Michael Moore (Moore@ross-tech.com), 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; Modification History
+;
+; 22/July/2005 (Michael Moore)
+;         - label name changed to 3D0-959-933.lbl, security access code information added.
+; 23/September/2005 (Michael) - Bentley Continental GT information added above.
+; 11/October/2005 (Michael) -checked against CSV and PLB, all blocks documented.
+; 16/October/2005 (Michael) 
+;         - MVB text enhanced and simplified, additional hover balloons added to MVBs.
+; 23/November/2005 (Michael) Slave Controller Information Added, Coding II code added.
+; 21/March/2006 (Michael) HDSG adaptation procedure (adaptation channel 24) added.
+; 06/October/2006 (Michael) - note re Campaign 97J9 added to top of labelfile, label layout errors fixed.
+;
+;
+; ready for VAG-COM 500.9 and above
+;
+;---------------------------------------------------
+;
+; Security access code for this controller is 19283
+; Coding II access code for this controller is 12151
+;
+;---------------------------------------------------
+;
+;
+;---------------------------------------------------
+;
+; Measured Value Block information
+;
+;---------------------------------------------------
+;
+001,0,Driver Door Controls for DRIVER DOOR functions
+001,1,E40,Window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+001,2,V147,Window motor,Possible display: Yes = activated / No = not activated (refers to thermal protection)
+001,3,E308 Interior,lock button,Possible display: - locking - unlocking - not operated - implausible signal
+001,4,E369 Outside central,locking button,Possible display:activated/not activated/not installed
+;
+002,0,Driver Control Panel Switch positions for windows on the other three doors
+002,1,E81 Front pax,window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+002,2,E53 Left Rear,window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+002,3,E55 Right Rear,window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+;
+003,0,Driver Door Switch and Button Status (other than windows)
+003,1,Exterior,key cylinder,Possible display:not activated/open/closed/implausable signal
+003,2,Interior door,handle button,Possible display:activated/not activated
+003,3,Exterior door,handle grip,Possible display:activated/not activated/not installed
+;
+004,0,Child Safety Lockouts at driver door control panel (Both buttons are E318)
+004,1,E318 Left rear,child button,Possible display:activated/not operational/not installed
+004,2,E318 Right rear,child button,Possible display:activated/not operational/not installed
+004,3,Left rear child,lockout status,Possible display:yes/no/not installed
+004,4,Right rear child,lockout status,Possible display:yes/no/not installed
+;
+005,0,Mirror adjustment - heating - and folding switch position
+005,1,E43 Mirror,adjustment switch,Possible display: X+ = right/X = left/Y+ = top/Y = bottom/not operated/implausable signal
+005,2,E48 Mirror,selector switch,Possible display:right/left/move mirror/not operational (not operational means heat position)
+005,3,E231 Mirror,heating switch,Possible display:off/on
+;
+006,0,Front side window defroster buttons (on windowsills)
+006,1,Driver door,defrost button,Possible display:activated/not activated
+006,2,Pax door,defrost button,Possible display:activated/not activated
+;
+007,0,Front Passenger Door Button and Switch Status
+007,1,E107,Window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausible signal
+007,2,V148,Window motor,Possible display: Yes = activated / No = not activated (refers to thermal protection)
+007,3,E309 Interior,lock button,Possible display: - locking - unlocking - not operated - implausible signal
+007,4,E370 Outside central,locking button,Possible display:activated/not activated/not installed
+;
+008,0,Left Rear Passenger Door Button and Switch Status
+008,1,E52,Window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+008,2,V26,Window motor,Possible display:  Yes = activated / No = not activated (refers to thermal protection)
+008,3,E310 Interior,lock button,Possible display: - locking - unlocking - not operated - implausible signal
+008,4,E371 Outside central,locking button,Possible display:activated/not activated/not installed;
+;
+009,0,Right Rear Passenger Door Button and Switch Status
+009,1,E54,Window switch,Possible display: not operated/automatic open/automatic close/manual open/manual close/implausable signal
+009,2,V27,Window motor,Possible display:  Yes = activated / No = not activated (refers to thermal protection)
+009,3,E311 Interior,lock button,Possible display: - locking - unlocking - not operated - implausible signal
+009,4,E372 Outside central,locking button,Possible display:activated/not activated/not installed;
+;
+010,0,Messages being returned by the individual door central locking units
+010,1,F220,Driver Door,Possible display:locked/unlocked/safe/implausable signal (safe means child lock on)
+010,2,F221 Front Pax,,Possible display:locked/unlocked/safe/implausable signal (safe means child lock on)
+010,3,F222 Left Rear,,Possible display:locked/unlocked/safe/implausable signal (safe means child lock on)
+010,4,F223 Right Rear,,Possible display:locked/unlocked/safe/implausable signal (safe means child lock on)
+;
+011,0,Individual Door Contact Switch Status
+011,1,F2,Driver,Possible display:door open/door closed
+011,2,F3,Front Pax,Possible display:door open/door closed
+011,3,F10,Left Rear,Possible display:door open/door closed
+011,4,F11,Right Rear,Possible display:door open/door closed
+;
+012,0,Binary Bits
+;
+013,0,General Vehicle Information
+013,1,Term 30 (Battery),voltage,Possible display:Between 9 and 14.5 volts
+013,2,Term 15 (Ignition),status,Possible display:terminal 15 on/terminal 15 off/implausable signal
+013,3,S-Contact,,Possible display:activated/not activated
+013,4,Vehicle speed,signal,Possible display:In kilometers per hour - greater than zero 
+;
+014,0,General Vehicle Information (continued)
+014,1,Thermal protection,for central lock,Possible display:yes = thermal protection active/no = thermal protection not active
+014,2,F266 Front,hood switch,Possible display:open/closed
+014,3,F47 Brake,pedal switch,Possible display:on/off (on Touareg - F45 Air conditioner thermal switch)
+014,4,Convenience,CAN Bus status,Possible display:one wire/two wire
+;
+015,0,Door Accessibility Status
+015,1,Driver,Door,Possible display: - Driver door 1 - Driver door 1 wire - Driver door 0
+015,2,Front Pax,Door,Possible display: - Driver door 1 - Driver door 1 wire - Driver door 0
+015,3,Left Rear,Door,Possible display: - Driver door 1 - Driver door 1 wire - Driver door 0
+015,4,Right Rear,Door,Possible display: - Driver door 1 - Driver door 1 wire - Driver door 0
+;
+016,1,Trailer module,present,
+016,2,E165 Trunk,unlock switch,Possible display:activated/not activated
+;
+017,0,Performance of Remote Control Key Fobs
+017,1,Remote Control,button signal,Possible display:Block shows 0000. 1000 = open. 0100 = close. 0010 = rear lid unlock. 0001 = panic button
+017,2,Immobilizer,key recognition,Possible display:yes = immobilizer recognizes the key/no = immobilizer does not recognize the key
+017,3,Request,rear lid open,Possible display:yes/no
+;
+018,0,Cause (source) of recent alarms. Click mouse on ALL 4 BLOCKS to see decoding information.
+018,1,First,alarm source,Possible display:1 = Driver door . 2 = Pax door . 3 = Left rear door 4 = Right rear door. (continued next balloon)
+018,2,Second,alarm source,Possible display:5 = Trunk lid. 6 = Hood open. 7 = Terminal 15. 8 = Interior protection. (continued next balloon)
+018,3,Third,alarm source,Possible display:9 = Tire puncture/theft LF. 10 = Tire RF. 11 = Tire LR. 12 = Tire RR. 13 = Tire spare. (continued)
+018,4,Fourth,alarm source,Possible display:14 = Inclination. 15 = Siren. 16 = Immobilizer. 17 = Trailer. 255 = No alarm triggering.
+;
+019,0,Requests generated for single side or both sides parking lights
+019,1,Term 58 (park lights),status,Possible display:off/on
+019,3,Left Park,lights only,Possible display:off/on (due to left turn signal switch left on)
+019,4,Right Park,lights only,Possible display:off/on (due to right turn signal switch left on)
+;
+020,0,Requests generated for lights on (continued)
+020,1,Term 83b (Rear fog),status,Possible display:off/on
+020,2,Back-up,lights,Possible display:off/on
+020,3,Return message,luminescence,Possible display:no/yes (refers to German licence plate only)
+;
+021,0,Status of lamp filiments
+021,1,M4 Left,tail lamp,Possible display:off/on/not OK
+021,2,M2 Right,tail lamp,Possible display:off/on/not OK
+021,3,X Licence,plate lamp,Possible display:off/on/not OK
+021,4,L46 and L47,rear fog lamps,Possible display:off/on/not OK
+;
+022,0,Status of lamp filiments (continued)
+022,1,M9 Left,brake lamp,Possible display:off/on/not OK
+022,2,M10 Right,brake lamp,Possible display:off/on/not OK
+022,3,M25 High mount,brake lamp,Possible display:off/on/not OK
+022,4,M16 and M17,back-up lamps,Possible display:off/on/not OK
+;
+023,0,Status of lamp filiments (continued) - trailer detection
+023,1,Rear ambient,% illumination,Possible display: 0 to 100%
+023,2,Trunk cavity,% illumination,Possible display: 0 to 100%
+023,3,Reserve operation,light - rear,Possible display:yes/no
+023,4,Trailer,detected,Possible display:yes/no
+;
+024,0,Requests related to rear window heater and gas tank flap
+024,1,Rear window defrost, button depressed,Possible display:yes/no
+024,2,Rear window heat, relay stage 1,Possible display:yes/no
+024,3,Rear window heat, relay stage 2,Possible display:off/on
+024,4,Gas tank flap open, button lifted,Possible display:yes/no
+;
+025,1,Window regulator,RF comfort control,Possible display:open/closed/not operated
+025,2,Sunroof,RF comfort enabling,Possible display:yes/no
+025,3,Sunroof,control,Possible display:open/close/not operated
+;
+026,0,Trunk Lid Items. Block one applies to vehicles with automatic trunk opening - block 3 to vehicles without.
+026,1,Trunk lid,motion status,Possible display:opening/closing/implausible signal/inactive (vehicle WITH auto trunk opening)
+026,2,F256 Trunk,lid lock unit,Possible display:locked/unlocked/implausible signal
+026,3,Release,switch,Possible display:opening/closing/implausible signal/inactive (vehicle WITHOUT auto trunk opening)
+;
+027,0,Physical status of trunk lid latching mechanism
+027,1,F256 Lock,detent pawl,Possible display:operated/not operated
+027,2,F256 prong,catch bolt,Possible display:operated/not operated/not installed - (only applies to basic lock)
+027,3,F256 lock,detent,Possible display:operated/not operated
+027,4,F256 detent,swung in,Possible display:yes/no/not installed - (only applies to basic lock)
+;
+028,0,Emergency Signals relating to trunk operation
+028,1,E406 - New Jersey,escape handle,Possible display:operated/not operated/not installed - (only applies to basic lock)
+028,2,Pinch signal,trunk,Possible display:operated/not operated/implausable signal/not installed - (only applies to basic lock)
+028,3,Position of,trunk lid,Range: Between 0 degrees and about 30 degrees - 30 is closed
+028,4,Nationality of,body in trunk,Possible display:Italian/Russian/Colombian/ex-wife/Jimmy Hoffa/no body detected
+;
+029,0,Status of V241 motor and N346 valve for hydraulic servo trunk opening and closing
+029,1,Hydraulic,motor V241,Possible display:turning/not turning/not installed - (only applies to basic lock)
+029,2,Hyd. Motor,thermal protection,Possible display:yes/no/not installed - (only applies to basic lock)
+029,3,Hydraulic,valve N346,Possible display:0...100/not installed - (only applies to basic lock)
+029,4,Lock motor,thermal protection,Possible display:yes/no/not installed - (only applies to basic lock)
+;
+030,0,Vehicle Inclination Sensor (Tow-away protection)
+030,1,G384 Sensor,status,Possible display:activated - inactive - not installed
+030,2,G384 Sensor,alarm detect,Possible display:activated - inactive - not installed
+030,3,Deactivate,Inclination Sensor,Possible display:E360 Button - operated/not operated/not installed
+;
+031,0,Vehicle Inclination Sensor - voltage supply
+031,1,G384,voltage,Possible display:Between 9 and 14.5 volts
+;
+032,0,Vehicle Inclination Sensor - current angle
+032,1,G384 angle,,Possible display: plus 25 degrees to minus 25 degrees/implausable signal/no measured value/not installed
+;
+033,0,Inclination Sensor Angles
+033,1,Reference angle,Y-axis
+033,2,Current angle, Y-axis
+;Remark: This information taken from the Touareg measuring value block PDF.
+;
+034,0,*Next Block Used is Block 80
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*End of MVB for this controller.
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton Central Control Module for Comfort System (J393) Coding
+C01,Codes applicable to PN 3D0 959 933:
+C02,    
+C03,00040 Automatic opening and closing trunk lid
+C04,00032 No automatic opening and closing trunk lid - but with closing assist
+C05,00034 No automatic opening and closing trunk lid - without closing assist
+C06,  
+C07,There are probably other code possibilities but they are not known.
+C08,
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;Remark: Channels 12 to 21 are not available
+;        Channels 22, 23 , and 24 relate to calibration of the trunk lid (J605 calibration)
+;        Channel 25 deals with enabling window operation via the remote control key, but this is not the only value that needs to be changed to enable this.
+;        Channel 26 sets the 15 second delay if the door is opened with a confused remote control key blade.
+;        Channel 27 "O2-REG-ON TNF 013 049 Enabled" - need to ask Sebastian about this. Don't mess with it, changing the value causes problems with address 09 communication.
+;        Channels 28 to 200 not available, beyond 200, who knows.
+;
+;
+A001,0,Number of Doors to unlock when unlocking is activated
+A001,5,
+A001,6,Here you can choose what combination of doors unlock when
+A001,7,an unlock signal is sent to the car by any means.
+A001,8,   
+A001,9,Choices: 0 = All 4 doors unlock. 1 = Driver Door Unlocks
+A001,10,                2 = Both doors on Driver Side unlock.
+;
+A002,0,Auto-Locking Preferences
+A002,5,Auto-Locking active upon driving away
+A002,6,The doors will lock automatically when the
+A002,7,vehicle reaches a speed of 15 km/h or 10 mph.
+A002,8,  
+A002,9,Choices: 0 = off / 1 = on
+;
+A003,0,Auto-Unlocking Preferences
+A003,5,Auto-Unlocking when key removed from ignition
+A003,6,The doors will unlock automatically when the
+A003,7,key is removed from the ignition switch.
+A003,8,  
+A003,9,Choices: 0 = off / 1 = on
+;
+A004,0,Unlock Notification via Kessey (keyless) preferences
+A004,5,Unlock Notification via keyless access
+A004,6,Notification when unlocking via keyless access (door handle touch sensor).
+A004,7, 
+A004,8,Choices:  
+A004,9,0 = nothing. 1 = blink. 2 = beep. 
+A004,10,3 = blink and beep
+;
+A005,0,Unlock Notification via remote control button preferences
+A005,5,Unlock Notification 
+A005,6,Notification  when unlocking via remote control pushbuttons.
+A005,7, 
+A005,8,Choices:  
+A005,9,0 = nothing. 1 = blink. 2 = beep.
+A005,10,3 = blink and beep
+;
+A006,0,Unlock Notification via key blade in door lock preferences
+A006,5,Unlock Notification 
+A006,6,Notification when unlocking via remote control pushbuttons.
+A006,7, 
+A006,8,Choices:  
+A006,9,0 = nothing. 1 = blink. 2 = beep. 
+A006,10,3 = blink and beep
+;
+A007,0,Locking Confirmation via Kessey (keyless) preferences
+A007,5,Locking Confirmation via keyless access
+A007,6,Notification when unlocking via keyless access (door handle touch sensor).
+A007,7, 
+A007,8,Choices:  
+A007,9,0 = nothing. 1 = blink. 2 = beep. 
+A007,10,3 = blink and beep
+;
+A008,0,Locking Confirmation via remote control button preferences
+A008,5,Locking Confirmation 
+A008,6,Notification when unlocking via remote control pushbuttons.
+A008,7, 
+A008,8,Choices:  
+A008,9,0 = nothing. 1 = blink. 2 = beep.
+A008,10,3 = blink and beep 
+;
+A009,0,Locking Confirmation via key blade in door lock preferences
+A009,5,Locking Confirmation 
+A009,6,Notification when unlocking key blade in driver door.
+A009,7, 
+A009,8,Choices: 
+A009,9,0 = nothing. 1 = blink. 2 = beep. 
+A009,10,3 = blink and beep
+;
+A010,0,Notification when Doors are 'Safed' (not applicable in NAR)
+A010,5,Safing Confirmation 
+A010,6,Notification when safing alarm system.
+A010,7, 
+A010,8,Choices: 
+A010,9,0 = nothing. 1 = blink. 2 = beep. 
+A010,10,3 = blink and beep
+;
+A011,0,Type of sound that the alarm horn makes (compliance with noise regulations)
+A011,5,Type of Alarm Sound
+A011,6,Type of Alarm Sound
+A011,8,Choices:
+A011,9,1 = Rest of World  2 = Germany
+A011,10,3 = United Kingdom
+;
+A022,0,Adaptation of J605 controller (motorized trunk lid) - closed position
+;
+A023,0,Adaptation of J605 controller (motorized trunk lid) - open position
+;
+;Remark: The above two functions are used whenever a new J605 controller is installed.
+;Once the J605 has been adapted, it can usually be re-adapted (if it becomes confused, for example,
+;by activation of pinch protection, or changing direction in the middle of a cycle) by simply moving
+;- by hand - the trunk lid to the fully open position, then pressing the 'trunk lid release' button
+;on the key fob remote, and observing that the two tail-lights blink in recognition.  Once that is done,
+;the trunk lid can then be closed by pressing the close button located on the bottom lip of the trunk lid.
+;It should not be necessary to have to use a scan tool to re-adapt a confused trunk lid mechanism.
+;
+A024,0,Adaptation of J605 controller (motorized trunk lid) - Range of Motion
+A24,05,This procedure is used to allow the hydraulic trunk lid mechanism to learn
+A24,06,the full range of motion available to it.  Follow these steps:
+A24,07, 1 - Start the engine and leave it running for the duration of the procedure.
+A24,08, 2 - Place the trunk lid in the two-thirds open position.
+A24,09, 3 - Make sure there are no objects or cables in the way of the trunk lid closing.
+A24,10, 4 - WARNING - Pinch Protection is inhibited during this adaptation procedure!
+A24,11, 5 - Enter, test, and save a value of 0 (zero) in channel 24.
+A24,12, 6 - The lid will open fully, then close fully. Stay out of its way!
+A24,13, The adaptation procedure is now complete.
+;
+A025,0,Enabling of window and sunroof control from remote control key fob
+A025,5,Enabling remote key fob operation of windows, sunroof
+A025,6,North American controllers prior to software 101 crate 18 do not support this.
+A025,7, 
+A025,8,Choices:
+A025,9,0 = not enabled / 1 = enabled
+A025,10, 
+A025,11,DO NOT leave this setting at 1 if remote window operation with key fob
+A025,12,does not work when you code it to 1.  Window control via key blade in door lock
+A025,13,will be DISABLED if setting is left at 1 and key fob radio control does not work.
+A025,14, 
+A025,15,See text of label file for additional remarks.
+;
+;NOTE: For controllers with PN suffix F0101 and higher, remote window control from the key fob can be enabled
+;using this value only.  For earlier version controllers, a byte needs to be changed in the EPROM as well.
+;
+;
+A026,0,Enabling of 15 second delay of alarm sound following manual door unlocking with confused key
+A026,5,Enabling of 15 second alarm delay
+A026,6,when car is unlocked with key blade in driver door
+A026,7, 
+A026,8,Choices:
+A026,9,0 = no delay - immediate alarm sounding
+A026,10,1 = 15 second delay before alarm sounds
+A026,11,   
+A026,12,This allows time to start the engine (get immobilizer recognition) before the alarm sounds.
+;
+A027,0,Totally unknown function - click on block 3 for more information
+;Could this refer to the auto-lock function in channel 2?
+A027,2,Always seems to, be TNF 013 049
+A027,3,,,known values are 0 = disabled  1 = enabled (default) 2 = auto-lock  3 = auto-lock
+;
+
+

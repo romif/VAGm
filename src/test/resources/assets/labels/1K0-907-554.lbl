@@ -1,0 +1,61 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Skoda Octavia II (1Z) / VW Golf (1K)
+;
+; Component: J492 - All-Wheel-Drive (#22)
+;
+; P/N: 1K0-907-554-???
+;
+; includes measuring blocks and coding
+;
+; created on 13/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Jun/2006
+;
+; requires VAG-COM 403.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Brake Light Switch && Voltage Supply
+001,1,Brake Light,Switch (F),Range: Not Oper./Operated
+001,2,Voltage,(Terminal 30),Specification: 11.0...15.0 V
+;
+002,0,Oil Pressure and Temperature Sensor (G437)
+002,1,Oil Temperature,,Range: -40.0...+110.0 °C
+002,2,Oil Pressure,,Range: 0.0...40.0 bar
+;
+003,0,Oil Pressure and Temperature Sensor (G437)
+003,4,Time Sum of,Temp. Overrun,in 10 Second Steps
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 1/ABS 0
+125,3,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+125,4,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+;
+225,0,CAN-Databus Time-Out (Powertrain)
+225,1,Engine
+225,2,Brake Electronics,(J104)
+225,3,Instrument Cluster,(J285)
+225,4,Steering Angle,Sensor (G85)
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,All-Wheel-Drive (J492) Coding
+C01,0000001 = Standard
+;

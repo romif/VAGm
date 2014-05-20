@@ -1,0 +1,173 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7LA)
+;
+; Component: J104 - Brake Electronics (#03) - MK25
+;
+; P/N: 7L0-907-379-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-03.LBL
+; 7L0-907-379-MK25.LBL   (MK25)
+; 7L0-907-379-MK25E1.LBL (MK25E1)
+;
+; created on 15/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Feb/2008
+;
+; requires VAG-COM 605.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+B001,0,Brake System Bleeding
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,Starting Wheel Speed
+002,1,Speed Sensor,Front Left (G47),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,2,Speed Sensor,Front Right (G45),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,3,Speed Sensor,Rear Left (G46),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+002,4,Speed Sensor,Rear Right (G44),Range: 0.0...254.0 km/h (255.0 km/h = standing)
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Range: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±2.0 °
+004,2,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+004,3,Rotation Rate,,Specification: ± 2.5 °/s
+;
+005,0,Brake Pressure
+005,1,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+;
+006,0,Longitudinal Acceleration (G251)
+006,1,Longitudinal Acc.,Sensor (G251),Specification: ± 1.5 m/s²
+;
+007,0,Brake Pedal Path
+007,1,Pedal Path,(Not Corrected)
+007,2,Pedal Path,(Corrected)
+007,3,Pedal Path,(Offset)
+;
+011,0,Speed Encoder Errors (Front Left)
+011,1,Encoder Errors,(G47) Minimum
+011,2,Encoder Errors,(G47) Maximum
+011,3,Encoder Errors,(G47) Average
+;
+012,0,Speed Encoder Errors (Front Right)
+012,1,Encoder Errors,(G45) Minimum
+012,2,Encoder Errors,(G45) Maximum
+012,3,Encoder Errors,(G45) Average
+;
+013,0,Speed Encoder Errors (Rear Left)
+013,1,Encoder Errors,(G46) Minimum
+013,2,Encoder Errors,(G46) Maximum
+013,3,Encoder Errors,(G46) Average
+;
+014,0,Speed Encoder Errors (Rear Right)
+014,1,Encoder Errors,(G44) Minimum
+014,2,Encoder Errors,(G44) Maximum
+014,3,Encoder Errors,(G44) Average
+;
+B060,0,Adjustment of Steering Angle Sensor (G85)
+B060,1,Adjustment
+B060,2,Adjustment,Status
+B060,3,Steering Angle,Sensor (G85)
+;
+B063,0,Adjustment of Lateral Acceleration Sensor (G200)
+B063,1,Adjustment
+B063,2,Adjustment,Status
+B063,3,Lateral Acc.,Sensor (G200)
+;
+B066,0,Adjustment of Brake Pressure Sensor (G201)
+B066,1,Adjustment
+B066,2,Adjustment,Status
+B066,3,Brake Pressure,Sensor (G201)
+;
+B069,0,Adjustment of Longitudinal Acceleration Sensor (G251)
+B069,1,Adjustment
+B069,2,Adjustment,Status
+B069,3,Long. Accel.,Sensor (G251)
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Drive,,Specification: AWD 1\nRange: AWD 1/AWD 0
+125,4,Transmission,,Specification: Transm. 1\nRange: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,,Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,,Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+126,3,Level Control,,Specification: Level 1\nRange: Level 1/Level 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,Damper Control,,Specification: Damper Ctrl 1\nRange: Damper Ctrl 1/Damper Ctrl 0
+127,2,Lock Electronics,,Specification: Lock-El. 1\nRange: Lock-El. 1/Lock-El. 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Engine Electronics,,Range: Engine 1/Engine 0
+225,2,Steering Angle,Sensor (G85),Range: Steer. ang. 1/Steer. ang. 0
+225,3,All-Wheel-Drive,,Range: AWD 1/AWD 0
+225,4,Transmission,,Range: Transm. 1/Transm. 0
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,Instrument Cluster,,Range: Instruments 1/Instruments 0
+226,2,CAN-Gateway,,Range: Gateway 1/Gateway 0
+226,3,Level Control,,Range: Level 1/Level 0
+;
+227,0,CAN-Databus Powertrain (Time-Out)
+227,1,Damper Control,,Range: Damper Ctrl 1/Damper Ctrl 0
+227,2,Lock Electronics,,Range: Lock-El. 1/Lock-El. 0
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding
+C01,Model:
+C02,+0000001 - Touareg (Through Part Number Index D)
+C03,+0000002 - Touareg (From Part Number Index E)
+C04, 
+C05,Brakes:
+C06,+0000000 - 16" Front Disc Brake (PR-1LB)
+C07,+0008192 - 17" Front Disc Brake (PR-1LC/LD)
+C08,+0016384 - 18" Front Disc Brake (PR-1LF)
+C09, 
+C10,Suspension:
+C11,+0000000 - Standard Springs/Shocks (PR-1BA/BE)
+C12,+0000128 - 4-Corner Air Suspension (PR-1BS/2BK)
+C13,+0000256 - 4-Corner Air Suspension with electr. regluated Shocks (PR-1BK)
+C14, 
+C15,Transmission:
+C16,+0006144 - Automatic & Manual Transmission (Through Part Number Index C)
+C17, 
+C18,+0004096 - Manual Transmission (From Part Number Index D)
+C19,+0006144 - Automatic Transmission (From Part Number Index D)
+;

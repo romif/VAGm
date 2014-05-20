@@ -1,0 +1,28 @@
+;
+; VAG-COM TT Radio Measuring Block Labels file 8N0-035-186.lbl.
+; Component: Radio              D05
+; 12/15/02 Simon Graham (simgr@attbi.com)
+;
+
+1,0,
+1,1,GALA Level,
+1,2,Terminal 30,Voltage
+1,3,Illumination,Dimming
+1,4,S Contact,
+
+2,0,Speaker State
+2,2,State,
+2,4,State,
+
+3,0,Antenna
+3,1,Type,
+3,3,State,
+
+4,
+4,1,Amp Output,Shorted
+4,3,Mute
+
+5,CD connection
+
+6,External Display
+

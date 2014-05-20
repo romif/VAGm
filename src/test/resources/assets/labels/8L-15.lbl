@@ -1,0 +1,35 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8L)
+;
+; Component: Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1J-15.LBL
+; 8L-15.LBL
+; 1J0-909-60x-VW3.LBL (VW3)
+; 8L0-959-655-AI7.LBL (AIRBAG7)
+; 8L0-959-655-AI8.LBL (AIRBAG8)
+;
+; created on 26/Apr/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,1J0-909-60x-VW3.LBL,8L0-959-655-A   ; VW3
+;
+REDIRECT,8L0-959-655-AI7.LBL,8L0-959-655-C   ; AIRBAG7
+REDIRECT,8L0-959-655-AI7.LBL,8L0-959-655-E   ; AIRBAG7
+REDIRECT,8L0-959-655-AI7.LBL,8L0-959-655-F   ; AIRBAG7
+;
+REDIRECT,8L0-959-655-AI8.LBL,8L0-959-655-G   ; AIRBAG8
+REDIRECT,8L0-959-655-AI8.LBL,8L0-959-655-H   ; AIRBAG8
+REDIRECT,8L0-959-655-AI8.LBL,8L0-959-655-J   ; AIRBAG8
+REDIRECT,8L0-959-655-AI8.LBL,8L0-959-655-L   ; AIRBAG8
+REDIRECT,8L0-959-655-AI8.LBL,8L0-959-655-M   ; AIRBAG8
+;

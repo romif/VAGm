@@ -1,0 +1,544 @@
+;
+;VAG-COM Measuring Blocks AWT Engine (2001.6 Passat 1.8T 3B3 3J1) EZG manual gear   Label file.
+;ECU Part No.: 4B0-906-018-DF
+;Controller: 4B0 906 018 DF
+;Component: 1.8L R4/5VT  0001
+;Coding: 26001
+;
+;
+;Created by Alexey Andrianov, Novorossiysk, Russia (Alex789@inbox.ru)
+;
+;[Last Modified April 25, 2005]
+;
+;
+;
+0,0,General Engine Data (No Normalization)
+0,1,Coolant temperature,170-204,(80-105 °C)
+0,2,Engine load,10-30,(13-45 %).
+0,3,Idling speed,76-96,(740-920 rpm).
+0,4,Engine control unit voltage supply,170-206,(12-15 V).
+0,5,Throttle Valve angle,0-12,(0.2-4.0 %)
+0,6,Idling regulator,122-134,(-4.3% .. +12.2%)
+0,7,Idling stabilisation learnt value,120-136,(-3.0% .. +3.0%)
+0,8,Lambda regulator,78-178,(-8% .. +8%)
+0,9,Mixture formation learnt value at idle,115-141,(-10% .. +10%)
+0,10,Mixture formation learnt value at part throttle,118-138,(-10% .. +10%)
+;
+;
+;
+1,0,Basic functions
+1,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+1,2,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+1,3,Lambda before cat.,-10% .. +10%,Outside tolerance range: Minus - Mixture too rich. Positive - Mixture too lean. Unmetered air. Injector defective.
+1,4,Adjust for basic,1x111111,See label file.
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+;  Significance of 8-digit number block for readiness code (Adjustment conditions for basic setting)
+;1  1 - No faults recognised by self-diagnosis
+;2  1 - Not relevant (Catalyst)
+;3  1 - Air conditioner compressor switched off
+;4  1 - Idling recognised
+;5  1 - Lambda regulation OK.
+;6  1 - Throttle valve closed
+;7  1 - Speed below 2000 rpm
+;8  1 - Coolant temperature above 80 °C
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+2,0,Basic functions
+2,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+2,2,Engine load,13-45 %
+2,3,Inject. aver. time,2.0-4.0 ms,Average. Per Otto cycle (two complete revolutions of the crankshaft)
+2,4,Air mass drawn in,2.0-4.5 g/s
+;
+3,0,Basic functions
+3,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+3,2,Air mass drawn in,2.0-4.5 g/s
+3,3,Throttle valve angle,0.2-4.0 %,Throttle valve G187.
+3,4,Ignition angle,0-12° BTDC
+;
+4,0,Basic functions
+4,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+4,2,Battery voltage,12-15 V
+4,3,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+4,4,Intake air temperature,max 110 °C,Constant -48.0°C - open circuit. Constant 143°C - short between wires 1 and 2.
+;
+5,0,Basic functions
+5,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+5,2,Engine load,13-45 %
+5,3,Road speed,Km/h
+5,4,Operating mode,Idle,Operating mode (idling. partial load. enrichment)
+;
+6,0,Basic functions
+6,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+6,2,Engine load,13-45 %
+6,3,Intake air temperature,max 110 °C,Constant -48.0°C - open circuit. Constant 143°C - short between wires 1 and 2.
+6,4,Altitude corr. factor,-50 .. +20 %
+;
+8,0,Basic functions - Brake system vacuum pump
+8,1,Brake condition,
+8,2,Pump condition,
+8,3,Booster pressure,
+8,4,Pump test,
+;
+10,0,Ignition
+10,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+10,2,Engine load,13-45 %
+10,3,Throttle valve angle,0.2-4.0 %,Throttle valve G187.
+10,4,Ignition angle,0-12 °BTDC
+;
+11,0,Ignition
+11,1,Idle speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+11,2,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+11,3,Intake air temperature,max 110 °C,Constant -48.0°C - open circuit. Constant 143°C - short between wires 1 and 2.
+11,4,Ignition angle,0-12 °BTDC
+;
+14,0,Ignition - Misfire recognition
+14,1,Engine speed,740-6800 rpm
+14,2,Engine load,12.75-175 %
+14,3,Misfire total,0-5
+14,4,Misfire recognition,active / disabled,active if coolant temperature exceeds 80 °C
+;
+15,0,Ignition - Misfire recognition Cyl.1 to Cyl.3
+15,1,Misfire Cyl. 1,
+15,2,Misfire Cyl. 2,
+15,3,Misfire Cyl. 3,
+15,4,Misfire Recognition,active / disabled,active if coolant temperature exceeds 80 °C
+;
+16,0,Ignition - Misfire recognition Cyl.4
+16,1,Misfire Cyl. 4,
+16,2,No data,
+16,3,No data,
+16,4,Misfire recognition,active / disabled,active if coolant temperature exceeds 80 °C
+;
+18,0,Ignition - Misfire recognition
+18,1,Engine speed - ,upper limit RPM
+18,2,Engine speed - ,lower limit RPM
+18,3,Engine load - ,upper limit %
+18,4,Engine load - ,lower limit %
+;
+20,0,Ignition - Knock control
+20,1,Cyl. 1 retardation,0-12 °CA,The current ignition timing retardation is displayed when 40 % engine load is exceeded. 0.0°CA at idling.
+20,2,Cyl. 2 retardation,0-12 °CA,See label file.
+20,3,Cyl. 3 retardation,0-12 °CA,The current ignition timing retardation is displayed when 40 % engine load is exceeded. 0.0°CA at idling.
+20,4,Cyl. 4 retardation,0-12 °CA,See label file.
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+;All cylinders 12 °CA                          - Knock sensor defective - Check knock sensors
+;                                              - Connector corroded - Check knock sensors
+;                                              - Knock sensor incorrectly tightened - Loosen knock sensor and tighten to 20 Nm
+;                                              - Ancillary components on engine loose - Tighten ancillary components
+;                                              - Poor fuel quality - Change type of fuel
+;One cylinder deviates greatly from the others - Connector corroded - Check knock sensors
+;                                              - Engine damaged - Check compression pressures
+;                                              - Ancillary components on engine loose - Tighten ancillary components
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+22,0,Ignition - Knock control
+22,1,Engine speed,740-6800 RPM
+22,2,Engine load,12.75-175 %
+22,3,Cyl. 1 retardation,0-12 °CA,The current ignition timing retardation is displayed when 40 % engine load is exceeded. 0.0°CA at idling.
+22,4,Cyl. 2 retardation,0-12 °CA,See label file.
+;
+23,0,Ignition - Knock control
+23,1,Engine speed,740-6800 RPM
+23,2,Engine load,12.75-175 %
+23,3,Cyl. 3 retardation,0-12 °CA,The current ignition timing retardation is displayed when 40 % engine load is exceeded. 0.0°CA at idling.
+23,4,Cyl. 4 retardation,0-12 °CA,See label file.
+;
+26,0,Knock control - Sensor Voltage
+26,1,Cyl.1 sensor voltage,0.400 - 1.400 V,More than 50 % difference - the cause could be corrosion on the connector.
+26,2,Cyl.2 sensor voltage,0.400 - 1.400 V,At high engine speeds the displayed signal voltage for the knock sensors can reach 5.1 Volt.
+26,3,Cyl.3 sensor voltage,0.400 - 1.400 V,More than 50 % difference - the cause could be corrosion on the connector.
+26,4,Cyl.4 sensor voltage,0.400 - 1.400 V,At high engine speeds the displayed signal voltage for the knock sensors can reach 5.1 Volt.
+;
+28,0,Ignition - Knock control diagnosis
+28,1,Engine speed,2600-6800 RPM
+28,2,Engine load,min. 13 %
+28,3,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+28,4,Test result,,Test On. Test Off. Syst. OK. Syst. n.OK.
+;
+30,0,Lambda regulation
+30,1,Bank1 Sensor1,x11,Engine running at idling.  Catalyst temp. at least 350°C (Display group 34. display zone 2). See label file.
+30,2,Bank1 Sensor2,x1x,The third position of the 3 digit number block will be set to 1 only at increased exhaust temperature and part load.
+30,3,No data,
+30,4,No data,
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+;Significance of 3 digit number block in display zones 1 and 2
+;1  1 - Lambda probe heating on
+;2  1 - Lambda probe operationally ready
+;3  1 - Lambda regulation active
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+31,0,Lambda regulation
+31,1,Lambda,Actual value
+31,2,Lambda,Specified value
+31,3,No data,
+31,4,No data,
+;
+32,0,Lambda regulation - Lambda learnt values
+32,1,At idle additive,-10% .. +10%,Low - Injector leaking/Fuel press. high/ACF const. open/MAF defective/Lambda soiled or heating defective
+32,2,P.throttle mult.,-10% .. +10%,High - Injector blocked/Fuel press. low/Unmetered air(input\exhaust)/Lambda soiled or heating defective
+32,3,No data,
+32,4,No data,
+;
+33,0,Lambda regulation - Lambda before catalyst regulation values
+33,1,Lambda regulator,-10% .. +10%,The display must fluctuate around 0 by at least 2%. If 0 - the Lambda reg. has switched from reg. to control.
+33,2,Probe voltage,0.000-5.000 V
+33,3,No data,
+33,4,No data,
+;
+34,0,Lambda regulation - Diagnosis of Lambda probe before catalyst (check of ageing via DF)
+34,1,Engine speed,2300-2800 RPM
+34,2,Catalyst temp.,min. 350 °C,Value calculated from engine speed and engine load.
+34,3,Dynamic factor,0.50 - 2.50,DF is a measure of the ageing condition of the Lambda probe. If this value is exceeded - "B1-S1 not OK".
+34,4,Test result,B1-S1 OK,Result of ageing check of Lambda probe before catalyst (test OFF/test ON/B1-S1 OK/B1-S1 not OK)
+;
+36,0,Lambda regulation - Operational readiness of Lambda probe after catalyst
+36,1,Probe voltage,0.100 - 0.900 V,0.0V - short to neg./Const. between 0.4...0.5V - open circuit/1.1 - short to pos. The value must rise during test.
+36,2,Test result,B1-S2 OK,Let engine run at idle until "TestOFF" jumps to "TestON". Leave engine running at idle until "B1-S2 OK" appears.
+36,3,No data,
+36,4,No data,
+;
+37,0,Lambda regulation - Delta Lambda after catalyst
+37,1,Engine load,13-45 %
+37,2,Probe voltage,0.100 - 0.900 V,0.000V - short to pos./Const. between 0.400...0.500 V - open circuit/1.100 - short to pos.
+37,3,Delta lambda,max. 0.490
+37,4,Test Result,Syst.OK,Result (Test OFF/Test ON/Syst. OK/Syst. not OK)
+;
+41,0,Lambda regulation - Lambda probes heating
+41,1,No data,
+41,2,Probe heat.before,ON/OFF,The Lambda probe heating may be switched ON or OFF depending on the operating conditions of the engine.
+41,3,Resistance before,0-2.00 kOhm
+41,4,Probe heat.after,ON/OFF,The Lambda probe heating may be switched ON or OFF depending on the operating conditions of the engine.
+;
+43,0,Lambda regulation - Lambda probe diagnosis after catalyst (ageing check)
+43,1,Engine speed,2300-2800 RPM
+43,2,Catalyst temp.,min. 350 °C,Value calculated from engine speed and engine load.
+43,3,Probe voltage,0.100 - 0.900V,0.000V - short to neg./Const. between 0.400...0.500 V - open circuit/1.100 - short to pos.
+43,4,Test result,B1-S2 OK,Result of ageing check of Lambda probe after catalyst (test OFF/test ON/B1-S2 OK/B1-S2 not OK)
+;
+46,0,Lambda regulation - Catalyst diagnosis (conversion test)
+46,1,Engine speed,2300-2500 RPM
+46,2,Catalyst temp.,550-700 °C
+46,3,Amplitude ratio,minimum 1.00
+46,4,Test result,Cat B1 OK,Result of catalyst conversion test (test OFF/test ON/Cat B1 OK/Cat B1 not OK)
+;
+50,0,Speed regulation - Operating condition
+50,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+50,2,Idl. speed specified,800 RPM,The engine speed specified by the ECU (calculated) is displayed. Can be adapted. Channel 01.
+50,3,Air cond. oper. mode,A/C-High or A/C-Low
+50,4,A/C compressor mode,Compr. ON or OFF,Floor accelerator pedal quickly and then release. Display must change from Compr.ON to Compr. OFF.
+;
+51,0,RPM shift initiations
+51,1,RPM actual value,
+51,2,RPM specified,value
+51,3,Driving range,0-6
+51,4,Supply voltage,
+;
+53,0,RPM Increase based on generator load
+53,1,Acutal value,RPM
+53,2,Spec. value,RPM
+53,3,Voltage,
+53,4,No data
+;
+54,0,Speed regulation
+54,1,Engine speed,740-6800 RPM
+54,2,Operating mode,,Idling, part load, enrichment, overrun
+54,3,Accel.pos.sender G79,0-100 %
+54,4,Throttle v.angle G187,0-100 %
+;
+55,0,Speed regulation - Idling stabilisation
+55,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+55,2,Idling speed regul.,-4.3% .. +12.2%
+55,3,Learnt value,-3.0% .. +3.0%,For a new engine the values lie in the positive range, because of the higher friction.
+55,4,Operating condition,xxxxx,1 - N/A. 2 - N/A. 3 - Air condit. system switched on. 4 - Gear selected. 5 - Air conditioner compressor switched on.
+;
+56,0,Speed regulation - Idling speed stabilisation
+56,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+56,2,Idling speed spec.,800 RPM
+56,3,Idling speed regul.,-4.3% .. +12.2%
+56,4,Operating condition,xxxxx,1 - N/A. 2 - N/A. 3 - Air condit. system switched on. 4 - Gear selected. 5 - Air conditioner compressor switched on.
+;
+60,0,Speed regulation - Adaption of electronic accelerator system
+60,1,Throt.v.angle 1 G187,8-60 %
+60,2,Throt.v.angle 2 G188,60-94 %
+60,3,Learn. step counter,0-8,The counter counts up to 8 in display zone 3 during the adaption.
+60,4,Adaption condition,ADP OK,ADP runs. ADP OK or ADP ERROR.
+;
+61,0,Speed regulation
+61,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+61,2,Battery voltage,12-15 V
+61,3,Throttle valve angle,0.2-4.0 %,Throttle valve G187.
+61,4,Operating condition,xxxxx,1 - N/A. 2 - N/A. 3 - Air condit. system switched on. 4 - Gear selected. 5 - Air conditioner compressor switched on.
+;
+62,0,Speed regulation - Electronic accelerator system
+62,1,Throt.v. angle 1 G187,3-93 %
+62,2,Throt.v. angle 2 G188,97-3 %
+62,3,Acc.pos.sender1 G79,12-97 %,The engine control unit calculates the voltage values of the angle sender in percent relative to 5 Volt.
+62,4,Acc.pos.sender2 G185,4-49 %,The percent figures in display zone must rise evenly.
+;
+63,0,Speed regulation - Kick down adaption
+63,1,Accl.pos. sender1 G79,79-94 %
+63,2,Accel.pos. adaption,
+63,3,Pedal position,Kick Down
+63,4,Operating mode,ADP OK,ERROR/actuate/ADP runs/ADP OK
+;
+64,0,Throttle valve potentiometer adaptation values
+64,1,Potentiometer1,Lower Value
+64,2,Potentiometer2,Lower Value
+64,3,Emergency Air,Gap Pot.1
+64,4,Emergency Air,Gap Pot.2
+;
+66,0,Cruise control system
+66,1,Road speed actual,Km/h
+66,2,Brakes clutch CCS,xxxx1xxx,See label file.
+66,3,Specified road speed,,Last value stored by CCS
+66,4,CSS switch position,xxxxxxxx,See label file.
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+;Significance of the figures in the 8 digit display, display zone 2, brakes, clutch and CCS switches
+;1 - Vacant
+;2 - Vacant
+;3 - Vacant
+;4 - Vacant
+;5 - Cruise control system has been authorized
+;6 - Clutch pedal depressed or always 1 for automatic gearbox
+;7 - Brake pedal depressed (brake pedal switch)
+;8 - Brake pedal depressed (brake light switch)
+;
+;Significance of the figures in the 8 digit display, display zone 4, CCS control switches
+;1 - Vacant
+;2 - Vacant
+;3 - Vacant
+;4 - Vacant
+;5 - CCS slide switch at RES or when multi-function steering wheel RES button is depressed
+;6 - SET button depressed
+;7 - CCS slide switch at OFF (not in detent or in detent) or when multi-function steering wheel OFF button is depressed
+;8 - CCS slide switch at OFF (only when in detent)
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+70,0,Reducing emissions - Activated charcoal filter system diagnosis (tank breathing system)
+70,1,ACF sol. 1 duty cycle,0-100 %,Activated charcoal filter system solenoid valve 1 duty cycle.
+70,2,Lambda dev. dur. TBV,-10% .. +10%,Lambda regulator deviation during TBV diagnosis.  Neg. - filter full.  Pos. - filter empty.
+70,3,No data,
+70,4,Test result,TBV OK,When the diagnosis is initiated "TestOFF" jumps to "TestON". Allow engine running at idle until "TBV OK" appears.
+;
+71,0,Emissions-Leak Diagnostic System
+71,1,Reed Contact,Reed Open 
+71,2,Fault Message,
+71,3,Test Status,
+71,4,Result of diagnosis,Syst. OK
+;
+77,0,Reducing emissions - Secondary air system diagnosis
+77,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+77,2,Air mass drawn in,2.0-4.5 g/s
+77,3,Secondary air mass,0-7.0 g/s,Air mass secondary air system
+77,4,Result of diagnosis,Syst. OK, "TestOFF" jumps to "TestON". Let engine continue to idle until the result of the functional test is displayed.
+;
+81,0,Control Module Identification (VIN / Immobilizer ID)
+81,1,VIN,
+81,2,Immobilizer ID,
+81,3,,
+81,4,,
+;
+91,0,Camshaft Adjustment-Driving
+91,1,Engine Speed,740-6800 RPM
+91,2,Engine Load,0-120% 
+91,3,Adjustment,ON/OFF
+91,4,Setting,
+;
+94,0,Performance increase - Camshaft adjustment
+94,1,Engine speed,minimum 1080 rpm
+94,2,Camshaft adjustment,ON/OFF,Specification (engine at idling speed): CS-ctrlON. Camshaft timing adjustment active.
+94,3,Result of diagnosis,Syst. OK,Maintain at least 1080 rpm untill "TestOFF" jumps to "TestON". Then until "Syst. OK." is displayed.
+94,4,No data,
+;
+99,0,Lambda regulation- Lambda regulation operating condition
+99,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+99,2,Coolant temp.,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+99,3,Lambda regulator,-10% .. +10%,The display must fluctuate around 0. If 0 is displayed, the Lambda reg. has switched from reg. to control.
+99,4,Lambda reg. mode,Lambda ON/OFF,For a defined fault finding the Lambda regulation is switched off under "Basic setting" and vice-versa.
+;
+100,0,Readiness code
+100,1,Readiness code,00000000,See label file.
+100,2,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+100,3,Period since last, engine start
+100,4,Diagnosis status,
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+;Significance of 8 digit number block for readiness code
+;1 - Exhaust gas recirculation system (not fitted/always "0")
+;2 - Lambda probe heating
+;3 - Lambda probes
+;4 - Air conditioner (currently no diagnosis/always "0")
+;5 - Secondary air system
+;6 - Activated charcoal filter system (tank breathing system) and leak diagnosis system
+;7 - Catalyst heating (currently no diagnosis/always "0")
+;8 - Catalyst
+;
+;----------------------------------------------------------------------------------------------------------------------
+;
+101,0,Fuel Injection
+101,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+101,2,Engine load,13-45 %
+101,3,Inject. aver. time,2.0-4.0 ms,Average. Per Otto cycle (two complete revolutions of the crankshaft)
+101,4,Air mass drawn in,2.0-4.5 g/s
+;
+102,0,Fuel Injection
+102,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+102,2,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+102,3,Intake air temperature,max 110 °C,Constant -48.0°C - open circuit. Constant 143°C - short between wires 1 and 2.
+102,4,Inject. aver. time,2.0-4.0 ms,Average. Per Otto cycle (two complete revolutions of the crankshaft)
+;
+104,Start Adaptation Value
+104,1,Start Engine,Temperature
+104,2,Temp Adapt,Factor 1
+104,3,Temp Adapt,Factor 2
+104,4,Temp Adapt,Factor 3
+;
+107,0,Lambda regulation - Diagnosis of fuel system
+107,1,Idling speed,740-920 RPM,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+107,2,Lambda regulator,-8.0% .. +8.0%,Calculated value.
+107,3,No data
+107,4,Test Result,Syst.OK,Result (Test OFF/Test ON/Syst. OK/Syst. not OK)
+;
+110,0,Load, Full Load Enrichment
+110,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+110,2,Coolant temperature,80-105 °C,The ECU will use the intake air temp. as a replacement for a cold engine start when coolant temp.sender G62 faulty.
+110,3,Inject. aver. time,2.0-4.0 ms,Average. Per Otto cycle (two complete revolutions of the crankshaft)
+110,4,Throttle valve angle,0.2-4.0 %,Throttle valve G187.
+;
+111,0,Boost Pressure Control
+111,1,Adapt Value,Range 1
+111,2,Adapt Value,Range 2
+111,3,Adapt Value,Range 3
+111,4,Adapt Value,Range 4
+;
+113,0,
+113,1,Idling speed,740-920 rpm,Less - throttle valve sticking or defect. Greater - the same or unmetered air (not compensated for by the idl.stab.)
+113,2,Engine load,13-45 %
+113,3,Throttle valve angle,0.2-4.0 %,Throttle valve G187.%
+113,4,Air Pressure,500-1200 mbar 
+;
+114,0,Charge Pressure Regulation
+114,1,Eng Load Call,<=175%
+114,2,Corr. Load,<=175%
+114,3,Engine Load,12.75-175 %
+114,4,Solenoid v. duty cycle,5-95% ,Check solenoid valve d.c. for charge press. control (at full throttle between 1800...2300 rpm) during a road test.
+;
+115,0,Charge pressure control
+115,1,Engine speed,1800-2300 RPM,Manual gearbox - accelerate in 2nd or 3rd gear with full throttle.
+115,2,Engine Load,12.75-175 %, Auto gearbox - manually (Tiptronic) select 4th gear and accelerate from low speed with full throttle w/out kick-down.
+115,3,Specif. charge press.,1350 - 1750 mbar
+115,4,Actual charge value,Differ. max. 100 bar,Compare the charge pressure actual value with the specification in display zone 3
+;
+116,0,Boost Pressure Control
+116,1,Engine speed,740-6800 RPM
+116,2,Correc Factor,Fuel
+116,3,Correc Factor,Coolant
+116,4,Correc Factor,Air Intake
+;
+117,0,Charge pressure control
+117,1,Engine speed,740-6800 RPM
+117,2,Acc.pos.sender G79,0-100 %
+117,3,Throttle v.angle G187,0-100 %
+117,4,Specif. charge press.,990 - 2000 mbar
+;
+118,0,Charge pressure control
+118,1,Engine speed,740-6800 RPM
+118,2,Intake air temperature,max 110 °C,Constant -48.0°C - open circuit. Constant 143°C - short between wires 1 and 2.
+118,3,Solenoid v. duty cycle,0-100 %,Charge pressure control solenoid valve duty cycle
+118,4,Actual charge value,max. 2000 mbar
+;
+119,0,Not Documented
+119,1,Engine Speed,740-6800 RPM
+119,2,Charge Limit,
+119,3,Boost Duty, Cycle 0-100% 
+119,4,Actual Boost,
+;
+120,0,Traction control - TC
+120,1,Engine Speed,740-6800 RPM
+120,2,Specified engine load,0-399 Nm
+120,3,Actual engine load,0-260 Nm
+120,4,ASR status,TC active / TC n.active
+;
+122,0,Automatic gearbox
+122,1,Engine Speed,740-6800 RPM
+122,2,Specified engine load,0-399 Nm
+122,3,Actual engine load,0-260 Nm
+122,4,Status,Torque red,Status (Torque red/no Torque red). During a shift, the display briefly indicates "Torque red"
+;
+125,0,CAN Bus
+125,1,Status gearbox (1/0),Gear 1,"0" - the data bus connection has been interrupted. "1" - active data bus communication.
+125,2,ABS Status,
+125,3,Status combi-ins. (1/0),Combi 1,"0" - the data bus connection has been interrupted. "1" - active data bus communication.
+125,4,No data
+;
+126,0,CAN Bus-Airbag Status
+126,1,No data
+126,2,No data
+126,3,Status Airbag (1/0),Airbag 1,"0" - the data bus connection has been interrupted. "1" - active data bus communication.
+126,4,No data
+;
+;
+A1,0,Idling regulation
+A1,1,Actual RPM,740 - 920
+A1,2,Specified RPM, 740 - 920
+A1,3,A/C Low/High
+A1,4,Compressor On/Off
+;
+A1,5,Idling regulation
+A1,6,
+A1,7,The idling speed must not be adjusted
+A1,8,to outside the permissible idling speed range.
+A1,9,
+A1,10,
+A1,11,
+A1,12,
+A1,13,
+A1,14,
+A1,15,
+A1,16,
+A1,17,
+A1,18,
+A1,19,
+A1,20,
+A1,21, 
+A1,22,
+A1,23,
+A1,24,
+A1,25,
+;
+;
+C0,Engine control module coding
+C1,XX000 - Country/emission
+C2,00= . 01= . 02= . 03= . 04=EU2/D3. 05=EU3/norm. 06= . 07= . 11=EU4. 26= .
+C3,
+C4,00X00 - Drive/additional functions
+C5,0=Front wheel drive w/out TCS ESP. 1= . 2=Four wheel drive w/out TCS ESP. 3= . 4= .
+C6,5=Front wheel drive with TCS ESP. 6= . 7=Four wheel drive with TCS ESP.
+C7,
+C8,000X0 - Gearbox
+C9,0=5 speed HS. 1= . 2= . 3=Auto 01N. 4= . 5=Auto 01V (Tiptronic). 6= . 7= .
+C10,
+C11,0000X - Vehicle type
+C12,0= . 1=B class (e.g. Passat). 2= . 3= . 4= . 5= . 6= . 7= .
+;C13,
+;C14,
+;C15,
+;C16,
+;C17,
+;C18,
+;C19,
+;C20
+;

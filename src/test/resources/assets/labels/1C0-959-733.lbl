@@ -1,0 +1,32 @@
+;
+; VAG-COM Labelfile
+;
+; VW New Beetle (1C)
+;
+; Component: Rear Spoiler (#54)
+;
+; P/N: 1C0-959-733-???
+;
+; includes measuring blocks
+;
+; created on 01/Oct/2004 by Sebastian Stange (sebastian@ross-tech.com)
+; updated
+;
+; last modification: 11/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Informations
+001,1,Voltage,(Terminal 30)
+001,2,Vehicle Speed
+001,3,Spoiler Status,,Display range: raise/lower/not operated/implausible
+001,4,Sliding,Sunroof
+;

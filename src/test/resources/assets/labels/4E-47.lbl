@@ -1,0 +1,37 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A8 (4E)
+;
+; Component: J525 - Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-47.LBL
+; 4E0-910-22x-AS.LBL
+; 4E0-910-22x-BO.LBL
+;
+; created on 01/Jan/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,4E0-910-22x-AS.LBL,4E0-910-223      ; Standard
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-A    ; Bose
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-B    ; Bose
+REDIRECT,4E0-910-22x-AS.LBL,4E0-910-223-D    ; Standard
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-E    ; Bose
+REDIRECT,4E0-910-22x-AS.LBL,4E0-910-223-F    ; Standard
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-G    ; Bose
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-H    ; Bose
+REDIRECT,4E0-910-22x-AS.LBL,4E0-910-223-J    ; Standard
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-K    ; Bose
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-N    ; Bose
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-P    ; Bose
+REDIRECT,4E0-910-22x-BO.LBL,4E0-910-223-Q    ; Bose
+;
+REDIRECT,4E0-910-22x-AS.LBL,4E0-910-224      ; Standard
+;

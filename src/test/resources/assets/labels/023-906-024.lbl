@@ -1,0 +1,85 @@
+;
+;VAG-COM Measuring Block Labels
+;ACU Engines: 2.5L, 10 valve, OBD-1 
+;ECU p/n 023-906-024
+;
+;MY 1995 USA/Canada Eurovan
+;                   Winnebago Kamper/Rialta 
+;Based on: Robert Bently-Publication VD95.
+;
+; Untested
+; Errors-omissions? consch(at)earthlink.net 
+;
+0,0,Data at idle-coolant >=80°C -See Lable File-Or click on the box
+;                                          [Observed] [Corresponds     ] 
+;                                          [Range   ] [To              ]  
+0,1,Intake Air Temp.***********************[ 70-15  ]=[12 to 65°C      ]  
+0,2,Engine Module Supply Voltage***********[115-155 ]=[10.8-14.4 Volts ]
+0,3,Engine Coolant Temperature*************[  2-9   ]=[80-110°C        ] 
+0,4,Air Quantity***************************[ 15-150 ]=[5 to 60%        ]
+0,5,Heated Oxs Sensor**********************[230-120 ]=[0.0-0.8 Volts   ]
+0,6,Heated Oxs Sensot Control time Count***[  0     ]=[Actual Value    ]
+0,7,Heated Oxs Sensor Status Counter*******[  0-5   ]=[Actual Value    ]
+0,8,Throttle Position Sensor***************[ 10-130 ]=[0.2 to 2.5 Volts]
+0,9,Fuel Injector Duration*****************[  4-12  ]=[2-6 Ms          ]
+0,10,RPM***********************************[212-186 ]=[775 to 1200 rpm ]
+;
+1,0,Engine Dynamic Data
+1,1,Engine speed,,Idle Spec 775-825 RPM.  Max. Speed 5500 Rpm governed
+1,2,Coolent Temp,,Working range -40°C to 141°C (open circuit= -40°C) 
+1,3,O2S Signal,Voltage,range .0 to .8 volt and fluctuating 
+1,4,ECU Signals,See Lable File, Shows Operating Mode 1 - Input Signals
+;XXXXXXXX  Signal Recognized or Function Enabled
+;1         Undocumented
+; 1        Automatic Trans Signal TCM To ECM
+;  1       A.C. Compressor On
+;   1      CTP Switch Open
+;    1     O2S Control Malfunction
+;     1    Throttle Open
+;      1   Engine Speed over 2300 RPM
+;       1  Engine Coolant below 80 C 
+;
+2,0,Engine Dynamic Data
+2,1,Engine speed,,Idle Spec 775-825 RPM.  Max Speed 5500 Rpm governed
+2,2,Injector, On Time,Typically 2-3 ms at warm idle
+2,3,ECU,Supply Voltage,9.1-15.5 volts-A DTC will be set if outside range 
+2,4,Intake Alr,Temp.,Working range -40°C to 141°C (open circuit= -40°C)
+;
+3,0,Intake Conditions
+3,1,Engine speed,,Idle Spec 775-825 RPM.  Max Speed 5500 Rpm governed
+3,2,Engine Load,From MAP sensor,20-40% at idle
+3,3,Throttle Angle,0-90°,CTP=0-5° - WOT=80-90° 
+3,4,IAC Valve,Duty Cycle,0-35% at warm idle-no loads
+;Will be much greater with a cold engine, or additional loads such as
+;AC on, or rad. fan running, etc.
+;              
+4,0,Mode 2
+4,1,Engine Speed,,Idle Spec 775-825 RPM.  Max Speed 5500 Rpm governed
+4,2,Engine Load,From MAP sensor,20-40% at idle
+4,3,Undocumented
+4,4,Mode Bits,See Lable File,Operating Mode 2-Throttle positions
+;XXXXXXXX  Position Recognized or Function Enabled
+;1         Overun (Deceleration Fuel Cut-Off)
+; 1        Idle
+;  1       Part Load 
+;   1      Full Load
+;    1     Undocumented
+;     1    Undocumented
+;      1   Undocumented
+;       1  Undocumented
+;
+;
+5,0,
+5,1,Engine speed,,Idle Spec 775-825 RPM.  Max Speed 5500 Rpm governed
+
+5,2,EVAP Valve,Duty Cycle,Will vary with load and speed
+5,3,Undocumented
+5,4,Undocumented
+;
+6,0,Learned Values
+6,1,Mixture Adaptation,Learned Value,Normal range: 88-168
+6,2,Mixture Adaptation,Constant Value,88-166 in 04-Basic settings
+6,3,IAC,Learned Value,8-30
+6,4,TPS,Memory Value,Varies-"learned" in 04-Basic settings 
+;
+;EOR

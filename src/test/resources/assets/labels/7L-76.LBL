@@ -1,0 +1,36 @@
+;
+; VAG-COM Redirect File
+;
+; VW Touareg (7L)
+;
+; component: Park Distance Control -J446- (#76)
+;
+;     P/N 7L0 919 283 D Component: 33 Einparkhilfe 0806 Coding: 0000000 (Touareg)
+;     fully tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+;
+; This file is part of a redirection package,
+; make sure you have both of the following files.
+;
+; 7L-76.LBL (this file)
+; 3D0-919-283.lbl
+;
+; by Michael Moore
+; Moore@ross-tech.com
+;
+; created: March 27, 2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,3D0-919-283.LBL,7L0-919-283-???
+;
+;
+;Explanation of why this redirect file exists
+;
+;This file provides measured value block labels for Park Distance Control on the Touareg
+;by calling up an existing label file for Park Distance Control on the Phaeton.  It appears to 
+;the author that both of these controllers (Phaeton and Touareg) are identical, however, this
+;label file has not been fully tested on a Touareg.
+;
+;

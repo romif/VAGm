@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Audi Q7 (4L)
+;
+; Component: J644 - Battery Regulation (#61)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-61.LBL
+; 4F0-910-181.LBL
+;
+; created on 25/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4F0-910-181.LBL,4L0-910-181-???
+;

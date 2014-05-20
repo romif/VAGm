@@ -1,0 +1,137 @@
+;
+; VAG-COM Label File
+;
+; Audi Q7 (4L)
+;
+; Component: J523 - Control Head Front (#07)
+;
+; P/N: 4L0-910-7??-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-07.LBL
+; 4L0-910-7xx-07-H.LBL
+; 4L0-910-7xx-07-L.LBL
+;
+; created on 10/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Jun/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,Range: 0 = inactive / 1 = active
+; x000xxx? = Term. S
+; x000xx?x = Term. 15
+; x000x?xx = Term. X
+; x000?xxx = Term. 50
+; ?000xxxx = Status invalid
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature,Specification: -40.0...+85.0 °C
+;
+003,0,Diagnostic Wire
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Mute-Wire
+004,1,Mute-Wire,Status,0 = Mute active\n1 = Mute inactive
+;
+017,0,MMI-Terminal I
+017,1,Function,Buttons,Range: 0 = Not Operated / 1 = Operated
+; xxxxxxx? = RADIO or FM/AM
+; xxxxxx?x = CD/TV
+; xxxxx?xx = NAME
+; xxxx?xxx = TEL
+; xxx?xxxx = NAV
+; xx?xxxxx = INFO
+; x?xxxxxx = CAR
+; ?xxxxxxx = SETUP
+017,2,Control/Arrow,Buttons,Range: 0 = Not Operated / 1 = Operated
+; 0xxxxxx? = Left Upper Control Button
+; 0xxxxx?x = Left Lower Control Button
+; 0xxxx?xx = Right Upper Control Button
+; 0xxx?xxx = Right Lower Control Button
+; 0xx?xxxx = Return Button
+; 0x?xxxxx = Left Arrow Button
+; 0?xxxxxx = Right Arrow Button
+;
+018,0,MMI-Terminal II
+018,1,Operating Knobs,,Range: 0 = Not Operated / 1 = Operated
+; x? = Control Button
+; ?x = ON/OFF Knob
+018,2,Control Knob,Rotation,Range: -127.0...+127.0
+018,3,ON/OFF Knob,Rotation,Range: -127.0...+127.0
+;
+020,0,MMI-Terminal (External)
+020,1,MMI-Display,Button,Range: 0 = Not Operated / 1 = Operated
+; ? = MMI Display ON/OFF Button
+;
+033,0,MMI-Display
+033,1,MMI-Display,Temperature,Specification: -40.0...+85.0 °C
+033,2,MMI-Display,Brightness,Unit: cd/m²
+;
+049,0,Input Signals (via MOST-Bus)
+049,1,Dimming,(Terminal 58d),Display Range: 0.0...100.0 %
+049,2,Dimming,(Terminal 58s),Display Range: 0.0...100.0 %
+049,3,Vehicle Speed
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Control Head Front (J523) Coding - MMI HIGH
+C01,00?0x0x: Start Screen
+C02,0 = Audi Q7 (4L)
+C03, 
+C04,00x?00x: Car Model
+C05,2 = Sport Utility Vehicle (SUV)
+C06, 
+C07,00xx00?: Language
+C08,1 = German
+C09,2 = English (GB)
+C10,3 = English (US)
+C11,4 = Spanish
+C12,5 = Italian
+C13,6 = French
+C14,7 = Portuguese
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;

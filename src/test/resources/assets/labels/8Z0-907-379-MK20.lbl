@@ -1,0 +1,49 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z)
+;
+; Komponente: J104 - Bremsenelektronik (#03) - MK20
+;
+; T/N: 8Z0-907-37?-???
+;
+; beinhaltet Codierung und Login
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8Z-03.LBL
+; 8Z0-907-379-MK20.LBL (MK20)
+; 8Z0-907-379-MK60.LBL (MK60)
+;
+; erstellt am 17.10.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 17.10.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Bremsenelektronik MK20 (J104) Codierung
+C01,10758 - 1.4l/55kW MPI (elektrohydraulische Lenkung)
+C02,10758 - 1.4l/55kW TDI (elektrohydraulische Lenkung)
+C03,10764 - 1.2l/45kW TDI (mechanische Lenkung)
+C04,10765 - 1.2l/45kW TDI (elektrohydraulische Lenkung)
+;
+;
+;---------------------------------------------------
+;
+; Login Informationen
+;
+;---------------------------------------------------
+;
+;
+L00,Bremsenelektronik MK20 (J104) Login
+L01,40168 - Freischaltung Grundeinstellung
+;

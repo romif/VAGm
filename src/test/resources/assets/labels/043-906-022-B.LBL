@@ -1,0 +1,72 @@
+;043-906-022-B: Mexikanischer VW K‰fer 1600i mit ACD Motor
+;Manfred Graf grafmanfred@aol.com 01.04.2004 kein Aprilscherz 
+;diese Datei als Textdatei Name 043-906-022-B.LBL einfach in den Ordner LABELS der VAG-COM Software kopieren
+;wird dann automatisch mit Erkennenung des korrekten Steuerger‰tes geladen
+;visit http://members.aol.com/GrafMartinchen
+;
+0,0,Grundeinstellung im Leerlauf (<2100), Motor warm >=80∞C
+0,1,Temperatur angesaugte Luft  ;
+0,2,Batteriespannung         ;
+0,3,Motortemperatur,<44
+0,4,Lastsignal (Vacuum sensor),50..100
+0,5,Lambda-Sondensignal,100..250
+0,6,Nicht belegt		     ;
+0,7,Nicht belegt		     ;
+0,8,Drosselklappenpoti,10..112
+0,9,Einspritzzeit        ;
+0,10,Drehzahl,>128
+;
+1,0,Meﬂwertblock 1
+1,1,Motortemperatur,80-120 ∞C
+1,2,Drehzahl,U/Min.
+1,3,Lambda-Spannung,0.3-0.7 V
+1,4,Einspritzzeit,2.5-3.5 ms
+;
+2,0,Meﬂwertblock 2
+2,1,Motortemperatur,80-120 ∞C
+2,2,Drehzahl,U/Min.
+2,3,Drosselklappe,0.0<=∞
+2,4,Einspritzzeit in %, %
+;
+3,0,Meﬂwertblock 3
+3,1,Motortemperatur,80-120 ∞C
+3,2,Drehzahl, U/Min.
+3,3,Ansauglufttemp.,0-50 ∞C
+3,4,Batteriespannung,12-15 Volt
+;
+4,0,Meﬂwertblock 4
+4,1,Motortemperatur,80-120 ∞C
+4,2,Drehzahl, U/Min.
+4,3,Z¸ndzeitpunkt,∞v.OT / ∞n.OT
+4,4,Motorlast-Signal,22-35%
+;
+5,0,Meﬂwertblock 5
+5,1,Motortemperatur,80-120 ∞C
+5,2,Drehzahl, U/Min.
+5,3,Drosselklappe,0.0<=∞
+5,4,Batteriespannung,12-15 Volt
+;
+6,0,Meﬂwertblock 6
+6,1,Motortemperatur,80-120 ∞C
+6,2,Drehzahl, U/Min.
+6,3,Zustand Lambda,Dezimalwert
+6,4,Totpunkt Lambda,Dezimalwert
+;
+7,0,Meﬂwertblock 7
+7,1,Motortemperatur, 80-120 ∞C
+7,2,Drehzahl, U/Min.
+7,3,Z¸ndzeitpunkt,∞v.OT / ∞n.OT
+7,4,Dezimal-Variable,Dezimal
+;
+8,0,Meﬂwertblock 8
+8,1,Motortemperatur, 80-120 ∞C
+8,2,Drehzahl, U/Min.
+8,3,Z¸ndzeitpunkt,∞v.OT / ∞n.OT
+8,4,Betriebszustand,Leerl./Teil-/Vollast
+;
+9,0,Meﬂwertblock 9
+9,1,Motortemperatur, 80-120 ∞C
+9,2,Drehzahl, U/Min.
+9,3,Lambda-Spannung,0.3-0.7 V
+9,4,Einspritzzeit,2.5-3.5 ms
+;

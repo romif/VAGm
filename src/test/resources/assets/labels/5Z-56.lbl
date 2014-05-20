@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; VW Fox (5Z)
+;
+; Component: R - Radio (#56)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-56.LBL
+; 1Z-56.LBL
+; 5M-56.LBL
+; 5P-56.LBL
+; 5Z-56.LBL
+; 1K0-035-1xx-56.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 03/26/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-035-1xx-56.LBL,5Z0-035-152-??? ; R200
+;

@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J255 - A/C Heating Electronics (#08)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1P-08.LBL
+; 1T-08.LBL
+; 1Q-08.LBL
+; 1Z-08.LBL
+; 5P-08.LBL
+; 1K0-820-047.LBL
+; 1K0-907-044.LBL
+;
+; created on 15/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Jun/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-820-047.LBL,1Q0-820-047-??? ; Climatic
+REDIRECT,1K0-907-044.LBL,1Q0-907-044-??? ; Climatronic
+;

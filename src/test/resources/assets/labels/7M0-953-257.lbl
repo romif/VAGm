@@ -1,0 +1,64 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Komponente: Wegfahrsperre (#25)
+;
+; T/N: 7M0 953 257 ?
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 11.10.2004
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+; Hinweis: Messwertgruppe 002 wird bei Modellen mit WFS Generation I
+;          nicht angezeigt, das Label-File deckt deshalb sowohl
+;          Generation I als auch Generation II ab.
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Wegfahrsperre
+001,1,Anzahl gelernter,Schlüssel,Wertebereich: 0...8
+001,2,Lesespule,,0 = fehlerhaft / 1 = richtig
+001,3,Schlüsselzustand,,0 = defekt / 1 = fehlerfrei
+001,4,Schlüssel,berechtigt,0 = nein / 1 = ja
+;
+002,0,Wegfahrsperre (ab 09/1997)
+002,1,Anlernzeit,der Schlüssel
+002,2,"SOLL"-Anzahl,der Schlüssel,Wertebereich: 0...8
+002,3,"IST"-Anzahl,der Schlüssel,Wertebereich: 0...8
+002,4,Wegfahrsperren,Status,siehe Label-File
+; ?xxx - Fehlerstatus (0 = kein Fehler / 1 = Fehler)
+; x?xx - Anpassungsstatus (0 = beendet / 1 = läuft)
+; xx?x - aktueller Schlüssel (0 = i.O. / 1 = n.i.O.)
+; xxx? - aktuelle Anpassung (0 = i.O. 1 = n.i.O.)
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Steuergerät für Wegfahrsperre - Codierung
+C1,Hinweis: Die Codierung gibt die Baudrate der Kommunikation
+C2,auf der W-Leitung (zum Motorsteuergerät) an.
+C3, 
+C4,bis 08/1997
+C5,09600 - alle Fahrzeuge (Standard)
+C6, 
+C7,ab 09/1997
+C8,Die Codierung/Baudrate wird vom Steuergerät automatisch erkannt/festgelegt.
+;

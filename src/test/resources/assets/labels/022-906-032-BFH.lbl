@@ -1,0 +1,631 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Golf IV (1J)
+;
+; Komponente: J220 - Motorelektronik (#03) - BFH
+;
+; T/N: 022-906-032-???
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 02-01.LBL
+; 022-906-032-BFH.LBL
+;
+; erstellt am 05.11.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 11.11.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,(G28)
+001,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+001,3,Lambdaregelung,Bank 1
+001,4,Lambdaregelung,Bank 2
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,(G28)
+002,2,Motorlast
+002,3,mittlere,Einspritzzeit
+002,4,angesaugte,Luftmasse (G70)
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,(G28)
+003,2,angesaugte,Luftmasse (G70)
+003,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+003,4,Zündwinkel
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,(G28)
+004,2,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+004,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+004,4,Ansaugluft-,temperatur (G42),Wertebereich: -48.0...143.0 °C
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,(G28)
+005,2,Motorlast
+005,3,Geschwindigkeit
+005,4,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Anreich./Schub/Vollast\nSollwert: Leerlauf
+;
+006,0,Grundfunktionen
+006,1,Motordrehzahl,(G28)
+006,2,Motorlast
+006,3,Ansaugluft-,temperatur (G42),Wertebereich: -48.0...143.0 °C
+006,4,Höhenkorrektur-,faktor
+;
+008,1,Bremspedalschalter,(F),Wertebereich: betätigt/unbetätigt
+;
+010,0,Zündung
+010,1,Motordrehzahl,(G28)
+010,2,Motorlast
+010,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+010,4,Zündwinkel
+;
+011,0,Zündung
+011,1,Motordrehzahl,(G28)
+011,2,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+011,3,Ansaugluft-,temperatur (G42),Wertebereich: -48.0...143.0 °C
+011,4,Zündwinkel
+;
+014,0,Aussetzererkennung I
+014,1,Motordrehzahl,(G28)
+014,2,Motorlast
+014,3,Aussetzer,Summenzähler
+014,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt\nSollwert: aktiviert
+;
+015,0,Aussetzererkennung (Zylinder 1 - 3)
+015,1,Aussetzer,Zylinder 1
+015,2,Aussetzer,Zylinder 2
+015,3,Aussetzer,Zylinder 3
+015,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt\nSollwert: aktiviert
+;
+016,0,Aussetzererkennung (Zylinder 4 - 6)
+016,1,Aussetzer,Zylinder 4
+016,2,Aussetzer,Zylinder 5
+016,3,Aussetzer,Zylinder 6
+016,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt\nSollwert: aktiviert
+;
+017,4,Aussetzer-,erkennung,Wertebereich: aktiviert/gesperrt\nSollwert: aktiviert
+;
+018,0,Last-/Drehzahlfenster Aussetzererkennung
+018,1,untere,Drehzahlschwelle
+018,2,obere,Drehzahlschwelle
+018,3,untere,Lastschwelle
+018,4,obere,Lastschwelle
+;
+020,0,Klopfregelung (Zylinder 1 - 4)
+020,1,Zündwinkelrück-,nahme Zylinder 1
+020,2,Zündwinkelrück-,nahme Zylinder 2
+020,3,Zündwinkelrück-,nahme Zylinder 3
+020,4,Zündwinkelrück-,nahme Zylinder 4
+;
+021,0,Klopfregelung (Zylinder 5 - 6)
+021,1,Zündwinkelrück-,nahme Zylinder 5
+021,2,Zündwinkelrück-,nahme Zylinder 6
+;
+022,0,Klopfregelung (Zylinder 1 && 2)
+022,1,Motordrehzahl,(G28)
+022,2,Motorlast
+022,3,Zündwinkelrück-,nahme Zylinder 1
+022,4,Zündwinkelrück-,nahme Zylinder 2
+;
+023,0,Klopfregelung (Zylinder 3 && 4)
+023,1,Motordrehzahl,(G28)
+023,2,Motorlast
+023,3,Zündwinkelrück-,nahme Zylinder 3
+023,4,Zündwinkelrück-,nahme Zylinder 4
+;
+024,0,Klopfregelung (Zylinder 5 && 6)
+024,1,Motordrehzahl,(G28)
+024,2,Motorlast
+024,3,Zündwinkelrück-,nahme Zylinder 5
+024,4,Zündwinkelrück-,nahme Zylinder 6
+;
+026,0,Klopfregelung
+026,1,Klopfsensor-,spannung Zyl. 1
+026,2,Klopfsensor-,spannung Zyl. 2
+026,3,Klopfsensor-,spannung Zyl. 3
+026,4,Klopfsensor-,spannung Zyl. 4
+;
+027,0,Klopfregelung
+027,1,Klopfsensor-,spannung Zyl. 5
+027,2,Klopfsensor-,spannung Zyl. 6
+;
+028,0,Zündung (Grundeinstellung: Klopfsensorprüfung)
+028,1,Motordrehzahl,(G28)
+028,2,Motorlast
+028,3,Kühlmittel-,temperatur (G62),Sollwert: 80.0...110.0 °C
+028,4,Klopfsensor-,prüfung,Wertebereich: Test EIN/Test AUS/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+030,0,Lambdasonden Status
+030,1,Bank 1,Sonde 1,Sollwert: 111\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+030,2,Bank 1,Sonde 2,Sollwert: 110\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+030,3,Bank 2,Sonde 1,Sollwert: 111\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+030,4,Bank 2,Sonde 2,Sollwert: 110\n\nxxx1 - Lambdaregelung aktiv\nxx1x - Sonde betriebsbereit\nx1xx - Sondenheizung aktiv
+;
+031,0,Lambdaregelung
+031,1,Lambdawert,Bank 1 (IST-Wert)
+031,2,Lambdawert,Bank 1 (SOLL-Wert)
+031,3,Lambdawert,Bank 2 (IST-Wert)
+031,4,Lambdawert,Bank 2 (SOLL-Wert)
+;
+032,0,Lambdasonden Lernwerte (maximaler Wert)
+032,1,Bank 1 Sonde 1,Leerlauf (additiv)
+032,2,Bank 1 Sonde 1,Teillast (multipl.)
+032,3,Bank 2 Sonde 1,Leerlauf (additiv)
+032,4,Bank 2 Sonde 1,Teillast (multipl.)
+;
+033,0,Lambdaregelung
+033,1,Lambdaregler,Bank 1
+033,2,Lambdasonden-,spannung Bank 1
+033,3,Lambdaregler,Bank 2
+033,4,Lambdasonden-,spannung Bank 2
+;
+034,0,Lambdasonden-Alterungsprüfung Bank 1 vor Katalysator (Grundeinstellung)
+034,1,Motordrehzahl,(G28)
+034,2,Abgastemperatur
+034,3,Periodendauer
+034,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B1-S1 i.O./B1-S1 n.i.O.\nSollwert: B1-S1 i.O.
+;
+035,0,Lambdasonden-Alterungsprüfung Bank 2 vor Katalysator (Grundeinstellung)
+035,1,Motordrehzahl,(G28)
+035,2,Abgastemperatur
+035,3,Periodendauer
+035,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B2-S1 i.O./B2-S1 n.i.O.\nSollwert: B2-S1 i.O.
+;
+036,0,Lambdasonden-Betriebsbereitschaft (Grundeinstellung)
+036,1,Bank 1 Sonde 2,Spannung
+036,2,Ergebnis,,Wertebereich: Test EIN/Test AUS/B1-S2 i.O./B1-S2 n.i.O.
+036,3,Bank 2 Sonde 2,Spannung
+036,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B2-S2 i.O./B2-S2 n.i.O.
+;
+037,0,Lambdasonden-Alterungsprüfung Bank 1 nach Katalysator (Grundeinstellung)
+037,1,Motorlast
+037,2,Lambdasonden-,spannung Bank 1
+037,3,Lambda-,korrekturwert
+037,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B1-S2 i.O./B1-S2 n.i.O.\nSollwert: B1-S2 i.O.
+;
+038,0,Lambdasonden-Alterungsprüfung Bank 2 nach Katalysator (Grundeinstellung)
+038,1,Motorlast
+038,2,Lambdasonden-,spannung Bank 2
+038,3,Lambda-,korrekturwert
+038,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B2-S2 i.O./B2-S2 n.i.O.\nSollwert: B2-S2 i.O.
+;
+039,1,angesaugte,Luftmasse (G70)
+039,2,Lambdasonden-,spannung Bank 1
+039,3,Lambdasonden-,spannung Bank 2
+;
+041,0,Lambdasondenheizung Bank 1
+041,2,Zustand,Bank 1 Sonde 1,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+041,3,Widerstand,Bank 1 Sonde 2
+041,4,Zustand,Bank 1 Sonde 2,Wertebereich: Hzg.nK.ein/Hzg.nK.aus
+;
+042,0,Lambdasondenheizung Bank 2
+042,2,Zustand,Bank 2 Sonde 1,Wertebereich: Hzg.vK.ein/Hzg.vK.aus
+042,3,Widerstand,Bank 2 Sonde 2
+042,4,Zustand,Bank 2 Sonde 2,Wertebereich: Hzg.nK.ein/Hzg.nK.aus
+;
+043,0,Lambdasonden-Alterungsprüfung Bank 1 nach Katalys. (Grundeinstellung)
+043,1,Motordrehzahl,(G28)
+043,2,Abgastemperatur
+043,3,Lambdasonden-,spannung Bank 1
+043,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B1-S2 i.O./B1-S2 n.i.O.\nSollwert: B1-S2 i.O.
+;
+044,0,Lambdasonden-Alterungsprüfung Bank 2 nach Katalys. (Grundeinstellung)
+044,1,Motordrehzahl,(G28)
+044,2,Abgastemperatur
+044,3,Lambdasonden-,spannung Bank 2
+044,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/B2-S2 i.O./B2-S2 n.i.O.\nSollwert: B2-S2 i.O.
+;
+046,0,Katalysator Bank 1 Konvertierungsprüfung
+046,1,Motordrehzahl,(G28)
+046,2,Katalysator-,temperatur
+046,3,Meßwert,Katalysator
+046,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/Kat B1 i.O./Kat B1 n.i.O.\nSollwert: Kat B1 i.O.
+;
+047,0,Katalysator Bank 2 Konvertierungsprüfung
+047,1,Motordrehzahl,(G28)
+047,2,Katalysator-,temperatur
+047,3,Meßwert,Katalysator
+047,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/Kat B2 i.O./Kat B2 n.i.O.\nSollwert: Kat B2 i.O.
+;
+050,0,Drehzahlregelung
+050,1,Motordrehzahl,(IST-Wert)
+050,2,Motordrehzahl,(SOLL-Wert)
+050,3,Klimaanforderung,,Wertebereich: AC-Low/AC-High
+050,4,Klimakompressor,,Wertebereich: Kompr. ein/Kompr. aus
+;
+051,0,Drehzahlregelung (Schalteingriffe)
+051,1,Motordrehzahl,(IST-Wert)
+051,2,Motordrehzahl,(SOLL-Wert)
+051,3,Fahrstufe,(nur Automatik),Wertebereich: P/N = 0 / Gang = 1...6 / R = 7\nSollwert: 0
+051,4,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+;
+052,0,Drehzahlregelung
+052,1,Motordrehzahl,(IST-Wert)
+052,2,Motordrehzahl,(SOLL-Wert)
+052,3,Klimaanforderung,,Wertebereich: AC-Low/AC-High
+;
+053,0,Drehzahlregelung aufgrund Generatorlast
+053,1,Motordrehzahl,(IST-Wert)
+053,2,Motordrehzahl,(SOLL-Wert)
+053,3,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+;
+054,0,Drehzahlregelung
+054,1,Motordrehzahl,(G28)
+054,2,Betriebszustand,,Wertebereich: LL/TL/VL/SA/BA\nSollwert: LL\n\nLL - Leerlauf\nTL - Teillast\nVL - Vollast\nSA - Schubabschaltung\nBA - Anreicherung
+054,3,Drosselklappen-,winkel (G79),Wertebereich: 0.0...100.0 %
+054,4,Gaspedalstellung,(G187),Wertebereich: 0.0...100.0 %
+;
+055,0,Drehzahlregelung
+055,1,Motordrehzahl,(G28)
+055,2,Leerlaufregler
+055,3,Lernwert,LL-Stabilis.
+055,4,Betriebszustände,,\nxxxx1 - Klimakompressor EIN\nxxx1x - Fahrstufe eingelegt\nxx1xx - Klimabereitschaft EIN\nx1xxx - Heckscheibenheizung EIN\n1xxxx - Lenkung am Anschlag
+;
+056,0,Drehzahlregelung
+056,1,Motordrehzahl,(IST-Wert)
+056,2,Motordrehzahl,(SOLL-Wert)
+056,3,Eingriff durch,Leerlaufregler
+056,4,Betriebszustände,,00xx1 - Klimakompressor EIN\n00x1x - Fahrstufe eingelegt\n001xx - Klimabereitschaft EIN
+;
+057,0,Drehzahlregelung - Drucksignal Klimakompressor
+057,1,Motordrehzahl,(IST-Wert)
+057,2,Motordrehzahl,(SOLL-Wert)
+057,3,Klima-,kompressor,Wertebereich: Kompr. ein/Kompr. aus
+;
+058,1,Motordrehzahl,(G28)
+058,2,Motorlast
+;
+060,0,Drehzahlregelung (Grundeinstellung: Drosselklappensteuereinheit)
+060,1,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+060,2,Drosselklappen-,winkel (G188),Wertebereich: 0.0...100.0 %
+060,3,Lernschrittzähler
+060,4,Anpassungs-,zustand,Wertebereich: ADP läuft/ADP i.O./ERROR\nSollwert: ADP i.O.
+;
+061,0,Drehzahlregelung (E-Gas System)
+061,1,Motordrehzahl,(G28)
+061,2,Versorgungs-,spannung,Sollwert: 12.0...15.0 V
+061,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+061,4,Betriebszustand,,--xxx1 - Klimakompressor EIN\n--xx1x - Fahrstufe eingelegt\n--x1xx - Klimabereitschaft EIN\n--1xxx - Heckscheibenheizung EIN
+;
+062,0,Drehzahlregelung (E-Gas System)
+062,1,Drosselklappen-,winkel (G185),Wertebereich: 0.0...100.0 %
+062,2,Drosselklappen-,winkel (G79),Wertebereich: 0.0...100.0 %
+062,3,Gaspedalstellung,(G188),Wertebereich: 0.0...100.0 %
+062,4,Gaspedalstellung,(G187),Wertebereich: 0.0...100.0 %
+;
+063,0,Gasbetätigung (Grundeinstellung: Kick-Down Adaption - nur Automatik)
+063,1,Gaspedalstellung,(G188),Wertebereich: 0.0...100. %
+063,2,Kick-Down,Lernwert (G188),Wertebereich: 0.0...100.0 %
+063,3,Schalter,,Wertebereich: Kick-Down
+063,4,Ergebnis,,Wertebereich: Betätigt/ADP läuft/ADP i.O./ERROR\nSollwert: ADP i.O.
+;
+064,0,Drosselklappenpotentiometer-Adaptionswerte
+064,1,Potentiometer 1,untere Adaption
+064,2,Potentiometer 2,untere Adaption
+064,3,Notluftspalt,Potentiometer 1
+064,4,Notluftspalt,Potentiometer 2
+;
+066,0,Geschwindigkeitsregelanlage (GRA/Tempomat)
+066,1,Geschwindigkeit,(IST)
+066,2,Schalter-,stellungen,siehe Label-File
+; xxxxxxx1 - Bremslichtschalter Pedal betätigt
+; xxxxxx1x - Bremspedalschalter Pedal betätigt
+; xxxxx1xx - Kupplungsschalter Pedal betätigt
+; xxxx1xxx - GRA-Funktion freigeschaltet
+; xxx1xxxx - ADR-Funktion freigeschaltet
+; xx1xxxxx - GRA ein/aus durch Haupt Aus-Taster 
+; 00xxxxxx - ADR/GRA nicht aktiv (steht auch für nicht verbaut)
+; 01xxxxxx - ADR/GRA im Regelbetrieb
+; 10xxxxxx - Zustand "übersteuert", Fahrer gibt mehr "Gas" als GRA-Regler
+; 11xxxxxx - ADR nicht freigegeben
+066,3,Geschwindigkeit,(SOLL)
+066,4,Schalter-,stellungen,siehe Label-File
+; x-xxxxx1 - GRA ein/aus gerastet(CAN)
+; x-xxxx1x - GRA austasten ja nein Speicher gesetzt
+; x-xxx1xx - Tip down / Verzögern
+; x-xx1xxx - Tip up / Beschleunigen
+; x-x1xxxx - Setzen (SET)
+; x-1xxxxx - Wiederaufnahme  (RESET)
+; 1-xxxxxx - GRA ein/aus gerastet (Hardware PIN)
+;
+070,0,Abgasreduzierung (Grundeinstellung: Tankentlüftung)
+070,1,Öffnungsgrad,(TE-Ventil),Sollwert: 0...100 %
+070,2,Lambdaregler,Diagnosewert
+070,4,Diagnosezustand,,Wertebreich: Test AUS/Test EIN/TEV i.O./TEV n.i.O.\nSollwert: TEV i.O.
+;
+077,0,Sekundärluftsystem - Bank 1
+077,1,Motordrehzahl,(G28)
+077,2,angesaugte,Luftmasse (G70)
+077,3,Relative,Luftmasse
+077,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+078,0,Sekundärluftsystem - Bank 2
+078,1,Motordrehzahl,(G28)
+078,2,angesaugte,Luftmasse (G70)
+078,3,Relative,Luftmasse
+078,4,Diagnosezustand,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+081,0,Erweiterte Steuergerät Identifikation II
+081,1,Fahrgestellnummer (FIN) & WFS-ID
+;
+082,0,Erweiterte Steuergerät Identifikation III
+;
+086,1,Ready-Bits,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Katalysator
+; xxxxxx0x - Heiz-Ket
+; xxxxx0xx - AKF-System
+; xxxx0xxx - SL-System
+; xxx0xxxx - Klimaanlage
+; xx0xxxxx - Lambda-Sonden
+; x0xxxxxx - Lambda-Sondenhzg.
+; 0xxxxxxx - AGR-System
+086,2,Zyklus-Flags I,,durchl. Zyklen (Sollwert: 00000000)
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Kat Bank 1
+; xxxxxx0x - Kat Bank 2
+; xxxxx0xx - LDP
+; xxxx0xxx - TEV
+; xxx0xxxx - Hzg. B1-S1
+; xx0xxxxx - Hzg. B1-S2
+; x0xxxxxx - Hzg. B2-S1
+; 0xxxxxxx - Hzg. B2-S2
+086,3,Zyklus-Flags II,,durchl. Zyklen (Sollwert: 00000000)
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - B1-S1 el.
+; xxxxxx0x - B1-S2 el.
+; xxxxx0xx - B1-S1 (Plausibilitätsprüfung)
+; xxxx0xxx - B1-S2 (Sondenalterung)
+; xxx0xxxx - B1-S1 (Dynamikprüfung)
+; xx0xxxxx - SLS B1
+; x0xxxxxx - SLS B2
+; 0xxxxxxx - B1-S1
+086,4,Zyklus-Flags III,,durchl. Zyklen (Sollwert: 00000000)
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - B2-S1 el.
+; xxxxxx0x - B2-S2 el.
+; xxxxx0xx - B2-S1 (Plausibilitätsprüfung)
+; xxxx0xxx - B2-S2 (Sondenalterung)
+; xxx0xxxx - B2-S1 (Dynamikprüfung)
+; xx0xxxxx - AGR B1
+; x0xxxxxx - AGR B2
+; 0xxxxxxx - B2-S1
+;
+087,0,Ready- und Errorbits
+087,1,Ready-Bits,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Katalysator
+; xxxxxx0x - Heiz-Ket
+; xxxxx0xx - AKF-System
+; xxxx0xxx - SL-System
+; xxx0xxxx - Klimaanlage
+; xx0xxxxx - Lambda-Sonden
+; x0xxxxxx - Lambda-Sondenhzg.
+; 0xxxxxxx - AGR-System
+087,2,Error-Flags,,Sollwert: 00000000
+; 1 = Fehler / 0 = kein Fehler
+; xxxxxxx0 - Kat Bank 1
+; xxxxxx0x - Kat Bank 2
+; xxxxx0xx - LDP
+; xxxx0xxx - TEV
+; xxx0xxxx - Hzg. B1-S1
+; xx0xxxxx - Hzg. B1-S2
+; x0xxxxxx - Hzg. B2-S1
+; 0xxxxxxx - Hzg. B2-S2
+087,3,Error-Flags,,Sollwert: 00000000
+; 1 = Fehler / 0 = kein Fehler
+; xxxxxxx0 - B1-S1 el.
+; xxxxxx0x - B1-S2 el.
+; xxxxx0xx - B1-S1 (Plausibilitätsprüfung)
+; xxxx0xxx - B1-S2 (Sondenalterung)
+; xxx0xxxx - B1-S1 (Dynamikprüfung)
+; xx0xxxxx - SLS B1
+; x0xxxxxx - SLS B2
+; 0xxxxxxx - B1-S1
+087,4,Error-Flags,,Sollwert: 00000000
+; 1 = Fehler / 0 = kein Fehler
+; xxxxxxx0 - B2-S1 el.
+; xxxxxx0x - B2-S2 el.
+; xxxxx0xx - B2-S1 (Plausibilitätsprüfung)
+; xxxx0xxx - B2-S2 (Sondenalterung)
+; xxx0xxxx - B2-S1 (Dynamikprüfung)
+; xx0xxxxx - AGR B1
+; x0xxxxxx - AGR B2
+; 0xxxxxxx - B2-S1
+;
+088,0,Zyklus-Flags
+088,1,Zyklus-Flags I,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Auslass-NW Bank 2
+; xxxxxx0x - Auslass-NW Bank 1
+; xxxxx0xx - Einlass-NW Bank 2
+; xxxx0xxx - Einlass-NW Bank 1
+; xxx0xxxx - Klopfsensor 4
+; xx0xxxxx - Klopfsensor 3
+; x0xxxxxx - Klopfsensor 2
+; 0xxxxxxx - Klopfsensor 1
+088,2,Zyklus-Flags II,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Bremslichtschalter
+; xxxxxx0x - Kupplungsschalter
+; xxxxx0xx - Leerlauf-Regelung
+; xxxx0xxx - Geschwindigkeitssignal
+; xxx0xxxx - Leerlauf-Schalter
+; xx0xxxxx - Kühlmitteltemperatur-Sensor
+; x0xxxxxx - Drosselklappen-Potentiometer
+; 0xxxxxxx - Luftmassenmesser
+088,3,Zyklus-Flags III,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxx0-- - Ansaugluft-Temperatursensor
+; xxxx0x-- - Thermostat (nur USA)
+; xxx0xx-- - Ladedruck-Regelung
+; xx0xxx-- - GRA-Bedienhebel
+; x0xxxx-- - Lambda-Adaption B2 (Summe aus FRA2 und ORA2)
+; 0xxxxx-- - Lambda-Adaption B1 (Summe aus FRA und ORA)
+;
+089,0,On-Board-Diagnose
+089,1,Gefahrene km,mit MIL [km],Sollwert: 0 km
+089,2,Leertankinfo,,Wertebereich: i.O./zu klein
+;
+090,0,Kontinuierliche Nockenwellenverstellung Bank 1 Auslass
+090,1,Motordrehzahl,(G28)
+090,2,Tastverhältnis
+090,3,Verstellung,(SOLL-Wert)
+090,4,Verstellung,(IST-Wert)
+;
+091,0,Kontinuierliche Nockenwellenverstellung Bank 1 Einlass
+091,1,Motordrehzahl,(G28)
+091,2,Tastverhältnis
+091,3,Verstellung,(SOLL-Wert)
+091,4,Verstellung,(IST-Wert)
+;
+093,0,Kontinuierliche Nockenwellenverstellung
+093,1,Motordrehzahl,(G28)
+093,2,Tastverhältnis
+093,3,Phasenlage,Einlass Bank 1
+093,4,Phasenlage,Einlass Bank 2
+;
+094,0,Kontinuierliche Nockenwellenverstellung Bank 1 Einlass
+094,1,Motordrehzahl,(G28)
+094,2,Verstellung
+094,3,Ergebnis,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+095,0,Saugrohrumschaltung
+095,1,Motordrehzahl,(G28)
+095,2,Motorlast
+095,3,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+095,4,Status,,Wertebereich: SU-V ein/SU-V aus
+;
+096,0,Kontinuierliche Nockenwellenverstellung Bank 1 Auslass
+096,1,Motordrehzahl,(G28)
+096,2,Nockenwellen-,verstellung,Wertebereich: Ein/Aus
+096,3,Ergebnis,,Wertebereich: Test AUS/Test EIN/Syst. i.O./Syst. n.i.O.\nSollwert: Syst. i.O.
+;
+099,0,Lambdaregelung (Grundeinstellung)
+099,1,Motordrehzahl,(G28)
+099,2,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+099,3,Lambda,(IST-Wert)
+099,4,Lambdaregelung,,Wertebereich: Ein/Aus
+;
+100,0,Readynesscode
+100,1,Ready-Bits,,Sollwert: 00000000
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxxxx0 - Katalysator
+; xxxxxx0x - Katalysator-Heizung
+; xxxxx0xx - Tankentlüftung
+; xxxx0xxx - Sekundärluftsystem
+; xxx0xxxx - Klimaanlage
+; xx0xxxxx - Lambda-Sonden
+; x0xxxxxx - Lambda-Sondenheizung
+; 0xxxxxxx - Abgasrückführung
+100,2,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+100,3,Zeit seit,Motorstart,Wertebereich: 0...655.35 s
+100,4,OBD-Status,,siehe Labelfile
+; xxxx--x1 - kein warm-up-cycle erkannt
+; xxxx--1x - warm-up-cycle erkannt
+; xxx1--xx - mind. 1 Fehler erkannt
+; xx1x--xx - Kurztrip komplett
+; x1xx--xx - Kurztrip erkannt
+; 1xxx--xx - MIL ein
+;
+101,0,Einspritzung
+101,1,Motordrehzahl,(G28)
+101,2,Motorlast
+101,3,mittlere,Einspritzzeit
+101,4,angesaugte,Luftmasse (G70)
+;
+102,0,Einspritzung
+102,1,Motordrehzahl,(G28)
+102,2,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+102,3,Ansaugluft-,temperatur (G42),Wertebereich: -48.0...143.0 °C
+102,4,mittlere,Einspritzzeit
+;
+103,0,Einspritzung
+103,1,Motordrehzahl,(G28)
+;
+104,0,Startfaktoren (Adaptionswerte)
+104,1,Start Motor-,temperatur
+104,2,Kaltstartan-,reicherung 1
+104,3,Kaltstartan-,reicherung 2
+104,4,Kaltstartan-,reicherung 3
+;
+105,0,Zylinder-Abschaltung
+105,1,Motordrehzahl,(G28)
+105,2,Motorlast
+105,3,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+105,4,Status,Abschaltung,Wertebereich: Ein/Aus
+;
+107,0,Lambdaregelung (Grundeinstellung)
+107,1,Motordrehzahl,(G28)
+107,2,Lambdaregler,Bank 1,gemittelter Wert
+107,4,Ergebnis,,Wertebereich: Test ein/Test aus/Syst.i.O./Syst.n.i.O.
+;
+110,0,Last-/Vollastanreicherung
+110,1,Motordrehzahl,(G28)
+110,2,Kühlmittel-,temperatur (G62),Sollwert: 85.0...110.0 °C
+110,3,mittlere,Einspritzzeit
+110,4,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+;
+112,0,Abgastemperatur
+112,1,Abgastemperatur,Bank 1
+;
+113,0,Last-/Vollastanreicherung
+113,1,Motordrehzahl,(G28)
+113,2,Motorlast
+113,3,Drosselklappen-,winkel (G187),Wertebereich: 0.0...100.0 %
+113,4,Luftdruck,(Atmosphäre)
+;
+120,0,Anti-Schlupf-Regelung (ASR)
+120,1,Motordrehzahl,(G28)
+120,2,Sollmoment,ASR
+120,3,Motormoment
+120,4,Status,,Wertebereich: ASR aktiv/ASR n. aktiv
+;
+122,0,Getriebe
+122,1,Motordrehzahl,(G28)
+122,2,Sollmoment,Getriebe
+122,3,Motormoment
+122,4,Status,,Wertebereich: Motoreingriff/kein Eingriff
+;
+125,0,CAN-Datenbus Antrieb (Kommunikation)
+125,2,Bremsenelektronik
+125,3,Kombiinstrument
+;
+134,0,Temperatur
+134,1,Öltempertatur
+134,2,Umgebungs-,temperatur
+134,3,Ansaugluft-,temperatur
+134,4,Motoraustritt-,temperatur
+;
+137,0,Klimaanforderungen
+137,1,AC-Eingang,,Wertbereich: AC-Low/AC-High
+137,2,Kompressor,,Wertebereich: Kompr. Ein/Kompr. Aus
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Motorelektronik (J220) Codierung
+C01,0000132 - Schaltgetriebe
+C02,0000133 - Automatikgetriebe (02E/DSG)
+;

@@ -1,0 +1,138 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E2/8E5) / Audi A6 (4B)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 8E0-919-283-??
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-76.LBL
+; 8E0-919-283-8E2.LBL
+; 8E0-919-283-8ED.LBL
+;
+; created on 09/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Front)
+001,1,Front Left,Sensor (G255),Specification: 10...60 cm (255 cm = no obstacle recognized)
+001,2,Front Left Center,Sensor (G254),Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Front Right Center,Sensor (G253),Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Front Right,Sensor (G252),Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Distance (Rear)
+002,1,Rear Left,Sensor (G203),Specification: 10...60 cm (255 cm = no obstacle recognized)
+002,2,Rear Left Center,Sensor (G204),Specification: 10...160 cm (255 cm = no obstacle recognized)
+002,3,Rear Right Center,Sensor (G205),Specification: 10...160 cm (255 cm = no obstacle recognized)
+002,4,Rear Right,Sensor (G206),Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+003,0,Resulting Distance / Vehicle Speed && Voltage
+003,1,Resulting,Distance Front,Specification: 0...120 cm (255 cm = no obstacle recognized)
+003,2,Resulting,Distance Rear,Specification: 0...160 cm (255 cm = no obstacle recognized)
+003,3,Vehicle Speed,,Range: 0.0...255.0 km/h
+003,4,Sensor,Voltage Supply
+;
+004,0,External Information
+004,1,Confirmation,Sound,Range: Sound ON/Sound OFF
+004,2,Reverese Gear,engaged,Range: Reverse: Yes/Reverse: No
+004,3,Trailer hitched,,Range: Trailer: Yes/Trailer: No
+004,4,Rear Lid,,Range: Lid Open/Lid Closed
+;
+005,0,External Information
+005,1,Function Light,,Range: LED ON/LED OFF
+005,2,Function Button,,Range: Button ON/Button OFF
+;
+006,0,Oscillation Time (Rear)
+006,1,Rear Left,Sensor (G203),Specification: max. 4.00 ms
+006,2,Rear Left Center,Sensor (G204),Specification: max. 4.00 ms
+006,3,Rear Right Center,Sensor (G205),Specification: max. 4.00 ms
+006,4,Rear Right,Sensor (G206),Specification: max. 4.00 ms
+;
+007,0,Oscillation Time (Front)
+007,1,Front Left,Sensor (G255),Specification: max. 4.00 ms
+007,2,Front Left Center,Sensor (G254),Specification: max. 4.00 ms
+007,3,Front Right Center,Sensor (G253),Specification: max. 4.00 ms
+007,4,Front Right,Sensor (G252),Specification: max. 4.00 ms
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Instrument Cluster,(J285)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,?xxxx: Trailer Hitch (0 = No / 1 = Yes)
+C02,x?xxx: Transmission
+C03,0 = Manual Transmission
+C04,1 = Automatic Transmission
+C05,xx?xx: Confirmation Sound (0 = No / 1 = Yes)
+C06,xxx?x: Chassis
+C07,0 = Limousine (Sedan) Rest of World
+C08,1 = Avant (Wagon) Rest of World
+C09,2 = Limousine (Sedan) North America
+C10,3 = Avant (Wagon) North America
+C11,4 = S-Variant Limousine (Sedan) Rest of World
+C12,5 = S-Variant Avant (Wagon) Rest of World
+C13,6 = S-Variant Limousine (Sedan) North America
+C14,7 = S-Variant Avant (Wagon) North America
+C15,8 = allroad
+C16,xxxx?: Model
+C17,4 - Audi A4 (8E)
+C18,5 = Audi A4 Cabrio (8H)
+C19,6 = Audi A6 (4B)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Rear Buzzer Volume
+A01,5,Rear Buzzer Volume
+A01,6,Adaptation of the rear warning buzzer volume.
+A01,7, 
+A01,8,Display Range: 2...6
+;
+A02,0,Rear Buzzer Frequency
+A02,5,Rear Buzzer Frequency
+A02,6,Adaptation of the rear warning buzzer frequency.
+A02,7, 
+A02,8,Display Range: 0...4
+;
+A03,0,Front Buzzer Volume
+A03,5,Front Buzzer Volume
+A03,6,Adaptation of the front warning buzzer volume.
+A03,7, 
+A03,8,Display Range: 2...6
+;
+A04,0,Front Buzzer Frequency
+A04,5,Front Buzzer Frequency
+A04,6,Adaptation of the front warning buzzer frequency.
+A04,7, 
+A04,8,Display Range: 0...4
+;

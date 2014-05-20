@@ -1,0 +1,41 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 Immobiliser Movement Detector
+; Filename: 4d0-951-177-b.lbl
+; 
+; from 2001 Audi S8
+;   Controller: 4D0 951 177 B  
+;       Module: 45
+;    Component: Innenraumueberw.    D06
+;       Coding: 00001
+;
+; **Modification History**
+; Created:  Dave Eaton, 3rd February 2004
+; Modified: Dave Eaton, 5th February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+;
+; **********************************************************************
+22,0,Immobiliser: Status
+22,1,Start permitted,(1 - Yes)
+22,2,ECM Responding,(1 - Yes)
+22,3,Key Condition,(1 - Yes)
+22,4,Number of keys,Adapted (<=8)
+;
+23,0,Immobiliser: Keys
+23,1,Variable code,Auth. (1 - Y)
+23,2,Key Status,Trans. (1 - Locked)
+23,3,Fixed code,Auth. (1 - Y)
+23,4,Immobilizer Status,(6 -norm. see file)
+; 4 - Customer Service New i.e. delivery condition
+; 5 - Customer Service Locked
+; 6- Anti-theft Immobiliser adapted, normal functioning condition
+; 7- Key adaption active
+;
+24,0,Immobiliser: Lockout Times (minutes)
+24,1,Instrument,Cluster
+24,2,Engine Control,Module
+24,3,Emergency,Release
+24,4,Transponder,Recognition
+;
+;End of File

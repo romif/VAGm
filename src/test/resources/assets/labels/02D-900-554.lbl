@@ -1,0 +1,63 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8L) / Audi TT (8N) / VW Golf (1J)
+;
+; Component: J492 - All wheel electronics - Haldex (#22)
+;
+; p/n: 02D 900 554 A/B/C/D
+;
+; includes measuring blocks
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 09/28/2004
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Brake signals
+001,1,Brake Light,Switch -F-,Display range: operated/not operated
+001,2,Parking Brake,Switch -F9-,Display range: operated/not operated
+001,3,[N/A]
+001,4,[N/A]
+;
+002,0,voltage supply and temperature
+002,1,Voltage,supply,Specified value: 10...14.5 V
+002,2,Oil temperature
+002,3,[N/A]
+002,4,[N/A]
+;
+050,0,Temperature display 
+050,1,Oil temperature
+050,2,[N/A]
+050,3,[N/A]
+050,4,[N/A]
+;
+051,0,Haldex Clutch Pump
+051,1,Haldex Clutch,Pump
+051,2,[N/A]
+051,3,[N/A]
+051,4,[N/A]
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+125,0,CAN-Databus communication (Powertrain)
+125,1,Engine
+125,2,ABS
+125,3,[N/A]
+125,4,[N/A]
+;

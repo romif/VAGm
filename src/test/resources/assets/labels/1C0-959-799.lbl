@@ -1,0 +1,216 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Leon (1M) / Skoda Octavia (1U) / VW Bora/Golf (1J/9M)
+; VW New Beetle (1C/1Y/9C) / VW Passat (3B)
+;
+; Component: J393 - Comfort System (#46) - Generation III (MY 2002 >)
+;
+; P/N: 1C0-959-799???
+;
+; includes measuring blocks, coding and adaptation
+;
+; based on 1C0-959-799.lbl by MOGolf @ WWW.TDICLUB.COM
+; based on 1C0-959-799-C.lbl by A. Ferron (iso9141@yahoo.ca)
+; updated/enhanced on 26/May/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Driver's door
+001,1,Electric window,hall signal,E40 (Specification: auto. open/auto. close/man. open/man. close/close not operated/implausible)
+001,2,Electric window,thermal protection,Specification: yes/no
+001,3,Child safety,switch,E39 (Specification: yes/no/not installed)
+;
+002,0,Driver's door (driver's switch for electric windows)
+002,1,Passenger side,electric window,E81 (Specification: autom. open/autom. close/man. open/man. close/not operated/implausible)
+002,2,Rear left,electric window,E53 (Specification: autom. open/autom. close/man. open/man. close/not operated/implausible)
+002,3,Rear right,electric window,E55 (Specification: autom. open/autom. close/man. open/man. close/not operated/implausible)
+;
+003,0,Driver's door
+003,1,Mirror adjustment,switch driver,E43 (Specification: Pos X+/Pos X-/Pos Y+/Pos Y-/not operated)
+003,2,Mirror selection,switch driver,E48 (Specification: left/right/fold/not operated)
+003,3,Mirror folding,switch,E263 (Specification: released/engaged/not installed)
+003,4,Mirror heating,,E231 (Specification: on/off/not installed)
+;
+004,0,Passenger's door (electric window)
+004,1,Switch passenger,(E107),Specification: autom. open/autom. close/man. open/man. close/not operated/implausible
+004,2,Thermal protection,passenger,Specification: yes/no
+004,3,Working speed,control switch,F261 (Specification: released/engaged/not installed)
+;
+005,0,Rear door's (electric windows)
+005,1,Switch rear left,(E52),Specification: autom. open/autom. close/man. open/man. close/not operated/implausible
+005,2,Thermal protection,rear left,Specification: yes/no
+005,3,Switch rear right,(E54),Specification: autom. open/autom. close/man. open/man. close/not operated/implausible
+005,4,Thermal protection,rear right,Specification: yes/no
+;
+006,1,Supply Voltage,(terminal 30)
+006,2,Ignition,,Specification: Terminal 15 on/Terminal 15 off
+006,3,S-Terminal,,Specification: operated/not operated
+006,4,Speed signal,,Steps: 2 km/h
+;
+007,1,Central locking,key switch driver,Specification: open/closed/not operated/implausible
+007,2,Central locking,key switch pass.,Specification: open/closed/not operated/implausible
+007,3,Interior locking,driver switch,E150 (Specification: lock/unlock/not operated/implausible)
+007,4,Interior locking,passenger switch,E198 - USA only (Specification: lock/unlock/not operated/implausible)
+;
+008,1,Hood contact,switch (F120),Specification: operated/not operated/not installed
+008,2,Rear lid/tailgate,key switch,E165 (Specification: open/closed/not operated/implausible)
+008,3,Rear lid/tailgate,contact switch,F124 (Specification: open/closed)
+008,4,Central locking,thermal protection,Specification: yes/no
+;
+009,0,Central locking feedback
+009,1,Driver's side,,Specification: safe/not safe/locked/unlocked
+009,2,Passenger's side,,Specification: safe/not safe/locked/unlocked
+009,3,Rear left,,Specification: safe/not safe/locked/unlocked
+009,4,Rear right,,Specification: safe/not safe/locked/unlocked
+;
+010,0,Rotary latch switches
+010,1,Driver's side,,Specification: 1 = dr. open / 2 = dr. closed
+010,2,Passenger's side,,Specification: 1 = dr. open / 2 = dr. closed
+010,3,Rear left,,Specification: 1 = dr. open / 2 = dr. closed
+010,4,Rear right,,Specification: 1 = dr. open / 2 = dr. closed
+;
+011,1,Immobilizer,key recognition,Specification: yes/no/not installed
+011,2,Automatic,lock/unlock switch,Specification: operated/not oper./implausible
+011,3,Sliding/tilting,sunroof released,Specification: yes/no
+011,4,Status,CAN-Databus,Specification: 2-wire
+;
+012,0,CAN-Databus communication
+012,1,Door contr. module,Driver side
+012,2,Door contr. module,Passenger side
+012,3,Door contr. module,rear left
+012,4,Door contr. module,rear right
+;
+013,1,Rear lid button,rear lid handle,E188/E234 (Specification: not operated/remote switch/lid lever/implausible)
+013,2,Rear,first detent,Specification: open/closed/not installed
+013,3,Instrument,illumination,Specification: 0...100 %
+;
+014,1,Permanent code,known,Specification: OK/n.OK
+014,2,Code within,effective range,Specification: OK/n.OK
+014,3,Algorithm,,Specification: OK/n.OK
+014,4,Key number,,Specification: 0...4 (0 = not operated)
+;
+015,1,Remote control,button,Specification: open/closed/RLR/panic (RLR = rear lid release)
+015,2,Interior monitor,sensor (G273),Specification: yes/no/not installed
+015,3,Interior monitoring,switch-off (E267),Specification: on/off/not installed
+;
+016,0,Alarm Source
+;   1 = Door Contact Switch Driver Door
+;   2 = Door Contact Switch Passenger Door
+;   4 = Door Contact Switch Rear Left Door
+;   8 = Door Contact Switch Rear Right Door
+;  16 = Door Contact Switch Rear Lid/Tailgate
+;  17 = Immobilizer
+;  18 = Power Supply
+;  32 = Engine hood contact switch
+;  64 = Ignition (Terminal 15)
+; 128 = Interior Monitoring
+; 255 = No Alarm Source recognized
+016,1,Last source,,See Label File
+016,2,2nd last source,,See Label File
+016,3,3rd last source,,See Label File
+016,4,4th last source,,See Label File
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System (J393) Coding
+C01,Central Locking (2 doors / 2-power windows):
+C02,00064 - Selective unlocking
+C03,00065 - Unlocking of all doors
+C04, 
+C05,Central Locking (4 doors / 2-power windows):
+C06,00066 - Selective unlocking
+C07,00067 - Unlocking of all doors
+C08, 
+C09,Central Locking (4 doors / 4-power windows):
+C10,00258 - Selective unlocking
+C11,00259 - Unlocking of all doors
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A01,0,Remote control adaptation
+A01,5,Remote control adaptation
+A01,6,Enter the number of keys that should be adapted. Save.
+A01,7, 
+A01,8,Now press button 1 or 2 on every remote that
+A01,9,should be adapted for at least 1 second.
+A01,10, 
+A01,11,Note #1: All keys must be adapted in one procedure.
+A01,12,Note #2: Adaptation of all keys must not exceed 15 seconds.
+;
+A003,0,Auto-Lock
+A003,5,Auto-Lock
+A003,6,The doors will lock automatically when the
+A003,7,vehicle reaches a speed of 15 km/h or 10 mph.
+A003,8, 
+A003,9,Specification: 0 = off/1 = on
+;
+A004,0,Auto-Unlock
+A004,5,Auto-Unlock
+A004,6,The doors will unlock automatically when the key
+A004,7,is removed from the ignition switch.
+A004,8, 
+A004,9,Specification: 0 = off/1 = on
+;
+A005,0,Interior Monitoring
+A005,5,Interior Monitoring
+A005,6,Activation of interior monitoring system.
+A005,7, 
+A005,8,Specification: 0 = off/1 = on
+;
+A006,0,Unlock Horn
+A006,5,Unlock Horn
+A006,6,Horn beep when unlocking via remote control.
+A006,7, 
+A006,8,Specification: 0 = off/1 = on
+;
+A007,0,Lock Horn
+A007,5,Lock Horn
+A007,6,Horn beep when locking via remote control.
+A007,7, 
+A007,8,Specification: 0 = off/1 = on
+;
+A008,0,Unlock Blink
+A008,5,Unlock Blink
+A008,6,Blink when unlocking via remote control.
+A008,7, 
+A008,8,Specification: 0 = off/1 = on
+;
+A009,0,Lock Blink
+A009,5,Lock Blink
+A009,6,Blink when locking via remote control.
+A009,7, 
+A009,8,Specification: 0 = off/1 = on
+;
+A010,0,Country Setting
+A010,5,Country Setting
+A010,6,Country setting for alarm horn.
+A010,7, 
+A010,8,1 - Rest of World (RoW)
+A010,9,2 - Germany
+A010,10,3 - Great Britain
+;

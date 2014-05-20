@@ -1,0 +1,135 @@
+;
+REDIRECT,5N0-907-801.LBL,H,J
+;
+; VCDS Label File
+;
+; VW Passat (3C) / VW Tiguan (5N)
+;
+; Component: J540 - Parking Brake (#53) GENERATION 2
+;
+; P/N: 3C0-907-801-??? / 5N0-907-801-???
+;
+; includes measuring blocks, basic setting, coding, adaptation and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-53.LBL
+; 3C0-907-801.LBL
+; 5N0-907-801.LBL
+;
+; created on 09/April/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+002,2,Parking Brake,Button (E538)
+002,4,Auto Hold,Button (E540)
+;
+B006,0,Close Rear Parking Brake
+B006,1,Current,Left Motor, 
+B006,2, , , 
+B006,3,Current,Right Motor, 
+B006,4, , , 
+;
+007,2,Rear left brake,operating counter
+007,3,Rear right brake,operating counter
+;
+B007,0,Open Rear Parking Brake
+B007,1,Current,Left Motor, 
+B007,2, , , 
+B007,3,Current,Right Motor, 
+B007,4, , , 
+;
+008,2,Clutch pedal,switch (F36) path,Display Range: 0...250 (250 = 100 %)
+;
+010,2,Parking brake,last operation,Displayed value has to be multiplied by 8 - the result is the KM reading of the last parking brake activation.
+;
+B010,0,Parking Brake Function Test
+B010,1,Current,Left Motor, 
+B010,2, , , 
+B010,3,Current,Right Motor, 
+B010,4, , , 
+;
+011,2,Parking Brake,Indicator Lamp,K213
+011,3,Auto Hold,Indicator Lamp,K238
+011,4,ABS (J104) Control,Module coding
+;
+012,1,AUTO HOLD,Status
+012,2,Parking brake,Status
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Brake Electronics,,Specification: ABS 1\nDisplay Range: ABS 1/ABS 0
+125,2,Airbag,,Specification: Airbag 1\nDisplay Range: Airbag 1/Airbag 0
+125,3,Transmission,,Display Range: Transm. 1/Transm. 0
+125,4,Engine,,Specification: Engine 1\nDisplay Range: Engine 1/Engine 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,CAN-Gateway,,Specification: Gateway 1\nDisplay Range: Gateway 1/Gateway 0
+126,3,Ignition Lock,,Specification: El.Ign.Lock 1\nDisplay Range: El.Ign.Lock 1/El.Ign.Lock 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Brake Electronics
+225,2,Airbag
+225,3,Transmission
+225,4,Engine
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,CAN-Gateway
+226,3,Ignition Lock
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A20,0,Rear Left Brake Adaptation
+A20,5,Rear Left Brake Adaptation
+A20,6,Save 0 to reset the adaptation.
+;
+A21,0,Rear Right Brake Adaptation
+A21,5,Rear Right Brake Adaptation
+A21,6,Save 0 to reset the adaptation.
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Brake (J540) Coding
+C01,0000010 = Parking Brake without Auto-Hold (North America)
+C02,0000011 = Parking Brake without Auto-Hold (Rest of World / PR-UH1)
+C03,0000012 = Parking Brake with Auto-Hold (Rest of World / PR-UH2)
+C04,0000013 = Parking Brake with Auto-Hold (North America)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T2442,Electric Park/Handbrake Indicator Lamp (K213)
+T2573,Rear Left Parking Brake Motor (V282)
+T2575,Rear Right Parking Brake Motor (V283)
+T2576,Open Rear Parking Brake Motors (V282 & V283)
+T2578,Close Rear Parking Brake Motors (V282 & V283)
+T2844,Auto Hold Indicator Lamp 1 (K237) and 2 (K238)
+T2845,Brake System Warning Lamp (K118)
+;

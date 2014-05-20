@@ -1,0 +1,202 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A6 (4F)
+;
+; Komponente: J520 - elektronische Zentralelektrik II (#4F)
+;
+; T/N: 4E0 910 280 A
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 14.09.2004
+;
+; benötigt VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Spannungs-,versorgung
+001,2,MMI-Display,Taster,Werteberereich: Aus/Ein
+001,3,MMI-Drehdisplay,Display zu,Wertebereich: unbetätigt/betätigt
+001,4,MMI-Drehdisplay,Display offen,Wertebereich: unbetätigt/betätigt
+;
+002,1,Ansteuerung,MMI Motor,Wertebereich: inaktiv/aktiv
+002,2,SRA linke,Hubdüse,Wertebereich: inaktiv/aktiv
+002,3,SRA rechte,Hubdüse,Wertebereich: inaktiv/aktiv
+002,4,Ansteuerung,SRA-Pumpenrelais,Wertebereich: inaktiv/aktiv
+;
+003,0,Zuordnung unbekannt (siehe Label-File)
+; Stromregelung
+; Aktuell eingestellter Strom am Servotronicventil	Wert
+; Servotronic: I.O./N.I.O. 				Syst. i.O. / Syst.n.i.O.		
+;
+004,1,Klemme 58d
+004,2,Relais,Schlauchheizung,Wertebereich: Aus/Ein/nicht verfügbar
+004,3,Komponenten-,schutz,Wertebereich: inaktiv/aktiv
+004,4,[N/A]
+;
+005,1,Motordrehzahl
+005,2,Geschwindig-,keitssignal
+005,3,Anforderung,Drehdisplay,Wertebereich: Aus/Ein
+005,4,Abblendlicht
+;
+006,1,Front,Waschen,Wertebereich: Aus/Ein/nicht verfügbar
+006,2,Außentemperatur,,Wertebereich: [Wert]/nicht verfügbar
+006,3,Dimmung,Klemme 58d,über CAN
+006,4,Waschwasser-,warnung,Wertebereich: inaktiv/aktiv/nicht verfügbar
+;
+007,0,Energemanager
+007,1,Klemme 15,,Wertebereich: Aus/Ein/nicht verfügbar
+007,2,Klemme X,,Wertebereich: Aus/Ein/nicht verfügbar
+007,3,dynamische,Abschaltstufe,Wertebereich: [Zahl]/nicht verfügbar
+007,4,statische,Abschaltstufe,Wertebereich: [Zahl]/nicht verfügbar
+;
+008,0,UGDO (Garagentoröffner)
+008,1,Tasten,(vom UGDO),siehe Label-File
+; xx1 - Button 1
+; x1x - Button 2
+; 1xx - Button 3
+008,2,LED Code(per LIN)
+008,3,Funktions-Code,(per LIN)
+008,4,Country-Code,(vom UGDO)
+;
+009,0,UGDO (Garagentoröffner)
+009,1,Timeout,Learning Counter
+009,2,LIN Error,Counter
+009,3,LIN maximum,Error counter
+009,4,[N/A]
+;
+010,1,LIN 1,Slave 1
+;
+020,1,Komponenten-,schutz
+020,2,Komponenten-,schutz Bypass
+;
+021,0,IRB
+021,1,Bootloader,Version String
+;
+140,0,CAN-Datenbus Kommunikation (Infotainment)
+140,1,Batterie-,manager
+140,2,CAN-Gateway
+140,3,Fahrberech-,tigungssystem,FBS
+140,4,[N/A]
+;
+141,0,CAN-Datenbus Kommunikation (Infotainment)
+141,1,Klima
+141,2,SMLS
+141,3,ILM-Beifahrer
+141,4,[N/A]
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J520 - elektronische Zentralelektrik (Bordnetz) II
+C1,?xxxx: Getriebevariante
+C2,1 - mit Automatik Getriebe (Kl. 58D)
+C3,2 - mit manuellem Getriebe (ohne Kl.58D)
+C4,x?xxx: Wisch-Wasserbehälter
+C5,0 - ohne Wisch-Waschbehälter beheizbar
+C6,1 - mit Wisch-Waschbehälter beheizbar
+C7,xx?xx: Scheinwerferreinigungsanlage (SRA)
+C8,0 - ohne SRA
+C9,1 - mit SRA
+C10,xxx?x: Garagentoröffner
+C11,0 - ohne UGDO (Garagentoröffner)
+C12,1 - mit UGDO (Garagentoröffner)
+C13,xxxx?: Servotronic
+C14,1 - ohne Servotronic
+C15,2 - Servotronic Kennlinie in EEPROM
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A1,0,MMI-Timeout
+A1,5,MMI-Timeout
+A1,6,Wertebereich: 0...1000 / 0...10.00 sec
+A1,7,Standardwert: 300
+;
+A2,0,MMI-Nachlaufzeit
+A2,5,MMI-Nachlaufzeit
+A2,6,Wertebereich: 0...255 / 0...2.55 sec
+A2,7,Standardwert: 50
+;
+A3,0,MMI-Ansteuerspannung Nachl. Einfahren
+A3,5,MMI-Ansteuerspannung Nachl. Einfahren
+A3,6,Wertebereich: 0...200 / 0...20 V
+A3,7,Standardwert: 36
+;
+A4,0,MMI-Ansteuerspannung Nachl. Ausfahren
+A4,5,MMI-Ansteuerspannung Nachl. Ausfahren
+A4,6,Wertebereich: 0...200 / 0...20 V
+A4,7,Standardwert: 50
+;
+A5,0,MMI-Ansteuerspannung normal
+A5,5,MMI-Ansteuerspannung normal
+A5,6,Wertebereich: 0...200 / 0...20 V
+A5,7,Standardwert: 130
+;
+A6,0,Verzögerungszeit Ansteuerung SRA
+A6,5,Verzögerungszeit Ansteuerung SRA
+A6,6,Standardwert: 100
+;
+A7,0,Ansteuerungszeit der SRA-Pumpe T3 / T12
+A7,5,Ansteuerungszeit der SRA-Pumpe T3 / T12
+A7,6,Wertebereich: 0...255 / 0...2.55 sec
+A7,8,Standardwert: 40
+;
+A8,0,Ansteuerungszeit der SRA-Pumpe T4 / T13
+A8,5,Ansteuerungszeit der SRA-Pumpe T4 / T13
+A8,6,Wertebereich: 0...255 / 0...2.55 sec
+A8,7,Standardwert: 60
+;
+A9,0,Ansteuerungszeit der SRA-Pumpe T7 / T16
+A9,5,Ansteuerungszeit der SRA-Pumpe T7 / T16
+A9,6,Wertebereich: 0...255 / 0...5.1 sec
+A9,7,Standardwert: 100
+;
+A10,0,Anst.-zeit der SRA-Hubdüse T2 / T11
+A10,5,Anst.-zeit der SRA-Hubdüse T2 / T11
+A10,6,Wertebereich: 0...255 / 0...5.1 sec
+A10,7,Standardwert: 75
+;
+A11,0,Anst.-zeit der SRA-Hubdüse T8 / T17
+A11,5,Anst.-zeit der SRA-Hubdüse T8 / T17
+A11,6,Wertebereich: 0...200 / 0...20 V
+A11,7,Standardwert: 100
+;
+A50,0,Ländervariante
+A50,5,Ländervariante
+A50,6,1 = Deutschland (Griechenland, Österreich, Belgien, Tschechei, Zypern)
+A50,7,1 = Deutschland (Dänemark, Finnland, Ungarn, Irland, Schweden, Island)
+A50,8,1 = Deutschland (Luxemburg, Niederlande, Norwegen, Polen, Portugal
+A50,9,1 = Deutschland (Slovakei, Spanien, Malta, Türkei, Schweiz)
+A50,10,2 = Frankrech (Frankreich, Belgien)
+A50,11,3 = UK (UK ausser Irland)
+A50,12,4 = Italien
+A50,13,5 = unbekannt / 6 = unbekannt
+A50,14,7 = freie Frequenz
+;
+A51,0,UGDO (Garagentoröffner) zurücksetzen
+A51,5,UGDO zurücksetzen
+A51,6,1 = Alle Kanäle zurücksetzen
+;

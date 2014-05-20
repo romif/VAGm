@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Component: Navigation System (#37)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-37.LBL
+; 3C-56.LBL
+; 1T0-035-680.LBL     (Radio Navigation System 510)
+;
+; created on 05/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+REDIRECT,1T0-035-680.LBL,3C0-035-681-???    ; RNS510 JAPAN
+REDIRECT,1T0-035-680.LBL,3C0-035-682-???    ; RNS510 JAPAN
+REDIRECT,1T0-035-680.LBL,3C0-035-684-???    ; RNS510 NAR
+;

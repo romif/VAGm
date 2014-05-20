@@ -1,0 +1,98 @@
+;
+; VAG-COM label file
+;
+; Seat Ibiza (6K)
+;
+; component: Radio system (#56)
+;
+; p/n: 6K0-035-156
+;
+; includes measuring blocks, coding information and adaption information
+;
+; created on 27/Nov/2005 by Jose Carlos Fernandez (josecarlosfernandez@terra.es)
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+1,0,,
+1,1,-
+1,2,Voltage BNE 30,(voltage),– Measurement after filtering 
+1,3,Light on,display (%),Reduction in light on display- by means of panel lighting regulator\n– Minimum 20%\n– Maximum 100%
+1,4,S contact,status 
+;
+2,0,Speakers,
+2,1,Front speaker
+2,2,State of,front speaker,- OK\n- Short-circuit\n- Break
+2,3,Rear speakers
+2,4,State of,rear speaker,- OK\n- Short-circuit\n- Break
+;
+3,0,Aerial,
+3,1,Aerial type,,– Passive \n– Active (e.g. Aerial on rear window)
+3,2,Aerial
+3,3,State of,the aerial,- OK\n- Short-circuit\n- Break
+;
+4,0,Amplifier / Telephone
+4,1,State of,active amplifier,State of active amplifier control outlet\n– 0 = State OK\n– 1 = Shorting with ground
+4,2,,-
+4,3,Telephone
+4,4,State of muter,for telephone,State of muter inlet for telephone \n– Telephone working = “ON”\n– Telephone not working = “OFF”
+;
+5,0,CD connection
+5,1,CD connection
+5,2,State of,CD connection,State of the connection for CD\n– OK\n– Not OK
+;
+6,0,,
+6,1,,-
+6,2,,- 
+;
+7,0,Remote control from steering wheel
+7,1,Steering wheel,remote control,Remote control from steering wheel in operative reception mode\n– The number of each key activated is visualised
+7,2,Statate of,signal 
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,Radio system
+C1,?0xxx: Country identification
+C2,0 - Europe / 1 - USA 
+C3, 
+C4,x0?xx: Number of passive speakers
+C5,0 - 0 No passive speakers                                    
+C6,1 - 1 passive speaker - front left                           
+C7,2 - 2 passive speakers - front right                         
+C8,3 - 3 passive speakers - rear                                
+C9,4 - 4 passive speakers                                       
+C10,5 - 2 passive speakers - front and no active speakers in rear
+C11, 
+C12,x0x?x: Correction of the sound system
+C13,0 - No correction
+C14,1 - BOSE
+C15,2 - DSP
+C16, 
+C17,x0xx?: Radio set-up
+C18,+1 - Aerial with remote supply installed
+C19,+2 - CD changer installed
+C20,+4 - Second display installed
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+;No adaption channel available
+;

@@ -1,0 +1,206 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8E)
+;
+; Komponente: J364 - Zu-/Standheizung (#18)
+;
+; T/N: 8E0-265-105-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; erstellt am 08.03.2006 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 16.03.2006
+;
+; benötigt mindestens VAG-COM 505.1 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertblock Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Spannungen
+001,1,Batterienspannung
+001,2,Versorgungs-,spannung
+001,3,Abschaltschwelle
+001,4,Unterspannungs-,abschaltung
+;
+002,1,Kühlmitteltemp.,(Standheizung)
+002,2,Absperrventil (N279),Kühlmittel/Heizung
+002,3,Niedrigste Temp.,seit Einschalten
+002,4,Verbrennungsluft-,gebläse (V6) SOLL
+;
+003,0,Leistung/Ansteuerung
+003,1,Verbrennungs-,luftgebläse (V6)
+003,2,Umwälzpumpe,(V55)
+003,3,Glühkerze für,Heizung (Q9)
+003,4,Dosierpumpe,(V54)
+;
+004,1,Signal für,Flammwächter (G64)
+004,2,Frischluft-,gebläse (V2)
+004,3,Aktuelle,Heizleistung
+004,4,Kraftstoffverbrauch,seit Start (ml)
+;
+005,1,Berechnete,Restlaufzeit
+005,2,Aktuelle,Laufzeit
+005,3,Schaltsignale I
+005,4,Schaltsignale II
+;
+006,1,Aktuelle,Betriebsart
+006,2,Letzte,Betriebsart
+006,3,Schaltsignale,Zuheizer
+;
+007,1,Signal,Funkempfänger
+007,2,Status,ext. Signal
+007,3,Abschaltzähler,Kühlmitteltemp.
+007,4,Störungszähler
+;
+008,1,Brenndauer,(Stunden)
+008,2,Einschaltdauer,(Stunden)
+008,3,Vorglühzyklen,(Startzyklen)
+008,4,Verbrannte,Kraftstoffmenge
+;
+009,0,Temperaturen
+009,1,Niedrigste,Einschalttemp.
+009,2,Außentemperatur
+009,3,Kühlmitteltemp.,(Motor)
+;
+010,1,Niedr. Einschalt-,temperatur,
+010,2,Motordrehzahl,(via CAN-Komfort)
+010,3,Restlaufzeit,(via CAN-Komfort)
+;
+011,0,Abschaltbedingungen
+; ?xx = Betriebsart (0 = Zusatzheizung / 1 = Standheizung)
+; x01 = Abschaltung durch Kombiinstrument (Fahrerwunsch)
+; x02 = Abschaltung (z.B. über Grundeinstellung)
+; x03 = Abschaltung durch externes Signal
+; x04 = Abschaltung durch Kombiinstrument (Motor AUS = Standheizung AUS)
+; x05 = Abschaltung durch Klima-/Heinzungselektronik (J255)
+; x06 = Abschaltung durch Kombiinstrument (zu wenig Kraftstoff)
+; x07 = Maximale Betriebszeit erreicht
+; x08 = Umschaltung auf Regelpause (Kühlmittel über 91 °C)
+; x09 = Flamme erloschen
+; x10 = Spannung zu niedrig
+; x11 = Spannungsversorgung unterbrochen
+; x12 = Glühkerze (Q9) oder Verkabelung fehlerhaft
+; x13 = Keine Flammbildung, Zuviel Kraftstoff im Brennraum
+; x14 = Fehler erkannt, Abschaltung erforderlich
+; x15 = Kühlmitteltemnperatur zu hoch (über 120 °C)
+; x16 = Abschaltung (z.B. über Grundeinstellung)
+; x17 = Crash-Abschaltung aktiv
+; x18 = Kühlmitteltemnperatur zu hoch (über 120 °C)
+; x19 = Transportmodus abktiv
+011,1,Letzte,Abschaltbeding.
+011,2,Vorletzte,Abschaltbeding.
+011,3,Drittletzte,Abschaltbeding.
+011,4,Viertletzte,Abschaltbeding.
+;
+012,0,Umgebungsbedingung (Letzte Störung)
+012,1,Fehlercode
+012,2,Kühlmittel-,temperatur
+012,3,Betriebszustand
+012,4,Batteriespannung
+;
+012,0,Umgebungsbedingung (Vorletzte Störung)
+012,1,Fehlercode
+012,2,Kühlmittel-,temperatur
+012,3,Betriebszustand
+012,4,Batteriespannung
+;
+014,0,Umgebungsbedingung (Drittletzte Störung)
+014,1,Fehlercode
+014,2,Kühlmittel-,temperatur
+014,3,Betriebszustand
+014,4,Batteriespannung
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+081,0,Erweiterte Steuergerät Identifikation II
+081,1,Fahrzeugidentnummer (FIN)
+;
+082,0,Erweiterte Steuergerät Identifikation III
+;
+125,0,CAN-Datenbus Kommunikation (Komfort)
+125,1,Kombiinstrument,(J285),Sollwert: Kombi 1\nWertebereich: Kombi 1/Kombi 0
+125,2,Komfortsystem,(J393),Sollwert: Zentral 1\nWertebereich: Zentral 1/Zentral 0
+125,3,Klima-/Heinzungs-,elektronik (J255),Sollwert: Klima 1\nWertebereich: Klima 1/Klima 0
+125,4,Lenksäulen-,elektronik (J527),Sollwert: Lenkrad 1\nWertebereich: Lenkrad 1/Lenkrad 0
+;
+126,0,CAN-Datenbus Kommunikation (Komfort)
+126,1,Version Netzwerk-,management
+126,2,Version CAN-Matrix,Kombiinstrument
+126,3,Version CAN-Matrix,Standheizung
+126,4,CAN-Komfort,Status,Wertebereich: Zweidraht/Eindraht
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Unterspannungsabschaltung
+A001,5,Unterspannungsabschaltung
+A001,6,9077 = 8.00 V
+A001,7,9090 = 9.00 V
+A001,8,9097 = 9.50 V
+A001,9,9100 = 9.60 V
+A001,10,9106 = 9.98 V
+A001,11,9110 = 10.25 V
+A001,12,9120 = 10.90 V
+A001,13,9130 = 11.60 V
+A001,14,9138 = 12.17 V
+A001,15,9140 = 12.30 V
+A001,16,9145 = 12.65 V
+A001,17,9150 = 12.99 V
+;
+A003,0,Abschaltbedingung nach Motorlauf
+A003,5,Abschaltbedingung nach Motorlauf
+A003,6,1 = Standheizung soll nach Abstellen des Motors weiterlaufen
+A003,7,2 = Standheizung soll nach Abstellen des Motors abschalten
+;
+A005,0,Kraftstoffart
+A005,5,Kraftstoffart
+A005,6,1 = Diesel
+A005,7,2 = Benzin
+;
+A006,0,Zusatzheizung
+A006,5,Zusatzheizung
+A006,6,Dieselmotor:
+A006,7,0 = Standheizung als Zusatzheizung (falls zusätzliche Heizleistung gefordert)
+A006,8, 
+A006,9,Benzinmotor:
+A006,10,0 = Standheizung nicht als Zusatzheizung
+A006,11,1 = Standheizung als Zusatzheizung (falls zusätzliche Heizleistung gefordert)
+;
+A081,0,Komponentenschutz (Fahrzeugidentnummer)
+A081,5,Komponentenschutz (Fahrzeugidentnummer)
+A081,6,Um das Anlernen der Fahrzeugidentnummer (FIN)
+A081,7,zu starten speichern Sie 26467 als neuen Wert.
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Standheizung (J364) Codierung
+C01,00?xx: Absperrventil für Kühlmittel/Heizung (N279)
+C02,0 = Absperrventil (N279) nicht verbaut
+C03,1 = Absperrventil (N279) verbaut
+C04, 
+C05,00x?x: Umwälzpumpe (V55)
+C06,0 = Umwälzpumpe (V55) nicht verbaut
+C07,1 = Umwälzpumpe (V55) verbaut (Standard)
+C08, 
+C09,00xx?: Unterspannungsabschaltung
+C10,0 = Unterspannungsabschaltung über Bordnetz
+C11,1 = Unterspannungsabschaltung über Anpassung
+;

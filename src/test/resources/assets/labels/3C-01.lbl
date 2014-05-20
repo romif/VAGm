@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-01.LBL
+; 06F-907-115-AXX.LBL (2.0l TE  @ 200 HP - AXX/BGB/BPJ/BPY/BWA)
+;
+; created on 31/Jul/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Feb/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115      ; AXX: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-D    ; BWA: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-F    ; BPY: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-G    ; BPY: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-P    ; BPY: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-Q    ; AXX/BWA: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-R    ; BWA: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-S    ; BPY: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-T    ; BWA: (3C)
+REDIRECT,06F-907-115-AXX.LBL,3C0-907-115-AA   ; BWA: (3C)
+;

@@ -1,0 +1,258 @@
+;
+; VAG-COM Labeldatei
+;
+; Seat Leon/Toledo (1M)
+;
+; Komponente: J285 - Kombiinstrument (#17)
+;
+; T/N: 1M0-920-??0-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1M-17.LBL
+; 1M0-919-xxx.LBL
+; 1M0-920-xx0.LBL
+; 1M0-920-xx2.LBL
+;
+; erstellt am 11.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 11.05.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Grundfunktionen
+001,1,Geschwindigkeit
+001,2,Motordrehzahl
+001,3,Öldruckschalter,,Wertebereich: Oeld 2 < min Oeld 2 i.O.
+001,4,Uhrzeit
+;
+002,0,Grundfunktonen
+002,1,Kilometerstand
+002,2,Kraftstoffvorrat
+002,3,Kraftstoffgeber (G)
+002,4,Aussentemperatur
+;
+003,0,Grundfunktionen
+003,1,Kühlmittel-,temperatur
+003,2,Motorölstand,,Wertebereich: i.O./n.i.O.
+003,3,Motoröl-,temperatur
+;
+022,0,Wegfahrsperre
+022,1,Startvorgang,erlaubt,Wertebereich: 1 = erlaubt / 0 = verboten
+022,2,Motorsteuergerät,antwortet,Wertebereich: 1 = Ja / 0 = Nein
+022,3,Schlüsselzustand,,Wertebereich: 0 = n.i.O. / 1 = i.O.
+022,4,Anzahl gelernter,Schlüssel
+;
+023,0,Wegfahrsperre
+023,1,Authentifikation,,Wertebereich: 0 = n.i.O. / 1 = i.O.
+023,2,Lockbits,gesetzt,Wertebereich: 0 = n.i.O. / 1 = i.O.
+023,3,Schlüssel,berechtigt,Wertebereich: 0 = n.i.O. / 1 = i.O.
+023,4,WFS-Status
+; 0	-	Bandende Urzustand
+; 1	-	Bandende neu
+; 2	-	Bandende programmiert
+; 3	-	Bandende Motor-SG angepasst, Schlüssellernen
+; 4	-	Kundendienst neu
+; 5	-	Kundendienst programmiert
+; 6	-	Wegfahrsperre angepasst
+; 7	-	Schlüssellernen aktiv
+;
+050,0,Grundfunktionen
+050,1,Kilometerstand
+050,2,Motordrehzahl
+050,3,Öltemperatur
+050,4,Kühlmittel-,temperatur
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Motorelektronik
+125,2,Getriebeelektronik
+125,3,Bremsenelektronik
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,2,Airbagsystem
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A2,0,Service-Intervall-Anzeige
+A2,5,Service-Intervall-Anzeige
+A2,6,Angezeigte Werte:
+A2,7,0 - kein Service fällig
+A2,8,1 - Service fällig
+A2,9, 
+A2,10,Einzugebende Werte:
+A2,11,0 - Service-Intervall-Anzeige zurücksetzen
+;
+A3,0,Verbrauchsanzeige
+A3,5,Anpassung der Verbrauchsanzeige
+A3,6,Basiswert: 100
+A3,7,Bereich: 85 - 115
+A3,8,Einheit: 5 % (Prozent)
+;
+A09,0,Kilometerstand (in 10km)
+A09,5,Kilometerstand
+A09,6,Bevor das Kombiinstrument den
+A09,7,neuen Kilometerstand akzeptiert
+A09,8,muss ein Login mit 13861 erfolgen.
+A09,9, 
+A09,10,Der Kilometerstand kann einmalig nur eingestellt
+A09,11,werden solange der alte Wert 100km nicht übersteigt.
+;
+A16,0,Wegstreckenkennzahl (nur lesen)
+;
+A21,0,Schlüsselanzahl (Wegfahrsperre)
+;
+A30,0,Tankgeberkennlinie
+A30,1,Aktueller,Wert
+A30,5,Tankgeberkennlinie
+A30,6,Basiswert: 100
+A30,7,Bereich: 120 - 136
+A30,8,Einheit: 1 Ohm
+;
+A40,0,Strecke seit letztem Service (in 100km)
+A40,5,Strecke seit letztem Services
+A40,6,Basiswert: 0
+A40,7,Bereich: 0 - ????
+A40,8,Einheit: 1 (entspricht 100km)
+A40,9, 
+A40,10,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A40,11,in einer bestimmten Reihenfolge geändert
+A40,12,bzw. gespeichert werden:
+A40,13,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A41,0,Zeit seit letztem Service (in Tagen)
+A41,5,Zeit seit letztem Service (in Tagen)
+A41,6,Basiswert: 0
+A41,7,Bereich: 0 - ????
+A41,8,Einheit: 1 (entspricht 1 Tag)
+A41,9, 
+A41,10,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A41,11,in einer bestimmten Reihenfolge geändert
+A41,12,bzw. gespeichert werden:
+A41,13,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A42,0,Minimale Fahrleistung bis Öl-Service
+A42,5,Minimale Fahrleistung bis Öl-Service (in 1000km)
+A42,6,15 - 15.000 km  (Standard)
+A42,7, 
+A42,8,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A42,9,in einer bestimmten Reihenfolge geändert
+A42,10,bzw. gespeichert werden:
+A42,11,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A43,0,Maximale Fahrleistung bis Öl-Service
+A43,5,Maximale Fahrleistung bis Öl-Service (in 1000km)
+A43,6,15 - festes Wartungsintervall (ohne Long Life)
+A43,7,30 - flexibles Wartungsintervall (mit Long Life)
+A43,8, 
+A43,9,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A43,10,in einer bestimmten Reihenfolge geändert
+A43,11,bzw. gespeichert werden:
+A43,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A44,0,Maximale Zeit bis Service (in Tagen)
+A44,5,Maximale zeit bis Service
+A44,6,365 - festes Wartungsintervall (ohne Long Life)
+A44,7,730 - flexibles Wartungsintervall (mit Long Life)
+A44,8, 
+A44,9,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A44,10,in einer bestimmten Reihenfolge geändert
+A44,11,bzw. gespeichert werden:
+A44,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A45,0,Ölqualität
+A45,5,Ölqualität
+A45,6,1 - festes Wartungsintervall (15.000 km)
+A45,7,2 - Otto-Motoren mit flexiblem Wartungsintervall (max. 30.000 km)
+A45,8,4 - Diesel Motoren mit flexiblem Wartungsintervall (max. 30.000 km)
+A45,9, 
+A45,10,Hinweis: Nach manuellem Rücksetzen des Service
+A45,11,muß das verwendete Öl neu angepaßt werden.
+A45,12, 
+A45,13,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A45,14,in einer bestimmten Reihenfolge geändert
+A45,15,bzw. gespeichert werden:
+A45,16,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+
+;
+A46,0,Gesamtverbrauchsmenge (nur Benzinmotoren)
+A46,5,Gesamtverbrauchsmenge
+A46,6,Der in Litern angegebene Wert stellt nicht den
+A46,7,tatsächlichen Verbrauch dar, sondern einen
+A46,8,Rechenwert für die Serviceanzeige aus
+A46,9,verschiedenen Motordaten und Laufleistung.
+A46,10, 
+A46,11,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A46,12,in einer bestimmten Reihenfolge geändert
+A46,13,bzw. gespeichert werden:
+A46,14,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A47,0,Rußeintrag (nur Dieselmotoren)
+A47,5,Rußeintrag
+A47,6,Der angegebene Wert stellt einen Vergleichswert
+A47,7,für die Serviceanzeige dar und ist ein Rechenwert
+A47,8,für den Rußanteil im Motoröl bezogen auf eine
+A47,9,Strecke von 100 km.
+A47,10, 
+A47,11,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A47,12,in einer bestimmten Reihenfolge geändert
+A47,13,bzw. gespeichert werden:
+A47,14,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+A48,0,Thermische Belastung (nur Dieselmotoren)
+A48,5,Thermische Belastung
+A48,6,Der angegebene Wert stellt einen Vergleichswert
+A48,7,für die Serviceanzeige dar und ist ein Rechenwert
+A48,8,für die thermische Belastung im Motoröl bezogen
+A48,9,auf eine Strecke von 100 km.
+A48,10, 
+A48,11,Hinweis: Die Anpassungs Kanäle 40-49 müssen
+A48,12,in einer bestimmten Reihenfolge geändert
+A48,13,bzw. gespeichert werden:
+A48,14,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48 > 49
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Kombiinstrument (J285) Codierung
+C1,??xxx: Mehrausstattungen
+C2,+00 - keine extra Optionen / +01 - Bremsbelagverschleißanzeige / +02 - Sicherheitsgurtwarnanzeige
+C3,+04 - Wischwasserstandswarnanzeige / +16 - Navigation/Radio
+C5, 
+C6,xx?xx: Länderauswahl
+C7,1 - Europa (EU) / 2 - USA (US) / 3 - Kanada (CDN) / 4 - Großbritannien (GB)
+C8,5 - Japan (JP) / 6 - Saudi Arabien (SA) / 7 - Australien (AUS)
+C9, 
+C10,xxx?x: Motorvariante
+C11,4 - 4-Zylinder / 5 - 5-Zylinder / 6 - 6-Zylinder
+C12, 
+C13,xxxx?: Wegstreckenkennzahl
+C14,2 - 3538 (1.6l AEH mit Schalt-/Automatikgetriebe)
+C15,2 - 3538 (1.8l 20V AGN/APG/BAF/AVV  mit Schaltgetriebe)
+C16,2 - 3538 (1.8l 20V AGN/APT/APG mit Automatikgetriebe)
+C17,2 - 3538 (1.9l TDI ASV/AGR/ALH/AHF mit Schaltgetriebe und 2.3l V5 AQN/AZX/AGZ mit Schaltgetriebe)
+C18,4 - 3650 (1.8l 20VT AUQ/APP und 1.9l TDI ARL und 2.8l V6 AUE/AWR)
+C19,6 - 4146 (1.6l AKL/AZD/AUS/ATN  mit Schaltgetriebe und 1.9l SDI AQM/AZW mit Schaltgetriebe)
+C20,7 - 4358 (1.4l 16V AHW/APE/AUA/AXP)
+;

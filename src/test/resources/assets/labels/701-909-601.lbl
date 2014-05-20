@@ -1,0 +1,25 @@
+;
+; with a tip of the hat to VW Tool
+; airbag ZAE  VOO		
+; ECU:  701-909-601-D
+; Software Coding 00068
+;
+1,0,Ignitor Statis msd 1=OK 
+1,1,Driver airbag,Ignitor resistance
+1,2,Passenger airbag,Ignitor Resistance
+1,3,Driver Seatbelt,Ignitor Resistance
+1,4,Passenger Seatbelt,Ignitor Resistance
+; 
+2,0,
+2,1,Power Supply,OK=1
+2,2
+2,3
+2,4,
+;
+3,0,
+3,1,
+3,2,
+3,3 
+;
+;eor
+

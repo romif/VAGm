@@ -1,0 +1,100 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8L) / Audi A4 (8D) / Audi A6 (4B) / Audi A8 (4D)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 4B0-919-283-??
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 15/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+002,0,Distance (Rear)
+002,1,Rear Left,Sensor (G203),Specification: 10...60 cm (255 cm = no obstacle recognized)
+002,2,Rear Left Center,Sensor (G204),Specification: 10...160 cm (255 cm = no obstacle recognized)
+002,3,Rear Right Center,Sensor (G205),Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Rear Right,Sensor (G206),Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Resulting Distance / Vehicle Speed && Voltage
+002,1,Resulting,Distance Rear,Specification: 0...160 cm (255 cm = no obstacle recognized)
+002,2,Vehicle Speed,,Range: 0.0...255.0 km/h
+002,3,Confirmation,Sound,Range: Sound Off/Sound On
+;
+003,0,Input Signals
+003,1,Supply Voltage,(Terminal 30)
+003,2,Reverese Gear,engaged,Range: Reverse: Yes/Reverse: No
+003,3,Trailer hitched,,Range: Trailer: Yes/Trailer: No
+;
+004,0,Oscillation Time (Rear)
+004,1,Rear Left,Sensor (G203)
+004,2,Rear Left Center,Sensor (G204)
+004,3,Rear Right Center,Sensor (G205)
+004,4,Rear Right,Sensor (G206)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,0?xxx: Transmission
+C02,0 = Manual Transmission
+C03,1 = Automatic Transmission
+C04,0x?xx: Confirmation Sound
+C05,0 = Reverse Gear Confirmation Sound inactive
+C06,1 = Reverse Gear Confirmation Sound active
+C07,0xx?x: Chassis
+C08,0 = Limousine (Rest of World)
+C09,1 = Avant/Wagon (Rest of World)
+C10,2 = Limousine (North America)
+C11,3 = Avant/Wagon (North America)
+C12,4 = S/RS-Variante Limousine (Rest of World)
+C13,5 = S/RS-Variante Avant/Wagon (Rest of World)
+C14,6 = S/RS-Variante Limousine (North America)
+C15,7 = S/RS-Variante Avant/Wagon (North America)
+C16,8 = Allroad
+C10,0xxx?: Modell
+C11,3 = Audi A3 (8L)
+C12,4 = Audi A4 (8D)
+C13,6 = Audi A6 (4B)
+C14,8 = Audi A8 (4D)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Rear Buzzer Volume
+A001,1,Current Value
+A001,5,Rear Buzzer Volume
+A001,6,Adaptation of the Rear Warning Buzzer Volume.
+A001,7, 
+A001,8,Range: 2...7
+;
+A002,0,Rear Buzzer Frequency
+A002,1,Current Value
+A002,5,Rear Buzzer Frequency
+A002,6,Adaptation of the Rear Warning Buzzer Frequency.
+A002,7, 
+A002,8,Range: 0...4
+;

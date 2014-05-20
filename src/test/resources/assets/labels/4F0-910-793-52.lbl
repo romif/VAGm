@@ -1,0 +1,128 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J387 - Passenger's Door Electronics (#52)
+;
+; P/N: 4F0-910-793-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-52.LBL
+; 4F0-910-793-52.LBL
+;
+; created on 16/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Door Status,,0 = inactive\n1 = active
+; xxxxxxx? = Key Switch open
+; xxxxxx?x = Key Switch closed
+; xxxxx?xx = Central Locking (CL) Interior Switch locking
+; xxxx?xxx = Central Locking (CL) Interior Switch unlocking
+; xxx?xxxx = Lock Feedback "locked"
+; xx?xxxxx = Lock Feedback "safed" (not USA)
+; x?xxxxxx = Door Contact Switch
+; ?xxxxxxx = Catch (for Closing Assistance)
+001,2,Button Status,,0 = inactive\n1 = active
+; 000000x? = Interior Door Handle Button
+; 000000?x = External Door Handle Button
+001,3,Voltages and,Databus Status,0 = inactive\n1 = active
+; 0000xxx? = Terminal 30 (Window Regulator)
+; 0000xx?x = Terminal 30 (Central Locking)
+; 0000x?xx = Terminal 15
+; 0000?xxx = CAN-Comfort in Single-Wire Mode
+001,4,Voltage Supply
+;
+002,0,Window Regulator Buttons (Local)
+002,1,WR-Button (E107),Passenger Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,1,Window Regulator,Position,Range: 0.0...100.0 %
+003,2,Window Regulator,Motor Temperature,Range: -50.0...+200.0 °C
+003,3,Window Regulator,Status,0 = inactive\n1 = active
+; xxx? = Window Regulators Enabling
+; xx?x = Thermal Protection
+; x?xx = Standardized
+; ?xxx = Insulated Glass
+003,4,Window Regulator,Movement,Range: Still/Open/Closed
+;
+005,1,Vehicle Speed,,Range: 0.0...255.0 km/h
+005,2,Ambient,Temperature,Range: -50.0...+200.0 °C
+005,3,Mirror Heating,(calculated),Range: 0.0...100.0 %
+005,4,Mirror Heating,Status,Range: Heater Off/Heater On
+;
+006,1,Memory Buttons,,Memory Buttons,,0 = inactive\n1 = active
+; xxxxx? = Memory Button
+; xxxx?x = Emergency-Off Button
+; xxx?xx = Position Button 1
+; xx?xxx = Position Button 2
+; x?xxxx = Position Button 3
+; ?xxxxx = Position Button 4
+006,2,Mirror Position X,(Potentiometer),Range: 0.0...5.0 V
+006,3,Mirror Position Y,(Potentiometer),Range: 0.0...5.0 V
+006,4,Miscellaneous,,0 = inactive\n1 = active
+; 0000000? = Kessy Lock Button
+;
+007,1,Closing,Assistance,Range: Not Installed
+007,2,Opening,Assistance,Range: Not Installed
+007,3,Child Safety,Lock Button,Range: Operated/Not Oper./Not Installed
+007,4,Window Regulator,Current Consumpt.
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Pasenger's Door Electronics (J387) Coding
+C01,+0000002 = Interior Door Handle Illumination
+C02,+0000004 = Insulated Glass installed (PR-4KR/4KV)
+C03,+0000008 = Door Warning Lights installed
+C04,+0000016 = Right Hand Steering (PR-L0R)
+C05,+0000032 = Lighting Package (Interior Lighting - PR-QQ1)
+C06,+0000064 = Lighting Package (Exterior Lighting - PR-QQ1)
+C07,+0000128 = Outside Mirror Adjustment (Memory - PR-6XF/6XL)
+C08,+0000256 = Mirror Heating NOT installed
+C09,+0000512 = Interior Lock Switch installed
+C10,+0001024 = Avant (Wagon)
+C11,+0002048 = Electrical Child Safety Lock (PR-4H5)
+C12,+0004096 = Opening Assistance
+C13,+0008192 = Closing Assistance (PR-GZ2)
+C14,+0016384 = Keyless-Entry installed (PR-4F2/4K5/4K7)
+C15,+0032768 = Safe Function disabled (PR-A8U)
+C16,+0065536 = Window Regulator Comfort Function disabled
+C17,+0131072 = Handicapped Vehicle
+C18,+0262144 = Special Protection Vehicle
+C19,+0524288 = Pinch Protection disabled
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1482,Motors for Central Locking
+T2111,Motor for Window Regulator
+T2117,Motor for Mirror Folding
+T2188,Lighting/Illumination
+T2189,Mirror Function Test
+;

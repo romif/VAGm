@@ -1,0 +1,61 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi TT (8N)
+;
+; Komponente: J345 - Innenraumüberwachung (#45)
+;
+; T/N: 8N?-951-171-???
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8N-45.LBL
+; 8Nx-951-171.LBL
+;
+; erstellt am 14.01.2006 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 14.01.2006
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Allgemein
+001,1,Zustand,Kommunikation,0000 = Kommunikation n.i.O.\n0001 = Kommunikation i.O.
+001,2,Empfindlichkeit,der Sensoren,Wertebereich: 50.0...100.0 %
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Empfindlichkeit
+A001,5,Empfindlichkeit
+A001,6,Empfindlichkeit der Sensoren für Innenraumüberwachung.
+A001,7, 
+A001,8,Wertebereich: 50 - 100 %
+A001,9,Werkseinstellung: 100 %
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Innenraumüberwachung (J345) Codierung
+C01,00001 - Standard
+;

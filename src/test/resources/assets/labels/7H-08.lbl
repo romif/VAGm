@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Heating/Air Conditioning (#08)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7H-08.LBL
+; 7Hx-907-040.LBL
+; 7Hx-907-045.LBL
+;
+; created on 06/Aug/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,7Hx-907-040.LBL,7H?-907-040-???
+;
+REDIRECT,7Hx-907-045.LBL,7H?-907-045-???
+;

@@ -1,0 +1,83 @@
+;
+; VAG-COM Label File
+;
+; Bentley Continental (3W) / VW Phaeton (3D)
+;
+; Component: J412 - Telephone (#77) - UHV Premium rSAP
+;
+; P/N: 3W7-035-385-???
+;
+; includes measuring blocks and coding
+;
+; created on 16/Apr/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Apr/2007
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Terminal 30,Status,Range: Term. 30 ON/Term. 30 OFF
+001,3,Terminal 30,Voltage,Specification: 6.0...15.0 V
+;
+002,0,General
+002,1,Terminal 15,Status,Range: Term. 15 ON/Term. 15 OFF
+002,2,Control Head,Communication,Range: Disp/Ctrl/F 1 / Disp/Ctrl/F 0
+;
+004,0,Microphone && Speaker
+004,1,Microphone
+004,2,Microphone,Status,Range: OK/Not OK
+004,3,Speaker
+004,4,Speaker,Status,Range: OK/Not OK
+;
+006,0,Handset Status
+;
+007,0,GSM Signal Strength
+007,1,Signal Strength
+007,2,Signal Strength,,Range: 0.0...100.0 %
+007,3,GSM Status,,Range: Acquired/No Signal
+;
+009,0,Bluetooth Telephone Name
+009,1,Bluetooth,Telephone Name
+;
+010,1,Bluetooth,Software Level
+;
+011,0,Bluetooth Devices
+011,1,Number of known,Bluetooth Devices
+;
+012,0,SIM Status
+012,1,Telephone SIM
+012,2,Telephone SIM,Status
+;
+013,0,Bluetooth Signal Strength
+013,1,Bluetooth
+013,2,Bluetooth,Signal Strength,Range: 0.0...100.0 %
+;
+015,0,Telephone Status
+015,1,Telephone
+015,2,Telephone,Status,Range: Connected/Not Connected
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+082,0,Advanced Control Module Identification III
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone (J412) Coding
+C01,0002320 = Standard
+;

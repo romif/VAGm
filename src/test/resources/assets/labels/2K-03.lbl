@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-03.LBL
+; 2K-03.LBL
+; 1K0-614-517-MK60-A.LBL (MK60 AWD)
+; 1K0-614-517-MK60-F.LBL (MK60 FWD)
+; 1K0-907-379-MK60-A.LBL (MK60 AWD)
+; 1K0-907-379-MK60-F.LBL (MK60 FWD)
+; 1K0-907-379-MK70.LBL   (MK70)
+;
+; created on 13/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Jun/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-907-379-MK70.LBL,2K0-907-37?-A     ; MK70
+REDIRECT,1K0-907-379-MK70.LBL,2K0-907-37?-B     ; MK70
+;

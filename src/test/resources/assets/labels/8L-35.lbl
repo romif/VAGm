@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Central Locking (#35)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8L-35.LBL
+; 8D0-862-257.LBL
+;
+; created on 23/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8D0-862-257.LBL,8L?-862-257-???
+;

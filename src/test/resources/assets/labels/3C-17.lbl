@@ -1,0 +1,25 @@
+;
+; VCDS Redirect File
+;
+; VW Passat (3C) / VW Passat Coupé (35)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-17.LBL
+; 3C0-920-xxx-17.LBL (Limousine/Variant)
+; 3C8-920-xxx-17.LBL (Coupé)
+;
+; created on 29/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Jun/2008
+;
+; requires VCDS 805.1 or newer
+;
+;
+REDIRECT,3C0-920-xxx-17.LBL,3C0-920-???-???  ; 3C
+;
+REDIRECT,3C8-920-xxx-17.CLB,3C8-920-???-???  ; 35
+;

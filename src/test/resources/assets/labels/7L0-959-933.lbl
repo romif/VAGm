@@ -1,0 +1,246 @@
+;
+; VCDS Label File
+;
+; VW Touareg (7L)
+;
+; Component: J393 - Central Module Comfort System (#46)
+;
+; P/N: 7L0-959-933-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 19/Nov/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/May/2008
+;
+; requires VCDS 804.0 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Driver's Door
+001,1,WR-Button (E40),Driver Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,2,Window Regulator,Therm. Prot. (V147),Range: Yes/No
+001,3,Driver Door,Lock Butt. (E308),Range: Not Oper./Locking/Unlocking/Implausible
+001,4,Driver Door Outside,Lock Butt. (E369),Range: Not Oper./Operated/Not Installed
+;
+002,0,Window Regulator Buttons (Driver Door)
+002,1,WR-Button (E81),Passenger Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+002,2,WR-Button (E53),Rear Left Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+002,3,WR-Button (E55),Rear Right Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,1,Driver Door,Key Switch,Range: Not Oper./Open/Close/Implausible
+003,2,Interior Door,Hand Button,Range: Not Oper./Operated
+003,3,Outside Door,Hand Button,Range: Not Oper./Operated
+;
+004,1,Driver Child,Safety Lock Switch,Range: Range: Not Oper./Operated/Not Installed
+4,2,,,
+;ubetjent, ,
+004,3,Rear Left Child,Safety Lock Status,Range: Yes/No/Not Installed
+004,4,Rear Right Child,Safety Lock Status,Range: Yes/No/Not Installed
+;
+005,0,Mirror Adjustment/Heating
+005,1,Mirror Adjustment,Switch (E43),Range: Pos X+/Pos X-/Pos Y+/Pos Y-/Not Oper./Not Installed
+005,2,Mirror Selector,Switch (E48),Range: Left/Right/Not Oper.
+005,3,Mirror Heater,Switch (E231),Range: ON/OFF/Not Installed
+;
+006,0,Defrost Buttons
+006,1,Driver Door,Defrost Button,Range: Not Installed
+006,2,Passenger Door,Defrost Button,Range: Not Installed
+;
+007,0,Passenger Door
+007,1,WR-Button (E107),Passenger Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+007,2,Window Regulator,Therm. Prot. (V148),Range: Yes/No
+007,3,Lock Butt. (E309),Passenger Door,Range: Not Oper./Locking/Unlocking/Implausible
+007,4,Passenger Outside,Lock Butt. (E370),Range: Not Oper./Operated/Not Installed
+;
+008,0,Rear Left Door
+008,1,WR-Button (E52),Rear Left Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+008,2,Window Regulator,Therm. Prot. (V26),Range: Yes/No
+008,3,Lock Butt. (E310),Rear Left Door,Range: Not Oper./Locking/Unlocking/Implausible
+008,4,Rear Left Outside,Lock Butt. (E371),Range: Not Oper./Operated/Not Installed
+;
+009,0,Rear Right Door
+009,1,WR-Button (E54),Rear Right Door,Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+009,2,Window Regulator,Therm. Prot. (V27),Range: Yes/No
+009,3,Lock Butt. (E311),Rear Right Door,Range: Not Oper./Locking/Unlocking/Implausible
+009,4,Right Left Outside,Lock Butt. (E372),Range: Not Oper./Operated/Not Installed
+;
+010,0,Central Locking Units
+010,1,Driver Door,Status (F220),Range: Locked/Unlocked/Safe/Implausible
+010,2,Passenger Door,Status (F221),Range: Locked/Unlocked/Safe/Implausible
+010,3,Rear Left Door,Status (F222),Range: Locked/Unlocked/Safe/Implausible
+010,4,Rear Right Door,Status (F223),Range: Locked/Unlocked/Safe/Implausible
+;
+011,0,Door Contact Switches
+011,1,Driver Door,Door Contact (F2),Range: Door Closed/Door Open
+011,2,Passenger Door,Door Contact (F3),Range: Door Closed/Door Open
+011,3,Rear Left Door,Door Contact (F10),Range: Door Closed/Door Open
+011,4,Rear Right Door,Door Contact (F11),Range: Door Closed/Door Open
+;
+12,0,,
+12,1,,,
+; 1 1 1  ,Bin. Bits,
+;
+013,1,Voltage,(Terminal 30),Specification: 9.0...14.5 V
+013,2,Ignition,(Terminal 15),Range: Term 15 On/Term 15 Off
+013,3,S-Contact,,Range: Activated
+013,4,Vehicle Speed
+;
+014,1,Central Locking,Thermal Protection,Range: Yes/No
+014,2,Hood Contact,Switch (F120),Range: Open/Closed
+014,3,Brake Light,Switch (F45),Range: ON/OFF
+014,4,Databus,Condition,Specification: 2-Wire\nRange: 1-Wire/2-Wire
+;
+015,0,CAN-Datenbus (Communication)
+015,1,Control Module,Driver Door
+015,2,Control Module,Passenger Door
+015,3,Control Module,Rear Left Door
+015,4,Control Module,Rear Right Door
+;
+16,0,,
+16,1,,,
+;Not Installed, ,
+16,2,,,
+;Not Oper., ,
+016,3,Rear Lid Handle,Unlock Sw. (E234),Range: Open/Closed
+016,4,Rear Lid Lock Unit,(F256),Range: Open/Closed
+;
+017,1,Remote Control,Buttons,Range: 0 = Not Operated / 1 = Operated\n\n?xxx = Open\nx?xx = Close\nxx?x = Rear Lid\nxxx? = Panic (USA only)
+017,2,Immobilizer,Key Recognition,Range: Yes/No
+017,3,Rear Lid,Opening Request,Range: Yes/No
+017,4,
+;OFF, ,
+;
+018,0,Alarm Sources
+;   1 = Driver Door Rotary Switch
+;   2 = Passenger Door Rotary Switch
+;   3 = Rear Left Door Rotary Switch
+;   4 = Rear Right Door Rotary Switch
+;   5 = Rear Lid Rotary Switch
+;   6 = Hood Contact Switch
+;   7 = Ignition (Terminal 15)
+;   8 = Interior Monitoring
+;   9 = Tire Puncture/Theft (Front Left)
+;  10 = Tire Puncture/Theft (Front Right)
+;  11 = Tire Puncture/Theft (Rear Left)
+;  12 = Tire Puncture/Theft (Rear Right)
+;  13 = Tire Puncture/Theft (Spare)
+;  14 = Inclination Sensor
+;  15 = Backup Horn/Siren
+;  16 = Immobilizer
+;  17 = Trailer
+; 255 = No Alarm
+018,1,1st Alarm Source
+018,2,2nd Alarm Source
+018,3,3rd Alarm Source
+018,4,4th Alarm Source
+;
+019,1,Parking Light,(Terminal 58),Range (Request): ON/OFF
+019,3,Parking Light,Left,Range (Request): ON/OFF
+019,4,Parking Light,Right,Range (Request): ON/OFF
+;
+020,1,Rear Fog Light,(Terminal 83b),Range (Request): ON/OFF
+020,2,Back-Up Lights,,Range (Request): ON/OFF
+020,3,Luminescence,Plate,Range (Return Message): Yes/No
+;
+021,1,Left Tail Light,(M4),Range: ON/OFF
+021,2,Right Tail Light,(M5),Range: ON/OFF
+021,3,License Plate,Light (X),Range: ON/OFF
+021,4,Rear Fog Lights,(L46/L47),Range: ON/OFF
+;
+022,1,Left Brake Light,(M9),Range: ON/OFF
+022,2,Right Brake Light,(M10),Range: ON/OFF
+022,3,High Brake Light,(M25),Range: ON/OFF
+022,4,Back-Up Lights,(M16/M17),Range: ON/OFF
+;
+023,1,Rear Ambient,Illumination,Range: 0.0...100.0 %
+023,2,Trunk,Illumination,Range: 0.0...100.0 %
+023,3,Rear Light,Reserve Operation,Range: Yes/No
+023,4,Trailer,attached,Range: Yes/No/No Commun.
+;
+024,1,Rear Window,Heating Request,Range: Yes/No
+024,2,Rear Window,Heating Relay,Range: ON/OFF
+024,4,Open Tank Lid,Request,Range: Yes/No
+;
+025,1,Comfort Function,,Range: Not Oper./Yes/No
+025,2,Sunroof,Enabling,Range: Yes/No
+025,3,Sunroof Control,,Range: Not Oper./Open/Close
+;
+026,0,Rear Windshield
+026,1,Rear Wind. (E361),Opening Button,Range: Not Oper./Operated/Not Installed
+026,2,Rear Wind. (V312),Unlocking Unit,Range: Open/Closed/Not Installed
+026,3,Rear Windshield,Unlocking,Range: ON/OFF
+;
+027,0,Rear Windshield
+027,1,Rear Windsh. Req.,Wiper Interval,Range: Yes/No
+027,2,Rear Windsh. Req.,Wipe/Wash Funct.,Range: Yes/No
+027,3,Rear Windsh. Act.,Wiper Interval,Range: ON/OFF
+027,4,Rear Windsh. Act.,Wipe/Wash Funct.,Range: ON/OFF
+;
+028,0,Spare Wheel Holder
+028,1,Spare Wheel,Unlock Button,Range: Operated/Not Oper./Not Installed
+028,2,Spare Wheel,Rotary Trap,Range: Open/Closed/Not Installed
+028,3,Spare Wheel,Position Switch,Range: Enganged/Disenganged/Not Installed
+028,4,Spare Wheel,Unlocking,Range: Unlocked/Inactive/Not Installed
+;
+029,0,Rear Lid Closing Assist
+029,1,Rear Lid,Closing Assist,Range: ON/OFF/Not Installed
+029,2,Rear Lid,Position Switch,Range: Open/Close/Not Installed
+029,3,Thermal Protection,Closing Assist,Range: Yes/No/Not Installed
+029,4,Thermal Protection,Spare Wheel,Range: Yes/No/Not Installed
+;
+030,0,Vehicle Inclination Sensor (G384) I
+030,1,Inclination Sensor,Status,Range: active/inactive
+030,2,Inclination Sensor,Alarm Recognized,Range: Yes/No/Not Installed
+030,3,Inclin. Sensor (E360),,Deactivation Switch,Range: Operated/Not Oper./Not Installed
+;
+031,0,Vehicle Inclination Sensor (G384) II
+031,1,Inclination Sensor,Supply Voltage,Range: 0.0...19.0 V\nSpecification: 9.0...14.5 V
+;
+032,0,Vehicle Inclination Sensor (G384) III
+032,1,Curent,Alarm Angle,Specification: -25.0...+25.0 °\nRange: No Value/Not Installed
+;
+033,0,Vehicle Inclination Sensor (G384) IV
+33,1,,,
+;Not Installed, ,
+33,2,,,
+;Not Installed, ,
+33,3,,,
+;Not Installed, ,
+33,4,,,
+;Not Installed, ,
+;
+034,0,Interior Monitoring Sensor (G273)
+034,1,Interior Monitoring,Status,Range: active/inactive
+034,2,Interior Monitoring,Alarm Recognized,Range: Yes/No/Not Installed
+034,3,Inter. Monit. (E267),Deactivation Switch,Range: Operated/Not Oper./Not Installed
+;
+035,0,Interior Monitoring Sensor (G273)
+035,1,Interior Monitoring,Supply Voltage,Range: 0.0...19.0 V\nSpecification: 9.0...14.5 V
+035,2,Signal,Terminal 15,Range: Term. 15 ON/Term. 15 OFF
+035,3,Interior Monitoring,Alarm Stored,Range: Yes/No/Not Installed
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System (J393) Coding
+C01,0000065 = Standard/Base Value
+C02, 
+C03,+0000004 = Rear Lid Closing Aid
+C04,+0000016 = Sun Roof
+C05, 
+C06,Note: The coding is the some of the standard/base value and the possible options.
+;

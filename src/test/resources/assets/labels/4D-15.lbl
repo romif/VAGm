@@ -1,0 +1,38 @@
+;
+; VCDS Redirect File
+;
+; Audi A8 (4D)
+;
+; Component: Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4D-15.LBL
+; 8A0-959-655.LBL      (Airbag 3)
+; 4D0-959-655-AI5.LBL  (Airbag 5)
+; 4D0-959-655-AI7.LBL  (Airbag 7)
+; 4D0-959-655-AI8.LBL  (Airbag 8)
+;
+; created on 22/Mar/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Apr/2008
+;
+; requires VCDS 405.0 or newer
+;
+;4D0-959-655     ; Airbag ? (> A)
+;4D0-959-655-A   ; Airbag ? (> K)
+REDIRECT,4D0-959-655-AI7.LBL,4D0-959-655-C   ; Airbag 7
+REDIRECT,4D0-959-655-AI7.LBL,4D0-959-655-E   ; Airbag 7 (> H)
+REDIRECT,4D0-959-655-AI7.LBL,4D0-959-655-H   ; Airbag 7
+REDIRECT,4D0-959-655-AI8.LBL,4D0-959-655-J   ; Airbag 8 (> M)
+;4D0-959-655-K   ; Airbag ?
+;4D0-959-655-L   ; Airbag ? (> Q)
+REDIRECT,4D0-959-655-AI8.LBL,4D0-959-655-M   ; Airbag 8 (> R)
+;4D0-959-655-N   ; Airbag ? (> S)
+REDIRECT,4D0-959-655-AI8.LBL,4D0-959-655-P   ; Airbag 8 (> T)
+;4D0-959-655-Q   ; Airbag ?
+;4D0-959-655-R   ; Airbag ?
+;4D0-959-655-S   ; Airbag ?
+REDIRECT,4D0-959-655-AI8.LBL,4D0-959-655-T   ; Airbag 8
+;

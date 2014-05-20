@@ -1,0 +1,130 @@
+;
+; VAG-COM label file 3D0-909-601.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Airbags  -J234-  (#15)
+;
+;
+; p/n: 3D0 907 040 F     Component: 0C Airbag 8.4E+ H07 0935    Coding: 0000001 (2004 German spec W12 Phaeton)
+; p/n: 3D0 909 601 D     Component: 0A Airbag 8.4E+ H07 0934    Coding: 0012353 (2004 Canadian spec W12 Phaeton)
+; p/n: 3D0 909 601 E     Component: 0A Airbag 8.4E+ H10 0934    Coding: 0012353 (2004 USA spec W12 Phaeton)
+; p/n: 3D0 909 601 E     Component: 0P Airbag 8.4E+ H10 0936    Coding: 0012368 (2004 Canadian spec Bentley Continental GT)
+; p/n: 3D0 909 601 D     Component: 0P Airbag 8.4E+ H07         Coding: 0012360 (2004 Europe spec Bentley Continental GT)
+; p/n: 3D0 909 601 E     Component: 0G Airbag 8.4E+ H10 0934    Coding: 0012359 (2005 Canadian spec V8 Phaeton)
+; p/n: 3D0 909 601 H     Component: 04 Airbag 8.4E++H01 0554    Coding: 0012340 (2005 USA spec V8 Phaeton with pax airbag light)
+;
+; NOTE: 3D0 909 601 H includes slave controller 3D0 959 339, Component: BF-Gewichtsensor 006 0005 to run pax airbag light. This is cut in beginning late 2005 MY production. 
+; 
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; Created:       30/August/2005 (Michael)
+; last modified: 23/November/2005 (Michael) - H version controller and slave info added.
+; last modified: 29/November/2005 (Michael) - All MVB's and adaptation channels mapped.
+;                                           - Tested on a 2004 NAR LWB Phaeton.
+; last modified: 16/September/2006 (Michael) - Needs further investigation of MVB 5 and 7.
+;
+; This controller uses blocks 1 to 4, 6 to 9, 11, 80, 125, and 225 only.
+;
+; Ready for VAG-COM 500.9 and above (500.9 supports block labels beginning with asterisks)
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+001,0,Igniter Status for Front Seating Positions
+001,1,Driver Igniter,Status,This is the steering wheel airbag.
+001,2,Passenger Igniter,Status,This is the front dashboard airbag.
+001,3,Driver Seat Belt,Tensioner Igniter,
+001,4,Passenger Seat Belt,Tensioner Igniter,
+;
+002,0,Igniter Status for Rear Seating Positions and Starter Battery Explosive Disconnect
+002,1,Rear Driver Side,Belt Tensioner
+002,2,Rear Pax Side,Belt Tensioner
+002,3,Rear Middle Seat,Belt Tensioner
+002,4,Battery Isolation,Igniter Status,This is the explosive disconnect on the starter battery.
+;
+003,0,Front Seating Positions - Belt in Use Sensors and Passenger Seat Occupancy Sensor
+003,1,Voltage Supply,to Controller
+003,2,Front Pax Seat,Occupancy Sensor,Possible display: - child/child seat - light adult - heavy adult - occupied - not occupied - not installed.
+003,3,Belt Fastened,Sensor Driver,This is the microswitch in the seat belt buckle
+003,4,Belt Fastened,Sensor Passenger,This is the microswitch in the seat belt buckle
+;
+004,0,Rear Seating Positions - Belt in Use Sensors
+004,1,Rear Driver Side,Belt in Use Sensor,Possible display: - too small - too large - to Ground (GND) - to B+ - Belt yes - Belt no - not installed
+004,2,Rear Pax Side,Belt in Use Sensor,Possible display: - too small - too large - to Ground (GND) - to B+ - Belt yes - Belt no - not installed
+004,3,Rear Middle,Belt in Use Sensor,Not installed on 4 seater Phaeton.
+004,4,Not Used
+;
+005,0,*This Group returns an error message.
+;
+006,0,Igniter Status for Side Airbags
+006,1,Front Side Airbag,Driver Side
+006,2,Front Side Airbag,Passenger Side
+006,3,Rear Side Airbag,Driver Side
+006,4,Rear Side Airbag,Passenger Side
+;
+007,0,*This Group returns an error message.
+;
+008,0,Igniter Status for Additional Airbags
+008,1,Front Airbag 2,Driver Side
+008,2,Front Airbag 2,Passenger Side
+008,3,Driver Side,Head Level Airbag
+008,4,Passenger Side,Head Level Airbag
+;
+009,0,Status of Key Switch for Passenger Airbag Control (may not installed in North American cars)
+009,1,Key Switch,Status,Can be On or Off.
+009,2,Unknown,,It is possible that this component is not installed in all cars.
+009,3,Unknown,,It is possible that this component is not installed in all cars.
+009,4,Not Used
+;
+010,0,*This Group returns an error message.
+;
+011,0,Unknown - may refer to components that are not installed in all cars.
+;
+012,0,*Next MVB used is block 80.
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Next block used is 125
+;
+125,0,CAN Bus Communications Status
+;
+126,0,*Next block used is 225
+;
+225,0,Unknown
+;
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+; All channels have been mapped, but there does not appear to be any channels used
+; for adaptation of this controller.
+;
+;
+;
+;---------------------------------------------------
+;
+; Coding information
+;
+;---------------------------------------------------
+;
+;
+; Not Documented.
+;
+;end of file
+;

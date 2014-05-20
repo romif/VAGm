@@ -1,0 +1,93 @@
+;
+; VCDS Label File
+;
+; Skoda Fabia/Roomster (5J)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 5J0-919-283-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 14/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Resulting,Distance Front,Specification: Not Installed
+001,2,Resulting,Distance Rear,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Vehicle Speed,,Range: 0.0...255.0 km/h
+001,4,Sensor,Voltage Supply,Specification: 10.0...14.5 V
+;
+002,0,External Information
+002,1,Reverese Gear,engaged,Range: Reverse: Yes/Reverse: No
+002,2,Trailer hitched,,Range: YES/NO/Not Installed
+002,3,Sound Output,Suppressed (Park),Range: OFF/ON
+002,4,Parking Aid,Button (E266),Range: ON/OFF/Not Oper./Not Installed
+;
+004,0,Distance (Rear)
+004,1,Rear Left (G203),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+004,2,Rear Left (G204),Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+004,3,Rear Right (G205),Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+004,4,Rear Right (G206),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+008,0,Confirmation Sound && Indirect Echo
+008,1,Confirm. Sound,(Reverse Gear),Range: ON/OFF
+008,2,Indirect Echo,RR to RCR,255cm = no obstacle recognized
+008,3,Indirect Echo,RCR zu RCL,255cm = no obstacle recognized
+008,4,Indirect Echo,RCL zu RL,255cm = no obstacle recognized
+;
+010,0,Volume && Frequency
+010,1,Rear Buzzer,Volume,Range: 0.0...100.0 %
+010,2,Rear Buzzer,Frequency,Range: 0...2000 Hz
+;
+011,0,Volume && Frequency (Factory Setting)
+011,1,Rear Buzzer,Volume,Range: 0.0...100.0 %
+011,2,Rear Buzzer,Frequency,Range: 0...2000 Hz
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,00?xx20: Confirmation
+C02,0 = Confirmation when engaging Reverse Gear active
+C03,1 = Confirmation when engaging Reverse Gear inactive
+C04,00x?x20: Trailer Hitch
+C05,0 = Trailer Hitch not installed
+C06,1 = Trailer Hitch installed
+C07,00xx?20: Transmission
+C08,0 = Manual Transmission
+C09,1 = Automatic Transmission
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Rear Buzzer Volume
+A001,5,Rear Buzzer Volume
+A001,6,Adaptation of the rear warning buzzer volume.
+A001,7, 
+A001,8,Range: 0...94
+A001,9,Standard: 50
+;

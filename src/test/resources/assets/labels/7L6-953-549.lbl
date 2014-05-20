@@ -1,0 +1,106 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 7L6-953-549-???
+;
+; includes measuring blocks and coding
+;
+; created on 18/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modified: 22/Jul/2006
+;
+; requires VAG-COM 402.3 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuaring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Blinker,,Specified value: inactive/links/rechts
+001,2,Headlamp,flasher,Specified value: inactive/active
+001,3,High beam,,Specified value: inactive/active
+001,4,Signal horn,,Specified value: inactive/active
+;
+002,1,Wiping,,Specified value: inactive/Intervall/Stufe 1/Stufe 2
+002,2,Interval,potentiometer,Specified value: off/level 1, 2 , 3/Poti n.Ok.
+002,3,Front washing,,Specified value: inactive/active
+002,4,Voltage,terminal 30
+;
+003,1,Rear windshield,wiping,Specified value: inactive/active
+003,2,Rear washing,,Specified value: inactive/active
+;
+004,1,Steering column,adjustment,Specified value: inactive/raise/lower/forward/backward
+004,2,Easy Entry,switch,Specified value: on/off
+;
+005,0,CSO-signals
+005,1,Terminal P,,Specified value: on/off
+005,2,Terminal S,,Specified value: on/off
+005,3,Terminal X,,Specified value: on/off
+005,4,Terminal 15,,Specified value: on/off
+;
+006,1,Terminal X,switched on,Specified value: yes/no
+006,2,Heatet seat,status,Specified value: off/[level]
+006,3,Steering wheel,heater enabled,via Vehicle VSCM (Specified value: yes/no)
+;
+007,0,Steering wheel heating
+007,1,Heater status,,Specified value: not installed/on/off
+007,2,Temperature,sensor,Specified value: not installed/[level]
+;
+012,1,CCS+ switch,,Specified value: inactive/active
+012,2,CCS- switch,,Specified value: inactive/active
+012,3,SET button,,Specified value: inactive/active
+012,4,RESET button,,Specified value: sinactive/active
+;
+013,1,CANCEL button,,Specified value: inactive/active
+013,2,CCS ON/OFF,button,Specified value: inactive/active
+013,3,Illumination,button,Specified value: inactive/active
+;
+014,1,Vol+ button,,Specified value: inactive/active
+014,2,Vol- button,,Specified value: inactive/active
+014,3,Telephone button,,Specified value: inactive/active
+014,4,PTT button,,Specified value: inactive/active
+;
+015,1,Button OK,,Specified value: inactive/active
+015,2,Abort button,,Specified value: inactive/active
+015,3,Menu button,,Specified value: inactive/active
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus Communication
+125,1,Instrument Cluster,(J285),Range: Instruments 1/Instruments 0\nSpecification: Instruments 1
+125,2,Electrical,Ignition Lock,Range: El.Ign.Lock 1/El.Ign.Lock 0\nSpecification: El.Ign.Lock 1
+125,3,Battery,Management,Range: Batt.Mgmt 1/Batt.Mgmt 0\nSpecification: Batt.Mgmt 1
+125,4,Seat Memory,Driver,Range: Memory 1/Memory 0
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+C01,00?xx: Heated Steering Wheel
+C02,0 = Heated Steering Wheel not installed
+C03,1 = Heated Steering Wheel installed
+C04,2 = Heated Steering Wheel installed (via MFS Button)
+C05, 
+C06,00x?x: Multifunction Steering Wheel
+C07,0 = Steering Wheel without Multifunction
+C08,1 = Multifunction Steering Wheel (High) with 6 Buttons (CCS)
+C09,3 = Multifunction Steering Wheel (Low) with 4 Buttons (CCS)
+C10, 
+C11,00xx?: Steering Column Adjustment
+C12,1 = Steering Column Adjustment not installed
+C13,2 = Steering Column Adjustment installed
+;

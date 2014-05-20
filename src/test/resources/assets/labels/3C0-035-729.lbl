@@ -1,0 +1,149 @@
+;
+; VAG-COM Label File
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K/5M) / VW Passat (3C) / VW Touran (1T)
+;
+; Component: J412 - Telephone (#77) - Preperation Low
+;
+; P/N: 3C0-035-729-???
+;
+; includes measuring blocks, adaptation, coding and selective output test
+;
+; created on 11/Nov/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/Nov/2007
+;
+; requires VAG-COM 602.3 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,3,Signal Strength
+001,4,Signal Strength,,Range: 0.0...100.0 % / Not Recogn.
+;
+002,0,Telephone
+002,1,Telephone
+002,3,Connection,Status,Range: Connected / Not Connected
+002,4,Network,Status,Range: Acquired / Not Acquired
+;
+003,0,Microphone
+003,1,Microphone
+003,2,Microphone,Status,Specification: OK
+003,3,Microphone
+003,4,Microphone,Current,Specification: 3.0...9.0 mA
+;
+004,0,Audio Outputs
+004,1,Audio Output,Plus (+),
+004,2,Status,Audio Output (+),Specification: OK
+004,3,Audio Output,Minus (-)
+004,4,Status,Audio Output (-),Specification: OK
+;
+005,0,Button for Roadside Assistance && Information Service
+005,1,Roadside,Assistance Button
+005,2,Roadside,Assistance Button,Range: Operated/Not Oper./Not Recogn.
+005,3,Information,Service Button
+005,4,Information,Service Button,Range: Operated/Not Oper./Not Recogn.
+;
+015,0,Bluetooth
+015,1,Bluetooth
+015,2,Bluetooth,Visibility,Range: visible/invisible
+015,3,Bluetooth,Status
+;
+020,0,Cell Phone Cradle
+020,1,Cell Phone,Cradle
+020,2,Cell Phone,Cradle Status
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone Preparation (J412) Coding
+C01,0016023 = Radio
+C02,0016043 = Radio/Navigation System
+;
+;
+;---------------------------------------------------
+;
+; selektive output test
+;
+;---------------------------------------------------
+;
+;
+T851,Loudspeaker(s)
+T1530,Radio Mute
+T2793,Connected Bluetooth Devices
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Basis Volume (Telephone)
+A001,5,Basis Volume (Telephone)
+A001,6,Standard Output Signal Level
+A001,7, 
+A001,8,0 = -6 dB / 3 = -3 dB / 5 = -1 dB / 6 = ±0 dB
+A001,9,7 = +1 dB / 9 = +3 dB / 12 = +6 dB
+;
+A003,0,Basis Volume (Microphone)
+A003,5,Basis Volume (Microphone)
+A003,6,Standard Input Signal Level
+A003,7, 
+A003,8,0 = -6 dB / 3 = -3 dB / 5 = -1 dB / 6 = ±0 dB
+A003,9,7 = +1 dB / 9 = +3 dB / 12 = +6 dB
+;
+A004,0,Afterrun Time
+A004,3,Current,Afterrun Time
+A004,5,Afterrun Time
+A004,6,The time the mobile phone plate is active after "Ignition OFF".
+A004,7,Range: 0...60 min
+;
+A005,0,Bluetooth-PassKey
+A005,1,Bluetooth
+A005,2,Current PassKey,Digit 1 & 2
+A005,3,Current PassKey,Digit 3 & 4
+A005,5,Bluetooth-PassKey
+A005,6,Range: 0...9999
+A005,7,Standard: 0000
+;
+A006,0,Bluetooth Connection cleanup
+A006,5,Bluetooth Connection cleanup
+A006,6,To delete old Bluetooth Connections
+A006,7,save "1" as new value.
+;
+A008,0,Mute Delay
+;
+A009,0,Audio Output Delay
+A009,2,Current,Delay Time
+A009,5,Audio Output Delay
+A009,6,Range: 0...12 ms (milli seconds)
+;
+A010,0,Bluetooth Visibility
+A010,3,Current,Status
+A010,5,Bluetooth Visibility
+A010,6,0 = invisible
+A010,7,1 = visible
+;
+A011,0,Language
+A011,2,Current,Language
+A011,5,Language
+A011,5,262 = German
+;
+A020,0,Telephone Number Information Service
+;
+A021,0,Telephone Number Roadside Assistance
+;

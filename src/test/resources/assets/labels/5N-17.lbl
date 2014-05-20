@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; VW Tiguan (5N)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-17.LBL
+; 1T-17.LBL
+; 1Z-17.LBL
+; 2K-17.LBL
+; 5N-17.LBL
+; 5P-17.LBL
+; 1K0-920-xxx-17.LBL
+; 1K0-920-xxx-25.LBL
+;
+; created on 14/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Dec/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-920-xxx-17.LBL,5N0-920-???-???
+;

@@ -1,0 +1,311 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J234 - Airbag 9.43 (#15)
+;
+; P/N: 8J0-959-655-???
+;
+; includes measuring blocks, security access, coding and adaptation
+;
+; created on 20/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Oct/2007
+;
+; requires VAG-COM 604.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Igniter Status (Airbag && Tensioner)
+001,1,Driver Airbag,Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Passenger Airbag,Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Driver Belt,Tensioner Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Passenger Belt,Tensioner Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+B001,0,Seat Occupied Recognition Control Module (J706) Basic Setting
+;
+002,0,Igniter Status (Tensioner && Battery Disconnect)
+002,1,Rear Left Belt,Tensioner Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Rear Right Belt,Tensioner Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,3,Rear Center Belt,Tensioner Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,4,Battery Disconnect,Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,1,Voltage supply,,Range: Correct/Signal too Low/Signal too High
+003,2,Seat Occupation,Detection Passenger,Range: Child Seat/Light Adult/Medium Adult/Heavy Adult/Not Occup./Short to Ground/Short to Plus/Not Installed
+003,3,Belt Inquiry,Driver,Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Passenger,Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry (Rear)
+004,1,Belt Inquiry,Rear Left,Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Right,Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+005,0,Igniter Status (Side Airbag)
+005,1,Front Left Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,2,Front Right Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,3,Rear Left Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,4,Rear Right Side,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+007,0,Igniter Status (Head Airbag)
+007,1,Driver Head,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+007,2,Passenger Head,Airbag Igniter,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+008,0,Igniter Status (Belt Force Limiter)
+008,3,Driver Belt,Force Limiter Ign.,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+008,4,Passenger Belt,Force Limiter Ign.,Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+010,0,Key Switch
+010,1,Passenger,Airbag Status,Range: ON/OFF
+010,2,Key Switch,Logic Contact 1,Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+010,3,Key Switch,Logic Contact 2,Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+011,0,Ingniters V (Front Airbags Stage 2 && Front Knee Airbags)
+011,1,Airbag (Stage 2),Front Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,2,Airbag (Stage 2),Front Pass. Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,3,Knee Airbag,Driver Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+011,4,Knee Airbag,Passenger Side,Specification: Correct\nRange: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+016,0,Seat Occupied Recognition Control Module (J706) I
+016,1,Serial Number,(1/2)
+016,2,Serial Number,(3/4)
+016,3,Serial Number,(5)
+016,4,Calibration Status
+;
+018,0,Seat Occupied Recognition Control Module (J706) II
+018,1,Pressure Sensor
+018,2,Belt Force Sensor
+018,3,Acceleration,Sensor
+;
+019,0,Seat Occupied Recognition Control Module (J706) III
+019,1,Workshop Code,(Last Coding)
+019,2,Workshop Code,(Last 0-Balance)
+;
+020,1,Battery Separating
+;
+021,0,Igniter Resistance I (Front Airbags Stage 1 && Front Belt Tensioners)
+021,1,Airbag (Stage 1),Driver Side,Specification: 2.3...5.3 Ohm
+021,2,Airbag (Stage 1),Passenger Side,Specification: 1.7...4.0 Ohm
+021,3,Belt Tensioner,Driver Side,Specification: 1.7...4.0 Ohm
+021,4,Belt Tensioner,Passenger Side,Specification: 1.7...4.0 Ohm
+;
+022,0,Igniter Resistance II (Rear Belt Tensioners)
+022,1,Belt Tensioner,Rear Left
+022,2,Belt Tensioner,Rear Right
+022,3,Belt Tensioner,Rear Center
+022,4,Pyrotechnic Igniter,Battery Separating,Specification: 1.7...4.0 Ohm
+;
+025,0,Igniter Resistance III (Side Airbags)
+025,1,Side Airbag,Driver Side,Specification: 1.7...4.0 Ohm
+025,2,Side Airbag,Passenger Side,Specification: 1.7...4.0 Ohm
+025,3,Side Airbag,Rear Left
+025,4,Side Airbag,Rear Right
+;
+027,0,Igniter Resistance IV (Head Airbag)
+027,1,Driver Head,Airbag Igniter
+027,2,Passenger Head,Airbag Igniter
+;
+028,0,Igniter Resistance V (Belt Force Limiter)
+028,3,Driver Belt,Force Limiter Ign.,Specification: 1.7...4.0 Ohm
+028,4,Passenger Belt,Force Limiter Ign.,Specification: 1.7...4.0 Ohm
+;
+031,0,Igniter Resistance VI (Front Airbags Stage 2 && Front Knee Airbags)
+031,1,Airbag (Stage 2),Driver Side,Specification: 1.7...4.0 Ohm
+031,2,Airbag (Stage 2),Passenger Side,Specification: 1.7...4.0 Ohm
+031,3,Knee Airbag,Driver's Side,Specification: 1.7...4.0 Ohm
+031,4,Knee Airbag,Passenger Side,Specification: 1.7...4.0 Ohm
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Instrument Cluster,(J285),Specification: Instruments 1\Range: Instruments 1/Instruments 0
+125,2,Brake Electronics,(J104),Specification: ABS 1\Range: ABS 1/ABS 0
+;
+225,0,CAN-Databus Powertrain (TimeOut)
+225,1,Instrument Cluster
+225,2,Brake Electronics,(J104)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag (J234) Coding
+C01,A coding is not necessary since new
+C02,control modules are already pre-coded.
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Airbag (J234) Security Access
+S01,20324 = Seat Occupied Recognition Basic Settin/Zero Balancing (Siemens)
+S02,30475 = Seat Occupied Recognition Basic Settin/Zero Balancing (Bosch)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A000,0,Seat Occupied Recognition Reset
+A000,5,Seat Occupied Recognition Reset
+A000,6,If a repair on the Seat Occupied Recognition
+A000,7,has been performed a reset has to be performed too.
+A000,8, 
+A000,9,Prerequisites:
+A000,10,* Seat in normal position.
+A000,11,* Seat must NOT be occupied during the whole procedure.
+A000,12,* Seatbelt must NOT be plugged in.
+A000,13,* No faults in the system.
+A000,14,* Interior temperature must be between 0 °C and 37 °C (32 °F and 98 °F).
+A000,15, 
+A000,16,NOTE: Perform Security Access first.
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 = Airbag Enabled (Standard)
+A001,7,1 = Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;
+A002,0,Front Driver Airbag Deactivation
+A002,1,Front Driver,Airbag
+A002,2,Current Status
+A002,5,Front Driver Airbag Deactivation
+A002,6,0 = Airbag Enabled (Standard)
+A002,7,1 = Airbag Disabled
+A002,8, 
+A002,9,Note: Refer to Service Manual!
+;
+A003,0,Front Passenger Side Airbag Deactivation
+A003,1,Front Passenger,Side Airbag
+A003,2,Current Status
+A003,5,Front Passenger Side Airbag Deactivation
+A003,6,0 = Airbag Enabled (Standard)
+A003,7,1 = Airbag Disabled
+A003,8, 
+A003,9,Note: Refer to Service Manual!
+;
+A004,0,Front Driver Side Airbag Deactivation
+A004,1,Front Driver,Side Airbag
+A004,2,Current Status
+A004,5,Front Driver Side Airbag Deactivation
+A004,6,0 = Airbag Enabled (Standard)
+A004,7,1 = Airbag Disabled
+A004,8, 
+A004,9,Note: Refer to Service Manual!
+;
+A005,0,Front Passenger Belt Tensioner Deactivation
+A005,1,Front Passenger,Belt Tensioner
+A005,2,Current Status
+A005,5,Front Passenger Belt Tensioner Deactivation
+A005,6,0 = Belt Tensioner Enabled (Standard)
+A005,7,1 = Belt Tensioner Disabled
+A005,8, 
+A005,9,Note: Refer to Service Manual!
+;
+A006,0,Front Driver Belt Tensioner Deactivation
+A006,1,Front Driver,Belt Tensioner
+A006,2,Current Status
+A006,5,Front Driver Belt Tensioner Deactivation
+A006,6,0 = Belt Tensioner Enabled (Standard)
+A006,7,1 = Belt Tensioner Disabled
+A006,8, 
+A006,9,Note: Refer to Service Manual!
+;
+A013,0,Passenger Seat Occupation Recognition Sensor Deactivation
+A013,1,Passenger Seat,Recognition Sensor
+A013,2,Current Status
+A013,5,Passenger Seat Occupation Recognition Sensor Deactivation
+A013,6,0 = Sensor Enabled (Standard)
+A013,7,1 = Sensor Disabled
+A013,8, 
+A013,9,Note: Refer to Service Manual!
+;
+A014,0,Battery Separating Deactivation
+A014,1,Battery Separating
+A014,2,Current Status
+A014,5,Battery Separating Deactivation
+A014,6,0 = Battery Separating Enabled (Standard)
+A014,7,1 = Battery Separating Disabled
+A014,8, 
+A014,9,Note: Refer to Service Manual!
+;
+A017,0,Front Passenger Knee Airbag Deactivation
+A017,1,Front Passenger,Knee Airbag
+A017,2,Current Status
+A017,5,Front Passenger Knee Airbag Deactivation
+A017,6,0 = Knee Airbag Enabled (Standard)
+A017,7,1 = Knee Airbag Disabled
+A017,8, 
+A017,9,Note: Refer to Service Manual!
+;
+A018,0,Front Driver Knee Airbag Deactivation
+A018,1,Front Driver,Knee Airbag
+A018,2,Current Status
+A018,5,Front Driver Knee Airbag Deactivation
+A018,6,0 = Knee Airbag Enabled (Standard)
+A018,7,1 = Knee Airbag Disabled
+A018,8, 
+A018,9,Note: Refer to Service Manual!
+;
+A020,0,Passenger Airbag Shut-Off Switch Deactivation
+A020,1,Passenger,Airbag Shut-Off
+A020,2,Current Status
+A020,5,Passenger Airbag Shut-Off Switch Deactivation
+A020,6,0 = Passenger Airbag Shut-Off Switch Enabled (Standard)
+A020,7,1 = Passenger Airbag Shut-Off Switch Disabled
+A020,8, 
+A020,9,Note: Refer to Service Manual!
+;
+A23,0,
+;0
+A23,1,
+;Act. Steer 1
+A23,2,
+;Enabled
+A23,3,
+;00000 000 00000
+A23,4,
+;N/A
+;
+A24,0,
+;0
+A24,1,
+;Transportmode
+A24,2,
+;Enabled
+A24,3,
+;00000 000 00000
+A24,4,
+;N/A
+;
+A050,0,ESP-Data (Powertrain)
+A050,1,Powertrain
+A050,5,ESP-Data (Powertrain)
+A050,6,1 = Front-Wheel-Drive (FWD)
+A050,7,2 = All--Wheel-Drive (AWD)
+;
+A051,0,ESP-Data (Brake)
+A051,1,Brake
+A051,5,ESP-Data (Brake)
+A051,6,03 = Front 312x25 & Rear 286x12 (PR-1X0+1LJ/1LL+1KZ/2ED)
+A051,7,07 = Front 312x25 & Rear 286x12 (PR-1X1+1LJ/1LL+1KJ/2EE)
+A051,8,10 = Front 345x30 & Rear 310x22 (PR-1X1+1LK/1LM/1LN+2EA/2EF/2EG)
+;

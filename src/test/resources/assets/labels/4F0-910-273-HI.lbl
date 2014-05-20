@@ -1,0 +1,62 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi Q7 (4L)
+;
+; Component: J502 - Tire Pressure Monitoring (#65) - BASIS
+;
+; P/N: 4F0-910-273-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-65.LBL
+; 4F0-910-273-BA.LBL
+; 4F0-910-273-HI.LBL
+;
+; created on 28/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring (J502) Coding
+C01,0?xxxxx: Data Carrier
+C02,2 = 1 Antenna + 4 Trigger @ 433 MHz (High / PR-7K3)
+C03,3 = 1 Antenna + 4 Trigger @ 315 MHz (High / PR-7K4)
+C04,0x?xxxx: Type
+C05,0 = Rest of World (RoW)
+C06,4 = USA
+C07,+1 = Emergency Mode (Run Flat Tires)
+C08,+2 = Extra Load
+C09,0xx?xxx: Front Axle (Partial Load) I
+C10,1 = 1.x bar / 2 = 2.x bar / 3 = 3.x bar
+C11,0xxx?xx: Front Axle (Partial Load) II
+C12,0 = x.0 bar / 1 = x.1 bar / 2 = x.2 bar / 3 = x.3 bar / 4 = x.4 bar
+C13,5 = x.5 bar / 6 = x.6 bar / 7 = x.7 bar / 8 = x.8 bar / 9 = x.9 bar
+C14,0xxxx?x: Rear Axle (Partial Load) I
+C15,1 = 1.x bar / 2 = 2.x bar / 3 = 3.x bar
+C16,0xxxxx?: Rear Axle (Partial Load) II
+C17,0 = x.0 bar / 1 = x.1 bar / 2 = x.2 bar / 3 = x.3 bar / 4 = x.4 bar
+C18,5 = x.5 bar / 6 = x.6 bar / 7 = x.7 bar / 8 = x.8 bar / 9 = x.9 bar
+;

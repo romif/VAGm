@@ -1,0 +1,35 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1J-03.LBL
+; 7M-03.LBL
+; 1J0-907-37x-ABS.LBL   (MK20 ABS)
+; 1J0-907-37x-ESP-F.LBL (MK20 ESP FWD)
+; 1J0-907-37x-ESP-A.LBL (MK20 ESP AWD)
+; 7M3-907-37x-ABS.LBL   (MK25 ABS)
+; 7M3-907-37x-ESP-F.LBL (MK25 ESP FWD)
+; 7M3-907-37x-ESP-A.LBL (MK25 ESP AWD)
+;
+; created on 15/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,1J0-907-37x-ABS.LBL,7M3-907-379       ; MK20 ESP FWD
+REDIRECT,1J0-907-37x-ESP-F.LBL,7M3-907-37?-B   ; MK20 ESP FWD
+REDIRECT,1J0-907-37x-ESP-A.LBL,7M3-907-37?-C   ; MK20 ESP AWD
+REDIRECT,7M3-907-37x-ABS.LBL,7M3-907-37?-D     ; MK25 ABS
+REDIRECT,7M3-907-37x-ESP-F.LBL,7M3-907-37?-E   ; MK25 ESP FWD
+REDIRECT,7M3-907-37x-ESP-A.LBL,7M3-907-37?-F   ; MK25 ESP AWD
+REDIRECT,7M3-907-37x-ABS.LBL,7M3-907-37?-G     ; MK25 ABS
+REDIRECT,7M3-907-37x-ABS.LBL,7M3-907-37?-H     ; MK25 ABS
+REDIRECT,7M3-907-37x-ESP-F.LBL,7M3-907-37?-J   ; MK25 ESP FWD
+REDIRECT,7M3-907-37x-ESP-A.LBL,7M3-907-37?-K   ; MK25 ESP AWD
+;

@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Audi TT (8N)
+;
+; Component: J429 - Central Locking (35)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8N-35.LBL
+; 8Nx-962-267.LBL
+;
+; created on 04/Nov/2007 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 04/Nov/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8Nx-962-267.LBL,8N?-962-267-???
+;

@@ -1,0 +1,51 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 4E0-910-???-???
+;
+; includes coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-17.LBL
+; 4E0-920-9xx.LBL
+;
+; created on 02/Oct/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/Sep/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Instrument Cluster (J285) Coding
+C1,??xxx - Additional Settings
+C2,+01 - 2nd fuel tank map/all wheel drive coding
+C3,+04 - Vehicle with clutch (not automatic)
+C4,+08 - 2nd tire size pair (with differentiation between Summer and Winter tires)
+C5,+16 - Tire Monitoring System (MY 2005 >)
+C6,0x?xx - Country coding
+C7,0 - Germany / 1 - Rest of the world (left hand) / 2 - USA / 3 - Canada
+C8,4 - Great Britain / 5 - Japan (left hand) / 6 - Arab states
+C9,7 - Australia / 8 - Rest of the world (right hand) / 9 - Japan (right hand)
+C10,0xx?x - Seat belt warning (3-6 only MY 2005 and above)
+C11,0 - No Seat belt warning  / 1 - Seat belt warning (EU-NCAP)
+C13,2 - Seat belt warning (USA/Canada old) / 3 - Seat belt warning (USA/Canada NAR new)
+C14,4 - Seat belt warning (EU-NCAP incl. passenger) / 5 - Seat belt warning (USA/Canada old incl. passenger)
+C15,6 - Seat belt warning (USA/Canada NAR new incl. passenger)
+C16,0xxx? - Illumination options (0-4 without parking light LED | 5-9 with parking light LED)
+C17,0/5 - Needle and scales OFF (term.15 On/term.58 Off) | 1/6 - Needle ON scales OFF (term.15 On/term.58 Off)
+C18,2/7 - Needle OFF scales ON (term.15 On/term.58 Off) | 3/8 - Needle and scales ON (term.15 On/term.58 Off)
+C19,4/9 - Needle and scales ON (term.15 Off/term.58 Off)
+;

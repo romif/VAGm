@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-03.LBL
+; 6R-03.LBL
+; 6Q0-907-37x-ABS.LBL (ABS/EDS 5.7)
+; 6Q0-907-37x-ASR.LBL (ABS/EDS/ASR 5.7)
+; 6Q0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 5.7)
+; 6R0-907-37x-ABS.LBL (ABS/EDS 8.0)
+; 6R0-907-37x-ASR.LBL (ABS/EDS/ASR 8.0)
+; 6R0-907-37x-ESP.LBL (ABS/EDS/ASR/ESP 8.0)
+;
+; created on 09/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,6R0-907-37x-ABS.LBL,6R0-907-37?-C   ; ABS/EDS 8.0
+REDIRECT,6R0-907-37x-ASR.LBL,6R0-907-37?-D   ; ABS/EDS/ASR 8.0
+REDIRECT,6R0-907-37x-ESP.LBL,6R0-907-37?-E   ; ABS/EDS/ASR/ESP 8.0
+;

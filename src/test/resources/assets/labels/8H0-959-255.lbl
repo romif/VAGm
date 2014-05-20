@@ -1,0 +1,116 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 Cabriolet (8H)
+;
+; Component: J256 - Convertible Top (#26)
+;
+; P/N: 8H0-959-255-???
+;
+; includes measuring blocks
+;
+; created on 21/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/Oct/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Convertible Top Status (Actual)
+001,1,Convertible Top,Control Switch,Range: Open/Closed/Not Oper./Not OK
+001,2,Switches &&,Positions I,See Label File
+; xxxxxxx? = Convertible Top Open Position Switch (F171)
+; xxxxxx?x = Convertible Top Closed Position Switch (F202)
+; xxxxx?xx = Convertible Top Lock Switch Open (F294)
+; xxxx?xxx = Convertible Top Lock Switch Closed (F295)
+; xxx?xxxx = Convertible Top Front Lock Switch (F172)
+; xx?xxxxx = Switch Point for Bow UP
+; x?xxxxxx = Switch Point for Bow OPEN
+; ?xxxxxxx = Switch Point for Bow DEAD CENTER
+001,3,Switches &&,Positions II,See Label File
+; xx--xxx? = Compartment Cover Open Position Switch (F201)
+; xx--xx?x = Left Convertible Top Compartment Cover Switch (F290)
+; xx--x?xx = Convertible Top Compartment Latch Switch UNLOCK (F293)
+; xx--?xxx = Compartment Cover Locked Right Switch 1 (F200)
+; ?x--xxxx = Convertible Top Compartment Encolsure Position Switch (F292)
+001,4,Top Frame,Position (G356),Range: 0.0...255.0
+;
+002,1,Vehicle Speed,,Range: 0.0...254.0 km/h\n\n255.0 km/h = Invalid
+002,2,Voltage,(Terminal 30),Range: 6.0...18.0 V\nSpecification: 10.6/11.5...16.0 V
+002,3,Rear Lid,Contact Switch,Range: Lid Open/Lid Closed
+002,4,Window Regulator,Operation,See Label File
+; xxxxxxx1 = Window Regulator Driver: Up
+; xxxxxx1x = Window Regulator Driver: Down
+; xxxxx1xx = Window Regulator Passenger: Up
+; xxxx1xxx = Window Regulator Passenger: Down
+; xxx1xxxx = Window Regulator Rear Left: Up
+; xx1xxxxx = Window Regulator Rear Left: Down
+; x1xxxxxx = Window Regulator Rear Right: Up
+; 1xxxxxxx = Window Regulator Rear Right: Down
+;
+003,0,Window Positions
+003,1,Window Position,Driver's Door,Range: 0.0...100.0
+003,2,Window Position,Passenger Door,Range: 0.0...100.0
+003,3,Window Position,Rear Left Door,Range: 0.0...100.0
+003,4,Window Position,Rear Right Door,Range: 0.0...100.0
+;
+004,1,Operation,Requirements,See Label File
+; 1x-xx-xx = Surroundings NOT OK
+; x1-xx-xx = End Position NOT OK
+; xx-1x-xx = Request: Lock Cylinder Closed
+; xx-x1-xx = Request: Lock Cylinder Open
+; xx-xx-1x = Rear Lid Locked
+; xx-xx-x1 = Request: Rear Lid Locking
+004,2,Conv. Top Disabl.,due Runtime Error,Range: Yes/No
+004,3,Status,Terminal 15,Range: ON/OFF
+004,4,Status,Terminal 87,Range: ON/OFF
+;
+005,0,Rear Window Heating
+005,1,Rear Window,Heating,Range: ON/OFF
+005,2,Rear Window,Heater Relay,Range: ON/OFF
+;
+006,0,Convertible Top Status (At Fault)
+006,1,Convertible Top,Control Switch,Range: Open/Closed/Not Oper./Not OK
+006,2,Switches &&,Positions I,See Label File
+; xxxxxxx? = Convertible Top Open Position Switch (F171)
+; xxxxxx?x = Convertible Top Closed Position Switch (F202)
+; xxxxx?xx = Convertible Top Lock Switch Open (F294)
+; xxxx?xxx = Convertible Top Lock Switch Closed (F295)
+; xxx?xxxx = Convertible Top Front Lock Switch (F172)
+; xx?xxxxx = Switch Point for Bow UP
+; x?xxxxxx = Switch Point for Bow OPEN
+; ?xxxxxxx = Switch Point for Bow DEAD CENTER
+006,3,Switches &&,Positions II,See Label File
+; xx--xxx? = Compartment Cover Open Position Switch (F201)
+; xx--xx?x = Left Convertible Top Compartment Cover Switch (F290)
+; xx--x?xx = Convertible Top COmpartment Latch Switch UNLOCK (F293)
+; xx--?xxx = Compartment Cover Locked Right Switch 1 (F200)
+; ?x--xxxx = Convertible Top Compartment Encolsure Position Switch (F292)
+006,4,Top Frame,Position (G356),Range: 0.0...255.0
+;
+007,0,Convertible Top Status (Before Fault - While OK)
+007,1,Convertible Top,Control Switch,Range: Open/Closed/Not Oper./Not OK
+007,2,Switches &&,Positions I,See Label File
+; xxxxxxx? = Convertible Top Open Position Switch (F171)
+; xxxxxx?x = Convertible Top Closed Position Switch (F202)
+; xxxxx?xx = Convertible Top Lock Switch Open (F294)
+; xxxx?xxx = Convertible Top Lock Switch Closed (F295)
+; xxx?xxxx = Convertible Top Front Lock Switch (F172)
+; xx?xxxxx = Switch Point for Bow UP
+; x?xxxxxx = Switch Point for Bow OPEN
+; ?xxxxxxx = Switch Point for Bow DEAD CENTER
+007,3,Switches &&,Positions II,See Label File
+; xx--xxx? = Compartment Cover Open Position Switch (F201)
+; xx--xx?x = Left Convertible Top Compartment Cover Switch (F290)
+; xx--x?xx = Convertible Top COmpartment Latch Switch UNLOCK (F293)
+; xx--?xxx = Compartment Cover Locked Right Switch 1 (F200)
+; ?x--xxxx = Convertible Top Compartment Encolsure Position Switch (F292)
+007,4,Top Frame,Position (G356),Range: 0.0...255.0
+;

@@ -1,0 +1,198 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7D)
+;
+; Komponente: J285 - Kombiinstrument (#17)
+;
+; T/N: 7D0-920-??0-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7D-17.LBL
+; 7D0-919-xxx.LBL
+; 7D0-920-xx0.LBL
+; 7D0-920-xx1.LBL
+;
+; erstellt am 03.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 03.05.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Allgemeine Funktionen
+001,1,Geschwindigkeit
+001,2,Motordrehzahl
+001,3,Öldruckschalter 2,(0.9 bar),Wertebereich: Oeld2<min/Oeld2 i.O.
+001,4,Uhrzeit
+;
+002,0,Allgemeine Funktionen
+002,1,Kilometerstand
+002,2,Tankinhalt
+002,3,Kraftstoffgeber,(G)
+002,4,Aussen-,temperatur
+;
+003,0,Allgemeine Funktionen
+003,1,Kühlwasser-,temperatur
+003,2,Motorölstand
+003,3,Motoröl-,temperatur
+;
+050,0,Gesamtüberblick
+050,1,Kilometerstand
+050,2,Motordrehzahl
+050,3,Öltemperatur
+050,4,Kühlwasser-,temperatur
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Motorelektronik
+125,2,Getriebeelektronik
+125,3,Bremsenelektronik
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A02,0,Serviceintervall
+A02,5,Serviceintervall
+A02,6,Rücksetzen des Serviceinterrvalls.
+A02,7, 
+A02,8,Angezeigte Werte:
+A02,9,0 - kein Service fällig
+A02,10,1 - Service fällig
+A02,11, 
+A02,12,Anpassungswert:
+A02,13,0 - Service löschen
+;
+A03,0,Verbrauchsanzeige
+A03,5,Anpassung der Verbrauchsanzeige
+A03,6,Basiswert: 100
+A03,7,Bereich: 85 - 115
+A03,8,Einheit: 5 % (Prozent)
+;
+A04,0,Sprachvariante
+A04,5,Sprachvariante
+A04,6,1 - Deutsch (German)
+A04,7,2 - Englisch (English)
+A04,8,3 - Französisch (French)
+A04,9,4 - Italienisch (Italian)
+A04,10,5 - Spanisch (Spanish)
+A04,11,6 - Portugiesisch (Portuguese)
+A04,12,8 - Chinesisch (Chinese)
+;
+A09,0,Kilometerstand (in 10km)
+A09,5,Kilometerstand einstellen
+A09,6,Bevor das Kombiinstrument den
+A09,7,neuen Kilometerstand akzeptiert
+A09,8,muss ein Login mit 13861 erfolgen.
+A09,9, 
+A09,10,Der Kilometerstand kann einmalig nur eingestellt
+A09,11,werden solange der alte Wert 100km nicht übersteigt.
+;
+A30,0,Tankgeberkennlinie
+A30,5,Tankgeberkennlinie
+A30,6,Basiswert: 128
+A30,7,Bereich: 120 - 136
+A30,8,Einheit: 1 Ohm
+;
+A40,0,Strecke seit letztem Service
+A40,5,Strecke seit letztem Service (in 100 km)
+A40,6,Basiswert: 0
+A40,7,Bereich: 0 - ????
+A40,8,Einheit: 1 (entspricht 100 km)
+;
+A41,0,Zeit seit letztem Service
+A41,5,Zeit seit letztem Service (in Tagen)
+A41,6,Basiswert: 0
+A41,7,Bereich: 0 - ????
+A41,8,Einheit: 1 (entspricht 1 Tag)
+;
+A42,0,Minimale Fahrleistung bis Öl-Service
+A42,5,Minimale Fahrleistung bis Öl-Service (in 1000km)
+A42,6,15 - 15.000 km  (Standard)
+;
+A43,0,Maximale Fahrleistung bis Öl-Service
+A43,5,Maximale Fahrleistung bis Öl-Service (in 1000km)
+A43,6,15 - festes Wartungsintervall (kein Longlife)
+A43,7,30 - Otto-Motoren flexibles Wartungsintervall (mit Long Life)
+A43,8,35 - 6-Zyl. Diesel-Motoren flexibles Wartungsintervall (mit Long Life)
+A43,9,50 - 4-Zyl. Diesel-Motoren flexibles Wartungsintervall (mit Long Life)
+;
+A44,0,Maximale Zeit bis Service
+A44,5,Maximale zeit bis Service (in Tagen)
+A44,6,365 - festes Wartungsintervall (ohne Long Life)
+A44,7,730 - flexibles Wartungsintervall (mit Long Life)
+;
+A45,0,Ölqualität
+A45,5,Ölqualität
+A45,6,1 - festes Wartungsintervall (15.000 km)
+A45,7,2 - Otto-Motoren flexibles - Wartungsintervall (max. 30.000 km)
+A45,8,3 - 6-Zyl. Diesel-Motoren - flexibles Wartungsintervall (max. 35.000 km)
+A45,9,4 - 4-Zyl. Diesel Motoren - flexibles Wartungsintervall (max. 50.000 km)
+A45,10, 
+A45,11,Hinweis: Nach manuellem Rücksetzen des Service
+A45,12,muß das verwendete Öl neu angepaßt werden.
+;
+A46,0,Gesamtverbrauchsmenge (nur Benzinmotoren)
+A46,5,Gesamtverbrauchsmenge
+A46,6,Der in Litern angegebene Wert stellt nicht den
+A46,7,tatsächlichen Verbrauch dar, sondern einen
+A46,8,Rechenwert für die Serviceanzeige aus
+A46,9,verschiedenen Motordaten und Laufleistung.
+;
+A47,0,Rußeintrag (nur Dieselmotoren)
+A47,5,Rußeintrag
+A47,6,Der angegebene Wert stellt einen Vergleichswert
+A47,7,für die Serviceanzeige dar und ist ein Rechenwert
+A47,8,für den Rußanteil im Motoröl bezogen auf eine
+A47,9,Strecke von 100 km.
+;
+A48,0,Thermische Belastung (nur Dieselmotoren)
+A48,5,Thermische Belastung
+A48,6,Der angegebene Wert stellt einen Vergleichswert
+A48,7,für die Serviceanzeige dar und ist ein Rechenwert
+A48,8,für die thermische Belastung im Motoröl bezogen
+A48,9,auf eine Strecke von 100 km.
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung Kombiinstrument (J285)
+C1,??xxx: Mehrausstattungen
+C2,+01 - Bremsbelagverschleißanzeige aktiv
+C3,+02 - Sicherheitsgurtwarnanzeige aktiv
+C4,+04 - Wischwasserstandswarnanzeige aktiv
+C5,+16 - Navigation aktiv
+C6,xx?xx: Länderauswahl
+C7,1 - Europa (EU) / 2 - USA (US) / 3 - Kanada (CDN) / 4 - Großbritannien (GB)
+C8,5 - Japan (JP) /6 - Saudi Arabien (SA) / 7 - Australien (AUS)
+C9,xxx?x: Motorvariante (Serviceintervall)
+C10,0 - feste Wartungsinterv. ohne Geber für Ölstand-/temperatur
+C11,1 - flexible Wartungsinterv. mit Geber für Ölstand-/temperatur
+C12,2 - feste Wartungsintervallen mit Geber für Ölstand/-temperatur
+C13,3 - ohne Serviceintervallanzeige (USA, Canada)
+C14,xxxx?: Motortyp
+C15, 1 - 3355 (alle übrigen Motor/Getriebekombinationen)
+C16,2 - 3407 (2,5l/75kW ACV/AUF mit Schalt.)
+C17,3 - 3523 (2,5l/75kW ACV/AUF mit Schalt. und Syncro)
+C18,4 - 3465 (2,5l/111kW AHY mit Schalt. und 16-Zoll Fahrwerk)
+;

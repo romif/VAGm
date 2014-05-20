@@ -1,0 +1,347 @@
+; VAG-COM Measuring Block AMU Engine Label file.
+; Component number 8N0-906-018 1.8L R4/5VT  G 0003
+;
+; Woefully inadequate, but better than nothing!
+; Last updated 29-Apr-01, John S
+;
+;0,0,Idle Stats > 80C coolant temp
+;0,1,Coolant Temp 185 to 205 = 85 to 105 deg C
+;0,2,Engine load (no consumers) 21 to 39 = 15 to 30%
+;0,3,Cmd Idle Speed 
+;	FWD manual 80 to 92 = 800 to 920 RPM
+;	AWD manual 72 to 84 = 720 to 840 RPM
+;	FWD auto   64 to 76 = 640 to 760 RPM (if you can find one!)
+;0,4,Supply Voltage 142 to 206 = 10.0 to 14.5 Volts
+;0,5,Throttle valve angle 1 to 7 = 0.4 to 2.75%
+;0,6,Torque @ Idle 106 to 189 = -4.3 to +12.2%
+;0,7,Adaptation value,Torque Loss @ Idle 113 to 143 = -3 to +3%
+;0,8,Control value of mixture formation 103 to 153 = -20 to +20%
+;0,9,Adaptation value of mixture formation closed throttle (idle) 78 to 178 = -10 to + 10%
+;0,10,Adaptation value " " " partial throttle 103 to 153 = -10 to +10% 
+;
+1,1,Engine RPM
+1,2,Coolant Temp.
+1,3,HO2S Control
+1,4,Adj. Conditions
+;
+2,1,Engine RPM
+2,2,Engine Load
+2,3,Ave. Inj. Period
+2,4,Air Mass Flow
+;
+3,1,Engine RPM
+3,2,Air Mass Flow
+3,3,Throttle Opening
+;
+4,1,Engine RPM
+4,2,System Voltage
+4,3,Coolant Temp.
+4,4,Intake Air Temp
+;
+5,1,Engine RPM
+5,2,Engine Load
+5,3,Vehicle Speed
+;
+6,1,Engine RPM
+6,2,Engine Load
+6,3,Intake Air Temp
+;
+10,1,Engine RPM
+10,2,Engine Load
+10,3,Throttle Opening
+;
+11,1,Engine RPM
+11,2,Coolant Temp
+11,3,Intake Temp
+;
+14,1,Engine RPM
+14,2,Engine Load
+14,3,Misfire Sum
+14,4,Misfire Status
+;
+15,0,Misfire Counts
+15,1,Cyl #1
+15,2,Cyl #2
+15,3,Cyl #3
+15,4,Status
+;
+16,0,Misfire Counts
+16,1,Cyl #4
+16,4,Status
+;
+18,0,Misfire Range
+18,1,Lowest RPM
+18,2,Highest RPM
+18,3,Lowest Load
+18,4,Highest Load
+;
+20,0,Timing Corrections
+20,1,Cyl #1
+20,2,Cyl #2
+20,3,Cyl #3
+20,4,Cyl #4
+;
+22,0,Timing Corrections
+22,1,Engine RPM
+22,2,Engine Load
+22,3,Cyl #1
+22,4,Cyl #2
+;
+23,0,Timing Corrections
+23,1,Engine RPM
+23,2,Engine Load
+23,3,Cyl #3
+23,4,Cyl #4
+;
+26,0,Knock Sensor Voltage
+26,1,Cyl #1
+26,2,Cyl #2
+26,3,Cyl #3
+26,4,Cyl #4
+;
+28,3,Coolant Temp
+;
+30,0,Heated O2 Sensor Status
+30,1,HO2S#1
+30,2,HO2S#2
+;
+31,1,O2S1 Voltage
+31,2,O2S2 Voltage
+;
+;<-10% too rich; >+10% too lean
+32,0,O2S Adaptation
+32,1,Idle Value
+32,2,Part Throttle Value
+;
+33,0,Cat-Forward
+33,1,Control Value
+33,2,O2S1 Voltage
+;
+34,0,Cat-Forward
+34,1,Engine Speed
+34,2,O2S1 Temp
+34,3,O2S1 Period
+34,4,Status
+;
+36,0,Cat-Back
+36,1,O2S2 Voltage
+36,2,O2S2 Status
+;
+37,0,Lean Shift: +Dwell| Rich Shift: -Dwell
+37,1,Engine Load
+37,2,O2S2 Voltage
+37,3,Dwell Time
+37,4,Status
+;
+41,0,Heated O2 Diagnostic
+;< 2K Ohms OK
+41,1,O2S1 Resistance
+41,2,O2S1 Status
+41,3,O2S2 Resistance
+41,4,O2S2 Status
+;
+43,0,Cat-Back O2S Aging
+43,1,Engine Speed
+43,2,O2S2 Temp
+43,3,O2S2 Voltage
+43,4,Status
+;
+46,0,Cat Diagnostic
+46,1,Engine Speed
+46,2,O2S2 Temp
+46,3,Amplitude Ratio
+46,4,Status
+;
+50,0,Idle Speed Regulation
+50,1,Actual RPM
+50,2,Spec. RPM
+50,3,A/C Status
+50,4,A/C Comp. Status
+;
+51,0,Idle Speed Regulation
+51,1,Actual RPM
+51,2,Spec. RPM
+51,3,Powered Gear
+51,4,System Voltage
+;
+54,1,Actual RPM
+54,2,Oper. Status
+54,3,Throttle Opening
+54,4,Drive 2 Opening
+;
+56,0,Idle Control
+56,1,Engine Speed
+56,2,Cmd Idle Speed
+56,3,Idle Control
+;1xxxx steering at full stop
+56,4,Steering Pegged
+;
+60,0,Throttle Calibration
+60,1,Throttle Sen #1
+60,2,Throttle Sen #2
+60,3,Step Count
+60,4,Adaptation Status
+;
+61,3,Drive Opening
+;
+62,0,ETC Sensors
+62,1,Throttle Sen #1
+62,2,Throttle Sen #2
+62,3,Gas Pedal Sen #1
+62,4,Gas Pedal Sen #2
+;
+Accelerator Pedal Sensor
+63,1,Gas Pedal Sen #1
+63,2,Gas Pedal Sen #2
+63,4,ADP Status
+;
+66,0,Cruise Diagnostic
+66,1,Actual Speed
+;xxx1 brake pedal
+;xx1x brake light
+;x1xx clutch
+66,2,Clutch/Brake
+66,3,Cmd Speed
+66,4,Cruise Switch
+;
+70,0,Tank Ventilation Valve
+70,1,Opening
+70,2,O2 Deviation
+70,3,Rel Gnd Current
+70,4,Tank Vent Status
+;
+71,0,Tank Seal Diagnostic
+71,1,Reed Terminal
+71,2,Leakage
+71,3,Condition
+71,4,Tank Seal Status
+;
+99,1,Engine Speed
+99,2,Coolant Temp
+;
+100,1,Readiness Code
+100,2,Coolant Temp
+100,3,Run Time
+;
+101,1,Engine Speed
+101,2,Engine Load
+101,3,Injection Time
+101,4,Mass Air Flow
+;
+102,1,Engine Speed
+102,2,Coolant Temp
+102,3,Intake Temp
+102,4,Injection Time
+;
+104,1,Outside Temp
+;
+107,0,Fuel Supply Diagnostic
+107,1,Engine Speed
+107,2,O2 Mean Value
+107,4,Supply Status
+;
+110,1,Engine Speed
+110,2,Coolant Temp
+110,3,Injection Time
+110,4,Drive 2 Opening
+;
+112,1,Limit Temp
+;
+113,1,Engine Speed
+113,2,Engine Load
+113,3,Drive 2 Opening
+113,4,Barometric Press
+;
+114,0,Wastegate Regulation
+114,1,Spec. Load
+114,2,Load Correction
+114,3,Actual Load
+114,4,N75 Duty Cycle
+;
+115,1,Engine Speed
+115,3,Cmd Pressure
+115,4,Press @ Intercool
+;
+116,1,Engine Speed
+116,2,Fuel Correction
+116,4,Air Temp Corr
+;
+117,1,Engine Speed
+117,2,Throttle Position
+117,3,Drive 2 Opening
+117,4,Cmd Pressure
+;
+118,0,Wastegate Regulation
+118,1,Engine Speed
+118,2,Intake Temp
+118,3,N75 Duty Cycle
+118,4,Press @ Intercool
+;
+119,0,Wastegate Regulation
+119,1,Engine Speed
+119,2,Charge Limit
+119,3,N75 Duty Cycle
+119,4,Press @ Intercool
+;
+120,0,Traction Control
+120,1,Engine RPM
+120,2,Torque Limit
+120,3,Net Torque
+120,4,ASR Status
+;
+122,0,Traction Control
+122,1,Engine RPM
+122,2,Torque Limit
+122,3,Net Torque
+122,4,Tim. Retard Status
+;
+125,0,CAN Status
+;
+201,1,O2S2 Dwell
+201,4,O2S1 Period
+;
+204,1,Engine Speed
+204,2,Manifold Press
+204,3,Cmd Pressure
+204,4,Press @ Intercool
+;
+208,1,Engine Speed
+208,2,Throttle Opening
+208,3,Drive 2 Opening
+208,4,Press @ Intercool
+;
+209,1,Engine Speed
+;
+210,1,Engine Speed
+210,3,Press @ Intercool
+;
+211,4,Press @ Intercool
+;
+216,1,Engine Speed
+216,3,Thr. Pos. Factor
+;
+217,3,Thr. Pos. Factor
+217,4,O2S1 Temp
+;
+218,1,Engine Speed
+;
+220,1,Engine Speed
+220,4,Drive 2 Opening
+;
+221,1,Throttle Opening
+221,2,Ignition Timing
+221,3,Coolant Temp
+221,4,Intake Temp
+;
+222,1,Cmd Idle Speed
+;
+223,3,Vehicle Speed
+;
+227,4,O2S2 Temp
+;
+228,1,O2S1 Period
+228,2,O2S2 Dwell
+;
+235,3,O2S1 Temp
+;
+;End of File

@@ -1,0 +1,57 @@
+;;
+; VAG-COM Measuring Block Labels file.
+; Module 15 -- Airbag Controller
+; 
+; from USA 2000 Audi S4
+; p/n 8D0-959-655-G
+;
+; **Modification history**
+; created:  Paul Cunningham, 26 May 2001
+; please email any comments or corrections: paul@centricitysoftware.com
+;
+;
+1,0,Airbag/Belt tensioner status/resistance (Bentley 01-55)
+1,1,Driver side,airbag
+1,2,Pass-side,airbag
+1,3,Driver side,belt tension
+1,4,Pass side,belt tension
+;
+2,0, status/resistance	(Bentley 01-56)
+2,1,Rear belt tension, driver side
+2,2,Rear belt tension, pass side
+2,3,
+2,4,
+;
+3,0, (Bentley 01-57)
+3,1,Supply voltage
+3,2,Pass seat,occupied
+3,3,
+3,4,
+;
+4,0, (Bentley 01-58)
+4,1,Left R belt
+4,2,Right R belt
+4,3,Center R belt
+;
+;5,0, (Bentley 01-59)
+;5,1,F Driver bag igniter
+;5,2,F Pass bag igniter
+;5,3,
+;5,4,
+;
+6,0, (Bentley 01-60)
+6,1,Driver side,bag igniter
+6,2,Pass side,bag igniter
+6,3
+6,4
+;
+7,0,Undocumented
+;
+8,0, (Bentley 01-61)
+8,1,
+8,2,
+8,3,Head level,Driver side
+8,4,Head level,Pass side
+;
+;
+;<end of file>

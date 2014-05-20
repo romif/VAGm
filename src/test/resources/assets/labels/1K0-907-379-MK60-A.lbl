@@ -1,0 +1,136 @@
+;
+; VAG-COM Label File
+;
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Touran (1T)
+; Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+;
+; Component: J104 - Brake Electronics (#03) - ABS MK60 (AWD)
+;
+; P/N: 1K0-907-37?-???
+;
+; includes measuring blocks, basic setting, coding and security access
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-03.LBL
+; 1K0-907-379-MK60-A.LBL (MK60 AWD)
+; 1K0-907-379-MK60-F.LBL (MK60 FWD)
+; 1K0-907-379-MK70.LBL  (MK70)
+;
+; created on 31/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Jun/2006
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Front Left,Wheel Speed
+001,2,Front Right,Wheel Speed
+001,3,Rear Left,Wheel Speed
+001,4,Rear Right,Wheel Speed
+;
+002,0,Starting Wheel Speed (255 km/h = not moving)
+002,1,Front Left,Starting Speed
+002,2,Front Right,Starting Speed
+002,3,Rear Left,Starting Speed
+002,4,Rear Right,Starting Speed
+;
+003,1,Brake Light Switch,,Display Range: operated/n. operated
+003,2,Brake,Warning Light,Display Range: on/off
+003,3,ABS,Warning Light,Display Range: on/off
+003,4,ASR/ESP,Warning Light,Display Range: on/off
+;
+004,1,Steering Angle,Sensor (G85),Specification: +/. 4.5 ° (left = positive / right = negative)
+004,2,Transverse,Acceleration,Specification: +/- 1.5 m/s²
+004,3,Rotation Rate,,Specification: +/- 2.5 m/s²
+;
+005,1,Brake Pressure,Sensor,Specification: +/- 7 bar
+005,2,Steering Angle,Sensor Condition,Display Range: initialised/n. initialised/implausible
+;
+006,0,Longitudinal Acceleration & Vacuum System
+006,1,Long. Accel.,Sensor (G251),Specification: ± 1.5 m/s²
+;
+007,1,ASR Button,,Display Range: operated/n. operated
+;
+B060,0,Adjustment of Steering Angle Sensor (G85)
+B060,1,Adjustment
+B060,2,Adjustment,Status
+B060,3,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±4.5 °
+;
+B063,0,Adjustment of Lateral Acceleration Sensor (G200)
+B063,1,Adjustment
+B063,2,Adjustment,Status
+B063,3,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+;
+B066,0,Adjustment of Brake Pressure Sensor (G201)
+B066,1,Adjustment
+B066,2,Adjustment,Status
+B066,3,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+;
+B069,0,Adjustment of Longitudinal Acceleration Sensor (G251)
+B069,1,Adjustment
+B069,2,Adjustment,Status
+B069,3,Long. Accel.,Sensor (G251),Specification: +/- 1.5 m/s²
+;
+B093,0,Initiation of ESP Driving Test
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine
+125,2,Steering Angle,Sensor (G85)
+125,3,All-Wheel-Drive
+125,4,Transmission
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument,Cluster (J285)
+126,2,CAN-Gateway,(J533)
+126,3,Immobilizer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,J104 - Brake electronics
+C1,Frontbrakes:
+C2,+00001 - PR-1ZF/1ZM/1ZC
+C3,+00002 - PR-1ZE/1LJ/1ZP/1ZD/1LL
+C4,+00008 - PR-1LK
+C5, 
+C6,Suspension:
+C7,+00640 - 4Motion
+C8, 
+C9,Engine type:
+C10,+02048 - 1.4l / 1.6l & 1.6l FSI
+C11,+04096 - 1.9l TDI PD / 2.0l FSI / 2.0l SDI PD & all with automatic transmission
+C12,+06144 - 2.0l TDI PD
+C13, 
+C14,Tire pressure monitoring
+C15,+00641 - with tire pressure monitoring (PR-7K1/7K6)
+C16,+17025 - without tire pressure monitoring (PR-7K0)
+C17, 
+C18,Note #1: See production codes on car data plate.
+C19,Note #2: Coding is the sum of the individual options.
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Brake Electronics (J104) Security Access
+S01,40168 = General Basic Setting "Enabling"
+;

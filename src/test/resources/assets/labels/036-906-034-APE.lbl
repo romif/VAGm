@@ -1,0 +1,291 @@
+;
+; VCDS label file
+;
+; Audi A2 (8Z) / Skoda Fabia (6Y) / VW Caddy (9K) / VW Golf/Bora/Jetta (1J)
+; VW Lupo (6X) / VW Polo (6N) / VW Polo (9N)
+;
+; Component: Engine (#01) - APE/AQQ/AUA/AUB/BBY/BBZ/BKY
+;
+; P/N: 036 906 034 ??
+;
+; includes measuring blocks, coding and readiness
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 036-906-034-APE.LBL  (1.4l E   @ 75/100 HP - APE/AQQ/AUA/AUB/BBY/BBZ/BKY)
+;
+; created on 04/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 25/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Functions
+001,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+001,2,Coolant,Temperature,Specifiation: 85.0...110.0 °C
+001,3,Lambda,Controller,Specification: -15.0...+15.0 %
+001,4,Basic Setting,Requirements,see labelfile
+; 1xxxxxxx - Coolant temperature above 80 °C
+; x1xxxxxx - Engine speed below 2000 RPM
+; xx1xxxxx - Throttle valve closed
+; xxx1xxxx - Lambda regulation correct
+; xxxx1xxx - State of idle
+; xxxxx1xx - A/C system compressor deactivated
+; xxxxxx1x - Catalytic converter over 300 °C
+; xxxxxxx1 - No malfunction detected by Self-Diagnosis
+;
+002,0,Basic Functions
+002,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+002,2,Engine Load,,Specification: 10...20 %
+002,3,Injection,Timing,Specification: 2.0...4.0 ms
+002,4,Intake manifold,pressure,Specification: 240...420 mbar
+;
+003,0,Basic Functions
+003,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+003,2,Intake manifold,pressure,Specification: 240...420 mbar
+003,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0.0...11.0 %
+003,4,Ignition,Timing Angle,Specification: 0.0...10.0 °BDTC
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+004,2,Voltage Supply,,Specification: 12.0...15.0 V
+004,3,Coolant,Temperature,Specifiation: 80.0...110.0 °C
+004,4,Intake Air,Temperature,Specification: -30.0...+120.0 °C
+;
+005,0,Basic Functions
+005,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+005,2,Engine Load,,Specification: 10...20 %
+005,3,Speed,,Specification: 0 km/h
+005,4,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,Basic Functions
+006,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+006,2,Engine Load,,Specification: 10...20 %
+006,3,Intake Air,Temperature,Specification: -40.0...+120.0 °C
+006,4,Heights Correction,Factor,Specification: -30.0...+5.0 %
+;
+010,0,Ignition
+010,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+010,2,Engine Load,,Specification: 10...20 %
+010,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 0.0...11.0 %
+010,4,Ignition,Timing Angle,Specification: 0.0...10.0 °BDTC
+;
+014,0,Ignition Misfire Recognition
+014,1,Engine Speed,,Specification (manual): 790...900 RPM | Specification (automatic): 630...730 RPM
+014,2,Engine Load,,Specification: 10...20 %
+014,3,Misfire,(total),Specification: 0
+014,4,Misfire,recognition,Specification: active | Display Range: active/inactive
+;
+015,0,Ignition Misfire Recognition Cyl. 1-3
+015,1,Misfire,Cylinder 1,Specification: 0
+015,2,Misfire,Cylinder 2,Specification: 0
+015,3,Misfire,Cylinder 3,Specification: 0
+015,4,Misfire,recognition,Specification: active | Display Range: active/inactive
+;
+016,0,Ignition Misfire Recognition Cyl. 4
+016,1,Misfire,Cylinder 4,Specification: 0
+016,4,Misfire,recognition,Specification: active | Display Range: active/inactive
+;
+022,0,Ignition Timing Angle Retardation
+022,1,Engine Speed,,Specification (manual): 790...5700/6600 RPM | Specification (automatic): 630...5700 RPM
+022,2,Engine Load,,Specification: 15...175.0 %
+022,3,Cylinder 1 Ignition,Angle Delay,Specification: 0.0...14.0 °
+022,4,Cylinder 2 Ignition,Angle Delay,Specification: 0.0...14.0
+;
+023,0,Ignition Timing Angle Retardation
+023,1,Engine Speed,,Specification (manual): 790...5700/6600 RPM | Specification (automatic): 630...5700 RPM
+023,2,Engine Load,,Specification: 15...175.0 %
+023,3,Cylinder 3 Ignition,Angle Delay,Specification: 0.0...14.0 °
+023,4,Cylinder 4 Ignition,Angle Delay,Specification: 0.0...14.0 °
+;
+028,0,Ignition Knock Control
+028,1,Engine Speed,,Specification: 2000...4000 RPM
+028,2,Engine Load,,Specification: 50.0...70.0 %
+028,3,Coolant,Temperature,Specification: 60.0...110.0 °C
+028,4,Result,Knock Sensor Test,Display Range: Test ON/Test OFF/Syst. OK/Syst. not OK
+;
+030,0,Oxygen Sensor Status
+030,1,Bank 1,Sensor 1,see labelfile (Specification: 111)
+; 1xx - Sensor heater
+; x1x - Oxygen sensor ready
+; xx1 - Lambda regulation active
+030,2,Bank 1,Sensor 2,see labelfile (Specification: 110)
+; 1xx - Sensor heater
+; x1x - Oxygen sensor ready
+; xx1 - Lambda regulation active
+;
+032,1,Lambda (add.),Self-Adaptation,Specification: -10.0...+10.0 %
+032,2,Lambda (mult.),Self-Adaptation,Specification: -10.0...+10.0 &
+;
+033,1,Bank 1,Lambda Control,Specification: -10.0...+10.0 %
+033,2,Bank 1 Voltage,of Oxygen Sensors,Specification: 0.00...1.00 V
+;
+034,0,Oxygen Sensor Aging Test (Bank 1)
+034,1,Engine Speed,,Secification: 1500...3900 RPM
+034,2,Exhaust Gas Temp,(before CAT)
+034,3,Bank 1 Sensor 1,Dynamic Factor,Specification: max. 1.0 s
+034,4,Result,,Specification: Test ON/Test OFF/B1-S1 OK/B1-S1 not OK
+;
+036,1,Bank 1 Sensor 2,Voltage,Specification: 0.00...1.00 V
+036,2,Result,Lambda Availability,Display Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK
+;
+037,1,Engine Load,,Specification: 12.0...40.0 %
+037,2,Bank 1 Sensor 2,Voltage,Specification: 0.00...1.00 V
+037,4,Result,,Specification: Test ON/Test OFF/Sys. OK/Sys. not OK
+;
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition
+041,3,Resistance,Bank 1 Sensor 2
+041,4,Heater Condition
+;
+046,1,Engine Speed,,Secification: 1500...3900 RPM
+046,2,Catalytic Converter,Temperature,Specification: min. 300 °C
+046,3,Amplitude,Behavior,,Secification: min. 50 %
+046,4,Result Catalytic,Conversion,Pre-Catalytic Converter (Display Range: Test ON/Test OFF/CatConvB1 not OK/CatConvB1 OK)
+;
+050,0,Speed Regulation
+050,1,Engine Speed,,Specification (manual): 800 RPM | Specification (automatic): 630 RPM
+050,2,Engine Speed,(Specified)
+050,3,Condition,of A/C system,Display Range: A/C-High / A/C-Low
+050,4,Operating condition,of A/C Compressor,Display Range: Compr.ON/Compr.OFF
+;
+054,0,Speed Regulation
+054,1,Engine Speed,,Specification (manual): 800 RPM | Specification (automatic): 630 RPM
+054,2,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Sender 2 for,Acc. Pedal Pos.,G79 (Display Range 0...100 %)
+054,4,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+;
+055,0,Speed Regulation
+055,1,Engine Speed,,Specification (manual): 800 RPM | Specification (automatic): 630 RPM
+055,2,Idle Regulator,,Specification: -10.0...+0.0 %
+055,3,Idle Stabilization,Self-Adaptation,Specification (A/C-High): -6.0...+8.0 % | Specification (A/C-Low): -3.0...+8.0 %
+055,4,Load Status,,see labelfile
+; --1xx - Air conditioning system switched on
+; --x1x - Driving range (gear) selected
+; --xx1 - Air conditioner compressor switched on
+;
+056,0,Speed Regulation
+056,1,Engine Speed,,Specification (manual): 800 RPM | Specification (automatic): 630 RPM
+056,2,Engine Speed,(Specified)
+056,3,Idle Regulator,,Specification: -10.0...+0 Nm
+056,4,Load Status,,see labelfile
+; --1xx - Air conditioning system switched on
+; --x1x - Driving range (gear) selected
+; --xx1 - Air conditioner compressor switched on
+;
+060,0,Speed Regulation (EPC Adaptation)
+060,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 10...85 %
+060,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 85...10 %
+060,3,Self-Adaptation,Steps Counter,Specification: 0...12
+060,4,Result,Throttle Valve Adp.,Display Range: ADP runs/ADP OK/ADP ERROR
+;
+061,0,Speed Regulation (EPC System)
+061,1,Engine Speed,,Specification: 800...5700/6600 RPM
+061,2,Voltage Supply,,Specification: 12.0...15.0 V
+061,3,Throttle Drive,Angle Sensor 1,for EPC (G187) | Display Range: 0...100 %
+061,4,Load Status,,see labelfile
+; --1xx - Air conditioning system switched on
+; --x1x - Driving range (gear) selected
+; --xx1 - Air conditioner compressor switched on
+;
+062,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 3...97 %
+062,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 97...3 %
+062,3,Throttle Position,Sensor (G79),Specification: 0...100 %
+062,4,Accelerator Pedal,Position Sensor 2,G185 (Specification: 0...100 %)
+;
+070,0,Emission Reducing
+070,1,Opening Angle,of TVV
+070,2,Lambda Controller,Diagnostic Value,with active diagnosis
+070,3,Intake manifold,pressure,Specification: 240...420 mbar
+070,4,Result,Evap. Emissions,Display Range: Test ON/Test OFF/TEV OK/TEV not OK
+;
+074,0,Emission Reducing
+074,1,Min.-Position,,Specification: 0.3...1.3 V
+074,2,Max.-Position,,Specification: 2.9...4.6 V
+074,3,Potentiometer,voltage (actual),Specification: 0.3...4.6 V
+074,4,Adaptation,Status,Display Range: ADP run/ADP OK/ADP ERROR
+;
+075,0,Exhaus Gas Recirculaton
+075,1,Engine Speed,,Specification: 1800...5600 RPM
+075,2,Intake manifold,pressure,Specification: 240...420 mbar
+075,3,Intake manifold,pressure diff.,Specification: min. +50.0 mbar
+075,0,Result,,Display Range: Test ON/Test OFF/Sys. OK/Sys. n.OK
+;
+099,1,Engine Speed,,Specification (manual): 800 RPM | Specification (automatic): 630 RPM
+099,2,Coolant,Temperature,Specifiation: 85.0...110.0 °C
+099,3,Percentage Oxygen,Sensor Control,Specification: -10.0...+10.0 %
+099,4,Oxygen Sensor,Control Condition,Display Range: ON/OFF
+;
+100,1,Readiness Bits,,see labelfile
+; 1xxxxxxx - Exhaust Gas Recirculation (EGR)
+; x1xxxxxx - Sensor heater
+; xx1xxxxx - Oxygen sensors
+; xxx1xxxx - A/C system
+; xxxx1xxx - Secondary Air Injection (AIR) system
+; xxxxx1xx - Activated charcoal system
+; xxxxxx1x - Catalytic converter heater
+; xxxxxxx1 - Catalytic converter
+100,2,Coolant,Temperature
+100,3,Time since,Engine Start
+100,4,OBD-Status,,see labelfile
+; 1-xxxxxx - MIL warning lamp on
+; x-1xxxxx - Complete distance
+; x-x1xxxx - At least one malfunction detected
+; x-xx--1x - Heating cycle ended
+; x-xx--x1 - Heating cycle not possible
+;
+120,0,Traction Control System (ASR/TCS)
+120,1,Engine Speed,,Specification (manual): 790...5700/6600 RPM | Specification (automatic): 630...5700 RPM
+120,2,Engine Speed,(specified)
+120,3,Engine Speed,(actual)
+120,4,ASR Condition,,Display Range: ASR active/ASR not active
+;
+122,0,Transmission
+122,1,Engine Speed,,Specification (manual): 790...5700/6600 RPM | Specification (automatic): 630...5700 RPM
+122,2,Engine Speed,(specified)
+122,3,Engine Speed,(actual)
+122,4,Status,,Display Range: Torque red./No torque red.
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Brake Electronics
+125,2,Transmission
+125,3,Instrument Cluster
+125,4,Airbag
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Engine (J220) Coding
+C01,000?x: Additional Functions
+C02,+1 = ABS
+C03,+2 = Airbag
+C04,+4 = Air Conditioning
+C05,000x?: Transmission
+C06,1 = Manual Transmission
+C07,3 = Automatic Transmission
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,036-906-034-APE
+;

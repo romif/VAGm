@@ -1,0 +1,294 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Lupo (6E) / VW Polo (6N)
+;
+; Komponente: Motorelektronik -J361- (#01) ARC/AVY
+;
+; T/N: 036 906 033 ???
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 036-906-033-AVY.LBL  (1.6l E   @ 125 HP - ARC/AVY)
+;
+; erstellt von Tobias Rulle (ZX7RR; rulle@my-t-offline.de)
+; erweitert von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 14.03.2005
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung Motorelektronik (J361)
+C1,000?x - CAN-Datenbus
+C2,+1 - Bremsenelektronik (ABS)
+C3,+2 - Airbag
+C4, 
+C5,000x? - Getriebe
+C6,1 - 5-Gang Schaltgetriebe
+C7,2 - 6-Gang Schaltgetriebe
+C8,3 - Autom. Getriebe
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Grundfunktionen
+001,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 80.0...110.0 °C
+001,3,Lambdaregler,vor Katalysator,Sollwert: -15.0...+15.0 %
+001,4,Einstell-,bedingungen,Sollwert: 1x111111
+; xxxxxxx1 - Kühlmitteltempratur über 80 °C
+; xxxxxx1x - Drehzahl unter 2000 U/min
+; xxxxx1xx - Drosselklappe geschlossen
+; xxxx1xxx - Lambdaregelung i.O.
+; xxx1xxxx - Leerlauf erkannt
+; xx1xxxxx - Klimakompressor ausgeschaltet
+; x1xxxxxx - Katalysator heiß (über 300 °C)
+; 1xxxxxxx - kein Fehler von Eigendiagnose erkannt
+;
+002,0,Grundfunktionen
+002,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+002,2,Motorlast,,Sollwert: 12.0...30.0 %
+002,3,Einspritzzeit,,Sollwert: 1.0...3.0 ms
+002,4,Saugrohrdruck,,Sollwert: 250...500 mbar
+;
+003,0,Grundfunktionen
+003,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+003,2,Saugrohrdruck,,Sollwert: 250...500 mbar
+003,3,Drosselklappen-,winkel (G187),Sollwert: 0.8...4.5 %
+003,4,Zündwinkel,,Sollwert: -5.0..+10.0 °v.OT
+;
+004,0,Grundfunktionen
+004,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+004,2,Versorgungs-,spannung,Sollwert: 11.5...15.0 V
+004,3,Kühlmittel-,temperatur,Sollwert: 80.0...110.0 °C
+004,4,Ansaugluft-,temperatur,Sollwert: -48.0...+142.5 °C
+;
+005,0,Grundfunktionen
+005,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+005,2,Motorlast,,Sollwert: 12.0...30.0 %
+005,3,Fahr-,geschwindigkeit,Sollwert: 0 km/h
+005,4,Betriebs-,zustand,Wertebereich: Leerlauf/Teillast/Anreicherung/Schub/Vollast
+;
+006,0,Grundfunktionen
+006,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+006,2,Motorlast,,Sollwert: 12.0...30.0 %
+006,3,Ansaugluft-,temperatur,Sollwert: -48.0...+142.5 °C
+006,4,Höhenkorrektur-,faktor,Sollwert: -50.0...20.0 %
+;
+010,0,Zündung
+010,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+010,2,Motorlast,,Sollwert: 12.0...30.0 %
+010,3,Drosselklappen-,winkel (G187),Sollwert: 0.8...4.5 %
+010,4,Zündwinkel,,Sollwert: -5.0..+10.0 °v.OT
+;
+012,0,Zündung (Stellung der Nockenwelle zur Kurbelwelle)
+012,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+012,2,Motorlast,,Sollwert: 12.0...30.0 %
+012,3,Nr.des KW-Zahns,(low->high),Sollwert: 26...29 (Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel)
+012,4,Nr.des KW-Zahns,(high->low),Sollwert: 88...90 (Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel)
+;
+014,0,Zündung (Aussetzererkennung)
+014,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+014,2,Motorlast,,Sollwert: 12.0...100.0 %
+014,3,Summe,Zündaussetzer,Wertebereich: 0...20
+014,4,Aussetzer-,erkennung,Sollwert: aktiv | Wertebereich: aktiv/inaktiv
+;
+015,0,Zündung (Aussetzererkennung Zylinder 1 bis 3)
+015,1,Zündaussetzer,Zylinder 1,Wertebereich: 0...5
+015,2,Zündaussetzer,Zylinder 2,Wertebereich: 0...5
+015,3,Zündaussetzer,Zylinder 3,Wertebereich: 0...5
+015,4,Aussetzer-,erkennung,Sollwert: aktiv | Wertebereich: aktiv/inaktiv
+;
+016,0,Zündung (Aussetzererkennung Zylinder 4)
+016,1,Zündaussetzer,Zylinder 4,Wertebereich: 0...5
+016,4,Aussetzer-,erkennung,Sollwert: aktiv | Wertebereich: aktiv/inaktiv
+;
+020,0,Zündung (Klopfregelung / Zündwinkelrücknahme)
+020,1,Zündwinkelrück-,nahme Zylinder 1,Sollwert: 0.0...12.0 °KW
+020,2,Zündwinkelrück-,nahme Zylinder 2,Sollwert: 0.0...12.0 °KW
+020,3,Zündwinkelrück-,nahme Zylinder 3,Sollwert: 0.0...12.0 °KW
+020,4,Zündwinkelrück-,nahme Zylinder 4,Sollwert: 0.0...12.0 °KW
+;
+022,0,Zündung (Klopfregelung Zylinder 1 und 2)
+022,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+022,2,Motorlast,,Sollwert: 12.0...100.0 %
+022,3,Zündwinkelrück-,nahme Zylinder 1,Sollwert: 0.0...12.0 °KW
+022,4,Zündwinkelrück-,nahme Zylinder 2,Sollwert: 0.0...12.0 °KW
+;
+023,0,Zündung (Klopfregelung Zylinder 3 und 4)
+023,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+023,2,Motorlast,,Sollwert: 12.0...100.0 %
+023,3,Zündwinkelrück-,nahme Zylinder 3,Sollwert: 0.0...12.0 °KW
+023,4,Zündwinkelrück-,nahme Zylinder 4,Sollwert: 0.0...12.0 °KW
+;
+028,0,Zündung (Klopfregelung)
+028,1,Motordrehzahl,,Sollwert: 2500...6500 U/min
+028,2,Motorlast,,Sollwert: 40.0...100.0 %
+028,3,Kühlmittel-,temperatur,Sollwert: 80.0...110.0 °C
+028,4,Ergebnis,,Wertebereich: Test EIN/Test AUS/Sys. i.O./Sys. n.i.O.
+;
+030,0,Lambdaregelung
+; xx1 - Lambdaregelung aktiv
+; x1x - Lambdasonde betriebsbereit
+; 1xx - Lambdasondenheizung ein
+030,1,Lambdaregelung,vor Katalysator,Sollwert: 111
+030,2,Lambdaregelung,nach Katalysator,Sollwert: 111
+;
+031,0,Lambdaregelung (stetige Lambdasonden)
+031,1,Lambda Bank 1,IST-Wert,Sollwert: 0.99...1.01
+031,2,Lambda Bank 1,SOLL-Wert,Sollwert: 0.96...1.04
+;
+032,0,Lambdaregelung (Lernwerte vor Katalysator)
+032,1,Lambda-Lernwert,Leerlauf (additiv),Sollwert: -15.0...+15.0 %
+032,2,Lambda-Lernwert,Teillast (multipl.),Sollwert: -20.0...+20.0 %
+;
+033,0,Lambdaregelung (Regelwerte vor Katalysator)
+033,1,Lambdaregler,vor Katalysator,Sollwert: -15.0...+15.0 %
+033,2,Lambdasonden-,spannung v. Kat.,Sollwert: 1.4...1.6 V
+;
+034,0,Lambdaregelung (Alterungsprüfung vor Katalysator)
+034,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+034,2,Katalysator-,temperatur,Sollwert: > 340.0 °C
+034,3,Dynamikfaktor,Lambdasonde,Sollwert: 1.0...4.0
+034,4,Ergebnis,,Sollwert: B1-S1 i.O. | Wertebereich: Test AUS/Test EIN/B1-S1 i.O./B1-S1 n.i.O.
+;
+36,0,Lambdaregelung - nach Kat (Betriebsbereitschaft)
+36,1,Sondenspannung,,
+36,2,Ergebnis,,
+;
+37,0,Lambdaregelung - vor Kat (Betriebsbereitschaft)
+37,1,Motorlast,,
+37,2,Sondenspannung,,
+37,3,Abweichung,IST - SOLL,
+37,4,Ergebnis,,
+;
+041,0,Lambdaregelung (Sondenheizung)
+041,2,Lambdasonden-,heizung v. Kat.,Sollwert: Hzg.vK.EIN | Wertebereich: Hzg.vK.AUS / Hzg.vK.EIN
+041,3,Innenwiderstand,Lambdasonde n. Kat.,Sollwert: < 300 Ohm
+041,4,Lambdasonden-,heizung n. Kat,Sollwert: Hzg.nK.EIN | Wertebereich: Hzg.nK.AUS / Hzg.nK.EIN
+;
+043,0,Lambdaregelung (Diagnose Lambdasonde nach Katalysator)
+043,1,Motordrehzahl,,Sollwert (Leerlauf): 800...900 U/min
+043,2,Katalysator-,temperatur,Sollwert: > 340.0 °C
+043,3,Lambdasonden-,spannung,Sollwert: 0.00...1.00 V
+043,4,Ergebnis,,Sollwert: B1-S2 i.O. | Wertebereich: Test AUS/Test EIN/B1-S2 i.O./B1-S2 n.i.O.
+;
+046,0,Lambdaregelung (Diagnose Katalysator - Konvertierungsprüfung)
+046,1,Motordrehzahl,,Sollwert: 1300...1500 U/min
+046,2,Katalysator-,temperatur,Sollwert: > 340.0 °C
+046,3,Wirkungsgrad,Katalysator,Sollwert: > 1 %
+046,4,Ergebnis,,Sollwert: Kat B1 i.O. | Wertebereich: Test AUS/Test EIN/Kat B1 i.O./Kat B1 n.i.O.
+;
+050,0,Drehzahlregelung (Betriebszustände)
+050,1,Leerlaufdrehzahl,IST-Wert,Sollwert (Klimakompressor aus): 800...900 U/min | Sollwert (Klimakompressor ein): 850...930 U/min
+050,2,Leerlaufdrehzahl,SOLL-Wert,Sollwert: 830...900 U/min
+050,3,Klimabereitschaft,,Wertebereich: ein/aus
+050,4,Klimakompressor,,Wertebereich: Kompr. EIN/Kompr. AUS
+;
+054,0,Drehzahlregelung
+054,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+054,2,Betriebszustand,,Wertebereich: Leerlauf/Teillast/Anreicherung/Schub/Vollast
+054,3,Geber (G79) für,Gaspedalstellung,Sollwert: 0...100 %
+054,4,Geber (G187) für,Drosselklappenw.,Sollwert: 0.0...100 %
+;
+055,0,Drehzahlregelung (Leerlaufstabilisierung)
+055,1,Motordrehzahl,,Sollwert (Leerlaufdrehzahl): 800...900 U/min
+055,2,Leerlaufregler,,Sollwert: -10...+20 %
+055,3,Lernwert,Leerlaufstabil.,Sollwert: -10.0...+10.0 %
+055,4,Betriebs-,zustände
+; --1-x - Klimaanlage eingeschaltet
+; --x-1 - Klimakompressor eingeschaltet
+;
+056,0,Drehzahlregelung (Leerlaufstabilisierung)
+056,1,Leerlaufdrehzahl,IST-Wert,Sollwert: 800...900 U/min
+056,2,Leerlaufdrehzahl,SOLL-Wert,Sollwert: 830 U/min
+056,3,Leerlaufregler,,Sollwert: -10...+20 %
+056,4,Betriebs-,zustände
+; --1-x - Klimaanlage eingeschaltet
+; --x-1 - Klimakompressor eingeschaltet
+;
+057,0,Drehzahlregelung (Leerlaufstabilisierung)
+057,1,Leerlaufdrehzahl,IST-Wert,Sollwert (Klimakompressor aus): 800...900 U/min | Sollwert (Klimakompressor ein): 850...930 U/min
+057,2,Leerlaufdrehzahl,SOLL-Wert,Sollwert (Klimakompressor aus): 830 U/min | Sollwert (Klimakompressor ein): 900 U/min
+057,3,Betriebszustand,Klimakompressor,Wertebereich: Kompr. EIN/Kompr. AUS
+057,4,Klimabereitschaft,,Sollwert (Klimaanlage aus): 0...2 % | Sollwert (Klimaanlage ein): 15...80 %
+;
+060,0,Drehzahlregelung (Anpassung E-Gas-System)
+060,1,Drosselklappen-,winkel (G187),Sollwert: 0.0...100.0 %
+060,2,Drosselklappen-,winkel (G188),Sollwert: 100.0...0.0 %
+060,3,Lernwertzähler,,Sollwert: 0...8
+060,4,Anpassungs-,zustand,Sollwert: ADP. i.O. | Wertebereich: ADP. läuft/ADP. i.O./ADP ERROR
+;
+061,0,Drehzahlregelung (E-Gas-System)
+061,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+061,2,Versorgungs-,spannung,Sollwert: 11.5...15.0 V
+061,3,Drosselklappen-,winkel (G187),Sollwert: 0.0...100.0 %
+061,4,Betriebszustände
+; --1-x - Klimaanlage eingeschaltet
+; --x-1 - Klimakompressor eingeschaltet
+;
+062,0,Drehzahlregelung (E-Gas-System)
+062,1,Drosselklappen-,winkel (G187),Sollwert: 0.0...100.0 %
+062,2,Drosselklappen-,winkel (G188),Sollwert: 100.0...0.0 %
+062,3,Geber (G79) für,Gaspedalstellung,Sollwert: 0.0...98.0 %
+062,4,Geber 2 (G185) für,Gaspedalstellung,Sollwert: 0.0...49.0 %
+;
+066,0,Drehzahlregelung (Zusatzsignale/Tempomat)
+066,1,Geschwindigkeit,IST-Wert,
+066,2,Schalterstellungen,Kupplung/Bremse
+; -1xx - Kupplungspedalschalter (F36) aktiv
+; -x1x - Bremspedalschalter (F47) aktiv
+; -xx1 - Bremslichtschalter (F) aktiv
+066,3,Geschwindigkeit,SOLL-Wert,
+066,4,Schalterstellungen,Tempomat (GRA)
+;
+070,0,Abgasreduzierung (Diagnose Tankentlüftungssystem)
+070,1,Tastverhaeltnis,Magnetventil,Wertebereich: 0...100 %
+070,2,Lambdaregler,Abweichung,Sollwert:  -50...+50 %
+070,3,Leerlaufregler,Abweichung,Sollwert: -50...+50 %
+070,4,Ergebnis,,Sollwert: TEV i.O. | Wertebereich: Test EIN/Test AUS/TEV i.O./TEV n.i.O.
+;
+091,0,Leistungssteigerung (Nockenwellenverstellung)
+091,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+091,2,Motorlast,,Sollwert: 40.0...100.0 %
+091,3,Verstellung,Einlassnockenw.,Sollwert: ein | Wertebereich: ein/aus
+091,4,Verstellwinkel,Einlassnockenw.,Sollwert: -1.0...+40.0 °n.OT
+;
+093,0,Leistungssteigerung (Einbaulage Einlassnockenwelle)
+093,1,Motordrehzahl,,Sollwert: 800...6500 U/min
+093,2,Motorlast,,Sollwert: 0.0...100.0 %
+093,3,Einbaulage,Einlassnockenw.,Sollwert: -1.0...+8.0 °n.OT
+;
+094,0,Leistungssteigerung (Funktionsprüfung Nockenwellenverstellung)
+094,1,Motordrehzahl,,Sollwert: 2500...6000 U/min
+094,2,Nockenwellen,Verstellung,Sollwert: NW-St.EIN | Wertebereich: NW-St.EIN / NW-St.AUS
+094,3,Ergebnis,,Sollwert: Syst. i.O. | Wertebereich: Test EIN/Test AUS/Syst. i.O./Syst. n.i.O.
+;
+100,0,Readinesscode
+100,1,Readinesscode,,
+100,2,Kühlmittel-,temperatur,
+100,3,Zeit seit,Motorstart,
+100,4,Diagnosestatus,,
+;
+125,0,CAN-Datenbus Antrieb (Kommunikation)
+125,1,Bremsen-,elektronik
+125,3,Kombiinstrument
+125,4,Airbag
+;

@@ -1,0 +1,31 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-37.LBL
+; 8J-56.LBL
+; 8E0-035-192-RNSE.LBL
+; 8J0-035-192-RNSL.LBL
+; 8J0-035-1xx-56.LBL
+;
+; created on 19/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Mar/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8J0-035-1xx-56.LBL,8J0-035-186-???   ; Concert II+
+;
+REDIRECT,8J0-035-1xx-56.LBL,8J0-035-195-???   ; Symphony II+
+;
+REDIRECT,8E0-035-192-RNSE.LBL,8J0-035-192     ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8J0-035-192-A   ; RNS-E
+REDIRECT,8J0-035-192-RNSL.LBL,8J0-035-192-J   ; RNS-Low
+REDIRECT,8J0-035-192-RNSL.LBL,8J0-035-192-K   ; RNS-Low
+REDIRECT,8E0-035-192-RNSE.LBL,8J0-035-192-M   ; RNS-E
+;

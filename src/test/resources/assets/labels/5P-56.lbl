@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; Seat Altea/Toledo (5P)
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 5P-37.LBL
+; 5P-56.LBL
+; 1K0-035-1xx-56.LBL
+; 1T0-035-680.LBL
+;
+; created on 23/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 11/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,1K0-035-1xx-56.LBL,5P?-035-152-??? ; Radio CD
+REDIRECT,1K0-035-1xx-56.LBL,5P?-035-186-??? ; Radio CD & MP3
+;
+REDIRECT,1T0-035-680.LBL,5P0-035-680-??? ; RNS510
+;

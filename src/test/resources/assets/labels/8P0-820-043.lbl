@@ -1,0 +1,327 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P)
+;
+; Component: J255 - Climate Control (#08)
+;
+; P/N: 8P0-820-043-???
+;
+; includes measuring blocks, basic setting, coding, adaptation and selective output test
+;
+; created on 23/Mar/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Mar/2007
+;
+; requires VAG-COM 602.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,A/C Regulating,Valve (N280),0.000...0.050 A = Compressor OFF\n0.300...0.650/0.700 A = Compressor in Loop Control Mode
+001,2,A/C Regulating,Valve (N280),0.0 % = Compressor OFF\n30.0...100.0 % = Compressor in Loop Control Mode
+001,3,High Pressure,Sensor (G65),Range: 0.0...100.0 %\nSpecification: 12.0...78.0 %
+001,4,Refrigerant,Pressure,Specification: 2.6...29.0 bar
+;
+B001,0,Potentiometer && Flap Adaptation
+B001,1, , , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,Compressor Shut-Off Conditions
+;  0 = Compressor ON
+;  1 = Compressor OFF: Pressure in Refrigerant Circuit was or is too High)
+;  3 = Compressor OFF: Pressure in Refrigerant Circuit is too Low
+;  4 = Compressor OFF: Fault stored
+;  5 = Compressor OFF: Engine NOT running OR Idle Speed to Low
+;  6 = Compressor OFF: Deactivation via "ECON"-Mode or Basic Setting not performed
+;  7 = Compressor OFF: Deactivation via "OFF"-Mode
+;  8 = Compressor OFF: Ambient Temperature too Low
+; 10 = Compressor OFF: Supply Voltage too Low
+; 11 = Compressor OFF: Coolant Temperature too High
+; 12 = Compressor OFF: Requested by Engine Control Module
+; 14 = Compressor OFF: Refrigerant Pressure too High
+; 15 = Compressor OFF: Temperature at Evaporator too Low
+002,1,Current,Shut-Off Condition
+002,2,Last,Shut-Off Condition
+002,3,Last but One,Shut-Off Condition
+002,4,Last but Two,Shut-Off Condition
+;
+003,0,Left Temperature Flap Control Motor (V158) / Potentiometer (G220)
+003,1,Feedback Value,(Actual)
+003,2,Feedback Value,(Specified)
+003,3,Minimum Position,(Lower Stop/Cool),Specification: 10...70
+003,4,Maximum Position,(Upper Stop/Hot),Specification: 190...245
+;
+004,0,Right Temperature Flap Control Motor (V159) / Potentiometer (G221)
+004,1,Feedback Value,(Actual)
+004,2,Feedback Value,(Specified)
+004,3,Minimum Position,(Lower Stop/Cool),Specification: 10...70
+004,4,Maximum Position,(Upper Stop/Hot),Specification: 190...245
+;
+005,0,Defroster Flap Control Motor (V107) / Potentiometer (G135)
+005,1,Feedback Value,(Actual)
+005,2,Feedback Value,(Specified)
+005,3,Minimum Position,(Lower Stop/Closed),Specification: 10...70
+005,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+006,0,Center Flap Control Motor (V70) / Potentiometer (G112)
+006,1,Feedback Value,(Actual)
+006,2,Feedback Value,(Specified)
+006,3,Minimum Position,(Lower Stop/Closed),Specification: 10...70
+006,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+007,0,Air Flow Flap Control Motor (V71) / Potentiometer (G113)
+007,1,Feedback Value,(Actual)
+007,2,Feedback Value,(Specified)
+007,3,Minimum Position,(Lower Stop/Closed),Specification: 10...70
+007,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+008,0,Air Recirculation Flap Control Motor (V113) / Potentiometer (G143)
+008,1,Feedback Value,(Actual)
+008,2,Feedback Value,(Specified)
+008,3,Minimum Position,(Lower Stop/Closed),Specification: 10...70
+008,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+009,0,Outlet/Footwell Blower Temperature
+009,1,Left Footwell,Blower Temp.
+009,2,Right Footwell,Blower Temp.
+009,3,Left Outlet Blower,Temp. (G150)
+009,4,Right Outlet Blower,Temp. (G151)
+;
+010,0,Temperatures
+010,1,Evaporator,Temp. (G263)
+010,2,Fresh Air Intake,Temperature (G89)
+010,3,Ambient Temp.,(Filtered)
+010,4,Ambient,Temperature (G17)
+;
+011,1,Temperature,Dash Panel (G56)
+011,2,Turbine (V42),Dash Panel,Specification: 1500...4200 RPM
+011,3,Coolant,Temperature
+011,4,Idle Speed,Increase,Range: ON/OFF
+;
+012,1,Engine Speed
+012,2,Vehicle Speed
+012,3,Compress. Torque,Signal Status,0 = Compressor Torque Signal is up-to-date\n1 = Compressor Torque Signal is out-of-date
+012,4,Compressor,Torque
+;
+013,1,Turbine (V2),Load,0.0...5.0 % = Turbine (V2) OFF\n12.0...88.0 % = Turbine (V2) in Loop Control Mode
+013,3,Turbine (V2/J126),Status
+; 0 = Not Fault recognized but not running
+; 1 = Not Fault recognized but running
+; 2 = Turbine tight
+; 3 = Turbine Control Module (J126) too Hot
+; 4 = Short to Ground in Signal Wire to Turbine Control Module (J126)
+; 5 = Volate at Turbine Control Module (J126) to High/Low
+; 6 = Power Supply to Turbine Control Module (J126) Open Circuit
+; 7 = Turbine is blocked or Open Circuit
+; 8 = Turbine is blocked or Short to Plus/Ground
+; 9 = Fault at Turbine Control Module (J126)
+013,4,Status,Doors/Windows,See Label File
+; 0 = Dorr/Window closed / 1 = Door/Window open
+; ?xxxxxxx = Driver Door
+; x?xxxxxx = Passenger Door
+; xx?xxxxx = Rear Left Door
+; xxx?xxxx = Rear Right Door
+; xxxx?xxx = Driver Window
+; xxxxx?xx = Passenger Window
+; xxxxxx?x = Rear Left Window
+; xxxxxxx? = Rear Right Window
+;
+014,1,Request,Turbine (V7)
+014,2,Feedback,Turbine (V7)
+014,3,Air Quality,Sensor (G238)
+014,4,Request,Fresh/Recirc.,See Label File
+;  0 = Fresh Air
+; 10 = Recirculated Air, by G238 Request
+; 11 = Fresh Air, but automaticRecirculated Air deactivated, despite G238 Request for Recirculated Air
+; 12 = Fresh Air, but Compressor not running, despite G238 Request for Recirculated Air
+; 13 = Fresh Air, but Defrost Mode, despite G238 Request for Recirculated Air
+; 20 = Recirculated Air, by User (Recirculated Air Button)
+; 30 = Recirculated Air, by Wiper & Wipe/Wash Function
+; 40 = Recirculated Air, to cool down the interior as fast as possible
+; 50 = Climate Control OFF
+; 60 = Partly Recirculated Air (Fresh Air and Recirculated Air Flap open)
+;
+015,0,Rear Window Heater (Z1)
+015,1,Rear Window,Heater Status
+015,2,Rear Window,Heater Request,Request for Status LED
+015,3,Rear Window,Heater Standby,0 = ready (active or ready to get activated)\n1 = not ready (inactive, can not be activated)
+;
+016,1,Front Windows,Heater,?x = Signal (0 = OFF/1 = ON)\nx? = Feedback (0 = OFF/1 = ON)
+016,2,Signal,Aux. Heating,Range: ON/OFF
+016,3,Temperature Flap,Left (V158)
+016,4,Temperature Flap,Right (V159)
+;
+017,0,Sunlight Penetration Photosensor (G107)
+017,1,Sensor (G107),Left Side
+017,2,Sensor (G107),Left Side,Specification: 0.0...1000.0 W
+017,3,Sensor (G107),Right Side
+017,4,Sensor (G107),Right Side,Specification: 0.0...1000.0 W
+;
+018,0,Voltage Supply
+018,1,Status (CAN),Terminal 15,Range: ON/OFF
+018,2,Status (CAN),Terminal 75/X,Range: ON/OFF
+018,3,Status (Act.),Terminal 75/X,Range: ON/OFF
+018,4,Voltage,Terminal 30
+;
+019,1,Standing Time,Engine/Ignition,Measured between Engine OFF and Ignition ON.
+019,2,Key Number
+019,3,Status,Wiper,See Label File
+; 00000 = Wiper inactive
+; xxxx1 = Interval Operation
+; xxx1x = Operation (Level 1)
+; xx1xx = Operation (Level 2)
+; x1xxx = Wipe/Wash Operation
+; 1xxxx = Rain Sensor Mode
+019,4,Standing Time,Ignition/Ignition,Measured between Ignition OFF and Ignition ON.
+;
+020,0,Control Module Coding
+020,1,Coding I,,See Label File
+: -?-x-xxx = Steering (0 = Left-Hand / 1 = Right-Hand)
+; -x-?-xxx = Engine (0 = Gasoline / 1 = Diesel)
+; -x-x-000 = Germany
+; -x-x-001 = Europe (except Germany and Great Britain)
+; -x-x-010 = USA
+; -x-x-011 = Canada
+; -x-x-100 = Great Britain
+; -x-x-101 = Japan
+; -x-x-110 = Saudi Arabia
+; -x-x-111 = Australia
+020,2,Coding II,,See Label File
+; ?-x-xxxx = Secondary Air Heating (0 = not installed / 1 = installed)
+; x-?-xxxx = Aux. Heating (0 = not installed / 1 = installed)
+; x-x-0011 = 3-Cyl. Engine
+; x-x-0100 = 4-Cyl. Engine
+; x-x-0110 = 6-Cyl. Engine
+; x-x-1000 = 8-Cyl. Engine
+020,3,Dimming,Terminal 58d,Range: 0.0...100.0 %
+020,4,Dimming,Terminal 58s,Range: 0.0...100.0 %
+;
+021,0,Heated Seat (Driver)
+021,1,Position,Thumb Wheel,Range: 0...6
+021,2,Request,Heater,Range: ON/OFF
+021,3,Temp. (Act.),Driver (G344)
+021,4,Temp. (Spec.),Driver (G344)
+;
+022,0,Heated Seat (Passenger)
+022,1,Position,Thumb Wheel,Range: 0...6
+022,2,Request,Heater,Range: ON/OFF
+022,3,Temp. (Act.),Passenger (G345)
+022,4,Temp. (Spec.),Passenger (G345)
+;
+023,0,Aux. Heater
+023,1,Act. Signal,(Retrofit only),Range: ON/OFF
+023,2,Source for,Act. Signal,See Label File
+; 000 = No Act. Signal
+; 001 = Act. Signal for Aux. Heater (Coolant)
+; 010 = Act. Signal for Aux. Heater (Air)
+; 100 = Act. Signal via Timer or Remote Control
+023,3,Aux. Heater,Request,Range: ON/OFF
+023,4,Maximum,Activ. Time
+;
+024,0,Shut-Off
+024,1,Consumer,Shut-Off,See Label File
+; 0 = Shut-Off inactive
+; 1 = Shut-Off active
+; ---?-x-x = Shut-Off Heated Front Window
+; ---x-?-x = Shut-Off Heated Seats
+; ---x-x-? = Shut-Off A/C Compressor Regulator Valve (N280) Actuation
+024,2,Heated Seats,,After more than 15 Shut-Offs the Heated Seats are not being actuated by J255 anymore.
+024,3,A/C Compressor,Regul.Valve (N280),After more than 15 Shut-Offs the N280 is not being actuated by J255 anymore.
+;
+025,0,Freeze Frame for High Pressure Sensor (G65) Fault I
+025,1,Fault Code
+025,2,Fault Date
+025,3,Fault Time
+025,4,Vehicle Speed
+;
+026,0,Freeze Frame for High Pressure Sensor (G65) Fault II
+026,1,Anforderung,Kühlerlüfter
+026,2,Ansteuerung,Kühlerlüfter
+026,3,Ambient,Temperature
+;
+125,0,CAN-Databus Communication
+125,1,Instrument Cluster,(J285)
+125,2,Central Electronics,(J519)
+125,3,CAN-Gateway,(J533)
+125,4,Aux. Heating,(J364)
+;
+126,0,CAN-Databus Communication
+126,1,Wiper
+126,2,Engine
+126,3,Voice Control
+126,4,Sec. Air Heat.,(J604)
+;
+127,0,CAN-Databus Communication
+127,1,Door Contr. Module,Driver (J386)
+127,2,Door Contr. Module,Passenger (J387)
+127,3,Door Contr. Module,Rear Left (J388)
+127,4,Door Contr. Module,Rear Right (J389)
+;
+128,0,CAN-Databus Communication (Comfort)
+128,1,Status,CAN-Comfort,Specification: 2-Wire\nRange: 2-Wire/1-Wire
+128,2,Version,CAN-Comfort
+128,3,Version,CAN-Matrix (J533)
+128,4,Version,CAN-Matrix (J255)
+;
+129,0,CAN-Databus Communication (Comfort)
+129,1,Comfort System,(J393)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Climate Control (J255) Coding
+C01,This Control Module can not be coded directly.
+C02,Instead it receives the required information
+C03,during the basic setting (MVB 001) from other
+C04,installed components.
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T798,Display: Segment Test
+T393,Display: Black Segments
+T395,Display: Red Segments
+T1272,Positioning Motor for Central Flap (V70)
+T710,Defroster Flap Positioning Motor (V107)
+T716,Air recirculation Flap Positioning Motor (V113)
+T1274,Air Flow Flap Positioning Motor (V71)
+T1809,Actuating Motor for Temperature Flap Left (V158)
+T1810,Actuating Motor for Temperature Flap Right (V159)
+T796,Fan for Interior Temp Sensor (V42)
+T1273,Fresh Air Blower (V2)
+T708,Coolant Fan (V7)
+T831,Coolant Fan Control Module (J293)
+T1232,A/C Compressor Regulator Valve (N280)
+T975,Heated Rear Window (Z1)
+T1853,Heated Seat Left Front (Z45)
+T1854,Heated Seat Right Front (Z46)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+
+;

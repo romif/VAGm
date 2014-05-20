@@ -1,0 +1,138 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A6 (4B) / Audi A8 (4D)
+;
+; Bauteil: J162 - Standheizung (#18)
+;
+; T/N: 8E0-820-043-???
+;
+; beinhaltet Messwertblöcke, Grundeinstellung, Codierung und Anpassung
+;
+; erstellt am 11.09.2006 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 11.09.2006
+;
+; benötigt VAG-COM 607.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertblöcke & Grundeinstellung
+;
+;---------------------------------------------------
+;
+;
+001,0,Allgemein
+001,1,Batteriespannung
+001,2,Kühlmittel-,temperatur
+001,3,Betriebszustand,Standheizung
+001,4,Frischluft-,gebläse (V2)
+;
+002,0,Leistungsfaktoren
+002,1,Verbrennungsluft-,gebläse,0.0 % = Verbrennungsluftgebläse AUS\n10.0...100.0 % = Verbrennungsluftgebläse EIN
+002,2,Glühkerze (Q8),,0.0 % = Keine Ansteuerung\n10.0...50.0 % = Nachglühen\n50.0...100.0 % = Vorglühen
+002,3,Dosierpumpe,(V54),0.0 = Keine Ansteuerung\n10.0...110.0 % = Ansteuerung (Start)\n50.0...100.0 % = Ansteuerung (Heizbetrieb/Teillast/Vollast)
+002,4,Umwälzpumpe,(V55),0.0 %/AUS = Keine Ansteuerung\n20.0...100.0/EIN % = Ansteuerung (getaktet)
+;
+003,0,Unterspannungsabschaltung && Betriebsart/-zustand
+003,1,Abschaltschwelle
+003,2,Abschaltart
+003,3,Betriebszustand
+003,4,Betriebsart,,Wertebereich: heizen/lüften
+;
+004,1,Lernwert,Spannungsabfall,Sollwert: max. 0.350 V
+004,2,Brenndauer
+004,3,Betriebsdauer,(Einschaltdauer)
+004,4,Vorglühzyklen
+;
+005,0,Umgebungsbedingungen letzte Störung
+;
+006,0,Umgebungsbedingungen vorletzte Störung
+;
+007,0,Umgebungsbedingungen drittletzte Störung
+;
+008,0,Abschaltungen
+008,1,Abschaltungen,durch Störung
+;
+B022,0,Heizgerät einschalten
+B022,1,Status
+B022,2,Betriebszustand
+B022,3,Ansteuerung
+B022,4,Betriebsart
+;
+B033,0,Heizgerät ausschalten
+B033,1,Status
+B033,2,Betriebszustand
+B033,3,Ansteuerung
+B033,4,Betriebsart
+;
+B055,0,Leitungsbefüllung
+B055,1,Anweisungen
+;
+B099,0,Unterspannungsabschaltung
+B099,1,Anweisungen
+;
+;
+;---------------------------------------------------
+;
+; Anpassung
+;
+;---------------------------------------------------
+;
+;
+A001,0,Unterspannungsabschaltung
+A001,5,Unterspannungsabschaltung
+A001,6,Es wird unterschieden zwischen gelerntem (Codierung = 00xx1) und
+A001,7,angepasstem (Codierung = 00xx2) Spannungswert. Nur ein angepasster
+A001,8,Wert lässt sich ändern!
+A001,9,Das Lernen geschieht über eine Grundeinstellung (MWB 99).
+A001,10, 
+A001,11,Lernwerte:
+A001,12,151 = 12.15 V / 155 = 12.22 V / 160 = 12.29 V / 165 = 12.36 V
+A001,13,170 = 12.44 V / 175 = 12.51 V / 180 = 12.58 V / 185 = 12.66 V
+A001,14, 
+A001,15,Anpassungswerte:
+A001,16,0 = 9.5 V / 5 = 9.85 V / 10 = 10.20 V / 15 = 10.55 V / 20 = 10.90 V
+A001,17,25 = 11.25 V / 30 = 11.60 V / 35 = 11.95 V / 40 = 12.30 V / 45 = 12.65 V
+;
+A002,0,CO²-Anteil im Abgas
+A002,5,CO²-Anteil im Abgas
+A002,6,Während der Messnung mit Abgaßmeßsonde kann hier
+A002,7,der CO² Anteil im Abas eingestellt werden.
+A002,8, 
+A002,9,Wertebereich: 105...136
+A002,10,Sollwert (Dieselmotor): 9...12 Volumenprozent
+A002,11,Sollwert (Benzinmotor): 8...11 Volumenprozent
+;
+A010,0,Ansteuerung Zusatzheizung/Umwälzpumpe 
+A010,5,Ansteuerung Zusatzheizung/Umwälzpumpe 
+A010,6,Softwarestand D50/D51:
+A010,7,0 = 6 Zyl.-Dieselmotor
+A010,8,1 = 8 Zyl.-Motor (kleiner Kühlmittelkreislauf)
+A010,9, 
+A010,10,Softwarestand D52 (oder höher):
+A010,11,2 = Dieselmotor
+A010,12,3 = Benzinmotor
+;
+;
+;---------------------------------------------------
+;
+; Codierung
+;
+;---------------------------------------------------
+;
+;
+C00,Standheizung (J162) Codierung
+C01,00?xx: Absperrventil (ab Softwarestand D50 sonst 0)
+C02,0 = Absperrventil für Kühlmittel (N279) nicht verbaut
+C03,1 = Absperrventil für Kühlmittel (N279) verbaut
+C04, 
+C05,00x?x: Umwälzpumpe (V55) (ab Softwarestand D49 sonst 0)
+C06,0 = Umwälzpumpe (V55) nicht verbaut
+C07,1 = Umwälzpumpe (V55) verbaut
+C08, 
+C09,00xx?: Unterspannungsabschaltung
+C10,1 = Unterspannungsabschaltung über Lernwert (Grundeinstellung MWB 99)
+C11,2 = Unterspannungsabschaltung über Anpassung (Kanal 01)
+;

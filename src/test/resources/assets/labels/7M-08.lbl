@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J255 - A/C Heating Electronics (#08)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7M-08.LBL
+; 7M3-907-040.LBL
+;
+; created on 09/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,7M3-907-040.LBL,7M3-907-040-??? ; VW Sharan
+REDIRECT,7M3-907-040.LBL,7M5-907-040-??? ; Ford Galaxy
+REDIRECT,7M3-907-040.LBL,7M7-907-040-??? ; Seat Alhambra
+;

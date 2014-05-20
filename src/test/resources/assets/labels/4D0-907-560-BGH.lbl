@@ -1,0 +1,953 @@
+;
+; VAG-COM Measuring Block Labels file 4D0-907-560-CS.lbl
+;
+; VW Phaeton 4.2L V8/5V gasoline engine, Engine Code BGH
+;
+;
+; p/n: 4D0 907 560 CS  Component: 4.2L V8/5V G 0030  Coding: 0001065 (no speed limiter) - 2004 Phaeton NAR 'special'
+; p/n: 4D0 907 560 DD  Component: 4.2L V8/5V G 0030  Coding: 0007873 - 2005 Phaeton NAR (Canada and USA) regular
+;
+;
+; **Modification History**
+; Created:  Original by Dave Eaton (S8 V8 - 4D0-907-560-AT.lbl)
+; Modified: Sebastian Stange 03/15/04
+; Modified: Michael Moore (Moore@ross-tech.com, 'PanEuropean' on the VW Vortex forum) March 27 2005 for the Phaeton V8 with BGH (V8) engine.
+; Modified: Michael Moore 23/November/2005, additonal p/n added above.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4D-01.LBL
+; 4D0-907-560-BGH.LBL (4.2l E   @ 334 HP - BGH)
+;
+; ready for VAG-COM 405.0 and above
+;
+;**********************************************************************
+;
+0,0,General Engine Status
+0,1,Coolant Temp,180-203
+0,2,Load,18-300
+0,3,RPM,65-72
+0,4,Throttle Angle,2-7
+0,5,Idle Speed Control,118-138
+0,6,Idle Learned Value,123-143
+0,7,O2S Control Bank 1,120-136
+0,8,O2S Control Bank 2,120-136
+0,9,O2S Adaption Bank 1,115-139
+0,10,O2S Adaption Bank 2,115-139
+;
+; **********************************************************************
+;
+; General Engine Data
+;
+; **********************************************************************
+;
+1,0,Engine Conditions
+1,1,Idle Speed,RPM;640-6900
+1,2,Coolant Temp,80-110C
+1,3,O2 Sens Bank1,+/-15%(>2% flct)
+1,4,O2 Sens Bank2,+/-15%(>2% flct)
+;
+2,0,Load Measurement
+2,1,Engine speed,RPM
+2,2,Engine load,7 - 100%
+2,3,Mass air,flow 1,specified value: 1 - 130
+2,4,Mass air, flow 2,specified value: 1 - 130
+;
+3,0,Throttle Position Sensor Check
+3,1,Engine speed,RPM,640-6900
+3,2,Mass air flow,g/s,3 - 250
+3,3,Throttle angle,0 - 100
+3,4,Ign timing,- 20 - 50
+;
+4,0,Battery Voltage and Temperatures
+4,1,Engine speed,RPM,640-6900
+4,2,Battery voltage,12-15V
+4,3,Coolant temp,80-110 deg C
+4,4,Intake air,temperature,<110 deg C
+;
+5,0,Engine Operating Conditions
+5,1,Engine Speed,RPM
+5,2,Engine Load,%
+5,3,Vehicle Speed,km/h
+5,4,Operating,condition,Idle - partial throttle - WOT - deceleration - enrichment
+;
+6,0,Engine Operating Conditions
+6,1,Engine Speed,RPM,640 - 6900
+6,2,Engine Load,%,7 - 100
+6,3,Intake air,temperature,<110 deg C
+6,4,Height,correction
+;
+7,0,Undocumented
+;
+8,0,General Information
+8,1,Brake,Status,operated or not operated
+8,2,Voltage,supply,pump on or pump off
+8,3,Status of,vacuum pump
+8,4,Result,of test,Test OFF / Test ON / Syst. OK / Syst. not OK
+;
+9,0,Undocumented
+;
+;**********************************************************************
+;
+;  Ignition & Misfire Detection
+;
+;**********************************************************************
+;
+10,0,Engine Operating Conditions
+10,1,Engine Speed,RPM
+10,2,Engine Load,%
+10,3,Throttle Angle, %
+10,4,Ignition Timing
+;
+11,0,Engine Operating Conditions
+11,1,Engine Speed,RPM
+11,2,Coolant, Temperature
+11,3,Intake air temp,
+11,4,Ignition Timing
+;
+12,0,Undocumented
+;
+13,0,Undocumented
+;
+14,0,Misfire Recognition
+14,1,Engine Speed,(600-820 @idle)
+14,2,Engine Load,%
+14,3,Total misfires,0-5
+14,4,Misfire,status,Activated
+;
+15,0,Misfire Recognition Cylinders 1-3 (@idle)
+15,1,Cyl 1,0-5
+15,2,Cyl 2,0-5
+15,3,Cyl 3,0-5
+15,4,Misfire status,activated
+;
+16,0,Misfire Recognition Cylinders 4-6 (@idle)
+16,1,Cyl 4,0-5
+16,2,Cyl 5,0-5
+16,3,Cyl 6,0-5
+16,4,Misfire status,activated
+;
+17,0,Misfire Recognition Cylinders 7-8 (@idle)
+17,1,Cyl 7,0-5
+17,2,Cyl 8,0-5
+17,3,N/A
+17,4,Misfire status,activated
+;
+18,0,Load/RPM window misfire recognition
+18,1,Lower RPM,limit
+18,2,Upper RPM,limit
+18,3,Lower load,barrier
+18,4,Upper load,barrier
+;
+19,0,Undocumented
+;
+;**********************************************************************
+;
+;  Knock Control
+;
+;**********************************************************************
+;
+20,0,Knock Control - Ignition Angle Retard
+20,1,Cyl 1
+20,2,Cyl 2
+20,3,Cyl 3
+20,4,Cyl 4
+;
+21,0,Knock Control - Ignition Angle Retard
+21,1,Cyl 5
+21,2,Cyl 6
+21,3,Cyl 7
+21,4,Cyl 8
+;
+22,0,Knock Control Cyl 1 && 2
+22,1,Engine Speed,RPM
+22,2,Engine Load,%
+22,3,Retard,Cylinder 1
+22,4,Retard,Cylinder 2
+;
+23,0,Knock Control Cyl 3 && 4
+23,1,Engine speed,RPM
+23,2,Engine load,%
+23,3,Retard, Cylinder 3
+23,4,Retard, Cylinder 4
+;
+24,0,Knock Control Cyl 5 && 6
+24,1,Engine speed,RPM
+24,2,Engine load,%
+24,3,Retard, Cylinder 5
+24,4,Retard, Cylinder 6
+;
+25,0,Knock Control Cyl 7 && 8
+25,1,Engine speed,RPM
+25,2,Engine load,%
+25,3,Retard, Cylinder 7
+25,4,Retard, Cylinder 8
+;
+26,0,Knock Sensor Voltages - Cylinders 1-4
+26,1,Cylinder 1,Volts
+26,2,Cylinder 2,Volts
+26,3,Cylinder 3,Volts
+26,4,Cylinder 4,Volts
+;
+27,0,Knock Sensor Voltages - Cylinders 5-8
+27,1,Cylinder 5,Volts
+27,2,Cylinder 6,Volts
+27,3,Cylinder 7,Volts
+27,4,Cylinder 8,Volts
+;
+28,0,Test Knock Sensor, Short Trip
+28,1,Engine Speed,RPM
+28,2,Engine Load,%
+28,3,Coolant,Temperature
+28,4,Test Status
+;
+29,0,Undocumented
+;
+;**********************************************************************
+;
+;  Mixture Control, Catalytic Converters, O2 System
+;
+;**********************************************************************
+;
+30,0,O2S Condition [B=Bank S=Sensor]
+30,1,Status B1S1,111=OK
+30,2,Status B1S2,010=OK
+30,3,Status B2S1,111=OK
+30,4,Status B2S2,010=OK
+;
+31,0,Oxygen Sensor Voltages
+31,1,B1S1,Voltage
+31,2,B1S2,Voltage
+31,3,B2S1,Voltage
+31,4,B2S2,Voltage
+;
+32,0,O2S Adaption Maximums [B=Bank S=Sensor]
+32,1,B1S1 idle,
+32,2,B1S1 partial,
+32,3,B2S1 idle,
+32,4,B2S2 partial,
+;
+33,0,O2S Control (Before TWC) [B=Bank S=Sensor]
+33,1,Control B1S1,,+/-15%
+33,2,Voltage B1S1,,0-5V
+33,3,Control B2S1,,+/-15%
+33,4,Voltage B2S1,,0-5V
+;
+34,0,O2S Aging Bank 1
+34,1,Engine RPM,,640 to 6900
+34,2,Temp before,cat conv,300 - 800
+34,3,Dynamic Factor,
+34,4,Diag Status,,Test ON/Test OFF/B1-S1OK/B1-S1 nOK
+;
+35,0,O2S Aging Bank 2
+35,1,Engine RPM,,640 to 6900
+35,2,Temp before,cat conv,300 - 800
+35,3,Dynamic Factor,
+35,4,Diag Status,,Test ON/Test OFF/B2-S1OK/B2-S1 nOK
+;
+36,0,O2S Beyond TWC [B=Bank S=Sensor]
+36,1,Volt Supply B1S2,0-1V
+36,2,Diag Status B1S2,Test/ON/OFF|OK
+36,3,Volt Supply B2S2,0-1V
+36,4,Diag Status B2S2,Test/ON/OFF|OK
+;
+37,0,Oxygen Sensor Control System Bank 1
+37,1,Engine Load,
+37,2,O2S Volt B1 S2,0.1-1.0V
+37,3,O2S val B1 S1-S2,-0.03 - 0.03
+37,4,Diag Status,Test/ON/OFF|OK
+;
+38,0,Oxygen Sensor Control System Bank 2
+38,1,Engine Load,13.5-22.5%
+38,2,O2S Volt B2 S2,0.1-1.0V
+38,3,O2S val B2 S1-S2,-0.03 - 0.03
+38,4,Diag Status,Test/ON/OFF|OK
+;
+39,0,Sensor exchange after cat. converter short trip
+39,1,Air mass
+39,2,Bank 1,sensor voltage
+39,3,Bank 2,sensor voltage
+39,4,Result,,Test ON/Test OFF/ Sys OK/Sys. not OK
+;
+40,0,Undocumented
+;
+41,0,Oxygen Sensor Heater  Bank 1 @Idle
+41,1,Sensor 1 Resist
+41,2,Heater Bf cat,Status
+41,3,Internal,Resistance,kOhm B1S2
+41,4,Heater beh. cat,Status
+;
+42,0,Oxygen Sensor Heater Bank 2 @Idle
+42,1,Sensor 1 Resist
+42,2,Heater Bf cat,Status
+42,3,Internal,Resistance,kOhm B2S2
+42,4,Heater Beh. cat,Status
+;
+43,0,Oxygen Sensor Aging Bank 1 Behind TWC
+43,1,Engine RPM,650 to 720rpm
+43,2,Cat Temp,Aprox 250 C
+43,3,O2 Sensor,Voltage (0-1V)
+43,4,Diag Status,Test/ON/OFF|OK
+;
+44,0,Oxygen Sensor Aging Bank 2 Behind TWC
+44,1,Engine RPM,650 to 720rpm
+44,2,Cat Temp,Aprox 250 C
+44,3,O2 Sensor,Voltage (0-1V)
+44,4,Diag Status,Test/ON/OFF|OK
+;
+45,0,Undocumented
+;
+46,0,Cat. Converter Bank 1 diagnosis
+46,1,Engine RPM,1800 to 2400rpm
+46,2,Cat Temp,400 < C < 540
+46,3,Cat COnversion,Secs (0-0.55)
+46,4,Diag Status,Test/ON/OFF|OK
+;
+47,0,Cat. Converter Bank 2 diagnosis
+47,1,Engine RPM,1800 to 2400rpm
+47,2,Cat Temp,400 < C < 540
+47,3,Cat COnversion,Secs (0-0.55)
+47,4,Diag Status,Test/ON/OFF|OK
+;
+48,0,Undocumented
+;
+49,0,Undocumented
+;
+;**********************************************************************
+;
+;  Engine Speed Control
+;
+;**********************************************************************
+;
+50,0,Signals to Engine Control Module
+50,1,Engine speed,Actual
+50,2,Engine Speed, Specified
+50,3,A/C idle boost,Lo=A/Hi=F
+50,4,A/C compressor,ON/OFF
+;
+51,0,Speed and Shift Initiations
+51,1,Engine Speed,Actual
+51,2,Engine Speed,Specified
+51,3,Driving Range,1-6
+51,4,Supply,Voltage
+;
+52,0,Undocumented
+;
+53,0,Speed Increase Based on Load
+53,1,Engine Speed,Actual
+53,2,Engine Speed,Specified
+53,3,Supply,Voltage
+53,4,Generator,Load
+;
+54,0,Closed Throttle Position Switch
+54,1,Engine Speed
+54,2,Operating Cond,
+54,3,Pedal Pos,Sensor 1 %
+54,4,Throttle Angle,%
+;
+55,0,Idle Air Control (IAC)
+55,1,Engine Speed
+55,2,IAC Value
+55,3,IAC Adaption,Value
+55,4,Op condition,See File
+;X0000 N/A
+;0X000 N/A
+;00X00 Climate Control 0=Min, 1=Max
+;000X0 Gear Level 0=P/N 1=2/3/4/R/D
+;0000X A/C Compressor 0=Off 1=On
+;
+56,0,Idle speed stabilization (@Idle)
+56,1,Engine speed,Actual
+56,2,Engine Speed,Spec #1+20
+56,3,Ctrl Torque Chg,-1 to +1%
+56,4,Op condition,See File
+;X0000 N/A
+;0X000 N/A
+;00X00 Climate Control 0=Min, 1=Max
+;000X0 Gear Level 0=P/N 1=2/3/4/R/D
+;0000X A/C Compressor 0=Off 1=On
+;
+57,0,Idle air control pressure signal A/C compressor
+57,1,RPM,(actual value)
+57,2,RPM,(specified value)
+57,3,A/C compressor
+57,4,Duty cycle,pressure receiver
+;
+58,0,Undocumented
+58,1,RPM,(actual value)
+58,2,Engine Load
+58,3,Right,Engine Mount,on - off
+58,4,Left,Engine Mount,on - off
+;
+59,0,Undocumented
+;
+;**********************************************************************
+;
+;  Throttle Valve Control
+;
+;**********************************************************************
+;
+60,0,Adaptation of Throttle Valve (TV) Controller (Ignition On && Engine Off)
+60,1,TV Sensor 1,
+60,2,TV Sensor 2,
+60,3,Op condition,0 to 8
+60,4,Adapt status,ADP. RUN/OK/ERROR
+;
+61,0,Throttle Valve (TV) Operating Conditons
+61,1,Engine Speed
+61,2,Supply Voltage
+61,3,TV Control,%
+61,4,Op Condition,See File
+;X000 N/A
+;0X00 A/C Readiness On
+;00X0 Driving Range Selected
+;000X A/C Compressor On
+;
+62,0,Electronic Throttle Voltages [S=Sensor]
+62,1,TV Sensor 1
+62,2,TV Sensor 2
+62,3,Acc. Pos S1,8 - 97%
+62,4,Acc. Pos S2,3 - 49%
+;
+63,0,Kick Down Adaption
+63,1,Acc Pedal Pos,Sensor 1 %
+63,2,Sensor Learned,Posiiton %
+63,3,Kickdown,Switch
+63,4,Adaption Result
+;
+64,0,Throttle Valve Potentiometer Adaption Voltages
+64,1,Pot 1 Lower,Adaption
+64,2,Pot 2 Lower,Adaption
+64,3,Emergency Air,Gap Pot 1,(not certain about this for Phaeton)
+64,4,Emergency Air,Gap Pot 2,(not certain about this for Phaeton)
+;
+65,0,Undocumented
+;
+66,0,Cruise Control
+66,1,Current Speed,Km/h
+66,2,Brake Swith Pos,See File
+; 0000000X Brake Light Switch
+; 000000X0 Pedal Depressed
+; 00000X00 Brake Pedal Switch
+; 0000X000 Clutch Switch
+; 000X0000 CC Function
+; 0000XX00 ADR Function switched free 
+; 
+66,3,Specified Speed,Km/h
+66,4,Switch Position,See File
+;0000=CC off
+;0011=CC on
+;0001=CC on before point of engagement
+;1011=Resume selected
+;
+67,0,Undocumented
+;
+68,0,Undocumented
+;
+69,0,Highest speed status of suspension
+
+69,1,Range is 0 or 1,in last digit
+;
+;**********************************************************************
+;
+;  Emission Control Systems
+;
+;**********************************************************************
+;
+70,0,Fuel Tank Ventilation
+70,1,Degree Open,0-93%
+70,2,O2 Sens Regulator,Average Value
+70,3,IAC Daig Value,%
+70,4,Diag Condition,Test/ON/OFF|OK
+;
+71,0,Fuel tank leak detection
+71,1,Reed contact,Open
+71,2,Error msg,Type,Small leak - large leak - abort
+71,3,Sys Status,Test/check/end
+71,4,Diag Condition,Test/ON/OFF|OK
+;
+72,0,Tank Leak Test
+72,1,Reed contact,Open
+72,2,Error msg,Type
+72,3,Sys Status,Test/check/end
+72,4,Diag Condition,Test/ON/OFF|OK
+;
+73,0,Undocumented
+;
+74,0,Undocumented
+;
+75,0,Undocumented
+;
+76,0,Undocumented
+;
+77,0,Secondary Air Injection system diagnosis Bank 1
+77,1,Engine Speed,1800-2400rpm
+77,2,Air Mass,40 < g/s < 70
+77,3,Deviation,% (-70-30)
+77,4,Diag Status,Test/ON/OFF|OK
+;
+78,0,Secondary Air Injection system diagnosis Bank 2
+78,1,Engine Speed,1800-2400rpm
+78,2,Air Mass,40 < g/s < 70
+78,3,Deviation,% (-70-30)
+78,4,Diag Status,Test/ON/OFF|OK
+;
+79,0,Undocumented
+;
+;**********************************************************************
+;
+;  OBD-II Readiness Code
+;
+;**********************************************************************
+;
+81,0,Vehicle Identification
+;
+82,0,Flash Tool Code
+;
+83,0,Undocumented
+;
+84,0,Undocumented
+;
+85,0,Undocumented
+;
+86,0,OBD-II Readiness Code
+86,1,Readiness Code,00000000=OK,See label file
+;X0000000 EGR = 0
+;0X000000 O2S Heating 0=Ready, 1=Not Ready
+;00X00000 O2S Control 0=Ready, 1=Not Ready
+;000X0000 Climate Control 0
+;0000X000 Secondary Air 0=Ready, 1=Not Ready
+;00000X00 EVAP 0=Ready, 1=Not Ready
+;000000X0 Three Way Converter (TWC) Catalytic Converter = 0
+;0000000X TWC 0=Ready, 1=Not Ready
+86,2,Diag. This, Cycle,See label file
+;X0000000 H2OS Heater After Bank 2 0=Diagnosis in last cycle, 1=Not
+;0X000000 HO2S Heater Before Bank 2 0=Diagnosis in last cycle, 1=Not
+;00X00000 HO2S Heater After Bank 1 0=Diagnosis in last cycle, 1=Not
+;000X0000 H2OS Heater Before Bank 1 0=Diagnosis in last cycle, 1=Not
+;0000X000 EVAP 0=Diagnosis in last cycle, 1=Not
+;00000X00 Leak Detection Pump 0=Diagnosis in last cycle, 1=Not
+;000000X0 TWC Bank 2 0=Diagnosis in last cycle, 1=Not
+;0000000X TWC Bank 1 0=Diagnosis in last cycle, 1=Not
+86,3,Diag. This, Cycle,See label file
+;X0000000 Open
+;0X000000 Secondary Air System Bank 2 0=Diagnosis in last cycle, 1=Not
+;00X00000 Secondary Air System Bank 1 0=Diagnosis in last cycle, 1=Not
+;00000X00 H2OS Before TWC Bank 1 Cycle Time 0=Diagnosis in last cycle, 1=Not
+;0000X000 H2OS Aging Behind Bank 1 0=Diagnosis in last cycle, 1=Not
+;00000X00 H2OS Correction Bank 1 0=Diagnosis in last cycle, 1=Not
+;000000X0 HO2S After Bank 1 Electrical 0=Diagnosis in last cycle, 1=Not
+;0000000X H2OS Before Bank 1 Electrical 0=Diagnosis in last cycle, 1=Not
+86,4,Diag. This, Cycle,See label file
+;X0000000 Open
+;0X000000 Open
+;0000X000 Open
+;00000X00 O2 Sensor before TWC Bank 2 (Cycle Period) 0=Diagnosis in last cycle, 1=Not
+;000000X0 O2 Sensor Aging Behind TWC Bank 2 0=Diagnosis in last cycle, 1=Not
+;0000000X O2 Sensor COrrection Bank 2 0=Diagnosis in last cycle, 1=Not
+;000000X0 O2 Sensor Behind TWC Bank 2 Electrical Testing 0=Diagnosis in last cycle, 1=Not
+;0000000X Sensor Before TWC Bank 2 Electrical Testing 0=Diagnosis in last cycle, 1=Not
+;
+87,0,
+87,1,Ready-Bits
+87,2,Error-flags
+87,3,Error-flags
+87,4,Error-flags
+;
+88,0,
+88,1,Cycle-flags
+88,2,Cycle-flags
+88,3,Cycle-flags
+;
+89,0,MIL Light Information
+89,1,Kms driven with,MIL light on,Range:0 to 65535
+89,2,Undocumented
+;
+;**********************************************************************
+;
+;  Camshaft & Inlet Manifold Control
+;
+;**********************************************************************
+;
+90,0,Camshaft adjustment (values are for idle && road test: accel in 2nd gear)
+90,1,Engine speed,RPM
+90,2,Adj ON/OFF,idle=OFF/rt=ON
+90,3,Adj resp Bank1,
+90,4,Adj resp Bank2,
+;
+91,0,Camshaft Adjustment - Bank 1
+91,1,Engine Speed,RPM
+91,2,Last %
+91,3,Adjustment
+91,4,Adjustment,Actual
+;
+92,0,Camshaft Adjustment - Bank 2
+92,1,Engine Speed,RPM
+92,2,Last %
+92,3,Adjustment
+92,4,Adjustment,Actual
+;
+93,0,Phase Positions of Cam Pos Sensors
+93,1,Egine Speed,Rpm
+93,2,Last,%
+93,3,Phase position,Bank 1
+93,4,Phase position,Bank 2
+;
+94,0,Camshaft Adjustment Control
+94,1,Engine Speed,RPM
+94,2,Control Status,On/Off
+94,3,Bank 1,Test/Sys On/Off
+94,4,Bank 2,Test/Sys On/Off
+;
+95,0,Intake Manifold Change Over
+95,1,Engine Speed,(600-820 @Idle)
+95,2,Load,(14-24% @idle)
+95,3,Coolant Temp,80-105 Celsius
+95,4,I/M Chg Over,(Off @idle)
+;
+96,0,Undocumented
+;
+97,0,Undocumented
+;
+98,0,Undocumented
+;
+99,0,O2S Control (ON in read mode && OFF for diagnosis in Basic Setting)
+99,1,Engine speed,RPM
+99,2,Coolant temp,Celsius
+99,3,Lambda,Regulation
+99,4,O2S control,ON/OFF
+;
+;**********************************************************************
+;
+;  Compatability Groups
+;
+;**********************************************************************
+;
+;
+100,0,Readiness code
+100,1,Ready bits,(concluded tests),See label file
+;1 = not concluded / 0 = concluded
+;X0000000 EGR
+;0X000000 Oxygen sensor heating
+;00X00000 Oxygen sensors
+;000X0000 A/C
+;0000X000 SL-System
+;00000X00 AKF-System
+;000000X0 Heat cat
+;0000000X Cat. converters
+100,2,Coolant,temperature
+100,3,Time since,engine start
+100,4,OBD-Status,See label
+;1 = Description fulfilled / 0 = Description not fulfilled
+;X00000000 MIL ON
+;0X0000000 Driving cycle fulfilled
+;00X000000 Trip complete
+;000X00000 at least one DTC recognized
+;0000X0000 not used
+;00000X000 not used
+;000000X00 cycle finished
+;0000000X0 warm-up
+;00000000X no warm-up cycle possible
+;
+;**********************************************************************
+;
+;  Fuel Injection
+;
+;**********************************************************************
+;
+101,0,Engine Conditions
+101,1,Engine Speed,RPM
+101,2,Engine Load
+101,3,Injector On,Time
+101,4,Mass Flow,mg/s
+;
+;
+102,0,Fuel Injection
+102,1,Engine Speed,RPM
+102,2,Coolant Temp,Celsius
+102,3,Intake Temp,Celsius
+102,4,Mean Injection,Time
+;
+103,0,Undocumented
+;
+104,0,Adaption Values
+104,1,Start Engine,Temp
+104,2,Temp Adapt,Factor 1
+104,3,Temp Adapt,Factor 2
+104,4,Temp Adapt,Factor 3
+;
+105,0,Undocumented
+;
+106,0,Electric Fuel Pump Status
+106,2,Pump 1,status
+106,3,Pump 2,status
+106,4,Shutoff time
+;
+107,0,Fuel Supply Diagnostic
+107,1,Engine Speed,Rpm
+107,2,O2 Av Value,Bank 1 -25 +25%
+107,3,O2 Av Value,Bank 2 -25 +25%
+107,4,Diag Condition,Test/ON/OFF|OK
+;
+108,0,Undocumented
+;
+109,0,Undocumented
+;
+;**********************************************************************
+;
+;  Load Registration
+;
+;**********************************************************************
+;
+110,0,Full Load Enrichment
+110,1,Engine Speed,RPM
+110,2,Coolant Temp,Celsius
+110,3,Av Injection,Time
+110,4,Throttle Valve,Angle
+;
+111,0,Undocumented
+;
+112,0,Undocumented
+;
+113,0,Full Load Enrichment
+113,1,Engine Speed,RPM
+113,2,Last,%
+113,3,Throttle Valve,Angle
+113,4,Air Pressure,mbar
+;
+;**********************************************************************
+;
+;  CAN Communication Between Modules
+;
+;**********************************************************************
+;
+120,0,ASR
+120,1,Engine Speed,RPM
+120,2,ASR Moment,Nm
+120,3,Engine Moment,Nm
+120,4,ASR Active,Yes/No
+;
+121,0,Undocumented
+;
+122,0,Transmission
+122,1,Engine Speed,RPM
+122,2,Tranny Spec.,Moment Nm
+122,3,Engine Moment,Nm
+122,4,Status,Yes/No
+;
+123,0,Reserved for CAN Bus signals
+;
+124,0,Reserved for CAN Bus signals
+;
+125,0,CAN Bus Messages
+125,1,Transmission,1=OK
+125,2,ABS,1=OK
+125,3,Instrument,1=OK
+125,4,A/C,1=OK
+;
+126,0,CAN Bus Messages
+126,1,CAN Bus ADR
+126,2,CAN Bus,Steering Angle
+126,3,Airbag 32,1=OK
+126,4,El. Wiring,1=OK
+;
+127,0,CAN Bus Messages
+127,1,All wheel,1=OK
+127,2,Undocumented
+127,3,Steer. wheel,1=OK
+127,4,Undocumented
+;
+128,0,CAN Bus Messages
+128,1,Electric,Ignition Key
+;
+129,0,Undocumented
+;
+;**********************************************************************
+;
+;  Engine Cooling
+;
+;**********************************************************************
+;
+130,0,Undocumented
+;
+131,0,Undocumented
+;
+132,0,Map cooling
+132,4,Status cooling,see label
+;1 = Description fulfilled / 0 = Description not fulfilled
+;X0000000 not used
+;0X000000 not used
+;00X00000 Fan stage 1 active
+;000X0000 Fan stage 2 active
+;0000X000 Control deviation (0 > specified temp. / 1 < specified temp.)
+;00000X00 Cooling van triggering active
+;000000X0 Thermostat actuation active
+;0000000X Error in system
+;
+133,0,Undocumented
+;
+134,0,Temperature
+134,1,Oil,temperature
+134,2,Ambient,temperature
+134,3,Intake air,temperature
+134,4,Engine outlet,temperature
+;
+135,0,Coolant fan control short trip
+135,2,Duty cycle,stage 1
+135,3,Duty cycle,stage 2
+;
+136,0,Activities after Engine Shutdown
+136,3,Aux Water Pump,status
+136,4,After-run,coolant fan
+;
+137,0,A/C requirements
+137,1,AC-Inlet
+137,2,Crompressor,status
+137,3,Pressure of,A/C system
+137,4,Fan request,from A/C
+;
+138,0,
+138,1,Engine Start,temperature
+138,2,Mean Engine ,mass air flow
+138,3,Mean,vehicle speed
+138,4,Test result
+;
+139,0,
+139,1,Engine temp,during diagnostic
+139,2,Current MAF,integral
+139,3,Specified MAF,integral
+139,4,Result
+;
+190,0,Undocumented
+;
+191,0,Undocumented
+;
+192,0,Undocumented
+;
+193,0,Undocumented
+;
+194,0,Undocumented
+;
+195,0,Undocumented
+;
+196,0,Undocumented
+;
+197,0,Undocumented
+;
+198,0,Undocumented
+;
+199,0,Undocumented
+;
+;
+;**********************************************************************
+;
+;  Miscellaneous Modules
+;
+;**********************************************************************
+;
+200,0,Undocumented
+;
+201,0,Undocumented
+;
+202,0,Undocumented
+;
+203,0,Fuel Injection
+203,1,Engine Speed,RPM
+203,2,Engine Load,%
+203,3,Injection Time,Now
+203,4,Injection Time,Last
+;
+204,0,Lambda
+;
+205,0,Lambda
+;
+206,0,Undocumented
+;
+207,0,Undocumented
+;
+208,0,Undocumented
+;
+209,0,Undocumented
+;
+210,0,Pressure
+210,1,Engine Speed,RPM
+210,2,Engine Load,%
+210,3,Absolute Pres,Mbar
+210,4,Idle Stabilisation
+;
+211,0,Intake Manifold Conditions
+211,1,Mass Flow,g/sec
+211,2,Mass Flow,g/sec
+211,4,Manifold Pressure,mbar
+;
+212,0,Undocumented
+;
+213,0,Undocumented
+;
+214,0,Undocumented
+;
+215,0,Undocumented
+;
+216,0,Undocumented
+;
+217,0,Undocumented
+;
+218,0,Undocumented
+218,1,Engine Speed,RPM
+218,2,Lambda
+218,3,Mass Flow,g/sec
+;
+219,0,Undocumented
+219,1,Engine Speed,RPM
+219,2,Lambda
+219,3,Mass Flow,g/sec
+;
+220,0,Undocumented
+220,1,Lambda Factor
+220,2,Lambda Factor
+220,3,Bits
+220,4,Bits
+;
+221,0,Undocumented
+221,1,Engine Speed,RPM
+;
+222,0,Undocumented
+;
+223,0,Undocumented
+;
+224,0,Undocumented
+;
+225,0,Undocumented
+225,1,Engine Speed,RPM
+;
+226,0,Undocumented
+226,1,Engine Speed,RPM
+;
+227,0,Undocumented
+;
+229,0,Temperature (Undocumented)
+;
+230,0,Undocumented
+;
+231,0,Undocumented
+;
+232,0,Temperatures (Undocumented)
+;
+233,0,Undocumented
+;
+234,0,Undocumented
+;
+254,0,Undocumented
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,4D0-907-560-BGH
+;
+; End of File

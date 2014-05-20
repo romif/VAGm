@@ -1,0 +1,75 @@
+;
+; VAG-COM Label File
+;
+; Seat Ibiza/Cordoba (6K) / Seat Alhambra (7M) / Skoda Octavia (1U)
+; VW Golf/Jetta (1J/9M) / VW Lupo (6E/6Y) / VW New Beetle (1C)
+; VW Passat (3B) / VW Polo (6N) / VW Sharan (7M) / VW Transporter (7D)
+;
+; Component: J234 - Airbag (#15) - VW3
+;
+; P/N: 1J0-909-60?-???
+;
+; includes measuring blocks and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1J-15.LBL
+; 8L-15.LBL
+; 1J0-909-60x-VW3.LBL (VW3)
+;
+; created on 08/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags && Front Belt Tensioners)
+001,1,Airbag,Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Airbag,Passenger Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Ignitiers II (Rear Belt Tensioners)
+002,1,Belt Tensioner,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Belt Tensioner,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Display Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry II (Rear)
+004,1,Belt Inquiry,Rear Driver Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+005,0,Igniters III (Side Airbags)
+005,1,Side Airbag,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,2,Side Airbag,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 - Airbag Enabled
+A001,7,1 - Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;

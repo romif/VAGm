@@ -1,0 +1,73 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F)
+;
+; Component: J525 - Sound System (#47) - 6-Channel DSP
+;
+; P/N: 4F0-910-223-???
+;
+; includes measuring blocks and coding
+;
+; created on 01/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 01/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,0000xxx1 = Term. S active\n0000xx1x = Term. 15 active\n0000x1xx = Term. X active\n00001xxx = Term. 50 active
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,1,Send Diode,Temperature
+004,2,Switch & Mute,Status,x1x = Lock SET\nxx0 = Muting OFF
+004,3,Vehicle Speed
+;
+005,0,Microphones
+005,1,Voltage,Microphone 1
+005,2,Voltage,Microphone 2
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Sound System (J525) Coding
+C01,0000xx?: Equipment
+C02,1 - Right-Hand-Drive with Fabric Trim and Diesel Engine
+C03,2 - Left-Hand-Drive with Leather Trim and Diesel Engine
+C04,3 - Right-Hand-Drive with Leather Trim and Diesel Engine
+C05,4 - Left-Hand-Drive with Fabric Trim and Petrol Engine
+C06,5 - Right-Hand-Drive with Fabric Trim and Petrol Engine
+C07,6 - Left-Hand-Drive with Leather Trim and Petrol Engine
+C08,7 - Right-Hand-Drive with Leather Trim and Petrol Engine
+C09,8 - Left-Hand-Drive with Fabric Trim and Diesel Engine (Standard)
+C10, 
+C11,0000x?x: Microphone
+C12,0 - Microphone not installed
+C13,1 - Microphone for Voice Control
+C14, 
+C15,0000?xx: Chassis
+C16,0 - Limousine
+C17,1 - Avant
+;

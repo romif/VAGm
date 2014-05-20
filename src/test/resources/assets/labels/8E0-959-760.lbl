@@ -1,0 +1,132 @@
+;
+; VAG-COM label file
+;
+; Audi A4 (8E)
+;
+; Component: J136 - Driver's Seat Adjustment (#36)
+;
+; P/N: 8E0-959-760
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 14/April/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 05/Sep/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Informations (Basic Setting)
+001,1,pressed,Memory Buttons,Display Range: 0 = not pressed/1 = pressed (?xxx = P1/x?xx = P2/xx?x = P3/xxx? = P4)
+001,2,Stop/M Button,Door/Term. 15,Display Range 0 = off / 1 = on (?xxx = STOP-Switch/x?xx = M-Button/xx?x = Door Contact/xxx? = Terminal 15)
+001,3,Key-Number,(via CAN)
+001,4,Remote Control,Status,only with coding 00002
+;
+002,0,Actual Status
+002,1,Seat Fore/Aft,Adjustment Button,Display Range: forward/backward/not operated/implausible
+002,2,Actual Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+002,3,Backrest Angle,Adjustment Button,Display Range: forward/backward/not operated/implausible
+002,4,Actual Backrest,Angle Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+003,0,Actual Status
+003,1,Seat Height,Adjustment Button,Display Range: raise/lower/not operated/implausible
+003,2,Actual Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+003,3,Seat Angle,Adjustment Button,Display Range: raise/lower/not operated/implausible
+003,4,Actual Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+004,0,Stored Values (Memory Location 1)
+004,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+004,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+004,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+004,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+005,0,Stored Values (Memory Location 2)
+005,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+005,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+005,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+005,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+006,0,Stored Values (Memory Location 3)
+006,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+006,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+006,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+006,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+007,0,Stored Values (Memory Location 4)
+007,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+007,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+007,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+007,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+008,0,Stored Values (Remote Control at Memory Location 1 while Coding is 00002)
+008,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+008,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+008,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+008,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+009,0,Stored Values (Remote Control at Memory Location 2 while Coding is 00002)
+009,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+009,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+009,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+009,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+010,0,Stored Values (Remote Control at Memory Location 3 while Coding is 00002)
+010,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+010,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+010,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+010,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+011,0,Stored Values (Remote Control at Memory Location 4 while Coding is 00002)
+011,1,Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767
+011,2,Backrest Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+011,3,Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767
+011,4,Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN)
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Databus Comfort,Status
+125,2,Door Control,Module Driver Side
+125,3,Comfort System,Control Module
+125,4,Instrument Cluster
+;
+126,0,CAN-Databus Communication (Comfort)
+126,1,Steering,Column Module
+126,2,Door Control,Module Pass. Side
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Driver's Seat Adjustment (J136) Coding
+C1,00001 - Selecting recall button items via remote control key.
+C2,00002 - Selection of last seat/mirror position as vehicle was locked (automatic).
+C3,00003 - All remote control key memory functions inactive.
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A81,0,Learned Values (Vehicle Data)
+A81,5,Learned Values (Vehicle Data)
+A81,6,To start the process for vehicle data (VIN)
+A81,7,learning enter/save 20771 as new value.
+;

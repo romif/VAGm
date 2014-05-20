@@ -1,0 +1,91 @@
+;
+; VAG-COM Measuring Block Labels file.
+; S8 Central Locking
+; Filename: 8L0-862-257-G.lbl
+; 
+; from 2001 Audi S8
+;   Controller: 8L0 862 257 G  
+;    Component: ZV-Pumpe, DWA, Funk D16
+;       Module: 35
+;       Coding: 15179
+;
+; **Modification History**
+; Created:  Dave Eaton, 4th February 2004
+; Modified: Dave Eaton, 5th February: Test & Corrections
+; Corrections to: Dave.Eaton@clear.net.nz
+;
+; **********************************************************************
+;
+1,0,Overall Conditions #1 - See File
+; Bit Positions
+; X000 000 0000 0000 Unlock Driver/Passenger: 1=Key Activated 0=Key, in Centre Position
+; 0X00 000 0000 0000 Lock Driver/Passenger: 1=Key Activated 0=Key, in Centre Position
+; 00X0 000 0000 0000 Unlock Boot: 1=Key Activated 0=Key, in Centre Position
+; 000X 000 0000 0000 Lock Boot: 1=Key Activated 0=Key, in Centre Position
+; 
+; 0000 X00 0000 0000 Rear Doors: 1=Open, 2=Closed
+; 0000 0X0 0000 0000 Driver & Passenger Doors: 1=Open, 2=Closed
+; 0000 00X 0000 0000 Bonnet: 1=Open, 2=Closed
+;
+; 0000 000 XX00 0000 Switch for Front Passenger Door Actuator: 00 = Not Actuated, 01 = Lock, 10=Unlocked, 11=N/A
+; 0000 000 00XX 0000 Switch for Front Drivers Door Actuator: 00 = Not Actuated, 01 = Lock, 10=Unlocked, 11=N/A
+;
+; 0000 000 0000 X000 Boot Lid: 1=Open 2=Closed
+; 0000 000 0000 0X00 Boot Light: 1=On 2=Off
+; 0000 000 0000 00X0 Boot Unlocking Switch: 1=Actuated, 0=Not Actuated
+; 0000 000 0000 000X Boot Lid Unlocking Motor: 1=Engine Running, 0=Engine Not Running
+;
+2,0,Further Conditions #2 - See File
+; Bit Positions
+; X000 0000 000 Interior Light Control: 1=Light On, 0=Light Off
+; 0X00 0000 000 Sunroof Control: 1=Voltage Supplied, 0=Ground
+; 00X0 0000 000 Comfort Close Function: 1=Activated 0=Not Activated
+; 000X 0000 000 Comfort Open Function: 1=Activated 0=Not Activated
+;
+; 0000 X000 000 "Open" Radio Remote Control Switch: 1=Actuated, 0=Not Actuated
+; 0000 0X00 000 "Close" Radio Remote Control Switch: 1=Actuated, 0=Not Actuated
+; 0000 00X0 000 "Unlock Boot" Radio Remote Control Switch: 1=Actuated, 0=Not Actuated
+; 0000 000X 000 "Panic" Radio Remote Control Switch: 1=Actuated, 0=Not Actuated
+;
+; 0000 0000 X00 Terminal 15: 1=Ignition on, 0=Ignition off
+; 0000 0000 0X0 S Contact 1: 1=Contact on, 0=Contact Off
+; 0000 0000 00X Ground Signal from Radio: 1=Radio INstalled, 0=Radio Removed
+;
+3,0,Further Conditions #3 - See File
+; Bit Positions
+; X 0000 0 0000 N/A
+;
+; 0 X000 0 0000 RC Key #4: 1=Address Occupied, 0=Not Occupied
+; 0 0X00 0 0000 RC Key #3: 1=Address Occupied, 0=Not Occupied
+; 0 00X0 0 0000 RC Key #2: 1=Address Occupied, 0=Not Occupied
+; 0 000X 0 0000 RC Key #1: 1=Address Occupied, 0=Not Occupied
+;
+; 0 0000 X 0000 N/A
+;
+; 0 0000 0 X000 RC Button Open/Unlock: 1=Actuated, 0=Not Actuated
+; 0 0000 0 0X00 RC Button Close/Lock: 1=Actuated, 0=Not Actuated
+; 0 0000 0 00X0 RC Button Unlock Boot: 1=Actuated, 0=Not Actuated
+; 0 0000 0 000X RC Button Panic: 1=Actuated, 0=Not Actuated
+;
+4,0,Further Conditions #4 - See File
+; Bit Positions
+; X00 0000 0000 0000 RC Activated: 1=Yes 0=No
+; 0X0 0000 0000 0000 Operation of Safety CL with RC Remote: 1=No, 0=Yes
+; 00X 0000 0000 0000 Comfort Fuction via RC Remote: 1=Yes, 0=No
+;
+; 000 X000 0000 0000 USA Door Logic: 1=Yes, 0=No
+; 000 0X00 0000 0000 Hazard Light Confirmation of RC: 1=Yes, 0=No
+; 000 00X0 0000 0000 Horn Confirmation of Anti-theft: 1=Yes, 0=No
+; 000 000X 0000 0000 Hazard Light Confirmation of Close/Lock: 1=Yes, 0=No
+;
+; 000 0000 X000 0000 Tailgate Logic: 1=Yes, 0=No
+; 000 0000 0X00 0000 Interior Monitoring OBD Capable: 1=No, 0=Yes
+; 000 0000 00X0 0000 Locking of Vehicle via Vehicle Speed: 1=Yes, 0=No
+; 000 0000 000X 0000 Vehicle is a Convertible: 1=Yes, 0=No
+;
+; 000 0000 0000 X000 Anti-theft Alarm Activated: 1=Yes, 0=No
+; 000 0000 0000 0X00 Security CL Activated: 1=Yes, 0=No
+; 000 0000 0000 00X0 Confirmation of ATWS via Hazards: 1=Yes, 0=No
+; 000 0000 0000 000X N/A
+;
+;End of File

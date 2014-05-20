@@ -1,0 +1,40 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi 80 (8C)
+;
+; Komponente: Klima-/Heizungselektronik (#08) - autom. Klimaanlage
+;
+; T/N: 8A0 820 043
+;
+; beinhaltet Codierung
+;
+; erstellt am 30.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 30.05.2005
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Klima-/Heizungselektronik (J255) Codierung
+C1,00?xx: Kompressortyp
+C2,0 - Zexel-Kompressor
+C3, 
+C4,00x?x: Zylinderzahl
+C5,4 - 4-Zylinder-Motor
+C6,5 - 5-Zylinder-Motor
+C7,6 - 6-Zylinder-Motor
+C8, 
+C9,00xx?: Länderausführung
+C10, 
+C11,0 - Linkslenker Benzinmotor
+C12,1 - Rechtslenker Benzinmotor
+C13,2 - USA Benzinmotor
+;

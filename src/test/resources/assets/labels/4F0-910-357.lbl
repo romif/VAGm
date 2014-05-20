@@ -1,0 +1,267 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Audi A4 (8EC/8ED) / Audi A6 (4F) / Audi A8 (4E)
+; Audi Q7 (4L) / Audi TT (8J)
+;
+; Component: J431 - Headlight Range (#55)
+;
+; P/N: 4F0-910-357-???
+;
+; includes measuring blocks, basic setting, adaptation, coding, security access and selective output tests
+;
+; created on 11/Jul/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Jul/2006
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage,(Terminal 15)
+001,2,Time Constant
+001,3,Vehicle,Acceleration
+;
+B001,0,Adjustment Position && Adjustment Learning
+B001,1,Status
+B001,2, 
+B001,3, 
+B001,4, 
+;
+002,0,Sensors
+002,1,Front,Sensor Signal
+002,2,Rear,Sensor Signal
+002,3,PWM Sensors,Voltage Supply
+;
+003,0,CAN Signals I
+003,1,Light,(Terminal 56b)
+003,2,Vehicle Speed
+003,3,Steering Angle,(CAN Signal)
+003,4,Engine Status,(CAN Signal)
+;
+004,0,CAN Signals II
+004,1,Left Light,(CAN Signal)
+004,2,Right Light,(CAN Signal)
+004,3,Brake Switch,(CAN Signal)
+004,4,Back-Up Light,(CAN Signal)
+;
+005,0,Specified Positions
+005,1,Headlight,Range Control
+005,2,Dynamic Cornering,Left Light
+005,3,Dynamic Cornering,Right Light
+;
+007,0,Positions && Malfunctions
+007,1,Position,Left Adjuster
+007,2,Position,Right Adjuster
+007,3,Malfunction,Left Module
+007,4,Malfunction,Right Module
+;
+008,1,Operation,(Left/Right)
+008,2,Comm. Status,Left Module
+008,3,Comm. Status,Right Module
+;
+009,0,Readiness Bit's
+009,1,Readiness Bit,Left AFS Module
+009,2,Readiness Bit,Right AFS Module
+009,3,Readiness Bit,Control Module
+009,4,Readiness Bit,CAN-Powertrain
+;
+010,0,Additional Functions
+010,1,Brake Function,,Range: enabled/disabled
+010,2,Highway Function,,Range: enabled/disabled
+010,3,Schowroom Effect,,Range: enabled/disabled
+;
+011,0,Sensor Values
+011,1,Front,Sensor Value
+011,2,Rear,Sensor Value
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 1/ABS 0
+125,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+125,3,Power Steering,(J500),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,4,Engine,Electronics,Specification: Engine 1\nRange: Engine 1/Engine 0
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Level Control,System (J197)
+126,2,Start/Access,Control (J518)
+;
+225,0,Electro Magnetic Compatibility (EMC) Counter
+225,1,Brake Electronics,(J104),Specification: 0
+225,2,CAN-Gateway,(J533),Specification: 0
+225,3,Power Steering,(J500),Specification: 0
+225,4,Engine,Electronics,Specification: 0
+;
+226,0,Electro Magnetic Compatibility (EMC) Counter
+226,1,Level Control,System (J197),Specification: 0
+226,2,Start/Access,Control (J518),Specification: 0
+;
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Headlight Range Control (J431) Coding
+C01,0000016 = Audi A6 (4F) with Steel Suspension
+C02,0000017 = Audi A6 (4F) with Air Suspension
+C03,0000018 = Audi A8 (4E)
+C04,0000019 = Audi A4 (8E)
+C05,0000020 = Audi A3 (8P)
+C06,0000021 = Audi Q7 (4L) with Steel Suspension
+C07,0000022 = Audi Q7 (4L) with Air Suspension
+C08,0000023 = Audi TT (8J) with Steel Suspension and Front Wheel Drive (FWD)
+C09,0000024 = Audi TT (8J) with Steel Suspension and All Wheel Drive (AWD)
+C10,0000025 = Audi TT (8J) with Magnetic Ride
+C11, 
+C12,Note: Perform Security Access before Coding!
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1540,Headlight Range Control: Adjusting to Lowered Position
+T1541,Headlight Range Control: Adjusting to Raised Position
+T2625,Headlight Range Control: Adjusting to Delivery Position
+T2632,Headlight Range Control: Adjusting to Specified Position
+T2621,Dynamic Cornering Light: Adjusting to Outer Position
+T2622,Dynamic Cornering Light: Adjusting to Inner Position
+T2623,Dynamic Cornering Light: Adjusting to Center Position
+T2624,Dynamic Cornering Light: Adjusting to Steering Angle Dependent Position
+T2237,Stationary Cornering Lamp
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Headlight Range Control (J431) Security Access
+S01,02000 = General Coding "Enabling"
+S02,02000 > 03000 > 04000 > 05000 = General Adaptation "Enabling" (Enter one after another)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Unknown
+A001,5,Unknown
+A001,6,Standard: 0
+;
+A002,0,Unknown
+A002,5,Unknown
+A002,6,Standard: 2
+;
+A003,0,Unknown
+A003,5,Unknown
+A003,6,Standard: 1
+;
+A004,0,Unknown
+A004,5,Unknown
+A004,6,Standard: 0
+;
+A005,0,Unknown
+A005,5,Unknown
+A005,6,Standard: 1
+;
+A006,0,Unknown
+A006,5,Unknown
+A006,6,Standard: 2
+;
+A007,0,Unknown
+A007,5,Unknown
+A007,6,Standard: 16
+;
+A008,0,Unknown
+A008,5,Unknown
+A008,6,Standard: 1
+;
+A009,0,Unknown
+A009,5,Unknown
+A009,6,Standard: 0
+;
+A010,0,Tourist Solution
+A010,5,Tourist Solution
+A010,6,When driving in countries where driving is performed on the
+A010,7,opposite side as in the native country the headlights must
+A010,8,be changed over to avoid blinding the oncoming traffic.
+A010,9, 
+A010,10,0 = Disabled
+A010,11,1 = Enabled
+;
+A011,0,Unknown
+A011,5,Unknown
+A011,6,Standard: 0
+;
+A012,0,Unknown
+A012,5,Unknown
+A012,6,Standard: 0
+;
+A013,0,Unknown
+A013,5,Unknown
+A013,6,Standard: 3
+;
+A014,0,Unknown
+A014,5,Unknown
+A014,6,Standard: 5
+;
+A015,0,Unknown
+A015,5,Unknown
+A015,6,Standard: 0
+;
+A016,0,Unknown
+A016,5,Unknown
+A016,6,Standard: 1
+;
+A017,0,Unknown
+A017,5,Unknown
+A017,6,Standard: 0
+;
+A018,0,Unknown
+A018,5,Unknown
+A018,6,Standard: 0
+;
+A018,0,Unknown
+A018,5,Unknown
+A018,6,Standard: 8
+;
+A019,0,Unknown
+A019,5,Unknown
+A019,6,Standard: 0
+;
+A020,0,Showroom Effect
+A020,5,Showroom Effect
+A020,6,After activating the showroom effect the dynamic cornering light
+A020,7,at vehicle standstill can be demonstrated to the customer.
+A020,8,The showroom effect remains active until the showroom effect
+A020,9,is deactivated via the function program.
+A020,10, 
+A020,11,0 = Disabled
+A020,12,1 = Enabled
+;
+A021,0,Unknown
+A021,5,Unknown
+A021,6,Standard: 20
+;
+A022,0,Unknown
+A022,5,Unknown
+A022,6,Standard: 0
+;

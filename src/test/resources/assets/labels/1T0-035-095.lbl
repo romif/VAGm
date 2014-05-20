@@ -1,0 +1,107 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Golf Plus (5M) / VW Touran (1T)
+;
+; Component: Radio-/Navigation System (#56) - MFD2-CD
+;
+; P/N: 1T0-035-095-??? / 1Z0-035-194-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1Z-56.LBL
+; 1T0-035-095.LBL
+;
+; created on 27/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Feb/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Input,Telephone-Mute
+001,4,Input,Telephone-Mute,CAN-Databus signal (Display Range: on/off)
+; 
+002,0,Speakers/Line-Out (Front)
+002,1,Location/Type
+002,2,Condition
+002,3,Location/Type
+002,4,Condition
+;
+003,0,Speakers/Line-Out (Rear)
+003,1,Location/Type
+003,2,Condition
+003,3,Location/Type
+003,4,Condition
+;
+004,0,Remote Feed Antenna
+004,1,Type
+004,2,Antenna
+004,3,Condition
+;
+005,1,IF-Output
+005,2,IF-Output,Status
+005,3,CD-Connection
+005,4,CD-Connection,Status,Display Range: OK/not OK
+;
+006,0,CAN-Databus Infotainment (Communication)
+006,1,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+006,2,Telephone,,Display Range: Telephone 1/Telephone 0
+006,3,Steering Wheel,Electronics,Specification: St. Wheel 1\nDisplay Range: St. Wheel 1/St. Wheel 0
+006,4,TV-Tuner,,Display Range: TV-Tuner 1/TV-Tuner 0
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; Coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio/Navigation System MFD2-CD (J503) Coding
+C01,00?xxxx: Configuration I
+C02,+1 = TV-Tuner
+C03,00x?xxx: Configuration II
+C04,+1 = IF-Output
+C05,+2 = Telephone Control (CAN)
+C06,+4 = Multi-Function Steering Wheel (CAN)
+C07,00xx?xx: Speaker Channels
+C08,0 = Sound System (active Speakers)
+C09,2 = 2 passive Speakers (Front)
+C10,4 = 4 passive Speakers (Front & Rear)
+C11,00xxx?x: Sound System Correction
+C12,0 = No Sound System (No Correction)
+C13,1 = Sound System with Cloth Interior (with Open Circuit Recognition)
+C14,2 = Sound System with Leather Interior (with Open Circuit Recognition)
+C15,3 = Sound System with Cloth Interior (without Open Circuit Recognition)
+C16,00xxxx?: Configuration III
+C17,+1 = Active/Remote feed Antenna
+C18,+2 = CD-Changer
+;

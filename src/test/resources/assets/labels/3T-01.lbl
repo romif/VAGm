@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3T-01.LBL
+; 06F-907-115-AXX.LBL  (2.0l TE  @ 200 HP - AXX/BGB/BPJ/BPY/BWA)
+; 06F-907-115-BZB.LBL  (1.8l TE  @ 180 HP - BYT/BZB)
+;
+; created on 24/Apr/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,06F-907-115-BZB.LBL,3T0-907-115-A   ; BZB: (3T)
+;

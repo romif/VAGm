@@ -1,0 +1,376 @@
+;
+; VAG-COM label file
+;
+; VW EuroVan (7D)
+;
+; component: engine (#01) - AXK
+;
+; ECU p/n: 022 906 032 F
+;
+; includes measuring blocks & coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 02-01.LBL
+; 022-906-032-AXK.LBL (2.8l E   @ 204 HP - AXK)
+;
+; modified by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modification: 03/21/2005
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; coding informations
+;
+;---------------------------------------------------
+;
+;
+C00,Eurovan (7D) - ECU Coding
+C01,XXX?X - ESP (1 = with ESP / 0 = without ESP)
+C02,XXXX? - Transmission (3 = automatic transmission)
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+;700.8: readiness steps, pointing to AXK-new.clb
+O,022-906-032-AXK
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+1,0,Basic functions (at idle)
+1,1,Engine RPM,(idle),Specified value: 650 - 750 RPM
+1,2,Coolant,temperature,Specified value: 80 - 110 C
+1,3,O2 sensor,before cat.,Specified value: -10.0 to 10.0 %
+1,4,Adjustment,requirements,see label
+;X0000000 No malfunctions seen by OBD
+;0X000000 no meaning/not used
+;00X00000 A/C compressor switched off
+;000X0000 Idle switch closed
+;0000X000 O2 sensor regulation OK
+;00000X00 Throttle valve closed
+;000000X0 RPMs below 2000
+;0000000X Coolant temp above 80 C
+;
+2,0,Mass Air Flow (MAF) sensor
+2,1,Engine RPM,(idle),Specified value: 650 - 750
+2,2,Engine load,,Specified value: 12 - 26 %
+2,3,Injection,timing,Specified value: 1.0 - 4.0 ms
+2,4,Mass air,taken in,Specified value: 3.0 - 5.0 g/s
+;
+3,0,Mass Air Flow (MAF) sensor
+3,1,Engine RPM,(idle),Specified value: 650 - 750
+3,2,Mass air,taken in,Specified value: 3.0 - 5.0 g/s
+3,3,Throttle valve,angle,Specified value: 0.2 - 4.0 %
+3,4,Ignition,angle,Specified value: 9 - 15 deg BTDC
+;
+4,0,Basic functions (at idle)
+4,1,Engine RPM,(idle),Specified value: 650 - 750
+4,2,Voltage,to ECU,Specified value: 12.0 - 15.0 V
+4,3,Coolant,temperature,Specified value: 80 - 110 C
+4,4,Intake air,temperature,Specified value: -48 - 143 C
+;
+5,0,Basic functions (at idle)
+5,1,Engine RPM,(idle),Specified value: 650 - 750
+5,2,Engine load,,Specified value: 12 - 26 %
+5,3,Speed,,Specified value: 0 km/h
+5,4,Operating,condition (idle)
+;
+6,0,Basic functions (at idle)
+6,1,Engine RPM,(idle),Specified value: 650 - 750
+6,2,Engine load,,Specified value: 12 - 26%
+6,3,Intake air,temperature,Specified value: -48 - 143 C
+6,4,High correction,factor,Specified value: -50 - 10 %
+;
+7,0,Undocumented
+;
+8,0,Undocumented
+;
+9,0,Undocumented
+;
+10,0,Ignition
+10,1,Engine speed,(idle),Specified value: 650 - 750
+10,2,Engine load,,Specified value: 12 - 26 %
+10,3,Throttle valve,angle,Specified value: 0.2 - 4.0 %
+10,4,Ignition,angle,Specified value: 9 - 15 deg BTDC
+;
+11,0,Undocumented
+;
+12,0,Undocumented
+;
+13,0,Undocumented
+;
+14,0,Ignition - misfire recognition
+14,1,Engine speed,(idle),Specified value: 650 - 750
+14,2,Engine,load,Specified value: 15 - 25%
+14,3,Number of,misfires,Specified value: 0
+14,4,Misfire,recognition,Specified value: activated
+;
+15,0,Undocumented
+;
+16,0,Undocumented
+;
+17,0,Undocumented
+;
+18,0,Undocumented
+;
+19,0,Undocumented
+;
+20,0,Undocumented
+;
+21,0,Undocumented
+;
+22,0,Ignition - knock control (cyl. 1-2)
+22,1,Engine speed,,Specified value: 630 - 6800
+22,2,Engine load,,Specified value: 10 - 100 %
+22,3,angle retard.,#1 via knock contr.,Specified value: 0 - 12.0 KW
+22,4,angle retard.,#2 via knock contr.,Specified value: 0 - 12.0 KW
+;
+23,0,Ignition - knock control (cyl. 3-4)
+23,1,Engine speed,,Specified value: 630 - 6800
+23,2,Engine load,,Specified value: 10 - 100 %
+23,3,angle retard.,#3 via knock contr.,Specified value: 0 - 12.0 KW
+23,4,angle retard.,#4 via knock contr.,Specified value: 0 - 12.0 KW
+;
+24,0,Ignition - knock control (cyl. 5-6)
+24,1,Engine speed,,Specified value: 630 - 6800
+24,2,Engine load,,Specified value: 10 - 100 %
+24,3,angle retard.,#5 via knock contr.,Specified value: 0 - 12.0 KW
+24,4,angle retard.,#6 via knock contr.,Specified value: 0 - 12.0 KW
+;
+25,0,Undocumented
+;
+26,0,Undocumented
+;
+27,0,Undocumented
+;
+28,0,Ignition - knock control
+28,1,Engine speed,,Specified value: 2200 - 6800
+28,2,Engine load,,Specified value: 10 - 100 %
+28,3,Coolant,temperature,Specified value: 40 - 110 C
+28,4,Knock sensor,test,Specified value: Sys OK (Test on/Test off/Sys. OK/Sys. not OK)
+;
+29,0,Undocumented
+;
+30,0,Status O2 control
+30,1,O2 status,sensor 1/bank 1,Specified value: 111 (before cat) > see label
+30,2,O2 status,sensor 2/bank 1,Specified value: 111 (behind cat) > see label
+;X11 Oxygen sensor heating on
+;1X1 Oxygen sensor operationally ready
+;11X Oxygen sensor control active
+;
+31,0,Undocumented
+;
+32,0,O2 sensor control - adaptation values
+32,1,Sensor 1,Bank 1 (idle),Specified value:-5.4 - 5.4 % (add.)
+32,2,Sensor ,Bank 1 (part throttle),Specified value: -10 - 10 % (mult.)
+;
+33,0,O2 sensor control - control values
+33,1,O2 control,Bank 1,Specified value: -10 - 10 %
+33,2,Sensor 1,Bank 1,Specified value: 1.400 - 1.600 V
+;
+34,0,O2 control - precat aging test
+34,1,Engine speed,,Specified value: 2000 - 2300 RPM
+34,2,Cat.,temperature,Specified value: >350 C
+34,3,Dynamic,factor,Specified value: 0 - 2
+34,4,Results,,Specified value: B1-S1 OK (Test OFF/Test ON/B1-S1 OK/ B1-S1 not OK)
+;
+35,0,Undocumented
+;
+36,0,O2 control behind cat. (idle) - basic setting (04)
+36,1,O2,sensor,Specified value: 0.100 - 0.900 V
+36,2,Results,,Specified value: B1-S2 OK (Test OFF/Test ON/B1-S2 OK/ B1-S2 not OK)
+;
+37,0,Undocumented
+;
+38,0,Undocumented
+;
+39,0,Undocumented
+;
+40,0,Undocumented
+;
+41,0,O2 heating - bank 1
+41,2,sensor 1,bank 1,Specified value: Htg before cat. ON/Htg before cat. OFF/varies periodically
+41,3,Res O2,before cat,Specified value: 0 - 25 kOhms
+41,4,sensor 2,bank 1,Specified value: Htg after cat. ON/Htg after cat. OFF/varies periodically
+;
+42,0,Undocumented
+;
+43,0,O2 control behind cat. (aging) - basic setting (04)
+43,1,Engine,speed,Specified value: 2000 - 2300 RPM
+43,2,Cat.,temperature,Specified value: >350 C
+43,3,O2 Sensor 2,Bank 1,Specified value: 0.00 - 1.00 V
+43,4,Results,,Specified value: B1-S2 OK (Test OFF/Test ON/B1-S2 OK/ B1-S2 not OK)
+;
+44,0,Undocumented
+;
+45,0,Undocumented
+;
+46,0,O2 sensor control - cat. conv. test - basic setting (04)
+46,1,Engine,speed,Specified value: 2000 - 2300
+46,2,Cat.,temperature,Specified value: > 350 C
+46,3,Cat.,conversion rate,Specified value: 0.0 - 100.0 %
+46,4,Cat.,test,Specified value: Cat B1 OK (Test OFF/Test ON/Cat B1 OK/Cat B1 not OK)
+;
+47,0,Undocumented
+;
+48,0,Undocumented
+;
+49,0,Undocumented
+;
+50,0,RPM regulation - operating conditions
+50,1,Engine,speed (idle),Specified value: 650 - 750
+50,2,Engine speed,(specified),Specified value: 700 RPM
+50,3,A/C,system,Specified value: A/C-high or A/C-low
+50,4,A/C,compressor,Specified value: Compr. ON or Compr. OFF
+;
+51,0,Undocumented
+;
+52,0,Undocumented
+;
+53,0,Undocumented
+;
+54,0,RPM regulation
+54,1,Engine,speed,Specified value: 650 - 750
+54,2,Operation,condition,Values: idle/partial throttle/enrichment/deceleration
+54,3,Throttle,Postion,Specified value: 0 - 97 %
+54,4,Throttle,angle,Specified value: 0 - 100 %
+;
+55,0,RPM regulation - idle stabilization
+55,1,Engine,(idle),Specified value: 650 - 750
+55,2,Idle,control,Specified value: -5.0 - 10.0 %
+55,3,Idle,control,Specified value: -5.0 - 5.0 %
+55,4,Operation,condition,see label
+;X0000 Pressure switch for power steering on (not indicated for 4 digit number block)
+;0X000 Atomic batteries to speed or "no meaning"
+;00X00 A/C system switched on
+;000X0 Driving mode selected
+;0000X A/C compressor switched on
+;
+56,0,RPM regulation - idle stabillzation
+56,1,Engine,speed,Specified value: 650 - 750
+56,2,Engine,speed,Specified value: 700 RPM
+56,3,Idle,control,Specified value: -5.0 to 10.0 %
+56,4,Operating,condition,see label
+;X0000 Pressure switch for power steering on (not indicated for 4 digit number block)
+;0X000 Atomic batteries to speed or "no meaning"
+;00X00 A/C system switched on
+;000X0 Driving mode selected
+;0000X A/C compressor switched on
+;
+;
+57,0,Undocumented
+;
+58,0,Undocumented
+;
+59,0,Undocumented
+;
+60,0,RPM regulation - adaptation EPC system
+60,1,Throttle,Position (G187),Specified value: 3 - 93 %
+60,2,Throttle,Position (G188),Specified value: 97 - 3 %
+60,3,Adaption,step counter,Specified value: 0 - 8
+60,4,Adaptation,test,Specified value: ADP OK (ADP in progress/ADP OK/ADP error)
+;
+61,0,RPM regulation - EPC system
+61,1,Engine,speed,Specified value: 650 - 6500
+61,2,Volt supply,to ECU,Specified value:12.0 - 15.0 V
+61,3,Throttle,Position (G187),Specified value: 0 - 100 %
+61,4,Operating,conditions,see label
+;X0000 Pressure switch for power steering on (not indicated for 4 digit number block)
+;0X000 Atomic batteries to speed or "no meaning"
+;00X00 A/C system switched on
+;000X0 Driving mode selected
+;0000X A/C compressor switched on
+;
+62,0,RPM regulation - EPC system
+62,1,Throttle,Position (G187),Specified value: 3 - 93 %
+62,2,Throttle,Position (G188),Specified value: 97 - 3 %
+62,3,Throttle,Position (G79),Specified value: 12 - 97 %
+62,4,Throttle,Position (G185),Specified value: 4 - 49 %
+;
+63,0,RPM regulation - kick-dowm adaptation
+63,1,Throttle,Position,Specified value: 70 - 97 %
+63,2,Throttle,Poition (G185),Specified value: 80 - 100 %
+63,3,Kick down,switch,Specified value: Kick down
+63,4,Operating,test,Specified value: ADP OK (ERROR/operate/ADP in progress/ADP OK)
+;
+64,0,Undocumented
+;
+65,0,Undocumented
+;
+66,0,Cruise control system (idle)
+66,1,Vehicle,speed,Specified value: O km/h
+66,2,Brake,switch,see label
+;X000 Cruise control switched free
+;0X00 Always 0 for vehicles with automatic transmission
+;00X0 Brake operated (brake pedal switch)
+;000X Brake operated (brake light switch)
+66,3,Speed stored, by cruise control
+66,4,Cruise,switch,see label
+;X000 Sliding cruise control switch on RES
+;0X00 SET button pressed
+;00X0 Sliding cruise control switch at OFF (not engaged or engaged)
+;000X Sliding cruise control switch at OFF (only when engaged)
+;
+81,0,VIN & Immo ID (if Immo-3)
+;
+82,0,Flashing Informations
+;
+90,0,Power enhancements - exhaust camshaft
+90,1,Engine,speed,Specified value: 650 - 6500
+90,2,Operating,conditions,Specified value: on/off (camshaft adjustment)
+90,3,Camshaft,adjustment,Specified value: 0 - 25 deg (actual crankshaft)
+;
+91,0,Power enhancement - intake camshaft
+91,1,Engine,speed,Specified value: 650 - 6500
+91,2,Duty,cycle,Specified value: 0 - 100 %
+91,3,Specified angle,intake cam adj.,Specified value: 0 - 52 deg
+91,4,Current angle,intake cam adj.,Specified value: 0 - 52 deg
+;
+92,0,Undocumented
+;
+93,0,Undocumented
+;
+94,0,Undocumented
+;
+95,0,Power enhancements - intake change over
+95,1,Engine,speed,Specified value: 650 - 6500
+95,2,Engine,load,Specified value: 0 - 120 %
+95,3,Coolant,temperature,Specified value: 80 - 110 C
+95,4,Status of,intake manifold,Specified value: IM-CO ON/IM-CO OFF
+;
+96,0,Undocumented
+;
+97,0,Undocumented
+;
+98,0,Undocumented
+;
+99,0,O2 sensor control - basic settings (04)
+99,1,Engine,speed (idle),Specified value: 650 - 750
+99,2,Coolant,temperature,Specified value: 80 - 110 C
+99,3,O2 sensor,control,Specified value:-10.0 - 10.0%
+99,4,Op condition,O2 control,Specified value: O2-Reg.ON/ O2-Reg.OFF
+;
+125,0,CAN-BUS Status (1 = OK / 0 = not OK)
+125,1,Transmission
+125,2,ABS
+125,3,Instrument,cluster
+;
+134,0,Undocumented
+;
+137,0,Undocumented
+;

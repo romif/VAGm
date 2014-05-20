@@ -1,0 +1,35 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-01.LBL
+; 059-907-401-ASB.LBL  (3.0l TDI @ 211-232 HP - ASB/BKS/BMK/BNG)
+; 079-907-560-BAR.LBL  (4.2l FSI @ 350 HP - BAR)
+;
+; created on 13/Jan/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Apr/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401      ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-A    ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-B    ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-C    ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-D    ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-E    ; BUN: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-F    ; BKS: (7L)
+REDIRECT,059-907-401-ASB.LBL,7L0-907-401-G    ; BUN: (7L)
+;7L0-907-401-H    ; CASA: (7L)
+;7L0-907-401-J    ; CASB: (7L)
+;7L0-907-401-L    ; CASC: (7L)
+;
+REDIRECT,079-907-560-BAR.LBL,7L0-907-560-A    ; BAR: (7L)
+REDIRECT,079-907-560-BAR.LBL,7L0-907-560-B    ; BAR: (7L)
+REDIRECT,079-907-560-BAR.LBL,7L0-907-560-C    ; BAR: (7L)
+;

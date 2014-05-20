@@ -1,0 +1,32 @@
+;
+; VCDS Redirect File
+;
+; Aud A3 (8P) / Audi A4 (8E) / Audi TT (8N) / Audi TT (8J)
+; VW Golf/Jetta (1K) / VW New Beetle (1C) / VW Passat (3C)
+;
+; Component: R146 - Digital Radio (#0F)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-0F.LBL
+; 8E0-035-593-SIR.LBL
+; 8E0-035-593-XM.LBL
+;
+; created on 03/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593
+REDIRECT,8E0-035-593-XM.LBL,8E0-035-593-A
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-D
+REDIRECT,8E0-035-593-XM.LBL,8E0-035-593-E
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-F
+REDIRECT,8E0-035-593-XM.LBL,8E0-035-593-G
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-H
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-K
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-L
+REDIRECT,8E0-035-593-SIR.LBL,8E0-035-593-M
+;

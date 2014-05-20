@@ -1,0 +1,210 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Ibiza (6K)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 6K0-920-???-???
+;
+; includes measuring blocks, adaptation, coding and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6K-17.LBL
+; 6K0-920-xxx-17.LBL
+;
+; created on 27/Nov/2005 by Jose Carlos Fernandez (josecarlosfernandez@terra.es)
+; updated on 08/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Dec/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2 (< min)
+001,4,Time
+;
+002,0,General
+002,1,Mileage
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+;
+003,0,General
+003,1,Coolant,Temperature
+;
+020,0,Immobilizer - ID Block 1
+020,1,Digit 1 && 2
+020,2,Digit 3 && 4
+020,3,Digit 5 && 6
+020,4,Digit 7 && 8
+;
+021,0,Immobilizer - ID Block 2
+021,1,Digit 9 && 10
+021,2,Digit 11 && 12
+021,3,Digit 13 && 14
+;
+022,0,Immobilizer I
+022,1,Engine Start,permitted,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+022,2,Engine (ECU),responds,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+022,3,Key Status,,Specification: 1 = Key OK\nDisplay Range: 0 = Key not OK / 1 = Key OK
+022,4,Number of,adapted Keys,Specification: 1...4
+;
+023,0,Immobilizer II
+023,1,Variable Code,authorized,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+023,2,Key Status,(Transponder),Display Range: 0 = not locked / 1 = locked
+023,3,Fixed Code,authorized,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+023,4,Immobilizer,Status,See Labelfile
+; 4 - New Customer Service / Delivery Condition (Replacement Instrument Cluster)
+; 5 - Customer Service locked / Adaptation Data Programmed in Customer Service
+; 6 - Immobilizer adapted / Normal Function Condition
+; 7 - Key Adaptation active
+;
+050,0,General
+050,1,Mileage
+050,2,Engine Speed
+050,4,Coolant,Temperature
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km or 1 = 10 mi
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km/62 mi.
+;
+A016,0,Distance Impulse Number
+;
+A021,0,Immobilizer - Key Adaptation
+A021,5,Immobilizer - Key Adaptation
+;
+A030,0,Tank Characteristic
+A030,5,Tank Characteristic
+A030,6,Parallel shift of tank characteristic by ± 6 °
+A030,7,Standard Value: 128
+A030,8,Value Range: 120...136
+A030,9,Increments: 1 = 0.5 °
+A030,8, 
+A030,9,Adaptation should be performed after emptying the tank
+A030,10,and filling it with 7 liters of fuel.
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Resolution: 1 = 100 km
+A040,7, 
+A040,8,NOTE: Adaptation channels 40-44 must be
+A040,9,entered and stored in the following order:
+A040,10,43 > 44 > 40 > 41
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Resolution: 1 = 1 day(s)
+A041,7, 
+A041,8,NOTE: Adaptation channels 40-44 must be
+A041,9,entered and stored in the following order:
+A041,10,43 > 44 > 40 > 41
+;
+A043,0,Maximum Mileage to Service
+A043,5,Maximum Mileage to Service
+A043,6,Resolution: 1 = 1000 km
+A043,7, 
+A043,8,NOTE: Adaptation channels 40-44 must be
+A043,9,entered and stored in the following order:
+A043,10,43 > 44 > 40 > 41
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Resolution: 1 = 1 day(s)
+A044,7, 
+A044,8,NOTE: Adaptation channels 40-44 must be
+A044,9,entered and stored in the following order:
+A044,10,43 > 44 > 40 > 41
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C00,Instruments Cluster (J285) Coding
+C01,??xxx: Optional Equipment
+C02,+00 - No optional equipment active
+C03,+01 - Brake pad wear indicator, active
+C04,+02 - Seat belt warning, active
+C05,+04 - Washer water warning activated
+C06, 
+C07,??xxx: Code number for country variants
+C08,0 - Germany (D)        \ 1 - Europe (EU)
+C09,2 - USA (US)           \ 3 - Canada (CAN)
+C10,4 - Great Britain (GB) \ 5 - Japan (JP)
+C11,6 - Saudi Arabia (SA)  \ 7 - Australia (AUS)
+C12, 
+C13,xxx?x: Code number for number of cylinder
+C14,4 - 4 cylinders / 5 - 5 cylinders / 6 - 6 cylinders
+C15, 
+C16,xxxx?: Code for distance progress (code K)
+C17,1 - 3775 / 2 - 3833 / 3 - 3875 / 6 - 4492
+C18,(See label file for more information)
+;
+;1 - 3775 (1.0l ALD/ANV/AFR/AST with transmission)
+;1 - 3775 (1.4l AKK/ANW/AUD/APE/AUA/AQQ/AUB with transmission)
+;1 - 3775 (1.6l ALM with transmission)
+;2 - 3833 (1.6l AEH/AKL/APF/AUR with autom. Transmission)
+;2 - 3833 (1.8l AQX with transmission)
+;2 - 3833 (1.9l AGR/ALH with transmission and 1.9l ASV with transmission)
+;3 - 3875 (1.9l AGP/AQM with transmission)
+;6 - 4492 (1.6l AEH/AKL/APF/AUR with transmission)
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+;
+RJ,0,0,Service zurücksetzen,,
+RJ,0,1,2,0
+;

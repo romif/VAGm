@@ -1,0 +1,195 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 34 -- Level Control
+; This module seems very timing sensitive, be sure to close any unneeded background tasks
+;
+;
+; from USA 2001 Audi allroad quattro 2.7T biturbo
+; ECU p/n  :  4Z7-907-553B
+; Component:  - 2C1A1          X031  
+; Soft Coding:  25500
+; Shop#:  WSC 09999
+;
+; **Modification history**
+; created:  Paul Cunningham, 26 November 2001
+; updated:  Paul Cunningham, 18 March 2003
+; please email any comments or corrections: paul@mobile511.com
+;
+;
+;  Have not yet found:
+;     Indicators related to manual mode button (MY2001)
+;     Indicator related to 'jack mode'
+;     Several 'unknown' variables
+;
+;  Certain conditions may not be observable, since VAG-COM requires ignition to be on,
+;     but control module operates even with ignition off.
+;
+;  Adaptation channels:
+;     Not logged in:
+;        Only channel is 10, default value 0
+;        Appears to be 1=Jack mode
+;        
+;     Logged in (LoginCode = 31564)
+;        Suspension calibration can be performed. See "Nebuchadnezzar's" write up on AudiWorld
+;           for complete information. 
+;           http://forums.audiworld.com/allroad/msgs/32165.phtml
+;        Channels 01-04 correspond to the four corners of your vehicle.
+;        01 = Left Front
+;        02 = Right Front
+;        03 = Left Rear
+;        04 = Right Rear
+;
+;
+;  Observed values are indicated in parenthesis
+;  Bentley manual was not available at time of writing
+;
+1,0,  
+1,1,Voltage1,(varies)
+1,2,Voltage2,(varies)
+1,3,Speed,Km/h
+1,4,(Term. 50 OFF)
+;   Is terminal 50 in fuse box? Trailer?
+;   Fuse 35 is labeled for trailer
+;
+;
+2,0,
+2,1,Door status,Open|Closed
+;   Any door will trigger this
+2,2,Trailer status,No
+2,3,Voltage3,(4.95V)
+2,4,[Text 000 089]
+;
+;		
+3,0, 
+;   No apparent indicator for Manual|Auto mode
+3,1,Status UpButton,Not Oper.|Activated
+;   Status is Activated only when button is held down
+3,2,Duplicate,UpButton?
+;   Seems unusual to be duplicate, but it is?
+3,3,Status DnButton,Not Oper.|Activated
+3,4,Pump relay,OFF|ON
+;   This appears to be for the actual relay, pump status is in value 6,4
+;
+;
+4,0,Level control sensors
+;   These values are very dynamic and change as the vehicle moves
+;   They change even as the car travels over bumps
+;   First two values are for front, unknown if left|right or right|left
+;   Second two values are for rear
+;
+;   Sample data at rest
+;    37mm,  41mm,  37mm,  41mm level 4 (highest)
+;    21mm,  26mm,  20mm,  27mm level 3
+;   - 3mm,   2mm,  -4mm,   2mm level 2
+;   -29mm, -27mm, -31mm, -27mm level 1 (lowest)
+;
+;
+4,1,Height,Front1
+4,2,Height,Front2
+4,3,Height,Rear1
+4,4,Height,Rear2
+;
+;
+5,0,Suspension unit extension
+;   Could these be extension distance for each shock? No units are given.
+;   Could also be pressure, but more distance seems more likely.
+;   On this car the fourth value is sometimes significantly higher than 3rd.
+;
+;   Sample data at rest
+;   174, 170, 179, 192 level 4
+;   160, 160, 167, 183 level 3
+;   136, 135, 144, 161 level 2
+;   114, 107, 123, 134 level 1
+;
+5,1,Front1,no units
+5,2,Front2,no units
+5,3,Rear1,no units
+5,4,Rear2,no units
+;
+;
+6,0,
+6,1,Pump temp,(5-95C)
+6,2,Reservoir pressure,(3.58-15.96 bar)
+6,3,Reservoir valve,OFF=Closed
+;   6,3 ON briefly during level change, normal=OFF
+;   After shocks are filled, appears to bleed off reservoir
+;   Appears to open when shocks are being deflated
+6,4,Pump,ON|OFF
+;
+;
+7,0,Shock valve status (ON=OPEN)
+;   Note that valve can be open during filling or deflating
+7,1,Front valve1,ON|OFF
+7,2,Front valve2,ON|OFF
+7,3,Rear valve1,ON|OFF
+7,4,Rear valve2,ON|OFF
+;
+;
+8,0,WXYZ: W-3=Level X=0 Y=Engine status Z=Active component (see file)
+8,1,Always ON,(Ignition?)
+8,2,Valve/Switch,(ON|OFF)
+;   8,2 ON briefly during level change, normal=OFF
+;   Turns on briefly when either front or rear valves open
+8,3,(9999)
+8,4,WXYZ,see file
+;
+;   W minus 3 indicates level (either current or new requested level)
+;   X is always zero? Ignition on? Doesn't indicate Jack Mode.
+;   Y = 1 engine off
+;     = 2 engine on
+;     = 4 car in motion
+;   Z = 0 static
+;     = 1 pump active
+;     = 2 two shocks active
+;     = 3 one shock active (fine tuning)
+;
+;   Sample data
+;   7020 engine on,  level 4
+;
+;   6021 engine on,  going up to 3 from 2
+;   6020 engine on,  level 3
+;
+;   5021 engine on,  going up to 2 from 1
+;   5020 engine on,  level 2
+;   5010 engine off, level 2
+;
+;   4040 car moving, level 1
+;   4023 engine on,  going down to 1 from 2, one shock active
+;   4022 engine on,  going down to 1 from 2
+;   4020 engine on,  level 1
+;   4012 engine off, going down to 1 from 2, no pump
+;   4010 engine off, level 1
+;
+;
+;*** No blocks 9-79, next is 80,81 & 86,87 ***
+;
+;
+80,0,Undocumented appears static
+80,1,(blank)
+80,2,(blank)
+80,3,(binary),text
+80,4,(binary),text
+;
+;
+81,0,Undocumented appears static
+81,1,(binary),text
+81,2,(binary),text
+81,3,(binary),text
+81,4,(blank)
+;
+;
+86,0,A1040F59.R1G
+86,1,(A1040F59.R),text
+86,2,(1G),text
+86,3,(N/A)
+86,4,(N/A)
+;
+;
+87,0,A1040F57.R26
+87,1,(A1040F57.),text
+87,2,(R26),text
+87,3,(N/A)
+87,4,(N/A)
+;
+;
+;<end of file>

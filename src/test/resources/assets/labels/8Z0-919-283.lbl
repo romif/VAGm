@@ -1,0 +1,104 @@
+;
+; VAG-COM Label File
+;
+; Audi A2 (8Z) / Audi A4 (8E2/8E5) / Audi A6 (4B)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 8Z0-919-283-??
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 09/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Apr/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Rear)
+001,1,Rear Left,Sensor (G203),Specification: 10...60 cm (255 cm = no obstacle recognized)
+001,2,Rear Left Center,Sensor (G204),Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Rear Right Center,Sensor (G205),Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Rear Right,Sensor (G206),Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Resulting Distance / Vehicle Speed && Voltage
+002,1,Resulting,Distance Front,Specification: 0...120 cm (255 cm = no obstacle recognized)
+003,2,Vehicle Speed,,Range: 0.0...255.0 km/h
+002,3,Buzzer,,Range: Sound ON/Sound OFF
+;
+003,0,External Information
+003,1,Voltage Supply
+003,2,Reverese Gear,engaged,Range: Reverse: Yes/Reverse: No
+003,3,Trailer hitched,,Range: Trailer: Yes/Trailer: No
+;
+004,0,Oscillation Time
+004,1,Rear Left,Sensor (G203),Specification: max. 4.00 ms
+004,2,Rear Left Center,Sensor (G204),Specification: max. 4.00 ms
+004,3,Rear Right Center,Sensor (G205),Specification: max. 4.00 ms
+004,4,Rear Right,Sensor (G206),Specification: max. 4.00 ms
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Instrument Cluster,(J285)
+125,2,Steering Wheel,Electronics (J527)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,?xxxx: Trailer Hitch (0 = No / 1 = Yes)
+C02,x?xxx: Transmission
+C03,0 = Manual Transmission
+C04,1 = Automatic Transmission
+C05,xx?xx: Confirmation Sound (0 = No / 1 = Yes)
+C06,xxx?x: Chassis
+C07,0 = Limousine (Sedan) Rest of World
+C08,1 = Avant (Wagon) Rest of World
+C09,2 = Limousine (Sedan) North America
+C10,3 = Avant (Wagon) North America
+C11,4 = S-Variant Limousine (Sedan) Rest of World
+C12,5 = S-Variant Avant (Wagon) Rest of World
+C13,6 = S-Variant Limousine (Sedan) North America
+C14,7 = S-Variant Avant (Wagon) North America
+C15,8 = allroad
+C16,xxxx?: Model
+C17,2 = Audi A2 (8Z)
+C18,4 - Audi A4 (8E)
+C19,5 = Audi A4 Cabrio (8H)
+C20,6 = Audi A6 (4B)
+
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Rear Buzzer Volume
+A01,5,Rear Buzzer Volume
+A01,6,Adaptation of the rear warning buzzer volume.
+A01,7, 
+A01,8,Display Range: 2...6
+;
+A02,0,Rear Buzzer Frequency
+A02,5,Rear Buzzer Frequency
+A02,6,Adaptation of the rear warning buzzer frequency.
+A02,7, 
+A02,8,Display Range: 0...4
+;

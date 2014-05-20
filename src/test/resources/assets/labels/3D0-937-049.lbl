@@ -1,0 +1,218 @@
+;
+; VAG-COM label file 3D0-937-049.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton)
+; VW Bentley Continental GT - up to and including model year 2005 (not tested with this vehicle)
+;
+; component: Central Electronics -J519-  (#09)
+;
+; p/n: 3D0 937 049 E
+;      3D0 937 049 G Component: STG.Bordnetz 5001 Coding: 0000003 (Canada 2004, 2005 W12 & V8 Phaeton)
+;      3D0 937 049 G Component: STG.Bordnetz 5001 Coding: 0000003 (Germany 2004 W12 Phaeton)
+;      3D0 937 049 H Component: STG.Bordnetz 5101 Coding: 0000105 (Canada 2004 Bentley Continental GT)
+;      NOTE: The Touareg is very different, therefore this file is not suitable for the Touareg.
+;            Perhaps 50% of the MVB's are the same, but coding is totally different for the Touareg.
+;            Use the existing file 7L6-937-049.lbl for the Touareg.
+;
+; includes measuring blocks, coding, adaptation and long coding
+;
+; created on 01/Jan/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+; modified on 22/July/2005 by Michael Moore (moore99@rogers.com)
+; added long coding on 18/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Oct/2007
+;
+; requires VAG-COM 708.0 / LCode 709.0 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Light SWITCH status (not the status of the lights themselves)
+001,1,Parking light,switch,Specified value: off/on
+001,2,Low beam,light switch,Specified value: off/on
+001,3,Automatic,headlight activation,Specified value: off/on
+001,4,Switch for,emergency flasher,Specified value: active/inactive ('active' will only appear when switch is held in depressed position)
+;
+002,0,Light SWITCH status (not the status of the lights themselves)
+002,1,Rear fog light,or VALET button,Specified value: off = not pressed at the moment/on = pressed in/not installed
+002,2,Front Fog light,,off = not pressed at the moment/on = pressed in/not installed
+002,3,Back-up light,switch,Specified value: off/on
+002,4,Not Used
+;
+003,0,Instrument panel illumination dimming
+003,1,Increase,button,Specified value: active/inactive
+003,2,Decrease,button,Specified value: active/inactive
+003,3,Valet Lockout,button,Specified value: active/inactive
+003,4,Not Used
+;
+004,0,Status of Hood (Bonnet) - open or closed
+004,1,Not Used
+004,2,Not Used
+004,3,Engine hood,switch,Specified value: closed/open
+004,4,Not Used
+;
+005,0,Mirror adjustment switch
+005,1,Y-Axis,(minus),Specified value: active/inactive
+005,2,Y-Axis,(plus),Specified value: active/inactive
+005,3,X-Axis,(minus),Specified value: active/inactive
+005,4,X-Axis,(plus),Specified value: active/inactive
+;
+006,0,Mirror control switch position
+006,1,Left mirror,selection,Specified value: active/inactive
+006,2,Right mirror,selection,Specified value: active/inactive
+006,3,Folding in,function,Specified value: active/inactive
+006,4,Mirror Heating,switch,Specified value: active/inactive
+;
+007,0,Voltages present on the car
+007,1,Terminal 15,(Ignition),Specified value: Term. 15 on/Term. 15 off
+007,2,Terminal X,(consumers),Specified value: Term. X on/Term. X off
+007,3,Power Supply,battery,Specified value: 6...15 V
+007,4,Starter,battery,Specified value: 6...15 V
+;
+008,0,Status of the actual lamps themselves (not the switches for these lamps)
+008,1,Left low,beam headlight,Specified value: off/on
+008,2,Right low,beam headlight,Specified value: off/on
+008,3,Left high beam,,Specified value: off/on
+008,4,Right high beam,,Specified value: off/on
+;
+009,0,Status of the actual lamps themselves (not the switches for these lamps)
+009,1,Left,parking light,Specified value: off/on
+009,2,Right,parking light,Specified value: off/on
+009,3,Not Used
+009,4,Not Used
+;
+010,0,Status of the actual lamps themselves (not the switches for these lamps)
+010,1,Turn signal,lights left,Specified value: off/on
+010,2,Turn signal,lights right,Specified value: off/on
+010,3,Front Fog lights,left/right,Specified value: off/on
+010,4,Not Used
+;
+011,0,Status of the switch position for turn signals or single side parking lights
+011,1,Left turn,signal lever,Specified value: off/on
+011,2,Right turn,signal lever,Specified value: off/on
+011,3,Left parking,light switch,Specified value: off/on
+011,4,Right parking,light switch,Specified value: off/on
+;
+012,0,Status of switch positions
+012,1,Headlamp flash,to pass switch,Specified value: off/on
+012,2,High beam switch,,Specified value: off/on
+012,3,Switch for horn,,Specified value: off/on
+012,4,Window washing,switch,Specified value: off/on
+;
+013,0,Intervention Load Management status
+013,1,Intervention,Load management,Specified value: active/inactive
+013,2,highest shut-off,priority reached,Specified value: 0 to 14. May be reset to zero via adaptation channel 01.
+013,3,Not Used
+013,4,Not Used
+;
+014,0,Heated mirrors status
+014,1,Driver door,heated mirror,Specified value: off/on
+014,2,Passenger door,heated mirror,Specified value: off/on
+014,3,Not Used
+014,4,Not Used
+;
+015,0,Rotary traps (detents in the door latches that indicate the door is closed properly)
+015,1,Driver door,rotary trap,Specified value: open/closed
+015,2,Passenger door,rotary trap,Specified value: open/closed
+015,3,Rotary trap,Left Rear door,Specified value: open/closed
+015,4,Rotary trap,Right Rear door,Specified value: open/closed
+;
+016,0,Footwell light dimming levels, other vehicle conditions
+016,1,Footwell light,dimming level,Specified value: 0...100 %
+016,2,Terminal DFM,,Specified value: 0...255 %
+016,3,Outside air,temperature,Specified value: 0...255 °
+016,4,Gear Selector,lever position,Specified value: 0...15
+;
+017,0,CAN bus signal being sent
+017,1,Not Used
+017,2,CAN signal,lights on
+017,3,Not Used
+017,4,Not Used
+;
+018,0,*Next MVB is 080, there are no others past that.
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*End of MVB in this controller.
+;
+;---------------------------------------------------
+;
+; coding (pre-facelift)
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics (J519) Coding
+C01, 
+C02,xxxx? - Choice of Daytime Running Light (DRL) Function
+C03,Choose one number only from the list below
+C04, 
+C05,1 - Scandinavia - all lights illuminated for DRL + rear fog light installed. No DRL icon.
+C06,2 - North America - headlights only illuminated for DRL + no rear fog light installed. With DRL icon.
+C07,3 - No DRL of any kind (DRL feature disabled) + rear fog light installed.
+C08, 
+C09,NOTE 1: Interior light functions controlled by 'soft-buttons' such as dome lights illuminating 
+C10,when doors are opened may need to be re-set after the DRL function has been changed. 
+C11,Re-cycle the push-button(s) on the roof to the setting desired after recoding is done.
+C12, 
+C13,NOTE 2: Changing DRL selection away from 'North America' result in loss of the valet
+C14,lockout button function - this button will now be assigned to operate the rear fog light,
+C15,even though rear foglight controllers are not installed on NAR Phaetons.
+C16, 
+C17,NOTE 3: Coding European Phaetons to 2 (NAR) will result in loss of rear foglight control.
+;
+;
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+A01,0,Load Intervention Management History
+A01,6,The number shown is the highest level of load intervention reached since this
+A01,7,number was last reset. The range is from zero to fourteen.
+A01,8,
+A01,9,You may reset this number to zero - for troubleshooting and tracking purposes - 
+A01,10,by entering a value of zero in this channel and saving it.
+;
+;
+;---------------------------------------------------
+;
+; long coding (facelift)
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,Daytime Running Lights
+LC,00,1,Country/Area North America
+LC,00,5,Front Fog Lights
+LC,00,6,Rear Fog Lights
+LC,02,0~3,01,Halogen Headlights
+LC,02,0~3,02,Bi-Xenon Headlights
+LC,04,0,Assistance Driving Light
+LC,04,1,Coming-Home
+LC,04,2,Garage/Cinema Light
+LC,04,3,Comfort/Tip Blinking
+LC,04,5,Comfort Interior Lightning
+LC,05,2~3,00,Electric Fuel Pump not installed (Diesel Engine)
+LC,05,2~3,04,Electric Fuel Pump for Gasoline Engines (ONLY FSI)
+LC,05,4,Electric Fuel Pump for Auxiliary Heating
+LC,05,5,Wake-Up Function (for Air Suspension)
+LC,06,0,Second Battery Network
+LC,06,2,Generator Port
+LC,06,3,Seat Heating
+LC,06,4,Load Management
+;

@@ -1,0 +1,73 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R41 - Media Player (#0E/#1E) - CD/MP3-Changer
+;
+; P/N: 4E0-910-111-???
+;
+; includes measuring blocks and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4L-0E.LBL
+; 4L-1E.LBL
+; 8T-0E.LBL
+; 8T-1E.LBL
+; 4E0-910-111.LBL
+;
+; created on 12/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 06/Jul/2007
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,0000xxx1 = Term. S active\n0000xx1x = Term. 15 active\n0000x1xx = Term. X active\n00001xxx = Term. 50 active
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Drive/Button Functions
+004,1,Drive/Button,Functions,xxxxxxx1 = Eject Button pressed\nxxxxxx1x = CD loading\nxxxxx1xx = Button for CD1 pressed\nxxxx1xxx = Button for CD2 pressed\nxxx1xxxx = Button for CD3 pressed\nxx1xxxxx = Button for CD4 pressed\nx1xxxxxx = Button for CD5 pressed\n1xxxxxxx = Button for CD6 pressed
+004,2,Drive,Functions,xxxxxx1 = Playback active\nxxxxx1x = Stop\nxxxx1xx = Pause active\nxxx1xxx = CD loading\nxx1xxxx = CD is ejected\nx1xxxxx = Search forward active\n1xxxxxx = Search back active
+;
+005,0,Disc Identity
+005,1,Disc Identity
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;

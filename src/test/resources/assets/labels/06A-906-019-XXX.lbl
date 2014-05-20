@@ -1,0 +1,386 @@
+;
+; Note from Ross-Tech:
+; Many of the texts in this file are WAY too long.
+; Remove -XXX from file name to test, but expect
+; problems until texts are shortened.
+;
+
+; Created by Kim Andersen:gasarm@post.tele.dk
+; Engine code: AEH-AKL Golf 1998>,Bora 1999>
+; ECU Number : 06A-906-019 
+; Engine type: 1.6 I R4/2V SIMOS HS 2272
+; Coding:04000
+; Documentation used:"Erwin WorkShop Manual Golf 1998>,Bora 1999>
+;                     Simos injection and ignition system"
+
+
+;0,0 Measured value blocks(Engine running at idle speed	)			
+;0,1 Intake air temperature						;84-158		;15-71°Celius
+;0,2 Engine control unit supply voltage					;98-147		;10-15 Volt
+;0,3 Coolant temperature 						;170-211	;80-110°Celius
+;0,4 Air mass drawn in							;14-30		;76-164 mg/lift
+;0,5 Lambda probe voltage						;0-50		;0.0-1.0 Volt
+;0,6 Lambda learnt value at idling					;0-100		;-0.8-0.8 ms
+;0,7 Operation condition of Lanbda control				;See measured value block 99
+;0,8 Throttle valve angle						;4-12		;1.9-5.7<°Degree 
+;0,9 Injection period							;2-4		;2-4.1 ms
+;0.10 Engine speed (idling speed)					;23-27		;760-880 RPM
+
+1,0,Basic functions
+1,1,Engine speed,760-880 rpm 
+1,2,Coolant temperature,80-110°Celius
+1,3,Lambda probe voltage,0.00-1.00 Volt
+1,4,Adj.condi.matching throttle valve,00000010
+;xxxxxxxx
+;1        Fault identified by self-diagnosis
+; 1       Signal from automatic gearbox
+;  1      Air conditioner switched on
+;   1     Idling speed switch open
+;    1    Fault in Lambda control
+;     1   Throttle valve open (angle check)
+;      1  Engine running
+;       1 Coolant temperature less than 80 °Celius
+;
+
+
+2,0,Basic Functions 
+2,1,Engine speed,760-880 rpm
+2,2,Airflow (engine load),76-164 mg/H
+2,3,Road speed,0 km/h
+2,4,Engine operating,0100
+
+3,0,Basic functions
+3,1,Engine speed,760-880 rpm
+3,2,Airflow (engine load),76-164 mg/H
+3,3,Throttle valve angle, 1.9-5.7<°Degree
+3,4,Throt.valve posi.duty cycle, -100-100 %
+
+4,0,Basic functions
+4,1,Engine speed, 760-880 rpm 
+4,2,Airflow (engine load), 76-164 mg/H
+4,3,Injection period, 2.0-4.10 ms
+4,4,Air mass drawn in, 1.8 - 3.2 g/s
+
+5,0,Basic functions
+5,1,Engine Speed (760-880 rpm)
+5,2,ECU voltage supply, 10-15 Volt
+5,3,Coolant temperature, 80-110°Celius
+5,4,Intake air temperature, 15-71°Celius
+
+6,0,Altitude adaption
+6,1,Engine speed, 760-880 rpm
+6,2,Airflow (engine load), 76-164 mg/H
+6,3,Throttle valve angle, 1.9-5.7 <°Degree 
+6,4,Altitude correction factor,0.9-1.1
+
+7,0,Idling adjustment
+7,1,Throttle valve angle,1.9-5.7<°Degree
+7,2,Idling learnt value,0.95-1.05
+7,3,Idling learnt value,0.95-1.05
+7,4,Engine operating,0100
+;xxxx
+;1    Overrun
+; 1   Idling
+;  1  Part throttle
+;   1 Full throttle
+;
+
+
+8,0,Idling stabilitation
+8,1,Engine speed,760-880 rpm  
+8,2,Engine speed (specifi),800-840 rpm
+8,3,Idling control,-10-15 %
+8,4,Amount of air drawn in,1.0-3.2 g/s
+
+9,0,Idling air requirements
+9,1,Idling control,-10-15 %
+9,2,Throttle valve status,see label file
+9,3,Coolant temperature,80-110°Celius
+9,4,Engine speed,760-880 rpm
+;xxxxxxxx
+;0        Not allocated 
+; 0       Not allocated
+;  0      Not allocated
+;   0     Not allocated
+;    1    Fault has occurred during adaption
+;     1   No current supply to throttle valve
+;      1  Battery voltage too low (below 8V)
+;       1 Idling switch open
+;
+
+
+10,0,Lambda control and activated charcoal filter system
+10,1,Lambda regulator,-25-25 % 
+10,2,Lambda probe voltage,0.00-1.00 Volt
+10,3,Activated charcoal valve 1 Duty Cycle,0-20 %
+10,4,Lambda correction tank venting is active,-20-2 %
+
+
+11,0,Lambda learning values
+11,1,Injection period,2.00-4.10 ms
+11,2,Lambda learnt value idling,-0.1-1.0 ms
+11,3,Lambda learnt value part load,0.9-1.15 ms
+11,4,Cond.tank breather valve,see label file
+;xxxxxxxx
+;0        Vacant
+; 1       Transition to vapour content check via fuel tank breather valve
+;  1      Transition to fuel tank breather valve minimum operating level
+;   1     Transition to fuel tank breather valve closure
+;    1    Vapour content check via fuel tank breather valve
+;     1   Fuel tank breather valve operating normally
+;      1  Fuel tank breather valve minimum operating level
+;       1 Fuel tank breather valve closed
+;
+
+
+12,0,Lambda control
+12,1,Engine speed,760-880 rpm
+12,2,Airflow (engine load),76-164 mg/H
+12,3,Lambda regulation,-25-25 %
+12,4,Lambda probe volt.,0.00-1.00 volt
+
+13,0,Fuel consumption
+13,1,Engine speed,760-880 rpm
+13,2,Airflow (engine load),76-164 mg/H
+13,3,Road speed,0 km/h
+13,4,Fuel consumption,0.50-2.00 l/h
+
+14,0,Knock control
+14,1,Cyl1 ign.angle retard,0.0°CA 
+14,2,Cyl2 ign.angle retard,0.0°CA 
+14,3,Cyl3 ign.angle retard,0.0°CA 
+14,4,Cyl4 ign.angle retard,0.0°CA 
+
+15,0,Knock control
+15,1,Engine speed,760-880 rpm
+15,2,Airflow (engine load),76-164 mg/H
+15,3,Cyl1 ign.angle retard,0.0°CA 
+15,4,Cyl2 ign.angle retard,0.0°CA 
+
+16,0,Knock control
+16,1,Engine speed,760-880 rpm
+16,2,Airflow (engine load),76-164 mg/H
+16,3,Cyl3 ign.angle retard,0.0°CA 
+16,4,Cyl4 ign.angle retard,0.0°CA 
+
+17,0,Knock control
+17,1,Volt.Cyl1.knock sensor,0.400-1.300 Vpt
+17,2,Volt.Cyl2.knock sensor,0.400-1.300 Vpt
+17,3,Volt.Cyl3.knock sensor,0.400-1.300 Vpt
+17,4,Volt.Cyl4.knock sensor,0.400-1.300 Vpt
+
+
+18,0,Torque reduction for automatic gearbox
+18,1,Engine speed,760-880 rpm
+18,2,Airflow (engine load),74-164 mg/H
+18,3,Ign.timing retard gearbox cutin,0.0°CA
+18,4,Ignition timing,-6-14°BTDC
+
+19,0,Operation condition
+19,1,Engine speed,760-880 rpm
+19,2,Selector lever pos.(0 or 1),0
+19,3,Air conditioner (0 or 1),0 
+19,4,Operation condition,see label file
+;xxxxxxxx
+;0        Not allocated
+; 0       Not allocated
+;  0      Not allocated
+;   0     Not allocated
+;    0    Not allocated
+;     1   Clutch pedal switch operated
+;      1  Power steering pressure switch F88 activated
+;       1 A/C compressor switched on
+;
+
+
+20,0,Lambda control operating condition
+20,1,Engine speed,760-880 rpm
+20,2,Airflow (engine load),76-164 mg/H
+20,3,Coolant temperature,80-110°C
+20,4,Lambda operating condi.,see label file
+;xxxxxxxx
+;1        Fault recorded in memory
+; 0       Not allocated 
+;  0      Not allocated
+;   1     Restricted operation mode
+;    1    Lambda control at limit
+;     1   Lambda control switched on
+;      1  Lambda probe functioning  
+;       1 Mixture status: 1= Rich mixture 0= Lean mixture
+;
+
+
+21,0,Throttle valve control adaption 
+21,1,Throt.valve control adaption,see label file
+21,2,Throt.valve min.position,70-100 %
+21,3,Throt.valve emerg.run.posi.,67-100 %
+21,4,Throt.valve max.position,0-20 %
+;xxxxxxxx
+;0        Not allocated			
+; 0       Not allocated
+;  0      Not allocated
+;   0     Not allocated
+;    1    Fault has occured during adaption
+;     1   No current supply(duty cycle=0)
+;      1  Battery voltage too low (below 8V)
+;       1 Idling switch open
+;
+
+
+22,0,Position of camshaft in relation to crankshaft
+22,1,Engine speed,760-880 rpm
+22,2,Airflow (engine load),76-164 mg/H
+22,3,No.teeth on Crk.sender(- to +),26-30
+22,4,No.teeth on Crk.sender(+ to -),86-90
+
+57,0,Idling speed stabilisation -Air Comp. pressure signal
+57,1,Engine speed,760-880 rpm
+57,2,Idling speed compres.on/off,800-920 760-880 rpm 
+57,3,Air conditioner compres.,ON or OFF
+57,4,G65 duty cycle with compr.ON/OFF,10-70 % 1-5 %
+
+66,0,Cruise control system
+66,1,Road speed (actual),0 km/h
+66,2,Brake clutch and CCS switch position,1000
+66,3,Road speed (specified),0 km/h
+66,4,Operating cruise control,0000= 0ff 0011= on
+;xxxx
+;1    Cruise control system available
+; 1   Clutch pedal depressed/autom.gearbox always 1
+;  1  Brake depressed or for autom.gearbox selector lever in "P" position and ignition switched on (engine stationary)
+;   1 Brake depressed or for autom.gearbox selector lever in "P" position and ignition switched on (engine stationary)
+;
+;xxxx
+;1    Resume speed,accelerate (CCS sliding switch at RES)
+; 1   save speed/delay (SET button pressed)
+;  1  CCS temporarily switched off,memory saved
+;   1 CCS switched off
+;
+
+
+98,0,Matching throttle valve control part
+98,1,Throt.valve pot.volt,3.70-4.75 Volt
+98,2,Throt.valve positioner pot.volt,2.28-4.75 Volt
+98,3,Operating of throt.valve,00000000
+98,4,Matching of throt.valve control part,00
+
+99,0,Lambda regulation
+99,1,Engine speed,760-880 rpm
+99,2,Coolant temperature,80-110°C
+99,3,Lambda regulation,-25-25 %
+99,4,Operating condition of Lambda,0xxx011x
+
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

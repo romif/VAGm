@@ -1,0 +1,130 @@
+;
+; VAG-COM label file - 3D0-919-887.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton)
+;
+; component: Control Module for Navigation with CD Mechanism - J401 - (#37)
+;
+;       p/n: 3D0 919 887 A  Component: NAVIGATION 0147 Coding: 0400000 (2004 Phaeton - North America)
+;       p/n: 3D0 919 887 B  Component: NAVIGATION 0168 Coding: 0500735 (2004 Phaeton - ROW) - Daniel, with DVD player
+;       p/n: 3D0 919 887 E  Component: NAVIGATION 0168 Coding: 0000000 (2004 Phaeton - ROW) - DD AM 2662
+;       p/n: 3D0 919 887 F  Component: NAVIGATION 0168 Coding: 0400000 (2005 Phaeton - North America)
+;
+; NOTE: A CD ROM is available to flash upgrade this controller to 0168 status, VW part number 3D0 919 278,
+;       release 136 ZAB.
+;
+;       Part Numbers for Other Platforms (it is not known whether this label file will work with these)
+;          7L6 919 887 A Component: Navigation 0627 Coding: 0000002 (Touareg - North America)
+;          7L6 919 887 A Component: Navigation 0634 Coding: 0000002 (Touareg - North America)
+;          7L6 919 887 B Component: Navigation 0627 Coding: 0000002 (Touareg - North America)
+;          7L6 919 887 D Component: Navigation 0628 Coding: 0000002 (Touareg - North America)
+;          3W0 919 887 A Component: NAVIGATION 0168 Coding: 0400000 (Bentley Continental GT - North America)
+;
+;
+; includes coding & measured value blocks
+;
+; by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; Modification History
+;
+; 20/March/2005 - Michael - additional MVB data added
+; 23/November/2005 - Michael - note added about CD ROM available for flash upgrade.
+; 29/November/2005 - Michael - all MVB and adaptation channels mapped,
+;                            - additional MVBs identified and labelled.
+;
+; ready for VAG-COM 402.3 and above
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Phaeton Control Module for Navigation with CD Mechanism - J401
+C1,x?xxxxx
+C2,4 - Byte Code Valid
+C3,0 - No Byte Code
+C4, 
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+; REMARK: VAG-COM can be very slow to read some of these blocks, be patient.
+;
+001,0,General Vehicle Information
+001,1,Filtered voltage,supply T30
+;
+002,0,Inputs used by Navigation System
+002,1,Unknown
+002,2,Unknown
+002,3,Reverse signal,for dead reckoning,
+;
+003,0,GPS Antenna Status (On-glass Rear Window Antenna - not the OnStar shark-fin)
+003,1,
+003,2,GPS Antenna
+003,3,Gyro Voltage
+;
+004,0,Satellite Related Information
+004,1,GPS Reception,status
+004,2,Satellites,in view now,0 to 8 possible
+004,3,Satellites,available,typically between 25 and 35
+;
+005,0,Wheel circumference used for measuring distance travelled when satellite reception is lost.
+005,1,
+005,2,Tire,circumference
+;
+006,0,Navigation CD Player Status
+006,1,Eject Button,Status
+006,2,CD ROM,Drive Status
+;
+007,0,*Next MVB used is 080
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+;
+081,0,Expanded Control Module Identification
+;
+082,0,Expanded Control Module Identification
+;
+083,0,*Next MVB used is 247
+; 
+247,0,Present Vehicle Position (Latitude and Longitude)
+;
+248,0,Vehicle Speed - Day of Week - UTC Time (from satellites)
+;
+249,0,Unknown
+;
+250,0,Temperature of Controller Components and Blower Status
+250,2,Fan Status
+;
+251,0,Unknown
+;
+252,0,Unknown
+;
+253,0,Unknown
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;Remark: A Security access code is required to adapt this controller.
+;
+;
+
+

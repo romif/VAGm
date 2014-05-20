@@ -1,0 +1,122 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J525 - Sound System (#47) - Bose
+;
+; P/N: 4L0-910-223-???
+;
+; includes measuring blocks, coding, adaptation and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-47.LBL
+; 4L0-910-223-BO.LBL
+; 4L0-910-223-ST.LBL
+; 4L0-910-7xx-47.LBL
+;
+; created on 30/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/May/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Voltage Status,,0000xxx1 = Term. S active\n0000xx1x = Term. 15 active\n0000x1xx = Term. X active\n00001xxx = Term. 50 active
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,1,Temperature,Analog Circuit
+004,2,Temperature,Digital Circuit
+004,3,Fan Speed
+004,4,Switch/Mute Status,(via Databus)
+;     100,Temperature,
+;
+005,1,Voltage,Microphone 1
+005,2,Voltage,Microphone 2
+005,3,Voltage,Analog Input
+005,4,Vehicle Speed
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Bose Sound System (J525) Coding
+C01,00000x?: Equipment
+C02,1 = Right-Hand-Drive with Fabric Trim and Diesel Engine
+C03,2 = Left-Hand-Drive with Leather Trim and Diesel Engine
+C04,3 = Right-Hand-Drive with Leather Trim and Diesel Engine
+C05,4 = Left-Hand-Drive with Fabric Trim and Petrol Engine
+C06,5 = Right-Hand-Drive with Fabric Trim and Petrol Engine
+C07,6 = Left-Hand-Drive with Leather Trim and Petrol Engine
+C08,7 = Right-Hand-Drive with Leather Trim and Petrol Engine
+C09,8 = Left-Hand-Drive with Fabric Trim and Diesel Engine
+C10, 
+C11,00000?x: Microphone
+C12,1 = Microphone (Standard)
+C13,2 = Microphone (Voice Control)
+C14,4 = Microphone (Analog Input (AUX))
+C15,5 = Microphone (Voice Control and Analog Input (AUX))
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+; See Adaptation Channels 112, 113, 114, 115 & 116 for further Details.
+;
+T870,Bass Speaker Front Left (R21)
+T871,Bass Speaker Front Right (R23)
+T874,Treble Speaker Front Left (R20)
+T875,Treble Speaker Front Right (R22)
+T876,Treble Speaker Rear Left (R14)
+T877,Treble Speaker Rear Right (R16)
+T2246,Center Midrang/Treble Speaker (R158)
+T2558,Rear Left Midrange/Woofer Loudspeaker (R159)
+T2559,Rear Right Midtange/Woofer Loudspeaker (R160)
+T419,Midrange Speaker Front Left (R103)
+T420,Midrange Speaker Front Right (R104)
+T3044,Midrange Speaker Rear Left (R105)
+T3045,Midrange Speaker Rear Right (R106)
+T2247,Subwoofer (R148)
+T1609,Cooling Fan in Control Module
+;

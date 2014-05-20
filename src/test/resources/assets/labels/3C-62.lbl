@@ -1,0 +1,28 @@
+;
+; VCDS Redirect File
+;
+; Component: J388 - Door Electronics Rear Left (#62)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-62.LBL
+; 1Q-62.LBL
+; 1T-62.LBL
+; 3C-62.LBL
+; 1K0-959-703-GEN1.LBL
+; 1K0-959-703-GEN2.LBL
+; 1K0-959-703-GEN3.LBL
+;
+; created on 09/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 06/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,1K0-959-703-GEN2.LBL,3C9-959-703     ; GEN2
+;3C9-959-703-A   ; GEN?
+;
+REDIRECT,1K0-959-703-GEN3.LBL,3C8-959-703-B   ; GEN3
+;

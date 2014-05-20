@@ -1,0 +1,28 @@
+;
+; VAG-COM Label File
+;
+; Skoda Octavia (1Z)
+;
+; Component: J525 - Sound System (#47)
+;
+; P/N: 1Z0-035-456-???
+;
+; includes coding
+;
+; created on 10/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Sound System (J525) Coding
+C01,0000000101 = Standard
+;

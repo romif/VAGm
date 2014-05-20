@@ -1,0 +1,150 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / VW Eos (1F)
+; VW Golf/Jetta (1K/5M) / VW Passat (3C) / VW Touran (1T)
+;
+; Component: J745 - Cornering Lights Headlight Range Control (#55)
+;
+; P/N: 5M0-907-357-A
+;
+; includes measuring blocks, basic setting, security access, adaptation and coding
+;
+; created on 22/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Mar/2008
+;
+; requires VAG-COM 603.4 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage,(Terminal 15)
+001,2,Light Status,(Terminal 56b),Display Range: ON/OFF
+001,3,Vehicle Speed
+001,4,Steering Angle,Sensor (G85)
+;
+B001,0,Adjustment Position && Adjustment Learning
+B001,1,Status
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,1,Sensor Signal,Front (G78/G289),Range: 0.0...100.0 %
+002,2,Sensor Signal,Rear (G76/G77),Range: 0.0...100.0 %
+002,3,Actuator Motor,Left Headlight,Range: 0.0...100.0 %
+002,4,Actuator Motor,Right Headlight,Range: 0.0...100.0 %
+;
+003,0,Cornering Light
+003,1,Static Cornering,Light Left
+003,2,Static Cornering,Light Right
+003,3,Dynamic Cornering,Light Left
+003,4,Dynamic Cornering,Light Right
+;
+004,1,Sensor Signal,Front (G78),Range: 0.0...100.0 %\nSpecification: 12.5...50.0 %
+004,2,Sensor Signal,Rear (G76),Range: 0.0...100.0 %\nSpecification: 50.0...87.5 %
+004,3,Movement,Front Suspension,Display Range: -127.0...+128.0 mm
+004,4,Movement,Rear Suspension,Display Range: -127.0...+128.0 mm
+;
+005,0,Voltage Supply
+005,2,Sensor,Voltage Supply
+005,3,Voltage Light,Module Left
+005,4,Voltage Light,Module Right
+;
+006,1,Reverse Gear,engaged,Range: Reverse: No/Reverse: Yes
+006,2,Cornering Light,deactived,Range: Yes/No
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+082,0,Advanced Control Module Identification III
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Brake Electronics,(J104),Specification: ABS 1\nDisplay Range: ABS 1/ABS 0
+125,2,CAN-Gateway,(J533),Specification: Gateway 1\nDisplay Range: Gateway 1/Gateway 0
+125,3,Power Steering,(J500),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 1/Steer. ang. 0
+125,4,Engine,Electronics,Specification: Engine 1\Display Range: Engine 1/Engine 0
+;
+127,0,CAN-Databus Communication (Light)
+127,1,Left Output,Stage (J667),Specification: LeiMo Left 1\nDisplay Range: LeiMo Left 1/LeiMo Left 0
+127,2,Right Output,Stage (J668),Specification: LeiMo Right 1\nDisplay Range: LeiMo Right 1/LeiMo Right 0
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Cornering Lights Headlight Range Control (J745) Coding
+C01,1196162 = VW Golf/Jetta (1K/5M) Front-Wheel-Drive (FWD) / Left-Hand-Drive (LHD)
+C02,1196418 = VW Golf/Jetta (1K/5M) Front-Wheel-Drive (FWD) / Right-Hand-Drive (RHD)
+C03,2310145 = VW Passat (3C) Front-Wheel-Drive (FWD) / Left-Hand-Drive (LHD) / Rest of World (RoW)
+C04,2310401 = VW Passat (3C) Front-Wheel-Drive (FWD) / Right-Hand-Drive (RHD) / Rest of World (RoW)
+C05,2342913 = VW Passat (3C) All-Wheel-Drive (AWD) / Left-Hand-Drive (LHD) / Rest of World (RoW)
+C06,2343169 = VW Passat (3C) All-Wheel-Drive (AWD) / Right-Hand-Drive (RHD) / Rest of World (RoW)
+C07,2322433 = VW Passat (3C) Front-Wheel-Drive (FWD) / Left-Hand-Drive (LHD) / North America (NAR)
+C08,2355201 = VW Passat (3C) All-Wheel-Drive (AWD) / Left-Hand-Drive (LHD) / North America (NAR)
+C09,2506755 = VW Eos (1F) Left-Hand-Drive / Rest of World
+C10,2507011 = VW Eos (1F) Right-Hand-Drive / Rest of World
+C11,2519043 = VW Eos (1F) Left-Hand-Drive / North America
+C12,2555909 = Seat Altea/Toledo (5P) and Leon (1P) Left-Hand-Drive
+C13,2556165 = Seat Altea/Toledo (5P) and Leon (1P) Right-Hand-Drive
+C14,3293188 = VW Touran (1T) Left-Hand-Drive
+C15,3293444 = VW Touran (1T) Right-Hand-Drive
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Cornering Lights Headlight Range Control (J745) Security Access
+S01,15284 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A016,0,Tourist Solution
+A016,5,Tourist Solution
+A016,6,When driving in countries where driving is performed on the
+A016,7,opposite side as in the native country the headlights must
+A016,8,be changed over to avoid blinding the oncoming traffic.
+A016,9, 
+A016,10,0 = Disabled
+A016,11,1 = Enabled
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1540,Headlight Range Control: Adjusting to Lowered Position
+T1541,Headlight Range Control: Adjusting to Raised Position
+T2625,Headlight Range Control: Adjusting to Delivery Position
+T2623,Dynamic Cornering Light: Adjusting to Center Position
+T2941,Dynamic Cornering Light: Position Left
+T2942,Dynamic Cornering Light: Position Right
+T2947,Static Cornering Light Left: up/bright
+T2948,Static Cornering Light Left: down/dim
+T2949,Static Cornering Light Right: up/bright
+T2950,Static Cornering Light Right: down/dim
+T2952,Control Circuit for Curve Lighting Warning Light
+;

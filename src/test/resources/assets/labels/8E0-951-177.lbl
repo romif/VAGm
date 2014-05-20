@@ -1,0 +1,62 @@
+;
+; VAG-COM Label File
+;
+; Audi A2 (8Z) / Audi A4 (8E/8H) / Audi TT (8N)
+;
+; Component: J345 - Interior Monitoring (#45)
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8H-45.LBL
+; 8N-45.LBL
+; 8Z-45.LBL
+; 8E0-951-177.LBL
+;
+; created on 01/Jan/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Communication,Status,0000 = Communication not OK\n0001 = Communication OK
+001,2,Sensor,Sensitivity,Specification: 50.0...100.0 % (see Adaptation Channel 001)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Sensitivity
+A001,5,Sensitivity
+A001,6,Sensitivity settings of the ultra-sound sensors can
+A001,7,be set so that the sensors react with less sensitivity
+A001,8, 
+A001,9,Standard: 100 (= 100 %)
+A001,10,Range: 50...100 %
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Interior Monitoring (J345) Coding
+C01,00001 = Standard
+;

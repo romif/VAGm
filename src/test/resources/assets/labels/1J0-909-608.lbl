@@ -1,0 +1,31 @@
+;
+; VAG-COM Measuring Block Labels file.
+; New Beetle airbag ECU 1J0-909-608 AQ
+;
+; contributed by Mike Sauve www.alientech.net
+;
+
+1,0,Igniter/seat belt tensioners
+1,1,Driver ign,
+1,2,Pass ign,
+1,3,Driver tens,
+1,4,Pass tens,
+
+2,0,Undocumented
+
+3,0,Occupant switches
+3,1,Supply voltage,
+3,2,Pass occupied,
+3,3,Driver belt,
+3,4,Pass belt,
+
+4,0,Undocumented (Rear?)
+
+5,0,Side airbag igniters
+5,1,Dr side,
+5,2,Pass side,
+5,3,,
+5,4,,
+
+
+;

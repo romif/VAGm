@@ -1,0 +1,132 @@
+;
+; VAG-COM Label File
+;
+; VW Passat (3B)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 3B0-920-??2-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-17.LBL
+; 3B0-919-xxx.LBL
+; 3B0-920-xx2.LBL
+; 3B0-920-xx5.LBL
+;
+; based on 3B0-920-822.LBL by Alberto Salvador (alberto.salvador@wanadoo.es - berto @ VW group related forums)
+; updated/enhanced on 25/Mar/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 26/Oct/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Speed / Engine speed / Oil pressure / Time
+001,1,Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2 (< min)
+001,4,Time
+;
+002,0,Distance / Fuel / Ambient temperature
+002,1,Mileage
+002,2,Fuel Level (l)
+002,3,Fuel Level Sender,Resistance
+002,4,Ambient,Temperature (G17),only available with climatronic and/or multifunction display
+;
+003,0,Coolant and Oil
+003,1,Coolant,Temperature
+003,2,Oil Level,,Display Range: Ok/n.Ok
+003,3,Oil,Temperature
+;
+020,0,Immobilizer - ID Block 1
+020,1,Digit 1 && 2
+020,2,Digit 3 && 4
+020,3,Digit 5 && 6
+020,4,Digit 7 && 8
+;
+021,0,Immobilizer - ID Block 2
+021,1,Digit 9 && 10
+021,2,Digit 11 && 12
+021,3,Digit 13 && 14
+;
+022,0,Immobilizer I
+022,1,Engine Start,permitted,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+022,2,Engine (ECU),responds,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+022,3,Key Status,,Specification: 1 = Key OK\nDisplay Range: 0 = Key not OK / 1 = Key OK
+022,4,Number of,adapted Keys,Specification: 1...4
+;
+023,0,Immobilizer II
+023,1,Variable Code,authorized,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+023,2,Key Status,(Transponder),Display Range: 0 = not locked / 1 = locked
+023,3,Fixed Code,authorized,Specification: 1 = Yes\nDisplay Range: 0 = No / 1 = Yes
+;
+050,0,Main Information
+050,1,Mileage
+050,2,Engine Speed
+050,3,Oil,Temperature
+050,4,Coolant,Temperature
+;
+125,0,CAN-Databus Communication (Powertrain)
+;
+126,0,CAN-Databus Communication (Powertrain)
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??xxx: Options
+C02,+00 - Without additional equipment
+C03,+01 - Brake pad warning
+C04,+02 - Seatbelt warning
+C05,+04 - Washer fluid level warning
+C06,+16 - Radio/Navigation
+C07, 
+C08,xx?xx: Country
+C09,1 - Europe / 2 - USA / 3 - Canada/Mexico/Latin America
+C10,4 - England / 5 - Japan / 6 - Saudi Arabia / 7 - Australia
+C11, 
+C12,xxx?x: Service Intervals
+C13,0 - Fixed service intervals (PR-QG0)
+C14,1 - Flexible service intervals (PR-QG1)
+C15,2 - Fixed service interval (PR-QG2)
+C16,3 - No service intervals
+C17, 
+C18,xxxx?: Distance impulse number (K-value)
+C19,3 - 4134 - 6-Cylinder (Light armored vehicle)
+C20,5 - 4182 - all other engines / 6 - 4128 - 8-Cylinder (W8)
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,1000,DIST
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;
+;

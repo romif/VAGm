@@ -1,0 +1,35 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8K-01.LBL
+; 8T-01.LBL
+; 059-907-401-CAP.LBL (3.0l CR-TDI @ 240 HP - CAPA)
+; 06H-907-115-CAB.LBL (1.8l   TFSI @ 170 HP - CABA/CABB/CABD)
+;
+; created on 17/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+;
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115      ; CABB: (8K)
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115-A    ; CABB: (8K)
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115-B    ; CABA: (8K)
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115-E    ; CABA: (8K)
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115-G    ; CABB: (8K)
+REDIRECT,06H-907-115-CAB.CLB,8K1-907-115-H    ; CABB: (8K)
+;
+REDIRECT,059-907-401-CAP.CLB,8K0-907-401-???  ; CAPA: (8K, 8T)
+;
+REDIRECT,059-907-401-CAP.CLB,8K0-997-401-???  ; CAPA: (8K, 8T)
+;
+REDIRECT,059-907-401-CAP.CLB,8K1-907-401-D    ; CAMA: (8K)
+REDIRECT,059-907-401-CAP.CLB,8K1-907-401-F    ; CAMB: (8K)
+REDIRECT,059-907-401-CAP.CLB,8K1-907-401-G    ; CAMB: (8K)
+;

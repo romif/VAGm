@@ -1,0 +1,50 @@
+;
+REDIRECT,1J0-907-487-A.LBL,A,B,C,D
+;
+; VAG-COM label file
+;
+; Skoda Octavia (1U) / Skoda Superb (3U) / VW Golf/Jetta (1J)
+; VW Passat (3B) / VW Sharan (7M) / VW Transporter (7D)
+;
+; component: J453 - Steering Wheel Electronics (#16)
+;
+; p/n: 1J0-907-487
+;
+; includes measuring blocks
+;
+; created on 07/Jun/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 09/Dec/2005
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Buttons right
+001,1,Button,"softer",Specification: operated/not operated
+001,2,Button,"louder",Specification: operated/not operated
+001,3,Button,"down",Specification: operated/not operated
+001,4,Button,"up",Specification: operated/not operated
+;
+002,0,Buttons left
+002,1,Button,"SET (-)",Specification: operated/not operated
+002,2,Button,"RES (+)",Specification: operated/not operated
+002,3,Button,"Cancel"/"Mode",Specification: operated/not operated
+002,4,Button,"Telephone",Specification: operated/not operated
+;
+003,0,Supply Voltage
+003,1,Unknown
+003,2,Supply Voltage
+;
+080,0,Advanced Control Module Identification I
+;
+125,0,CAN-Databus Communication (Comfort)
+125,1,Instrument Cluster
+125,2,CAN-Databus,Comfort (Status)
+;

@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A6 (4F) / Audi Q7 (4L)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-65.LBL
+; 4F0-910-273-BA.LBL
+; 4F0-910-273-HI.LBL
+;
+; created on 29/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4F0-910-273-BA.LBL,4F0-910-273      ; Basis
+REDIRECT,4F0-910-273-HI.LBL,4F0-910-273-A    ; High
+REDIRECT,4F0-910-273-BA.LBL,4F0-910-273-B    ; Basis
+REDIRECT,4F0-910-273-HI.LBL,4F0-910-273-C    ; High
+;

@@ -1,0 +1,171 @@
+;
+; VAG-COM Label File
+;
+; Seat Ibiza/Cordoba (6L) / Skoda Fabia (6Y) / VW Polo (9N)
+;
+; Component: J519 - Central Electronics I (#09) (through Index B)
+;
+; P/N: 6Q?-937-049-???
+;
+; includes measuring blocks, coding, login and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-09.LBL
+; 6Qx-937-049-B.LBL (through Index B)
+; 6Qx-937-049-C.LBL (from Index C)
+;
+; created on 07/29/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/29/2007
+;
+; requieres VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Terminal Status
+001,1,Terminal S,Status,Range: operated/inactive
+001,2,Terminal 50,Status,Range: ON/OFF
+001,3,Terminal X,Status,Range: ON/OFF
+001,4,Terminal 15,Status,Range: ON/OFF
+;
+002,1,Voltage,(Terminal 30)
+002,2,Load Managem.,Intervention,Range: active/inactive
+002,3,Blinker Switch,,Range: ON/OFF
+002,4,Emergency,Flasher Button,Range: ON/OFF
+;
+003,0,Wiper (Front)
+003,1,Wiper,,Range: ON/OFF
+003,2,Wiper,Stage 1,Range: ON/OFF
+003,3,Wiper,Stage 2,Range: ON/OFF
+003,4,Wiper,Potentiometer,Range: Not Recognized/Stage 1/Stage 2/Stage 3/Stage 4
+;
+004,1,Windshield,Washer Pump,Range: ON/OFF
+004,2,Rear Windshield,Heating,Range: Not Operated/Operated
+004,3,Horn,,Range: Not Operated/Operated
+004,4,Hood Contact,Switch,Range: ON/OFF
+;
+005,0,Door Status
+005,1,Driver's Door,Contact Switch,Range: Door open/Door closed
+005,2,Passenger Door,Contact Switch,Range: Door open/Door closed
+005,3,Rear Left,Contact Switch,Range: Door open/Door closed
+005,4,Rear Right,Contact Switch,Range: Door open/Door closed
+;
+006,0,Trunk Lid Status (II)
+006,1,Trunk Contact,Switch (Locking),Range: ON/OFF
+006,2,Trunk Contact,Switch (Light),Range: ON/OFF
+;
+007,0,Trunk Lid Status (II)
+007,1,Trunk Lid Handle,Push-Button,Range: Not Operated/Operated
+007,2,Trunk Lid Interior,Push-Button,Range: Not Operated/Operated
+007,3,Lock,Service Position,,Range: ON/OFF
+;
+008,1,Headlight Washers,,Range: ON/OFF/Not Installed
+008,2,Heated Mirrors,,Range: ON/OFF
+008,3,Reverse Gear,,Range: Reverse OFF/Reverse ON
+008,4,Heated Front,Windshield,,Range: ON/OFF/Not Installed
+;
+009,0,Cruise Control System (CCS)
+009,1,CCS Main Switch,,Range: Not Operated/Operated
+009,2,CCS Main Switch,,Range: Not Operated/Operated
+009,3,CCS Switch,SET/(-),Range: Not Operated/Operated
+009,4,CCS Switch,RES/(+),Range: Not Operated/Operated
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Central Electronics (J519) Coding
+C01,+00001 = Trailer Hitch installed
+C02,+00002 = Trunk Lid Remote Unlocking installed
+C03,+00004 = Electric Load Management active
+C04,+00008 = Interior Light Control
+C05,+00016 = 4-door Chassis
+C06,+00032 = Heated Front Seats installed
+C07,+00064 = Heated Front Windshield installed
+C08,+00128 = Heated Mirrors installed
+C09,+00256 = Headlight Washers installed
+C10,+00512 = Rain Sensor installed
+C11,+01024 = Trunk Lid Remote Unlocking impulse driven
+C12,+08192 = Rear Windshield Wiper with Comfort Function installed
+C13,+16384 = Electric Fuel Pump Releay installed
+C14,Note: The coding is the sum of the individual options.
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Central Electronics (J519) Login
+L01,21343 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Terminal 30G Deactivation/Reset
+A001,5,Terminal 30G Deactivation/Reset
+A001,6,Range: 1-253 (0.66...173 min)
+A001,7,Standard: 44 (30 min)
+;
+A002,0,Front Windshield Heating Activation Time
+A002,5,Front Windshield Heating Activation Time
+A002,6,Range: 1...253 (0.66...173 min)
+A002,7,Special: 254 (infinite)
+A002,8,Standard: 29 (20 min)
+;
+A003,0,Mirror Heating Activation Time
+A003,5,Mirror Heating Activation Time
+A003,6,Range: 1...253 (0.66...173 min)
+A003,7,Standard (through 04/2002): 29 (20 min)
+A003,8,Standard (from 05/2002): 254 (infinite)
+;
+A004,0,Rear Windshield Heating Activation Time
+A004,5,Rear Windshield Heating Activation Time
+A004,6,Range: 1...253 (0.66...173 min)
+A004,7,Standard: 29 (20 min)
+A004,8,Special: 254 (infinite)
+;
+A005,0,Trunk Lid Remote Unlocking
+A005,5,Trunk Lid Remote Unlocking
+A005,6,Range: 1...253 (0.32-81.6 s)
+A005,7,Standard: 3 (1 s)
+;
+A006,0,Comfort Blinking (Time)
+A006,5,Comfort Blinking (Time)
+A006,6,Range: 40 ms...10 s
+A006,7,Standard: 25 (1 s)
+;
+A007,0,Comfort Blinking (Cycles)
+A007,5,Comfort Blinking (Cycles)
+A007,6,Range: 0...5
+A007,7,Standard: 3
+;
+A008,5,Tear Wiping
+A008,6,Tear Wiping
+A008,7,Range: 0...255 s
+A008,8,Standard: 5 s
+;
+A009,0,Headlight Washer Activation
+A009,5,Headlight Washer Activation
+A009,6,Range: 0...255 s
+A009,7,Standard: 5 s
+;

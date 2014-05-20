@@ -1,0 +1,37 @@
+;
+; VCDS Label File
+;
+; VW Golf Variant (1K5) / VW Tiguan (5N)
+;
+; Component: J533 - Central Electronic 2 (#4F)
+;
+; P/N: 1K0-907-532-???
+;
+; includes long coding
+;
+; created on 20/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/May/2008
+;
+; requires VCDS 804.0 / LCode 804.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,Control Module for Sliding Roof (J245) installed
+LC,00,2,Control Module for Roof Blinds (J394) installed
+;
+LC,01,0,Comfort Function Sliding Roof: Tilted
+LC,01,1,Comfort Function Open: Sliding Roof active
+LC,01,3,Comfort Function Open: Roof Blinds active
+;
+LC,02,0,Comfort Function Closing: Sliding Roof active
+LC,02,2,Comfort Function Closing: Roof Blinds active
+;
+LC,03,0,Automatic Distance Regulation installed
+;

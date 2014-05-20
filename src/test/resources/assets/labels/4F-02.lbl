@@ -1,0 +1,29 @@
+;
+; VCDS Redirect File
+;
+; Component: Transmission (#02)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-02.LBL
+; 01J-927-156.LBL
+; 09E-927-156.LBL
+; 09L-927-760.LBL
+;
+; created on 19/Jan/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,01J-927-156.LBL,4F0-910-155-???  ; 01J: (4F)
+REDIRECT,09L-927-760.LBL,4F0-910-156-???  ; 09L: (4F)
+REDIRECT,01J-927-156.LBL,4F1-910-155-???  ; 01J: (4F)
+REDIRECT,09L-927-760.LBL,4F1-910-156-???  ; 09L: (4F)
+REDIRECT,01J-927-156.LBL,4F2-910-155-???  ; 01J: (4F)
+REDIRECT,01J-927-156.LBL,4F5-910-155-???  ; 01J: (4F)
+REDIRECT,09E-927-156.LBL,4F5-910-156-???  ; 09E: (4F)
+REDIRECT,01J-927-156.LBL,4F9-910-155-???  ; 01J: (4F)
+;

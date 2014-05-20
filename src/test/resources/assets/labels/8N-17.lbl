@@ -1,0 +1,24 @@
+;
+; VAG-COM Redirect File
+;
+; Audi TT Coupe/Roadster (8N)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8N-17.LBL
+; 8Nx-919-xxx-17.LBL
+; 8Nx-920-xxx-17.LBL
+;
+; created on 21/Sep/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Feb/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8Nx-919-xxx-17.LBL,8N?-919-???-???
+REDIRECT,8Nx-920-xxx-17.LBL,8N?-920-???-???
+;

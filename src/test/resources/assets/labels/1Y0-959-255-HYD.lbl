@@ -1,0 +1,87 @@
+;
+; VAG-COM Label File
+;
+; VW New Beetle Cabriolet (1Y)
+;
+; Component: J256 - Convertible Top (#26)
+;
+; P/N: 1Y0-959-255-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1Y-26.LBL
+; 1Y0-959-255-HYD.LBL
+; 1Y0-959-255-MEC.LBL
+;
+; includes measuring blocks
+;
+; created on 12/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Feb/2006
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Conv. Top Oper.,Switch (E137),Range: Not Operated/Open/Closed/Not OK
+001,2,Central Window,Regul. Sw. (E189),Range: Not Operated/Open/Closed/Not OK
+001,3,Convertible Top,Switches I,See Label File
+; 01---xxx = Tonneau Cover Switch (F328)   (1 = Tonneau installed)
+; 0x---1xx = Closed Position Switch (F202) (1 = Convertible Top locked)
+; 0x---x1x = Open Position Switch (F171)   (1 = Convertible Top closed)
+; 0x---xx1 = Open Position Switch (F171)   (1 = Convertible Top open)
+001,4,Convertible Top,Switches II,See Label File
+; --001001
+; --01x0xx = Right Convertible Top Closed Lock Switch (F326) (1 = Right Lock closed) 
+; --0x10xx = Right Convertible Top Open Lock Switch (F325)   (1 = Right Lock open) 
+; --0xx01x = Left Convertible Top Closed Lock Switch (F324)  (1 = Left Lock closed) 
+; --0xx0x1 = Left Convertible Top Open Lock Switch (F323)    (1 = Left Lock open) 
+;
+002,1,Vehicle Speed,from Cluster (J285)
+002,2,Vehicle Speed,from ABS (J104)
+002,3,Supply Voltage,(Terminal 30)
+002,4,Window Regulator,Status,See Label File
+; 1xxxxxxx = Right Rear Window Regulator     (1 = Open)
+; x1xxxxxx = Right Rear Window Regulator     (1 = Closed)
+; xx1xxxxx = Left Rear Window Regulator      (1 = Open)
+; xxx1xxxx = Left Rear Window Regulator      (1 = Closed)
+; xxxx1xxx = Passenger Side Window Regulator (1 = Open)
+; xxxxx1xx = Passenger Side Window Regulator (1 = Closed)
+; xxxxxx1x = Driver Side Window Regulator    (1 = Open)
+; xxxxxxx1 = Driver Side Window Regulator    (1 = Closed)
+;
+003,0,Window Regulator Position
+003,1,Window Regulator,Front Left,Range: 0...100 %\n\n0 % = Window Closed\n100 % = Window Open
+003,2,Window Regulator,Front Right,Range: 0...100 %\n\n0 % = Window Closed\n100 % = Window Open
+003,3,Window Regulator,Rear Left,Range: 0...100 %\n\n0 % = Window Closed\n100 % = Window Open
+003,4,Window Regulator,Rear Right,Range: 0...100 %\n\n0 % = Window Closed\n100 % = Window Open
+;
+004,1,Left Linkage Flap,Position (G442),Range: 0.0...255.0\n\n    0.0...55.0 = Flap closed\n205.0...255.0 = Flap open
+004,2,Right Linkage Flap,Position (G443),Range: 0.0...255.0\n\n    0.0...55.0 = Flap closed\n205.0...255.0 = Flap open
+004,3,Status,Terminal 15,Range: Term. 15 ON/Term. 15 OFF
+004,4,Thermal Protection,Circuit Break. (S68),Yes = Convertible Top Operation allowed\nNo = Convertible Top Operation blocked
+;
+005,1,Linkage Flap,Motor Status,See Label File
+; ----1xxx = Left Linkage Flap Motor (V289)  (1 = Open)
+; ----x1xx = Left Linkage Flap Motor (V289)  (1 = Closed)
+; ----xx1x = Right Linkage Flap Motor (V290) (1 = Open)
+; ----xxx1 = Right Linkage Flap Motor (V290) (1 = Closed)
+005,2,Hydraulic Pumps,&& Locking Motors,See Label File
+; 1x--xxxx = Hydraulic Pump Relay (J321)    (1 = Opening Convertible Top)
+; x1--xxxx = Hydraulic Pump Relay 2 (J588)  (1 = Closing Convertible Top)
+; xx--1xxx = Left Top Locking Motor (V291)  (1 = Open)
+; xx--x1xx = Left Top Locking Motor (V291)  (1 = Closed)
+; xx--xx1x = Right Top Locking Motor (V292) (1 = Open)
+; xx--xxx1 = Right Top Locking Motor (V292) (1 = Closed)
+005,3,Autom. Day/Night,Interior Mirror (Y7),Range: Lamp OFF/Lamp ON/Blinking
+005,4,Warning Buzzer
+;
+080,0,Advanced Control Module Identification I
+;

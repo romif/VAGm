@@ -1,0 +1,69 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F) / Audi A8 (4E)
+;
+; Component: R - Radio (#56)
+;
+; P/N: 4E0-910-541-???
+;
+; includes measuring blocks and coding
+;
+; created on 12/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 12/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+002,3,Optical Transm.,Power Reduction
+002,4,Send Diode,Temperature
+;
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Aerial Connection Status
+004,1,Aerial Connection,Status
+;
+005,0,IF-Wire Status
+005,1,IF-Wire Status
+;
+006,0,Reception Level
+006,1,Reception Level,(in dBµV)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Radio (R) Coding
+C1,000000?: Radio Configuration
+C2,1 - Europe
+C3,2 - North America
+C4,3 - Japan
+C5,4 - Australia
+C6,5 - South America
+C7,6 - South Africa
+C8,7 - Asia
+;

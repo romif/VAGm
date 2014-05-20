@@ -1,0 +1,36 @@
+;
+; VAG-COM label file
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; component: J255 - A/C Heating Electronics (#08) - Climatronic (< MY 2000)
+;
+; p/n: 7M0 907 040 ??
+;
+; includes coding
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 14/April/2005
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,A/C System (J255) Coding
+C1,000?x - Additional Functions
+C2,0 - No additional functions
+C3,1 - Auxiliary heat exchanger
+C4,2 - 2nd evaporator
+C5, 
+C6,00xx? - Engine
+C7,1 - All gasoline engines (except VR6)
+C8,2 - VR6 engines
+C9,3 - All diesel engines
+;

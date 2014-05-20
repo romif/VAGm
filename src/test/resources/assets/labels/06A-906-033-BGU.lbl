@@ -1,0 +1,500 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8P) / VW Caddy (2K) / VW Golf V (1K) / VW Touran (1T)
+; Seat Altea (5P) / Skoda Octavia II (1Z)
+;
+; Komponente: Motorelektronik (#01) - BGU/BSF
+;
+; T/N: 06A 906 033 ??
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 06A-906-033-BGU.LBL (1.6l E   @ 102 HP - BGU/BSF)
+;
+; erstellt am 20.12.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 20.12.2004
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Motordrehzahl,,Sollwert: 640...900 U/min
+001,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+001,3,Lambdaregelwert,,Sollwert: -10.0...+10.0 %
+001,4,Einstell-,bedingungen,für Grundeinstellung
+;
+002,1,Motordrehzahl,,Sollwert: 640...900 U/min
+002,2,Motorlast,,Sollwert: 16...26 %
+002,3,mittlere,Einspritzzeit,Sollwert: 2...4 ms
+002,4,Saugrohrdruck,,Sollwert: 300...450 mbar
+;
+003,1,Motordrehzahl,,Sollwert: 640...900 U/min
+003,2,Saugrohrdruck,,Sollwert: 300...450 mbar
+003,3,Drosselklappen-,winkel (Poti),Sollwert: 1...3 %
+003,4,Zündwinkel,(Istwert),Sollwert: -12...+12 °v.OT
+;
+004,1,Motordrehzahl,,Sollwert: 640...900 U/min
+004,2,Spannung,,Sollwert: 11.5...15.0 V
+004,3,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+004,4,Ansaugluft-,temperatur,Wertebereich: -38...+80 °C
+;
+005,1,Motordrehzahl,,Sollwert: 640...900 U/min
+005,2,Motorlast,,Sollwert: 16...26 %
+005,3,Geschwindigkeit,,Sollwert: 0...250 km/h
+005,4,Betriebszustände
+;
+006,1,Motordrehzahl,,Sollwert: 640...900 U/min
+006,2,Motorlast,,Sollwert: 16...26 %
+006,3,Ansaugluft-,temperatur,Wertebereich: -38...+80 °C
+006,4,Höhenkorrektur,,Sollwert: -50...+10 %
+;
+008,1,Zustand,Bremse
+008,2,Zustand,Unterdruckpumpe
+008,3,Druck Bremskraft-,verstärker
+008,4,Ergebnis
+;
+009,1,Motorölfüllstand
+009,2,Motoröl-,warnschwelle
+009,3,Kraftstoff-,verbrauchssignal
+009,4,Verbrauchäqualent
+;
+010,1,Motordrehzahl,,Sollwert: 640...900 U/min
+010,2,Motorlast,,Sollwert: 16...26 %
+010,3,Drosselklappen-,winkel (Poti),Sollwert: 1...3 %
+010,4,Zündwinkel,(Istwert),Sollwert: -12...+12 °v.OT
+;
+011,1,Motordrehzahl,,Sollwert: 640...900 U/min
+011,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+011,3,Ansaugluft-,temperatur,Wertebereich: -38...+80 °C
+011,4,Zündwinkel,(Istwert),Sollwert: -12...+12 °v.OT
+;
+012,1,Motordrehzahl,,Sollwert: 640...900 U/min
+012,2,Motorlast,,Sollwert: 16...26 %
+012,3,Kurbelwellenzahn,(low > high),Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel (Sollwert: 26...30)
+012,4,Kurbelwellenzahn,(high > low),Nr. des Kurbelwellenzahns bei Nockenwellenflankenwechsel (Sollwert: 86...90)
+;
+014,0,Aussetzererkennung
+014,1,Motordrehzahl,,Sollwert: 640...900 U/min
+014,2,Motorlast,,Sollwert: 16...26 %
+014,3,Aussetzer,Summenzähler,Wertebereich: 0...30
+014,4,Aussetzer-,erkennung
+;
+015,0,Aussetzererkennung
+015,1,Aussetzer,Zylinder 1
+015,2,Aussetzer,Zylinder 2
+015,3,Aussetzer,Zylinder 3
+015,4,Aussetzer-,erkennung
+;
+016,0,Aussetzererkennung
+016,1,Aussetzer,Zylinder 4
+016,4,Aussetzer-,erkennung
+;
+018,1,untere,Drehzahlschwelle
+018,2,obere,Drehzahlschwelle
+018,3,untere,Lastschwelle
+018,4,obere,Lastschwelle
+;
+020,0,Zündwinkelrücknahme
+020,1,Zylinder 1
+020,2,Zylinder 2
+020,3,Zylinder 3
+020,4,Zylinder 4
+;
+022,0,Zündwinkelrücknahme
+022,1,Motordrehzahl,,Sollwert: 640...900 U/min
+022,2,Motorlast,,Sollwert: 16...26 %
+022,3,Zündwinkel-,rücknahme Zyl. 1,Sollwert: 0...12 °KW
+022,4,Zündwinkel-,rücknahme Zyl. 2,Sollwert: 0...12 °KW
+;
+023,0,Zündwinkelrücknahme
+023,1,Motordrehzahl,,Sollwert: 640...900 U/min
+023,2,Motorlast,,Sollwert: 16...26 %
+023,3,Zündwinkel-,rücknahme Zyl. 3,Sollwert: 0...12 °KW
+023,4,Zündwinkel-,rücknahme Zyl. 4,Sollwert: 0...12 °KW
+;
+026,0,Klopfregelung
+026,1,Klopfsensor-,verstärker Zyl. 1,Sollwert: 0.2...0.6 V
+026,2,Klopfsensor-,verstärker Zyl. 2,Sollwert: 0.2...0.6 V
+026,3,Klopfsensor-,verstärker Zyl. 3,Sollwert: 0.2...0.6 V
+026,4,Klopfsensor-,verstärker Zyl. 4,Sollwert: 0.2...0.6 V
+;
+028,1,Motordrehzahl,,Sollwert: 640...900 U/min
+028,2,Motorlast,,Sollwert: 16...26 %
+028,3,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+028,4,Ergebnis
+;
+030,1,Lambdasonde,Bank 1 Sonde 1,
+030,2,Lambdasonde,Bank 1 Sonde 2,
+;
+031,1,Lambda-Istwert,Bank 1,Sollwert: 0.99...1.01
+031,2,Lambda-Sollwert,Bank 1,Sollwert: 0.99...1.01
+;
+032,1,Bank 1 Sonde 1,Lernwert Leerlauf,Sollwert: -14..+14 %
+032,2,Bank 1 Sonde 1,Lernwert Teillast,Sollwert: -10...+10 %
+;
+033,1,Bank 1 Sonde 1,Regelwert,Sollwert: -10...+10 %
+033,2,Bank 1 Sonde 1,Sondenspannung,Sollwert: 1.8...2.2 V
+;
+034,1,Motordrehzahl,,Sollwert: 640...900 U/min
+034,2,Katalysator Bank 1,Temperatur vor Kat
+034,3,Bank 1 Sonde 1,Dynamikfaktor
+034,4,Ergebnis
+;
+036,1,Bank1 Sonde 2,Sondenspannung,Sollwert: 0.2...0.8 V
+036,2,Bank1 Sonde 2,Ergebnis
+;
+037,1,Motorlast,,Sollwert: 16...26 %
+037,2,Bank 1 Sonde 2,Spannung,Sollwert: 0.2...0.8 V
+037,3,Bank 1,Lambdawert,Sollwert: -3...+3 %
+037,4,Ergebnis
+;
+041,1,Bank 1 Sonde 1,Widerstand,Sollwert: 30...300 kOhm
+041,2,Zustand,Tastverhältnis
+041,3,Bank 1 Sonde 2,Widerstand,Sollwert: 400...2500 kOhm
+041,4,Zustand,Tastverhältnis
+;
+043,1,Motordrehzahl,,Sollwert: 640...900 U/min
+043,2,Bank 1,n. Kat. Temperatur
+043,3,Bank 1 Sonde 2,Spannung,Sollwert: 0.2...0.8 V
+043,4,Ergebnis
+;
+046,1,Motordrehzahl,,Sollwert: 640...900 U/min
+046,2,Katalysator-,temperatur  Bank 1
+046,3,Messwert Bank 1,Kat.-Konvertierung
+046,4,Ergebnis
+;
+050,1,Motordrehzahl,IST,Sollwert: 640...900 U/min
+050,2,Motordrehzahl,SOLL,Sollwert: 660...800 U/min
+050,3,Hecksch.-heizung,Klimaanforderung
+050,4,Klimakompressor
+;
+051,1,Motordrehzahl,IST,Sollwert: 640...900 U/min
+051,2,Motordrehzahl,SOLL,Sollwert: 660...800 U/min
+051,3,Fahrstufe,,Wertebereich: Gang 1...6 (nur bei Automatik)
+051,4,Batterie-,spannung,Sollwert: 11.5...15.0 V
+;
+053,1,Motordrehzahl,IST,Sollwert: 640...900 U/min
+053,2,Motordrehzahl,SOLL,Sollwert: 660...800 U/min
+053,3,Batterie-,spannung,Sollwert: 11.5...15.0 V
+053,4,Generatorlast
+;
+054,1,Motordrehzahl,,Sollwert: 640...900 U/min
+054,2,Betriebszustände,des Motors
+054,3,Geber 1 für,Gaspedalstellung,Sollwert: 10...20 %
+054,4,DK.-Steller,Winkel Potentiom.,Sollwert: 1...3 %
+;
+055,1,Motordrehzahl,,Sollwert: 640...900 U/min
+055,2,Leerlaufregler,,Sollwert: -10...+10 Nm
+055,3,Aktueller Lernwert,vom Leerlaufregler,Sollwert: -10...+10 Nm
+055,4,Betriebszustände
+;
+056,1,Motordrehzahl,IST,Sollwert: 640...900 U/min
+056,2,Motordrehzahl,SOLL,Sollwert: 660...800 U/min
+056,3,Leerlaufregler,,Sollwert: -10...+10 Nm
+056,4,Betriebszustände
+;
+057,1,Motordrehzahl,IST,Sollwert: 640...900 U/min
+057,2,Motordrehzahl,SOLL,Sollwert: 660...800 U/min
+057,3,Klimakrompresor
+057,4,Tastverhältnis,Druckaufnehmer,Drehmoment Klimakompressor
+;
+060,1,DK-Winkel vom,Potentiometer 1,Sollwert: 5...20 %
+060,2,DK-Winkel vom,Potentiometer 2,Sollwert: 80...100 %
+060,3,DVE,Adaptionsstatus
+060,4,Zustand Drossel-,klappenadaption
+;
+061,1,Motordrehzahl,,Sollwert: 640...900 U/min
+061,2,Versorgungs-,spannung,Sollwert: 11.5...15.0 V
+061,3,Ansteuerung,DK-Steller,Sollwert: -40...+40 %
+061,4,Betriebszustand
+;
+062,1,Winkelgeber 1,für DK-Antrieb,Sollwert: 5...20 %
+062,2,Winkelgeber 2,für DK-Antrieb,Sollwert: 80...100 %
+062,3,Geber 1,Gaspedalstellung,Sollwert: 10...20 %
+062,4,Geber 2,Gaspedalstellung,Sollwert: 5...15 %
+;
+063,1,Gaspedalstellung,(Geber 1),Wertebereich: 0...100 %
+063,2,gelernter,Kick-Down-Punkt,Wertebereich: 0...100 %
+063,3,Kick-Downschalter
+063,4,Ergebnis
+;
+064,1,Potentiometer 1,untere Adaption,Sollwert: 0.244...0.81 V
+064,2,Potentiometer 2,untere Adaption,Sollwert: 4.195...4.761 V
+064,3,Notluftspalt,Potentiometer 1,Sollwert: 0.235...1.367 V
+064,4,Notluftspalt,Potentiometer 2,Sollwert: 3.653...4.785 V
+;
+066,1,Geschwindigkeit,IST,Wertebereich: 0...250 km/h
+066,2,Schalterstellungen
+066,3,Geschwindigkeit,SOLL (GRA),Wertebereich: 0...250 km/h
+066,4,Schalterstellungen
+;
+070,1,Öffnungsgrad,TEV,Tankentlüftungsventil (Sollwert: 0...30 %)
+070,2,Lambdaregeler,,Diagnosewert bei aktiver Diagnose (Sollwert: -10...+10 %)
+070,3,LL-Regler,,Diagnosewert bei aktiver Diagnose (Sollwert: -10...+10 Nm)
+070,4,Ergebnis
+;
+073,0,Abgasrückführung (AGR)
+073,1,Motordrehzahl,,Sollwert: 640...900 U/min
+073,2,AGR-Poti,Öffnungsrate,Sollwert: 0...30 %
+073,3,AGR,Ventilhubdifferenz,Sollwert: -25...+0 %
+073,4,Ergebnis
+;
+074,0,Abgasrückführung (AGR)
+074,1,NullPosition,,Sollwert: 0.3...1.5 V
+074,2,maximaler,Anschlag,Sollwert: 3.0...4.8 V
+074,3,aktueller,Poti-Wert,Sllwert: 0.3...1.5 V
+074,4,Ergebnis
+;
+075,1,Motordrehzahl,,Sollwert: 640...900 U/min
+075,2,Saugrohrdruck,,Sollwert: 300...450 mbar
+075,3,Saugrohrdruck-,differenz
+075,4,Ergebnis
+;
+076,1,Motordrehzahl,,Sollwert: 640...900 U/min
+076,2,Saugrohrdruck,,Sollwert: 300...450 mbar
+076,3,AGR-Öffnungsgrad,,Sollwert: 6...30 %
+076,4,Tastverhältnis,AGR-Ventil
+;
+080,0,Herstellerkennzahlen etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Herstellerwerkskennzahl und -kennzeichnung
+;Tages Fertigungsdatum
+;Herstelleränderungsdatum
+;Hersteller-Prüfstand-Nr.
+;Laufende Hersteller-Nr.
+;
+081,0,Fahrgestellnummer etc. (siehe Labelfile)
+;Die Werte werden aneinandergereiht angezeigt
+;
+;Fahrgestellnummer
+;Baugruppennummer oder Seriennummer
+;Typprüfnummer
+;
+086,0,Ready- und Zyklusbits (siehe Label-File)
+086,1,Ready-Bits
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxx-x-? - Katalysatoren
+; xxxx-?-x - AKF-System
+; xxx?-x-x - Klimaanlage
+; xx?x-x-x - Lambda-Sonden
+; x?xx-x-x - Lambda-Sondenhzg.
+; ?xxx-x-x - AGR-System
+086,2,Zyklus-Flags I,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxxx-x? - Kat Bank 1
+; xxxxx-?x - Kat Bank 2			
+; xxxx?-xx - TEV
+; xxx?x-xx - Hzg. B1-S1
+; xx?xx-xx - Hzg. B1-S2
+; x?xxx-xx - Hzg. B2-S1
+; ?xxxx-xx - Hzg. B2-S2
+086,3,Zyklus-Flags II,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; ---xxxx? - B1-S1 el.
+; ---xxx?x - B1-S2 el.
+; ---xx?xx - B1-S1 (Plausibilitätsprüfung)
+; ---x?xxx - B1-S2 (Sondenalterung)
+; ---?xxxx - B1-S1 (Dynamikprüfung)
+086,4,Zyklus-Flags III,durchl. Zyklen
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; --xxxxx? - B2-S1 el.
+; --xxxx?x - B2-S2 el.
+; --xxx?xx - B2-S1 (Plausibilitätsprüfung)
+; --xx?xxx - B2-S2 (Sondenalterung)
+; --x?xxxx - B2-S1 (Dynamikprüfung)
+; --?xxxxx - AGR el.
+;
+087,0,Ready- und Errorbits (siehe Label-File)
+087,1,Ready-Bits,,siehe Label-File
+; 1 = nicht abgeschlossen / 0 = abgeschlossen
+; xxxx-x-? - Katalysatoren
+; xxxx-?-x - AKF-System
+; xxx?-x-x - Klimaanlage
+; xx?x-x-x - Lambda-Sonden
+; x?xx-x-x - Lambda-Sondenhzg.
+; ?xxx-x-x - AGR-System
+087,2,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; xxxxx-x? - Kat Bank 1
+; xxxxx-?x - Kat Bank 2			
+; xxxx?-xx - TEV
+; xxx?x-xx - Hzg. B1-S1
+; xx?xx-xx - Hzg. B1-S2
+; x?xxx-xx - Hzg. B2-S1
+; ?xxxx-xx - Hzg. B2-S2
+087,3,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; ---xxxx? - B1-S1 el.
+; ---xxx?x - B1-S2 el.
+; ---xx?xx - B1-S1 (Plausibilitätsprüfung)
+; ---x?xxx - B1-S2 (Sondenalterung)
+; ---?xxxx - B1-S1 (Dynamikprüfung)
+087,4,Error-Flags,,siehe Label-File
+; 1 = Fehler / 0 = kein Fehler
+; --xxxxx? - B2-S1 el.
+; --xxxx?x - B2-S2 el.
+; --xxx?xx - B2-S1 (Plausibilitätsprüfung)
+; --xx?xxx - B2-S2 (Sondenalterung)
+; --x?xxxx - B2-S1 (Dynamikprüfung)
+; --?xxxxx - AGR el.
+;
+088,0,Zyklus-Flags (abgeschlossene Prüfungen [0 = abgeschlossen / 1 = nicht abgeschlossen])
+088,1,Zyklus-Flags I,,siehe Label-File
+; xx--?--- - Nockenw.-Verstellung Bank 1 Einlaß
+; x?--x--- - Klopfsensor 2
+; ?x--x--- - Klopfsensor 1
+088,2,Zyklus-Flags II,,siehe Label-File
+; xxx-xxx? - Bremslichtschalter
+; xxx-xx?x - Kupplungsschalter
+; xxx-x?xx - LL-Regelung
+; xxx-?xxx - Geschwindigkeitssignal
+; xx?-xxxx - Kühlmitteltemp.-Sensor
+; x?x-xxxx - Drosselklappenpoti
+; ?xx-xxxx - Luftmassenmesser
+088,3,Zyklus-Flags III,,siehe Label-File
+; xxx-x?-- - Ansaugtemperatursensor
+; xxx-?x-- - Thermostat
+; xx?-xx-- - GRA-Bedienhebel
+; x?x-xx-- - Lambdaadaption B2 (Summe aus FRA2 und ORA2)
+; ?xx-xx-- - Lambdaadaption B1 (Summe aus FRA und ORA)
+088,4,[N/A]
+;
+089,0,On-Board-Diagnose
+089,1,Gefahrene km,mit MIL [km],Sollwert: 0 km
+089,2,Leertankinfo,,Wertebereich: i.O./zu klein
+089,3,[N/A]
+089,4,[N/A]
+;
+095,1,Motordrehzahl,,Sollwert: 640...900 U/min
+095,2,Motorlast,,Sollwert: 16...26 %
+095,3,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+095,4,Status Saugrohr-,umschaltung
+;
+099,1,Motordrehzahl,,Sollwert: 640...900 U/min
+099,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+099,3,Lambdaregler,IST-Wert,Sollwert: -10...10 %
+099,4,Lambdaregelung
+;
+100,0,Readynesscode
+100,1,Ready-Bits,,siehe Label-File
+; xxxx-x-1 - Katalysatoren
+; xxxx-1-x - AKF-System
+; xxx1-x-x - Klimaanlage
+; xx1x-x-x - Lambda-Sonden
+; x1xx-x-x - Lambda-Sondenhzg.
+; 1xxx-x-x - AGR-System
+100,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+100,3,Zeit seit,Motorstart,Wertebereich: 0...655.35 s
+100,4,OBD-Status,,siehe Labelfile
+; xxxx--x1 - kein warm-up-cycle möglich
+; xxxx--1x - warmup-cycle beendet
+; xxx1--xx - mind. ein Fehler erkannt
+; xx1x--xx - Trip komplett
+; x1xx--xx - Driving Cycle erfüllt
+; 1xxx--xx - MIL ein
+;
+101,1,Motordrehzahl,,Sollwert: 640...900 U/min
+101,2,Motorlast,,Sollwert: 16...26 %
+101,3,mittlere,Einspritzzeit,Sollwert: 2...4 ms
+101,4,Saugrohrdruck,,Sollwert: 300...450 mbar
+;
+102,1,Motordrehzahl,,Sollwert: 640...900 U/min
+102,2,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+102,3,Ansaugluft-,temperatur,Sollwert: -38...80 °C
+102,4,mittlere,Einspritzzeit,Sollwert: 2...4 ms
+;
+104,1,Start,Motortemperatur
+104,2,Temperatur,Adaptionsfaktor 1
+104,3,Temperatur,Adaptionsfaktor 2
+104,4,Temperatur,Adaptionsfaktor 3
+;
+105,1,Motordrehzahl,,Sollwert: 640...900 U/min
+105,2,Motorlast,,Sollwert: 16...26 %
+105,3,Kühlmittel-,temperatur,Sollwert: 85...110 °C
+105,4,Abschaltung
+;
+107,1,Motordrehzahl,,Sollwert: 640...900 U/min
+107,2,Lambdaregler,Bank 1 (gemittelt),Sollwert: -10...+10 %
+107,3,Lambdaregler,Bank 2 (gemittelt),Sollwert: -10...+10 %
+107,4,Kurztrip,Ergebnis
+;
+120,1,Motordrehzahl,,Sollwert: 640...900 U/min
+120,2,Sollmoment,ASR/FDR,Wertebereich: 0...399 Nm
+120,3,Motordrehmoment,,Wertebereich: 0...260 Nm
+120,4,Status
+;
+122,1,Motordrehzahl,,Sollwert: 640...900 U/min
+122,2,Sollmoment,Getriebe,Wertebereich: 0...399 Nm
+122,3,Motordrehmoment,,Wertebereich: 0...260 Nm
+122,4,Status
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Getriebe-,elektronik
+125,2,Bremsen-,elektronik
+125,3,Kombiinstrument
+125,4,Klimaanlage
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,Automatische,Distanzregelung
+126,2,Lenkwinkel-,sensor
+126,3,Airbag
+126,4,Elektronische,Zentralelktrik
+;
+127,0,CAN-Datenbus Kommunikation (Antrieb)
+127,1,Allrad
+127,2,Niveauregelung
+127,3,Lenkrad,Elektronik
+127,4,Bremskraft-,verstärker
+;
+129,0,CAN-Datenbus Kommunikation (Antrieb)
+129,1,Batterie-/Energie-,manager 1
+;
+130,0,Kennfeldkühlung (Diagnose)
+130,1,Temperatur,Motoraustritt,Sollwert: 80...110 °C
+130,2,Temperatur,Kühleraustritt,Sollwert: 80...110 °C
+130,3,Tastverhältnis,Thermostat
+130,4,Ergebnis
+;
+131,0,Kennfeldkühlung (Diagnose)
+131,1,IST-Temperatur,Motoraustritt,Wertebereich: 0...100 °C
+131,2,SOLL-Temperatur,Motoraustritt,Sollwert: 90...100 °C
+131,3,Temperatur,Kühleraustritt,Wertebereich: 0...100 °C
+131,4,Tastverhältnis,Thermostat
+;
+132,0,Kennfeldkühlung (Diagnose)
+132,1,SOLL-Temperatur,Kühleraustritt,Sollwert: 90...100 °C
+132,2,Temperatur-,differenz,Motor- und Kühleraustritt (Wertebereich: 0...100 °C)
+132,3,Heizungsvorlauf-,potentiometer
+132,4,Staus,Kühlung
+;
+134,0,Kennfeldkühlung
+134,1,Öltemperatur,,Sollwert: 30...140 °C
+134,2,Umgebungs-,temperatur
+134,3,Ansaugluft-,temperatur,Wertebereich: -38...+80 °C
+134,4,Motoraustritts-,temperatur,Sollwert: 80...110 °C
+;
+135,0,Kennfeldkühlung
+135,1,IST-Temperatur,Kühleraustritt,Wertebereich: 0...100 °C
+135,2,Tastverhältnis 1.,Lüfteransteuerung,Wertebereich: 0...100 %
+135,3,Tastverhältnis 2.,Lüfteransteuerung
+135,4,Temperatur,Antriebskreislauf,Kühlerlüfter
+;
+137,0,Klimaanlage
+137,1,AC-Eingang
+137,2,Zustand,Kompressor
+137,3,Druck,Klimaanlage,Sollwert: 4...10 bar
+137,4,Lüfterwunsch,Klimaanlage,Wertebereich: 0/1
+;

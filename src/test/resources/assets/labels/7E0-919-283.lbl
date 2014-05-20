@@ -1,0 +1,115 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: J446 - Einparkhilfe (#76) - 8-Kanal
+;
+; T/N: 7E0 919 283 ???
+;
+; beinhaltet Messwertgruppen, Codierung und Anpassung
+;
+; erstellt am 18.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 10.08.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Geber für Einparkhilfe (vorn)
+001,1,Geber (G255),vorn links,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+001,2,Geber (G254),vorn mitte links,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+001,3,Geber (G253),vorn mitte rechts,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+001,4,Geber (G252),vorn rechts,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+;
+002,0,Geber für Einparkhilfe (hinten)
+002,1,Geber (G203),hinten links,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+002,2,Geber (G204),hinten mitte links,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+002,3,Geber (G204),hinten mitte rechts,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+002,4,Geber (G206),hinten rechts,Wertebereich: 0...255 cm (255cm = kein Hindernis erkannt)
+;
+003,1,Abstand,vorne,Berechneter Wert aus den vier gemessenen Abständen
+003,2,Abstand,hinten,Berechneter Wert aus den vier gemessenen Abständen
+003,3,Fahrzeug-,geschwindigkeit
+003,4,Versorgungs-,spannung,Sollwert: 8.7...16.7 V
+;
+004,1,Status,Quittierungston
+004,2,Status,Rückwärtsgang
+004,3,Status,Anhänger
+004,4,Status,Heckklappe
+;
+005,1,Kontrollampe,Einparkhilfe (K136),Wertebereich: LED aus/LED ein
+005,2,Taster (E266),Einparkhilfe,Wertebereich: Tast. ein/Tast aus
+;
+006,0,Ausschwingzeit der einzelnen Sensoren (hinten)
+006,1,hinten,links
+006,2,hinten,links mitte
+006,3,hinten,rechts mitte
+006,4,hinten,rechts
+;
+007,0,Ausschwingzeit der einzelnen Sensoren (vorne)
+007,1,vorne,links
+007,2,vorne,links mitte
+007,3,vorne,rechts mitte
+007,4,vorne,rechts
+;
+080,0,Erweiterte Steuergerät Identifikation
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Steuergerät für Einparkhilfe (J446) Codierung
+C1,11127 - 8-Kanal Einparkhilfe (Standard)
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A01,0,Lautstärke (hinten)
+A01,5,Lautstärke-Warnsummer (hinten)
+A01,6,Die Laustärke lässt sich von 0 bis 7 einstellen
+A01,7,der Wert kann direkt Während der Eingabe überprüft
+A01,8,werden indem dabei der Rückwärtsgang eingelegt wird.
+;
+A02,0,Frequenz (hinten)
+A02,5,Frequenz-Warnsummer (hinten)
+A02,6,Die Frequenz lässt sich von 0 bis 4 einstellen
+A02,7,der Wert kann direkt Während der Eingabe überprüft
+A02,8,werden indem dabei der Rückwärtsgang eingelegt wird
+A02,9, 
+A02,10,Wertebereich:
+A02,11,0 = 500 Hz / 1 = 660 Hz / 2 = 800 Hz
+A02,12,3 = 1000 Hz / 4 = 2000 Hz
+;
+A03,0,Lautstärke (vorn)
+A03,5,Lautstärke-Warnsummer vorn
+A03,6,Die Laustärke lässt sich von 0 bis 7 einstellen
+A03,7,der Wert kann direkt Während der Eingabe überprüft
+A03,8,werden indem dabei der Rückwärtsgang eingelegt wird.
+;
+A04,0,Frequenz (vorn)
+A04,5,Frequenz-Warnsummer (vorn)
+A04,6,Die Frequenz lässt sich von 0 bis 4 einstellen
+A04,7,der Wert kann direkt Während der Eingabe überprüft
+A04,8,werden indem dabei der Rückwärtsgang eingelegt wird
+A04,9, 
+A04,10,Wertebereich:
+A04,11,0 = 500 Hz / 1 = 660 Hz / 2 = 800 Hz
+A04,12,3 = 1000 Hz / 4 = 2000 Hz
+;

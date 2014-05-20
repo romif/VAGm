@@ -1,0 +1,34 @@
+;
+; VCDS Redirect File
+;
+; VW Touareg (7L) / VW Transporter (7H/7J)
+;
+; Component: Radio/Navigations System (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-56.LBL
+; 7L6-035-186-CD.LBL
+; 7L6-035-186-DVD.LBL
+;
+; created on 02/Dec/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 03/Jun/2008
+;
+; requires VCDS 804.0 or newer
+;
+;
+REDIRECT,7L6-919-887-CD.LBL,7L6-919-887      ; RN-S2 CD
+REDIRECT,7L6-919-887-CD.LBL,7L6-919-887-A    ; RN-S2 CD
+REDIRECT,7L6-919-887-CD.LBL,7L6-919-887-B    ; RN-S2 CD
+REDIRECT,7L6-919-887-DVD.LBL,7L6-919-887-C   ; RN-S2 DVD
+REDIRECT,7L6-919-887-CD.LBL,7L6-919-887-D    ; RN-S2 CD
+REDIRECT,7L6-035-186-DVD.LBL,7L6-035-186-F   ; RN-S2 DVD
+REDIRECT,7L6-919-887-DVD.LBL,7L6-919-887-H   ; RN-S2 DVD
+REDIRECT,7L6-919-887-CD.LBL,7L6-919-887-K    ; RN-S2 CD
+REDIRECT,7L6-919-887-DVD.LBL,7L6-919-887-M   ; RN-S2 DVD
+REDIRECT,7L6-035-186-DVD.LBL,7L6-035-186-P   ; RN-S2 DVD
+;
+REDIRECT,1T0-035-680.LBL,7L6-035-680-???     ; RNS510
+;

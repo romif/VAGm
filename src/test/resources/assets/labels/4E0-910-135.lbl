@@ -1,0 +1,133 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J528 - Roof Electronics (#38)
+;
+; P/N: 4E0-910-135-???
+;
+; includes measuring blocks, adaptation, coding and selective output test
+;
+; created on 06/Jun/2006 by Sebastian Stange (Sebastian@Ross-Rech.com)
+;
+; last modification: 06/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Voltage,(Terminal 30),Specification: 8.5...15.5 V
+001,2,Switched Supply,for Outputs
+; xxx? = Interior Mirror/Light Sensor
+; xx?x = Humidity Sensor
+; x?xx = Humidity Sensor Heater
+; ?xxx = Sunroof Rotation Switch
+;
+002,0,,
+002,1,Interior Light,Buttons
+; xxxxxx? = Front ON Button
+; xxxxx?x = Front OFF Button
+; xxxx?xx = Front AUTO Button
+; xxx?xxx = Rear ON Button
+; xx?xxxx = Rear OFF Button
+; x?xxxxx = Rear AUTO Button
+; ?xxxxxx = Light Profile Button
+002,2,Front Interior,Light Dimming,Range: 0.0...100.0 %
+002,3,Rear Interior,Light Dimming,Range: 0.0...100.0 %
+002,4,Reading Light,Buttons
+; xxx? = Front Right Reading Light Button
+; xx?x = Front Left Reading Light Button
+; x?xx = Rear Right Reading Light Button
+; ?xxx = Rear Left Reading Light Button
+;
+003,0,Automatic Day/Night Interior Mirror
+003,1,Light Sensor,Signal Status,Range: ON/OFF/Invalid
+003,2,Mirror,Dimming Value,Range: 0.0...100.0 %
+;
+004,0,Sunroof
+004,1,Sunroof Buttons
+; xxx? = Sunroof Open Button
+; xx?x = Sunroof Close Button
+; x?xx = Audi-Coding
+; ?xxx = Sunroof Standardization
+004,2,Potentiometer,Voltage,Range: 0.1...4.9 V
+004,3,Reference,Voltage,Range: 0.1...4.9 V
+;
+005,0,Climate Sensor
+005,1,Thermopile Signal,,Range: 0.1...4.9 V
+005,2,Reference,Temp. Signal,Range: 0.1...4.9 V
+005,3,Solid Body,Temp. Signal,Range: 0.1...4.9 V
+005,4,Humidity,Frequency Signal,Range: 50...85 ms
+;
+006,1,Garage Door,Opener Status,0 = OFF / 1 = ON
+; xx? = Garage Door Opener 1
+; x?x = Garage Door Opener 2
+; ?xx = Garage Door Opener 3
+006,2,Rear/Side Shades,Buttons,0 = OFF / 1 = ON
+; xx? = Left Side Shades Button
+; x?x = Right Side Shades Button
+; ?xx = Rear Shades Button
+006,3,Sunshade Switches,,0 = OFF / 1 = ON
+; x? = Sunshade Switch (Mirror) Front Right
+; ?x = Sunshade Switch (Mirror) Front Left
+;
+007,0,Lights
+007,1,Function LED,Dimming,Range: 0.0...100.0 %
+007,2,Rear Background,Light Dimming,Range: 0.0...100.0 %
+007,3,Interior Light,Auto Rear,Range: ON/OFF
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Interior Monitoring Sensitivity
+A001,5,Interior Monitoring Sensitivity
+A001,6,Range: 50...100 %
+A001,7,Standard: 100 %
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Roof Electronics (J528) Coding
+C01,+0000001 = Standard Equipment (nothing more than Climate Sensor and/or Interior Mirror)
+C02,+0000002 = Steel/Alloy Sunroof (3FD)
+C03,+0000004 = Glas Sunroof (PR-3FE)
+C04,+0000006 = Solar Sunroof (PR-3FR)
+C05,+0000008 = Sunroof Air Recirculation active
+C06,+0000016 = Rear Shades installed (PR-3Y2/3Y5)
+C07,+0000032 = Rear/Side Shades installed (PR-3Y8)
+C08,+0000064 = Driver Identification installed (PR-4K5/4K6)
+C09,+0000128 = Light Profile active (PR-QQ1/QQ3)
+C10,+0000256 = Garage Door Opener installed (PR-VC1)
+C11,+0000512 = Light Sensor (G399) installed (PR-8K7)
+C12,+0001024 = Automatic Day/Night Interior Mirror installed (PR-4L6)
+C13,+0002048 = Climate Sensor installed
+C14,+0032768 = Right Hand Steering (PR-L0R)
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1487,System Function Test
+;

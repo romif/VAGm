@@ -1,0 +1,28 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J379 - Central Locking (#35)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-35.LBL
+; 1C0-962-258-II.LBL
+; 1C0-962-258-III.LBL
+;
+; created on 27/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Sep/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1C0-962-258-II.LBL,1C0-962-258-D
+REDIRECT,1C0-962-258-II.LBL,1C0-962-258-J
+REDIRECT,1C0-962-258-II.LBL,1C0-962-258-N
+REDIRECT,1C0-962-258-II.LBL,1C0-962-258-P
+REDIRECT,1C0-962-258-II.LBL,1C0-962-258-T
+;
+REDIRECT,1C0-962-258-III.LBL,1C0-962-258-AA
+REDIRECT,1C0-962-258-III.LBL,1C0-962-258-AB
+REDIRECT,1C0-962-258-III.LBL,1C0-962-258-AC
+;

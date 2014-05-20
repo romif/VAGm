@@ -1,0 +1,170 @@
+;
+; VAG-COM Measuring Block Labels for
+; US OBD-II 2.0 8-valve, ECU p/n 037-906-259
+;
+; Based on 021-906-259.lbl
+; Tested by John Abella
+; Visit www.abellaracing.com  
+;
+1,0,General Engine Data
+1,1,,Engine Speed
+1,2,Coolant,Temperature
+1,3,Oxygen Sensor,Regulation
+1,4,Ignition,Timing
+;
+2,0,General Engine Data
+2,1,,Eng Speed
+2,2,Injector,ON Time
+2,3,Battery,Voltage
+2,4,Gas tank vent,Adapt value
+;
+3,0,Engine Load Registration 1
+3,1,,Engine Speed
+3,2,Mass Air Flow,
+3,3,Throttle Angle,
+3,4,Intake Air,Temperature
+;
+5,0,General Engine Data
+5,1,,Engine Speed
+5,2,Engine Load, 
+5,3,Vehicle,Speed
+5,4,Operating,Mode
+;
+8,0,Signals to ECU
+8,1,,Engine Speed
+8,2,Drive Range,Status
+8,3,A/C Status
+8,4,A/C Comp.,Status
+;
+10,0,Ignition 1
+10,1,,Engine Speed
+10,2,Engine Load,
+10,3,Ignition Timing,From Map
+10,4,Ignition Timing,Actual
+;
+15,0,Engine Load Registration 1
+15,1,,Engine Speed
+15,2,Engine Load, 
+15,3,Engine Load, 
+15,4,Mass Air Flow, 
+;
+16,0,Engine Load Registration 2
+16,1,,Engine Speed
+16,2,,Engine Load,
+16,3,,Engine Load,
+16,4,Load Calc. from,Throttle Angle
+;
+25,0,Oxygen Sensor Before CAT (B1-S1)
+25,1,Oxygen Sensor,Regulation
+25,2,O2S Adaptation,Partial Load
+25,3,O2S Adaptation,Idle
+25,4,O2S Control,Status
+;
+36,0,Idle Control
+36,1,Throttle,Angle
+36,2,Mass Air Flow,Idle Adaptation
+36,3,Mass Air Flow,Driving Adaptation
+36,4,[Empty],
+;
+37,0,Idle Control
+37,1,,Engine Speed
+37,2,,Specification
+37,3,Idle Control,
+37,4,Mass Air Flow,
+;
+45,0,Knock Control (Cyl 1-4) 
+45,1,Ign. Angle Cor., Cylinder 1
+45,2,Ign. Angle Cor., Cylinder 2
+45,3,Ign. Angle Cor., Cylinder 3
+45,4,Ign. Angle Cor., Cylinder 4
+;
+47,0,Knock Sensor [Undocumented]
+47,1,,Cylinder 1
+47,2,,Cylinder 2
+47,3,,Cylinder 3
+47,4,,Cylinder 4
+;
+98,0,Throttle Control Basic Setting
+98,1,Throttle Pot, Voltage 1
+98,2,Throttle Pot, Voltage 2
+98,3,Operating Mode,
+98,4,Basic Setting,Status
+;
+103,0,[Undocumented]
+103,1,,Engine Speed
+103,2,,Coolant
+103,3,CAT Temp,(Calculated)
+103,4,,Status
+;
+110,0,Misfire Detection 1
+110,1,Engine Load,
+110,2,Misf. Count, Imp. Exh. Gas
+110,3,Misf. Count, Impair Cat
+110,4,Misf. Det.,Status
+;
+115,0,Oxygen Sensor Before CAT (B1-S1)
+115,1,Coolant,Tempertaure
+115,2,Exh. Gas Temp,(Calculated)
+115,3,,Oxygen Sensor
+115,4,,Control,Status
+;
+116,0,Oxygen Sensor Behind CAT (B1-S2)
+116,1,Regulation,Time
+116,2,Exh. Gas Temp,(Calculated)
+116,3,,Oxygen Sensor
+116,,Control Status
+;
+120,0,Oxygen Sensor Heating Before CAT (B1-S1) 
+120,1,Exh. Gas Temp,(Calculated)
+120,2,O2S Time to Start,After Heater ON
+120,3,,O2S Resistance
+120,4,,Control Status 
+;
+121,0,Oxygen Sensor Heating After CAT (B1-S2) 
+121,1,CAT Temp,(Calculated)
+121,2,Time to Start,After Heater ON
+121,3,,Sensor Resistance
+121,4,,Control Status 
+;
+125,0,[Undocumented]
+125,1,,Engine Speed
+125,2,Oxygen Sensor,Adaptation
+125,3,Oxygen Sensor,Control
+125,4,,Status
+;
+130,0,Oxygen Sensor Ageing Before CAT (B1-S1) 
+130,1,,Engine Speed
+130,2,Cycle Time,(Frequency)
+130,3,Valid Cycles,Counted
+130,4,,Control Status
+;
+131,0,Oxygen Sensor Ageing After CAT (B1-S2)
+131,1,,Engine Speed
+131,2,,Oxygen Sensor
+132,3,Extended Signal,Frequency
+131,4,,Control Status
+;
+136,0,[Undocumented]
+136,1,,Engine Speed
+136,2,CAT Temp,(calculated)
+136,3,Cat Efficiency,
+136,4,,Status
+;
+140,0,Throttle Control
+140,1,,Engine Load
+140,2,Current Throttle,Motor Position
+140,3,Thottle Sensor,Voltage
+140,4,,Status
+;
+141,0,Throttle Control
+141,1,,Throttle
+141,2,Target Throttle,Motor Position
+141,3,Throttle Pos.,Controller
+141,4,,Status
+;
+142,0,Throttle Control
+142,1,Throttle,Position
+142,2,T.P.,Minumim
+142,3,T.P.,Maximum
+142,4,,Status
+;

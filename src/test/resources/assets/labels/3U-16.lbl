@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Skoda SuperB (3U)
+;
+; Component: J453 - Steering Wheel Electronics (#16)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3U-16.LBL
+; 1J0-907-487.LBL
+; 1J0-907-487-A.LBL
+;
+; created on 27/Sep/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/Sep/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1J0-907-487-A.LBL,3U0-907-487-A
+;

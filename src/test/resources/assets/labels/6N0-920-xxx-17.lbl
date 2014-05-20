@@ -1,0 +1,215 @@
+;
+; VAG-COM Label File
+;
+; VW Polo (6N)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 6N0-920-???-???
+;
+; includes measuring blocks, adaptation, coding and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6N-17.LBL
+; 6N0-919-xxx-17.LBL
+; 6N0-920-xxx-17.LBL
+;
+; created on 18/Dec/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Dec/2007
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2,Range: Oil Pr. 2 <min / Oil Pr. 2 OK
+001,4,Time
+;
+002,0,General
+002,1,Odometer
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+;
+003,0,General
+003,1,Coolant,Temperature
+;
+050,0,General
+050,1,Odometer
+050,2,Engine Speed
+050,4,Coolant,Temperature
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 0/Engine 1
+125,2,Transmission,,Range: Transm. 0/Transm. 1
+125,3,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 0/ABS 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Airbags,(J234),Specification: Airbag 1\nRange: Airbag 0/Airbag 1
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 0 as new value.
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+;
+A005,0,Maximum Distance to Oil Service (OEL)
+A005,5,Maximum Distance to Oil Service (OEL)
+A005,6,15 = 15.000 km (Standard)
+A005,7,or (if coded to miles)
+A005,8,10 = 10.000 mi (Standard)
+A005,9, 
+A005,10,Resolution: 1 = 1000 km/mi
+;
+A006,0,Maximum Distance to Inspection (IN1)
+A006,5,Maximum Distance to Inspection (IN1)
+A006,6,30 = 30.000 km (Standard)
+A006,7,or (if coded to miles)
+A006,8,20 = 20.000 mi (Standard)
+A006,9, 
+A006,10,Resolution: 1 = 1000 km/mi
+;
+A007,0,Maximum Time to Inspection (IN2)
+A007,5,Maximum Time to Inspection (IN2)
+A007,6,12 = 12 Month (Standard)
+A007,7, 
+A007,8,Resolution: 1 = 1 Month
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Resolution: 1 = 10 km/mi
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km/62 mi.
+;
+A010,0,Distance to Oil Service (OEL)
+A010,5,Distance to Oil Service (OEL)
+A010,6,150 = 15.000 km (Standard)
+A010,7,or (if coded to miles)
+A010,8,100 = 10.000 mi (Standard)
+A010,7, 
+A010,8,Resolution: 1 = 100 km/mi
+;
+A011,0,Distance to Inspection (IN1)
+A011,5,Distance to Inspection (IN1)
+A011,6,300 = 30.000 km (Standard)
+A011,7,or (if coded to miles)
+A011,8,200 = 20.000 mi (Standard)
+A011,9, 
+A011,10,Resolution: 1 = 100 km/mi
+;
+A012,0,Time to Inspection (IN2)
+A012,5,Time to Inspection (IN2)
+A012,6,360 = 360 Days (Standard)
+A012,7, 
+A012,8,Resolution: 1 = 1 Days
+;
+A030,0,Tank Characteristic (Fuel Level Sensor)
+A030,5,Tank Characteristic (Fuel Level Sensor)
+A030,6,This channel is used to set the fuel gauge reserve mark
+A030,7,therfor fill the tank with 7 l of fuel and correct the
+A030,8,needle to hit the reserve mark. This is a parallel shift
+A030,9,of the tank characteristic.
+A030,10, 
+A030,11,Standard: 128
+A030,12,Range: 120...136 (-2.0...+2.0 l)
+A030,13,Increments: 1 = 1 Ohm = 1/4 l
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??xxx: Options
+C02,+01 = Brakepad Warning active
+C03,+02 = Seatbelt Warning active
+C04,+04 = Washer Fluid Warning active
+C05,xx?xx: Country
+C06,1 = Europe (EU)
+C07,4 = Great Britain (GB)
+C08,xxx?x: Cylinders
+C09,3 = 3-Cylinder Engine
+C10,4 = 4-Cylinder Engine
+C11,xxxx?: Distance Impulse Number (K-Value)
+C12,1 = 3956 (all other Engines)
+C13,2 = 4017 (1.4l/55kW - TDI - 3-Cylinder)
+C14,3 = 4005
+C15,4 = 3862 (1.4l/74kW - 4-Zy. & 1.6l/92kW - 4-Zyl.)
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,5,Maximum Distance to Oil Service (OEL),1000,DIST
+RD,6,Maximum Distance to Inspection (IN1),1000,DIST
+RD,7,Maximum Time to Inspection (IN2),1,Month
+RD,10,Distance to Oil Service (OEL),100,DIST
+RD,11,Distance to Inspection (IN1),100,DIST
+RD,12,Time to Inspection (IN2),1,Days
+;
+RJ,0,0,Service Reset (OIL / Kilometers),,
+RJ,0,1,10,150
+;
+RJ,1,0,Service Reset (INSP / Kilometers),,
+RJ,1,1,10,150
+RJ,1,1,11,300
+;
+RJ,2,0,Service Reset (OIL &  INSP / Kilometers),,
+RJ,2,1,10,150
+RJ,2,1,11,150
+RJ,2,1,12,360
+;
+RJ,3,0,Service Reset (OIL / Miles),,
+RJ,3,1,10,100
+;
+RJ,4,0,Service Reset (INSP / Miles),,
+RJ,4,1,10,100
+RJ,4,1,11,200
+;
+RJ,5,0,Service Reset (OIL &  INSP / Miles),,
+RJ,5,1,10,100
+RJ,5,1,11,200
+RJ,5,1,12,360
+;

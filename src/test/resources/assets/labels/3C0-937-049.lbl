@@ -1,0 +1,184 @@
+;
+; VAG-COM Labelfile
+;
+; VW Passat (3C)
+;
+; Component: J519 - Central Electronics I (#09)
+;
+; P/N: 3C0 937 049 ???
+;
+; includes measuring blocks and selective output test
+;
+; created on 27/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 21/Jul/2007
+;
+; requires VAG-COM 505.0 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Parking Lights
+001,1,Left Front,Parking Light,Range: 0.0...100.0 %
+001,2,Right Front,Parking Light,Range: 0.0...100.0 %
+001,3,Left Rear,Parking Light,Range: 0.0...100.0 %
+001,4,Right Rear,Parking Light,Range: 0.0...100.0 %
+;
+002,0,Fog Lights/Low Beams
+002,1,Left Low Beam,Headlight,Range: 0.0...100.0 %
+002,2,Right Low Beam,Headlight,Range: 0.0...100.0 %
+002,3,Left Fog Light,,Range: 0.0...100.0 %
+002,4,Right Fog Light,,Range: 0.0...100.0 %
+;
+003,0,Turn Signals
+003,1,Left Front,Turn Signal,Range: 0.0...100.0 %
+003,2,Right Front,Turn Signal,Range: 0.0...100.0 %
+003,3,Left Rear,Turn Signal,Range: 0.0...100.0 %
+003,4,Right Rear,Turn Signal,Range: 0.0...100.0 %
+;
+004,1,Left Side,Turn Signal,Range: 0.0...100.0 %
+004,2,Right Side,Turn Signal,Range: 0.0...100.0 %
+004,3,Left/Right,High Beam,Range: 0.0...100.0 %
+004,4,Xenon-Shutter,,Range: ON/OFF
+;
+005,0,Brake Lights
+005,1,Left,Brake Light,Range: 0.0...100.0 %
+005,2,Right,Brake Light,Range: 0.0...100.0 %
+005,3,Center,Brake Light,Range: 0.0...100.0 %
+005,4,License Plate,Illumination,Range: 0.0...100.0 %
+;
+006,0,Back-Up Lights
+006,1,Instrument,Illumination,Terminal 58d (Range: 0.0...100.0 %)
+006,2,Left,Back-Up Light,Range: 0.0...100.0 %
+006,3,Right,Back-Up Light,Range: 0.0...100.0 %
+006,4,Left Rear,Fog Light,Range: 0.0...100.0 %
+;
+007,1,Activation Relay,Terminal 50,Range: ON/OFF
+007,2,Activation Relay,Terminal 15,cockpit/engine (Range: ON/OFF)
+007,3,Activation Relay,Terminal 75,Range: ON/OFF
+007,4,Enabling SAD,,Range: active/inactive
+;
+008,1,Brightness,,Range: 0...7
+008,2,Rain Quantity,,Range: 0...7
+008,3,Right Rear,Fog Light,Range: 0.0...100.0 %
+008,4,Footwell,Lighting,Range: 0.0...100.0 %
+;
+009,1,Terminal 30g,Relay,Range: ON/OFF
+009,2,Dual Washer,Pump +,Range: ON/OFF
+009,3,Dual Washer,Pump -,Range: ON/OFF
+009,4,Heated Rear,Windshield,Range: ON/OFF
+;
+010,1,Horn,,Range: Operated/Not Oper.
+010,2,Enabling of,Seat Heating,Range: Active/Inactive
+010,3,Electric Fuel,Pump (FP) Relay,Range: ON/OFF
+010,4,Headlight Washer,System Relay,Range: ON/OFF
+;
+011,1,LED Heated Rear,Windshield,Range: ON/OFF
+011,2,LED Emergency,Flasher Button,Range: 0.0...100.0 %
+011,3,LED Heated,Outside Mirror,Range: ON/OFF
+011,4,Interior,Light Dimmed,Range: 0.0...100.0 %
+;
+012,1,Coming Home,LED,Range: ON/OFF
+012,2,Heated Outside,Mirror,Range: ON/OFF
+012,3,Rate Action 1,Relay Driver 1,Range: ON/OFF
+012,4,Rate Action 2,Relay Driver 2,Range: ON/OFF
+;
+013,0,Terminals
+013,1,Terminal 30,(left),Range: 5.00...17.75 V
+013,2,Terminal 30,(right),Range: 5.00...17.75 V
+013,3,Terminal 30,(ref.),Range: 5.00...17.75 V
+013,4,Terminal 31,(ref.),Range: 5.00...17.75 V
+;
+014,1,Dimming,Potentiometer,Range: 0.0...100.0 %
+014,2,Coming Home,Potentiometer,Range: 0.0...100.0 %
+;
+015,0,Terminals
+015,1,Terminal 15,(Input),Range: ON/OFF
+015,2,Terminal 50,(Input),Range: ON/OFF
+015,3,Enabling P/N,,Range: ON/OFF
+015,4,Terminal L,(Input),Range: ON/OFF
+;
+016,1,Light dark,,Range: dark = on/bright = off
+016,2,Lights on (RLS),,Range: ON/OFF
+016,3,Front Wiper,Status,Range: ON/OFF
+016,4,Wiper turn-around,Position Signal,Range: Reached/Not Active
+;
+017,1,Light Switch,(Light off),Range: ON/OFF
+017,2,Parking Light,Switch,Range: ON/OFF
+017,3,Low Beam,Headlight Switch,Range: ON/OFF
+017,4,AFL Light Switch,,Range: ON/OFF
+;
+018,1,Fog Light Switch,,Range: ON/OFF
+018,2,Light Switch,Rear Fog Light,Range: ON/OFF
+018,3,Brake Light Switch,,Range: ON/OFF
+018,4,Back-Up,Light Switch,Range: ON/OFF
+;
+019,1,Emergency,Flasher Button,Range: Operated/Not Oper.
+019,2,Engine Hood,,Range: Open/Closed
+019,3,Heated Rear,Windshield Button,Range: Operated/Not Oper.
+019,4,Heated Outside,Mirror,Range: Operated/Not Oper.
+;
+020,0,Backrest Recognition
+020,3,Backrest,Left,Range: ON/OFF
+020,4,Backrest,Right,Range: ON/OFF
+;
+021,0,Rotary Traps
+021,1,Rotary Trap LF,,Range: ON/OFF
+021,2,Rotary Trap RF,,Range: ON/OFF
+021,3,Rotary Trap LR,,Range: ON/OFF
+021,4,Rotary Trap RR,,Range: ON/OFF
+;
+022,1,Rear Lid,Main Catch,Range: ON/OFF
+022,2,Heated Front,Windshield,Range: operated/n. oprated
+022,3,Heated Front,Windshield Relay,Range: ON/OFF
+022,4,Heated Front,Windshield LED,Range: ON/OFF
+;
+023,1,Rotary Light Switch,Position
+023,2,Coming Home,Condition
+023,3,Leaving Home,Condition
+023,4,AFL Condition
+;
+024,1,Steering Column,Switch Information,via LIN-Databus
+024,2,Terminal 15,(via LIN),Range: ON/OFF
+024,3,Terminal 50,(via LIN),Range: ON/OFF
+024,4,Wiper Cycle,Number (via LIN)
+;
+030,1,Load Management,,Range: Active/Inactive
+030,2,Short-Distance,Operations
+030,3,Critical,Time Fraction
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T906,Horn (H1)
+T59,Interior Lighting
+T61,Footwell Lights
+T1504,License-Plate Light (X)
+T1755,Parking Lights (E1)
+T901,Back-Up Lamps
+T1758,Brake Lamps
+T967,Left Turn Signals
+T968,Right Turn Signals
+T975,Heated Rear Window (Z1)
+T60,Fog Lights
+T977,Low Beams (Left & Right)
+T2486,High Beam
+T1064,Interior Dimming (Terminal 58d)
+T1259,Fuel Pump Relay (J17)
+T1701,Dimmer for Interior Lighting
+T2092,Enabling Heated Seat
+T909,Windshield Wiper Motor (V)
+T2377,Wiper: Upper Reverse Point
+T156,Front Windshield Washer Pump
+T2398,Rear Windshield Washer Pump
+;

@@ -1,0 +1,69 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4B)
+;
+; Component: J255 - Heating/Air Conditioning (#08) - < MY 2001
+;
+; P/N: 4B0-820-043-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-08.LBL
+; 4B0-820-043-MY1.LBL (> MY 2001)
+; 4B0-820-043-MY2.LBL (MY 2002 >)
+;
+; created on 10/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 10/May/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Heating/Air Conditioning (J255) Coding
+C01,00?xx: Country
+C02,0 = Rest of World (RoW)
+C03,1 = Nort American Region (NAR)
+C04,2 = Japan (JP)
+C05, 
+C06,00x?x: Engine (Cylinder)
+C07,4 = 4-Cylinder Engine
+C08,6 = 6-Cylinder Engine
+C09,8 = 8-Cylinder Engine
+C10, 
+C11,00xx?: Vehicle & Engine (Type)
+C12,0 = Gasoline Engine with Left-Hand-Drive (LHD)
+C13,1 = Gasoline Engine with Right-Hand-Drive (RHD)
+C14,3 = Diesel Engine with Left-Hand-Drive (LHD)
+C15,4 = Diesel Engine with Right-Hand-Drive (RHD)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+
+;

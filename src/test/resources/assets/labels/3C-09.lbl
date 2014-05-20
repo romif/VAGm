@@ -1,0 +1,56 @@
+;
+; VCDS Redirect File
+;
+; Component: J519 - Central Electronics I (#09)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-09.LBL
+; 1T-09.LBL
+; 3C-09.LBL
+; 1K0-937-049-21-B.LBL  (Basis)
+; 3C0-937-049-23-M.LBL  (Medium  - Supports NO Fogs or Xenons)
+; 3C0-937-049-23-H.LBL  (Highend - Supports Fogs and/or Xenons)
+; 3C0-937-049-30-M.LBL  (Medium  - Supports NO Fogs or Xenons)
+; 3C0-937-049-30-H.LBL  (Highend - Supports Fogs and/or Xenons)
+;
+; created on 04/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Jun/2008
+;
+; requires VCDS 800.0 / LCode 709.0 or newer
+;
+;
+;3C0-937-049     ; ?? Byte (????)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-A   ; 21 Byte (Medium)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-B   ; 21 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-C   ; 21 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-D   ; 21 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-E   ; 21 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-F   ; 21 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-G   ; 21 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-H   ; 23 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-J   ; 23 Byte (Highend)
+;3C0-937-049-K   ; ?? Byte (???? - Theory: Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-L   ; 23 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-P   ; 23 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-Q   ; 23 Byte (Highend)
+;3C0-937-049-R   ; ?? Byte (???? - Theory: Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-S   ; ?? Byte (Highend)
+;3C0-937-049-T   ; ?? Byte (???? - Theory: Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-AA  ; 23 Byte (Highend)
+;3C0-937-049-AB  ; ?? Byte (???? - Theory: Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-AC  ; 23 Byte (Highend)
+REDIRECT,3C0-937-049-23-M.LBL,3C0-937-049-AD  ; 23 Byte (Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-AE  ; 23 Byte (Highend)
+;3C0-937-049-AF  ; ?? Byte (???? - Theory: Medium)
+REDIRECT,3C0-937-049-23-H.LBL,3C0-937-049-AG  ; 23 Byte (Highend)
+REDIRECT,3C0-937-049-30-M.LBL,3C0-937-049-AH  ; 30 Byte (Medium)
+REDIRECT,3C0-937-049-30-H.LBL,3C0-937-049-AJ  ; 30 Byte (Highend)
+REDIRECT,3C0-937-049-30-M.LBL,3C0-937-049-AK  ; 30 Byte (Medium)
+REDIRECT,3C0-937-049-30-H.LBL,3C0-937-049-AL  ; 30 Byte (Highend)
+;
+;3C8-937-049-E   ; 30 Byte (Medium)
+;3C8-937-049-F   ; 30 Byte (Highend)
+;

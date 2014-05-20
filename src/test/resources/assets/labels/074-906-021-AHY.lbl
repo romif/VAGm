@@ -1,0 +1,152 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter
+;
+; Komponente: Motor (#01) - AHY (bis 04/1999)
+;
+; T/N: 074 906 021 ??
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 07-01.LBL
+; 074-906-021-AHY.LBL  (2.5l TDI @ 151 HP - AHY - < 04/1999)
+;
+; erstellt am 02.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 25.05.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Motordrehzahl,Sollwert (Leerlauf): 36...40 | Sollwert (Vollast): 140...160
+000,2,Einspritzbeginn,Sollwert (Leerlauf): 32...85 | Sollwert (Vollast): 149...211
+000,3,Gaspedalstellung,Sollwert (Leerlauf): 0 | Sollwert (Vollast): 255
+000,4,Einspritzmenge,Sollwert (Leerlauf): 11...45 | Sollwert (Vollast): 205...225
+000,5,Saugrohrdruck (Ladedruck),Sollwert (Vollast): 180...204
+000,6,atmosphärischer Druck (Umgebungsluftdruck)
+000,7,Kühlmitteltemperatur,Sollwert: 38...82
+000,8,Saugrohrtemperatur,Sollwert: 53...183
+000,9,Kraftstofftemperatur,Sollwert (Leerlauf): 89...197
+000,10,angesaugte Luftmasse,Sollwert (Leerlauf): 57...81 | Sollwert (Vollast): 255
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,,Sollwert (Leerlauf): 740...830 U/min
+001,2,Einspritzmenge,,Sollwert (Leerlauf): 2.2...9.0 mg/H
+001,3,Spannung,Regelschieberweg,Sollwert (Leerlauf): 1.25...1.70 V
+001,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+002,0,Leerlaufdrehzahl
+002,1,Motordrehzahl,,Sollwert (Leerlauf): 740...830 U/min
+002,2,Gaspedalstellung,,Sollwert (Leerlauf): 0 %
+002,3,Betriebszustand,,010 - i.O.\n111 = Klimaanlage eingeschaltet
+002,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+003,0,Abgasrückführung
+003,1,Motordrehzahl,,Sollwert (Leerlauf): 740...830 U/min
+003,2,angesaugte,Luftmasse (SOLL),Sollwert (Leerlauf): 190...270 mg/H
+003,3,angesaugte,Luftmasse (IST),Sollwert (Leerlauf): 190...270 mg/H
+003,4,Tastverhältnis,AGR-Ventil,Sollwert (Leerlauf): 10...94 %
+;
+004,0,Einspritzbeginn
+004,1,Motordrehzahl,,Sollwert (Leerlauf): 740...830 U/min\nSollwert (Vollast): 2850...3150 U/min
+004,2,Einspritzmenge,(SOLL-Wert),Sollwert (Leerlauf): 0.5 °n.OT ... 3.8 °v.OT\nSollwert (Vollast): 9...15 °v.OT
+004,3,Einspritzmenge,(IST-Wert),Sollwert (Leerlauf): 0.5 °n.OT ... 3.8 °v.OT\nSollwert (Vollast): 9...15 °v.OT
+004,4,Tastverhältnis,Einspritzbeginn,Sollwert (Leerlauf): 15...90 %\nSollwert (Vollast): 60...90 %
+;
+005,0,Startverhältnisse
+005,1,Motordrehzahl
+005,2,Startmenge
+005,3,Einspritzmenge,(IST)
+005,4,Kühlmittel-,temperatur
+;
+006,0,Schalterstellung
+006,1,Geschwindigkeit
+006,2,Bremspedal-,überwachung,1xx - Kupplungspedalschalter (F36) geöffnet\nx1x - Bremspedalschalter (F47) geöffnet\nxx1 - Bremslichtschalter (F) geschlossen
+006,3,Schalter-,stellungen,siehe Labelfile
+; 000000 = Geschwindigkeitsregelanlage aus (Schalter auf "OFF")
+; 000001 = Geschwindigkeitsregelanlage ein (Schalter auf "ON")
+; 000101 = Geschwindigkeitsaufnahme (SET-Taste)
+; 001001 = Geschwindigkeitswiederaufnahme (Schalter auf "RES")
+; 010001 = Bremspedalschalter geöffnet (Bremspedal betätigt)
+; 100001 = Kupplungspedalschalter geöffnet (Kupplungspedal betätigt)
+006,4,Geschwindigkeits-,regelanlage,0   = Fahrzeuge mit GRA / GRA ausgeschaltet\n1   = Fahrzeuge mit GRA / GRA eingeschaltet\n255 = Fahrzeuge ohne Geschwindigkeitsregelanlage
+;
+007,0,Temperaturen
+007,1,Kraftstoff-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,3,Saugrohr-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,temperatur,Sollwert: ca. Umgebungstemperatur
+;
+008,0,Einspritzmengenbegrenzung
+008,1,Motordrehzahl,,Sollwert (Vollast): 2850...3150 U/min
+008,2,Einspritzmenge,(Fahrerwunsch),Sollwert (Vollast): 44.5...47.5
+008,3,Begrenzung,(Drehmoment),via Kennfeld\nSollwert (Vollast): 41...46
+008,4,Begrenzung,(Rauch),via Kennfeld\nSollwert (Vollast): 41...46
+;
+009,0,Einspritzmengenbegrenzung
+009,1,Motordrehzahl
+009,2,Einspritzmenge,(GRA aktiv)
+009,3,Begrenzung,(Drehmoment),vom autom. Getriebe
+009,4,Spannung,Regelschieberweg
+;
+010,0,Luftgrößen
+010,1,angesaugte,Luftmasse (IST),Sollwert (Vollast): 870...1000 mg/H
+010,2,atmosphärischer,Druck (Luftdruck)
+010,3,Saugrohrdruck,(Ladedruck),Sollwert (Vollast): 1830...2080 mbar
+010,4,Gaspedalstellung,,Sollwert (Vollast): 100 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,,Sollwert (Vollast): 2850...3150 U/min
+011,2,Ladedruck,(SOLL-Wert),Sollwert (Vollast): 1830...2080 mbar
+011,3,Ladedruck,(IST-Wert),Sollwert (Vollast): 1830...2110 mbar
+011,4,Tastverhätnis,Ladedruckbegr.,Sollwert (Vollast): 50...80 %
+;
+012,0,Vorglühanlage
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung,vom Steuergerät
+012,4,Kühlmittel-,temperatur
+;
+013,0,Leerlauf-Ruheregelung (abweichende Einspritzmengen)
+013,1,Zyl. 1 zu Zyl. 3
+013,2,Zyl. 2 zu Zyl. 3
+013,3,Zyl. 4 zu Zyl. 3
+013,4,Zyl. 5 zu Zyl. 3
+;
+018,0,Schalterstellungen
+018,1,Geschwindigkeit
+018,2,Geschw.-Messer,Fahrtenschreiber,siehe Labelfile
+; 0x - Geschwindigkeitsmesser
+; 1x - Fahrtenschreiber
+;
+019,0,Mengenstellwerk
+019,1,Stop-Anschlag,,Spannung vom Geber für Regelschieberweg (Sollwert: 0.54...0.88 V)
+019,2,Start-Anschlag,,Spannung vom Geber für Regelschieberweg (Sollwert: 4.10...4.88 V)
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Codierung - Motorelektronik
+C1,00001 - autom. Getriebe
+C2,00002 - Schaltgetriebe
+C3,00003 - Allrad-Antrieb
+C4, 
+C5,Folgende Ersatz-Steuergeräte MSA15 werden gesondert codiert:
+C6,074906021N - 00011
+C7,074906021L - 00002
+;

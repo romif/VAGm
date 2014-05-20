@@ -1,0 +1,130 @@
+;
+; VAG-COM label file 3D0-614-517.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; component: ABS Brake Electronics - J104 - (#03)
+;
+;       p/n: 3D0 614 517 R   Component: ESP 5.7 allrad  H33 0043   Coding: 0008397 (2004 W12 Phaeton - North America, no ACC)
+;       p/n: 3D0 614 517 AK  Component: ESP 5.7 allrad  H33 0047   Coding: 0008376 (2005 V8 Phaeton - North America, no ACC)
+;       p/n: 3D0 614 517 AK  Component: ESP 5.7 allrad  H33 0047   Coding: 0008376 (2004 W12 Phaeton - North America, no ACC)
+;       p/n: 3D0 614 517 R   Component: ESP 5.7 allrad  H33 0043   Coding: 0008697 (2004 W12 Phaeton - Germany, with ACC)
+;       p/n: 3W0 614 517 D   Component: ESP 5.7 allrad  H01 0021   Coding: 0007878 (Bentley Continental GT, Canada spec)
+;       p/n: 3W0 614 517 B   Component: ESP 5.7 allrad  H01        Coding: 0000101 (Bentley Continental GT, Europe spec)
+;
+; includes measured value blocks
+;
+; by Sebastian Stange (Sebastian@ross-tech.com) - based on Sebastian's original ; work for file 8E0-614-517.lbl
+; modified by Michael Moore (Moore@ross-tech.com) - tested for use on Phaeton, ; minor editorial corrections.
+; with a tip of the hat to Dave Eaton (Dave.Eaton@clear.net.nz) for his pioneering ; work on the Audi S8 label file 4D0 907 389
+;
+; Modification History
+;
+; 09/26/2004 (Sebastian)
+; 27/March/2005 Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; 23/September/2005 (Michael) - added German coding info, Bentley info above.
+;  - checked against CSV and PLB October 11 2005, Michael - all blocks documented.
+; 30/November/2005 (Michael) - some minor enhancements to MVB information.
+; 22/February/2006 (Michael) - minor editorial corrections to improve MVB presentation
+; 06/October/2006 (Michael) - Note added to MVB 008
+;
+; requires VAG-COM 500.9 or newer
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel speed sensors (largest value 20km/h) - will read 1 km/h when parked.
+001,1,Front Left,G47
+001,2,Front Right,G45
+001,3,Rear Left,G46
+001,4,Rear Right,G44
+;
+002,0,Switch values affecting brake operation
+002,1,Brake pedal,switch F47
+002,2,Brake light,switch F
+002,3,Parking brake,warning light F9
+002,4,ASR/ESP-button,status E256
+;
+003,0,General Engine Information
+003,1,Engine speed,
+003,2,Engine torque,
+003,3,Engine torque,loss
+003,4,Throttle valve,angle
+;
+004,1,Standing time,,Display range: 0.0  ...  255:59 h
+004,2,EDL-shut-off,(temperature flag)
+004,3,[N/A]
+004,4,[N/A]
+;
+005,0,General Vehicle Conditions
+005,1,Steering angle,sensor G85,Display range: -720° ... +720° (front wheels straight max. tolerance +/-5°)
+005,2,Rotation rate,sensor G202,Display range: -69 ... +69°/s
+005,3,Brake pressure,sensor G201,Display range: 0 ... 292 bar
+; -41 bar => short to Ground (GND)
+; 290 bar => short to B+
+005,4,Transverse accel-,eration sensor G200,Display range: -25 ... +25 m/s²
+;
+006,0,ABS Equipment Conditions
+006,1,Voltage supply,terminal 15,Specified value: 9.8 ... 17.4 V
+006,2,ABS Solenoid,valve J106,on - how it should be. off - not permitted.
+006,3,ABS return flow,pump V39,off - how it should be. on - not permitted.
+006,4,Workshop,code,Dealership that last installed, coded or adapted this module
+;
+007,0,Installation position - see labelfile (test applies only to room temperature)
+; not OK => check brake temperature (test applies only to room temperature)
+;        => Check installation of sensor (fully inserted, firmly screwed in)
+;        => Check wheel bearing
+;        => Check tolerance of axle
+007,1,Front,Left,Display range: invalid/OK/not OK
+007,2,Front,Right,Display range: invalid/OK/not OK
+007,3,Rear,Left,Display range: invalid/OK/not OK
+007,4,Rear,Right,Display range: invalid/OK/not OK
+;
+008,0,Direction of rotation (will read invalid when not moving)
+008,1,Front,Left,Display range: invalid/forward/reverse
+008,2,Front,Right,Display range: invalid/forward/reverse
+008,3,Rear,Left,Display range: invalid/forward/reverse
+008,4,Rear,Right,Display range: invalid/forward/reverse
+;
+009,1,Brake test,switch,'Activated' shows when brake pedal is pressed
+009,2,Brake light,switch,'Activated' shows when brake pedal is pressed
+009,3,Brake Pressure
+;
+010,0,*Next measuring block used is 080
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Next measuring block used is 125
+;
+125,0,CAN-Databus communication (Powertrain)
+125,1,Steering angle,sensor G85
+125,3,Transmission,Control Module
+125,2,Engine,Control Module
+125,4,Instrument,Cluster
+;
+126,0,*End of Measured Value Blocks
+;
+;
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+; There does not appear to be any possibility to adapt this controller.
+;
+; end of file
+;

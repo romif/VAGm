@@ -1,0 +1,42 @@
+;
+; VCDS Redirect File
+;
+; Audi A4 (8K) / Audi A5 (8T)
+;
+; Component: Sound System (#47)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8T-47.LBL
+; 8T0-035-223-ASC.LBL (Audi Sound System/Active Speakers CAN)
+; 8T0-035-223-ASM.LBL (Audi Sound System/Active Speakers MOST)
+; 8T0-035-223-BA.LBL  (Basis Sound System/4 Speakers)
+; 8T0-035-223-BOC.LBL (Bang & Olufsen Sound System/High End CAN)
+; 8T0-035-223-BOM.LBL (Bang & Olufsen Sound System/High End MOST)
+;
+; created on 10/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Apr/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+REDIRECT,8T0-035-223-ASC.LBL,8T0-035-223      ; Audi Sound (CAN)
+REDIRECT,8T0-035-223-ASM.LBL,8T0-035-223-A    ; Audi Sound (MOST)
+REDIRECT,8T0-035-223-BOC.LBL,8T0-035-223-B    ; Bang & Olufsen (CAN)
+REDIRECT,8T0-035-223-BOM.LBL,8T0-035-223-C    ; Bang & Olufsen (MOST @ 0210)
+;8T0-035-223-E    ; Basis (MOST)
+REDIRECT,8T0-035-223-BOM.LBL,8T0-035-223-F    ; Bang & Olufsen (MOST @ 0390)
+REDIRECT,8T0-035-223-ASM.LBL,8T0-035-223-G    ; Audi Sound (MOST @ 0290)
+;8T0-035-223-H    ; 
+REDIRECT,8T0-035-223-ASC.LBL,8T0-035-223-J    ; Audi Sound (CAN)
+REDIRECT,8T0-035-223-ASM.LBL,8T0-035-223-K    ; Audi Sound (MOST @ 0240)
+REDIRECT,8T0-035-223-BOC.LBL,8T0-035-223-L    ; Bang & Olufsen (CAN @ 0170)
+REDIRECT,8T0-035-223-BOM.LBL,8T0-035-223-M    ; Bang & Olufsen (MOST @ 0280)
+;8T0-035-223-N    ; Basis (MOST)
+REDIRECT,8T0-035-223-ASM.LBL,8T0-035-223-P    ; Audi Sound (MOST @ 0250)
+;8T0-035-223-Q    ; Basis (MOST)
+;8T0-035-223-R    ; Basis (MOST)
+REDIRECT,8T0-035-223-BOC.LBL,8T0-035-223-S    ; Bang & Olufsen (CAN)
+;

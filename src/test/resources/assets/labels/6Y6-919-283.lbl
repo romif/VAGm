@@ -1,0 +1,77 @@
+;
+; VCDS Label File
+;
+; Skoda Fabia (6Y) / Skoda Octavia (1U)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 6Y6-919-283-???
+;
+; includes measuring blocks, adaptation and coding
+;
+; created on 07/Apr/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 08/Apr/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Rear)
+001,1,Rear Left,Sensor (G203),Specification: 10...60 cm (0 cm = no obstacle recognized)
+001,2,Rear Left Center,Sensor (G204),Specification: 10...160 cm (0 cm = no obstacle recognized)
+001,3,Rear Right Center,Sensor (G205),Specification: 10...160 cm (0 cm = no obstacle recognized)
+001,4,Rear Right,Sensor (G206),Specification: 10...60 cm (0 cm = no obstacle recognized)
+;
+002,0,Resulting Distance / Vehicle Speed && Voltage
+002,1,Resulting,Distance Rear,Specification: 0...120 cm (0 cm = no obstacle recognized)
+003,2,Vehicle Speed,,Range: 0.0...255.0 km/h
+002,3,Buzzer,,Range: Sound ON/Sound OFF
+002,4,Parking Aid,Indicator Lamp,Range: Lamp ON/Lamp OFF
+;
+003,1,Parking Aid,System Status,Range: OK/Not OK
+003,2,Reverese Gear,engaged,Range: Reverse: Yes/Reverse: No
+003,3,Trailer hitched,,Range: Trailer: Yes/Trailer: No
+003,4,Parking Aid,Operating Button,Range: operated/not operated
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,?xx03: Trailer Hitch
+C02,0 = Trailer Hitch not installed
+C03,1 = Trailer Hitch installed
+C04,x?x03: Transmission
+C05,0 = Manual Transmission
+C06,1 = Automatic Transmission
+C07,xx?03: Confirmation Sound
+C08,0 = Confirmation Sound for Reverse Gear inactive
+C09,1 = Confirmation Sound for Reverse Gear active
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Rear Buzzer Volume
+A01,5,Rear Buzzer Volume
+A01,6,Adaptation of the rear warning buzzer volume.
+A01,7, 
+A01,8,Display Range: 1...10
+;

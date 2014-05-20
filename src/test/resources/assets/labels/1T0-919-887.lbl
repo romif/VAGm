@@ -1,0 +1,68 @@
+;
+; VAG-COM Labelfile
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+; VW Caddy (2K) / VW Golf/Jetta (1K) / VW Golf Plus (5M) / VW Touran (1T)
+;
+; Component: Radio-/Navigation System (#37) - MFD2-CD
+;
+; P/N: 1T0-919-887-??? / 1Z0-035-194-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1Z-37.LBL
+; 1T0-919-887.LBL
+;
+; created on 27/Mar/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 17/Feb/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Battery Voltage,(Terminal 30),Specification: 5...18 V
+001,3,GPS-Antenna
+001,4,GPS-Antenna,Status,Display Range: OK/Short to Plus/Short to Ground
+;
+002,0,GPS-Status
+002,1,Status,GPS Reception
+002,2,Number of,used Satellites,for Position detection
+002,3,Number of,tracked Satellites,Display Range: 0...8
+002,4,Type of,tracked Satellites,Display Range: 25...35
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Navigation System MFD2-CD (J503) Coding
+C01,0000002 = TMC-Tuner
+C02,0000004 = TMC-Tuner and GSM-Telephone
+;

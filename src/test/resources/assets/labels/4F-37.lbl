@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A6 (4F)
+;
+; Component: J401 - Navigation System (#37)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-37.LBL
+; 4F0-910-7xx-37.LBL
+;
+; created on 31/Dec/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Dec/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,4F0-910-7xx-37.LBL,4F0-910-7??-??? ; J401 integrated in J523
+;

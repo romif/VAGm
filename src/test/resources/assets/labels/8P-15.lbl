@@ -1,0 +1,33 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A3 (8P)
+;
+; Component: J234 - Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-15.LBL
+; 8P0-959-655-84.LBL (Airbag 8.4)
+; 8P0-959-655-94.LBL (Airbag 9.41)
+;
+; created on 20/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Sep/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655     ; 8P1: (2 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-A   ; 8PA: (4 door)
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655-B   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-C   ; 8PA: (4 door)
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655-D   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655-E   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655-F   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-84.LBL,8P0-959-655-G   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-H   ; 8P1: (2 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-L   ; 8PA: (4 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-M   ; 8PA: (4 door)
+REDIRECT,8P0-959-655-94.LBL,8P0-959-655-N   ; 8P1: (2 door)
+;

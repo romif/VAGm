@@ -1,0 +1,31 @@
+;
+; VAG-COM Redirect File
+;
+; VW Golf V / Bora / Jetta V (1K)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-17.LBL
+; 1T-17.LBL
+; 1Z-17.LBL
+; 2K-17.LBL
+; 5P-17.LBL
+; 1K-25.LBL
+; 1T-25.LBL
+; 1Z-25.LBL
+; 2K-25.LBL
+; 5P-25.LBL
+; 1K0-920-xxx-17.LBL
+; 1K0-920-xxx-25.LBL
+;
+; created on 30/Jul/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Sep/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-920-xxx-17.LBL,1K?-920-???-???
+;

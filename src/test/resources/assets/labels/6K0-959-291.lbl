@@ -1,0 +1,88 @@
+;
+; VAG-COM label file
+;
+; Seat Ibiza (6K)
+;
+; component: Auto HVAC - AUTOCLIMA-220    X03.03 (#08)
+;
+; p/n: 6K0-959-291
+;
+; includes measuring blocks, coding information and adaption information
+;
+; created on 27/Nov/2005 by Jose Carlos Fernandez (josecarlosfernandez@terra.es)
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+1,0,,
+1,1,Compressor,magnetic coupling,S Compressor: magnetic coupling -N25-
+1,2,Pressure,switch -F129-
+1,3,Re-circulation,motor -V113-
+1,4,Vehicle speed,(90 Km/h)
+;
+2,0,,
+2,1,Re-supply -G62-,effective value,Effective value of potentiometer re-supply -G62- (in the servomotor -V68-).\n– Indication value over 4.23 V and under 0.76V-.
+2,2,Re-supply -G92-,theoretical value,Theoretical value of potentiometer re-supply -G92- (calculated by the unit -E87-).\n– Indication margin from 0.76V to 4.23V.
+2,3,Value of -G92-,"heating limit",Value of -G92- determined during the “basic adjustment”\n– Indication value over 0.76V and under 4.3V.
+;Value of -G92- determined during the “basic adjustment” and stored in the unit
+; -E87- when the servomotor is in the position “Heating limit” (the temperature
+; sensor leads the air current through the heat exchanger).
+;– Indication value over 0.76V and under 4.3V.
+2,4,Value of -G92-,"Cooling limit",Value of -G92- determined during the “basic adjustment”\n– Indication value over 0.76V and under 4.3V.
+;Value of -G92- determined during the “basic adjustment” and stored in the unit
+; -E87- when the servomotor is in the position “Cooling limit” (the temperature
+; sensor leads the air current avoiding the heat exchanger).
+;– Indication value over 0.76V and under 4.3V.
+;
+3,0,,
+3,1,Key to increase,blower speed
+3,2,Key to reduce,blower speed
+3,3,Key for,“ECON” mode
+3,4,Key for,“AUTO” mode
+;
+4,0,,
+4,1,Key for,re-circulation
+4,2,Key to reduce,the temperature
+4,3,Key to increase,the temperature
+4,4,Distribution,knob position
+;
+5,0,,
+5,1,Fan voltage -V2-,theorethical value,Fan voltage -V2- (theoretical value in volts)\n- Does not turn on: 0 V.\n- One fan bar 2.5 V.\n- Six fan bars 12 V.
+5,2,Fan voltage -V2-,real value,Fan voltage -V2- (real value in volts)\nDiscrepancy allowed with respect to the theoretical value ± 0.8 V
+5,3,Supply voltage,terminal 15,(measured voltage value in V.)
+5,4,Empty
+;
+6,0,,
+6,1,Outer temp.,transmitter -G17-,Measurement value in º C.
+6,2,Temp transmitter,central diffuser,Temperature transmitter- central diffuser -G191-\nMeasurement value in º C.
+6,3,Temp transmitter,foot diffuser,Temperature transmitter- foot area diffuser -G192-\nMeasurement value in º C.\n(should there be a fault in the temperature transmitters -G191- and -G192-\n the system will cease to work)
+6,4,Passenger,temp thermosensor,Passenger compartment temperature thermosensor -G56-\nMeasurement value in º C.
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+;Coding is not available in this controller
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+;There is no adaption channel available in this controller
+;
+;

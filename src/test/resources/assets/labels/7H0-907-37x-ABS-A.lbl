@@ -1,0 +1,74 @@
+;
+; VAG-COM Labelfile
+;
+; VW Transporter (7H/7J)
+;
+; Component: J104 - Brake Electronics (#03) - MK25 ABS/EDS AWD
+;
+; P/N: 7H0-907-37?-???
+;
+; includes coding and login
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7H-03.LBL
+; 7H0-907-37x-ABS-A.LBL (MK25 ABS AWD)
+; 7H0-907-37x-ASR-F.LBL (MK25 ASR FWD)
+; 7H0-907-37x-ESP-A.LBL (MK25 ESP AWD)
+; 7H0-907-37x-ESP-F.LBL (MK25 ESP FWD)
+;
+; created on 21/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 21/Feb/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; login/coding-ii information
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics (J104) Login (MK25 ABS/EDS AWD)
+L01,40168 = General Basic Setting "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding (MK25 ABS/EDS AWD)
+C01,Model/Wheelbase:
+C02,+0000025 = Van with Short Wheelbase (PR-0E1)
+C03,+0000026 = Van with Long Wheelbase (PR-0E2)
+C04,+0000027 = Pickup/Cab with Short Wheelbase (PR-0E1)
+C05,+0000028 = Pickup/Cab with Long Wheelbase (PR-0E2)
+C06, 
+C07,Differential Lock:
+C08,+0000512 = without Differential Lock for Rear Axle Transmission
+C09,+0000000 = with Differential Lock for Rear Axle Transmission (PR-1Y4)
+C10,
+C11,Suspension I:
+C12,+0007168 = 16" Suspension (PR-2E3)
+C13,+0015360 = 17" Suspension (PR-2E4)
+C14, 
+C15,Suspension II:
+C16,+0000000 = Normal/Bad Road Suspension (PR-1BA/1BB/1BH/1BJ/2MF/2MG/2MK/2ML/2MQ/2MR)
+C17,+0000128 = Sport Suspension (PR-1BV/2MD)
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+
+;

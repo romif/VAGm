@@ -1,0 +1,95 @@
+;
+; VAG-COM Label File
+;
+; VW Golf/Jetta (1K) / VW Passat (3C)
+;
+; Component: J387 - Passenger Door Electronics (#52) - MIN GEN2
+;
+; P/N: 1K0-959-702-???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-52.LBL
+; 1T-52.LBL
+; 1K0-959-702-MAX.LBL
+; 1K0-959-702-MIN1.LBL
+; 1K0-959-702-MIN2.LBL
+;
+; created on 29/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Window Regulator
+001,1,WR-Button (E107),Passenger Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,2,WR-Button (E81),Driver Door,Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+001,3,Window Regulator,(V148),Specification: Ends Learned\nDisplay Range: Up/Down/Ends Learned/At Top/At Bottom/Pinch Protect/Over-Temp S/O
+001,4,Thermal Protection,,Display Range: Active/Not Active
+;
+002,0,Window Regulator && General
+002,1,Window Regulator,Comfort Control,Display Range: Open/Closed/Not Oper.
+002,2,Window Regulator,Enabling,Display Range: Yes/No
+002,3,Dimming,(Terminal 58d),Display Range: 0.0...100.0 %
+002,4,Vehicle Speed
+;
+003,0,General
+003,1,Voltage,(Terminal 30),Specification: 9.0...14.0 V
+003,2,Databus,Condition,Specification: 2-Wire\nDisplay Range: 1-Wire/2-Wire
+003,3,Ignition,(Terminal 15),Display Range: Terminal 15 On/Terminal 15 Off
+003,4,S-Contact,,Display Range: Activated
+;
+004,0,Illumination
+004,1,Dimming,(Terminal 58s),Display Range: 0.0...100.0 %
+004,2,Interior Door,Handle Illumination,Display Range: 0.0...100.0 %/Not Installed
+004,3,Ambient,Illumination,Display Range: 0.0...100.0 %/Not Installed
+004,4,Internal,Illumination,Display Range: Enabled/Disabled
+;
+005,0,Central Locking
+005,1,Locking Unit (F221),Passenger Door,Display Range: Locked/Unlocked/Safe
+005,2,Contact Switch (F3),Passenger Door,Display Range: Door Open/Door Closed
+005,3,Interior Locking,Button (E309),Display Range: Lock/Unlock/Not Oper./Not Installed
+005,4,Key Switch,Passenger Door,Display Range: Open/Closed/Not Oper./Not Installed
+;
+006,0,Mirror
+006,1,Mirror Selector,Switch (E48),Display Range: Left/Right/ON (Mirror Heater Switch)/OFF (Mirror Heater Switch)/Not Operated
+006,2,Mirror Adjustment,Switch (E43),Display Range: Pos X+/Pos X-/Pos Y+/Pos Y-/Not Oper./Not Installed
+006,3,Mirror Heater,(Z5),Display Range: Active/Not Active
+006,4,Mirror Turn Signal,Lamp (L132),Display Range: Active/Not Active
+;
+007,1,Window Regulator,Position (V148),Display Range: 0.0...100.0 %
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Door Electronics Driver (J387) Coding
+C01,+0000002 - Ambient Mirror Illumination
+C02,+0000004 - Mirror Turn Signals
+C03,+0000008 - Interior Door Handle Illumination installed
+C04,+0000016 - Automatic Run active
+C05,+0000032 - Mirror Heater installed
+C06,+0000064 - Door Exit/Warning Light installed
+C07,+0000128 - 5-Door Chassis
+C08,+0000256 - Seat Memory installed
+C09,+0000512 - Right Hand Steering
+C10,+0001024 - Safe-Motor not installed
+C11,+0002048 - Pinch Protection inactive
+;

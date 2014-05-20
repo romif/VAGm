@@ -1,0 +1,36 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Engine (#11)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 07-01.LBL
+; 07-11.LBL
+; 07C-906-018-BAP1.LBL (6.0l E   @ 420 HP - BAN/BAP/BJN/BRN/BTT - Master)
+; 07C-906-018-BAP2.LBL (6.0l E   @ 420 HP - BAN/BAP/BJN/BRN/BTT - Slave)
+;
+; created on 30/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 05/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;070-906-016-AA  ; AYH: (7L)
+;070-906-016-B   ; AJS: (7L)
+;070-906-016-BC  ; BLE: (7L)
+;070-906-016-CM  ; AJS: (7L)
+;070-906-016-D   ; AYH: (7L)
+;
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-AB ; BAP: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-AD ; BRN: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-AK ; BTT: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-AL ; BJN: (7L)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-B  ; BAN: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-C  ; BAP: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-D  ; BJN: (7L)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-G  ; BAN: (3D)
+REDIRECT,07C-906-018-BAP2.LBL,07C-906-018-K  ; BAN: (3D)
+;

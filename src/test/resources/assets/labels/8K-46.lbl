@@ -1,0 +1,26 @@
+;
+; VCDS Redirect File
+;
+; Audi A4 (8K) / Audi A5 (8T)
+;
+; Component: J393 - Comfort System (#46)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8K-05.LBL
+; 8K-46.LBL
+; 8K0-907-064-05.LBL
+; 8K0-907-064-46.LBL
+;
+; created on 10/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,8K0-907-064-46.LBL,8K0-907-064-??? ; STANDARD
+;
+REDIRECT,8K0-907-064-46.LBL,8K0-907-289-??? ; KESSY
+;

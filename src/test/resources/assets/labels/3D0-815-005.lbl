@@ -1,0 +1,41 @@
+;
+; VAG-COM label file 3D0-815-005.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Webasto Parking Heater (Auxiliary Heat, or Standheizung) -J167-  (#18)
+;
+;
+; p/n: 3D0 815 005 Q   Component: Standheizung 2415  Coding: 0000000 (W12 Benzine - Daniel)
+; p/n: 3D0 815 005 AC  Component: Standheizung 2442  Coding: 0000000 (W12 Benzine - DD AM 2662)
+; p/n: 3D0 815 005 L   Component: Standheizung 2426  Coding: 0000000 (V6 Benzine - Tomasz)
+; p/n: 3D0 815 005 AA  Component: Standheizung 2426  Coding: 0000000 (V6 Diesel - Alex)
+;
+;
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 30/August/2005 (Michael)
+; last modified: 23/November/2005 (Michael) - two V6 engines added above.
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;---------------------------------------------------
+;
+; Coding information
+;
+;---------------------------------------------------
+;
+;This controller does not appear to require any coding.
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;

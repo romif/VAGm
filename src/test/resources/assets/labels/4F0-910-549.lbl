@@ -1,0 +1,115 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi Q7 (4L)
+;
+; Component: J527 - Steering Wheel Electronics (#16)
+;
+; P/N: 4F0-910-549-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 14/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/May/2007
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,1,Blinker,,Display Range: Not Oper./Left/Right
+001,2,Headlamp Flasher,,Display Range: Not Oper./Operated
+001,3,High Beam,,Display Range: Not Oper./Operated
+001,4,Front Wiper,,Display Range: Not Oper./Level/Stage Int./Stage 1/Stage 2
+;
+002,1,Interval Stages,,Display Range: Stage 1/Stage 2/Stage 3/Stage 4
+002,2,Wash Front,,Display Range: Not Oper./Operated
+002,3,Wiping Rear,,Display Range: Not Oper./Operated/Not Installed
+002,4,Washing Rear,,Display Range: Not Oper./Operated/Not Installed
+;
+003,1,Horn,,Display Range: Not Oper./Operated
+003,2,Board Computer,,Display Range: Not Oper./Operated
+003,3,Steering Column,Adjustment,Display Range: Not Oper./Operated
+003,4,Easy-Entry,,Display Range: Not Installed/ON/OFF
+;
+004,0,Cruise Control System (CCS) / Adaptive Cruise Control (ACC)
+004,1,Main Switch,,Display Range: ON/OFF
+004,2,CCS/ACC-Set,,Display Range: Not Oper./Operated
+004,3,CCS/ACC-Status,,Display Range: Not Oper.
+004,4,ACC Time Gap,Adjustment,Display Range: Not Installed/Not Oper.
+;
+005,0,Multifunction Steering Wheel I
+005,1,Communication,,Display Range: Not Installed/OK/not OK
+005,2,Software Version
+005,3,Hardware Version
+005,4,Malfunction,recognized,Display Range: Yes/No
+;
+006,0,Multifunction Steering Wheel II
+006,1,Multi-Function,Button (Left),Display Range: Not Installed/Not Oper./Operated
+006,2,Multi-Function,Button (Right),Display Range: Not Installed/Not Oper./Operated
+006,3,Thumb Button,(Left),Display Range: Not Installed/Not Oper./Operated
+006,4,Thumb Button,(Right),Display Range: Not Installed/Not Oper./Operated
+;
+007,0,Multifunction Steering Wheel III
+007,1,Thumb Wheel,(Left),Display Range: Not Installed/Not Oper.
+007,2,Thumb Wheel,(Right),Display Range: Not Installed/Not Oper.
+007,3,Tiptronic,(Down),Display Range: Not Installed/Not Oper./Operated
+007,4,Tiptronic,(Up),Display Range: Not Installed/Not Oper./Operated
+;
+008,0,Heated Steering Wheel && Heated Seats
+008,1,Steering Wheel,Heater,Display Range: Not Installed/OFF/ON\nSignal Type: Output
+008,2,Temperature,,Display Range: Not Installed/Temperature\nSignal Type: Input
+008,3,Steering Wheel,Heater Output,Signal Type: Output
+008,4,Heated Seats,,Display Range: OFF/Stage\nSignal Type: Input
+;
+009,0,Dimming
+009,1,Dimming,,Display Range: 0.0...100.0 %\nSignal Type: Input
+009,2,Dimming,(Discrete),Display Range: 0.0...100.0 %\nSignal Type: Input
+009,3,Dimming,(LIN-Databus),Display Range: 0.0...100.0 %\nSignal Type: Input
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Steering Wheel Electronics (J527) Coding
+C01,0?xxxxx: Model
+C02,0 = Left Hand Steering / 1 = Right Hand Steering
+C03,0x?xxxx: Steering Column Adjustment
+C04,+1 = Electric Steering Column Adjustment
+C05,+2 = Lane Departure Warning
+C06,0xx?xxx: Steering Wheel
+C07,0 = Standard Steering Wheel
+C08,1 = Sport Steering Wheel
+C09,2 = Multi-Function Steering Wheel
+C10,0xxx?xx: Tiptronic & Heating
+C11,+1 = with Tiptronic / +2 = with Steering Wheel Heating
+C12,0xxxx?x: Board Computer / Cruise Control System (CCS) / Adaptive Cruise Control (ACC)
+C13,0 = No Board Computer - No Cruise Control System (CCS) - No Adaptive Cruise Control (ACC)
+C14,1 = with Board Computer
+C15,2 = with Cruise Control System (CCS)
+C16,3 = with Adaptive Cruise Control (ACC)
+C17,4 = with Board Computer and Cruise Control System (CCS)
+C18,5 = with Board Computer and Adaptive Cruise Control (ACC)
+C19,0xxxxx?: Chassis
+C20,1 = Sedan / 2 = Avant (with Rear Wiper)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1752,Heated Steering Wheel (Z36)
+;

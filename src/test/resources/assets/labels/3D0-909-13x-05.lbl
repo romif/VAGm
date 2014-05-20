@@ -1,0 +1,284 @@
+;
+; VAG-COM label file 3D0-909-13x-05.lbl
+;
+; Bentley Continental GT (3W) / VW Phaeton (3D) / VW Touareg (7L)
+;
+; Access and Start Control Module (Kessy) -J518-  (address #05)
+;
+;      p/n: 3D0 909 135 M - Component: Kessy 6400  Coding: 0133356 
+;                           (2004 Phaeton  W12 Canada)
+;      p/n  3D0 909 135 K - Component: Kessy 6400  Coding: 0000232, or 0131304, or others 
+;                           (Touareg - coding will vary with engine/transmission combination)
+;      p/n  3D0 909 135 L - Component: Kessy 6400  Coding: 147693 
+;                           (Bentley Continental GT - Europe)
+;      p/n  3D0 909 135 R - Component: 0R Kessy 6610  Coding: 0139501 
+;                           (Bentley Continental GT - Canada)
+;      p/n  3D0 909 135 R - Component: Kessy 6610  Coding: 0137452 
+;                           (2005 Phaeton V8 - Canada)
+;      p/n  3D0 909 135 T - Component: Kessy 6700  Coding: 0006376 
+;                           (2006 Phaeton V8 - USA)      
+;      p/n  3D0 909 137 A - Component: Kessy 6700 Coding: 0137452
+;                           (a replacement component installed Feb 2006 on a MY 2004 NAR Phaeton V8 with keyless)
+;                           - this labelfile briefly tested on p/n 137 A by Michael, appears to work, but not fully tested in every respect.
+;                          
+l
+; by Michael Moore (Moore@ross-tech.com), 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; last modified: 27/March/2005 (Michael)
+;                25/September/2005 (Michael) - Bentley information added above.
+;                11/October/2005 (Michael) -checked against CSV and PLB, all blocks documented.
+;                16/October/2005 (Michael) MVB text enhanced and simplified, additional hover balloons added to MVBs.
+;                22/February/2006 (Michael) - minor editorial corrections to improve balloon and MVB presentation, additional p/n added above
+;
+;
+;
+; includes measured value blocks and coding for Phaeton and Bentley.
+;
+; ready for VAG-COM 500.9 and above (500.9 supports block labels beginning with asterisks)
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+001,0,General Vehicle Electrical Status Information
+001,1,Term 15 (Ignition),status,Possible Display: - Terminal 15 ON - Terminal 15 OFF
+001,2,Terminal 15SV,status,Possible display: On or Off
+001,3,Terminal 75X,status,Possible display: On or Off
+001,4,Term 50 (Starter),status,Possible display: On or Off
+;
+002,0,Engine Start-Stop Keyswitch and/or Start-Stop Button Status
+002,1,Start 1,switch status,Possible display: On or Off
+002,2,Start 2,switch status,Possible display: On or Off
+002,3,Stop 1,switch status,Possible display: On or Off
+002,4,Stop 2,switch status,Possible display: On or Off
+;
+003,0,NOTE: Parking Lock (block 2) is not used on the Phaeton.
+003,1,El Ign Lock Supply,Diagnosis,Possible display: On or Off
+003,2,Parking Lock,status,,Possible display: On or Off
+003,3,Emergency,start mode,Possible display: On or Off
+;
+004,0,Door Handle Touch Sensor Recognition (for Phaetons with keyless access)
+004,1,G415,Driver Door,Possible display: Operated or Not Operated
+004,2,G416,Passenger Door,Possible display: Operated or Not Operated
+004,3,G417,Left Rear Door,Possible display: Operated or Not Operated
+004,4,G418,Right Rear Door,Possible display: Operated or Not Operated
+;
+005,0,Elapsed Time Counter
+;
+006,0,Vehicle Key Status -  Click on all 4 block of the values to read decoding information.
+006,1,Key 1,bit display,Bit 7 = Battery strength. Bit 6 = Key adapted. Bit 5 = Key blocked. 
+006,2,Key 2,bit display,Bit 4 = not synchronized. Bit 3 = Trunk button pressed. Bit 2 = Panic button pressed. 
+006,3,Key 3,bit display,Bit 1 = Unlock Button pressed. Bit 0 = Lock button pressed.
+006,4,Key 4,bit display,Bits read like this - 76543210.
+;
+007,0,Radio Frequency Information
+007,1,Radio amp, phantom powering,Possible display: On or Off
+007,2,Radio range,reduction,Possible display: On or Off
+;
+008,0,Play protection counter capacitive sensor for Door Handle Touch Sensors (G415 = Driver, G416 = Front Passenger)
+008,1,G415 rest period,for shut-off,
+008,2,G416 rest period,for shut-off,
+008,3,Cycle counter,driver door,
+008,4,Cycle counter,both pax side doors
+;
+009,0,Play protection counter capacitive sensor for Door Handle Touch Sensors (see block 004 for locations)
+009,1,G415 cycle,protection status,Possible display: On or Off
+009,2,G416 cycle,protection status,Possible display: On or Off
+009,3,G417 cycle,protection status,Possible display: On or Off
+009,4,G418 cycle,protection status,Possible display: On or Off
+;
+010,0,Unknown value
+;Could this report on keys in range? See blocks below from file 1J0-959-799-aj (credit to Mike Sauve) for possible ideas.
+;13,0,remotes
+;13,1,Permanent code
+;13,2,Code in range
+;13,3,Algorithm
+10,4,Key number,(press remote),This may identify the key
+;
+011,0,*Next documented blocks are group 22
+;
+022,0,Security Status
+022,1,Start procedure,permitted,Yes = car can be driven  No = key is not or matched or incorrectly matched or the Engine Control Module is incorrectly adapted or malfunctioning
+022,2,ECM,responding,,Yes = ECU communications OK (whether ECU is matched or not) No = not possible to match the Immo to the ECU at this time.
+022,3,Key,condition OK,,Yes = a legitimate transponder code could be read (authorized or not) No = it will not be possible to match this particular key
+022,4,Number of,adapted keys,A maximum of 8 adapted keys is permitted.
+;
+023,0,See Label File text for Block 23-4 decoding
+; 0 - End of production original condition 1 - End of production new 20 - End of production programmed 21 - End of production 1.ECM adapted 22 - End of production 2.ECM adapted 23 - End of production 3.ECM adapted 24 - End of production 4.ECM adapted 30 - End of production ESCL adapted 3x - End of production x-th key adapated 4 - Service new 5 - Service programmed 6 - Immobilizer adapted 7 - ID sensor learning active 8 - ESCL adaptation 
+023,1,Authentication,OK,Possible display: Yes or No
+023,2,Lockbits,set,Possible display: Yes or No
+023,3,Key ID,authorized,Possible display: Yes or No
+023,4,Immobilizer,status,Please see the label file for decoding information.
+;
+024,0,Login Lockout times (all are displayed in minutes)
+024,1,Immobilizer,minutes,
+024,2,A-CAN,minutes
+024,3,Scan protection,minutes (key)
+024,4,After adaptation,minutes
+;
+025,0,ESCL Status
+025,1,ESCL,authentication,Possible display: Valid or Not Valid
+025,2,ESCL,access,Specified value:possible/not possible
+;
+026,0,Login Lock Status
+026,1,ESL login lock,minutes,
+026,2,Security access,lock (minutes)
+026,3,Unknown
+026,4,Unknown
+;
+027,0,ESCL Additional information (access to view this depends on value of block 25-2 above)
+027,1,ESCL mode,,Possible display:0 - end of line mode/1 - normal mode/2 - adaptation mode/3 - analyze mode
+027,2,ESCL unlocking bit,status,Possible display: On or Off
+027,3,ESCL locking bit,status,Possible display: On or Off
+027,4,ESCL error,status,Possible display:0 - no error/1 - system info/ 2 - internal error/3 - fatal error
+;
+028,0,*Next documented blocks are group 50
+;
+50,0,Anti theft system status, rear lid status
+050,1,Anti theft,alarm status,Possible display: On or Off
+050,3,Rear lid,lock status,Possible display: On or Off
+050,4,Unknown,(Valet Button?)
+;
+;Remark: This file supports Phaetons, Bentleys, and Touaregs.  'Rear Lid' can thus mean either 
+;trunk lid or rear door, as is appropriate to the type of vehicle.
+;
+051,0,Driver Door Status
+051,1,Door,Open,Possible display: On (door open) or Off (door closed)
+051,2,Door,Locked,Possible display: On (door locked) or Off (door unlocked)
+051,3,Door Safed,(ROW only),Possible display: On or Off (not applicable to NAR)
+051,4,Window,regulator position,Possible display: - 0 to 100%  (0 = fully up, 100 = fully down)
+;
+052,0,Front Passenger Door Status
+052,1,Door,Open,Possible display: On (door open) or Off (door closed)
+052,2,Door,Locked,Possible display: On (door locked) or Off (door unlocked)
+052,3,Door Safed,(ROW only),Possible display: On or Off (not applicable to NAR)
+052,4,Window,regulator position,Possible display: - 0 to 100%  (0 = fully up 100 = fully down)
+;
+053,0,Left Rear Passenger Door Status
+053,1,Door,Open,Possible display: On (door open) or Off (door closed)
+053,2,Door,Locked,Possible display: On (door locked) or Off (door unlocked)
+053,3,Door Safed,(ROW only),Possible display: On or Off (not applicable to NAR)
+053,4,Window,regulator position,Possible display: - 0 to 100%  (0 = fully up 100 = fully down)
+;
+054,0,Right Rear Passenger Door Status
+054,1,Door,Open,Possible display: On (door open) or Off (door closed)
+054,2,Door,Locked,Possible display: On (door locked) or Off (door unlocked)
+054,3,Door Safed,(ROW only),Possible display: On or Off (not applicable to NAR)
+054,4,Window,regulator position,Possible display: - 0 to 100%  (0 = fully up 100 = fully down)
+;
+056,0,Time of Day (from vehicle clock)
+056,1,Unknown,,
+056,2,Hour,,
+056,3,Minute,,
+056,4,Second,,
+;
+057,0,General Vehicle Information
+057,1,click block,for more info,The value here relates to whether the ignition circuit is on or off - might be if car is listening for key.
+057,2,Unknown,,
+057,3,Vehicle,speed,Possible display:0 to 250 kilometers per hour
+057,4,Gear lever,position,
+;
+058,0,Module Coding Status
+058,1,Country,version
+058,2,Engine,type
+;
+059,0,Solar Powered Ventilation (Parking Ventilation) status
+059,1,Ventilation,status,Possible display: On or Off
+;
+060,0,Presumed to refer to Park Heating (stand-heating)
+060,1,Park-heating,status
+;
+061,0,Sunroof Status
+061,1,Sliding opening,range,Possible display: 0 = closed 1 - 2 - 3 - 4 - 5 = opened
+061,2,Tilting opening,range,Possible display: 0 = closed 1 or 2 = opened
+061,3,Function,slider open,Possible display: On or Off
+061,4,Function,slider close,Possible display: On or Off
+;
+062,0,Status of Switches in Seat Belts
+062,2,Driver Belt,switch status,Possible display: On or Off
+062,3,Front Pax Belt,switch status,Possible display: On or Off
+;
+063,0,Diagnostic Bus Status
+063,1,Unknown
+063,2,Diagnostic bus,Powertrain,Possible display: On or Off
+063,3,Diagnostic bus,Comfort,Possible display: On or Off
+;
+064,0,Unknown
+;
+065,0,Unknown
+;
+066,0,Unknown
+;
+067,0,*Next documented blocks - group 80
+;
+080,0,Manufacturer work number and identification
+;
+081,0,VIN number of vehicle and engine number of vehicle
+;
+082,0,Unknown
+;
+083,0,Unknown
+;
+084,0,*Next documented blocks are group 90
+;
+090,1,Clutch switch,,Possible display:on (activated)/off (not activated)
+090,2,Brake light,switch,Possible display:on (activated)/off (not activated)
+090,4,Starter,enabling,Possible display: On or Off
+;
+091,1,Engine speed,RPM,Possible display:Between 0 and 7000 RPM
+091,2,Gearlever,position
+;
+092,0,*Next blocks are group 128
+;
+128,0,Unknown
+;
+129,0,Unknown
+;
+130,0,Unknown
+;
+131,0,Unknown
+;
+;
+138,0,*Next blocks are group 153
+;
+154,0,*Next blocks are group 177
+;
+185,0,*Next blocks are group 188
+;
+189,0,*Next blocks are group 191
+;
+192,0,*Next blocks are group 207
+;
+211,0,*Next blocks are group 217
+;
+218,0,*End of Measured Value Blocks used by this controller.
+;
+;
+;---------------------------------------------------
+;
+; Coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton Access and Start Control (Kessy 6400 unit - J518) Coding
+C01,
+C02,0133356 = USA + Keyless access + 5 speed transmission, W12 engine
+C03,0137452 = USA + Keyless access + 6 speed transmission, V8 engine
+C04,0002280 = USA + Central locking and remote control but no keyless + 5 speed transmission
+C05,0006376 = USA + Central locking and remote control but no keyless + 6 speed transmission
+C06,  
+C07,0213228 = Rest of World + Keyless access + 5 speed transmission + left hand drive vehicle
+C08,0218348 = Rest of World + Keyless access + 6 speed transmission + left hand drive vehicle
+C09,0004328 = Rest of World + Central locking and remote control but no keyless + 6 speed transmission + left hand drive vehicle
+C10,0000232 = Rest of World + Central locking and remote control but no keyless + 5 speed transmission + left hand drive vehicle
+C11,  
+C12,Other coding is possible for right hand drive vehicles or for Japan or for Taiwan. Contact Ross-Tech if you require it.
+C13,Touareg coding will follow a similar pattern, but with different numbers.
+C14,  
+C15,WARNING - Only the 'whole number' combinations shown above are possible. Do NOT attempt to increment or
+C16,decrement individual digits within the number. Make note of the pre-existing coding before you change anything.
+;

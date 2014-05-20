@@ -1,0 +1,62 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Komponente: Airbag (#15) - VW3
+;
+; T/N: 1J0 909 603 ???
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; erstellt am 28.07.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 28.07.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Zünder Airbag/Gurtstraffer
+001,1,Airbag,Fahrerseite,Wertebereich: richtig/Endp. Masse/Endp. Plus/zu klein
+001,2,Airbag,Beifahrerseite,Wertebereich: richtig/Endp. Masse/Endp. Plus/zu klein
+001,3,Gurtstraffer,Fahrerseite,Wertebereich: richtig/zu groß/zu klein/Endp. Masse/Endp. Plus/n. verbaut
+001,4,Gurtstraffer,Beifahrerseite,Wertebereich: richtig/zu groß/zu klein/Endp. Masse/Endp. Plus/n. verbaut
+;
+003,1,Versorgungs-,spannung,Wertebereich: richtig/zu klein/zu groß
+003,2,Sitzbelegungs-,sensor Beifahrer
+003,3,Micro-/Gurtschalter,Fahrerseite,Wertebereich: zu klein/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut/unplausibel
+003,4,Micro-/Gurtschalter,Beifahrerseite,Wertebereich: zu klein/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut/unplausibel
+;
+005,0,Zünder Seitenairbag
+005,1,Seitenairbag,Fahrerseite,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus
+005,2,Seitenairbag,Beifahrerseite,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus
+005,3,Seitenairbag,hinten links,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus
+005,4,Seitenairbag,hinten rechts,Wertebereich: richtig/zu groß/zu klein/n. Masse/n. Plus
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,Deaktivierung Airbag Beifahrerseite
+A001,5,Deaktivierung Airbag Beifahrerseite
+A001,6,Bei Verwendung eines Kindersitzes bei dem das Kind mit dem Rücken
+A001,7,zur Fahrtrichtung sitzt kann der Beifahrer Airbag deaktiviert werden.
+A001,8, 
+A001,9,Zur Deaktivierung ist zusätzlich eine Trennung der elektrischen
+A001,10,Verbindung vorzunehmen welche bei der Aktivierung wiederhergestellt
+A001,11,werden muss.
+A001,12, 
+A001,13,0 - Airbag aktiv
+A001,14,1 - Airbag deaktiktiviert
+;

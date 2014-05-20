@@ -1,0 +1,53 @@
+;
+; VAG-COM label file 3D0-035-704.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 
+;
+; component: Telephone  -J526-  (#77)
+;
+;
+; p/n: 3D0 035 729  Component: Telefon 0118   Coding: 0000000 
+;
+;    The above controller is used in conjunction with NAR Telematics controller 3D0 035 617 A,
+;    Component: Telematik NAR1 0106, coding 0061850 to support both OnStar and NAR GSM with
+;    a removable handset (Nokia), no bluetooth.  Details taken from VW Villa 2005 Phaeton.
+;
+; p/n: 3W0 035 729 C  Component: Telefon 0241   Coding: 0000000 - from 2004 W12, DD AM 2662
+; p/n: 3W0 035 729 C  Component: Telefon 0241   Coding: 0000000 - from 2005 V6 TDI, Germany, Kai
+; p/n: 3W0 035 729 C  Component: Telefon 0241   Coding: 0000000 - from 2005 V6 TDI, Swiss, Alex
+;
+;    The three parts listed above - all with 3W0 prefixes - are all installed in European cars.
+;
+; p/n: 3W0 035 729 K  Component: Telefon 0252   Coding: 0000000 - from 2005 Bentley Continental GT, Canadian
+;      3D0 035 729    Component: Telefon 0118 - from a 2005 Phaeton with single handset prep, Canada
+;
+; by Michael Moore (Moore@ross-tech.com)
+;
+; created: 16/October/2005 (Michael)
+; modified 23/November 2005 (Michael) - various part numbers added above.
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+;
+001,3,Term 30,voltage,Possible Display: Between 6 and 15 volts
+;
+002,1,Term 15,status,Possible Display: On or Off
+;
+003,1,Telematics,status,Possible Display: 0 or 1 (indicates received Telematic message or not.)
+;
+004,2,Microphone,status,Possible displays: Short circuit Ground (GND) - short circuit B+ - open circuit or OK
+004,4,Front,speaker,Possible displays: Short circuit Ground (GND) - short circuit B+ or OK
+;
+005,3,Telephone,charge current,Possible Display: Between 6 and 15 volts
+;
+006,2,Private,handset,Possible displays: Short circuit Ground (GND) - short circuit B+ or OK
+006,4,Telephone,charge condition,Possible displays: 0 to 10
+;
+007,2,Phone,cradle,Possible displays: OK or open circuit
+007,4,cradle,recognition,Possible displays: Short circuit B+ or OK (refers to private handset)

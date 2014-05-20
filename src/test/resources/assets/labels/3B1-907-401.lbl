@@ -1,0 +1,254 @@
+;3B1-907-401: 2.5 TDI V6 180 hp, AKE engine
+;Eric Maurier eric@ross-tech.com / http://www.vag.com.fr
+;
+;Measuring block 000 data at idle, engine warm, coolant >=80°C
+;0,1-Engine Speed            ;32...36
+;0,2-Start of Injection      ;51...88
+;0,3-Trottle Position        ;0(0%)
+;0,4-Injection Quantity      ;10..30
+;0,5-Manifold Absolute Press.;Not significant
+;0,6-Atmospheric Pressure    ;Not significant
+;0,7-Engine Coolant Temp.    ;80...45
+;0,8-Intake Manifold Temp.   ;Not significant
+;0,9-Fuel Temperature        ;Not significant
+;0,10-Air Mass(EGR on)       ;50-70
+;EGR is switched off after approx. 2 min. of idle (>2min, restart eng. or blip)
+
+;Measuring block 000 data at full load, 3rd gear, temp 80°C, at 3000 rpm
+;0,1-Engine Speed            ;140...170
+;0,2-Start of Injection      ;>115
+;0,3-Trottle Position        ;255(100%)
+;0,4-Injection Quantity      ;113...127
+;0,5-Manifold Absolute Press.;187..215
+;0,6-Atmospheric Pressure    ;Not significant
+;0,7-Engine Coolant Temp.    ;80...45
+;0,8-Intake Manifold Temp.   ;Not significant
+;0,9-Fuel Temperature        ;Not significant
+;0,10-Air Mass               ;>185
+
+
+1,0,Injected quantity
+1,1,Engine speed,740-840 rpm
+1,2,Injected quantity,3.0-8.0
+1,3,Qty adj valve,act. time 15-25*Ck
+1,4,Coolant temp,85-105*C
+
+2,0,Idle speed (#3:See label file)
+2,1,Engine speed,740-840 rpm
+2,2,Throttle position,0%
+2,3,Switches,see label file
+;xxxxx
+;00100 OK(idle switch closed)
+;xxxx1 AC compressor on
+;xxx1x Ignore
+;xx1xx Idle switch closed
+;x1xxx Kick down switch closed
+;1xxxx Increased idle speed (AC, accel+brake or error)
+2,4,Coolant temp,85-100*C
+
+3,0,EGR (Exhaust Gases Recycling)
+3,1,Engine speed,740-840
+3,2,MAF (specified),180-270 mg/H
+3,3,MAF (actual),160-290 mg/H
+3,4,EGR duty cycle,40-75%
+
+4,0,Start of injection - Full load-4000rpm-85*C
+4,1,Engine speed,3800-4200 rpm
+4,2,Spec. start,8-12 *BTDC
+4,3,Actual start,6-14 *BTDC
+4,4,Cold start valve,
+
+;4,0,Start of injection - Idle - 85*C
+;4,1,Engine speed,740-840 rpm
+;4,2,Spec. start,2*ATDC-3*BTDC
+;4,3,Actual start,2*ATDC-3*BTDC
+;4,4,Cold start valve,
+
+5,0,Start conditions
+5,1,Engine speed,rpm
+5,2,Start inj. qty,
+5,3,Actual start, of inj.,
+5,4,Coolant temp,*C
+
+6,0,Switches (#2&&3:see label file)
+6,1,Speed, km/h
+6,2,Brake pedal,F/F47/F36 
+; xxx 
+;   1  Brake switch closed 
+;  1   Cruise Control, inj. brake switch open
+; 1    Clutch assistance venting switch f36 open
+
+6,3,Cruise control,see label
+; xxxxxx
+;      1 CC on
+;     1  CC and memory off
+;    1   Acceleration
+;   1    Resume speed
+;  1     Brake pedal depressed
+; 1      Clutch pedal depressed
+6,4,CC state,see label
+;  0   ECU has CC activated
+;  1   CC inactive
+;  2   Acceleration
+;  4   Deceleration
+;  8   Resume
+; 16   Brake pedal depressed
+; 32   Maintain speed
+; 64   Ignore
+;128   Ignore
+;255   ECU has CC deactivated
+
+
+7,0,Temperatures - engine cold- contact on
+7,1,Fuel temp,~ ambiant temp
+;-5.4*C: short circuit or temp sensor G81 bad
+7,2,Oil temp,~ambiant temp
+7,3,Intake air temp,~ambiant temp
+;~136.8*C short circuit or intake air temp sensor -G72- bad
+7,4,Coolant temp,~ambiant temp
+
+
+8,0,Injected quantity(IQ) limitation - Full load - 3rd gear
+8,1,Engine speed,2800-3500
+8,2,IQ driver,>41
+8,3,IQ rpm(torque),37-40
+8,4,IQ MAF(smoke),>41
+
+
+9,0,Injected quantity(IQ) limitation
+9,1,Engine speed,rpm
+9,2,IQ limit,auto shift
+9,3,IQ,torque monitoring
+9,4,IQ,anti-slip
+
+10,0,Intake - Full load - 3rd gear
+10,1,MAF,>750
+10,2,Atmo. press,
+10,3,Intake press.,1900-2300
+10,4,Throttle,100%
+
+11,0,Boost pressure limitation -Full load -3rd gear - 3500rpm
+11,1,Engine speed,2900-4000
+11,2,Spec. intake press.,1900-2300 mbar
+11,3,Actual intake press,1900-2300 mbar
+11,4,N75 duty cycle
+
+12,0,Glow plugs (#1:see label file)
+12,1,Glow plug state,11111111=off
+; xxxxxxxx
+; 11111111 Preglow off
+; 00010000 Pre-glowing
+; 01110000 Starting preglow
+; 11110000 Intermediate preglow
+; 10110000 Post-glow
+; 00110000 Readiness glow
+12,2,Preglow duration,
+12,3,Voltage supply,from ECM
+12,4,Coolant temp,*C
+
+13,0,Idle speed regulation - 1st row of cylinders
+13,1,Diff. cyl.3 vs cyl.2,-1.5 to +1.5
+13,2,Diff. cyl.1 vs cyl.2,-1.5 to +1.5
+13,3,
+13,4,
+
+14,0,Idle speed regulation - 2nd row of cylinders
+14,1,
+14,2,Diff. cyl.6 vs cyl.2,-1.5 to +1.5
+14,3,Diff. cyl.4 vs cyl.2,-1.5 to +1.5
+14,4,Diff. cyl.5 vs cyl.2,-1.5 to +1.5
+
+
+15,0,Fuel consumption
+15,1,Engine speed,rpm
+15,2,Actual IQ,
+15,3,Fuel consumption,
+15,4,IQ driver's,req
+
+16,0,Additional Heater
+16,1,Generator loading,
+16,2,Aux. heat,(see label file)
+; xxxxxxxx
+; 1        Not relevant
+;  1       Not relevant
+;   1      Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty
+;    1     Engine start in last 10 seconds
+;     1    Engine below 500 rpm
+;      1   Battery below 9 volts
+;       1  Generator faulty
+;        1 Coolant temp > 70-80C or Intake Air Temp. > 5C
+16,3,Activation,Hi/Lo
+; xx
+; 1  High heat output,J360 on
+;  1 Low heat output,J359 on
+16,4,Voltage supply,from ECM
+
+
+18,0,Injection pump
+18,1,Supply voltage,injection pump
+18,2,Supply voltage,from ECM
+18,3,Pump infos,See label file
+;xxxxxxx1 Constant current to quantity adjuster solenoid valve
+;xxxxxx1x Quantity adjuster solenoid valve defective
+;xxxxx1xx Injection pump speed sensor defective
+;xxxx1xxx Injection timing adjuster defective
+;xxx1xxxx Injection start not detected
+;xx1xxxxx Shut-off signal has been set
+;x1xxxxxx Engine speed not detected
+;1xxxxxxx Signal wire defective
+18,4,Eng. speed sensor,see label file
+Pulses have to be received by the pump alternately within and outside predefined intervals
+;0000 One pulse outside, one pulse within => OK
+;xxx1 No pulse outside
+;xx1x Several pulses outside
+;x1xx No pulse within
+;1xxx Several pulses within
+
+19,0,Start IQ (in memory) - In case engine does not start
+19,1,Engine speed
+19,2,Actual start of inj,2*B-4.7*A TDC
+19,3,Qty adj valve,act. time
+19,4,Fuel temp
+
+20,0,Auxialiary heater
+20,1,Outside temp,
+20,2,Aux. heater,fuel consumption
+20,3,Aux. heater activ.,see label file
+;xxxx Heater off because:
+;xxx1 engine speed <600 rpm
+;xx1x Engine start in last 10 seconds
+;x1xx No request from ECM
+;1xxx Outside temp >5*C
+20,4,Coolant temp
+
+21,0,Fuel quantity
+21,1,Fuel level check,see label file
+;100 Tank empty
+;010 Tank almost empty
+;001 Warning signal on dash: refuel
+21,2,Inj. system status,see label file
+;10000 No fuel left, engine cut out.
+;01000 Engine cuts out after start: not enough fuel in tank
+;00100 Engine start no allowed, no fuel
+;00010 Intentionnal engine misfiring
+;00001 About to shutdown
+21,3,Fuel pump,activation
+;10 Engine running
+;01 For 6 seconds once the ignition switched on
+21,4,Fuel level system,1=system fault
+
+25,0,Injection pump
+25,1,Data status
+25,2,Injection pump,number
+25,3,Soft version
+25,4,Serial number
+25,5,Man. date
+
+125,0,Data bus
+125,1,Gearbox ECU,active=1
+125,2,ABS ECU,active=1
+125,3,Instrument cluster,active=1
+125,4,Airbag ECU,active=1
+
+;
+

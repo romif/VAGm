@@ -1,0 +1,148 @@
+;
+; VAG-COM label file
+;
+; VW Passat (3B)
+;
+; component: J285 - instrument cluster (#17)
+;
+; p/n: 3B?-920-??9-???
+;
+; includes adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3B-17.LBL
+; 3Bx-920-xx7.LBL
+; 3Bx-920-xx9.LBL
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 04/April/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A2,0,Service reminder
+A2,5,Service reminder reset
+A2,6,displayed values:
+A2,7,0 - no service
+A2,8,1 - service
+A2,9, 
+A2,10,reset:
+A2,11,0 - Service reminder reset
+;
+A4,0,Language for error messages and navigation (MFD only)
+A4,5,Language for error messages and navigation
+A4,6,1 - German
+A4,7,2 - English
+A4,8,3 - French
+A4,9,4 - Italian
+A4,10,5 - Spanish
+A4,11,6 - Portuguese
+A4,12,8 - Czech
+;
+A9,0,Dinstance (in 10km)
+A9,1,Distance
+A9,2,in 10
+A9,3,km
+A9,5,Distance changing
+A9,6,Before the cluster accepts the new
+A9,7,distance you have to login using 13861.
+A9,8, 
+A9,9,The distance can only be changed until
+A9,10,the current value is not over 100km.
+;
+A21,0,Key count (Immobilizer)
+;
+A30,0,Fuel gauge adaption
+A30,1,Current,value
+A30,5,Fuel gauge adaption
+A30,6,Basic value: 100
+A30,7,Range: 120 - 136
+A30,8,Unit: 1 Ohm
+;
+A35,0,Engine speed threshold
+A35,5,Engine speed threshold adaption
+A35,6,Basic value: 0
+A35,7,Range: 0 - 1000
+A35,8,Unit: 250 U/min
+;
+A40,0,Distance from inspection
+A40,5,Distance from inspection
+A40,6,Resolution: 1 = 100 km
+A40,7, 
+A40,8,NOTE: Adaptation channels 40-44 must be
+A40,9,entered and stored in the following order:
+A40,10,42 > 43 > 44 > 40 > 41
+;
+A41,0,Time from inspection
+A41,5,Time from inspection
+A41,6, 
+A41,7,NOTE: Adaptation channels 40-44 must be
+A41,8,entered and stored in the following order:
+A41,9,42 > 43 > 44 > 40 > 41
+;
+A42,0,Minimum value mileage
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 = 1000 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-44 must be
+A42,9,entered and stored in the following order:
+A42,10,42 > 43 > 44 > 40 > 41
+;
+A43,0,Maximum value mileage
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 = 1000 km
+A43,7, 
+A43,8,NOTE: Adaptation channels 40-44 must be
+A43,9,entered and stored in the following order:
+A43,10,42 > 43 > 44 > 40 > 41
+;
+A44,0,Maximum time interval
+A44,5,Maximum time interval
+A44,6, 
+A44,7,NOTE: Adaptation channels 40-44 must be
+A44,8,entered and stored in the following order:
+A44,9,42 > 43 > 44 > 40 > 41
+;
+A45,0,Oil quality
+A45,5,Oil quality
+A45,6,1 - Time or distance based service
+A45,7,2 - Longlife service - Gasoline Engines
+A45,8,4 - Longlife service - 4/6-Zyl.-TDI-Engines
+A45,9, 
+A45,10,NOTE: Adaptation channels 40-48 must be
+A45,11,entered and stored in the following order:
+A45,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A46,0,Total consumption amount (Gas only)
+A46,0,Total consumption amount (Gas only)
+A46,6, 
+A46,7,NOTE: Adaptation channels 40-48 must be
+A46,8,entered and stored in the following order:
+A46,9,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A47,0,Soot entry (Diesel only)
+A47,5,Soot entry (Diesel only)
+A47,6,Resolution: 1 = 100 km
+A47,7, 
+A47,8,NOTE: Adaptation channels 40-48 must be
+A47,9,entered and stored in the following order:
+A47,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A48,0,Thermal load (Diesel only)
+A48,5,Thermal load (Diesel only)
+A48,6,Resolution: 1 = 100 km
+A48,7, 
+A48,8,NOTE: Adaptation channels 40-48 must be
+A48,9,entered and stored in the following order:
+A48,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;

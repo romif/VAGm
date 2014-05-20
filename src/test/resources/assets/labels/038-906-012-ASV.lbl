@@ -1,0 +1,161 @@
+;
+; VAG-COM Labeldatei
+;
+; 
+;
+; Komponente: Motorelektronik (#01) - AHF/ASV
+;
+; T/N: 038 906 012 ??
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 038-906-012-ASV.LBL  (1.9l TDI @ 110 HP - AHF/ASV - ab 05/1999)
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 29.04.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 10.06.2005
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,0,Grundfunktionen
+000,1,Motordrehzahl,Sollwert (Leerlauf): 41...46 (861...950 U/min) | Sollwert (Vollast): 138...148 (2900...3100 U/min)
+000,2,Einspritzbeginn,Sollwert (Leerlauf): 12...75 (2 °n.OT ... 4 °v.OT) | Sollwert (Vollast): 137...215 (8...14 °v.OT)
+000,3,Gaspedalstellung,Sollwert (Leerlauf): 0 (0 %) | Sollwert (Vollast): 255 (100 %)
+000,4,Einspritzmenge,Sollwert (Leerlauf): 11...45 (2.2...9 mg/Hub) | Sollwert (Vollast): 199...214 (39.8...42.8 mg/Hub)
+000,5,Saugrohrdruck,Sollwert (Leerlauf): 83...106 (920...1140 mbar) | Sollwert (Vollast): 179...215 (1850...2250 mbar)
+000,6,atmosphärischer Druck,Sollwert: 183...224 (910...1110 mbar)
+000,7,Kühlmitteltemperatur,Sollwert: 80...35 (80...110 °C)
+000,8,Saugrohrtemperatur,Sollwert: 182...50 (10...100 °C)
+000,9,Kraftstofftemperatur,Sollwert: 91...201 (20...80°C)
+000,10,Luftmasse,Sollwert (Leerlauf): 66...111 (230...370 mg/Hub) | Sollwert (Vollast): 255 (800...1100 mg/Hub)
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,,Sollwert: 861...950 U/min
+001,2,Einspritzmenge,,Sollwert: 2.2...9 mg/Hub
+001,3,Spannung Geber,Regelschieberweg,Sollwert: 1.30..2.10 V
+001,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+002,0,Leerlaufdrehzahl
+002,1,Motordrehzahl,,Sollwert: 861...950 U/min
+002,2,Gaspedal-,stellung,Sollwert: 0 %
+002,3,Betriebszustand,,Sollwert: 010\n\n1xx - Leerlaufdrehzahl erhöht/Klimaanlage EIN\nx1x - Leerlaufschalter geschlossen\nxx1 - Klimakompressor EIN
+002,4,Kühlmittel-,temperatur,Sollwert: 80...110 °C
+;
+003,0,Abgasrückführung
+003,1,Motordrehzahl,,Sollwert: 861...950 U/min
+003,2,angesaugte,Luftmasse (SOLL),Sollwert: 230...370 mg/Hub
+003,3,angesaugte,Luftmasse (IST),Sollwert: 230...370 mg/Hub
+003,4,Tastverhältnis,AGR-Ventil,Sollwert: 40...75 %
+;
+004,0,Einspritzbeginn
+004,1,Motordrehzahl,,Sollwert (Leerlauf): 861...950 U/min\nSollwert (Vollast): 2900...3100 U/min
+004,2,Einspritzbeginn,(SOLL-Wert),Sollwert (Leerlauf): 2 °n.OT...3 °v.OT\nSollwert (Vollast): 8...14 °v.OT
+004,3,Einspritzbeginn,(IST-Wert),Sollwert: 2 °n.OT...3 °v.OT\nSollwert (Vollast): 8...14 °v.OT
+004,4,Tastverhältnis,Einspritzventil,Sollwert: 3...80 %\nSollwert (Vollast): 50...95 %
+;
+005,0,Startverhältniss
+005,1,Motordrehzahl
+005,2,Startmenge
+005,3,Einspritzbeginn,(IST-Wert)
+005,4,Kühlmittel-,temperatur
+;
+006,0,Schalterstellungen
+006,1,Geschwindigkeit
+006,2,Bremspedal-,überwachung,1xx - Kupplungspedalschalter (F36) geöffnet\nx1x - Bremspedalschalter (F47) geöffnet\nxx1 - Bremslichtschalter (F) geschlossen
+006,3,Geschwindigkeits-,regelanlage,siehe Labelfile
+; xxxxx1 - GRA aktiv
+; xxxx1x - GRA inaktiv mit Speicher
+; xxx1xx - Geschw.-Verzögerung
+; xx1xxx - Wiederaufnahme/Beschleunigung
+; x1xxxx - Bremse getreten
+; 1xxxxx - Kupplung getreten
+006,4,Geschwindigkeits-,regelanlage,0   = Fahrzeuge mit GRA / GRA inaktiv\n1   = Fahrzeuge mit GRA / GRA aktiv\n255 = Fahrzeuge ohne GRA
+;
+007,0,Temperaturen
+007,1,Kraftstoff-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,3,Saugrohr-,temperatur,Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,tempratur,Sollwert: ca. Umgebungstemperatur
+;
+008,0,Einspritzmengenbegrenzung
+008,1,Motordrehzahl,,Sollwert (Vollast): 2900...3100 U/min
+008,2,Einspritzmenge,(Fahrerwunsch),Sollwert (Vollast): 42.0...46.0 mg/Hub
+008,3,Begrenzung über,Drehzahl,Drehmomentbegrenzung (Sollwert (Vollast): 38.2...42.8 mg/Hub)
+008,4,Begrenzung über,Luftmasse,Rauchvermeidung (Sollwert (Vollast): 41.0...44.0 mg/Hub)
+;
+009,0,Einspritzmengenbegrenzung
+009,1,Motordrehzahl
+009,2,Einspritzmenge,(GRA aktiv)
+009,3,Begrenzung vom,autom. Getriebe,während des Schaltvorganges
+009,4,Spannung Geber,Regelschieberweg
+;
+010,0,Luftgrößen
+010,1,angesaugte,Luftmasse,Sollwert: 800...1100 mg/Hub
+010,2,atmosphärischer,Druck (Luftdruck),Sollwert: 900...1100 mbar
+010,3,Saugrohrdruck,(Ladedruck),Sollwert: 1850...2250 mbar
+010,4,Gaspedalstellung,,Sollwert: 100 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,,Sollwert: 2900...3100 U/min
+011,2,Ladedruck,(SOLL-Wert),Sollwert: 1850...1950 mbar
+011,3,Ladedruck,(IST-Wert),Sollwert: 1850...2250 mbar
+011,4,Tastverhältnis,Ladedruckbegr.,Sollwert: 45...95 %
+;
+012,0,Vorglühanlage
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung
+012,4,Kühlmittel-,temperatur
+;
+013,0,Leerlauf-Ruheregelung
+013,1,Einspritzmenge,Zylinder 1,Sollwert: -2.0...+2.0 mg/Hub
+013,2,Einspritzmenge,Zylinder 2,Sollwert: -2.0...+2.0 mg/Hub
+013,3,Einspritzmenge,Zylinder 3,Sollwert: -2.0...+2.0 mg/Hub
+013,4,Einspritzmenge,Zylinder 4,Sollwert: -2.0...+2.0 mg/Hub
+;
+015,0,Kraftstoffverbrauch
+015,1,Motordrehzahl
+015,2,Einspritzmenge,(IST-Wert)
+015,3,Kraftstoff-,verbrauch
+015,4,Einspritzmenge,(Fahrerwunsch)
+;
+016,0,Zusatzheizung
+016,1,Generator-,auslastung
+016,2,Abschaltbedingung,Zusatzheizung,siehe Labelfile
+; --1xxxxx - Geber für Kühlmitteltemperatur (G62)/Geber für Saugrohrtemperatur (G72) defekt/Endstufe für Zusatzheizung defekt
+; --x1xxxx - Motorstart innerhalb der letzten 10 Sekunden
+; --xx1xxx - Motordrehzahl unter 760/min
+; --xxx1xx - Batteriespannung unter 9 V
+; --xxxx1x - Generator defekt
+; --xxxxx1 - Kühlmitteltemperatur größer 70...80 °C oder Ansauglufttemperatur größer +5 °C
+016,3,Ansteuerung,Heizelemente,1x - Relais für große Heizleistung (J360) ein\nx1 - Relais für kleine Heizleistung (J359) ein
+016,4,Versorgungs-,spannung
+;
+019,0,Mengenstellwerk
+019,1,Regelschieberweg,Stop-Anschlag,Sollwert: 0.500...0.970 V
+019,2,Regelschieberweg,Start-Anschlag,Sollwert: 4.150...4.740 V
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Motorelektronik (J248) Codierung
+C1,00001 - autom. Getriebe
+C2,00002 - Schaltgetriebe mit Crashabschaltung
+C3,00003 - Allrad-Antrieb
+C4,00005 - Schaltgetriebe ohne Crashabschaltung
+;

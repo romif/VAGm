@@ -1,0 +1,106 @@
+;
+; VAG-COM Measuring Block Labels for
+; VW COMFORT CONVENIENCE 3B0-959-800-XX
+; 
+; contributed by:
+;
+; Eric Klobas
+; University Volkswagen Audi
+; Seattle, WA, USA
+;
+;
+1,0,switches
+1,1,Rear Window Lockout
+1,2,LF Door lock switch
+1,3,LF Window Motor signal
+1,4,
+;
+2,0,Switches
+2,1,LF Window switch
+2,2,RF Window Switch
+2,3,LR Window Switch
+2,4,RR Window Switch
+;
+3,0,switches
+3,1,LF key switch 
+3,2,LF Door Latch Switch
+3,3,LF door latch feedback
+3,4,LF Cent Locking feedback
+;
+4,0,Mirrors
+4,1,LF Mirror Switch U/D
+4,2,LF mirror Switch L/R
+4,3,LF folding mirror
+4,4,Empty
+;
+5,0,RF door switches
+5,1,RF door window switch
+5,2,RF Lock switch
+5,3,RF folding mirror
+;
+6,0,Rt door
+6,1,RF key switch
+6,2,RF latch switch
+6,3,RF Door latch feedback
+6,4,RF cent locking feedback
+;
+7,0,RR door
+7,1,RR window switch
+7,2,RR latch switch
+7,3,RR latch feedback
+7,4,RR cent locking feedback
+;
+8,0,LR door
+8,1,LR window switch
+8,2,LR latch switch
+8,3,LR latch feedback
+8,4,LR cent locking feedback
+;
+9,0,signals
+9,1,inst light voltage
+9,2,VSS (G22)
+9,3,Key remote signals
+9,4,Interior Monitor
+;
+10,0,Sgnals
+10,1,S contact from ign
+10,2,Mirror heater sgnal
+10,3,Trunk lock cyl switch
+10,4,T15 on/off
+;
+11,0,Signals
+11,1,hood and radio alarm sw
+11,2,trunk latch switch
+11,3,Sunroof Sync
+11,4,cent lock temp switch
+;
+12,0,
+12,1,CAN Bus
+12,2,opt front equip
+12,3,opt rear equip
+12,4, opt equip
+;
+13,0,remotes
+13,1,Signal recognized
+13,2,remote fits for coding
+13,3,Algorithem
+13,4,Key number
+;
+14,0,
+14,1,Volts
+14,2,rear lid unlatch signal
+14,3,Interior Monitoring
+14,4,Thermo protection
+;
+15,0 Alarm source
+15,1,last alarm
+15,2,2 alarms past
+15,3,3 alarms past
+15,4,4 alarms past
+;
+16,0,Auto locks
+16,1,Imobilizer key recognition
+16,2,Drivers auto int lock Sw
+16,3,Rear latch first detent
+16,4,
+;

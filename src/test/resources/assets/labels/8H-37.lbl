@@ -1,0 +1,29 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A4 Cabriolet (8H)
+;
+; Component: Navigation (#37)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8H-37.LBL
+; 8H-56.LBL
+; 8E0-035-192-RNSE.LBL
+;
+; created on 25/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 17/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192     ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-A   ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-E   ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-F   ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-H   ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-J   ; RNS-E
+REDIRECT,8E0-035-192-RNSE.LBL,8H0-035-192-K   ; RNS-E
+;

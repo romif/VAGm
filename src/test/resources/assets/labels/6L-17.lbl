@@ -1,0 +1,25 @@
+;
+; VAG-COM Redirect File
+;
+; Seat Ibiza (6L)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6L-17.LBL
+; 6L0-920-xx0-17.LBL  (< MY 2006)
+; 6L0-920-xx3-17.LBL  (MY 2007 >)
+;
+; created on 21/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 21/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,6L0-920-xx0-17.LBL,6L0-920-??0-??? ;              >> 6L-6-125 000
+REDIRECT,6L0-920-xx0-17.LBL,6L0-920-??1-??? ;              >> 6L-6-125 000
+;6L0-920-??2-??? ; 6L-6-500 001 >> 6L-6-575 000
+REDIRECT,6L0-920-xx3-17.LBL,6L0-920-??3-??? ; 6L-7-000 001 >>
+;

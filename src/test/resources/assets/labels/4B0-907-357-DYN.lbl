@@ -1,0 +1,68 @@
+;
+; VAG-COM label file
+;
+; Audi A4 (8E/8H) / Audi A6 (4B) / Audi A8 (4D)
+; Skoda Superb (3U / VW Passat (3B)
+;
+; component: J431 - Headlight Aim Control (#55)
+;
+; p/n: 4B0 907 357 A/B/C
+;      4Z7 907 357
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-55.LBL
+; 4Z-55.LBL
+; 4B0-907-357-AUT.LBL
+; 4B0-907-357-DYN.LBL
+;
+; created on 27/Sep/2004 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 02/Jun/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Setting: Adjustment Position
+001,1,Voltage Supply,(Terminal 15),Specifcation: 0.0...15.0 V
+001,2,Light Switch,,Specification:\n0 = Light OFF\n1 = Light ON
+001,3,Vehicle Speed,,Specification: 0...300 km/h
+001,4,Acceleration,,Specification: 0.00...7.00 m/s²
+;
+002,0,Basic Setting: Adjustment Position learning
+002,1,Voltage front,level sensor (G78),Specification: 1.56...3.45 V\n0.00 V = level sensor faulty\n5.00 V = wiring faulty
+002,2,Voltage rear,level sensor G76),Specification: 0.50...4.50 V\n0.00 V = level sensor faulty\n5.00 V = wiring faulty
+002,3,Specification,actuator motors,Specification: 0...100 %
+002,4,Time constant,,Specification: 0...2 s
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,Head Light Aim Control (J431) Coding
+C1,00001 - Audi A8 (4D)
+C2,00005 - Skoda Superb (3U) FWD
+C3,00006 - Skoda Superb (3U) AWD
+C4,00007 - VW Passat (3B) FWD
+C5,00008 - VW Passat (3B) AWD
+C6,00020 - Audi A6/S6 (4B) (through MY 2000)
+C7,00030 - Audi Allroad (4H)
+C8,00040 - Audi A6 (4B) FWD (from MY 2001)
+C9,00050 - Audi A6 (4B) AWD (from MY 2001)
+C10,00060 - Audi A4 (8E)
+C11,00070 - Audi Cabrio/Coupe (8E/8H)
+;

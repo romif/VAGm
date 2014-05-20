@@ -1,0 +1,144 @@
+;
+; VAG-COM Labelfile
+;
+; VW Passat (3C)
+;
+; Component: J446 - Parking Aid (#76)
+;
+; P/N: 3C0-919-283-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 17/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 17/Dec/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Distance (Rear)
+001,1,Rear Left (G203),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+001,2,Rear Left (G204),Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,3,Rear Right (G205),Center Sensor,Specification: 10...160 cm (255 cm = no obstacle recognized)
+001,4,Rear Right (G206),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+002,0,Distance (Front)
+002,1,Front Left (G255),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+002,2,Front Left (G254),Center Sensor,Specification: 10...120 cm (255 cm = no obstacle recognized)
+002,3,Front Right (G253),Center Sensor,Specification: 10...120 cm (255 cm = no obstacle recognized)
+002,4,Front Right (G252),Sensor,Specification: 10...60 cm (255 cm = no obstacle recognized)
+;
+003,0,Resulting Distance / Vehicle Speed && Voltage
+003,1,Resulting,Distance Front,Specification: 10...120 cm (255 cm = no obstacle recognized)
+003,2,Resulting,Distance Rear,Specification: 10...160 cm (255 cm = no obstacle recognized)
+003,3,Vehicle Speed,,Display Range: 0.0...255.0 km/h
+003,4,Sensor,Voltage Supply,Specification: 10.0...14.5 V
+;
+004,0,External Information
+004,1,Reverese Gear,engaged,Display Range: Reverse: Yes/Reverse: No
+004,2,Trailer hitched,,Display Range: YES/NO/Not Installed
+004,3,Sound Output,Suppressed (Park),Display Range: OFF/ON
+004,4,Parking Aid,Button (E266),Display Range: ON/OFF/Not Oper./Not Installed
+;
+005,0,Volume && Frequency
+005,1,Rear Buzzer,Volume,Display Range: 1...9
+005,2,Rear Buzzer,Frequency,Display Range: 1...9
+005,3,Front Buzzer,Volume,Display Range: 1...9
+005,4,Front Buzzer,Frequency,Display Range: 1...9
+;
+006,0,Oscillation Time (Rear)
+006,1,Rear Left,Sensor,Specification: 0.8...1.5 ms
+006,2,Rear Left,Center Sensor,Specification: 0.8...1.5 ms
+006,3,Rear Right,Center Sensor,Specification: 0.8...1.5 ms
+006,4,Rear Right,Sensor,Specification: 0.8...1.5 ms
+;
+007,0,Oscillation Time (Front)
+007,1,Front Left,Sensor,Specification: 0.8...1.5 ms
+007,2,Front Left,Center Sensor,Specification: 0.8...1.5 ms
+007,3,Front Right,Center Sensor,Specification: 0.8...1.5 ms
+007,4,Front Right,Sensor,Specification: 0.8...1.5 ms
+;
+008,0,Confirmation Sound
+008,1,Confirm. Sound,(Reverse Gear),Display Range: ON/OFF
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Rear Buzzer Volume
+A001,1,Current Value
+A001,5,Rear Buzzer Volume
+A001,6,Adaptation of the rear warning buzzer volume.
+A001,7, 
+A001,8,Display Range: 1...9
+;
+A002,0,Rear Buzzer Frequency
+A002,1,Current Value
+A002,5,Rear Buzzer Frequency
+A002,6,Adaptation of the rear warning buzzer frequency.
+A002,7, 
+A002,8,Display Range: 1...9
+;
+A003,0,Front Buzzer Volume
+A003,1,Current Value
+A003,5,Front Buzzer Volume
+A003,6,Adaptation of the front warning buzzer volume.
+A003,7, 
+A003,8,Display Range: 1...9
+;
+A004,0,Front Buzzer Frequency
+A004,1,Current Value
+A004,5,Front Buzzer Frequency
+A004,6,Adaptation of the front warning buzzer frequency.
+A004,7, 
+A004,8,Display Range: 1...9
+;
+A005,0,Confirmation Sound
+A005,2,Current Status
+A005,5,Confirmation Sound
+A005,6,Adaptation of confirmation sound when
+A005,7,switching into reverse gear.
+A005,8, 
+A005,9,135 = with confirmation sound
+A005,10,136 = without confirmation sound
+;
+A006,0,Reset Factory Default
+A006,5,Reset Factory Default
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Aid (J446) Coding
+C01,0?xxxxx: Suspension
+C02,0 - Steel Suspension
+C03,0x?xxxx: Trailer Hitch
+C04,0 - without Trailer Hitch
+C05,1 - with Trailer Hitch
+C06,0xx?xxx: Transmission
+C07,0 - Manual Transmission
+C08,1 - Automatic Transmission
+C09,0xxx?xx: Country
+C10,0 - Rest of World (RoW)
+C11,1 - USA/Canada/Japan
+C12,0xxxx?x: Variant
+C13,1 - Limousine (Sedan)
+C14,2 - Variant (Wagon)
+C15,0xxxxx?: Model
+C16,4 - VW Passat (3C)
+;

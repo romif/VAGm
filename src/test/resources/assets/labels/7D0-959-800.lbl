@@ -1,0 +1,99 @@
+;
+; VAG-COM label file
+;
+; VW Golf Convertible (1E) / VW Transporter (7D)
+;
+; component: central locking (#35)
+;
+; p/n: 7D0 959 800 A/B/C
+;
+; includes measuring blocks, coding and adaption
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modified: 12/15/2004
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; Measuring block informations
+;
+;---------------------------------------------------
+;
+; 
+001,0,Basic Informations
+001,1,System Voltage,(Terminal 30)
+001,2,Ignition,(Terminal 15),Range: Term. 15 ON/Term. 15 OFF
+001,3,Rotary Latch,Switch,Range: dr.closed/dr.open
+001,4,Central Locking,Thermal Protection,Range: Yes/No
+;
+002,0,Vehicle Status
+002,1,Remote Control,Key Buttons,Range: open/closed
+002,2,Output,(closed),Range: open/n.operated
+002,3,Output,(open),Range: open/n.operated
+002,4,Vehicle,Status,Range: locked/unlocked
+;
+003,0,Remote Control Status
+003,1,Permanent Code,Known,Range: OK/n.OK/n.meas.value
+003,2,Variable Code,Known,Range: OK/n.OK/n.meas.value
+003,3,Algorithm,,Range: OK/n.OK/n.meas.value
+003,4,Key Number,,Range: 1...4
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C0,Central Locking
+C1,00001 - Standard
+C2,00002 - Unknown
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+;---------------------------------------------------
+;
+;
+A1,0,Remote Control Matching
+A1,1,Key
+A1,3,Count
+A1,5,Remote Control Matching
+A1,6,Enter the desired key count (maximum 4) as new value. Save.
+A1,7,Then press and hold (for at least one second) the UNLOCK button on the fob
+A1,8,at which time it will be learned. If you're programming more than one fob
+A1,9,press and hold the UNLOCK button on the second fob for one second
+A1,10,press and hold the UNLOCK button on the third fob for one second etc.
+A1,11,You have a total of 15 seconds to do them all.
+A1,12, 
+A1,13,Note: To match additional keys increase the current key count.
+A1,14, 
+A1,15,Note: To overwrite existing keys first clear all existing keys. Channel 00 > Save
+;
+A02,0,Unlock Blink
+A02,1,Unlock
+A02,2,Blink
+A02,3,Status
+A02,5,Unlock Blink
+A02,6,Blink when unlocking via remote control.
+A02,7, 
+A02,8,0 = off
+A02,9,1 = on
+;
+A03,0,Lock Blink
+A03,1,Lock
+A03,2,Blink
+A03,3,Status
+A03,5,Lock Blink
+A03,6,Blink when locking via remote control.
+A03,7, 
+A03,8,0 = off
+A03,9,1 = on
+;

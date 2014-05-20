@@ -1,0 +1,20 @@
+;
+; VCDS Redirect File
+;
+; Component: Transmission (#02)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; XX-02.LBL
+; 01J-927-156.LBL
+;
+; created on 04/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,01J-927-156.LBL,01J-927-156-???,HW   ; 01J: (8E) // HSG
+;

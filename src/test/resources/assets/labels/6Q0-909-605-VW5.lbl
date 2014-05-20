@@ -1,0 +1,213 @@
+;
+; VAG-COM Label File
+;
+; VW Golf/Jetta (1J/9M)
+;
+; component: J234 - Airbag (#15) - VW5/VW51/VW61
+;
+; P/N: 6Q0-909-605-??? / 1C0-909-60?-???
+;
+; includes measuring blocks and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-15.LBL
+; 6Q0-909-605-VW5.LBL  (VW5/VW51/VW61)
+; 6Q0-909-605-VW52.LBL (VW52)
+;
+; created by Steve Tomasic (steve_tomasic@hotmail.com)
+; updated on 09/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 21/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Ignitiers I (Front Airbags Stage 1 && Front Belt Tensioners)
+001,1,Airbag (Stage 1),Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Airbag (Stage 1),Passenger Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Belt Tensioner,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Belt Tensioner,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Ignitiers II (Rear Belt Tensioners)
+002,1,Belt Tensioner,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Belt Tensioner,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,0,Voltage && Seat. Occupation && Belt Inquiry I (Front)
+003,1,Voltage Supply,,Specification: Correct
+003,2,Occupied Seat,Sensor Pass. Side,Display Range: child/child seat/light adult/heavy adult/occupied/not occupied/not installed
+003,3,Belt Inquiry,Front Driver Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Front Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry II (Rear)
+004,1,Belt Inquiry,Rear Driver Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Pass. Side,Specification: Not Installed/Belt Yes/Belt No\nDisplay Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+005,0,Igniters III (Side Airbags)
+005,1,Side Airbag,Front Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,2,Side Airbag,Front Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,3,Side Airbag,Rear Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+005,4,Side Airbag,Rear Pass. Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+006,0,Seat Occupation (Rear)
+006,1,Seat Occupation,Rear Driver Side,Display Range: Not Installed
+006,2,Seat Occupation,Rear Pass. Side,Display Range: Not Installed
+;
+007,0,Igniters IV (Head Airbags)
+007,1,Head-Level Airbag,Driver Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+007,2,Head-Level Airbag,Passenger Side,Specification: Correct\nDisplay Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+008,0,Crash Sensor I (Version)
+008,1,Driver Side,Front
+008,2,Passenger Side,Front
+008,3,Driver Side,Rear
+008,4,Passenger Side,Rear
+;
+009,0,Crash Sensor I (Identification)
+009,1,Driver Side,Front
+009,2,Passenger Side,Front
+009,3,Driver Side,Rear
+009,4,Passenger Side,Rear
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Front Passenger Airbag Deactivation
+A001,1,Front Passenger,Airbag
+A001,2,Current Status
+A001,5,Front Passenger Airbag Deactivation
+A001,6,0 = Airbag Enabled
+A001,7,1 = Airbag Disabled
+A001,8, 
+A001,9,Note: Refer to Service Manual!
+;
+A002,0,Front Driver Airbag Deactivation
+A002,1,Front Driver,Airbag
+A002,2,Current Status
+A002,5,Front Driver Airbag Deactivation
+A002,6,0 = Airbag Enabled
+A002,7,1 = Airbag Disabled
+A002,8, 
+A002,9,Note: Refer to Service Manual!
+;
+A003,0,Front Passenger Side Airbag Deactivation
+A003,1,Front Passenger,Side Airbag
+A003,2,Current Status
+A003,5,Front Passenger Side Airbag Deactivation
+A003,6,0 = Airbag Enabled
+A003,7,1 = Airbag Disabled
+A003,8, 
+A003,9,Note: Refer to Service Manual!
+;
+A004,0,Front Driver Side Airbag Deactivation
+A004,1,Front Driver,Side Airbag
+A004,2,Current Status
+A004,5,Front Driver Side Airbag Deactivation
+A004,6,0 = Airbag Enabled
+A004,7,1 = Airbag Disabled
+A004,8, 
+A004,9,Note: Refer to Service Manual!
+;
+A005,0,Front Passenger Belt Tensioner Deactivation
+A005,1,Front Passenger,Belt Tensioner
+A005,2,Current Status
+A005,5,Front Passenger Belt Tensioner Deactivation
+A005,6,0 = Belt Tensioner Enabled
+A005,7,1 = Belt Tensioner Disabled
+A005,8, 
+A005,9,Note: Refer to Service Manual!
+;
+A006,0,Front Driver Belt Tensioner Deactivation
+A006,1,Front Driver,Belt Tensioner
+A006,2,Current Status
+A006,5,Front Driver Belt Tensioner Deactivation
+A006,6,0 = Belt Tensioner Enabled
+A006,7,1 = Belt Tensioner Disabled
+A006,8, 
+A006,9,Note: Refer to Service Manual!
+;
+A007,0,Front Passenger Head Airbag Deactivation
+A007,1,Front Passenger,Head Airbag
+A007,2,Current Status
+A007,5,Front Passenger Head Airbag Deactivation
+A007,6,0 = Airbag Enabled
+A007,7,1 = Airbag Disabled
+A007,8, 
+A007,9,Note: Refer to Service Manual!
+;
+A008,0,Front Driver Head Airbag Deactivation
+A008,1,Front Driver,Head Airbag
+A008,2,Current Status
+A008,5,Front Driver Head Airbag Deactivation
+A008,6,0 = Airbag Enabled
+A008,7,1 = Airbag Disabled
+A008,8, 
+A008,9,Note: Refer to Service Manual!
+;
+A009,0,Rear Passenger Side Airbag Deactivation
+A009,1,Rear Passenger,Side Airbag
+A009,2,Current Status
+A009,5,Rear Passenger Side Airbag Deactivation
+A009,6,0 = Airbag Enabled
+A009,7,1 = Airbag Disabled
+A009,8, 
+A009,9,Note: Refer to Service Manual!
+;
+A010,0,Rear Driver Side Airbag Deactivation
+A010,1,Rear Driver,Side Airbag
+A010,2,Current Status
+A010,5,Rear Driver Side Airbag Deactivation
+A010,6,0 = Airbag Enabled
+A010,7,1 = Airbag Disabled
+A010,8, 
+A010,9,Note: Refer to Service Manual!
+;
+A011,0,Rear Passenger Belt Tensioner Deactivation
+A011,1,Rear Passenger,Belt Tensioner
+A011,2,Current Status
+A011,5,Rear Passenger Belt Tensioner Deactivation
+A011,6,0 = Belt Tensioner Enabled
+A011,7,1 = Belt Tensioner Disabled
+A011,8, 
+A011,9,Note: Refer to Service Manual!
+;
+A012,0,Rear Driver Belt Tensioner Deactivation
+A012,1,Rear Driver,Belt Tensioner
+A012,2,Current Status
+A012,5,Rear Driver Belt Tensioner Deactivation
+A012,6,0 = Belt Tensioner Enabled
+A012,7,1 = Belt Tensioner Disabled
+A012,8, 
+A012,9,Note: Refer to Service Manual!
+;
+A013,0,Passenger Seat Occupation Recognition Sensor Deactivation
+A013,1,Passenger Seat,Recognition Sensor
+A013,2,Current Status
+A013,5,Passenger Seat Occupation Recognition Sensor Deactivation
+A013,6,0 = Sensor Enabled
+A013,7,1 = Sensor Disabled
+A013,8, 
+A013,9,Note: Refer to Service Manual!
+;
+A014,0,Battery Separating Deactivation
+A014,1,Battery Separating
+A014,2,Current Status
+A014,5,Battery Separating Deactivation
+A014,6,0 = Battery Separating Enabled (Standard)
+A014,7,1 = Battery Separating Disabled
+A014,8, 
+A014,9,Note: Refer to Service Manual!
+;

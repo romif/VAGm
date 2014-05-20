@@ -1,0 +1,117 @@
+;
+; VAG-COM Label File
+;
+; Seat Leon/Toledo (1M)
+;
+; Component: A/C Heating Electronics (J255) (#01) - Climatronic
+;
+; P/N: 1M0-820-043-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; created on 30/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Jul/2007
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+000,0,Flap Motors
+B000,0,Flap Motor Basic Setting
+000,1,Temperature Regulator Flap Motor (V68),Specified Value: 0
+000,2,Central Air Flap Motor (V70),Specified Value: 0
+000,3,Footwell/Defroster Flap Motor (V85),Specified Value: 0
+000,4,Air Flow Flap Motor (V71),Specified Value: 0
+;
+001,0,General
+001,1,Comprossor,Shut-Off,Specification: 0 = Compressor Running (See Label File for more Details)
+;  0 = Compressor Running
+;  1 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too High
+;  3 = Compressor OFF by Pressure Switch (F129): Refrigerant Pressure too Low
+;  6 = Compressor OFF by ECON Button
+;  7 = Compressor OFF by OFF Button (via Fresh Air Blower Speed Buttons)
+;  8 = Compressor OFF by Ambient Temperature below 3 °C (37 °F)
+; 10 = Compressor OFF by Voltage below 9.5 V
+; 12 = Compressor OFF by Engine OR Transmission Control Module
+; 13 = Compressor OFF by Compressor Activation Delay)
+; 14 = Compressor OFF by Pressure Switch (F129) 30 times activated
+001,2,Spannung elektr.-,magnet. Kupplung,(N25)
+001,3,Spannung,(Klemme 15)
+001,4,Standzeit,,Zeitraum zwischen letztem Ausschalten und Wiedereinschalten der Zündung (Wertebereich: 0...240)
+;
+002,0,Temperature Regulator Flap Motor (V68/G92)
+002,1,Measured Value,Potentiom. (G92),Range: 0...255\nTolerance (to Spec.): 3
+002,2,Specified Value,Potentiom. (G92),Range: 0...255\nSpecification: 5...250
+002,3,Flap Position,(Cooling),Specification: 5...50
+002,4,Flap Position,(Heating),Specification: 190...250
+;
+003,0,Central Air Flap Motor (V70/G112)
+003,1,Measured Value,Potentiom. (G112),Range: 0...255\nTolerance (to Spec.): 3
+003,2,Specified Value,Potentiom. (G112),Range: 0...255\nSpecification: 5...250
+003,3,Flap Position,Lower Stop,Specification: 5...50
+003,4,Flap Position,Upper Stop,Specification: 190...250
+;
+004,0,Footwell/Defroster Flap Motor (V85/G114)
+004,1,Measured Value,Potentiom. (G114),Range: 0...255\nTolerance (to Spec.): 3
+004,2,Specified Value,Potentiom. (G114),Range: 0...255\nSpecification: 5...250
+004,3,Flap Position,Lower Stop,Specification: 5...50
+004,4,Flap Position,Upper Stop,Specification: 190...250
+;
+005,0,Air Flow Flap Motor (V71/G113)
+005,1,Measured Value,Potentiom. (G113),Range: 0...255\nTolerance (to Spec.): 3
+005,2,Specified Value,Potentiom. (G113),Range: 0...255\nSpecification: 5...250
+005,3,Flap Position,Upper Stop,Specification: 5...30
+005,4,Flap Position,Lower Stop,Specification: 210...250
+;
+006,0,Temperatures I && Photo Sensor
+006,1,Calculated,Temperature,Calculated from temperature sensor (G89) and outside air temperature sensor (G17)
+006,2,Fresh Air Duct,Temperature (G89)
+006,3,Outside Air,Temperature (G17)
+006,4,Sunlight Photo,Sensor (G107),Range: 0.0...100.0 % (equals 4.5...0.5 V)
+;
+007,0,Temperatures II
+007,1,Center Vent (G191),Temperature
+007,2,Footwell (G192),Temperature
+007,3,Dash Panel (G56),Temperature 
+007,4,Coolant,Temperature
+;
+008,0,Voltages
+008,1,Fresh Air Blower,(V2 - specified),Display Range: 0 V = Blower Off / 3.6 V = Blower Speed 1 / 12 V = Blower Speed 7
+008,2,Fresh Air Blower,(V2 - actual),Specification: ± 0.8 V to Specification (in Field 1)
+008,3,Voltage,(Terminal 58d),Specification: 2.0...12.5 V
+008,4,Parking Light,(Terminal 58),Range: 0 = inactive | 1 = active
+;
+009,0,Vehicle Data
+009,1,Engine Speed
+009,2,Vehicle Speed
+009,3,Aux. Heating,,Range: 0 = inactive | 1 = active
+;
+010,1,Thermo Switch,Coolant Temp.,Specification: 0
+; 0 = Thermo Switch open (Coolant Temperature OK)
+; 1 = Thermo Switch closed (Coolant Temperature too High)
+010,2,Compressor,Intervention
+010,3,Pressure Switch,(F129)
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Heating/Air Condition (J255) Coding
+C01,00040 = 4-Cylinder Gasoline Engine (Left-Hand-Drive)
+C02,00041 = 4-Cylinder Gasoline Engine (Right-Hand-Drive)
+C03,00043 = 4-Cylinder Diesel Engine (Left-Hand-Drive)
+C04,00044 = 4-Cylinder Diesel Engine (Right-Hand-Drive)
+C05,00050 = 5-Cylinder Gasoline Engine (Left-Hand-Drive)
+C06,00051 = 5-Cylinder Gasoline Engine (Right-Hand-Drive)
+;

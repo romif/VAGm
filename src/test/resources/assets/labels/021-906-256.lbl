@@ -1,0 +1,74 @@
+;
+; VAG-COM Measuring Block Labels for
+; All OBD-I VR6, ECU p/n 021-906-256-xx
+;
+; Posted by GJ 5/15/2001
+; UNTESTED/UNVERIFIED
+; Many thanks to Edgardo for providing the Channel data
+;
+
+1,0,General Engine Data
+1,1,,Engine Speed
+1,2,Coolant,Temperature
+1,3,,O2 Sensor
+1,4,Ignition,Angle
+;
+2,0,General Engine Data
+2,1,,Engine Speed
+2,2,Injector,Period
+2,3,Battery,Voltage
+2,4,EGR,Temperature
+;
+3,0,General Engine Data
+3,1,,Engine Speed
+3,2,Injection, Period
+3,3,Throttle Angle,
+3,4,Intake Air,Temperature
+;
+4,0,General Engine Data
+4,1,Lambda, Regulation
+4,2,Lambda Learned, Part Load
+4,3,Lamda Learned, Idle
+4,4,Tank Vent, Oper.Mode (ACF)
+;
+5,0,Idle Control
+5,1,,Engine Speed
+5,2,Engine Load
+5,3,Road Speed
+5,4,Operating Mode
+;
+6,0,Fuel Trim
+6,1,,Engine Speed
+6,2,Idling Air Mass,Learnt Value
+6,3,Throttle VPOS,Duty Cycle Lval.
+6,4,AC Compressor, Status
+;
+7,0,General Engine Data
+7,1,,Engine Speed
+7,2,Engine Speed,Idle spec.
+7,3,Engine Speed,Idle spec.
+7,4,Lambda Probe, Voltage
+;
+9,0, Air Mass data
+9,1,,Engine Speed
+9,2,,Air Mass in
+9,3,Idling Air Mass, Learned value
+9,4,Idling Air Mass, Learned value
+;
+13,0, Airco Data
+13,1,AC Compressor, Status
+13,2,AC, Operating Mode
+13,3,Auto Gearbox, Mode
+13,4,,AC Compressor
+;
+98,0,Tbody data
+98,1,Throttle Valve, Voltage (G69)
+98,2,Throttle Valve, Sender (G127)
+98,3,Engine, Operating Mode
+98,4,,ADP Mode
+;
+99,0,General Engine Data
+99,1,,Engine Speed
+99,2,,Coolant Temp
+99,3,,Lamda Regul.
+99,4,Lamda Reg.,Oper.Mode

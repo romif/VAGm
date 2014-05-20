@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; Component: Navigation (#37)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-37.LBL
+; 8D-56.LBL
+; 4B0-035-192-RNSD-37.LBL
+; 4B0-035-192-RNSD-56.LBL
+;
+; created on 23/Feb/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4B0-035-192-RNSD-37.LBL,8D0-035-192-D   ; RNS-D
+REDIRECT,4B0-035-192-RNSD-37.LBL,8D0-035-192-E   ; RNS-D
+REDIRECT,4B0-035-192-RNSD-37.LBL,8D0-035-192-G   ; RNS-D
+;

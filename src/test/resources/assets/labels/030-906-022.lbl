@@ -1,0 +1,47 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Polo (80)
+;
+; Komponente: Motor (#01) - 1.3l/85kW (115PS) - PY (ab 01/1991)
+;
+; T/N: 030 906 022 C
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 06.04.2005
+;
+; benötigt mindestens VAG-COM 403.2 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+000,1,Ansauglufttemperatur,Sollwert: 10...190
+000,5,Lambdasonde,Sollwert: ~14 (schwanked)
+;
+001,1,Kühlmittel-,temperaur
+001,2,Motordrehzahl
+001,3,Lambdasonde
+001,4,Einspritzzeit
+;
+002,1,Kühlmittel-,temperaur
+002,2,Motordrehzahl
+002,4,Motorlast
+;
+003,1,Kühlmittel-,temperaur
+003,4,CO-Potentio-,meterspannung,Sollwert: 0.1...4.1 V
+;
+004,1,Kühlmittel-,temperaur
+004,2,Motordrehzahl
+004,4,Motorlast
+;
+005,1,Kühlmittel-,temperaur
+005,4,Batteriespannung
+;

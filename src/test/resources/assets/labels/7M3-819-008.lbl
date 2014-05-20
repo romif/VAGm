@@ -1,0 +1,46 @@
+;
+; VAG-COM Labeldatei
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Komponente: 604 - Zusatzheizung (#18)
+;
+; T/N: 7M3 819 008
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 21.10.2004
+;
+; benötigt VAG-COM 402.3 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Bordspannung,Kl. 30 an J162,Sollwert: 10.8...15.0 V
+001,2,Flammenwächter,G64,Wertebereich: -50...+550 °C
+001,3,Kühlmittel-,temperatur,Wertebereich: -40...+200 °C
+001,4,Überhitzungs-,fühler G189,Wertebereich: -40...+200 °C
+;
+002,0,Schaltzustände
+002,1,Schaltzustand,Vorwahluhr E111,Wertebereich: ein/aus
+002,2,Außentemperatur-,schalter F38,NUR TDI (Wertebereich: ein/aus)
+002,3,[N/A]
+002,4,[N/A]
+;
+003,0,Schaltzustände
+003,1,Verbrennungs-,luftgebläse V6,Wertebereich: ein/aus
+003,2,Glühkerze für,Heizung Q9,Wertebereich: ein/aus
+003,3,Dosierpumpe V54,,Wertebereich: ein/aus
+003,4,Frischluft-,gebläse V2,Wertebereich: Gebl. ein/Gebl. aus
+;
+004,0,Schaltzustände
+004,1,Umwälzumpe,V55,Wertebereich: Pumpe ein/Pumpe aus
+;

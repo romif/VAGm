@@ -1,0 +1,285 @@
+;
+; VAG-COM Measuring Block Labels for
+; Golf MK IV V5 Euro, ECU p/n 066-906-032-AK
+; By Pete Nicholson from Erwin Motronic Diagnostics Edition 10.00
+; 6 June 2002 10:19
+;
+;Lambda probe 1 is before cat, probe 2 after cat
+;FWD vehicles only have bank 1 exhaust
+;bank 1 is right exhaust (cyls 1 & 4), bank 2 is left exhaust (cyls 2,3 & 5) on 4WD vehicles
+;
+1,0,Basic Functions (4 4WD=Lambda B2  FWD=Readiness)
+1,1,Idle speed,650-750 rpm
+1,2,Coolant temp,80-110 °C
+1,3,Lambda B1,-10% to +10%
+1,4,B2/Readiness
+;
+2,0,Air Mass Meter
+2,1,Idle speed,650-750 rpm
+2,2,Engine load,12-26%
+2,3,Injection period,1.0-4.0 ms
+2,4,Air mass in,3.0-5.0 g/s
+;
+3,0,Air Mass Meter
+3,1,Idle speed,650-750 rpm
+3,2,Air mass In,3.0-5.0 g/s
+3,3,Throttle angle,0.2-4.0 %
+3,4,Ign angle,9-15° BTDC
+;
+4,0,Basic Functions
+4,1,Idle speed,650-750 rpm
+4,2,ECU supply,12.0-15.0 V
+4,3,Coolant temp,80-110°C
+4,4,Intake air temp,-48 to 143°C
+;
+5,0,Basic Functions
+5,1,Idle speed,650-750 rpm
+5,2,Engine load,10-26%
+5,3,Road speed
+5,4,Operating mode
+;
+6,0,Basic Functions
+6,1,Idle speed,650-750 rpm
+6,2,Engine load,10-26%
+6,3,Intake air temp,-48 to 143°C
+6,4,Alt corr fact,-50 to 20%
+;
+8,0,Vacuum Pump For Brakes (BASIC SETTINGS-foot on brake)
+8,1,Brake status,Dep/Op/Not Op
+8,2,Vac pump status,On/Off
+8,3,Servo press
+8,4,Test result,On/Off/Ok/Not Ok
+;
+10,0,Ignition
+10,1,Idle speed,650-750 rpm
+10,2,Engine load,12-26%
+10,3,Throttle angle,0.2-4.0 %
+10,4,Ign angle,9-15° BTDC
+;
+14,0,Ignition - Misfire recognition
+14,1,Idle speed,650-750 rpm
+14,2,Engine load,12-26%
+14,3,Misfire total
+14,4,Misfire recognition,Active/Blocked
+;
+22,0,Ignition - Knock Control
+22,1,Idle speed,650-6500 rpm
+22,2,Engine load,10-100%
+22,3,Cyl 1 retard,0-12°CA
+22,4,Cyl 2 retard,0-12°CA
+;
+23,0,Ignition - Knock Control
+23,1,Idle speed,650-6500 rpm
+23,2,Engine load,10-100%
+23,3,Cyl 3 retard,0-12°CA
+23,4,Cyl 4 retard,0-12°CA
+;
+24,0,Ignition - Knock Control
+24,1,Idle speed,650-6500 rpm
+24,2,Engine load,10-100%
+24,3,Cyl 5 retard,0-12°CA
+24,4,
+;
+28,0,Ignition - Knock Control
+28,1,Idle speed,2200-6500 rpm
+28,2,Engine load,10-100%
+28,3,Coolant temp,40-110 °C
+28,4,Knock test result,On/Off/Ok/Not Ok
+;
+30,0,Lambda Regulation Status 111 = Heating on/Ready/Regulation on
+30,1,Probe 1 Bank 1
+30,2,Probe 2 Bank 1
+30,3,Probe 1 Bank 2,4WD only
+30,4,Probe 2 Bank 2,4WD only
+;
+32,0,Lambda Regulation - Learnt Values
+32,1,P1 B1 add,-5.4 to 5.4%
+32,2,P 1 B1 mul,-10 to 10%
+32,3,P 1 B 2 add,-5.4 to 5.4%
+32,4,P 1 B 2 mul,-10 to 10%
+;
+33,0,Lambda Regulation Values
+33,1,Regulation bank 1,-10 to 10%
+33,2,Voltage P 1 B 1,1.4-1.6 V
+33,3,Regulation bank 2,-10 to 10%
+33,4,Voltage P 1 B 2,1.4-1.6 V
+;
+34,0,P1-B1 age check (BASIC SETTINGS-foot on brake-full throttle)
+34,1,Engine speed,1800 rpm
+34,2,Cat temp,min 350°C
+34,3,Dynamic factor,0-8
+34,4,Test result,On/off/Ok/Not Ok
+;
+35,0,P1-B2 age check (BASIC SETTINGS-foot on brake-full throttle)
+35,1,Engine speed,1800 rpm
+35,2,Cat temp,min 350°C
+35,3,Dynamic factor,0-8
+35,4,Result,Test on/Test off/Ok/Not Ok
+;
+39,0,Diag of probe interchanging (BASIC SETTINGS-foot on brake-full throttle)
+39,1,Engine speed,1800 rpm?
+;Possible Erwin error!, check data from car, g/s or rpm
+39,2,Probe bank 1,1.4-1.6 V
+39,3,Probe bank 2,1.4-1.6 V
+39,4,Test result,On/off/Ok/Not Ok
+;
+41,0,Lambda Probe Heating Bank 1 (Probe 1 before cat- Probe 2 after cat)
+41,2,Probe 1 bank 1,On/Off changing
+41,3,Probe resistance
+41,4,Probe 2 bank 1,On/Off changing
+;
+42,0,Lambda Probe Heating Bank 1 (Probe 1 before cat- Probe 2 after cat)
+42,2,Probe 1 bank 2,On/Off changing
+42,3,Probe resistance
+42,4,Probe 2 bank 2,On/Off changing
+;
+43,0,P2-1 age check (BASIC SETTINGS-foot on brake-full throttle)
+43,1,Engine speed,1800 rpm
+43,2,Cat temp,min 350°C
+43,3,Probe 2 bank 1,0.00-1.00 V
+43,4,Test result,On/off/Ok/Not Ok
+;
+44,0,P2-2 age check (BASIC SETTINGS-foot on brake-full throttle)
+44,1,Engine speed,1800 rpm
+44,2,Cat temp,min 350°C
+44,3,Probe 2 bank 2,0.00-1.00 V
+44,4,Test result,On/off/Ok/Not Ok
+;
+46,0,Cat diagnosis (BASIC SETTINGS-foot on brake-full throttle)
+46,1,Engine speed,1800 rpm
+46,2,Cat temp,min 350°C
+46,3,Cat B1 effect,min 1%
+46,4,Test result,On/off/Ok/Not Ok
+;
+47,0,Cat diagnosis (BASIC SETTINGS-foot on brake-full throttle)
+47,1,Engine speed,1800 rpm
+47,2,Cat temp,min 350°C
+47,3,Cat B2 effect,min 1%
+47,4,Test result,On/Off/Ok/Not Ok
+;
+50,0,Speed Regulation - Operation condition
+50,1,Idle speed,650-750 rpm
+50,2,Idle specified,700rpm
+50,3,Air con,High/Low
+50,4,A/C compressor,On/Off
+;
+54,0,Speed Regulation
+54,1,Engine speed,650-2520 rpm
+54,2,Operating mode,idle/part/acc/over
+54,3,Accel position,0-97%
+54,4,Throttle valve angle,0-100%
+;
+55,0,Idling stabilisation -/-/AC Sys/In Gear/AC Comp
+55,1,Engine speed,650-750 rpm
+55,2,Idling reg,-5.0 to 10.0%
+55,3,Idle learnt,-5.0 to 10.0%
+55,4,Op mode,see above
+;
+56,0,Idling speed stabilisation -/-/AC Sys/In Gear/AC Comp
+56,1,Engine speed,650-750 rpm
+56,2,Idle specified,700rpm
+56,3,Idling reg,-5.0 to 10.0%
+56,4,Op mode,see above
+;
+60,0,Adaption of elec. acc. (BASIC SETTINGS starts adaption)
+60,1,Throttle pot 1,3-93%
+60,2,Throttle pot 2,97-3%
+60,3,Learning step,0-8
+60,4,Adaption,Run/Ok/Error
+;
+61,0,Electronic accelerator -/-/AC Sys/In Gear/AC Comp
+61,1,Engine speed,650-6500 rpm
+61,2,ECU supply,12.0-15.0 V
+61,3,Throttle pot 1,0-100%
+61,4,Op mode,see above
+;
+62,0,Electronic accelerator
+62,1,Throttle pot 1,3-93%
+62,2,Throttle pot 2,97-3%
+62,3,Acc pedal S1,12-97%
+62,4,Acc pedal S2,4-49%
+;
+66,0,Cruise control system 2=CCS op/clutch/brake ped sw/brake light sw
+66,1,Road speed,km/h
+66,2,Switches,see above
+66,3,Specified speed,km/h
+66,4,CCS switches,see doc
+;1=CCS switch at RES;1=SET button dep;0=CCS slide off & locked;0=CCS slide off locked only-not locked=1
+;
+70,0,Charcoal filter (BASIC SETTINGS to run test)
+70,1,Sol valve 1 duty,0-100%
+70,2,Lambda deviation,-7 to 7%
+70,3,
+70,4,Test result,On/Off/Ok/Not Ok
+;
+77,0,Secondary air system bank 1 (BASIC SETTINGS to run test)
+77,1,Engine speed,650-750 rpm
+77,2,Air mass in,3.0-5.0 g/s
+77,3,Sec air mass,4.0-10.0 g/s
+77,4,Test result,On/Off/Ok/Not Ok
+;
+78,0,Secondary air system bank 2 (BASIC SETTINGS to run test)
+78,1,Engine speed,650-750 rpm
+78,2,Air mass in,3.0-5.0 g/s
+78,3,Sec air mass,4.0-10.0 g/s
+78,4,Test result,On/Off/Ok/Not Ok
+;
+80,0,Control module ID
+80,1,Man. code
+80,2,Man. date
+80,3,Man. status
+80,4,
+;
+81,0,VIN & Immo ID (if Immo-3)???
+81,1,VIN
+81,2,Serial no.
+81,3,Type test no.
+81,4
+;
+82,0,VIN & Immo ID (if Immo-3)???
+82,1,Flash tool code
+82,2,Flash date
+82,3,Hardware
+82,4,Software
+;
+90,0,Exhaust camshaft (whilst driving)
+90,1,Engine speed,650-6500 rpm
+90,2,Cam adj,On/Off
+90,3,Cam adj angle,0-22°CA
+90,4
+;
+91,0,Inlet camshaft (whilst driving)
+91,1,Engine speed,650-6500 rpm
+91,2,Duty cycle,0-100%
+91,3,Spec cam adj ang,0-52°CA
+91,4,Act cam adj angle,0-52°CA
+;
+95,0,Intake manifold change over (whilst driving)
+95,1,Engine speed,650-6500 rpm
+95,2,Engine load,0-120%
+95,3,Coolant temp,80-110°C
+95,4,Sw over status,On/Off
+;
+120,0,Traction control (whilst driving)
+120,1,Engine speed,650-6500 rpm
+120,2,Spec eng load,0-346 Nm
+120,3,Meas eng load,0-150 Nm
+120,4,TC status,Active/Inactive
+;
+122,0,Auto gearbox (whilst driving)
+122,1,Engine speed,650-6500 rpm
+122,2,Spec g/b torque,0-399 Nm
+122,3,Act eng load,0-260 Nm
+122,4,Status,Torque red/not red
+;
+125,0,Communication data bus messages  1=Ok 0=Fault
+125,1,
+125,2,ABS system,ABS 1
+125,3,Combi inst,Combi 1
+125,4,
+;
+126,0,Communication data bus messages  1=Ok 0=Fault
+126,1,
+126,2,
+126,3,Air bag,Airbag 1
+126,4,

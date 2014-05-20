@@ -1,0 +1,432 @@
+;
+; VCDS Label File
+;
+; Audi A6 (4B)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 4B0-920-???-???
+;
+; includes measuring blocks, adaptation, coding and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4B-17.LBL
+; 4B0-919-xxx-17.LBL
+; 4B0-920-xxx-17.LBL
+;
+; created on 31/Mar/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 08/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Speed / Engine speed / Oil pressure / Time
+001,1,Speed
+001,2,Engine Speed
+001,3,Oil pressure, 0.9 bar
+001,4,Time
+;
+002,0,Distance / Fuel / Ambient temperature
+002,1,Odometer
+002,2,Fuel level (l)
+002,3,Fuel Sender,Resistance
+002,4,Ambient,temperature
+;
+003,0,Coolant temprature
+003,1,Coolant,temperature
+003,2,[N/A]
+003,3,[N/A]
+003,4,[N/A]
+;
+010,0,Adaptation channels
+010,1,Channel 30
+010,2,Adaptation of,tank sensor
+010,3,Channel 9
+010,4,Kilometer,,Resolution: 0.1
+;
+011,0,Adaptation channels
+011,1,Channel 4
+011,2,Language,variations,see adaptation channels
+011,3,Channel 3
+011,4,Consumption,correction
+;
+012,0,Adaptation channels
+012,1,Channel 40
+012,2,Distance traveled,as of insp.,Resolution: 0.01
+012,3,Channel 41
+012,4,Time as of,inspection
+;
+013,0,Adaptation channels
+013,1,Channel 42
+013,2,Min. value km
+013,3,Channel 43
+013,4,Max. value km
+;
+014,0,Adaptation channels
+014,1,Channel 44
+014,2,Max. time,interval
+014,3,[N/A]
+014,4,[N/A]
+;
+015,0,Adaptation channels
+015,1,Channel 45
+015,2,Oil quality
+015,3,Channel 46
+015,4,Consumption,quantity
+;
+016,1,Channel 47
+016,2,Soot Entry
+016,3,Channel 48
+016,4,Thermal Load
+;
+020,0,Immobilizer - ID Block 1
+020,1,Digit 1 && 2
+020,2,Digit 3 && 4
+020,3,Digit 5 && 6
+020,4,Digit 7 && 8
+;
+021,0,Immobilizer - ID Block 2
+021,1,Digit 9 && 10
+021,2,Digit 11 && 12
+021,3,Digit 13 && 14
+021,4,[N/A]
+;
+022,0,Immobilizer
+022,1,Starting,permitted
+022,2,Engine (ECM),responds
+022,3,Key condition,OK
+022,4,Number of,keys coded
+;
+023,0,Immobilizer
+023,1,Variable code,authorized
+023,2,Key status,(transponder)
+023,3,Fixed code,authorized
+023,4,Immobilizer,status,see labelfile
+; 4 - new customer service - delivery condition (replacement part instrument cluster)
+; 5 - customer service locked - adaptation data programmed in customer service
+; 6 - immobilizer adapted - normal function condition
+; 7 - key adaptation active - key adaptation via tester
+;
+024,0,Immobilizer - locking periods
+024,1,Instrument,cluster
+024,2,Engine control, module (ECM)
+024,3,Emergency,release
+024,4,Transponder,recognition
+;
+025,0,CAN-Communication
+025,1,CAN-communication,to ECM
+025,2,[N/A]
+025,3,[N/A]
+025,4,[N/A]
+;
+050,0,Misc values
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil,temperature
+050,4,Coolant,temperature
+;
+125,0,CAN-Databus communication (Powertrain)
+125,1,Engine
+125,2,Transmission
+125,3,ABS
+125,4,ADR
+;
+126,0,CAN-Databus communication (Powertrain)
+126,1,A/C
+126,2,[N/A]
+126,3,[N/A]
+126,4,All wheel
+;
+130,0,CAN-Databus communication (Comfort)
+130,1,Tire,pressure
+130,2,Auxiliary,heater
+130,3,[N/A]
+130,4,Parking,assistance
+;
+140,0,CAN-Databus communication (Infotainment)
+140,1,Radio
+140,2,Telephone
+140,3,Navigation
+140,4,Telematic
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??xxx: Options
+C02,+01 = Larger Fuel Tank (82 instead of 70 Liters)
+C03,+02 = Seatbelt Warning active
+C04,+04 = A6 Allroad quattro
+C05,xx?xx: Country
+C06,0 - Germany / 1 - Rest of the world (left hand) / 2 - USA / 3 - Canada
+C07,4 - Great Britain / 5 - Japan (left hand) / 6 - Arab states
+C08,7 - Australia / 8 - Rest of the world (right hand) / 9 - Japan (right hand)
+C09,xxx?x: Engine I (Cylinders)
+C10,4 = 4-Cylinder Engine
+C11,6 = 6-Cylinder Engine
+C12,8 = 8-Cylinder Engine
+C13,xxxx?: Engine II (Type)
+C14,0 = TDI-Engine
+C15,2 = 6-Cylinder Gasoline Engine
+C16,3 = 8-cylinder Gasoline Engine
+C17,4 = Turbo charged Gasoline Engine
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A2,0,Service reminder
+A2,5,Service reminder reset
+A2,6,displayed values:
+A2,7,0 - no service
+A2,8,1 - service
+A2,9, 
+A2,10,reset:
+A2,11,0 - Service reminder reset
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A4,0,Language for error messages and navigation
+A4,5,Language for error messages and navigation
+A4,6,1 - German
+A4,7,2 - English
+A4,8,3 - French
+A4,9,4 - Italian
+A4,10,5 - Spanish
+A4,11,6 - Portuguese
+A4,12,8 - Czech
+;
+A9,0,Dinstance (in 10km)
+A9,5,Distance changing
+A9,6,Before the cluster accepts the new
+A9,7,distance you have to login using 13861.
+A9,8, 
+A9,9,The distance can only be changed until
+A9,10,the current value is not over 100km.
+;
+A18,0,Auxiliary heater
+A18,5,Auxiliary heater
+A18,6,00000 - without auxiliary heater
+A18,7,00001 - with auxiliary heater (independent from running engine)
+A18,8,00010 - with auxiliary heater (switches off when engine is off)
+;
+A19,0,Additional Features
+A19,5,Additional Features
+A19,6,?xxxx: Illumination Options (MY 2002 >)
+A19,7,0 = Needle and scala only active at 'Light on"
+A19,8,1 = Needle already active at 'Ignition on'
+A19,9,2 = Scale already active at 'Ignition on'
+A19,10,3 = Scala (2. map) and needle at "ignition on" active
+A19,11,xxx?x: Ambient Temperature Display (0 = active / 1 = inactive)
+A19,12,xxxx?: Remote Clock (0 = inactive / 1 = active)
+;
+A30,0,Tank characteristic
+A30,5,Tank characteristic
+A30,6,Parallel shift of tank characteristic by +/- 32 Ohm
+A30,7, 
+A30,8,Value range: 96...160
+;
+A33,0,Fuel tank "full" indicator
+A33,5,Fuel tank "full" indicator (> MY 2002)
+A33,6,Fuel tank "Full" indicator can be corrected if the readout
+A33,7,does not correctly show "Full" when the tank is in fact full.
+A33,8, 
+A33,9,Value range: 12...144
+;
+A35,0,Speed threshold
+A35,5,Speed threshold
+A35,6,Value for speed threshold of dynamic oil pressure system
+A35,7,from 0 to 1000 RPM in increments from 250 RPM.
+;
+A40,0,Distance from inspection
+A40,5,Distance from inspection
+A40,6,Resolution: 1 = 100 km
+A40,7, 
+A40,8,NOTE: Adaptation channels 40-48 must be
+A40,9,entered and stored in the following order:
+A40,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A41,0,Time from inspection
+A41,5,Time from inspection
+A41,6, 
+A41,7,NOTE: Adaptation channels 40-48 must be
+A41,8,entered and stored in the following order:
+A41,9,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A42,0,Minimum value mileage
+A42,5,Minimum value mileage
+A42,6,Resolution: 1 = 1000 km
+A42,7, 
+A42,8,NOTE: Adaptation channels 40-48 must be
+A42,9,entered and stored in the following order:
+A42,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A43,0,Maximum value mileage
+A43,5,Maximum value mileage
+A43,6,Resolution: 1 = 1000 km
+A43,7, 
+A43,8,NOTE: Adaptation channels 40-48 must be
+A43,9,entered and stored in the following order:
+A43,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A44,0,Maximum time interval
+A44,5,Maximum time interval
+A44,6, 
+A44,7,NOTE: Adaptation channels 40-48 must be
+A44,8,entered and stored in the following order:
+A44,9,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A45,0,Oil quality
+A45,5,Oil quality
+A45,6,Range: 1...4
+A45,7, 
+A45,8,NOTE: Adaptation channels 40-48 must be
+A45,9,entered and stored in the following order:
+A45,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A46,0,Total consumption amount (Gas only)
+A46,0,Total consumption amount (Gas only)
+A46,6, 
+A46,7,NOTE: Adaptation channels 40-48 must be
+A46,8,entered and stored in the following order:
+A46,9,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A47,0,Soot entry (Diesel only)
+A47,5,Soot entry (Diesel only)
+A47,6,Resolution: 1 = 100 km
+A47,7, 
+A47,8,NOTE: Adaptation channels 40-48 must be
+A47,9,entered and stored in the following order:
+A47,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A48,0,Thermal load (Diesel only)
+A48,5,Thermal load (Diesel only)
+A48,6,Resolution: 1 = 100 km
+A48,7, 
+A48,8,NOTE: Adaptation channels 40-48 must be
+A48,9,entered and stored in the following order:
+A48,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A60,0,Powertrain CAN-Databus
+A60,5,Powertrain CAN-Databus
+A60,6,+0001 - Engine
+A60,7,+0002 - Autom. Transmission
+A60,8,+1024 - Instrument cluster
+A60,9,+2048 - Self leveling suspension (Allroad only)
+;
+A61,0,Comfort CAN-Databus
+A61,5,Comfort CAN-Databus
+A61,6,+00256 - Instrument cluster
+A61,7,+00512 - Tire pressure
+A61,8,+16384 - Parking assistance
+A61,9,+32768 - Auxiliary heating
+;
+A62,0,Infotainment CAN-Databus
+A62,5,Infotainment CAN-Databus
+A62,6,+01 = Radio
+A62,7,+02 = Telematics (North America) without Multi-Function Steering Wheel
+A62,8,+04 = Navigation
+A62,9,+08 = Telematics (Rest of World) without Multi-Function Steering Wheel
+A62,7,+10 = Telematics (Rest of World) with Multi-Function Steering Wheel
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,1000,DIST
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+;
+RJ,0,0,Service Reset
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals (Kilometers)
+RJ,1,1,45,1
+RJ,1,2,42,15
+RJ,1,3,43,15
+RJ,1,4,44,365
+;
+RJ,2,0,Change to Fixed Intervals (Miles/USA)
+RJ,2,1,45,1
+RJ,2,2,42,9
+RJ,2,3,43,9
+RJ,2,4,44,365
+;
+RJ,3,0,Change to Fixed Intervals (Miles/Rest of World)
+RJ,3,1,45,1
+RJ,3,2,42,10
+RJ,3,3,43,10
+RJ,3,4,44,365
+;
+RJ,4,0,Change to Flexible Intervals (Kilometers/Gasoline)
+RJ,4,1,45,2
+RJ,4,2,42,15
+RJ,4,3,43,30
+RJ,4,4,44,730
+;
+RJ,5,0,Change to Flexible Intervals (Kilometers/4-Cyl. Diesel)
+RJ,5,1,45,4
+RJ,5,2,42,15
+RJ,5,3,43,50
+RJ,5,4,44,730
+;
+RJ,6,0,Change to Flexible Intervals (Kilometers/6-Cyl. Diesel)
+RJ,6,1,45,3
+RJ,6,2,42,15
+RJ,6,3,43,35
+RJ,6,4,44,730
+;
+RJ,7,0,Change to Flexible Intervals (Miles/Gasoline)
+RJ,7,1,45,2
+RJ,7,2,42,10
+RJ,7,3,43,19
+RJ,7,4,44,730
+;
+RJ,8,0,Change to Flexible Intervals (Miles/4-Cyl. Diesel)
+RJ,8,1,45,4
+RJ,8,2,42,10
+RJ,8,3,43,31
+RJ,8,4,44,730
+;
+RJ,9,0,Change to Flexible Intervals (Miles/6-Cyl. Diesel)
+RJ,9,1,45,3
+RJ,9,2,42,10
+RJ,9,3,43,22
+RJ,9,4,44,730
+;

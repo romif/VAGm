@@ -1,0 +1,127 @@
+;
+; VAG-COM label file
+;
+; Seat Cordoba (6K) / VW Golf (1H) / VW Golf Cabriolet (1E)
+; VW Passat (3A) / VW Polo (6V)
+;
+; component: Engine (#01) - AFT/AKS
+;
+; p/n: 037-906-025 AA/J/K/T
+;      06K-906-025 A/E/G/L
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 1L-01.LBL
+; 6K-01.LBL
+; 037-906-025-AFT.LBL (1.6l E   @ 100 HP - AFT/AKS)
+;
+: created on 22/June/2001 by Chris Gaskell (chrisgaskell@yahoo.com)
+; updated/enhanced on 13/April/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 04/13/2005
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+000,0,Basic Functions
+000,1,Intake Air Temperature,Specification: 70...160 (4.5...72.0 °C)
+000,2,Battery Voltage,Specification: 115...161 (12.0..16.5 V)
+000,3,Coolant Temperatur,Speciication: 120...150 (80...110 °C)
+000,4,Engine Load,Specification: 30...45 (11.7...17.5 %)
+000,5,Lambda Sensor Voltage,Specification: 10...50 (0.20...1.00 V)
+000,6,Lambda Sensor (learning value),Specification: 0...20 (0...0.64 ms)
+000,7,Operating Condition
+000,8,Throttle Valve Angle,Specification: 5...11 (2.5...4.7 <°)
+000,9,Injection Time,Specification: 2...4 (2...4 ms)
+000,10,Engine Speed,Specification: 24...28 (768...896 RPM)
+;
+001,0,Basic Functions (Basic Setting: Throttle Body Alignment [TBA])
+001,1,Engine Speed,,Specification: 780...880 RPM
+001,2,Coolant,Temperature,Specification: 80...110 °C
+001,3,Lambda Sensor,Voltage,Specification: 0.2...1.0 V
+001,4,Adjustment,Conditions,Specification: 00000010
+; 1xxxxxxx - Malfunction detected
+; x1xxxxxx - Signal from autom. transmission
+; xx1xxxxx - A/C system active
+; xxx1xxxx - Idling switch open
+; xxxx1xxx - Fault in lambda control
+; xxxxx1xx - Throttle valve opened
+; xxxxxx1x - Engine running
+; xxxxxxx1 - Coolant temperature below 80 °C
+;
+002,0,Basic Functions
+002,1,Engine Speed,,Specification: 780...880 RPM
+002,2,Injection Time,,Specification: 2...4 ms
+002,3,Battery,Voltage,Specification: 12.0...16.5 V
+002,4,Intake Air,Temperature,Specification: 20...70 °C
+;
+003,0,Basic Functions
+003,1,Engine Speed,,Specification: 780...880 RPM
+003,2,Engine Load,,Specification: 12...17 %
+003,3,Throttle Valve,Angle,Specification: 3.0...4.5 <°
+003,4,Thottle Valve,(duty cycle),Specification: 10...20 %
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification: 780...880 RPM
+004,2,Engine Load,,Specification: 12...17 %
+004,3,Vehicle Speed,,Specification: 0 km/h
+004,4,Operating,Conditions,Specification: 01000000
+; 1xxx---- - Overrun
+; x1xx---- - Idling
+; xx1x---- - Partial Load
+; xxx1---- - Full Load
+;
+005,0,Throttle Control (Lambda Control)
+005,1,Engine Speed,,Specification: 780...880 RPM
+005,2,Charcoal Valve,(duty cycle),Specification: 7...9 %
+005,3,Fuel Consumption
+005,4,Operating,Condition,Specification: 0000101x
+; 1--xxxxx - Coding for Syncro
+; x--1xxxx - Lambda control at limit
+; x--x1xxx - Lambda control active
+; x--xx1xx - Faul in fault memory
+; x--xxx1x - Lambda probe ready
+; x--xxxx1 - Rich mixture
+;
+006,0,Learning Values (Lambda/Throttle)
+006,1,Lambda control,(additive),Specification:  0.00...0.60 ms
+006,2,lambda control,(multipl.),Specification:  0.90...1.10
+006,3,Throttle valve,(idle control),Specification: 0.90...1.10
+006,4,Throttle valve,(idle control),autom. transmission (Specification: 0.90...1.10)
+;
+007,0,Hall Sender/Altitude Correction
+007,1,Coordination,Hall Sender,Specification: 57...60 or 1.0
+007,2,Coordination,Hall Sender,Specification: 5...8
+007,3,Altitude,Correction,Specification: 0.80...1.20
+007,4,Operating,Condition,Specification: 00000000
+; 1-xx-xxx - Mechanical emergency running
+; x-1x-xxx - Adaptation necessary
+; x-x1-xxx - Adaptation necessary
+; x-xx-1xx - Adaptation terminated (battery voltage to low)
+; x-xx-x1x - Adaptation terminated (time exceeded)
+; x-xx-xx1 - Idle switch open
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Engine Control Unit - Coding
+C1,00000 - Manual Transmission
+C2,00001 - Autom. Transmission
+C3,00002 - Syncro (All-Wheel-Drive)
+;

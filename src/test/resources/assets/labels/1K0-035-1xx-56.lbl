@@ -1,0 +1,196 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Skoda Octavia II (1Z)
+; VW Caddy (2K) / VW Fox (5Z) / VW Golf/Jetta (1K) / VW Touran (1T)
+;
+; Component: R - Radio (#56)
+;
+; includes measuring blocks, adaptation and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-56.LBL
+; 1Z-56.LBL
+; 5M-56.LBL
+; 5P-56.LBL
+; 5Z-56.LBL
+; 7H-56.LBL
+; 1K0-035-1xx-56.LBL
+; 7H0-035-1xx-56.LBL
+;
+; created on 23/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/Mar/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Supply Voltage,(Terminal 30),Specification: 5...18 V
+001,2,Amplifier,Output,only if Amplifier installed
+001,3,Dimming,Terminal 58d (CAN),Specification: 29.0...98.0 %
+001,4,Status,S-Contact (CAN),Range: ON/OFF
+;
+002,0,Telephone
+002,1,Component
+002,2,Mute Status
+002,4,Status
+;
+003,0,Speaker/Line-Out (Front Left)
+003,1,Location/Type
+003,2,Status
+;
+004,0,Speaker/Line-Out (Front Right)
+004,1,Location/Type
+004,2,Status
+;
+005,0,Speaker/Line-Out (Rear Left)
+005,1,Location/Type
+005,2,Status
+;
+006,0,Speaker/Line-Out (Rear Right)
+006,1,Location/Type
+006,2,Status
+;
+007,0,Remote Feed Antenna I
+007,1,Antenna Type
+007,2,Component
+007,3,Status
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+008,3,Signal Strength
+008,4,Signal Strength,Tuner II
+;
+010,0,Remote Feed Antenna II
+010,1,Type
+010,2,Component
+010,3,Status
+;
+011,0,Communication Status CD-Changer (R41)
+011,1,Component
+011,2,Status
+;
+016,0,CAN Connection Satelite Radio Receiver (SDARS)
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status
+; 01 = Button(s) Jam
+; 02 = Checksum Error ROM/EPROM/Flash-ROM
+; 03 = Writing Error EEPROM
+; 04 = CC-Drive (Casette) Error
+; 05 = CD/DVD-Drive Error
+; 09 = Malfunction at CD/DVD-Drive
+; 0A = Internal Communication (BUS)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A01,0,Reception Optimization
+A01,5,Reception Optimization
+A01,6,This channel allows optimization of the reception
+A01,7,behavior for areas with strong FM interference.
+A01,8, 
+A01,9,0 - Normal reception
+A01,10,1 - Optimized reception
+;
+A010,0,Remote Control
+A010,5,Remote Control
+A010,6,0 = Playback disabled
+A010,7,1 = Playback enabled
+A010,8, 
+A010,9,Note: After closing the Diagnostic Session/Communication
+A010,10,the Standard Value 0 is automatically being restored.
+;
+A011,0,Remote Control: Source
+A011,5,Remote Control: Source
+A011,6,0 = FM
+A011,7,1 = AM
+A011,8, 
+A011,9,Note: After closing the Diagnostic Session/Communication
+A011,10,the Standard Value 0 is automatically being restored.
+;
+A012,0,Remote Control: Frequency FM
+A012,5,Remote Control: Frequency FM
+A012,6,The Frequency Adjustment is being carried out
+A012,7,incrementally starting with 0 = 88.3 MHz.
+A012,8, 
+A012,9,Note: After closing the Diagnostic Session/Communication
+A012,10,the Standard Value 0 is automatically being restored.
+;
+A013,0,Remote Control: Frequency AM
+A013,1,Remote Control: Frequency AM
+A013,6,The Frequency Adjustment is being carried out
+A013,7,incrementally starting with 0 = 540 kHz.
+A013,8, 
+A013,9,Note: After closing the Diagnostic Session/Communication
+A013,10,the Standard Value 0 is automatically being restored.
+;
+A014,0,Remote Control: Volume
+A014,5,Remote Control: Volume
+A014,6,Range: 0...100
+A014,7,Standard: 40
+A014,8, 
+A014,9,Note: After closing the Diagnostic Session/Communication
+A014,10,the Standard Value 0 is automatically  being restored.
+;
+A015,0,Remote Control: Balance
+A015,5,Remote Control: Balance
+A015,6,Note: After closing the Diagnostic Session/Communication
+A015,7,the Standard Value 0 is automatically  being restored.
+;
+A016,0,Remote Control: Fader
+A016,1,Remote Control: Fader
+A016,6,Note: After closing the Diagnostic Session/Communication
+A016,7,the Standard Value 0 is automatically  being restored.
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Radio (R) Coding
+C01,00?xxxx: Treble Speaker Monitoring
+C02,1 = Front and Rear Monitoring inactive
+C03,2 = Front Monitoring active / Rear Monitoring inactive
+C04,3 = Front Monitoring inactive / Rear Monitoring active
+C05,4 = Front and Rear Monitoring active
+C06,00x?xxx: Radio Configuration I
+C07,+2 = CAN-Telephone Control
+C08,00xx?xx: Speaker Channels
+C09,0 = No passive Speakers (Sound System)
+C10,2 = 2 passive Speakers Front and 0 passive Speakers Rear
+C11,4 = 4 passive Speakers
+C12,00xxx?x: Sound System Correction
+C13,0 = No Sound System (No Correction)
+C14,1 = Sound System with Cloth Interior (with Open Circuit Recognition)
+C15,2 = Sound System with Leather Interior (with Open Circuit Recognition)
+C16,3 = Sound System with Cloth Interior (without Open Circuit Recognition)
+C17,00xxxx?: Radio Configuration II
+C18,+1 = Active/Remote Supplied Antenna
+C19,+2 = CD-Changer/iPod-Connection
+C20,+4 = CAN-Secondary Display (Board Computer/large Display)
+;

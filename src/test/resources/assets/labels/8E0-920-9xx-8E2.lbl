@@ -1,0 +1,508 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A4 (8E2/8E5)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8E0-920-9??-??
+;
+; includes measuring blocks, adaptation, coding, login
+;          and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-17.LBL
+; 8E0-920-9xx-8E2.LBL
+; 8E0-920-9xx-8EC.LBL
+;
+; created on 20/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2,Range: Oil Pr. 2 <min / Oil Pr. 2 OK
+001,4,Time
+;
+002,0,General
+002,1,Odometer
+002,2,Remote Clock,Receiver Status,Range: OK/not OK
+002,3,Comfort-CAN,Information,xx0 - Left-Hand-Drive (LHD)\nxx1 - Right-Hand-Drive (RHD)\nx1x - 4-Door\n1xx - Temperature Display in °F
+002,4,Outside,Temperature
+;
+003,0,General
+003,1,Coolant,Temperature
+003,2,Standing Time
+003,3,Dimming Signal,(Terminal 58d)
+003,4,Dimming Signal,(Terminal 58s)
+;
+004,0,Fuel Level Sensor
+004,1,Fuel Display,(1st Sensor)
+004,2,Fuel Sensor,(1st Sensor)
+004,3,Fuel Display,(2nd sensor),All-Wheel-Drive only
+004,4,Fuel Sensor,(2nd sensor),All-Wheel-Drive only
+;
+005,0,Service Reminder
+005,1,Distance,before/after Service,Unit: 100 km
+005,2,Time,before/after Service,Unit: 1 day(s)
+005,3,Engine Hood,Contact,Range: Open/Closed
+005,4,Calculated,Service Interval
+;
+006,0,Oil Level I
+006,1,Min. Oil Level,in Service Interval
+006,2,Max. Oil Level,in Service Interval
+006,3,100 km Average,Oil Level Dif.
+;
+007,0,Oil Level II
+007,1,Current,Oil Level
+007,2,Oil Level,Threshold,Current Value from ECU
+;
+010,0,Adaptation Channels 30 && 09
+010,1,Adaptation,Channel
+010,2,Fuel Gauge,Sender 1,See Adaptation Channel 30
+010,3,Adaptation,Channel
+010,4,Mileage,,See Adaptation Channel 09
+;
+011,0,Adaptation Channels 04 && 03
+011,1,Adaptation,Channel
+011,2,Language,,See Adaptation Channel 04
+011,3,Adaptation,Channel
+011,4,Consumption,Correction,See Adaptation Channel 03
+;
+012,0,Adaptation Channels 40 && 41
+012,1,Adaptation,Channel
+012,2,Mileage,since Service,See Adaptation Channel 40
+012,3,Adaptation,Channel
+012,4,Time,since Service,See Adaptation Channel 41
+;
+013,0,Adaptation Channels 42 && 43
+013,1,Adaptation,Channel
+013,2,Minimum Mileage,to Service,See Adaptation Channel 42
+013,3,Adaptation,Channel
+013,4,Maximum Mileage,to Service,See Adaptation Channel 43
+;
+014,0,Adaptation Channel 44
+014,1,Adaptation,Channel
+014,2,Maximum Time,to Service,See Adaptation Channel 44
+;
+015,0,Adaptation Channels 45 && 46
+015,1,Adaptation,Channel
+015,2,Oil Quality,,See Adaptation Channel 45
+015,3,Adaptation,Channel
+015,4,Total,Consumption,See Adaptation Channel 46
+;
+016,0,Adaptation Channels 47 && 48
+016,1,Adaptation,Channel
+016,2,Soot Entry,,See Adaptation Channel 47
+016,3,Adaptation,Channel
+016,4,Thermal Load,,See Adaptation Channel 48
+;
+017,0,Adaptation Channels 60 && 61
+017,1,Adaptation,Channel
+017,2,CAN-Databus,Powertrain,See Adaptation Channel 60
+017,3,Adaptation,Channel
+017,4,CAN-Databus,Comfort,See Adaptation Channel 61
+;
+018,0,Adaptation Channel 62
+018,1,Adaptation,Channel
+018,2,CAN-Databus,Infotainment,See Adaptation Channel 62
+;
+019,0,Adaptation Channels 18 && 19
+019,1,Adaptation,Channel
+019,2,Auxiliary,Heater,See Adaptation Channel 018
+019,3,Adaptation,Channel
+019,4,Remote Control,Clock Synchron.,See Adaptation Channel 019
+;
+022,0,Immobilizer I
+022,1,Engine Start,permitted,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+022,2,Engine (ECU),responds,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+022,3,Key Status,,Specification: 1 = Key OK\nRange: 0 = Key not OK / 1 = Key OK
+022,4,Number of,adapted Keys,Specification: 1...8
+;
+023,0,Immobilizer II
+023,1,Variable Code,authorized,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+023,2,Key Status,(Transponder),Range: 0 = Not Locked / 1 = Locked
+023,3,Fixed Code,authorized,Specification: 1 = Yes\nRange: 0 = No / 1 = Yes
+023,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 4 - New Customer Service / Delivery Condition (Replacement Instrument Cluster)
+; 5 - Customer Service locked / Adaptation Data Programmed in Customer Service
+; 6 - Immobilizer adapted / Normal Function Condition
+; 7 - Key Adaptation active
+;
+024,0,Immobilizer III
+024,1,Lock-Time,Instrument Cluster
+024,2,Lock-Time,Engine (ECU)
+024,3,Lock-Time,Emergency Unlock
+024,4,Lock-Time,Transponder
+;
+050,0,General
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN) & Serial Number
+;
+082,0,Advanced Control Module Identification III
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 0/Engine 1
+125,2,Transmission
+125,3,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 0/ABS 1
+;
+130,0,CAN-Databus Communication (Comfort)
+130,2,Auxiliary,Heating (J604),Specification: Aux. Htg 1\nRange: Aux. Htg 1/Aux. Htg 0
+130,3,Comfort System,(J393),Specification: Central 1\nRange: Central 0/Central 1
+;
+131,0,CAN-Databus Communication (Comfort)
+131,1,Central Electronics,(J519),Specification: Cent Elec 1\nRange: Cent Elec 0/Cent Elec 1
+131,2,Steering Column,Electronics (J527),Specification: St. Wheel 1\nRange: St. Wheel 0/St. Wheel 1
+131,3,Climate Control,(J255),Specification: A/C 1\nRange: A/C 0/A/C 1
+131,4,Status,CAN-Comfort,Specification: 2-Wire\nRange: 1-Wire/2-Wire
+;
+132,0,CAN-Databus Communication (Comfort)
+132,1,Convertible Top
+;
+140,0,CAN-Databus Communication (Infotainment)
+140,1,Radio,,Specification: Radio 1\nRange: Radio 0/Radio 1
+140,2,Telephone,Electronics,Specification: Telephone 1\nRange: Telephone 1/Telephone 0
+140,3,Navigation,,Specification: Navigation 1\nRange: Navigation 1/Navigation 0
+140,4,Telematic,,Specification: Telemat 1\nRange: Telemat 1/Telemat 0
+;
+141,0,CAN-Databus Communication (Infotainment)
+141,4,Status,CAN-Infotainment,Specification: 2-Wire\nRange: 1-Wire/2-Wire
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,00??xx1: Options
+C02,+00 - 1. K-Number (Europe/USA/Rest of World)
+C03,+01 - Smaller Fuel Tank Volume (All-Wheel-Drive)
+C04,+02 - Seatbelt Warning (NAR old - up to 45/2004)
+C05,+04 - 3. K-Number (Rental Cars)
+C06,+08 - 2. K-Number (Australia)
+C07, 
+C08,00xx?x1: Country
+C09,0 - Germany (D) / 1 - Rest of World (RoW) / 2 - USA (US)
+C10,3 - Canada (CAN) / 4 - Great Britain (GB) / 5 - Japan (JP)
+C11,6 - Saudi Arabia / 7 - Australia (AUS)
+C12, 
+C13,00xxx?1: Seatbelt Warning
+C14,0 - No Seatbelt Warning (or NAR old)
+C15,3 - Seatbelt Warning USA and Canada (NAR new)
+;
+;
+;---------------------------------------------------
+;
+; login information
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 00000 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+A004,12,8 = Chinese
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km or 1 = 10 mi
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km/62 mi.
+A009,11, 
+A009,12,NOTE: Perform Login first.
+;
+A018,0,Auxiliary Heating
+A018,5,Auxiliary Heating
+A018,6,0 = No Auxiliary Heating installed
+A018,7,1 = Auxiliary Heating installed
+A018,8,2 = Auxiliary Heating installed but OFF when turning engine OFF
+A018,9,3 = Only Auxiliary Ventilation installed
+A018,10,4 = Only Auxiliary Ventilation but OFF when turning engine OFF
+;
+A019,0,Additional Features
+A019,5,Additional Features
+A019,6,?xxxx: Illumination (MY 2002 and above)
+A019,7,0 = Needle and Scale only active at "Light ON"
+A019,8,1 = Needle already active at "Ignition ON"
+A019,9,2 = Scale already active at "Ignition ON"
+A019,10,3 = Scale (2nd Map) and Needle at "Ignition ON" active
+A019,11, 
+A019,12,x?xxx - Board Computer
+A019,13,0 - only Level 2 (Long Time Memory)
+A019,14,1 - Level 1 and 2
+A019,15, 
+A019,16,xx?xx - Driver Information System (DIS)
+A019,17,0 - DIS 1 / 1 - Highline without DIS / 2 - DIS 2
+A019,18, 
+A019,19,xxx?x - Outside Temperature
+A019,20,0 - not active / 1 - active
+A019,21, 
+A019,22,xxxx? - Remote Clock
+A019,23,0 - not active / 1 - clock active
+;
+A021,0,Immobilizer - Key Adaptation
+A021,1,Number of
+A021,2,currently
+A021,3,adapted Keys
+A021,5,Immobilizer - Key Adaptation
+;
+A029,0,Tank Characteristic (Fuel Level Sensor 2)
+A029,5,Tank Characteristic (Fuel Level Sensor 2)
+A029,6,This is a parallel shift of the tank characteristic.
+A029,7, 
+A029,8,Standard: 128
+A029,9,Range: 96...160 (-8.0...+8.0 l)
+A029,10,Increments: 1 = 1 Ohm = 1/4 l
+;
+A030,0,Tank Characteristic (Fuel Level Sensor 1)
+A030,5,Tank Characteristic (Fuel Level Sensor 1)
+A030,6,This is a parallel shift of the tank characteristic.
+A030,7, 
+A030,8,Standard: 128
+A030,9,Range: 96...160 (-8.0...+8.0 l)
+A030,10,Increments: 1 = 1 Ohm = 1/4 l
+;
+A032,0,Tank Characteristic (Not detactable Tank Volume)
+A032,5,Tank Characteristic (Not detactable Tank Volume)
+A032,6,The tank volume which is not recordable by the fuel gauge sender(s).
+;
+A033,0,Tank Characteristic (Full Calibration)
+A033,5,Tank Characteristic (Full Calibration)
+A033,6,Non-parallel shift of the tank characterictic above a readout of 1/2.
+A033,7,To start the adaptation enter '65535' as new value.
+A033,8, 
+A033,9,Standard Value: 128
+A033,10,Value Range: 112...144 (-4.0...+4.0 l)
+A033,11,Increments: 1 = 1 Ohm = 1/4 l
+;
+A034,0,Tank Characteristic (Additional Functions)
+A034,5,Tank Characteristic (Additional Functions)
+A034,6,?xx - Full Correction Sensor 1
+A034,7,1 - active / 0 - not active
+A034,8, 
+A034,9,x?x - Empty Correction Sensor 2
+A034,10,1 - active / 0 - not active
+A034,11, 
+A034,12,xx? - Monitoring Sensor 2
+A034,13,1 - active / 0 - not active
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Resolution: 1 = 100 km
+A040,7, 
+A040,8,NOTE: Adaptation channels 40-48 must be
+A040,9,entered and stored in the following order:
+A040,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Resolution: 1 = 1 day(s)
+A041,7, 
+A041,8,NOTE: Adaptation channels 40-48 must be
+A041,9,entered and stored in the following order:
+A041,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A042,0,Minimum Mileage to Service
+A042,5,Minimum Mileage to Service
+A042,6,Increments: 1 = 1000 km/mi
+A042,7,00015 = Standard (15.000 km)
+A042,8,or (if coded to miles)
+A042,9,00009 = Standard (9.000 mi - Great Britain)
+A042,10,00010 = Standard (10.000 mi - USA)
+A042,12, 
+A042,13,NOTE: Adaptation channels 40-48 must be
+A042,14,entered and stored in the following order:
+A042,15,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A043,0,Maximum Mileage to Service
+A043,5,Maximum Mileage to Service
+A043,6,Increments: 1 = 1000 km/mi
+A043,7,00015 = fixed Service Intervals (15.000 km - w/o Longlife)
+A043,8,00030 = Gasoline Engines with flexible Service Intervals (30.000 km - with Longlife)
+A043,9,00035 = 6-Cyl. Diesel Engines with flexible Service Intervals (35.000 km - with Longlife)
+A043,10,00050 = 4-Cyl. Diesel Engines with flexible Service Intervals (50.000 km - with Longlife)
+A043,11,or (if coded to miles)
+A043,12,00009 = fixed Service Intervals (9.000 mi - Great Britain - w/o Longlife)
+A043,13,00010 = fixed Service Intervals (10.000 mi - USA - w/o Longlife)
+A043,14,00019 = Gasoline Engines with flexible Service Intervals (19.000 mi - with Longlife)
+A043,15,00022 = 6-Cyl. Diesel Engines with flexible Service Intervals (22.000 mi - with Longlife)
+A043,16,00031 = 4-Cyl. Diesel Engines with flexible Service Intervals (31.000 mi - with Longlife)
+A043,17, 
+A043,18,NOTE: Adaptation channels 40-48 must be
+A043,19,entered and stored in the following order:
+A043,20,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Increments: 1 = 1 day(s)
+A044,7,00365 = fixed Service Intervals (w/o Longlife)
+A044,8,00730 = flexible Service Intervals (with Longlife)
+A044,9, 
+A044,10,NOTE: Adaptation channels 40-48 must be
+A044,11,entered and stored in the following order:
+A044,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A045,0,Oil Quality
+A045,5,Oil Quality
+A045,6,1 = fixed Service Intervals (w/o Longlife)
+A045,7,2 = Gasoline Engines with flexible Service Intervals (with Longlife)
+A045,8,3 = 6-Cyl. Diesel Engines with flexible Service Intervals (with Longlife)
+A045,9,4 = 4-Cyl. Diesel Engines with flexible Service Intervals (with Longlife)
+A045,10, 
+A045,11,NOTE: Adaptation channels 40-48 must be
+A045,12,entered and stored in the following order:
+A045,13,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A046,0,Total Consumption
+A046,5,Total Consumption
+A046,6,This value does not represent the actual consumption
+A046,7,but is rather an arithmetic value for the service interval display.
+A046,8, 
+A046,9,NOTE: Adaptation channels 40-48 must be
+A046,10,entered and stored in the following order:
+A046,11,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A047,0,Soot Entry
+A047,5,Soot Entry
+A047,6,Arithmetic value used to calculate the amount of soot in
+A047,7,the engine oil referenced to a distance of 100 km and used
+A047,8,as comparison value for the service interval display.
+A047,9, 
+A047,10,NOTE: When changing the adaptation channels 042-048 manually the
+A047,11,adaptation channels 040-048 must be stored in the following order:
+A047,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A048,0,Thermal Load
+A048,5,Thermal Load
+A048,6,Arithmetic value used to calculate the thermal stress of
+A048,7,the engine oil referenced to a distance of 100 km and used
+A048,8,as comparison value for the service interval display.
+A048,9, 
+A048,10,NOTE: When changing the adaptation channels 042-048 manually the
+A048,11,adaptation channels 040-048 must be stored in the following order:
+A048,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A050,0,Immobilizer - Vehicle Data Learning
+A050,5,Immobilizer - Vehicle Data Learning
+;
+A060,0,CAN-Databus Powertrain (Installation List)
+A060,5,CAN-Databus Powertrain (Installation List)
+A060,6,+00001 - Engine (Standard)
+A060,7,+00002 - Automatic Transmission (Optional)
+A060,8,+00004 - Brake (Standard)
+A060,9,+01024 - Instrument Cluster (Standard)
+;
+A061,0,CAN-Databus Comfort (Installation List)
+A061,5,CAN-Databus Comfort (Installation List)
+A061,6,+00001 - Central Electronics (Standard)
+A061,7,+00002 - Comfort System (Standard)
+A061,8,+00064 - Trailer (Optional)
+A061,9,+00128 - Convertible Top (Optional)
+A061,10,+00256 - Instrument Cluster (Standard)
+A061,11,+00512 - Tire Pressure Control (Optional)
+A061,12,+01024 - Steering Column Electronics (Standard)
+A061,13,+02048 - Climate Control (Standard)
+A061,14,+32768 - Auxiliary Heating (Optional)
+;
+A062,0,CAN-Databus Infotainment (Installation List)
+A062,5,CAN-Databus Infotainment (Installation List)
+A062,6,+00001 - Radio (Optional)
+A062,7,+00002 - Telephone (Optional)
+A062,8,+00004 - Navigation (Optional)
+A062,9,+00008 - Telematics (Optional)
+A062,10,+00016 - Intrument Cluster (Standard - only coded with 2nd Component)
+;
+A099,0,Transport Mode
+A099,5,Transport Mode
+A099,6,0 = inactive
+A099,7,1 = active
+A099,8, 
+A099,9,Some Head units require a seperate transport mode
+A099,10,deactivation (Adress 56 - Adaptation channel 099).
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,1000,DIST
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+RD,46,Total Consumption,100,DIST
+RD,47,Soot Quantity,100,DIST
+RD,48,Thermal Load,100,DIST
+RD,49,Min Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;

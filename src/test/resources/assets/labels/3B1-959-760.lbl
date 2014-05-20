@@ -1,0 +1,55 @@
+;
+; VAG-COM label file
+;
+; Seat Leon/Toledo / (1M) Skoda Octavia (1U)
+; VW Golf/Jetta (1J) / VW Passat (3B)
+;
+; component: J136 - Driver's Seat Adjustment (#36)
+;
+; p/n: 3B1 959 760 ?
+;
+; includes measuring blocks
+;
+; created on 15/April/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Informations
+001,1,Individual,Switch Positions,Display Range: 0 = not pressed/1 = pressed (?xx = P1/x?x = P2/xx? = P3)
+001,2,MEM-OFF Button,Door Contact,Display Range 0 = off / 1 = on (?x = MEM-OFF Button/x? = Door Contact)
+001,3,Key-Number
+;
+002,0,Actual Status
+002,1,Seat Fore/Aft,Adjustment Button,Display Range: forward/backward/not operated/implausible
+002,2,Actual Seat Fore/Aft,Adjustment,Display Range: 0...65535 | Central Position: 32767 | Not Initialised: 30000
+002,3,Backrest Angle,Adjustment Button,Display Range: forward/backward/not operated/implausible
+002,4,Actual Backrest,Angle Adjustment,Display Range: 0...65535 | Central Position: 32767 | Not Initialised: 30000
+;
+003,0,Actual Status
+003,1,Seat Height,Adjustment Button,Display Range: raise/lower/not operated/implausible
+003,2,Actual Seat Height,Adjustment,Display Range: 0...65535 | Central Position: 32767 | Not Initialised: 30000
+003,3,Seat Angle,Adjustment Button,Display Range: raise/lower/not operated/implausible
+003,4,Actual Seat Angle,Adjustment,Display Range: 0...65535 | Central Position: 32767 | Not Initialised: 30000
+;
+004,0,Mirrors
+004,1,Driver's Side,Potentiom. X-Pos.,Display Range: 1...99 %
+004,2,Driver's Side,Potentiom. Y-Pos.,Display Range: 1...99 %
+004,3,Passenger's Side,Potentiom. X-Pos.,Display Range: 1...99 %
+004,4,Passenger's Side,Potentiom. Y-Pos.,Display Range: 1...99 %
+;
+005,0,Switch Positions
+005,1,Voltage,(Terminal 30)
+005,2,Inputs and,Initialisation,Display Range: 0 = off/1 = on (?xx = Terminal X/x?x = Reversing Switch/xx? = Init Mode)
+005,3,Last Reason,for switch-off,Display Range: 0 = off/1 = on (?xx = Block/x?x = Soft Stop/xx? = Running Period)
+;
+006,0,Databus Communication (Comfort)
+006,1,Status,Databus Comfort
+;

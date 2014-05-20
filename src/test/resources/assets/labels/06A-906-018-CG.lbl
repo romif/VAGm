@@ -1,0 +1,178 @@
+;
+; VAG-COM Measuring Block AGU Engine Label file.
+; Component number 06A 906 018 CG
+;
+; Does not work with 06A 906 018 FA (2000 US 2.0L)
+;
+; Created by James Billings. Thanks to "Dave" the VW tech who
+; got me the codes!
+;
+; Visit http://ds.dial.pipex.com/town/terrace/pp70/golf
+;
+1,0,Basic Functions - Spec figures at Idle
+1,1,Idle speed,800-920 rpm
+1,2,Engine load,0.5-1.5 m/s
+1,3,Throttle ang,0-5 deg.
+1,4,Ignition ang,6-12 BTDC
+;
+2,0,Basic Functions - Spec figures at Idle
+2,1,Idle speed,800-920 rpm
+2,2,Engine load,0.5-1.5 m/s
+2,3,Inj. period,1.00-3.00 m/s
+2,4,Air mass in,1.8-4 g/s
+;
+3,0,Basic Functions - - Spec figures at Idle
+3,1,Idle speed,800-920 rpm
+3,2,Supply volts,10-14.5V
+3,3,Coolant temp,80-105 d/C
+3,4,Intake temp,-45-108.5 d/C
+;
+4,0,Idle Stabilisation - Spec figures at Idle
+4,1,Throttle ang.,0-5 deg.
+4,2,Idle mass,-1.7-1.7 A/T
+4,3,Idle mass,0 if man/t
+4,4,Op. mode,
+;
+5,0,Idle Stabilisation - Spec figures at Idle
+5,1,Idle speed,800-920 rpm
+5,2,Spec. idle,860 rpm
+5,3,Idle reg,-10-10%
+5,4,Air mass in,1.8-4 g/s
+;
+6,0,Idle Stabilisation - Spec figures at Idle
+6,1,Idle speed,800-920 rpm
+6,2,Idle reg,-10-10%
+6,3,Lambda reg,-10-10%
+6,4,Ign angle,6-12 BTDC
+;
+7,0,Lambda learned values
+7,1,Lambda reg,-10-10%
+7,2,Probe volts,0-1V
+7,3,Valve duty,angle 0-99%
+7,4,Correction,0.3-1.25
+;
+8,0,Lambda learned values
+8,1,Inj. period,1-3 m/s
+8,2,Idle learned,-10-10%
+8,3,Learned,-8-8%
+8,4,Vent mode
+;
+9,0,Lambda learned values
+9,1,Idle speed,800-920 rpm
+9,2,Lambda reg,-10-10%
+9,3,Probe volts,0-1V
+9,4,Idle learned,-10-10%
+;
+10,0,Fuel tank breather
+10,1,Valve duty,angle 0-99%
+10,2,Correction,0.3-1.25
+10,3,Filter state,-3-32
+10,4,Purge rate,0-0.3
+;
+11,0,Fuel Consumption
+11,1,Idle speed,800-920 rpm
+11,2,Engine load,0.5-1.5 m/s
+11,3,Road speed,km/h
+11,4,Consumption,l/h
+;
+12,0,Fuel Consumption [Not verified in manual]
+12,1,Engine rpm,0-6800 rpm 
+12,2,Voltage,V
+12,3,Consumption,l/h 
+12,4,Ign degrees,deg
+;
+13,0,Knock regulation [Not verified in manual]
+;
+14,0,Knock control
+14,1,Engine speed,0-6800 rpm
+14,2,Engine load,0-10 m/s
+14,3,Cyl 1 retard,0-9 degCA
+14,4,Cyl 2 retard,0-9 degCA
+;
+15,0,Knock control
+15,1,Engine speed,0-6800 rpm
+15,2,Engine load,0-10 m/s
+15,3,Cyl 3 retard,0-9 degCA
+15,4,Cyl 4 retard,0-9 degCA
+;
+16,0,Knock control
+16,1,Sens 1 volts,0.4-1.4V
+16,2,Sens 2 volts,0.4-1.4V
+16,3,Sens 3 volts,0.4-1.4V
+16,4,Sens 4 volts,0.4-1.4V
+;
+17,0,[Not listed in manual - Using default labels]
+;
+18,0,Altitude adaptation
+18,1,Idle speed,800-920 rpm
+18,2,Engine load,0.5-1.5 m/s
+18,3,Throttle,valve angle
+18,4,Alt. correc.,-50-10%
+;
+19,0,Additional signals
+19,1,Engine speed,0-6800 rpm
+19,2,Engine load,0-10 m/s
+19,3,Additional,signals
+19,4,Ign. timing,20Atdc-42Btdc
+;
+20,0,Operating Modes
+20,1,Idle speed,800-920 rpm
+20,2,Auto trans,Neutral/ON
+20,3,Air cond.,AC High/Low
+20,4,A/C Comp.,Compr ON/OFF
+;
+21,0,Lambda Control
+21,1,Idle speed,800-920 rpm
+21,2,Engine load,0.5-1.5 m/s
+21,3,Coolant temp,-40-125 deg/C
+21,4,Lambda mode,
+;
+23,0,Throttle valve adaptation
+23,1,Learning req.,100000
+23,2,Min stop,72-95%
+23,3,Emerg. stop,60-91%
+23,4,Max stop,18-54%
+;
+24,0,Knock control
+24,1,Engine speed,0-6800 rpm
+24,2,Engine load,0-10 m/s
+24,3,Ign timing,20Atdc-42Btdc
+24,4,Sum of ret.,angle 0-36
+;
+25,0,Charge Pressure control
+25,1,Spec. load,3-8 m/s
+25,2,Load correc.,0-8 m/s
+25,3,Actual load,0.5-8 m/s
+25,4,Valve cycle,0-99%
+;
+26,0,[Not listed in manual - Using default labels]
+;
+27,0,[Not listed in manual - Using default labels]
+;
+66,0,Cruise control
+66,1,Road speed,km/h
+66,2,Switch pos.,xxxx
+66,3,Spec. speed
+66,4,CCS switch,position
+;
+95,0,Basic functions
+95,1,Idle speed,800-920 rpm
+95,2,Engine load,0.5-1.5 m/s
+95,3,Ign timing,
+95,4,Coolant temp.,80-105 degC
+;
+97,0,[Not listed in manual - Using default labels]
+;
+98,0,Throttle Valve Matching/Calibration/Adaptation
+98,1,Valve voltage,0-5V
+98,2,Sender voltage,0-5V
+98,3,Opr. mode,
+98,4,Adapt mode,RUN/OK/ERROR
+;
+99,0,Lambda regulation
+99,1,Engine speed,0-6800 rpm
+99,2,Coolant temp,-40-125 deg/C
+99,3,Lambda reg.,-10-10%
+99,4,Lambda mode
+;
+;End of File

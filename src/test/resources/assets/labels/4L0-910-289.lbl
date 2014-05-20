@@ -1,0 +1,332 @@
+;
+; VAG-COM Label File
+;
+; Audi Q7 (4L)
+;
+; Component: J393 - Comfort System (#46)
+;
+; P/N: 4L0-910-289-???
+;
+; includes measuring blocks, coding, adaptation and selective output test
+;
+; created on 29/May/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 30/May/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Status - Driver's Door
+001,1,Door Contact,Switch,Range: Door Open/Door Closed/no communication
+001,2,Central Locking,Interior Button,Range: locking/unlocking/not operated/no communication
+001,3,Lock Feedback,,Range: locked/unlocked/no communication
+001,4,Safe Feedback,,Range: safe/not safe/no communication
+;
+002,0,Status - Passenger Door
+002,1,Door Contact,Switch,Range: Door Open/Door Closed/no communication
+002,2,Central Locking,Interior Button,Range: locking/unlocking/not operated/no communication
+002,3,Lock Feedback,,Range: locked/unlocked/no communication
+002,4,Safe Feedback,,Range: safe/not safe/no communication
+;
+003,0,Status - Rear Left Door
+003,1,Door Contact,Switch,Range: Door Open/Door Closed/no communication
+003,2,Central Locking,Interior Button,Range: locking/unlocking/not operated/no communication
+003,3,Lock Feedback,,Range: locked/unlocked/no communication
+003,4,Safe Feedback,,Range: safe/not safe/no communication
+;
+004,0,Status - Rear Right Door
+004,1,Door Contact,Switch,Range: Door Open/Door Closed/no communication
+004,2,Central Locking,Interior Button,Range: locking/unlocking/not operated/no communication
+004,3,Lock Feedback,,Range: locked/unlocked/no communication
+004,4,Safe Feedback,,Range: safe/not safe/no communication
+;
+005,0,Window Regulators && Shut-Off Buttons
+005,1,Window Regulator,standardized,1 = standardized\n0 = not standardized\n\n?xxx - Driver's Door\nx?xx - Passenger Door\nxx?x - Rear Left Door\nxxx? - Rear Right Door
+005,2,Window Regulator,Thermal Protection,1 = active\n0 = not active\n\n?xxx - Driver's Door\nx?xx - Passenger Door\nxx?x - Rear Left Door\nxxx? - Rear Right Door
+005,3,Interior Monitoring,Shut-Off Button,Range: operated/not operated/no communication
+005,4,Inclination Sensor,Shut-Off Button,Range: operated/not operated/no communication
+;
+006,0,Rear Lid && Rear Window
+006,1,Rear Lid Switch,(Driver's Door),Range: operated/not operated/no communication
+006,2,Rear Lid,Contact Switch,Range: lid open/lid closed
+006,3,Rear Lid,Soft Touch,Range: operated/not operated
+006,4,Rear Window,Break,Anti-Theft-System\n\nRange: not recognized/recognized/not installed
+;
+007,2,Luggage,Compartment Light,Range: ON/OFF
+007,3,Interior Light,,Range: ON/OFF
+007,4,Rear Lid,Key Switch,Range: open/closed/not operated
+;
+008,0,Basic Functions
+008,1,Speed Signal
+008,2,Engine Speed
+008,3,Interior,Temperature
+008,4,Fuel Filler,Flap Detection,Range: not recognized/recognized/not installed
+;
+009,0,Terminal Status
+009,1,S-Terminal,,Range: on/off/no communication
+009,2,Terminal 15,(hardware input),Range: Term. 15 On/Term. 15 Off
+009,3,Terminal 15,(CAN),Range: Term. 15 On/Term. 15 Off/no communication
+;
+010,1,Terminal 30,(right),Specification: 8.5...15.5 V
+010,2,Terminal 30,(left),Specification: 8.5...15.5 V
+010,3,Rear Window,Heater,Range: heater on/heater off
+010,4,Hood Contact,Switch,Range: lid open/lid closed/no communication
+;
+011,0,Light Status
+011,1,Back-Up Light,,?x - left\nx? - right
+011,2,Turn Signal,,?x - left\nx? - right
+011,3,Fog Light,,?x - left\nx? - right
+011,4,Tail Light,,?x - left\nx? - right
+;
+012,1,Terminal 54,,?xx - Hardware Terminal 54\nx?x - Terminal 54 CAN\nxx? - Brake Test Switch
+012,2,Brake ESP,,?x - Hardware ECD Brake\nx? - CAN ECD Brake
+012,3,Brake light,,?xx - left\nx?x - center\nxx? - right
+012,4,Garage Door,Opener,Range: ON/OFF
+;
+013,1,Rear Window,Shaded,Range: ON/OFF/not installed
+013,2,Luggage Compartment,Closing Aid,Range: locked/unlocked/not insalled
+013,3,Crash,Recognized,Range: Yes/No
+013,4,Energy Manager,Shut-Off Stage,Range: 0...6
+;
+014,0,Interior Monitoring Sensor
+014,1,Interior Monitoring,Sensor Status,Range: not installed/no communication/activated/inactive
+;
+015,0,Alarm Horn
+015,1,Alarm Horn,Status,Range: not installed/no communication/activated/inactive
+;
+016,0,Alarm Sources
+;   0 = Door Contact (Driver's Door)
+;   1 = Door Contact (Passenger Door)
+;   2 = Door Contact (Rear Left)
+;   3 = Door Contact (Rear Right)
+;   4 = Hood Contact
+;   5 = Rear Lid Contact
+;   6 = Rear Window Breakage
+;   7 = Interior Monitoring
+;   8 = Immobilizer (Key not authorized)
+;   9 = Intelligent Siren
+;  10 = Inclination Sensor
+;  11 = Driver Door Control Module
+;  12 = Passenger Door Control Module
+;  13 = Rear Left Door Control Module
+;  14 = Rear Right Door Control Module
+;  15 = Terminal 15
+; 255 = No Alarm
+016,1,Last,Alarm Source
+016,2,2nd last,Alarm Source
+016,3,3rd last,Alarm Source
+016,4,4th last,Alarm Source
+;
+018,0,Horn - Alarm Trigger
+; 0 = No Alarm
+; 1 = Comfort Control Module (J393)
+; 2 = Communication Break (Ground/Open Circuit)
+; 3 = Voltage Supply (Open Circuit)
+; 4 = Smart Battery Analysis
+018,1,Last,Alarm Trigger
+018,2,2nd last,Alarm Trigger
+018,3,3rd last,Alarm Trigger
+018,4,Alarm Trigger,Counter,Range: 0...15
+;
+019,0,Interior Monitoring - Alarm Trigger
+; 0 = No Alarm
+; 1 = Alarm with Vehicle Closed
+; 2 = Alarm with open Window
+; 3 = Alarm with Fan Operation
+019,1,1st Alarm Trigger
+019,2,2nd Alarm Trigger
+019,3,3rd Alarm Trigger
+019,4,4th Alarm Trigger
+;
+020,1,FPI User ID
+020,2,Key Number,(Keyless Entry)
+020,3,Rear Lid,Position,Range: 0...100 % / not installed
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Comfort System (J393) Coding
+C01,+0000001 = Reserved (always)
+C02,+0000002 = 10 Tamper Alarms (PR-B09)
+C03,+0000004 = Thatcham inactive (PR-7AA/A8U)
+C04,+0000008 = Selective Central Locking (PR-4K2/4K7/4K8)
+C05,+0000016 = Anti-Theft Warning System (PR-7AN/7AL)
+C06,+0000032 = Inclination Sensor installed (PR-7AN/7AL)
+C07,+0000064 = Interior Monitoring (PR-7AL)
+C08,+0000128 = Comfort Function via Remote (NOT PR-B29/B30/B34/B35)
+C09,+0002048 = Confirmation Anti-Theft System via Horn (PR-A8U)
+C10,+0004096 = SAE Rear Lights (PR-A8U)
+C11,+0008192 = Light Package (PR-QQ1)
+C12,+0016384 = SAFE-Function deactivated (PR-A8U)
+C13,+0065536 = No Anti-Theft Delay (0 Seconds)
+C14,+0262144 = Sunroof / Open Sky System (PR-3FU)
+C15,+1048576 = Luggage Compartment Closing Assistance (PR-4E7/4E9)
+C16,+2097152 = Rear Lid Control Module (PR-4E7/4E9)
+C17,+4194304 = Fuel Lid Unlock via Driver Door Button
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Personalization - Key 1
+A001,5,Personalization - Key 1
+A001,6,+00001 = Passenger Door
+A001,7,+00002 = Rear Left Door
+A001,8,+00004 = Rear Right Door
+A001,9,+00008 = Luggage Compartment
+A001,10,+00016 = Auto-Lock/Unlock
+A001,11,+00032 = Comfort Opening of Front Window Regulators
+A001,12,+00064 = Comfort Opening of Rear Window Regulators
+A001,13,+00128 = Comfort Opening of Sunroof
+A001,14,+00256 = Rear Shade automatic
+A001,15,+00512 = Interior Light Dimming 1 %
+A001,16,+01024 = Interior Light Dimming 2 %
+A001,17,+02048 = Interior Light Dimming 4 %
+A001,18,+04096 = Interior Light Dimming 8 %
+A001,19,+08192 = Interior Light Dimming 16 %
+A001,20,+16384 = Interior Light Dimming 32 %
+A001,21,+32768 = Interior Light Dimming 64 %
+;
+A002,0,Personalization - Key 2
+A002,5,Personalization - Key 2
+A002,6,+00001 = Passenger Door
+A002,7,+00002 = Rear Left Door
+A002,8,+00004 = Rear Right Door
+A002,9,+00008 = Luggage Compartment
+A002,10,+00016 = Auto-Lock/Unlock
+A002,11,+00032 = Comfort Opening of Front Window Regulators
+A002,12,+00064 = Comfort Opening of Rear Window Regulators
+A002,13,+00128 = Comfort Opening of Sunroof
+A002,14,+00256 = Rear Shade automatic
+A002,15,+00512 = Interior Light Dimming 1 %
+A002,16,+01024 = Interior Light Dimming 2 %
+A002,17,+02048 = Interior Light Dimming 4 %
+A002,18,+04096 = Interior Light Dimming 8 %
+A002,19,+08192 = Interior Light Dimming 16 %
+A002,20,+16384 = Interior Light Dimming 32 %
+A002,21,+32768 = Interior Light Dimming 64 %
+;
+A003,0,Personalization - Key 3
+A003,5,Personalization - Key 3
+A003,6,+00001 = Passenger Door
+A003,7,+00002 = Rear Left Door
+A003,8,+00004 = Rear Right Door
+A003,9,+00008 = Luggage Compartment
+A003,10,+00016 = Auto-Lock/Unlock
+A003,11,+00032 = Comfort Opening of Front Window Regulators
+A003,12,+00064 = Comfort Opening of Rear Window Regulators
+A003,13,+00128 = Comfort Opening of Sunroof
+A003,14,+00256 = Rear Shade automatic
+A003,15,+00512 = Interior Light Dimming 1 %
+A003,16,+01024 = Interior Light Dimming 2 %
+A003,17,+02048 = Interior Light Dimming 4 %
+A003,18,+04096 = Interior Light Dimming 8 %
+A003,19,+08192 = Interior Light Dimming 16 %
+A003,20,+16384 = Interior Light Dimming 32 %
+A003,21,+32768 = Interior Light Dimming 64 %
+;
+A004,0,Personalization - Key 4
+A004,5,Personalization - Key 4
+A004,6,+00001 = Passenger Door
+A004,7,+00002 = Rear Left Door
+A004,8,+00004 = Rear Right Door
+A004,9,+00008 = Luggage Compartment
+A004,10,+00016 = Auto-Lock/Unlock
+A004,11,+00032 = Comfort Opening of Front Window Regulators
+A004,12,+00064 = Comfort Opening of Rear Window Regulators
+A004,13,+00128 = Comfort Opening of Sunroof
+A004,14,+00256 = Rear Shade automatic
+A004,15,+00512 = Interior Light Dimming 1 %
+A004,16,+01024 = Interior Light Dimming 2 %
+A004,17,+02048 = Interior Light Dimming 4 %
+A004,18,+04096 = Interior Light Dimming 8 %
+A004,19,+08192 = Interior Light Dimming 16 %
+A004,20,+16384 = Interior Light Dimming 32 %
+A004,21,+32768 = Interior Light Dimming 64 %
+;
+A015,0,Interior Monitoring Sensitivity
+A015,5,Interior Monitoring Sensitivity
+A015,6,200 = 100 %
+A015,7,180 = 90 %
+A015,8,160 = 80 %
+A015,9,140 = 70 %
+A015,10,120 = 60 %
+A015,11,100 = 50 %
+;
+A050,0,Adaptive Brake Light
+A050,5,Adaptive Brake Light
+A050,6,+1 = Emergency Brake Blinking
+A050,7,+4 = Brake Light Surface Amplification
+;
+A061,0,Comfort Functions
+A061,5,Comfort Functions
+A061,6,+001 = Comfort Closing: Window Regulators via Remote Control
+A061,7,+002 = Comfort Opening: Window Regulators via Remote Control
+A061,8,+004 = Comfort Closing: Sunroof via Remote Control
+A061,9,+008 = Comfort Opening: Sunroof via Remote Control
+A061,10,+016 = Comfort Closing: Window Regulator via Switch Drivers Door
+A061,11,+032 = Comfort Opening: Window Regulator via Switch Drivers Door
+A061,12,+064 = Comfort Closing: Sunroof via Switch Drivers Door
+A061,13,+128 = Comfort Opening: Sunroof via Switch Drivers Door
+A061,14,+256 = Comfort Closing: Window Regulators via Lock Cylinder
+A061,15,+512 = Comfort Closing: Sunroof via Lock Cylinder
+;
+A062,0,Central Locking Functions
+A062,5,Central Locking Functions
+A062,6,+1 = Central Locking Closing Confirmation (Blink)
+A062,7,+2 = Central Locking Opening Confirmation (Blink)
+A062,8,+4 = Terminal 87 USA Logic
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T42,Parking Light Left (M43)
+T43,Parking Light Right (M44)
+T834,Signal for Activation of Heated Rear Window
+T959,Indicator Lamp for Central Locking: Safe (K133)
+T987,Left Brake Light (M9)
+T988,Right Brake Light (M10)
+T1503,3rd Brake Light (M25)
+T1148,Activation of Safety/Deadbolt Locks in Doors
+T1223,Central Locking: Unlock
+T1551,Central Locking: Lock
+T1483,Rear Lid Remote Unlocking
+T1501,Blinker Rear Left (M6)
+T1505,Blinker Rear Right (M8)
+T1504,License-Plate Light (X)
+T1565,Luggage Compartment Light (W3)
+T1696,Footwell Lighting Rear Left (W45)
+T1697,Footwell Lighting Rear Right (W46)
+T1828,Tail-Lamp Left
+T1829,Tail-Lamp Right
+T2570,Interior Illumination
+T2615,Fuel Tank Cap: Lock
+T2616,Fuel Tank Cap: Unlock
+T2899,Comfort Opening
+T2900,Comfort Closing
+T2956,Trunk/Hatch Lid Lamp Left
+T2957,Trunk/Hatch Lid Lamp Right
+T2960,Bumper Lamp Rear Left
+T2961,Bumper Lamp Rear Right
+;

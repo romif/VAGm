@@ -1,0 +1,20 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J500 - Steering Aid (#44)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6R-44.LBL
+; 6Q0-423-156.LBL
+;
+; created on 22/Apr/2008 by Niels Ezerman (www.vag-com.dk)
+;
+; last modification: 22/Apr/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,6Q0-423-156.LBL,6R0-423-156-???
+;

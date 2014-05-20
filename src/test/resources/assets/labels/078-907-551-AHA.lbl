@@ -1,0 +1,322 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 1 -- Engine
+; 
+; from USA 1998 Audi A4 2.8L/5V
+; ECU p/n 4D0-907-551-A, 2.8L V6/5V MOTR AT D04
+;
+; Modification history
+; created:  Paolo Sechi, 8 April 2001
+; edited line 33,4 Keith Jurena, 08-15-2001
+;
+; Group 0 labels don't display (yet?) -- included for completeness
+0,0,Engine Status
+0,1,ECT,170-204
+0,2,Load,20-50
+0,3,RPM,62-86
+0,4,T-ang,0-12
+0,5,I-air,118-138
+0,6,I-lrn,118-138
+0,7,O2S1,77-179
+0,8,O2S2,77-179
+0,9,IO2S1,115-141
+0,10,IO2S2,115-141
+;
+1,0,Engine Idle Speed (specified values listed) [A=AWD F=FWD]
+1,1,Idle Speed,620-740A/+120F
+1,2,Coolant Temp,80-105C
+1,3,O2 Sens Bank1,+/-10%(>2% flct)
+1,4,O2 Sens Bank2,+/-10%(>2% flct)
+;
+2,0,Load Measurement (specified values for idle/2520 RPM)
+2,1,Engine speed,RPM
+2,2,Engine load,1-2.5/.8-2.5ms
+2,3,Injection time,2-5/1.6-5ms
+2,4,Mass air flow,2.8-5.6/10-15g/s
+;
+3,0,Throttle Position Sensor check (ign on && eng off -> monitor angle as varied)
+3,1,Engine speed,0 RPM
+3,2,Mass air flow,g/s
+3,3,Throttle angle,0-5deg closed
+3,4,Ign timing,0deg
+;
+4,0,General Engine Data
+4,1,Engine speed,RPM
+4,2,Battery voltage,10-14.5V
+4,3,Coolant temp,deg C
+4,4,Intake air temp,deg C
+;
+5,0,Engine operating conditions (engine oil temp >80C) [A=AWD F=FWD]
+5,1,Idle Speed,620-740A/+120F
+5,2,Engine Load,1-2.5ms@idle
+5,3,Vehicle Speed,km/h
+5,4,Op condition,idl/prt/fl/dcl/erch
+;
+6,0,Undocumented
+;
+10,0,Undocumented
+;
+11,0,Undocumented
+;
+12,0,Undocumented
+;
+14,0,Misfire recognition (@idle) [A=AWD F=FWD]
+14,1,Engine Speed,620-740A/+120F
+14,2,Engine Load,1-2.5ms
+14,3,Total misfires,0-30
+14,4,Misfire status,activated
+;
+15,0,Misfire recognition cylinders 1-3 (@idle)
+15,1,Cyl 1,0-5
+15,2,Cyl 2,0-5
+15,3,Cyl 3,0-5
+15,4,Misfire status,activated
+;
+16,0,Misfire recognition cylinders 4-6 (@idle)
+16,1,Cyl 4,0-5
+16,2,Cyl 5,0-5
+16,3,Cyl 6,0-5
+16,4,Misfire status,activated
+;
+18,0,Undocumented
+;
+20,0,Undocumented
+;
+21,0,Undocumented
+;
+22,0,Knock control Cyl 1&&2 (must road test: RPM>2600 && load>3ms)
+22,1,Engine speed,RPM
+22,2,Engine load,ms
+22,3,Ign ang corr 1,0-10deg
+22,4,Ign ang corr 2,0-10deg
+;
+23,0,Knock control Cyl 3&&4 (must road test: RPM>2600 && load>3ms)
+23,1,Engine speed,RPM
+23,2,Engine load,ms
+23,3,Ign ang corr 3,0-10deg
+23,4,Ign ang corr 4,0-10deg
+;
+24,0,Knock control Cyl 5&&6 (must road test: RPM>2600 && load>3ms)
+24,1,Engine speed,RPM
+24,2,Engine load,ms
+24,3,Ign ang corr 5,0-10deg
+24,4,Ign ang corr 6,0-10deg
+;
+26,0,Undocumented
+;
+27,0,Undocumented
+;
+30,0,O2S ctrl op. condition [B=Bank S=Sensor] Fields:[heater on][oper.][ctrl active]
+30,1,Status B1S1,111=OK
+30,2,Status B1S2,111=OK
+30,3,Status B2S1,111=OK
+30,4,Status B2S2,111=OK
+;
+31,0,Undocumented
+;
+32,0,O2S control learning values (before Cat. Conv.) [B=Bank S=Sensor]
+32,1,@idle B1S1,+/-10%
+32,2,@part B1S1,+/-10%
+32,3,@idle B2S1,+/-10%
+32,4,@part B2S1,+/-10%
+;
+33,0,O2S control (before Cat. Conv.) [B=Bank S=Sensor]
+33,1,Control B1S1,+/-10%(>2% flct)
+33,2,Voltage B1S1,0-1V(>0.3V@30Hz)
+33,3,Control B2S1,+/-10%(>2% flct)
+33,4,Voltage B2S1,0-1V(>0.3V@30Hz)
+;
+34,0,O2S aging B1S1 (Coolant Temp >80C && engine 1800-2200 RPM until "OK")
+34,1,Engine RPM,1800-2200
+34,2,Engine Load,0.8-2.5ms
+34,3,Time Period,0.2-2.1s
+34,4,Diag Status,TestON/OFF|OK
+;
+35,0,O2S aging B2S1 (Coolant Temp >80C && engine 1800-2200 RPM until "OK")
+35,1,Engine RPM,1800-2200
+35,2,Engine Load,0.8-2.5ms
+35,3,Time Period,0.2-2.1s
+35,4,Diag Status,TestON/OFF|OK
+;
+36,0,O2S (beyond Cat. Conv.) [B=Bank S=Sensor]
+36,1,Volt Supply B1S2,0-1V
+36,2,Diag Status B1S2,TestON/OFF|OK
+36,3,Volt Supply B2S2,0-1V
+36,4,Diag Status B2S2,TestON/OFF|OK
+;
+37,0,[Undoc for 2.8/5V->data for 2.7T] Diag O2S ctrl Bank 1 (road test >10 min)
+37,1,Engine Load,15-25%
+37,2,O2S Volt S2,0-1V
+37,3,Corr val S1-S2,-500-500ms
+37,4,Diag Status,TestON/OFF|OK
+;
+38,0,[Undoc for 2.8/5V->data for 2.7T] Diag O2S ctrl Bank 2 (road test >10 min)
+38,1,Engine Load,15-25%
+38,2,O2S Volt S2,0-1V
+38,3,Corr val S1-S2,-500-500ms
+38,4,Diag Status,TestON/OFF|OK
+;
+40,0,Oxygen sensor heater [B=Bank S=Sensor]
+40,1,Resistance B12S1,2.4-9.2ohm
+40,2,Status B12S1,ON/OFF
+40,3,Resistance B12S2,2.4-9.2ohm
+40,4,Status B12S2,ON/OFF
+;
+41,0,Undocumented
+;
+46,0,Cat. Converter B1 diagnosis (engine 1800-2200 RPM until "Cat B1 OK")
+46,1,Amplitude ratio,0.00-0.26
+46,2,Exceed diag range,0-2
+46,3,Test time, 0-60s
+46,4,Status,TestON/OFF|OK
+;
+47,0,Cat. Converter B2 diagnosis (engine 1800-2200 RPM until "Cat B2 OK")
+47,1,Amplitude ratio,0.00-0.26
+47,2,Exceed diag range,0-2
+47,3,Test time, 0-60s
+47,4,Status,TestON/OFF|OK
+;
+50,0,Signals to Engine Control Module (@idle) [A=AWD F=FWD]
+50,1,Engine speed,620-740A/+120F
+50,2,Spec eng spd,680A/800F
+50,3,A/C idle boost,Lo=A/Hi=F
+50,4,A/C compressor,ON/OFF
+;
+51,0,Undocumented
+;
+54,0,Undocumented
+;
+55,0,Idle control (@idle) [A=AWD F=FWD]
+55,1,Idle Speed,620-740A/+120F
+55,2,Idle air ctrl,-1.39-+1.39g/s
+55,3,Learn value,-1.39-+1.39g/s
+55,4,Op condition,0000=A/0100=F
+;
+56,0,[Undoc for 2.8/5V->data for 2.7T] Idle speed stabilization (@idle)
+56,1,Engine speed,750-850
+56,2,RPM spec,800
+56,3,Ctrl Torque Chg,%
+56,4,Op condition,00000=OK
+;
+60,0,Adaptation of throttle valve control module (ignition on && engine off)
+60,1,TV angle,0-5deg
+60,2,TV angle,0-5deg
+60,3,Op condition,idl/prt/fl/dcl/erch
+60,4,Adapt status,RUN/OK/ERROR
+;
+61,0,Undocumented
+;
+70,0,Evaporative emissions canister purge valve diagnosis (@idle)
+70,1,Purge vlv open,0-93%
+70,2,O2S deviation,+/-15%
+70,3,Idle air vlv dev,-1 to 0 g/s
+70,4,Status,TestON/OFF|OK
+;
+71,0,Fuel tank leak detection (@idle)
+71,1,Reed contact,OPEN
+71,2,Error msg,
+71,3,Sys Status,Test/check/end
+71,4,Diag Status,TestON/OFF|OK
+;
+77,0,Secondary Air Injection system diagnosis (@idle)
+77,1,O2S ctrl dev,%
+77,2,O2S ctrl dev,%
+77,3,Coolant temp,>70C
+77,4,Diag Status,TestON/OFF|OK
+;
+78,0,Undocumented
+;
+86,0,OBD-II Readiness Code
+86,1,Readiness Code,00000000=OK
+86,2,Undocumented
+86,3,Undocumented
+86,4,Undocumented
+;
+87,0,Undocumented
+;
+88,0,Undocumented
+;
+90,0,Camshaft adjustment (values are for idle && road test: accel in 2nd gear)
+90,1,Engine speed,RPM
+90,2,Adj ON/OFF,idle=OFF/rt=ON
+90,3,Adj resp Bank1,-3-6/16-25degKW
+90,4,Adj resp Bank2,-3-6/16-25degKW
+;
+91,0,Undocumented
+;
+92,0,Undocumented
+;
+93,0,Undocumented
+;
+95,0,Undocumented
+;
+98,0,Undocumented
+;
+99,0,O2S Control (ON in read mode && OFF for diagnosis in Basic Setting)
+99,1,Engine speed,RPM
+99,2,Engine load,%
+99,3,Coolant temp,deg C
+99,4,O2S control,ON/OFF
+;
+100,0,Undocumented
+;
+101,0,Undocumented
+;
+102,0,Undocumented
+;
+110,0,Undocumented
+;
+111,0,Undocumented
+;
+112,0,Undocumented
+;
+120,0,Undocumented
+;
+122,0,[Undoc 2.8/5V->data from 1.8T] Engine torque red. during shifting (road test)
+122,1,Engine speed,0-6800RPM
+122,2,Req. torque,-100-410Nm
+122,3,Act. torque,-100-310Nm
+122,4,Timing retard,act/mtr eng
+;
+131,0,Undocumented
+;
+132,0,Undocumented
+;
+133,0,Undocumented
+;
+134,0,Undocumented
+;
+135,0,Undocumented
+;
+136,0,Undocumented
+;
+137,0,Undocumented
+;
+138,0,Undocumented
+;
+139,0,Undocumented
+;
+140,0,Undocumented
+;
+141,0,Undocumented
+;
+144,0,Undocumented
+;
+145,0,Undocumented
+;
+146,0,Undocumented
+;
+147,0,Undocumented
+;
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,078-907-551-AHA
+;
+

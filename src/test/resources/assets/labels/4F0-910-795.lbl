@@ -1,0 +1,108 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J388/J389 - Rear Door Electronics (#62/72)
+;
+; P/N: 4F0-910-795-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 16/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/Jun/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Door Status,,0 = inactive\n1 = active
+; xxxxxxx? = Key Switch open
+; xxxxxx?x = Key Switch closed
+; xxxxx?xx = Central Locking (CL) Interior Switch locking
+; xxxx?xxx = Central Locking (CL) Interior Switch unlocking
+; xxx?xxxx = Lock Feedback "locked"
+; xx?xxxxx = Lock Feedback "safed" (not USA)
+; x?xxxxxx = Door Contact Switch
+; ?xxxxxxx = Catch (for Closing Assistance)
+001,2,Button Status,,0 = inactive\n1 = active
+; 000000x? = Interior Door Handle Button
+; 000000?x = External Door Handle Button
+001,3,Voltages and,Databus Status,0 = inactive\n1 = active
+; 0000xxx? = Terminal 30 (Window Regulator)
+; 0000xx?x = Terminal 30 (Central Locking)
+; 0000x?xx = Terminal 15
+; 0000?xxx = CAN-Comfort in Single-Wire Mode
+001,4,Voltage Supply
+;
+002,0,Window Regulator Buttons (Local)
+002,1,WR-Button,(Local),Display Range: Auto Open/Auto Close/Manual Open/Manual Close/Not Oper.
+;
+003,0,Window Regulator
+003,1,Window Regulator,Position,Display Range: 0.0...100.0 %
+003,2,Window Regulator,Motor Temperature,Display Range: -50.0...+200.0 °C
+003,3,Window Regulator,Status,0 = inactive\n1 = active
+; xxx? = Window Regulators Enabling
+; xx?x = Thermal Protection
+; x?xx = Standardized
+; ?xxx = Insulated Glass
+003,4,Window Regulator,Movement,Display Range: Still/Open/Closed
+;
+005,1,Vehicle Speed,,Display Range: 0.0...255.0 km/h
+005,2,Ambient,Temperature,Display Range: -50.0...+200.0 °C
+;
+006,4,Miscellaneous,,0 = inactive\n1 = active
+; 0000000? = Kessy Lock Button
+;
+007,1,Closing,Assistance,Display Range: Not Installed
+007,2,Opening,Assistance,Display Range: Not Installed
+007,3,Child Safety,Lock Button,Display Range: Operated/Not Oper./Not Installed
+007,4,Window Regulator,Current Consumpt.
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Rear Door Electronics (J388/J389) Coding
+C01,+0000002 = Interior Door Handle Illumination
+C02,+0000004 = Insulated Glass installed (PR-4KR/4KV)
+C03,+0000008 = Door Warning Lights installed
+C04,+0000016 = Right Hand Steering (PR-L0R)
+C05,+0000032 = Lighting Package (Interior Lighting - PR-QQ1)
+C06,+0000512 = Interior Lock Switch installed
+C07,+0001024 = Avant (Wagon)
+C08,+0002048 = Electrical Child Safety Lock (PR-4H5)
+C09,+0004096 = Opening Assistance
+C10,+0008192 = Closing Assistance (PR-GZ2)
+C11,+0016384 = Keyless-Entry installed (PR-4F2/4K5/4K7)
+C12,+0032768 = Safe Function disabled (PR-A8U)
+C13,+0065536 = Window Regulator Comfort Function disabled
+C14,+0131072 = Handicapped Vehicle
+C15,+0262144 = Special Protection Vehicle
+C16,+0524288 = Pinch Protection disabled
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T1482,Motors for Central Locking
+T2111,Motor for Window Regulator
+T2131,Child Safety Lock Motor
+T2188,Lighting/Illumination
+;

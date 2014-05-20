@@ -1,0 +1,70 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E) / Audi A6 (4B) / Audi A8 (4D) / Skoda Superb (3U) / VW Passat (3B)
+;
+; Component: J431 - Dynamic Headlight Aim Control (#55)
+;
+; P/N: 4Z7-907-357-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; created on 27/Sep/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+; updated on 27/Nov/2005 by Jose Carlos Fernandez (josecarlosfernandez@terra.es)
+; updated on 10/Jun/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 02/Sep/2006
+;
+; requires VAG-COM 607.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,1,Voltage Supply,(Terminal 15)
+001,2,Light Switch,Status,Display Range:\n\n 1 = ON\n 2 = OFF
+001,3,Vehicle Speed
+001,4,Acceleration
+;
+B001,0,Adjustment Position
+B001,1,Status
+B001,2,,,
+B001,3,,,
+B001,4,,,
+;
+002,1,Voltage level,sensor front,Specification (Basic Setting): 1.6...3.5 V\n\n0 Volt  => Level Sensor faulty\n+5 Volts => Wiring faulty
+002,2,Voltage level,sensor rear,Specification (Basic Setting): 1.6...3.5 V\n\n0 Volt  => Level Sensor faulty\n+5 Volts => Wiring faulty
+002,3,Actuator Motor,Activation
+002,4,Time Constant
+;
+B002,0,Adjustment Learning
+B002,1,Status
+B002,2,,,
+B002,3,,,
+B002,4,,,
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Dynamic Headlight Aim Control (J431) Coding
+C01,00001 = Audi A8 (4D - Facelift)
+C02,00005 = Skoda Superb (3U) FWD
+C03,00006 = Skoda Superb (3U) AWD
+C04,00007 = VW Passat (3B) FWD
+C05,00008 = VW Passat (3B) AWD
+C06,00020 = Audi A6 V8 (4B)
+C07,00030 = Audi A6 Allroad (4B)
+C08,00040 = Audi A6 FWD (4B - Facelift)
+C09,00050 = Audi A6 Quattro (4B - Facelift)
+C10,00060 = Audi A4 (8E)
+C11,00070 = Audi A4 Cabrio/Coupé (8E)
+;

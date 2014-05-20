@@ -1,0 +1,31 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J393 - Comfort System (#46)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-46.LBL
+; 1K0-959-433-46.LBL
+;
+; created on 02/Dec/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 26/Jan/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,1K0-959-433-46.LBL,1K0-959-433-???
+;
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-C   ; 12 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-H   ; 13 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-J   ; 13 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-S   ; 13 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-T   ; 13 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-AK  ; 14 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-AQ  ; 19 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-AR  ; 19 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-AT  ; 19 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-BK  ; 13 Byte
+;REDIRECT,1K0-959-433-46.LBL,1K0-959-433-BL  ; 13 Byte
+;

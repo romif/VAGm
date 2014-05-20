@@ -1,0 +1,110 @@
+;
+; VAG-COM label file
+;
+; 01N (-M,-P) - 4-Speed Automatic Transmission
+; VW Golf / Bora / Audi A3 / Seat Leon/Toledo / Skoda Octavia (1U) / VW Golf (1J) / VW New Beetle  (01M)
+; VW Passat / Audi A4 / A6 (DMU / DMV / DMX / EPT / EPU / EPV) (01N)
+; VW Sharan / Transporter (01P) 
+;
+; component: Transmission Electronic (#02) - 4-Speed Automatic Transmission 01M
+;
+; p/n: 01? 927 733 ???
+;
+; includes measuring blocks and coding
+;
+; based upon 01N-927-733.lbl by ???
+; updated on 10/05/2004 by Sebastian Stange (sebastian@ross-tech.com)
+; coding added on 07/13/2005 by Ericthebikeman (ops21_at_earthlink_dot_net)
+; updated on 15/06/2009 by Sergey Vorobyov (aka SerV) reg-me [at] ya [dot] ru
+;
+; last modification: 15/July/2009
+;
+; requires VAG-COM 402.3 or newer (last tested on 704.1)
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,1,Selector Position,MF switch F125
+001,2,Throttle Valve Voltage,Spec: XX 0.156...0.8V full 3.5...4.68V
+001,3,Value of Acc. Pedal,Spec: XX 0...1% full 99...100%
+001,4,Multi-Function,switch,Spec: 1 -Operated 0 -Not
+;
+002,1,Solenoid Valve 6,Actual Current,N93 Spec: differ not more 0.05A
+002,2,Solenoid Valve 6,Specified Current,N93 Spec: 1...1.1A
+002,3,Battery,Voltage,Spec: 10.8...15.93V
+002,4,Vehicle Speed,Sensor Voltage,G68 Spec: 2.2...2.52V
+;
+003,1,Speed,Spec: ... km/h
+003,2,Engine Speed,Spec: ... rpm
+003,3,Driving Mode,Spec: 0 R 1H 1M 2H 2M 3H 3M 4H 
+003,4,Value of,Acc. Pedal,Spec: XX 0...1% full 99...100%
+;
+004,1,Solenoid Valves,Condition
+; ?xxxxx = Solenoid Valve 1 (N88)
+; x?xxxx = Solenoid Valve 2 (N89)
+; xx?xxx = Solenoid Valve 3 (N90)
+; xxx?xx = Solenoid Valve 4 (N91)
+; xxxx?x = Solenoid Valve 5 (N92)
+; xxxxx? = Solenoid Valve 7 (N94)
+;
+; 101000 = P
+; 001000 = R (more 10 km/h=101000)
+; 101000 = N
+; 001000 = D/1H (in D >10 km/h, 1 hydr)
+; 001000 = D/1M (in D >10 km/h, 1 mech)
+; 011000 = D/2H (in D >10 km/h, 2 hydr)
+; 011000 = D/2M (in D >10 km/h, 2 mech)
+; 000001 = D/3H (in D >10 km/h, 3 hydr)
+; 000001 = D/3M (in D >10 km/h, 3 mech)
+; 110001 = D/4H (in D >10 km/h, 4 hydr)
+; 110001 = D/4M (in D >10 km/h, 4 mech)
+004,2,Driving Mode,Spec: 0 R 1H 1M 2H 2M 3H 3M 4H
+004,3,Selector Position,MF switch F125
+004,4,Speed,Spec: ... km/h
+;
+005,1,ATF Temperature,,Spec: -40...+170 °C
+005,2,MF Switch 2,Spec: 1=on 0=off
+005,3,Gear to be engaged,Spec: 0 R 1H 1M 2H 2M 3H 3M 4H
+005,4,Engine Speed,Spec: ... rpm
+;
+006,1,Road Inclination,(calculated)
+006,2,Hill Factor
+006,3,Sport Factor
+006,4,Value of,Acc. Pedal,Spec: XX 0...1% full 99...100%
+;
+007,1,Driving Mode
+007,2,Lock-Up clutch,Slip Slipping,Spec: 2000...3000 rpm=0...130 rpm,max rpm=0...15 rpm
+007,3,Engine Speed,,Spec: ... rpm
+007,4,Value of,Acc. Pedal,Spec: XX 0...1% full 99...100%
+;
+;
+;---------------------------------------------------
+;
+; coding informations
+;
+;---------------------------------------------------
+;
+;
+C00,Automatic Transmission (01N) Coding
+C01,000?x: DSP Mode (Dynamic Shift Points)
+C02,0 = DSP active
+C03,1 = DSP inactive
+C04, 
+C05,000x?: Transmission Mode
+C06,0 = Factory Mode (Adaptive Transmission Mode)
+C07,1 = Force Economy Mode (lower Shift Points)
+C08,2 = Force Sport Mode (higher Shift Points)
+C09, 
+C10,Common Settings:
+C11,00000 = Factory Mode
+C12,00011 = Econonmy/Touring Mode
+C13,00012 = Sport Mode
+C14,00010 - DSP off, with standard taktic
+C15,00001 - DSP on, with lower Shift taktic
+C16,00002 - DSP on, with higher Shift taktic
+;

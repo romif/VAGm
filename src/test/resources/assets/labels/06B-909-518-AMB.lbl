@@ -1,0 +1,821 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8E)
+;
+; Component: J220 - Engine (#01) - AMB
+;
+; P/N: 8E0-909-518-???
+;
+; includes measuring blocks, basic setting, coding, coding-ii and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8E-01.LBL
+; 06B-909-518-AMB.LBL  (1.8l     @ 125 HP - AMB)
+;
+; created on 27/Jul/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Apr/2008
+;
+; requires VAG-COM 603.4 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+001,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+001,3,Lambda Control,Bank 1
+001,4,Basic Setting,Requirements,see labelfile
+; 1xxxxxxx - Coolant temperature above 80 °C
+; x1xxxxxx - Engine speed below 2000 RPM
+; xx1xxxxx - Throttle valve closed
+; xxx1xxxx - Lambda regulation correct
+; xxxx1xxx - State of idle
+; xxxxx1xx - A/C system compressor deactivated
+; xxxxxx1x - Catalytic converter over 300 °C
+; xxxxxxx1 - No malfunction detected by Self-Diagnosis
+;
+002,0,General
+002,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+002,2,Engine Load,,Specification (Idle): 13.0...45.0 %
+002,3,Injection Timing,,Specification (Idle): 1.0...4.0 ms
+002,4,Mass Air Flow,(G70),Specification (Idle): 2.0...4.5 g/s\nSpecififcation (Load): 90.0...100.0 g/s
+;
+003,0,General
+003,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+003,2,Mass Air Flow,(G70),Specification (Idle): 2.0...4.5 g/s\nSpecififcation (Load): 90.0...100.0 g/s
+003,3,Throttle Valve Angle
+003,4,Ignition,Timing Angle
+;
+004,0,General
+004,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+004,2,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+004,3,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+004,4,Intake Air,Temperature (G42),Range: -40.5...+135.0 °C\nSpecification (Warm): < +80.0 °C (max. +115.0 °C)
+;
+005,0,General
+005,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+005,2,Engine Load,,Specification (Idle): 13.0...45.0 %
+005,3,Vehicle Speed,,Range: 0.0...255.0 km/h
+005,4,Load Status,,Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+;
+006,0,General
+006,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+006,2,Engine Load,,Specification (Idle): 13.0...45.0 %
+006,3,Intake Air,Temperature (G42),Range: -40.5...+135.0 °C\nSpecification (Warm): < +80.0 °C (max. +115.0 °C)
+006,4,Altitude,Correction Factor
+;
+008,0,General (Brake System)
+008,1,Brake Condition,,Range: Operated/Not Oper.
+008,2,Vacuum Pump,Status,Range: Pump ON/Pump OFF
+008,3,Brake Booster,Pressure
+008,4,Result,,Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Test OFF
+;
+B008,0,Vacuum Pump Test (Short Trip)
+; Engine OFF, Ignition ON, Shift Lever: P/N
+; "Activate" Basic Setting
+; Firmly press Brake Pedal twice > Field 4 = Test ON
+; Wait until Field 4 shows "Sys. OK"
+B008,1,Brake Condition,,Range: Operated/Not Oper.
+B008,2,Vacuum Pump,Status,Range: Pump ON/Pump OFF
+B008,3,Brake Booster,Pressure,
+B008,4,Result,,Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Sys. OK
+;
+010,0,Ignition
+010,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+010,2,Engine Load,,Specification (Idle): 13.0...45.0 %
+010,3,Throttle Valve Angle
+010,4,Ignition,Timing Angle
+;
+011,0,Ignition
+011,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+011,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+011,3,Intake Air,Temperature (G42),Range: -40.5...+135.0 °C\nSpecification (Warm): < +80.0 °C (max. +115.0 °C)
+011,4,Ignition,Timing Angle
+;
+014,0,Ignition (Misfire Recognition - Total)
+014,1,Engine Speed,(G28)
+014,2,Engine Load
+014,3,Misfire,(total),Specification: 0
+014,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+015,0,Ignition (Misfire Recognition - Cylinder 1-3)
+015,1,Misfire Counter,Cylinder 1
+015,2,Misfire Counter,Cylinder 2
+015,3,Misfire Counter,Cylinder 3
+015,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+016,0,Ignition (Misfire Recognition - Cylinder 4)
+016,1,Misfire Counter,Cylinder 4
+016,4,Misfire,Recognition,Range: Disabled/Enabled
+;
+018,0,RPM/Load Barriers
+018,1,Lower,RPM Barrier
+018,2,Upper,RPM Barrier
+018,3,Lower,Load Barrier
+018,4,Upper,Load Barrier
+;
+020,0,Ignition (Timing Retardation Cylinder 1-4)
+020,1,Timing Retardation,Cylinder 1
+020,2,Timing Retardation,Cylinder 2
+020,3,Timing Retardation,Cylinder 3
+020,4,Timing Retardation,Cylinder 4
+;
+022,0,Ignition (Timing Retardation Cylinder 1 && 2)
+022,1,Engine Speed,(G28)
+022,2,Engine Load
+022,3,Timing Retardation,Cylinder 1
+022,4,Timing Retardation,Cylinder 2
+;
+023,0,Ignition (Timing Retardation Cylinder 3 && 4)
+023,1,Engine Speed,(G28)
+023,2,Engine Load
+023,3,Timing Retardation,Cylinder 3
+023,4,Timing Retardation,Cylinder 4
+;
+026,0,Ignition (Knock Control Cylinder 1-4)
+026,1,Voltage,Cylinder 1
+026,2,Voltage,Cylinder 2
+026,3,Voltage,Cylinder 3
+026,4,Voltage,Cylinder 4
+;
+028,0,Ignition (Knock Sensor Test)
+028,1,Engine Speed,(G28)
+028,2,Engine Load
+028,3,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+028,4,Result,,Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Sys. OK
+;
+B028,0,Ignition (Knock Sensor Test - Short Trip)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases to 2200 RPM automatically > Field 4 = Test ON
+; Wait until Field 4 shows "Sys. OK"
+B028,1,Engine Speed,(G28)
+B028,2,Engine Load
+B028,3,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+B028,4,Result,,Range: Test ON/Test OFF/Sys. OK/Sys. not OK\nSpecification: Sys. OK
+;
+030,0,Lambda Control (Sensor Status)
+030,1,Bank 1,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,2,Bank 1,Sensor 2
+; 1xxx - Lambda Control (P-Portion) active
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control (I-Portion) active
+;
+031,0,Lambda Control
+031,1,Lambda Control,Bank 1 (actual)
+031,2,Lambda Control,Bank 1 (specified)
+;
+032,0,Lambda Control (Mixture Adaptation)
+032,1,Adaptation (Idle),Bank 1 Sensor 1
+032,2,Adaptation (Partial),Bank 1 Sensor 1
+;
+033,0,Lambda Control
+033,1,Lambda Control,Bank 1 Sensor 1
+033,2,Sensor Voltage,Bank 1 Sensor 1
+;
+034,0,Lambda Control (Aging Check: Bank 1 Sensor 1)
+034,1,Engine Speed,(G28)
+034,2,Catalytic Converter,Bank 1 Temp.
+034,3,Dynamic Factor,Bank 1 Sensor 1
+034,4,Result,Lambda Aging,Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK\nSpecification: Test OFF
+;
+B034,0,Lambda Control (Aging Check: Bank 1 Sensor 1)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases automatically > Field 4 = Test ON
+; Wait until Field 4 shows "B1-S1 OK"
+B034,1,Engine Speed,(G28)
+B034,2,Catalytic Converter,Bank 1 Temp.
+B034,3,Dynamic Factor,Bank 1 Sensor 1
+B034,4,Result,Lambda Aging,Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK\nSpecification: B1-S1 OK
+;
+036,0,Lambda Control (Sensor Readiness - After Catalyst)
+036,1,Sensor Voltage,Bank 1 Sensor 2
+036,2,Result,Lambda Availability,Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK\nSpecification: Test OFF
+;
+B036,0,Lambda Control (Sensor Readiness - After Catalyst)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases automatically > Field 4 = Test ON
+; Wait until Field 4 shows "B1-S2 OK"
+B036,1,Sensor Voltage,Bank 1 Sensor 2
+B036,2,Result,Lambda Availability,Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK\nSpecification: B1-S2 OK
+;
+037,0,Lambda Control (Delta Lambda Bank 1)
+037,1,Engine Load
+037,2,Sensor Voltage,Bank 1 Sensor 2
+037,3,Delta Lambda,Bank 1 Sensor 2
+037,4,Result,,Range: Test ON/Test OFF/B1-S1 OK/B1-S1 n.OK\nSpecification: Test OFF
+;
+B037,0,Lambda Control (Delta Lambda Bank 1)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases automatically > Field 4 = Test ON
+; Wait until Field 4 shows "B1-S1 OK"
+B037,1,Engine Load
+B037,2,Sensor Voltage,Bank 1 Sensor 2
+B037,3,Delta Lambda,Bank 1 Sensor 2
+B037,4,Result,,Range: Test ON/Test OFF/B1-S1 OK/B1-S1 n.OK\nSpecification: B1-S1 OK
+;
+041,0,Lambda Control (Lambda Sensor Heating Bank 1)
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition,,Display Range: Htg. S1 OFF/Htg. S1 ON
+041,3,Resistance,Bank 1 Sensor 2
+041,4,Heater Condition,,Display Range: Htg. S2 OFF/Htg. S2 ON
+;
+043,0,Lambda Control (Aging Check: Bank 1 Sensor 2)
+043,1,Engine Speed,(G28)
+043,2,Catalytic Converter,Bank 1 Temp.
+043,3,Lambda Voltage,Bank 1 Sensor 2
+043,4,Result,Aging Check,Display Range: Test ON/Test OFF/B1-S2 OK/B1-S2 n.OK\nSpecification: Test OFF
+;
+B043,0,Lambda Control (Aging Check: Bank 1 Sensor 2)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases automatically > Field 4 = Test ON
+; Wait until Field 4 shows "B1-S2 OK"
+B043,1,Engine Speed,(G28)
+B043,2,Catalytic Converter,Bank 1 Temp.
+B043,3,Lambda Voltage,Bank 1 Sensor 2
+B043,4,Result,Aging Check,Display Range: Test ON/Test OFF/B1-S2 OK/B1-S2 n.OK\nSpecification: B1-S2 OK
+;
+046,0,Lambda Control (Catalytic Conversion Test Bank 1)
+046,1,Engine Speed,(G28)
+046,2,Catalytic Converter,Bank 1 Temp.
+046,3,Catalytic,Conversion Bank 1
+046,4,Result,Cat. Conversion,Display Range: Test ON/Test OFF/CatB1 OK/CatB1 n.OK\nSpecification: Test OFF
+;
+B046,0,Lambda Control (Catalytic Conversion Test Bank 1)
+; Short Trips 034/035/036/037/038/039/043/044 must be OK
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases automatically > Field 4 = Test ON
+; Wait until Field 4 shows "CatB1 OK"
+B046,1,Engine Speed,(G28)
+B046,2,Catalytic Converter,Bank 1 Temp.
+B046,3,Catalytic,Conversion Bank 1
+B046,4,Result,Cat. Conversion,Range: Test ON/Test OFF/CatB1 OK/CatB1 n.OK\nSpecification: CatB1 OK
+;
+050,0,Engine Speed Increase
+050,1,Engine Speed,(actual)
+050,2,Engine Speed,(specified)
+050,3,A/C Readiness,,Display Range: A/C-Low / A/C-High
+050,4,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+;
+051,0,Engine Speed Increase (Gear shifts)
+051,1,Engine Speed,(actual)
+051,2,Engine Speed,(specified)
+051,3,Selected Gear,,P or N = 0\nGear = 1 - 6\nR = 7
+051,4,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+;
+052,0,Engine Speed Increase
+052,1,Engine Speed,(actual)
+052,2,Engine Speed,(specified)
+052,3,A/C Readiness,,Range: A/C-Low / A/C-High
+052,4,Rear,Window Heater,Range: ON/OFF
+;
+053,0,Engine Speed Increase (Generator Load)
+053,1,Engine Speed,(actual)
+053,2,Engine Speed,(specified)
+053,3,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+053,4,Generator,Load Signal
+;
+054,0,Idle Speed Stabilization
+054,1,Engine Speed,(G28)
+054,2,Load Status,,Display Range: Idle/Partial Throttle/Wide Open Throttle (WOT)/Enrichment/Deceleration
+054,3,Accel. Pedal Pos.,Sensor 1 (G79)
+054,4,Throttle Valve Angle
+;
+055,0,Idle Speed Stabilization
+055,1,Engine Speed,(G28)
+055,2,Idle Regulator
+055,3,Idle Stabilization,Self-Adaptation
+055,4,Operating,Condition
+; 0xxx? = A/C Compressor
+; 0xx?x = Gear engaged
+; 0x?xx = A/C Readiness
+; 0?xxx = Rear Window Heater
+;
+056,0,Idle Speed Stabilization
+056,1,Engine Speed,(actual)
+056,2,Engine Speed,(specified)
+056,3,Idle Regulator
+056,4,Operating,Condition
+; 0xxx? = A/C Compressor
+; 0xx?x = Gear engaged
+; 0x?xx = A/C Readiness
+; 0?xxx = Rear Window Heater
+;
+057,0,Idle Speed Stabilization (Air Condition)
+057,1,Engine Speed,(actual)
+057,2,Engine Speed,(specified)
+057,3,A/C Compressor,,Range: Compr.OFF/Compr.ON
+057,4,A/C Compressor,Pressure
+;
+060,0,Electronic Throttle (Throttle Body Adaptation)
+060,1,Throttle Valve,Sensor 1 (G187)
+060,2,Throttle Valve,Sensor 2 (G188)
+060,3,Throttle Adaptation,Steps Counter
+060,4,Result,Throttle Valve Adp.,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+B060,0,Electronic Throttle (Throttle Body Adaptation)
+; "Activate" Basic Setting
+; Wait until Field 4 shows "ADP OK"
+B060,1,Throttle Valve,Sensor 1 (G187)
+B060,2,Throttle Valve,Sensor 2 (G188)
+B060,3,Throttle Adaptation,Steps Counter
+B060,4,Result,Throttle Valve Adp.,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+061,0,Electronic Throttle
+061,1,Engine Speed,(G28)
+061,2,Battery Voltage,(Terminal 30),Specification: 11.0...15.0 V
+061,3,Throttle Valve Angle
+061,4,Operating,Condition
+; 0xxx? = A/C Compressor
+; 0xx?x = Gear engaged
+; 0x?xx = A/C Readiness
+; 0?xxx = Rear Window Heater
+;
+062,0,Electronic Throttle (Sensor Values)
+062,1,Throttle Valve,Sensor 1 (G187)
+062,2,Throttle Valve,Sensor 2 (G188)
+062,3,Accel. Pedal Pos.,Sensor 1 (G79)
+062,4,Accel. Pedal Pos.,Sensor 2 (G185)
+;
+063,0,Electronic Throttle (Kick-Down Adaptation)
+063,1,Accel. Pedal Pos.,Sensor 1 (G79)
+063,2,Kick-Down,Adaptation Value
+063,3,Kick-Down,Switch,Range: Kick Down
+063,4,Kick-Down,Adaptation,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+B063,0,Electronic Throttle (Kick-Down Adaptation)
+; "Activate" Basic Setting
+; Press the Accelerator Pedal down to the floor
+; Wait until Field 4 shows "ADP OK"
+B063,1,Throttle Position,Sensor (G79)
+B063,2,Kick-Down,Adaptation Value
+B063,3,Kick-Down,Switch,Range: Kick Down
+B063,4,Kick-Down,Adaptation,Range: ADP RUN/ADP OK/ADP ERROR\nSpecification: ADP OK
+;
+064,0,Electronic Throttle (Sensor Adaption Values)
+064,1,Lower Adaptation,Sensor 1 (G187)
+064,2,Lower Adaptation,Sensor 2 (G188)
+064,3,Emergency Air Gap,Sensor 1 (G187)
+064,4,Emergency Air Gap,Sensor 2 (G188)
+;
+066,0,Electronic Throttle (Cruise Control System)
+066,1,Vehicle Speed,(current)
+066,2,Switch Positions I,,See Label File
+; xxxxxxx? = Brake Light Switch
+; xxxxxx?x = Brake Pedal Switch
+; xxxxx?xx = Clutch Pedal Switch
+; xxxx?xxx = CCS (Cruise Control System) enabled
+; xxx?xxxx = ACC (Adaptive Cruise Control) available
+; xx?xxxxx = Main Switch engaged
+; ??xxxxxx = CCS Status
+066,3,Vehicle Speed,(specified)
+066,4,Switch Positions II,,See Label File
+; x0xxxxx? = CCS ON (CAN)
+; x0xxxx?x = SET (CCS ON)
+; x0xxx?xx = Deceleration (-)
+; x0xx?xxx = Acceleration (+)
+; x0x?xxxx = SET
+; x0?xxxxx = RESUME/RESET
+; ?0xxxxxx = CCS ON (Hardware Pin)
+;
+070,0,Emission Reduction (EVAP Valve Test)
+070,1,Evap. Emissions,Sol. Valve (Open)
+070,2,Lambda Control
+070,3,Evap. Emissions,Sol. Valve (Flow)
+070,4,Result,,Range: Test ON/Test OFF/TEV OK/TEV not OK\nSpecification: Test OFF
+;
+B070,0,Emission Reduction (EVAP Valve Test)
+; "Activate" Basic Setting
+; Wait until Field 4 shows "TEV OK"
+B070,1,Evap. Emissions,Sol. Valve (Open)
+B070,2,Lambda Control
+B070,3,Evap. Emissions,Sol. Valve (Flow)
+B070,4,Result,,Range: Test ON/Test OFF/TEV OK/TEV not OK\nSpecification: TEV OK
+;
+071,0,Emission Reduction (Leak Diagnostic System)
+071,1,Reed Contact,Condition,Range: Reed Open/Reed Closed
+071,2,Malfunction,Message,Range: Small Leak/Large Leak/Abort
+071,3,Test Status,,Range: System Test/Meas. End
+071,4,Result,,Range: Test ON/Test OFF/Syst. OK/Syst. not OK\nSpecification: Test OFF
+;
+B071,0,Emission Reduction (Leak Diagnostic System)
+; "Activate" Basic Setting
+; Wait until Field 4 shows "Syst. OK"
+B071,1,Reed Contact,Condition,Range: Reed Open/Reed Closed
+B071,2,Malfunction,Message,Range: Small Leak/Large Leak/Abort
+B071,3,Test Status,,Range: System Test/Meas. End
+B071,4,Result,,Range: Test ON/Test OFF/Syst. OK/Syst. not OK\nSpecification: Syst. OK
+;
+077,0,Emission Reduction (Secondary Air Injection: Bank 1)
+077,1,Engine Speed,(G28)
+077,2,Mass Air Flow,(G70)
+077,3,Air Mass from,Sec. Air Inj. Bank 1
+077,4,Result,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Test OFF
+;
+B077,0,Emission Reduction (Secondary Air Injection: Bank 1)
+; "Activate" Basic Setting
+; Firmly press Brake Pedal and Throttle Pedal at once
+; Engine Speed increases to 1400 RPM automatically > Field 4 = Test ON
+; Wait until Field 4 shows "Syst. OK"
+; NOTE: Can only be performed once per engine start!
+B077,1,Engine Speed,(G28)
+B077,2,Mass Air Flow,(G70)
+B077,3,Air Mass from,Sec. Air Inj. Bank 1
+B077,4,Result,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+086,0,Readiness Code I
+086,1,Readiness Bits,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Catalyst(s)
+; xxxxxx?x = Catalyst Heating
+; xxxxx?xx = EVAP System
+; xxxx?xxx = Secondary Air Injection System
+; xxx?xxxx = Climate Control
+; xx?xxxxx = Oxygen Sensor(s)
+; x?xxxxxx = Oxygen Sensor Heating
+; ?xxxxxxx = Exhaust Gas Recirculation (EGR)
+086,2,Cycle Flags I,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Catalyst Bank 1
+; xxxxxx?x = Catalyst Bank 2
+; xxxxx?xx = Leak Diagnostic Pump
+; xxxx?xxx = EVAP Valve
+; xxx?xxxx = Oxygen Sensor Heater Bank 1 Sensor 1
+; xx?xxxxx = Oxygen Sensor Heater Bank 1 Sensor 2
+; x?xxxxxx = Oxygen Sensor Heater Bank 2 Sensor 1
+; ?xxxxxxx = Oxygen Sensor Heater Bank 2 Sensor 2
+086,3,Cycle Flags II,,See Label File\n\n0 = completed\n1 = not completed
+; 0xxxxxx? = Bank 1 Sensor 1 elec.
+; 0xxxxx?x = Bank 1 Sensor 2 elec.
+; 0xxxx?xx = Bank 1 Sensor 1 (Delta-Lambda Shift)
+; 0xxx?xxx = Bank 1 Sensor 2 (Sensor Aging)
+; 0xx?xxxx = Bank 1 Sensor 1 (Period Duration)
+; 0x?xxxxx = Secondary Air Injection Bank 1
+; 0?0xxxxx = Secondary Air Injection Bank 2
+086,4,Cycle Flags II,,See Label File\n\n0 = completed\n1 = not completed
+; 0xxxxxx? = Bank 2 Sensor 1 elec.
+; 0xxxxx?x = Bank 2 Sensor 2 elec.
+; 0xxxx?xx = Bank 2 Sensor 1 (Delta-Lambda Shift)
+; 0xxx?xxx = Bank 2 Sensor 2 (Sensor Aging)
+; 0xx?xxxx = Bank 2 Sensor 1 (Period Duration)
+; 0x?xxxxx = Secondary Air Injection Bank 1
+; 0?xxxxxx = Secondary Air Injection Bank 2
+;
+087,0,Readiness and Error Bits
+087,1,Readiness Bits,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Catalyst(s)
+; xxxxxx?x = Catalyst Heating
+; xxxxx?xx = EVAP System
+; xxxx?xxx = Secondary Air Injection System
+; xxx?xxxx = Climate Control
+; xx?xxxxx = Oxygen Sensor(s)
+; x?xxxxxx = Oxygen Sensor Heating
+; ?xxxxxxx = Exhaust Gas Recirculation (EGR)
+087,2,Error Flags I,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Catalyst Bank 1
+; xxxxxx?x = Catalyst Bank 2
+; xxxxx?xx = Leak Diagnostic Pump
+; xxxx?xxx = EVAP Valve
+; xxx?xxxx = Oxygen Sensor Heater Bank 1 Sensor 1
+; xx?xxxxx = Oxygen Sensor Heater Bank 1 Sensor 2
+; x?xxxxxx = Oxygen Sensor Heater Bank 2 Sensor 1
+; ?xxxxxxx = Oxygen Sensor Heater Bank 2 Sensor 2
+087,3,Error Flags II,,See Label File\n\n0 = completed\n1 = not completed
+; 0xxxxxx? = Bank 1 Sensor 1 elec.
+; 0xxxxx?x = Bank 1 Sensor 2 elec.
+; 0xxxx?xx = Bank 1 Sensor 1 (Delta-Lambda Shift)
+; 0xxx?xxx = Bank 1 Sensor 2 (Sensor Aging)
+; 0xx?xxxx = Bank 1 Sensor 1 (Period Duration)
+; 0x?xxxxx = Secondary Air Injection Bank 1
+; 0?0xxxxx = Secondary Air Injection Bank 2
+087,4,Error Flags II,,See Label File\n\n0 = completed\n1 = not completed
+; 0xxxxxx? = Bank 2 Sensor 1 elec.
+; 0xxxxx?x = Bank 2 Sensor 2 elec.
+; 0xxxx?xx = Bank 2 Sensor 1 (Delta-Lambda Shift)
+; 0xxx?xxx = Bank 2 Sensor 2 (Sensor Aging)
+; 0xx?xxxx = Bank 2 Sensor 1 (Period Duration)
+; 0x?xxxxx = Secondary Air Injection Bank 1
+; 0?xxxxxx = Secondary Air Injection Bank 2
+;
+88,0,Cycle Flags
+88,1,Cycle Flags I,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Exhaust Camshaft Bank 2
+; xxxxxx?x = Exhaust Camshaft Bank 1
+; xxxxx?xx = Intake Camshaft Bank 2
+; xxxx?xxx = Intake Camshaft Bank 1
+; xxx?xxxx = Knock Sensor 4
+; xx?xxxxx = Knock Sensor 3
+; x?xxxxxx = Knock Sensor 2
+; ?xxxxxxx = Knock Sensor 1
+88,2,Cycle Flags II,,See Label File\n\n0 = completed\n1 = not completed
+; xxxxxxx? = Brake Light Switch
+; xxxxxx?x = Clutch Pedal Switch
+; xxxxx?xx = Idle Speed Control
+; xxxx?xxx = Speed Signal
+; xxx?xxxx = Idle Switch
+; xx?xxxxx = Coolant Temperature Sensor
+; x?xxxxxx = Throttle Valve Potentiometer
+; ?xxxxxxx = Mass Air Flow Sensor
+88,3,Cycle Flags III,,See Label File\n\n0 = completed\n1 = not completed
+; xxx0x?00 = Intake Air Temperature Sensor
+; xxx0?x00 = Thermostat (only USA)
+; xx?0xx00 = Cruise Control Lever
+; x?x0xx00 = Oxygen Sensor Control - Adaptation Bank 2
+; ?xx0xx00 = Oxygen Sensor Control - Adaptation Bank 1
+;
+089,0,On-Board-Diagnostics (OBD)
+089,1,Distance Driven,with MIL on
+089,2,Tank Condition,,Display Range: OK/too low
+;
+090,0,Continuous Camshaft Adjustment (Intake)
+090,1,Engine Speed,(G28)
+090,2,Adjustment,Status,Range: Cam Ctrl. ON/Cam Ctrl. OFF
+090,3,Adjustment,Bank 1
+;
+091,0,Continuous Camshaft Adjustment (Intake - Bank 1)
+091,1,Engine Speed,(G28)
+091,2,Engine Load
+091,3,Adjustment,Status,Range: ON/OFF
+091,4,Adjustment,Bank 1
+;
+093,0,Continuous Camshaft Adjustment (Phase Position - Bank 1)
+093,1,Engine Speed,(G28)
+093,2,Engine Load
+093,3,Phase Position,Bank 1
+;
+094,0,Continuous Camshaft Adjustment (Intake)
+094,1,Engine Speed,(G28)
+094,2,Adjustment,Status,Range: Cam Ctrl. ON/Cam Ctrl. OFF
+094,3,Result,Bank 1,Range: Test ON/Test OFF/Syst. OK/Syst. not OK\nSpecification: Syst. not OK
+;
+099,0,Lambda Control Shut-Off
+099,1,Engine Speed,(G28)
+099,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+099,3,Lambda Control
+099,4,Lambda Control,Status,Range: O2-Reg.OFF/O2-Reg.ON
+;
+B099,0,Lambda Control Shut-Off
+; "Activate" Basic Setting
+; Wait until Field 4 shows "O2-Reg.OFF"
+B099,1,Engine Speed,(G28)
+B099,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+B099,3,Lambda Control
+B099,4,Lambda Control,Status,Range: O2-Reg.OFF/O2-Reg.ON
+;
+100,0,Readiness Code
+100,1,Readiness Bits,,See Label File
+; xxxxxxx? - Catalytic Converter
+; xxxxxx?x - Catalytic Converter Heater
+; xxxxx?xx - Activated Charcoal System
+; xxxx?xxx - Secondary Air Injection (AIR) System
+; xxx?xxxx - A/C System
+; xx?xxxxx - Oxygen Sensors
+; x?xxxxxx - Oxygen Sensor Heating
+; ?xxxxxxx - Exhaust Gas Recirculation (EGR)
+100,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+100,3,Time since,Engine Start
+100,4,OBD-Status,,See Label File
+; xxxx00x? - Warm-Up Cycle not possible
+; xxxx00?x - Warm-Up Cycle ended
+; xxx?00xx - Malfunction detected (min. 1 Fault)
+; xx?x00xx - Trip complete
+; x?xx00xx - Driving Cycle detected
+; ?xxx00xx - MIL ON
+;
+101,0,Fuel Injection
+101,1,Engine Speed,(G28)
+101,2,Engine Load
+101,3,Injection Timing
+101,4,Mass Air Flow,(G70)
+;
+102,0,Fuel Injection
+102,1,Engine Speed,(G28)
+102,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+102,3,Intake Air,Temperature (G42),Range: -40.5...+135.0 °C\nSpecification (Warm): < +80.0 °C (max. +115.0 °C)
+102,4,Injection Timing
+;
+104,0,Fuel Injection (Start Adaption Values)
+104,1,Engine Start,Temperature
+104,2,Temperature,Adaptation Factor 1
+104,3,Temperature,Adaptation Factor 2
+104,4,Temperature,Adaptation Factor 3
+;
+107,0,Fuel Injection (Fuel Supply System)
+107,1,Engine Speed,(G28)
+107,2,Lambda Control,Bank 1
+107,4,Result,Lambda Control,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Test OFF
+;
+B107,0,Fuel Injection (Fuel Supply System)
+; "Activate" Basic Setting
+; Wait until Field 4 shows "Syst. OK"
+B107,1,Engine Speed,(G28)
+B107,2,Lambda Control,Bank 1
+B107,4,Result,Lambda Control,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Syst. OK
+;
+110,0,Load Registration (Load/Full Throttle Enrichment)
+110,1,Engine Speed,(G28)
+110,2,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+110,3,Injection Timing
+110,4,Throttle Valve Angle
+;
+111,0,Boost Pressure Control
+111,1,Boost Pressure,Adapt. Range 1
+111,2,Boost Pressure,Adapt. Range 2
+111,3,Boost Pressure,Adapt. Range 3
+111,4,Boost Pressure,Adapt. Range 4
+;
+113,0,Load Registration (Load/Full Throttle Enrichment)
+113,1,Engine Speed,(G28),Specification (Idle): 700...860 RPM
+113,2,Engine Load,,Specification (Idle): 13.0...45.0 %
+113,3,Throttle Valve Angle
+113,4,Athmospheric,Pressure
+;
+114,0,Boost Pressure Control
+114,1,Engine Load,(specified)
+114,2,Engine Load,(spec. corrected)
+114,3,Engine Load,(actual)
+114,4,Wastegate (N75),Duty Cycle
+;
+115,0,Boost Pressure Control
+115,1,Engine Speed,(G28)
+115,2,Engine Load
+115,3,Boost Pressure,(specified)
+115,4,Boost Pressure,(actual)
+;
+116,0,Boost Pressure Control
+116,1,Engine Speed,(G28)
+116,2,Fuel Temp.,Correction Factor
+116,3,Coolant Temp.,Correction Factor
+116,4,Intake Air Temp.,Correction Factor
+;
+117,0,Boost Pressure Control
+117,1,Engine Speed,(G28)
+117,2,Accel. Pedal Pos.,Sensor 1 (G79)
+117,3,Throttle Valve Angle
+117,4,Boost Pressure,(specified)
+;
+118,0,Boost Pressure Control
+118,1,Engine Speed,(G28)
+118,2,Intake Air,Temperature (G42)
+118,3,Wastegate (N75),Duty Cycle
+118,4,Boost Pressure,(actual)
+;
+119,0,Boost Pressure Control
+119,1,Engine Speed,(G28)
+119,2,Charge Limit
+119,3,Wastegate (N75),Duty Cycle
+119,4,Boost Pressure,(actual)
+;
+120,0,Traction Control (ASR)
+120,1,Engine Speed,(G28)
+120,2,Torque specified,by ASR
+120,3,Engine Torque,(actual)
+120,4,Traction Control,Status,Specification: ASR OFF/ASR ON
+;
+122,0,Transmission
+122,1,Engine Speed,(G28)
+122,2,Engine Load,(specified)
+122,3,Engine Load,(actual)
+122,4,Status,,Range: Engine interv./No engine interv.
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Transmission,Electronics,Range: Transm. 1/Transm. 0
+125,2,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 1/ABS 0
+125,3,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+125,4,Heating/Air,Condition (J255),Specification: A/C 1\nRange: A/C 1/A/C 0
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+126,3,Airbag,(J234),Specification: Airbag 1\nRange: Airbag 1/Airbag 0
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,3,Steering Wheel,Electronics (J527),Specification: St. Wheel 1\nRange: St. Wheel 1/St. Wheel 0
+;
+130,0,Engine Cooling (Map Cooling)
+130,1,Engine Outlet,Temperature
+130,2,Radiator Outlet,Temperature
+130,3,Thermostat,Duty Cycle
+;
+131,0,Engine Cooling (Map Cooling)
+131,1,Engine Outlet,Temp. (actual)
+131,2,Engine Outlet,Temp. (specified)
+131,3,Radiator Outlet,Temperature
+131,4,Thermostat,Duty Cycle
+;
+132,0,Engine Cooling (Map Cooling)
+132,2,Temp. Difference,Engine/Radiator
+132,4,Cooling Status
+; 10000011,Bin. Bits,
+; x0xxxxx? = No Malfunction in System
+; x0xxxx?x = Thermostat Actuation active
+; x0xxx?xx = Fan Control active
+; x0xx?xxx = Control Deviation (0 = above specified Temp. / 1 = below specified Temp)
+; x0x?xxxx = Fan Stage 2 active
+; x0?xxxxx = Fan Stage 1 active
+; ?0xxxxxx = Hot Climate Country coded
+
+;
+134,0,Engine Cooling (Temperatures)
+134,1,Oil Temperature
+134,2,Ambient,Temperature
+134,3,Intake Air,Temperature (G42),Range: -40.5...+135.0 °C\nSpecification (Warm): < +80.0 °C (max. +115.0 °C)
+134,4,Engine Outlet,Temperature
+;
+135,0,Engine Cooling (Fan Activation)
+135,1,Radiator Outlet,Temperature
+135,2,Fan 1 Activation,Duty Cycle,Range: 0.0...100.0 %
+;
+137,0,Engine Cooling (Air Condition Requirements)
+137,1,A/C Readiness,,Range: A/C-Low / A/C-High
+137,2,A/C Compressor,,Range: Compr.OFF/Compr.ON
+137,3,A/C-Pressure
+137,4,Fan Request,from A/C-System
+;
+138,0,Engine Cooling (Thermostat Diagnosis)
+138,1,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+138,2,Mean Air Mass
+138,3,Mean,Vehicle Speed
+138,4,Result,,Range: Test OFF/Test ON/Syst. OK/Syst. not OK
+;
+139,0,Engine Cooling (Thermostat Diagnosis)
+139,1,Coolant,Temperature (G69),Range: -40.5...+135.0 °C\nSpecification (Warm): 80.0...115.0 °C
+139,2,Air Mass Integral,(actual)
+139,3,Air Mass Integral,(specified)
+139,4,Result,,Range: Test OFF/Test ON/Syst. OK/Syst. not OK
+;
+191,0,Leak Diagnostic && Secondary Air Injection
+191,1,Leak Diagnostic,Result,Range: Small Leak/Large Leak/Abort
+191,2,Leak Diagnostic,Status,Range: Test ON/Test OFF/Syst. OK/Syst. not OK\nSpecification: Test OFF
+191,3,Air Mass from,Sec. Air Inj. Bank 1,Specification: min. -20.0 %
+191,4,Sec. Air Inj.,Status,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Test OFF
+;
+B191,0,Leak Diagnostic && Secondary Air Injection
+; "Activate" Basic Setting
+; Wait until Fields 2 & 4 show "Syst. OK"
+B191,1,Leak Diagnostic,Result,Range: Small Leak/Large Leak/Abort
+B191,2,Leak Diagnostic,Status,Range: Test ON/Test OFF/Syst. OK/Syst. not OK\nSpecification: Test OFF
+B191,3,Air Mass from,Sec. Air Inj. Bank 1,Specification: min. -20.0 %
+B191,4,Sec. Air Inj.,Status,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK\nSpecification: Test OFF
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+;C00,Engine (J220) Coding
+;C01,
+;Component:1.8L R4/5VT     G05 0001, Coding:0016751
+;
+;
+;---------------------------------------------------
+;
+; login/coding-ii
+;
+;---------------------------------------------------
+;
+;
+L00,Engine (J200) Coding II
+L01,11463 = Cruise Control Activation
+L02,16167 = Cruise Control Deactivation
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Idle Speed
+;
+;
+;---------------------------------------------------
+;
+; readiness
+;
+;---------------------------------------------------
+;
+;
+O,06B-909-518-AMB
+;

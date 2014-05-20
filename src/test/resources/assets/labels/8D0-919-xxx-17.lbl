@@ -1,0 +1,220 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8D)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8D?-919-???-???
+;
+; includes measuring blocks, adaptation, coding, login and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-17.LBL
+; 8D0-919-0xx-17.LBL  (MY 1995-1997)
+; 8D0-919-xxx-17.LBL  (MY 1998-1999)
+; 8D0-920-xxx-17.LBL  (MY 2000+)
+;
+; created on 27/Feb/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2,Range: Oil Pr. 2 <min / Oil Pr. 2 OK
+;
+002,0,General
+002,1,Odometer
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+;
+003,0,General
+003,1,Coolant,Temperature
+;
+050,0,General
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??xxx: Options
+C02,+01 = Brake Pad Warning active
+C03,+02 = Seatbelt Warning active
+C04,+04 = Washer Fluid Warning active
+C05,+16 = Navigation active 
+C06,xx?xx: Country
+C07,0 = Germany (D) / 1 = Europe (EU) / 2 = USA (US)
+C08,3 = Canada (CDN) / 4 = Great Britain (GB)
+C09,5 = Japan (JP) / 6 = Saudi Arabia (SA) / 7 = Australia (AUS) 
+C10,xxx?x: Cylinder
+C11,4 = 4-Cylinder
+C12,6 = 6-Cylinder
+C13,8 = 8-Cylinder
+C14,xxxx?: Engine
+C15,0 = TDI-Engine
+C16,2 = 4-Cylinder and 6-Cylinder Gasoline-Engine
+C17,3 = 8-Cylinder Gasoline-Engine
+C18,4 = Turbo-Engine
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A02,0,Service Reminder
+A02,5,Service Reminder
+A02,6,Displayed Values:
+A02,7,01 = Oil Service Due
+A02,8,10 = Inspection Due
+A02,9,11 = Oil Service and Inspection Due
+A02,10, 
+A02,11,New Values:
+A02,12,00 = Reset Oil Service and Inspection
+A02,13,01 = Reset Oil Service
+A02,14,10 = Reset Inspection
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+;
+A005,0,Maximum Distance to Oil Service (OEL)
+A005,5,Maximum Distance to Oil Service (OEL)
+A005,6,15 = 15.000km (Standard)
+A005,7, 
+A005,8,Resolution: 1 = 1000 km
+;
+A006,0,Maximum Distance to Inspection (IN1)
+A006,5,Maximum Distance to Inspection (IN1)
+A006,6,30 = 30.000km (Standard)
+A006,7, 
+A006,8,Resolution: 1 = 1000 km
+;
+A007,0,Maximum Time to Inspection (IN2)
+A007,5,Maximum Time to Inspection (IN2)
+A007,6,37 = 370 Days (Standard)
+A007,7, 
+A007,8,Resolution: 1 = 10 Days
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km.
+A009,11, 
+A009,12,NOTE: Perform Login first.
+;
+A010,0,Distance to Oil Service (OEL)
+A010,5,Distance to Oil Service (OEL)
+A010,6,15 = 15.000km (Standard)
+A010,7, 
+A010,8,Resolution: 1 = 1000 km
+;
+A011,0,Distance to Inspection (IN1)
+A011,5,Distance to Inspection (IN1)
+A011,6,30 = 30.000km (Standard)
+A011,7, 
+A011,8,Resolution: 1 = 1000 km
+;
+A012,0,Time to Inspection (IN2)
+A012,5,Time to Inspection (IN2)
+A012,6,37 = 370 Days (Standard)
+A012,7, 
+A012,8,Resolution: 1 = 10 Days
+;
+A021,0,Immobilizer - Key Adaptation
+A021,5,Immobilizer - Key Adaptation
+;
+A030,0,Tank Characteristic (Fuel Level Sensor)
+A030,5,Tank Characteristic (Fuel Level Sensor)
+A030,6,This channel is used to set the fuel gauge reserve mark
+A030,7,therfor fill the tank with 7 l of fuel and correct the
+A030,8,needle to hit the reserve mark. This is a parallel shift
+A030,9,of the tank characteristic.
+A030,10, 
+A030,11,Standard: 128
+A030,12,Range: 120...136 (-2.0...+2.0 l)
+A030,13,Increments: 1 = 1 Ohm = 1/4 l
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,5,Maximum Distance to Oil Service (OEL),1000,km
+RD,6,Maximum Distance to Inspection (IN1),1000,km
+RD,7,Maximum Time to Inspection (IN2),10,Days
+RD,10,Distance to Oil Service (OEL),1000,km
+RD,11,Distance to Inspection (IN1),1000,km
+RD,12,Time to Inspection (IN2),10,Days
+;
+RJ,0,0,Service Reset (OIL),,
+RJ,0,1,2,10
+;
+RJ,1,0,Service Reset (INSP),,
+RJ,1,1,2,1
+;
+RJ,2,0,Service Reset (OIL &  INSP),,
+RJ,2,1,2,0
+;

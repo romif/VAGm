@@ -1,0 +1,230 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z) / VW Lupo (6E) / Seat Arosa (6B)
+;
+; Komponente: Getriebeelektronik (#02) - Schaltgetriebe 085 DS
+;
+; T/N: 6N0 927 735 ?
+;
+; beinhaltet Messwertgruppen
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 03.12.2004
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Motordrehzahl,,Wertebereich: 90...8200 U/min
+001,2,Getriebedrehzahl,,Wertebereich: 60...8200 U/min
+001,3,Gaspedal-,stellung,Wertebereich: 0...100 % (Sollwert: < 4 % (nicht betätigt) / > 96 % (betätigt))
+001,4,eingelegter,Gang,Wertebereich: 1.GANG...5.GANG/R-GANG/LG 1-2/LG 3-4/SYNC/Fehler
+;
+002,1,Lastsignal,,Sollwert: 0.00...5.00 V
+002,2,Geber für,Kupplungsweg,G162 (Wertebereich: 0.4...4.7 V / Sollwert (Kupplung geschlossen): 1.85...1.95 V / Sollwert (Kupplung geöffnet): 3.9...4.0 V)
+002,3,Batterie-,spannung,Klemme 15 (Sollwert: 12.4...16.0 V)
+002,4,Kühlmittel-,temperatur,maximale Abweichung vom Meßwert des Motorsteuergerätes = 5 %
+;
+003,1,Motordrehzahl,,Wertebereich: 90...8200 U/min
+003,2,Getriebedrehzahl,,Wertebereich: 60...8200 U/min
+003,3,Kupplungs-,"IST"-Postion,Wertebereich: 0..100 %
+003,4,Kupplungs-,"SOLL"-Postion,Wertebereich: 0..100 %
+;
+004,0,Eingangs-/Ausgangsinformationen (siehe Label-File)
+004,1,Eingangs-,informationen 1
+; 00?1xxxx - 0 = Tür offen / 1 = Tür geschlossen
+; 00x1?xxx - 0 = kein Startvorgang / 1 = Startaufforderung durch Zündschloss
+; 00x1x?xx - 0 = Wählhebel in "D" / 1 = Wählhebel in Tiptronic-Gasse
+; 00x1xx?x - 0 = Druckversorgung wird eingeschaltet / 1 = Druckversorgung wird ausgeschaltet
+; 00x1xxx? - 0 = ECO-Betrieb / 1 = Normalbetrieb
+004,2,Eingangs-,informationen 2
+; 00010?xx - 0 = Rückwärtsgang nicht eingelegt / 1 = Rückwärtsgang ist eingelegt
+; 00010x?x - 1 = Spannung von Klemme 30
+; 00010xx? - 0 = Bremspedal nicht betätigt / 1 = Bremspedal betätigt
+004,3,Ausgangs-,informationen 1
+; 000?xxx0 - 0 = ECO-Betrieb / 1 = Normalbetrieb
+; 000x?xx0 - 0 = Warnsummer/Gang aktiv / 1 = Normalbetrieb
+; 000xx?x0 - Relais für Hydraulikpumpe J510 (0 = eingeschaltet / 1 = ausgeschaltet)
+; 000xxx?0 - Relais für Anlaßsperre und Rückfahrlicht J226 (0 = angesteuert / 1 = nicht angesteuert)
+004,4,Ausgangs-,informationen 2
+;
+005,1,Motordrehzahl,,Wertebereich: 90...8200 U/min
+005,2,Batterie-,spannung,Klemme 15 (Sollwert: 12.4...16.0 V)
+005,3,Wählhebel,Stellung,Wertebereich: A-STOP/A-N/A-R/A-E/T-0/T-MI/T-PL/??? (siehe Label-File)
+; A-STOP = Automatengasse Stop-Stellung
+; A-N    = Automatengasse N-Stellung
+; A-R    = Automatengasse R-Stellung
+; A-E    = Automatengasse D-Stellung (ist identisch mit der E-Stellung)
+; T-0    = Tiptronicgasse Mittelstellung
+; T-MI   = Tiptronicgasse Minusstellung
+; T-PL   = Tiptronicgasse Plusstellung
+; ???    = Fehler, ungültige Position
+005,4,Ventil für,Kupplungssteller,Nehmerzylinder N255 (Sollwert (Kupplung offen): 0.80...0.90 A / Sollwert (Kupplung geschlossen): 0.05...0.73 A)
+;
+006,0,Nicht berücksichtigt
+;
+007,1,Motordrehzahl,,Wertebereich: 90...8200 U/min
+007,2,Getriebedrehzahl,,Wertebereich: 60...8200 U/min
+007,3,rechnerische,Getriebedrehzahl,aus Fahrzeuggeschwindigkeit und eingelegtem Gang errechnet
+007,4,Geschwindigkeits-,signal
+;
+008,1,Kupplung,IST Position,Wertebereich: 0..100 %
+008,2,eingelegter Gang,im Getriebe,Wertebereich: 1.GANG...5.GANG/R-GANG/LG 1-2/LG 3-4/SYNC/Fehler
+008,3,Motordrehzahl,,Wertebereich: 90...8200 U/min
+008,4,Getriebedrehzahl,,Wertebereich: 60...8200 U/min
+;
+009,0,Nicht berücksichtigt
+;
+010,0,Nicht berücksichtigt
+;
+011,1,Getriebedrehzahl,,Wertebereich: 60...8200 U/min
+011,2,eingelegter Gang,im Getriebe,Wertebereich: 1.GANG...5.GANG/R-GANG/LG 1-2/LG 3-4/SYNC/Fehler
+011,3,IST-Spannung,Gangerkennung,Sollwert: 0.4...4.7 V (siehe Labelfile)
+; 3.8 V +/- 0.2 V = Wählhebel in "R"
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 1. Gang angewählt
+; 1,7 V +/- 0.2 V = Wählhebel in Tiptronic und 2. Gang angewählt
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 3. Gang angewählt
+; 1.7 V +/- 0.2 V = Wählhebel in Tiptronic und 4. Gang angewählt
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 5. Gang angewählt
+011,4,IST-Stellung,Gangerkennung,Sollwert: 0...100 % (siehe Labelfile)
+ca.  0....10 % = Wählhebel in "R"
+ca. 50....55 % = Wählhebel in "N"
+ca.  0....10 % = Wählhebel in Tiptronic und 1. Gang angewählt
+ca. 90...100 % = Wählhebel in Tiptronic und 2. Gang angewählt
+ca.  0....10 % = Wählhebel in Tiptronic und 3. Gang angewählt
+ca. 90...100 % = Wählhebel in Tiptronic und 4. Gang angewählt
+ca.  0....10 % = Wählhebel in Tiptronic und 5. Gang angewählt
+;
+012,0,Nicht berücksichtigt
+;
+013,1,Batterie-,spannung,Klemme 15
+013,2,Ventil für,Kupplungssteller,Nehmerzylinder (N255)
+013,3,Kupplung,IST-Position,Wertebereich: 0..100 %
+013,4,Kupplung,SOLL-Position,Wertebereich: 0..100 %
+;
+014,0,Grundeinstellung
+;
+015,1,SOLL-Spannung,Wählhebel,Wertebereich: 0.4...4.7 V (siehe Labelfile)
+; ca. 3.14 V = Wählhebel in "R"
+; ca. 2.75 V = Wählhebel in "N"
+; ca. 2.20 V = Wählhebel in "D" bzw. in der Tiptronic-Gasse
+; ca. 2.50 V = Wählhebel nach Tiptronic "+" drücken
+; ca. 1.70 V = Wählhebel nach Tiptronic "-" drücken
+015,2,[N/A]
+015,3,IST-Spannung 1,Gangerkennung,Wertebereich: 0.4...4.7 V (siehe Labelfile)
+; 3.8 V +/- 0.2 V = Wählhebel in "R"
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 1. Gang angewählt
+; 1.7 V +/- 0.2 V = Wählhebel in Tiptronic und 2. Gang angewählt
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 3. Gang angewählt
+; 1.7 V +/- 0.2 V = Wählhebel in Tiptronic und 4. Gang angewählt
+; 3.8 V +/- 0.2 V = Wählhebel in Tiptronic und 5. Gang angewählt
+015,4,IST-Spannung 2,Gangerkennung,Wertebereich: 0.4...4.7 V (siehe Labelfile)
+; 3.6 V +/- 0.2 V = Wählhebel in "R"
+; 2.8 V +/- 0.2 V = Wählhebel in Tiptronic und 1. Gang angewählt
+; 2.8 V +/- 0.2 V = Wählhebel in Tiptronic und 2. Gang angewählt
+; 2.0 V +/- 0.2 V = Wählhebel in Tiptronic und 3. Gang angewählt
+; 2.0 V +/- 0.2 V = Wählhebel in Tiptronic und 4. Gang angewählt
+; 1.2 V +/- 0.2 V = Wählhebel in Tiptronic und 5. Gang angewählt
+;
+016,0,Wählhebelstellung
+016,1,Soll-Stellung,Wählhebel,Sollwert: 0...100 % (siehe Labelfile)
+; ca. 100 % = Wählhebel in STOP"
+; ca.  77 % = Wählhebel in "R"
+; ca.  55 % = Wählhebel in "N"
+; ca.  20 % = Wählhebel in "D"
+; ca.  22 % = Wählhebel in der Tiptronic-Gasse
+; ca.  45 % = Wählhebel nach Tiptronic "+" drücken
+; ca.   0 % = Wählhebel nach Tiptronic "-" drücken
+016,2,[N/A]
+016,3,IST-Stellung Poti 1,Gangerkennung,G239
+016,4,IST-Stellung Poti 2,Gangerkennung,G240
+;
+017,1,Batterie-,spannung,Klemme 15
+017,2,Ventil für,Kupplungssteller,Nehmerzylinder
+017,3,Ventil 1 für,Gangwahl (N284),Wertebereich: 0.0...2.5 A
+017,4,Ventil 2 für,Gangwahl (N285),Wertebereich: 0.0...2.5 A
+;
+018,0,Potentiometer für Gangerkennung
+018,1,eingelegter,Gang,Wertebereich: 1.GANG...5.GANG/R-GANG/LG 1-2/LG 3-4/SYNC/Fehler
+018,2,[N/A]
+018,3,"IST"-Spannung,G239,Potentiometer 1 für Gangerkennung (siehe Label-File)
+018,4,"IST"-Spannung,G240,Potentiometer 2 für Gangerkennung (siehe Label-File)
+;
+019,0,Gangwahl (siehe Label-File)
+;   0 = Leerlaufgasse
+; 1-5 = 1. Gang - 5. Gang
+;   6 = Rückwärtsgang
+; 251 = Leerlaufgasse 1-2
+; 252 = Leerlaufgasse Rückwärtsgang
+; 253 = Leerlaufgasse 5. Gang
+; 254 = Leerlaufgasse 3-4
+; 255 = Übergang zw. 2 Positionen
+019,1,einzulegender,Gang "SOLL"
+019,2,eingelegter,Gang "IST"
+019,3,Gaspedal-,stellung,Wertebereich: 0...100 % (Sollwert: < 4 % (nicht betätigt) / > 96 % (betätigt))
+019,4,Geschwindigkeits-,signal
+;
+020,0,Spannungswerte
+020,1,Batterie-,spannung,Klemme 15 (Sollwert: 12.4...16.0 V)
+020,2,Spannung,Klemme 30
+020,3,Getriebe,Sensoren,Versorgungsspannung (Sollwert: 4.80...5.00 V)
+020,4,Geber für,Hydraulikdruck,Spannung von G270
+;
+021,1,Steigung,[°],Wertebereich: -32...+32 ° (errechneter Wert im Steuergerät)
+021,2,Bergfaktor,[%],interner Steuergerätewert (berechnet aus Steigung)
+021,3,Sportfaktor,[%],interner Steuergerätewert
+021,4,Gaspedal-,stellung,Wertebereich: 0...100 % (Sollwert: < 4 % (nicht betätigt) / > 96 % (betätigt))
+;
+022,0,Wählhebelstellung
+022,1,Stellung des,Wählhebels,Wertebereich: A-STOP/A-N/A-R/A-E/T-0/T-MI/T-PL (siehe Labelfile)
+; A-STOP = Automatengasse Stop-Stellung
+; A-N    = Automatengasse N-Stellung
+; A-R    = Automatengasse R-Stellung
+; A-E    = Automatengasse D-Stellung (ist identisch mit der E-Stellung)
+; T-0    = Tiptronicgasse Mittelstellung
+; T-MI   = Tiptronicgasse Minusstellung
+; T-PL   = Tiptronicgasse Plusstellung
+; ???    = Fehler, ungültige Position
+022,2,Soll-Stellung,Wählhebel,Sollwert: 0.4...4.7 V (siehe Labelfile)
+; ca. 3.14 V = Wählhebel in "R"
+; ca. 2.55 V = Wählhebel in "N"
+; ca. 2.20 V = Wählhebel in "D"
+; ca. 1.58 V = Wählhebel in der Tiptronic-Gasse
+; ca. 2.50 V = Wählhebel nach Tiptronic "+" drücken
+; ca. 1.70 V = Wählhebel nach Tiptronic "-" drücken
+022,3,Soll-Stellung,Wählhebel,Sollwert: 0...100 % (siehe Labelfile)
+; ca. 100 % = Wählhebel in STOP"
+; ca.  77 % = Wählhebel in "R"
+; ca.  55 % = Wählhebel in "N"
+; ca.  20 % = Wählhebel in "D"
+; ca.  22 % = Wählhebel in der Tiptronic-Gasse
+; ca.  45 % = Wählhebel nach Tiptronic "+" drücken
+; ca.   0 % = Wählhebel nach Tiptronic "-" drücken
+022,4,[N/A]
+;
+023,0,Nicht berücksichtigt
+;
+024,0,Nicht berücksichtigt
+;
+025,0,Kriechpunkt/Schleifpunkt (Grundeinstellung)
+025,1,Kriechpunkt,,Sollwert: 55...65 % (Moment an dem sich das Fahrzeug zu bewegen beginnt bzw. zu bewegen versucht)
+; Kriechpunkt-Wert muß kleiner oder gleich dem Schleifpunkt sein
+; Abweichung => Grundeinstellung einleiten
+025,2,Schleifpunkt,,Sollwert: 55...85 % (Moment an dem die Kupplung zu schleifen beginnt)
+; Schleifpunkt-Wert muß größer oder gleich dem Kriechpunkt sein
+; Abweichung => Grundeinstellung einleiten
+025,3,verbl. Kriechpkt.,Anpassungen,Sollwert: 0 (Abweichung => Grundeinstellung einleiten)
+; Das Anlernen (Anpassen) des Kriechpunktes wird am Ende der Grundeinstellung durchgeführt.
+; Sie muß so oft wiederholt werden, bis der Wert auf "0" steht.
+025,4,eff. gefiltertes,Motormoment,Sollwert: 0...255 (Der Wert sollte "relativ" konstant sein)
+; Abweichung (ständiger wechsel/Wert springt) => Eigendiagnose Motorsteuergerät
+;

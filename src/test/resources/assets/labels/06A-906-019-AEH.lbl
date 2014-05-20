@@ -1,0 +1,284 @@
+;
+; VAG-COM label file
+;
+; Seat Ibiza/Cordoba (6K) / Seat Leon/Toledo (1M) / Skoda Octavia (1U)
+; VW Golf/Jetta (1J)
+;
+; component: Engine (#01) - AEH/AKL
+;
+; p/n: 06A 906 019 ???
+;
+; includes measuring blocks and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 06-01.LBL
+; 6K-01.LBL
+; 06A-906-019-AEH.LBL (1.6l E   @ 100 HP - AEH/AKL)
+;
+; created on 09/Oct/2003 by Kim Andersen (gasarm@post.tele.dk)
+; updated/enhanced on 19/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; ready for VAG-COM 405.0 and above
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C0,Engine Control Unit Coding
+C1,AEH/AKL (< MY 1999)
+C2,04000 - Manual Transmission
+C3,04030 - Automatic Transmission
+C4, 
+C5,AEH/AKL (MY 2000 >)
+C6,000?x - CAN-Databus
+C7,0 - without data bus
+C8,1 - ABS with data bus
+C9,2 - Airbag with data bus
+C10,3 - ABS and Airbag with data bus
+C11, 
+C12,000x? - Transmission
+C13,1 - 5-Speed Manual Transmission
+C14,3 - Automatic Transmission
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+000,0,Basic Functions (Decimal Values)
+000,1,Intake Air Temperature,Specification: 84...158 (15...71 °C)
+000,2,Supply Voltage,Specification: 98...147 (10...15 V)
+000,3,Coolant Temperature,Specification: 170...211 (80...110 °C)
+000,4,Injected Quantity,Specification: 14...30 (76...164 mg/lift)
+000,5,Lambda Voltage,Specification: 0...50 (0.0...1.0 V)
+000,6,Lambda Learning Value,Specification: 0...100 (-0.8...+0.8 ms)
+000,7,Operation Condition,see measuring block 99
+000,8,Throttle Valve Angle,Specification: 4...12 (1.9...5.7 °<)
+000,9,Injection Period,Specification: 2...4 (2.0...4.1 ms)
+000,10,Engine Speed,Specification: 23...27 (760...880 RPM)
+;
+001,0,Basic Functions
+001,1,Engine Speed,,Specification: 760...880 RPM
+001,2,Coolant,Temperature,Specification: 80.0...110.0 °C
+001,3,Lambda,Voltage,Specification: 0.00...1.00 V
+001,4,Basic Setting,Requirements,Specification: 00000010
+; xxxxxxx1 - Coolant temperature below 80 °C
+; xxxxxx1x - Engine speed below 2000 RPM
+; xxxxx1xx - Throttle valve closed
+; xxxx1xxx - Lambda regulation correct
+; xxx1xxxx - State of idle
+; xx1xxxxx - A/C system compressor deactivated
+; x1xxxxxx - Signal from automatic transmission
+; 1xxxxxxx - Fault identified by self-diagnosis
+;
+002,0,Basic Functions
+002,1,Engine Speed,,Specification: 760...880 RPM
+002,2,Injected,Quantity,Specification: 76...164 mg/H
+002,3,Vehicle Speed,,Specification: 0 km/h
+002,4,Operating,Condition,Specification: 0100
+; 1xxx - Overrun
+; x1xx - Idling
+; xx1x - Part throttle
+; xxx1 - Full throttle
+;
+003,0,Basic Functions
+003,1,Engine Speed,,Specification: 760...880 RPM
+003,2,Injected,Quantity,Specification: 76...164 mg/H
+003,3,Throttle Valve,Angle,Specification: 1.9...5.7 °
+003,4,Throttle Valve,Positon Duty Cycle,Specification: -100...+100 %
+;
+004,0,Basic Functions
+004,1,Engine Speed,,Specification: 760...880 RPM
+004,2,Injected,Quantity,Specification: 76...164 mg/H
+004,3,Injection,Period,Specification: 2.0...4.10 ms
+004,4,Intake Air Mass,,Specification: 1.8...3.2 g/s
+
+005,0,Basic Functions
+005,1,Engine Speed,,Specification: 760...880 RPM
+005,2,Voltage Supply,,Specification: 10...15 V
+005,3,Coolant,Temperature,Specification: 80.0...110.0 °C
+005,4,Intake Air,Temperature,Specification: 15...71 °C
+;
+006,0,Altitude Adaptation
+006,1,Engine Speed,,Specification: 760...880 RPM
+006,2,Injected,Quantity,Specification: 76...164 mg/H
+006,3,Throttle Valve,Angle,Specification: 1.9...5.7 °
+006,4,Altitude,Correction Factor,Specification: 0.9...1.1
+;
+007,0,Idling Adjustment
+007,1,Throttle Valve,Angle,Specification: 1.9...5.7 °
+007,2,Idling control,learnt value,manual gearbox in neutral/automatic gearbox selector lever in P or N (Specification: 0.95...1.05)
+007,3,Idling control,learnt value,automatic gearbox with gear selected (Specification: 0.95...1.05)
+007,4,Operating,Condition,Specification: 0100
+; 1xxx - Overrun
+; x1xx - Idling
+; xx1x - Part throttle
+; xxx1 - Full throttle
+;
+008,0,Idling Stabilitation
+008,1,Engine Speed,(actual),Specification: 760...880 RPM
+008,2,Engine Speed,(specified),Specificatoin: 800...840 RPM
+008,3,Idling Control,,Specification: -10...+15 %
+008,4,Intake Air Mass,,Specification: 1.8...3.2 g/s
+;
+009,0,Idling Air Requirements
+009,1,Idling,Control,Specification: -10...+15 %
+009,2,Throttle Valve,Status,Specification: 00000000
+; ----1xxx - Malfunction recorded during TBA
+; ----x1xx - No current supply to throttle valve control part
+; ----xx1x - Adaptation interrupted due to battery voltage beeing to low (below 8V)
+; ----xxx1 - Idle switch open
+009,3,Coolant,Temperature,Specification: 80.0...110.0 °C
+009,4,Engine Speed,,Specification: 760...880 RPM
+;
+010,0,Lambda Control and activated Charcoal Filter System
+010,1,Lambda,Regulation,Specification: -25.0...+25.0 % 
+010,2,Lambda Probe,Voltage,Specification: 0.00...1.00 V
+010,3,Activated Charcoal,Valve 1 Duty Cycle,Specification: 0.0...20.0 %
+010,4,Lambda Correction,Tank Venting active,Specification: -20.0...+2.0 %
+;
+011,0,Lambda Learning Values
+011,1,Injection,Period,Specification: 2.00...4.10 ms
+011,2,Lambda learnt,Value (idling),Specification: -0.1...+1.0 ms
+011,3,Lambda learnt,Value (part load),Specification: 0.9...1.15 ms
+011,4,Cond.tank, breather valve,see label file
+; -1xxxxxx - Transition to vapour content check via fuel tank breather valve
+; -x1xxxxx - Transition to fuel tank breather valve minimum operating level
+; -xx1xxxx - Transition to fuel tank breather valve closure
+; -xxx1xxx - Vapour content check via fuel tank breather valve
+; -xxxx1xx - Fuel tank breather valve operating normally
+; -xxxxx1x - Fuel tank breather valve minimum operating level
+; -xxxxxx1 - Fuel tank breather valve closed
+;
+012,0,Lambda Control
+012,1,Engine Speed,,Specification: 760...880 RPM
+012,2,Injected,Quantity,Specification: 76...164 mg/H
+012,3,Lambda,Regulation,Specification: -25...+25 %
+012,4,Lambda Probe,Voltage,Specification: 0.00...1.00 V
+;
+013,0,Fuel Consumption
+013,1,Engine Speed,,Specification: 760...880 RPM
+013,2,Injected,Quantity,Specification: 76...164 mg/H
+013,3,Vehicle Speed,,Specification: 0 km/h
+013,4,Fuel Consumption,,Specification: 0.50...2.00 l/h
+;
+014,0,Ignition (Knock Control - Cyl 1 - 4)
+014,1,Cylinder 1 Ignition,Angle Delay,Specification: 0.0 °CA
+014,2,Cylinder 2 Ignition,Angle Delay,Specification: 0.0 °CA
+014,3,Cylinder 3 Ignition,Angle Delay,Specification: 0.0 °CA
+014,4,Cylinder 4 Ignition,Angle Delay,Specification: 0.0 °CA
+;
+015,0,Ignition (Knock Control - Cyl 1 && 2)
+015,1,Engine Speed,,Specification: 760...880 RPM
+015,2,Injected,Quantity,Specification: 76...164 mg/H
+015,3,Cylinder 1 Ignition,Angle Delay,Specification: 0.0 °CA
+015,4,Cylinder 2 Ignition,Angle Delay,Specification: 0.0 °CA
+;
+016,0,Ignition (Knock Control - Cyl 3 && 4)
+016,1,Engine Speed,,Specification: 760...880 RPM
+016,2,Injected,Quantity,Specification: 76...164 mg/H
+016,3,Cylinder 3 Ignition,Angle Delay,Specification: 0.0 °CA
+016,4,Cylinder 4 Ignition,Angle Delay,Specification: 0.0 °CA
+;
+017,0,Ignition (Knock Control - Knock Sensor Voltages)
+017,1,Cylinder 1,Knock Sensor,Specification: 0.400...1.300 Vpt
+017,2,Cylinder 2,Knock Sensor,Specification: 0.400...1.300 Vpt
+017,3,Cylinder 3,Knock Sensor,Specification: 0.400...1.300 Vpt
+017,4,Cylinder 4,Knock Sensor,Specification: 0.400...1.300 Vpt
+;
+018,0,Torque Reduction for Automatic Transmission
+018,1,Engine Speed,,Specification: 760...880 RPM
+018,2,Injected,Quantity,Specification: 76...164 mg/H
+018,3,Ignition Timing,Retardation,Specification: 0.0 °CA
+018,4,Ignition,Timing,Specification: -6...+14 °BTDC
+;
+019,0,Operation Condition
+019,1,Engine Speed,,Specification: 760...880 RPM
+019,2,Selector Lever,Position,Display Range: 0 = Neutral / 1 = Gear Selected | Specification: 0
+019,3,Air Conditioner,,Display Range: 0 = Air conditioner off / 1 = Air conditioner on | Specification: 0
+019,4,Operation,Condition,Specification: 00000000
+; -----1xx - Clutch pedal switch operated
+; -----x1x - Power steering pressure switch F88 activated
+; -----xx1 - A/C compressor switched on
+;
+020,0,Lambda Control Operating Condition
+020,1,Engine Speed,,Specification: 760...880 RPM
+020,2,Injected,Quantity,Specification: 76...164 mg/H
+020,3,Coolant,Temperature,Specification: 80...110 °C
+020,4,Operation,Condition
+; 1--xxxxx - Malfunction recorded during diagnoses
+; x--1xxxx - Restricted operating mode
+; x--x1xxx - Lambda control at stop limit
+; x--xx1xx - Lambda control switched on
+; x--xxx1x - Lambda probe functioning
+; x--xxxx1 - Mixture status (1 = rich mixture/0 = lean mixture)
+;
+021,0,Throttle Valve Control Adaption
+021,1,Throttle Valve,Control Adaption,Specification: 00000000
+; ----1xxx - Malfunction recorded during TBA
+; ----x1xx - No current supply to throttle valve control part
+; ----xx1x - Adaptation interrupted due to battery voltage beeing to low (below 8V)
+; ----xxx1 - Idle switch open
+021,2,Throttle Valve,(min. position),Specification: 70...100 %
+021,3,Throttle Valve,(emerg. run. pos.),Specification: 67...100 %
+021,4,Throttle Valve,(max. position),Specification: 0...20 %
+
+022,0,Ignition (Position of Camshaft vs. Crankshaft)
+022,1,Engine Speed,,Specification: 760...880 RPM
+022,2,Injected,Quantity,Specification: 76...164 mg/H
+022,3,Crankshaft Tooth,(low > high),No. of crankshaft tooth at camshaft flank (Specification: 26...30)
+022,4,Crankshaft Tooth,(high > low),No. of crankshaft tooth at camshaft flank (Specification: 86...90)
+
+057,0,Idling Speed Stabilisation
+057,1,Engine Speed,,Specification: 760...880 RPM
+057,2,Engine Speed,(specified),Specification (A/C Low): 760...880 RPM | Specification (A/C High): 800...920 RPM
+057,3,A/C Compressor,,Display Range: Compr. ON/Compr. OFF
+057,4,Duty Cycle,Pressure Sensor,G65 | Specification (A/C Low): 1...5 % | Specification (A/C High): 10...70 %
+;
+066,0,Cruise Control System (CCS/GRA)
+066,1,Actual,Vehicle Speed
+066,2,Brake switch,clutch and CCS,Specification: 0000/0011
+; 1xxx - Cruise control system active
+; x1xx - Clutch depressed (always 1 in automatic transmission)
+; xx1x - Brake depressed (brake pedal switch)
+; xxx1 - Brake depressed (brake light switch)
+066,3,Specified,Vehicle Speed
+066,4,CCS Control,Positions,Specification: 0000/0011
+; 1xxx - CCS slide handle on RES or RES button on multi-function steering wheel pressed
+; x1xx - SET button pressed
+; xx1x - CCS slide handle on OFF (not engaged or engaged)/OFF button on multi-function steering wheel pressed
+; xxx1 - CCS slide handle on OFF
+;
+098,0,Speed Regulation (Basic Setting: Throttle Body Adaptation)
+098,1,Throttle Drive,Angle Sensor 1,for EPC (G187) | Specification: 
+098,2,Throttle Drive,Angle Sensor 2,for EPC (G188) | Specification: 
+098,3,Operating,Condition,Specification: 00000000
+; ----1xxx - Malfunction recorded during TBA
+; ----x1xx - No current supply to throttle valve control part
+; ----xx1x - Adaptation interrupted due to battery voltage beeing to low (below 8V)
+; ----xxx1 - Idle switch open
+098,4,Matching,Condition,Specification: 00
+; 1x - Malfunction recorded during matching
+; x1 - Throtte valve control is beeing matched
+;
+099,0,Lambda Regulation (Basic Setting)
+099,1,Engine Speed,,Specification: 760...880 RPM
+099,2,Coolant,Temperature,Specification: 80...110 °C
+099,3,Lambda Regulator,,Specification: -25.0...+25.0 %
+099,4,Lambda,Operating Condition,Specification: 0xxx011x
+; 1--xxxxx - Malfunction recorded during diagnoses
+; x--1xxxx - Restricted operating mode
+; x--x1xxx - Lambda control at stop limit
+; x--xx1xx - Lambda control switched on
+; x--xxx1x - Lambda probe functioning
+; x--xxxx1 - Mixture status (1 = rich mixture/0 = lean mixture)
+;

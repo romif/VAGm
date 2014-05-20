@@ -1,0 +1,68 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: J507 - Voice Control (#67)
+;
+; P/N: 4E0-910-75?-???
+;
+; includes measuring blocks and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-67.LBL
+; 4E0-910-75x-67.LBL
+;
+; created on 14/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Jul/2006
+;
+; requires VAG-COM 602.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+;
+001,0,General
+001,1,Voltage,,0 = OK\n1 = not OK
+001,2,Board Temperature
+;
+002,0,MOST-Databus
+002,1,Dynamic Address,(MOST-Databus)
+002,2,Message Identity
+;
+003,0,Diagnostic Wire
+003,1,Electrical Coding
+003,2,Diagnostic Wire,,0 = Loop Break Diagnosis active\n1 = Databus static
+;
+004,0,Reception Level
+004,1,Microphone 1
+004,2,Microphone 2
+004,3,Microphone 3
+;
+005,0,Voice Commands
+005,1,Last Recognized,Voice Command
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+;
+T659,Self-Test
+;

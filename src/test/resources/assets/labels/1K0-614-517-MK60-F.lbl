@@ -1,0 +1,166 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8P) / Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia II (1Z)
+; VW Eos (1F) / VW Golf/Jetta (1K/5M) / VW Touran (1T)
+;
+; Component: J104 - Brake Electronics (#03) - ABS MK60 (FWD)
+;
+; P/N: 1K0-614-517-???
+;
+; includes measuring blocks, basic setting, coding and security access
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-03.LBL
+; 2K-03.LBL
+; 1K0-614-517-MK60-A.LBL (MK60 AWD)
+; 1K0-614-517-MK60-F.LBL (MK60 FWD)
+; 1K0-907-379-MK60-A.LBL (MK60 AWD)
+; 1K0-907-379-MK60-F.LBL (MK60 FWD)
+; 1K0-907-379-MK70.LBL   (MK70)
+;
+; created on 10/Mar/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 13/Jun/2006
+;
+; requires VAG-COM 603.4 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Range: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±4.5 °
+004,2,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+004,3,Rotation Rate,,Specification: ± 2.5 °/s
+;
+005,0,Brake Pressure && Steering Angle Sensor Status
+005,1,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+005,2,Steering Angle,Sensor Condition,Range: Initialised/N. Initialised/Implausible
+;
+006,0,Longitudinal Acceleration & Vacuum System
+006,1,Long. Accel.,Sensor (G251),Specification: ± 1.5 m/s²
+;
+007,0,ASR/ESP Button
+007,1,ASR/ESP Button,(E256),Display Range: Operated/Not Oper.
+;
+010,0,Additional Functions
+010,1,Trailer,Stabilisation
+010,2,Brake Wiping,(Front),Range: ON/OFF
+010,3,Driver's Door,Status,Range: Open/Closed
+010,4,Revers Gear,Status,Range: Reverse: No/Reverse: Yes
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+016,0,Tire Pressure Monitoring (TPMS) I
+016,1,Mileage at,last Warning
+;
+017,0,Tire Pressure Monitoring (TPMS) II
+017,1,Mileage at,last Initialization
+;
+018,0,Tire Pressure Monitoring (TPMS) III
+018,1,TPMS Button,Status (E492),Range: Operated/Not Oper.
+018,2,Parking Brake,Status,Range: Activated/Not Activated
+;
+031,0,Tire Pressure Monitoring (TPMS) IV
+; 0 = Nothing Learned
+; 1 = Only 1st Threshold powered
+; 2 = Only 2nd Threshold powered
+; 3 = Only 1st Threshold rolling
+; 4 = Only 2nd Threshold rolling
+; 5 = 1st Threshold powered and rolling
+; 6 = 1st Threshold powered and 2nd Threshold rolling
+; 7 = 2nd Threshold powered and 1st Threshold rolling
+; 8 = 2nd Threshold powered and rolling (Optimal)
+031,1,Speed Ranges I
+; 5?xxx = Speed Range 1 ( 15 -  70 km/h)
+; 5x?xx = Speed Range 2 ( 70 - 100 km/h)
+; 5xx?x = Speed Range 3 (100 - 130 km/h)
+; 5xxx? = Speed Range 4 (130 - 160 km/h)
+031,2,Speed Ranges II
+; 5?xxx = Speed Range 5 (160 - 190 km/h)
+; 5x?xx = Speed Range 6 (190 - 220 km/h)
+; 5xx?x = Speed Range 7 (220 - 250 km/h)
+031,3,Curve/Wheel,Recognition
+; 5?x00 = Curve Recognition (0 = No Curve / 1 = Left or Right Curve learned / 2 = Complete Curve learned)
+; 5x?00 = Wheel Recognition (0 = inactive / 1 = activ)
+;
+B060,0,Adjustment of Steering Angle Sensor (G85)
+B060,1,Adjustment
+B060,2,Adjustment,Status
+B060,3,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nTolerance (when straight): ±4.5 °
+;
+B063,0,Adjustment of Lateral Acceleration Sensor (G200)
+B063,1,Adjustment
+B063,2,Adjustment,Status
+B063,3,Lateral Acc.,Sensor (G200),Specification: ± 1.5 m/s²
+;
+B066,0,Adjustment of Brake Pressure Sensor (G201)
+B066,1,Adjustment
+B066,2,Adjustment,Status
+B066,3,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+;
+B093,0,Initiation of ESP Driving Test
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,4,Transmission,,Range: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+126,3,Immobilizer,,Specification: Immobilizer 1\nRange: Immobilizer 1/Immobilizer 0
+126,4,Steering Aid,(J500),Specification: Steering 1\nRange: Steering 1/Steering 0
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding - MK60 FWD
+C01,Tire Pressure Monitoring:
+C02,+0000000 = Tire Pressure Monitoring active
+C03,+0016384 = Tire Pressure Monitoring inactive
+C04, 
+C05,Note #1: See production codes on car data plate.
+C06,Note #2: Coding is the sum of the individual options.
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Brake Electronics (J104) Security Access
+S01,40168 = General Basic Setting "Enabling"
+;

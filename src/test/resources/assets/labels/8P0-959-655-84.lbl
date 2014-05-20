@@ -1,0 +1,69 @@
+;
+; VAG-COM label file
+;
+; Audi A3 (8P1)
+;
+; component: J234 - Airbag 8.4 (#15)
+;
+; p/n: 8P0-959-655-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8P-15.LBL
+; 8P0-959-655-84.LBL (Airbag 8.4)
+; 8P0-959-655-94.LBL (Airbag 9.41)
+;
+; created on 22/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 22/Aug/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Igniter Status (Airbag && Tensioner)
+001,1,Driver Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,2,Passenger Airbag,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,3,Driver Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+001,4,Passenger Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+002,0,Igniter Status (Tensioner && Battery Disconnect)
+002,1,Rear Left Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,2,Rear Right Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,3,Rear Center Belt,Tensioner Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+002,4,Battery Disconnect,Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+003,1,Voltage supply,,Display Range: Correct/Signal too Low/Signal too High
+003,2,Seat Occupation,Detection Passenger,Display Range: Child Seat/Light Adult/Medium Adult/Heavy Adult/Not Occup./Short to Ground/Short to Plus/Not Installed
+003,3,Belt Inquiry,Driver,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+003,4,Belt Inquiry,Passenger,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+004,0,Belt Inquiry (Rear)
+004,1,Belt Inquiry,Rear Left,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,2,Belt Inquiry,Rear Right,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+004,3,Belt Inquiry,Rear Center,Display Range: Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed/Belt Yes/Belt No
+;
+006,0,Igniter Status (Side Airbag)
+006,1,Front Left Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+006,2,Front Right Side,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+008,0,Igniter Status (Head Airbag)
+008,3,Driver Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+008,4,Passenger Head,Airbag Igniter,Display Range: Correct/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+009,0,Key Switch Status
+009,1,Key Switch,Passenger Airbag,Display Range: ON/OFF
+009,2,Key Switch,(HW Path),Display Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+009,3,Key Switch,(SW Path),Display Range: ON/OFF/Signal too Low/Signal too High/Short to Ground/Short to Plus/Not Installed
+;
+080,0,Advanced Control Module Identification I
+;

@@ -1,0 +1,216 @@
+;
+; VAG-COM label file
+;
+; VW Golf IV
+;
+; component: Engine (#01) - AGN, 1.8l, 125 HP (1998 >)
+;
+; p/n: 06A-906-018-CL
+;
+; includes measuring blocks and coding
+;
+; created on 30/Aug/2006 by lw
+;
+; last modification: 22/Sep/2006 by lw
+;
+; ready for VAG-COM 311.2 and above
+;
+; ver. 0.3
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+000,0,Basic Function
+000,1,Coolant Temperature,Specification: 170...204 (80..105 °C)
+000,2,Engine Load,Specification: 20...50 (1.0...2.5 ms)
+000,3,Engine Speed,Specification: 76...84 (760...840 RPM)
+000,4,Supply Voltage,Specification: 146...212 (10.0...14.5 V)
+000,5,Throttle Valve Angle,Specification: 0...12 (0...5 <°)
+000,6,Idle Air Control,Specification: 118...138 (-2.5...+2.5 kg/h)
+000,7,Idle Air Control (learned),Specification: 112...144 (-4.0...+4.0 kg/h)
+000,8,Lambda Regulation (learned),Specification: 78...178 (-10.0...+10.0 %)
+000,9,Lambda Regulation (learned - additive),Specification: 243...255/0...13 (-0.64...+0.64 ms)
+000,10,Lambda Regulation (learned - multiplicative),Specification: 118...138 (-8.0...+8.0 %)
+;
+001,0,Basic Function
+001,1,Engine Speed,,Specification (idle): 760...840 RPM
+001,2,Engine Load,,Specification: 1.0...2.5 ms
+001,3,Throttle Body Angle,,Specification: 0...5 <°
+001,4,Ignition Angle,,Specification: 3...12 °BTDC
+;
+002,0,Basic Function
+002,1,Engine Speed,,Specification (idle): 760...840 RPM
+002,2,Injection Period,(theoretical),Specification: 1.0...2.5 ms
+002,3,Injection Period,(corrected),Specification: 2.0...5.0 ms
+002,4,Intake Air Mass,,Specification: 2.0...4.0 g/s
+;
+003,0,Basic Function
+003,1,Engine Speed,,Specification (idle): 760...840 RPM
+003,2,Supply Voltage,,Specification: 10.0...14.5 V
+003,3,Coolant,Temperature,Specification: 80..105 °C
+003,4,Intake Air,Temperature,Specification: approx. outside Temperature
+;
+004,0,Idling Speed Stabilisation
+004,1,Throttle Body Angle,,Specification: 0...5 <°
+004,2,Intake Air Mass,(idle),Specification: -1.7...1.7 g/s
+004,3,Intake Air Mass,(load),Specification: -1.7...1.7 g/s
+004,4,Operating Mode,,Specification: Idle/Throttle/Enrich/Overrun
+;
+005,0,Idling Speed Stabilisation (Idling)
+005,1,Engine Speed,(actual),Specification (idle): 780...880 RPM
+005,2,Engine Speed,(specified),Specification: 800/860 rpm
+005,3,Idle Regulation,,Specification: -10.0...+10.0 %
+005,4,Intake Air Mass,,Specification: 2.0...4.0 g/s
+;
+006,0,Idling Speed Stabilisation
+006,1,Engine Speed,,Specification (idle): 760...840 RPM
+006,2,Idle Regulation,,Specification: -10.0...+10.0 %
+006,3,Lambda,Regulation,Specification: -10.0...+10.0 %
+006,4,Ignition Angle,,Specification: 3...12 °BTDC
+;
+007,0,Lambda Control And ACF System
+007,1,Lambda,Regulation,Specification: -10.0...+10.0 %
+007,2,Lambda Probe,Voltage,Specification: +0.0...+1.0 V
+007,3,Charcoal Filter,Solenoid Valve,Specification: 0.0...99.0 %
+007,4,Lambda Correction,Factor,Specification: 0.3...1.1
+;
+008,0,Lambda learnt Values
+008,1,Injection Period,(corrected),Specification: 2.0...5.0 ms
+008,2,Lambda Regulat.,(learned - additive),Specification: -10.0...+10.0 %
+008,3,Lambda Regulat.,(learned - multipl.),Specification: -8.0...+8.0 %
+008,4,Fuel Tank,Venting,Specification: TB active/TB n. active
+;
+009,0,Lambda learnt Values
+009,1,Engine Speed,,Specification (idle): 760...880 RPM
+009,2,Lambda,Regulation,Specification: -10.0...+10.0 %
+009,3,Lambda Probe,Voltage,Specification: +0.0...+0.3 and +0.7...+1.0 V
+009,4,Lambda Regulat.,(learned - additive),Specification: -10.0...+10.0 %
+;
+010,0,Fuel Tank Breather system
+010,1,Charcoal Filter,Solenoid Valve,Specification: 0.0...99.0 %
+010,2,Lambda Correction,Factor,Specification: 0.3...1.1
+010,3,Charcoal Filter,Charge Level,Specification: -5...+45
+010,4,Fuel Tank Venting,Purge Rate,Specification: 0.0...0.3 %
+;
+011,0,Fuel Consumption
+011,1,Engine Speed,,Specification (idle): 760...880 RPM
+011,2,Engine Load,,Specification: 1.0...2.5 ms
+011,3,Vehicle Speed,,Specification: 0 km/h
+011,4,Fuel Consumption,,Specification: 0.5...1.5 l/h
+;
+012,0,Fuel Consumtion (during Idling)
+012,1,Engine Speed,,Specification (idle): 760...880 RPM
+012,2,Supply Voltage,,Specification: 10.0...14.5 V
+012,3,Fuel Consumption,,Specification: 0.5...1.5 l/h
+012,4,Ignition Angle,,Specification: 6...12 °BTDC
+;
+013,0,Knock Control (Timing Retardation - Cylinder 1 - 4)
+013,1,Timing Retardation,Cylinder 1,Specification: 0...15 °BTDC
+013,2,Timing Retardation,Cylinder 2,Specification: 0...15 °BTDC
+013,3,Timing Retardation,Cylinder 3,Specification: 0...15 °BTDC
+013,4,Timing Retardation,Cylinder 4,Specification: 0...15 °BTDC
+;
+014,0,Knock Control (Timing Retardation - Cylinder 1 && 2)
+014,1,Engine Speed,,Specification (idle): 760...880 RPM
+014,2,Engine Load,,Specification: 1.0...2.5 ms
+014,3,Timing Retardation,Cylinder 1,Specification: 0...15 °BTDC
+014,4,Timing Retardation,Cylinder 2,Specification: 0...15 °BTDC
+;
+015,0,Knock Control (Timing Retardation - Cylinder 3 && 4)
+015,1,Engine Speed,,Specification (idle): 760...880 RPM
+015,2,Engine Load,,Specification: 1.0...2.5 ms
+015,3,Timing Retardation,Cylinder 3,Specification: 0...15 °BTDC
+015,4,Timing Retardation,Cylinder 4,Specification: 0...15 °BTDC
+;
+016,0,Knock Control (Sensor Signal - Cylinder 1 - 4)
+016,1,Knock Sensor,Cylinder 1,Specification: 0.4...2.0 V
+016,2,Knock Sensor,Cylinder 2,Specification: 0.4...2.0 V
+016,3,Knock Sensor,Cylinder 3,Specification: 0.4...2.0 V
+016,4,Knock Sensor,Cylinder 4,Specification: 0.4...2.0 V
+;
+018,0,Altitude Adaption
+018,1,Engine Speed,,Specification (idle): 760...880 RPM
+018,2,Engine Load,(bef. Correction),Specification: 1.0...2.5 ms
+018,3,Engine Load,(aft. Correction),Specification: 0.5...3.0 ms
+018,4,Altitude Correction,Factor,Specification: -50...+15 %
+;
+019,0,Torque Reduction (only with automatic transmission)
+019,1,Engine Speed,,Specification (idle): 760...880 RPM
+019,2,Engine Load,,Specification: 1.0...2.5 ms
+019,3,Operating Status
+019,4,Ignition Angle,,Specification: 6...12 °BTDC
+;
+020,0,Operating Conditions
+020,1,Engine Speed,,Specification (idle): 760...880 RPM
+020,2,Selector Lever,Position,Display Range: Neutral/Gear ENG.
+020,3,Air Conditioning,Operating Mode,Display Range: A/C High/Low
+020,4,Air Conditioning,Status,Display Range: Compr. ON/OFF
+;
+021,0,Operating Conditions For Lambda Control
+021,1,Engine Speed,,Specification (idle): 760...880 RPM
+021,2,Engine Load,,Specification: 1.0...2.5 ms
+021,3,Coolant,Temperature,Specification: -40..125 °C
+021,4,Lambda Control,Operating Mode,Display Range: Reg. ON/OFF
+;
+023,0,Throttle Body Adaptation Information
+023,1,Adaptation Status,,Specification: 100000
+; 0xxxxx - Throttle Potentiometer adjustment with Idling Potentiometer not OK
+; x1xxxx - Throttle Body Adaptation not OK
+; xx1xxx - Learning process Max. Position Throttle Potentiometer not OK
+; xxx1xx - Learning process Min. Position Throttle Potentiometer not OK
+; xxxx1x - Learning process Max. Position Idling Potentiometer not OK
+; xxxxx1 - Learning process Min. Position Idling Potentiometer not OK
+023,2,Throttle Body,Min. Position,Specification: 73...97 %
+023,3,Throttle Body,Emergency Stop,Specification: 54...83 %
+023,4,Throttle Body,Max. Position,Specification: 6...43 %
+;
+024,0,Knock Control
+024,1,Engine Speed,,Specification (idle): 760...880 RPM
+024,2,Engine Load,,Specification: 1.0...2.5 ms
+024,3,Ignition Angle,,Specification: 6...12 °BTDC
+024,4,Timing Retardation,Sum of Cyl. 1-4, ° cr/shaft
+;
+025,0,Camshaft Timing Control
+025,1,Operating State,,Specification: Idling/Part Throttle/Full Throttle/Overrun/Enrichment
+025,2,Adjustment discrepancy with phase sender,(Hall sender),Specification: -30...30 ° cr/shaft
+025,3,Operating State,,Specification: XX0/XX1/X0X/X1X
+025,4,Canshaft position with canshaft timing control active,,Specification: -3.0...22.0 ° cr/shaft
+;
+026,0,Camshaft Timing Control
+026,1,Engine Speed,,Specification (idle): 760...880 RPM
+026,2,Engine Load,,Specification: 1.0...2.5 ms
+026,3,Operating State,,Specification: XX0/XX1/X0X/X1X
+026,4,Canshaft position with canshaft timing control active,,Specification: -3.0...22.0 ° cr/shaft
+;
+066,0,Cruise Control System (CCS/GRA)
+066,1,Actual,Vehicle Speed
+066,2,Brake switch,clutch and CCS,Specification: XXXX
+; 1000 - Cruise control system active
+; 1111 - Brake depressed (brake light switch)
+; 1111 - Brake depressed (brake pedal switch)
+; 1110 - Clutch depressed (always 1 in automatic transmission)
+066,3,Specified,Vehicle Speed
+066,4,CCS Control,Positions,Specification: 0000/0011
+; 0000 - CCS Switched ON
+; 0011 - CCS Switched OFF (Switch Engaged)
+; 0010 - CCS Switched OFF Before Engagement Point
+; 0100 - "SET" button pressed in
+; 1000 - "RES" ("resume") Button Pulled
+;
+098,0,Throttle Body Adaptation (Basic Setting)
+098,1,Throttle Valve,Potentiometer,Specification: 0.0...5.0 V
+098,2,Idling Positioner,Potentiometer,Specification: 0.0...5.0 V
+098,3,Operating Mode,,Specification: Idle/Throttle/Enrich
+098,4,Adaption Status,,Specification: ADP OK\nDisplay Range: ADP OK/ADP RUN/ADP ERROR
+;
+099,0,Lambda Control (Basic Setting)
+099,1,Engine Speed,,Specification (idle): 760...880 RPM
+099,2,Coolant,Temperature,Specification: -40..125 °C
+099,3,Lambda,Regulation,Specification: -10.0...+10.0 %
+099,4,Status Lambda,Regulation,Display Range: Reg. ON/OFF
+;
+;End of File

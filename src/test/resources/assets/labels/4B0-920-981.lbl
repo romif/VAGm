@@ -1,0 +1,119 @@
+;
+; VAG-COM Measuring Block Labels file.
+; Module 17 -- Instrument Cluster
+; 
+; from USA 2001 Audi A6 2.7T 6sp
+;
+; ECU p/n :     4B0-920-981-G
+; Component:    C5-KOMBIINSTR. VDO D12
+; Soft coding:  02264
+;
+; Modification history
+; created:  Richard Solomon,  22 May 2002
+;
+;
+;
+;
+1,0,Main Gauges
+1,1,Road Speed
+1,2,Engine Speed,(RPM)
+1,3,Oil Pressure,OK | Min
+1,4,Clock Time
+;
+2,0,Main Gauges
+2,1,Odometer,(/10)
+2,2,Fuel Gauge,(Liters)
+2,3,Fuel Sensor,Resistance
+2,4,Outside Air,Temperature
+;
+3,0,Coolant Temperature
+3,1,Coolant,Temperature
+3,2,
+3,3,
+3,4,
+;
+4,0,Undocumented
+4,1,
+4,2,
+4,3,
+4,4,
+;
+10,0,Adaptation Channels and Values
+10,1,Fuel Sender,Channel
+10,2,Fuel Sender,Adjustment
+10,3,Odometer,Channel
+10,4,Odometer,(/10)
+;
+11,0,Adaptation Channels and Values
+11,1,DIS Language,Channel
+11,2,DIS Language,1=Ger. 2=Eng.
+11,3,Miles To Empty,Adj. Channel
+11,4,Miles To Empty,Adj. %
+;
+12,0,Service Indicator Adaptation Channels and Values
+12,1,Dist. since Service,Channel
+12,2,Dist. since Service,(/100?)
+12,3,Days since Service,Channel
+12,4,Days since Service
+;
+13,0,Service Indicator Adaptation Channels and Values
+13,1,Minimum Miles,Channel
+13,2,Minimum Miles,(/1000)
+13,3,Maximum Miles,Channel
+13,4,Maximum Miles,(/1000)
+;
+14,0,Service Indicator Adaptation Channels and Values
+14,1,Maximum Time,Channel
+14,2,Maximum Time,Days
+14,3,
+14,4,
+;
+15,0,Adaptation Channels and Values
+;
+16,0,Adaptation Channels and Values
+;
+22,0,Immobilizer III: Status
+22,1,Start permitted
+22,2,ECM Responding,(Engine Started)
+22,3,Key Ok
+22,4,Number of keys
+;
+23,0,Immobilizer III: Key Status
+23,1,Variable code Ok
+23,2,Key Status
+23,3,Fixed code Ok
+23,4,Immobilizer Status
+;
+24,0,Immobilizer III: Lockout Times (minutes)
+24,1,Cluster Login
+24,2,ECM Login
+24,3,
+24,4,Transponder (key),Recognition
+;
+25,0,Immobilizer III: CAN Status
+25,1,ECM Communications
+25,2,,
+25,3,,
+25,4,,
+;
+50,0,Main Gauges
+50,1,Odometer,(/10)
+50,2,Engine Speed,(RPM)
+50,3,Oil,Temperature
+50,4,Coolant,Temperature
+;
+80,0,?Cluster Mfg String?
+80,1,
+;
+81,0,VIN / Immobilizer ID
+81,1,
+;
+125,0,CAN Communications
+;
+126,0,CAN Communications
+;
+130,0,CAN Communications
+;
+140,0,CAN Communications
+;
+; End of File

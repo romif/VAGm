@@ -1,0 +1,92 @@
+;
+; VAG-COM Label File
+;
+; Audi TT (8J)
+;
+; Component: J525 - Sound System (#47)
+;
+; P/N: 8J0-035-223-???
+;
+; includes measuring blocks, coding and selective output test
+;
+; created on 31/Jul/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Nov/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Supply Voltage
+001,1,Supply Voltage,(Terminal 30)
+001,2,Voltage Status,,See Label File
+; x---xxx1 = Terminal  S active
+; x---xx1x = Terminal 15 active
+; x---x1xx = Terminal  X active
+; x---1xxx = Terminal 50 active
+; 1---xxxx = Error
+;
+002,0,Temperatures
+002,1,Temperature,Analog Part
+002,2,Temperature,Digital Part
+002,4,Status,Remote Wire,0 = Remote Wire OFF\n1 = Remote Wire ON
+;
+004,1,Voltage,Microphone Input
+004,2,Vehicle Speed
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Sound System (J525) Coding
+C01,0?xxxxx: Options II (from Index B)
+C02,0 = Cell Phone Preparation & Voice Control not installed
+C03,2 = Cell Phone Preparation installed
+C04,3 = Voice Control installed
+C05,4 = Cell Phone Preparation & Voice Control installed
+C06,00?xxxx: Noise Compensation
+C07,1 = GALA
+C08,3 = GALA/Bose Audipilot (switchable)
+C09,4 = Bose Audiopilot
+C10,00x?xxx: Volume Adjustment
+C11,0 = No Increase/Decrease | 1 = 1 db Increase | 2 = 2 db Increase
+C12,3 = 3 db Increase | 4 = 4 db Increase | 5 = 5 db Increase | 6 = 6 db Increase (Standard)
+C13,7 = 1 db Decrease | 8 = 2 db Decrease | 9 = 3 db Decrease
+C14,00xx?xx: Activation
+C15,1 = via Remote Wire
+C16,2 = via Signal Level
+C17,00xxx?x: Model
+C18,1 = Audi TT (8J) Coupé
+C19,2 = Audi TT (8J) Roadster (Manual Roof)
+C20,3 = Audi TT (8J) Roadster (Automatic Roof)
+C21,00xxxx?: Options II
+C22,1 = Right-Hand-Drive/Cloth/Diesel | 2 = Left-Hand-Drive/Leather/Diesel
+C23,3 = Right-Hand-Drive/Leather/Diesel | 4 = Left-Hand-Drive/Cloth/Gasoline
+C24,5 = Right-Hand-Drive/Cloth/Gasoline | 6 = Left-Hand-Drive/Leather/Gasoline
+C25,7 = Right-Hand-Drive/Leather/Gasoline | 8 = Left-Hand-Drive/Cloth/Diesel
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T420,Front Midrange Speaker (R103/R104)
+T870,Front Bass Speaker (R21/R23)
+T874,Front Treble Speaker (R20/R22)
+T876,Rear Treble Speaker (R14/R16)
+T2246,Center Speaker
+T2558,Rear Mid-Range/Woofer Loudspeaker (R159/R160)
+;

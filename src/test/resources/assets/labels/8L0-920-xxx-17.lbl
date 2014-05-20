@@ -1,0 +1,257 @@
+;
+; VAG-COM Label File
+;
+; Audi A3 (8L)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8L0-920-???-???
+;
+; includes measuring blocks, adaptation, coding, login
+;          and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8L-17.LBL
+; 8L0-919-xxx.LBL
+; 8L0-920-xxx.LBL
+;
+; created on 03/Dec/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 20/Feb/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 00000 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+A004,12,8 = Chinese
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km or 1 = 10 mi
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km/62 mi.
+A009,11, 
+A009,12,NOTE: Perform Login first.
+;
+A018,0,Auxiliary Heating
+;
+A019,0,Additional Features
+A019,5,Additional Features
+A019,6,?xxxx: Illumination (MY 2002 and above)
+A019,7,0 = Needle and Scale only active at "Light ON"
+A019,8,1 = Needle already active at "Ignition ON"
+A019,9,2 = Scale already active at "Ignition ON"
+A019,10,3 = Scale (2nd Map) and Needle at "Ignition ON" active
+A019,11, 
+A019,12,x?xxx - Board Computer
+A019,13,0 - only Level 2 (Long Time Memory)
+A019,14,1 - Level 1 and 2
+A019,15, 
+A019,16,xx?xx - Driver Information System (DIS)
+A019,17,0 - DIS 1 / 1 - Highline without DIS / 2 - DIS 2
+A019,18, 
+A019,19,xxx?x - Outside Temperature
+A019,20,0 - not active / 1 - active
+A019,21, 
+A019,22,xxxx? - Remote Clock
+A019,23,0 - not active / 1 - clock active
+;
+A021,0,Immobilizer - Key Adaptation
+A021,1,Number of
+A021,2,currently
+A021,3,adapted Keys
+A021,5,Immobilizer - Key Adaptation
+;
+A030,0,Tank Characteristic (Fuel Level Sensor 1)
+A030,5,Tank Characteristic (Fuel Level Sensor 1)
+A030,6,This is a parallel shift of the tank characteristic.
+A030,7, 
+A030,8,Standard: 128
+A030,9,Range: 96...160 (-8.0...+8.0 l)
+A030,10,Increments: 1 = 1 Ohm = 1/4 l
+;
+A032,0,Tank Characteristic (Not detactable Tank Volume)
+A032,5,Tank Characteristic (Not detactable Tank Volume)
+A032,6,The tank volume which is not recordable by the fuel gauge sender(s).
+;
+A033,0,Tank Characteristic (Full Calibration)
+A033,5,Tank Characteristic (Full Calibration)
+A033,6,Non-parallel shift of the tank characterictic above a readout of 1/2.
+A033,7,To start the adaptation enter '65535' as new value.
+A033,8, 
+A033,9,Standard Value: 128
+A033,10,Value Range: 112...144 (-4.0...+4.0 l)
+A033,11,Increments: 1 = 1 Ohm = 1/4 l
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Resolution: 1 = 100 km
+A040,7, 
+A040,8,NOTE: Adaptation channels 40-48 must be
+A040,9,entered and stored in the following order:
+A040,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Resolution: 1 = 1 day(s)
+A041,7, 
+A041,8,NOTE: Adaptation channels 40-48 must be
+A041,9,entered and stored in the following order:
+A041,10,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A042,0,Minimum Mileage to Service
+A042,5,Minimum Mileage to Service
+A042,6,Increments: 1 = 1000 km/mi
+A042,7,00015 = Standard (15.000 km)
+;
+A043,0,Maximum Mileage to Service
+A043,5,Maximum Mileage to Service
+A043,6,Increments: 1 = 1000 km/mi
+A043,7,00015 = fixed Service Intervals (15.000 km - w/o Longlife)
+A043,8,00030 = flexible Service Intervals (30.000 km - with Longlife)
+A043,10,00050 = Diesel (ONLY PD-TDI post Week 18/2001) Engines with flexible Service Intervals (50.000 km - with Longlife)
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Increments: 1 = 1 day(s)
+A044,7,00365 = fixed Service Intervals (w/o Longlife)
+A044,8,00730 = flexible Service Intervals (with Longlife)
+A044,9, 
+A044,10,NOTE: Adaptation channels 40-48 must be
+A044,11,entered and stored in the following order:
+A044,12,45 > 42 > 43 > 44 > 40 > 41 > 46 > 47 > 48
+;
+A045,0,Oil Quality
+A045,5,Oil Quality
+A045,6,1 = fixed Service Intervals (w/o Longlife)
+A045,7,2 = flexible Service Intervals (with Longlife)
+A045,8,4 = Diesel (ONLY PD-TDI post Week 18/2001) Engines with flexible Service Intervals (with Longlife)
+;
+A046,0,Total Consumption
+A046,5,Total Consumption
+A046,6,This value does not represent the actual consumption
+A046,7,but is rather an arithmetic value for the service interval display.
+;
+A047,0,Soot Entry
+A047,5,Soot Entry
+A047,6,Arithmetic value used to calculate the amount of soot in
+A047,7,the engine oil referenced to a distance of 100 km and used
+A047,8,as comparison value for the service interval display.
+;
+A048,0,Thermal Load
+A048,5,Thermal Load
+A048,6,Arithmetic value used to calculate the thermal stress of
+A048,7,the engine oil referenced to a distance of 100 km and used
+A048,8,as comparison value for the service interval display.
+;
+A050,0,Immobilizer - Vehicle Data Learning
+A050,5,Immobilizer - Vehicle Data Learning
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,1000,DIST
+RD,43,Max Mileage to Service,1000,DIST
+RD,44,Max Time to Service,1,Days
+RD,45,Oil Quality,1,
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;
+RJ,1,0,Change to Fixed Intervals (Kilometers)
+RJ,1,1,45,1
+RJ,1,2,42,15
+RJ,1,3,43,15
+RJ,1,4,44,365
+;
+RJ,4,0,Change to Flexible Intervals (Kilometers/Gasoline & Diesel)
+RJ,4,1,45,2
+RJ,4,2,42,15
+RJ,4,3,43,30
+RJ,4,4,44,730
+;
+RJ,5,0,Change to Flexible Intervals (Kilometers/PD-TDI post Week 18/2001)
+RJ,5,1,45,4
+RJ,5,2,42,15
+RJ,5,3,43,50
+RJ,5,4,44,730
+;

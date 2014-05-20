@@ -1,0 +1,123 @@
+;
+; VCDS Label File
+;
+; VW Passat (3C) / VW Tiguan (5N)
+;
+; Component: J540 - Parking Brake (#53) GENERATION 3
+;
+; P/N: 3C0-907-801-??? / 5N0-907-801-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3C-53.LBL
+; 3C0-907-801.LBL
+; 5N0-907-801.LBL
+;
+; created on 04/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/May/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+;001,1,,,
+;00111100,Bin. Bits,
+;001,2,,,
+;00100010,Bin. Bits,
+;001,3,,,
+;01, ,
+;001,4,,,
+;6.00 m/s^2,Lateral Accel.,
+;
+002,1,Shut-Off Current,Brake Left,Specification: 15.0...19.0 A
+002,2,Shut-Off Current,Brake Right,Specification: 15.0...19.0 A
+;002,3,,,
+;2.0,(no units),
+;002,4,,,
+;2.0,(no units),
+;
+003,0,Function and Warning Lamps
+003,1,Funct./Warn. Lamp,Brake System,Range: Lamp ON/Lamp OFF
+003,2,Warning Lamp,Parking Brake,Range: Lamp ON/Lamp OFF
+003,3,Function Lamp,Parking Brake,Range: Lamp ON/Lamp OFF
+003,4,Function Lamp,Auto-Hold,Range: Lamp ON/Lamp OFF
+;
+004,1,Function Lamp,Shift-Lock,Range: Lamp ON/Lamp OFF
+004,2,Sensor (G200) for,Lateral Accelerat.,Specification (Standing): ± 1.5 m/s²
+004,3,Sensor (G202) for,Rotation Rate,Specification (Standing): ± 1.5 °/s²
+004,4,Sensor (G251) for,Longitudinal Accel.,Specification (Standing): ± 1.5 m/s²
+;
+005,1,Operating Counter,Brake Left,1 Operation are 2 Load Changes
+005,2,Operating Counter,Brake Right,1 Operation are 2 Load Changes
+;005,3,,,
+;0.0 %,Load,
+;
+006,0,Voltage Supply
+006,1,Supply Voltage,Brake Left,Specification: 10.5...14.5 V
+006,2,Supply Voltage,Brake Right,Specification: 10.5...14.5 V
+006,3,Voltage,Terminal 30,Specification: 10.5...14.5 V
+006,4,Status,Terminal 15,Range: Term. 15 ON/Term. 15 OFF
+;
+B006,0,Close Rear Parking Brake
+B006,1,Current,Left Motor, 
+B006,2, , , 
+B006,3,Current,Right Motor, 
+B006,4, , , 
+;
+007,1,Button (E538),Parking Brake,Range: operated/not oper.
+007,2,Button (E540),Auto-Hold,Range: operated/not oper.
+007,3,Brake Light Switch,(F) Status,Range: operated/not oper.
+007,4,Driver Request,Parking Brake,Range: not oper./open/close
+;
+B007,0,Open Rear Parking Brake
+B007,1,Current,Left Motor, 
+B007,2, , , 
+B007,3,Current,Right Motor, 
+B007,4, , , 
+;
+008,1,Clutch Pedal Travel,,0 = 0 %\n250 = 100 %
+008,2,Back-Up Light,,Range: ON/OFF
+008,3,Drivers Door,,Range: Door Open/Door Closed
+008,4,Belt Inquiry,Front Driver Side,Range: Belt Yes/Belt No
+;
+B010,0,Parking Brake Function Test
+B010,1,Current,Left Motor, 
+B010,2, , , 
+B010,3,Current,Right Motor, 
+B010,4, , , 
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Brake Electronics,(J104),Range: ABS 1/ABS 0\nSpecification: ABS 1
+125,2,Airbag,(J234),Range: Airbag 1/Airbag 0\nSpecification: Airbag 1
+125,3,Transmission,,Range: Transmission 1/Transmission 0
+125,4,Engine,,Range: Engine 1/Engine 0\nSpecification: Engine 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,1,Gateway,(J533),Range: Gateway 1/Gateway 0\nSpecification: Gateway 1
+126,3,Steering Column,Electronics (J527),Range: El.Ign.Lock 1/El.Ign.Lock 0\nSpecification: El.Ign.Lock 1
+126,4,Immobilizer,,Range: Immobilizer 1/Immobilizer 0\nSpecification: Immobilizer 1
+;
+;
+;---------------------------------------------------
+;
+; Coding
+;
+;---------------------------------------------------
+;
+;
+C00,Parking Brake (J540) Coding
+C01,0000056 = Parking Brake without Auto-Hold (Rest of World / PR-UH1)
+C02,0000057 = Parking Brake with Auto-Hold (Rest of World / PR-UH2)
+C03, 
+C04,Note: After Coding the Ignition has to be Shut Off for at least 45 Seconds.
+;

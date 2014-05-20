@@ -1,0 +1,32 @@
+;
+; VCDS Redirect File
+;
+; Component: Engine (#01)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-01.LBL
+; 4F-11.LBL
+; 4F-31.LBL
+; 07L-910-552-BUH1.LBL (5.0l TFSI @ 580 HP - BUH/Master)
+; 07L-910-552-BUH2.LBL (5.0l TFSI @ 580 HP - BUH/Slave)
+; 07L-910-552-BUH3.LBL (5.0l TFSI @ 580 HP - BUH/Other)
+;
+; created on 22/May/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+;
+;4F1-910-552-A   ; BXA: (4F)
+;4F1-910-552-B   ; BXA: (4F)
+;4F1-910-552-C   ; BXA: (4F)
+REDIRECT,07L-910-552-BUH3.LBL,4F1-910-552-D   ; BUH: (4F)
+REDIRECT,07L-910-552-BUH3.LBL,4F1-910-552-E   ; BUH: (4F)
+;4F1-910-552-G   ; BXA: (4F)
+;4F1-910-552-H   ; BXA: (4F)
+;4F1-910-552-J   ; BXA: (4F)
+;4F1-910-552-K   ; BXA: (4F)
+;

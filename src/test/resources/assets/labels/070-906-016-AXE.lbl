@@ -1,0 +1,256 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: Motor (#01)
+;
+; T/N: 070-906-016-??
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 07-01.LBL
+; 070-906-016-AXE.LBL (2.5l TDI @ 174 HP - AXE)
+;
+; erstellt am 10/Aug/2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 16.01.2006
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Einspritzmenge
+001,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+001,2,Einspritzmenge
+001,3,Förderdauer,Magnetventil
+001,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+002,0,Lehrlaufdrehzahl
+002,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+002,2,Gaspedal-,stellung,Sollwert (Leerlauf): 0 %
+002,3,Betriebszustand
+002,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+003,0,Abgasrückführung (AGR)
+003,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+003,2,angesaugte,Luftmasse (SOLL),Sollwert (Leerlauf): 180...280 mg/Hub\nSollwert (Vollast): 800...1100 mg/H
+003,3,angesaugte,Luftmasse (IST),Sollwert (Leerlauf): 160...380 mg/Hub
+003,4,Tastverhältnis,AGR-Ventil,Sollwert (Leerlauf): 15.0...80.0 %
+;
+004,0,Ansteuerung Magnetventile für Pumpe/Düse
+004,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+004,2,Förderbeginn,SOLL-Wert,Sollwert (Leerlauf): 6.0...8.5 °KW
+004,3,Förderdauer,SOLL-Wert,Sollwert (Leerlauf): 5.7...8.0 °KW
+004,4,Verdrehwinkel,,Sollwert (Leerlauf): -9.0...+9.0 °KW
+;
+005,0,Startverhältnisse
+005,1,Motordrehzahl,(G28)
+005,2,Startmenge
+005,3,Start-,synchronisation,siehe Label-File
+; 000 - Grundinitialisierung
+; 001 - Rücksetzen des Zählers
+; 002 - Motorstillstand oder Fehlerfall
+; 003 - Übergangszustände
+; 004 - Plausibilisierungsphase
+; 005 - Plausibilisierungsphase
+; 006 - Plausibilisierungsphase
+; 008 - Plausibilisierungsphase
+; 016 - Phasenbestimmung
+; 028 - Redundanter Start
+; 032 - Synchronisationsphase
+; 033 - Positionierung des Systems
+; 048 - Berechnungssequenzen aktiviert
+; 064 - System wartet auf Motorstillstand
+; 128 - Dynamische Plausibilisierung
+005,4,Kühlmittel-,temperatur (G62)
+;
+006,0,Geschwindigkeitsregelanlage (GRA)
+006,1,Geschwindigkeit
+006,2,Pedalüberwachung
+006,3,Gaspedalstellung,Pedalwertgeber,Sollwert: 0%
+006,4,Status
+;
+007,0,Temperaturgeber (Motor kalt)
+007,1,Kraftstoff-,temperatur (G81),Sollwert: ca. Umgebungstemperatur
+007,3,Saugrohr-,temperatur (G42),Sollwert: ca. Umgebungstemperatur
+007,4,Kühlmittel-,temperatur (G62),Sollwert: ca. Umgebungstemperatur
+;
+008,0,Einspritzmengenbegrenzung I (Drehmomentbegrenzung)
+008,1,Motordrehzahl,(G28)
+008,2,Fahrerwunsch-,moment
+008,3,Drehmoment-,begrenzung
+008,4,Rauchbegrenzung
+;
+009,0,Einspritzmengenbegrenzung II (Drehmomentbegrenzung)
+009,1,Motordrehzahl,(G28)
+009,2,Geschwindigkeits-,regelanlage
+009,3,Getriebeeingriffs-,moment
+009,4,Begrenzungs-,moment
+;
+010,0,Luftgrössen
+010,2,angesaugte,Luftmasse,Sollwert (Leerlauf): 180...280 mg/Hub\nSollwert (Vollast): 800...1100 mg/H
+010,2,atmosphärischer,Druck
+010,3,Saugrohrdruck
+010,4,Gaspedalstellung,,Sollwert (Leerlauf): 0 %\nSollwert (Vollast): 100 %
+;
+011,0,Ladedruckregelung
+011,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+011,2,Ladedruck,(SOLL-Wert)
+011,3,Ladedruck,(IST-Wert)
+011,4,Tastverhältnis,Magnetventil
+;
+012,0,Vorglühanlage
+012,1,Glühstatus
+012,2,Vorglühzeit
+012,3,Versorgungs-,spannung
+012,4,Kühlmittel-,temperatur (G62),Sollwert: 80...110 °C
+;
+013,0,Leerlaufruheregelung (Einspritzmengenabweichung)
+013,1,Zylinder 1,,Sollwert: -2.8...+2.8 mg/Hub
+013,2,Zylinder 2,,Sollwert: -2.8...+2.8 mg/Hub
+013,3,Zylinder 3,,Sollwert: -2.8...+2.8 mg/Hub
+013,4,Zylinder 4,,Sollwert: -2.8...+2.8 mg/Hub
+;
+014,0,Leerlaufruheregelung (Einspritzmengenabweichung)
+014,1,Zylinder 5,,Sollwert: -2.8...+2.8 mg/Hub
+;
+015,0,Kraftstoffverbauch
+015,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+015,2,Einspritzmenge,(IST-Wert)
+015,3,Kraftstoffverbrauch
+015,4,Einspritzmenge,(Fahrerwunsch)
+;
+016,0,Generator
+016,1,Generatorlast
+016,4,Versorgungs-,spannung
+;
+018,0,Status Magnetventile für Pumpe/Düse (BIP - Zylinder 1 - 4)
+; 000 - Fehlerfreie Regelung
+; 002 - Steuerung bei Start
+; 004 - Kleine Einspritzmenge oder MV aus
+; 008 - Maximaler Strom erreicht
+; 016 - BIP ausserhalb Regelfenster
+; 032 - Zahl der Abtastung zu klein
+; 064 - Wandlungsfehler
+; 128 - Keine BIP-Auswertung möglich
+018,1,Ventil für,Pumpe Düse 1,Sollwert: 0
+018,2,Ventil für,Pumpe Düse 2,Sollwert: 0
+018,3,Ventil für,Pumpe Düse 3,Sollwert: 0
+018,4,Ventil für,Pumpe Düse 4,Sollwert: 0
+;
+019,0,Status Magnetventile für Pumpe/Düse (BIP - Zylinder 5)
+; 000 - Fehlerfreie Regelung
+; 002 - Steuerung bei Start
+; 004 - Kleine Einspritzmenge oder MV aus
+; 008 - Maximaler Strom erreicht
+; 016 - BIP ausserhalb Regelfenster
+; 032 - Zahl der Abtastung zu klein
+; 064 - Wandlungsfehler
+; 128 - Keine BIP-Auswertung möglich
+019,1,Ventil für,Pumpe Düse 5,Sollwert: 0
+;
+020,0,Mengeneingriff (ABS über CAN)
+020,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+020,2,Motormoment
+020,3,ASR-Eingriff
+020,4,MSR-Eingriff
+;
+023,0,Schaltzeitabweichung (Zylinder 1 - 4)
+023,1,Zylinder 1,,Sollwert: -100...+100
+023,2,Zylinder 2,,Sollwert: -100...+100
+023,3,Zylinder 3,,Sollwert: -100...+100
+023,4,Zylinder 4,,Sollwert: -100...+100
+;
+024,0,Schaltzeitabweichung (Zylinder 5)
+024,1,Zylinder 5,,Sollwert: -100...+100
+;
+025,1,Motordrehzahl,(G28),Sollwert (Leerlauf): 780...820 U/min
+;
+027,0,Höchtgeschwindigkeitsbegrenzung
+027,1,Status
+027,4,Höchtgeschwindig-,keitsbegrenzung
+;
+028,0,Elektronisches Gaspedal
+028,1,Pedalwert-,geber 1
+028,3,Betriebszustand
+028,4,Gaspedal-,stellung,Sollwert: 0...100 %
+;
+029,0,Temperatur- und Ölstandsgeber (TOG)
+029,1,Öltemperatur
+029,2,Ölstand
+;
+051,0,Drehzahlerfassung
+051,1,Motordrehzahl
+051,2,Nockenwellen-,drehzahl/2
+051,3,Start-,synchronisation,siehe Label-File
+; 000 - Grundinitialisierung
+; 001 - Rücksetzen des Zählers
+; 002 - Motorstillstand oder Fehlerfall
+; 003 - Übergangszustände
+; 004 - Plausibilisierungsphase
+; 005 - Plausibilisierungsphase
+; 006 - Plausibilisierungsphase
+; 008 - Plausibilisierungsphase
+; 016 - Phasenbestimmung
+; 028 - Redundanter Start
+; 032 - Synchronisationsphase
+; 033 - Positionierung des Systems
+; 048 - Berechnungssequenzen aktiviert
+; 064 - System wartet auf Motorstillstand
+; 128 - Dynamische Plausibilisierung
+;
+062,0,Temperaturen
+062,1,Kühlmitteltemp.,Motoraustritt,Sollwert: mind. 75.0 °C
+062,2,Kühlmitteltemp.,Kühleraustritt,Sollwert: mind. 75.0 °C
+062,3,Umgebungs-,temperatur,Sollwert: -30.0...+50.0 °C
+062,4,Saugrohr-,temperatur,Sollwert: 5.0...80.0 °C
+;
+063,0,Klimakompressor
+063,1,Kältemitteldruck,(bei Klima EIN)
+063,2,Lastmoment,(bei Klima EIN)
+063,4,Abschalt-,bedingungen
+; 001 - Fahrzeug im Anfahrzustand
+; 002 - AUS wegen Anfahrzustand
+; 004 - Fahrzeug befindet sich im Beschleunigungszustand
+; 008 - AUS wegen Beschleunigungszustand
+; 016 - Abschaltung wegen Startvorgang
+; 032 - Systemfehler erkannt
+; 064 - Abschaltung wegen Systemfehler
+; 128 - AUS wegen Unterschneidung Leerlaufdrehzahl
+;
+064,0,Kühlerlüfter && Kühltemperatur
+064,1,Kühlmitteltemp.,Motoraustritt,Sollwert: mind. 75.0 °C
+064,2,Kühlmitteltemp.,Kühleraustritt,Sollwert: mind. 75.0 °C
+064,3,Lüfter 1 bei,Kühlerlüfter ein,Sollwert: 10.0...100.0 %
+064,4,Lüfter 2 bei,Kühlerlüfter ein,Sollwert: 10.0...100.0 %
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Status,Getriebe,Sollwert: Getr. 1
+125,2,Status,ABS,Sollwert: ABS 1
+125,3,Status,Kombiinstrument,Sollwert: Kombi 1
+125,4,Status,Airbag,Sollwert: Airb. 1
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,Status,Klimaanlage,Sollwert: Klima 1
+126,3,Status,Bordnetz,Sollwert: Elektr. ZE 1
+;

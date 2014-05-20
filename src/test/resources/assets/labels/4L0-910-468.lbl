@@ -1,0 +1,96 @@
+;
+; VCDS Labelfile
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi A7 (4L)
+;
+; Component: J533 - Diagnostic Interface for Databus (#19)
+;
+; P/N: 4E0-910-468-???
+;
+; includes measuring blocks and long coding
+;
+; created on 18/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/Oct/2007
+;
+; requires VCDS 800.0 / LCode 709.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0,[19] CAN-Gateway (Standard)
+LC,00,1,[69] Trailer Function
+LC,00,2,[61] Battery Regulation
+LC,00,3,[3D] Special Function
+LC,00,4,[76] Parking Assist
+LC,00,5,[05] Access/Start Authorization
+LC,00,6,[09] Central Electronics
+LC,00,7,[4F] Central Electronics II
+LC,01,0,[46] Comfort System
+LC,01,1,[6F] Comfort System II
+LC,01,2,[65] Tire Pressure Monitoring
+LC,01,3,[18] Auxiliary Heating
+LC,01,4,[08] Heating/Air Conditioning (Front)
+LC,01,5,[28] Heating/Air Conditioning (Rear)
+LC,01,6,[16] Steering Wheel Electronics
+LC,01,7,[36] Seat Memory (Driver)
+LC,02,0,[06] Seat Memory (Passenger)
+LC,02,1,[42] Door Electronics (Driver)
+LC,02,2,[52] Door Electronics (Passenger)
+LC,02,3,[62] Door Electronics (Rear Left)
+LC,02,4,[72] Door Electronics (Rear Right)
+LC,02,5,[6D] Rear Lid Electronics
+LC,02,6,[6C] Rear View Camery
+LC,02,7,[17] Instrument Cluster
+LC,03,0,[15] Airbags
+LC,03,1,[03] Brake Electronics
+LC,03,2,[02] Transmission Electronics
+LC,03,3,[34] Level Control
+LC,03,4,[00] Steering Angle Sensor (G85)
+LC,03,5,[55] Headlight Aim Control
+LC,03,6,[01] Engine Electronics I
+LC,03,7,[11] Engine Electronics II
+LC,04,0,[13] Distance Regulation
+LC,04,1,[5C] Lane Maintenance Assist
+LC,04,2,[3C] Lane Change Assist
+LC,04,3,[27] Control Head (Rear)
+LC,04,4,[07] Control Head (Front)
+LC,04,5,[0E] Media Player 1
+LC,04,6,[1E] Media Player 2
+LC,04,7,[2E] Media Player 3
+LC,05,0,[3E] Media Player 4
+LC,05,1,[56] Radio (Analog)
+LC,05,2,[57] TV-Tuner
+LC,05,3,[0F] Radio (Digital)
+LC,05,4,[77] Telephone
+LC,05,5,[37] Navigation
+LC,05,6,[67] Voice Control
+LC,05,7,[4E] Control Head (Rear Right)
+LC,06,0,[5E] Control Head (Rear Left)
+LC,06,1,[47] Sound System
+LC,06,2,[53] Parking Brake
+LC,06,3,[38] Roof Electronics
+LC,06,4,[1D] Driver Identifikation
+LC,06,5,[66] Seat Memory (Rear)
+LC,06,6,[4C] Tire Pressure Monitoring II
+LC,06,7,[5F] Information Elektronics I
+LC,07,0,[7F] Information Elektronics II
+LC,07,1,[14] Suspension Electronics
+LC,07,2,[75] Telematics
+LC,07,3,[20] High Beam Assist
+;

@@ -1,0 +1,448 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A4 (8D)
+;
+; Component: Engine (#01) - AEB (NAR)
+;
+; P/N: 8D0-907-557-??
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-01.LBL
+; 8D0-907-559-AEB.LBL  (1.8l T   @ 150 HP - AEB) NAR
+;
+; created on 21/Dec/2001 by S. Traurig
+; updated/enhanced on 10/Apr/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 04/Dec/2005
+;
+; requires VAG-COM 405.0 or higher
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+0,0,General Engine Data (No Normalization)
+0,1,Coolant Temp
+0,2,Engine Load
+0,3,Engine Speed
+0,4,Battery Voltage
+0,5,Throttle Valve Pot
+0,6,Idle Valve
+0,7,Idle Valve Learn Val
+0,8,O2 Sens Control
+0,9,02 Sens Control Learn Val @ Idle
+0,10,02 Sens Control Learn Val @ Partial Ld
+;
+1,0,General Engine Data
+1,1,Engine,Speed
+1,2,Coolant,Temperature
+1,3,O2 Sensor,Control; injection adjustement in %
+1,4,Adjustment,Conditions; 1=the following for each bit (in order, left to right)
+;       No stored DTC, TWC oper temp reached, A/C comp off, idle sw closed,
+;       02 control OK, throttle closed, RPM<2000, Coolant>80C
+;
+2,0,General Engine Data
+2,1,Engine,Speed
+2,2,Engine,Load
+2,3,Fuel Injectors,Average Time
+2,4,Air,Mass Flow
+;
+3,0,General Engine Data
+3,1,Engine,Speed
+3,2,Air,Mass Flow
+3,3,Throttle,Angle
+3,4,Ignition,Timing
+;
+4,0,General Engine Data
+4,1,Engine,Speed
+4,2,Battery,Voltage
+4,3,Coolant,Temperature
+4,4,Intake Air,Temperature
+;
+5,0,General Engine Data
+5,1,Engine,Speed
+5,2,Engine,Load
+5,3,Vehicle,Speed
+5,4,Operational,Status; Text=one of the following: IDLE, PARTIAL LOAD, FULL LOAD,
+;                       SA (deceleration fuel shut-off), BA (acceleration enrichment)
+;
+6,0,General Engine Data
+6,1,Engine,Speed
+6,2,Engine,Load
+6,3,Intake Air,Temperature
+6,4,Altitude Level, Correction; Relative to reference level, 0%=0m, -100%=10000m
+;
+10,0,Ignition Data
+10,1,Engine,Speed
+10,2,Engine,Load
+10,3,Throttle,Angle
+10,4,Ignition,Timing
+;
+11,0,Ignition Data
+11,1,Engine,Speed
+11,2,Coolant,Temperature
+11,3,Intake Air,Temperature
+11,4,Ignition,Timing
+;
+12,0,Distributor Adjustment Data
+12,1,Engine,Speed
+12,2,Engine,Load
+12,3,Timing,Correction; No. of crankshaft teeth at camshaft flank
+12,4,Ignition,Timing; No. of crankshaft teeth at camshaft flank
+;
+14,0,Misfire Recognition Data
+14,1,Engine,Speed
+14,2,Engine,Load
+14,3,Misfire,Sum Counter
+14,4,Misfire,Recog;Text, either ACTIVATED or LOCKED
+;
+15,0,Misfire Recognition Data
+15,1,Misfires Harmful,to Emiss Cyl 1
+15,2,Misfires Harmful,to Emiss Cyl 2
+15,3,Misfires Harmful,to Emiss Cyl 3
+15,4,Misfire,Recog; Text, either ACTIVATED or LOCKED
+;
+16,0,Misfire Recognition Data
+16,1,Misfires Harmful,to Emiss Cyl 4
+16,2,_
+16,3,_
+16,4,Misfire,Recog; Text, either ACTIVATED or LOCKED
+;
+18,0,Misfire Recognition Data
+18,1,Lowest Engine,Speed @ Misfire
+18,2,Highest Engine,Speed @ Misfire
+18,3,Lowest Engine,Load @ Misfire
+18,4,Highest Engine,Load @ Misfire
+;
+20,0,Knock Control Data
+20,1,Cylinder 1,Timing Retard
+20,2,Cylinder 2,Timing Retard
+20,3,Cylinder 3,Timing Retard
+20,4,Cylinder 4,Timing Retard
+;
+22,0,Knock Control Data
+22,1,Engine,Speed
+22,2,Engine,Load
+22,3,Cylinder 1, Timing Retard
+22,4,Cylinder 2, Timing Retard
+;
+23,0,Knock Control Data
+23,1,Engine,Speed
+23,2,Engine,Load
+23,3,Cylinder 3, Timing Retard
+23,4,Cylinder 4, Timing Retard
+;
+26,0,Knock Sensor Voltage (Including Amplifier Factor)
+26,1,Knock Sensor,Voltage Cyl 1
+26,2,Knock Sensor,Voltage Cyl 2
+26,3,Knock Sensor,Voltage Cyl 3
+26,4,Knock Sensor,Voltage Cyl 4
+;
+30,0,Oxygen Sensor Status
+30,1,O2 Sens Bef TWC,Status (Bits)
+30,2,O2 Sens Aft TWC,Status (Bits)
+30,3,_
+30,4,_; 1=the following for each bit (in order, left to right)
+;       Sensor heater on, sensor ready, control active
+;
+31,0,Oxygen Sensor Voltage
+31,1,O2 Sens Bef TWC,Voltage
+31,2,O2 Sens Aft TWC,Voltage
+31,3,_
+31,4,_
+;
+32,0,Oxygen Sensor Before TWC Learning (Max.) Values
+32,1,O2 Sens Learning,Val@Idle
+32,2,O2 Sens Learning,Val@Part Ld
+32,3,_
+32,4,_
+;
+33,0,Oxygen Sensor Lambda Control Values
+33,1,O2 Sens Bef TWC,Control
+33,2,O2 Sens Aft TWC,Voltage
+33,3,_
+33,4,_
+;
+34,0,Oxygen Sensor Before TWC, Short Trip Aging Test
+34,1,Engine,Speed
+34,2,Engine,Load
+34,3,Test,Period
+34,4,Diagnostic,Status
+;
+36,0,Oxygen Sensor After TWC, Short Trip Readiness
+36,1,O2 Sens Aft TWC,Voltage
+36,2,Diagnostic, Status
+36,3,_
+36,4,_
+;
+37,0,Linear Oxygen Sensors, Short Trip
+37,1,Engine,Load
+37,2,O2 Sens Aft TWC,Voltage
+37,3,TV, Shift
+37,4,Diagnostic,Status
+;
+41,0,Oxygen Sensor Heater
+41,1,O2S Htr Bef TWC,Resist. (Ohms)
+41,2,O2S Htr Bef TWC,On/Off
+41,3,O2S Htr Aft TWC,Resist. (Ohms)
+41,4,O2S Htr Aft TWC,On/Off
+;
+46,0,TWC Conversion Test Bank 1, Short Trip
+46,1,Amplitude,Ratio
+46,2,Exceeded Diag,Range
+46,3,TWC Diag Test,Time
+46,4,Diagnostic,Status
+;
+49,0,TWC Diagnosis Bank 2, Short Trip
+49,1,Amplitude,Ratio
+49,2,TWC,Temperature
+49,3,TWC Diag Test,Time
+49,4,Diagnostic,Status
+;
+50,0,Engine Speed Control
+50,1,Engine,Speed
+50,2,Engine,Specified Speed
+50,3,A/C or Rear Defog,Status
+50,4,A/C Compressor,Status
+;
+51,0,Engine Speed Control
+51,1,Engine,Speed
+51,2,Engine,Specified Speed
+51,3,Auto Trans, Gear
+51,4,Battery,Voltage
+;
+54,0,Closed Throttle Position Switch
+54,1,Engine,Speed
+54,2,Operational,Status
+54,3,Throttle Valve,Angle
+54,4,Throttle Drive,Angle
+;
+55,0,Idle Air Control
+55,1,Engine,Speed
+55,2,Mass Air Delta, Flow for Idle
+55,3,Learn Value to,Idle Mass Air Flow
+55,4,Operating,Conditions (Bits); 1=the following for each bit (in order, left to right)
+;       Steering to stop, always 0, rear defog on,
+;       driving range selected (auto trans.), A/C compressor on
+;
+56,0,Idle Air Control
+56,1,Engine,Actual Speed
+56,2,Engine,Specified Speed
+56,3,Mass Air Delta,Flow for Idle
+56,4,Operating,Conditions; Same as for Block 55 above
+;
+60,0,Throttle Valve Control/ESB Adaptation
+60,1,Throttle Valve,Angle
+60,2,Throttle Drive,Angle
+60,3,Operational,Status;Text=one of the following: IDLE, PARTIAL LOAD, FULL LOAD,
+;                       SA (deceleration fuel shut-off), BA (acceleration enrichment) 
+60,4,Adaptation,Status; Text=one of the following: ADP RUNS, ADP OK, ERROR
+;                       or ADP ERROR (ADP ERROR in emergency mode only)
+;
+61,0,Throttle Valve Control/ESB/E-Gas
+61,1,Engine,Speed
+61,2,Battery,Voltage
+61,3,_
+61,4,Operating,Conditions (Bits); 1=the following for each bit (in order, left to right)
+;       Rear defog on, A/C readiness on, 
+;       driving range selected (auto trans.), A/C compressor on
+;
+70,0,Emission Control Systems/Fuel Tank Venting & Valve Test, Short Trip
+70,1,EVAP Valve Open-,ing During Diag
+70,2,O2S Control Dev,During Diag
+70,3,IAC Valve Dev,During Diag
+70,4,Diagnostic,Status
+;
+71,0,Emission Control Systems/Fuel Tank Leak Test, Short Trip
+71,1,Reed Contact,Status
+71,2,Error,Message
+71,3,System,Status
+71,4,Diagnostic,Status
+;
+86,0,--
+86,1,Ready,Bits
+86,2,Cycling,Flags
+86,3,Cycling,Flags
+86,4,Cycling,Flags
+;
+87,0,--
+87,1,Ready,Bits
+87,2,Error,Bits
+87,3,Error,Bits
+87,4,Error,Bits
+;
+88,0,--
+88,1,Engine,Speed
+88,2,Engine Coolant,Temperature
+88,3,O2 Sensor,Control
+88,4,O2 Sensor,Control Status
+;
+98,0,--
+98,1,Throttle Valve,Pot Voltage
+98,2,Throttle Drive,Pot Voltage
+98,3,Operational,Status
+98,4,Adaptation,Status
+;
+99,0,Compatibility Group/Shut-off I-regulation
+99,1,Engine,Speed
+99,2,Coolant,Temperature
+99,3,O2 Sensor,Control
+99,4,O2 Sensor,Control Status
+;
+100,0,Compatibility Group/Readiness Code
+100,1,Test Complete,Bits; 0=test completed for each bit (in order, left to right)
+;       EGR, O2 sensor heating, O2 sensors, A/C, SL-system, AKF-system, TWC heat, TWC
+100,2,Coolant,Temperature
+100,3,Time Since,Engine Start
+100,4,OBD,Status; 1=the following for each bit (in order, left to right)
+;       MIL on, driving cycle completed, trip complete, at least 1 DTC recognized,
+;       not used, not used, cycle finished, warm-up, no warm-up cycle possible
+;
+101,0,Fuel Injection Data
+101,1,Engine,Speed
+101,2,Coolant,Temperature
+101,3,Intake Air,Temperature
+101,4,Fuel Injector,Average Time
+;
+110,0,Load Registration Data
+110,1,Engine,Speed
+110,2,Coolant,Temperature
+110,3,Fuel Injector,Average Time
+110,4,Throttle,Angle
+;
+111,0,--
+111,1,Engine,Speed
+111,2,Engine,Load
+111,3,Throttle,Angle
+111,4,Operational,Status
+;
+112,0,--
+112,1,Engine,Speed
+112,2,Engine,Load
+112,3,Throttle,Angle
+112,4,Altitude Level,Correction
+;
+113,0,Load Registration Data
+113,1,Engine,Speed
+113,2,Engine,Load
+113,3,Throttle,Angle
+113,4,Ambient Air,Pressure
+;
+114,0,Boost Pressure Control Data
+114,1,Engine,Specified Load
+114,2,Engine,Corrected Load
+114,3,Engine,Actual Load
+114,4,Wastegate Valve,Duty Cycle
+;
+120,0,Traction Control Data
+120,1,Engine,Speed
+120,2,Engine Spec-,ified Torque
+120,3,Engine,Actual Torque
+120,4,Traction Control,Status
+;
+122,0,--
+122,1,Engine,Speed
+122,2,Engine Spec-,ified Torque
+122,3,Engine,Actual Torque
+122,4,Timing Angle,Retard Act/N. Act
+;
+131,0,--
+131,1,Crankshaft Pos,Status
+131,2,Section,Correction Factor
+131,3,_
+131,4,_
+;
+132,0,--
+132,1,Pos Disc Adapt,Time-Dist
+132,2,Engine Speed,Adapt Count Sec.2
+132,3,Engine Speed,Adapt Count Sec.3
+132,4,Engine Speed,Adapt Count Sec.4
+;
+133,0,--
+133,1,Evap Valve Open-,ing During Diag
+133,2,Adapt Fuel,Tank Vent
+133,3,Fuel Tank,Loading Function
+133,4,Flowing,Rate
+;
+134,0,--
+134,1,TV,Shift
+134,2,Correction,Status
+134,3,_
+134,4,_
+;
+135,0,--
+135,1,Throttle Pot,in Closed Pos
+135,2,Throttle Drive Pot,in Closed Pos
+135,3,Throttle Pot,in Open Pos
+135,4,Throttle Drive Pot,in Open Pos
+;
+136,0,--
+136,1,Throttle Pos,Adapt. Status (Bits)
+136,2,Throttle,Max Position
+136,3,Emerg Air Throttle,Position
+136,4,Throttle,Min Position
+;
+137,0,--
+137,1,Leak Diagnosis,Period
+137,2,Error,Message
+137,3,System,Status
+137,4,Diagnostic,Status
+;
+138,0,--
+138,1,Engine Speed,Lowest @ Misfire
+138,2,Engine Speed,Highest @ Misfire
+138,3,Misfire Sum,Count
+138,4,Engine,Status @ Misfire
+;
+139,0,--
+139,1,Engine Load,Lowest @ Misfire
+139,2,Engine Load,Highest @ Misfire
+139,3,Misfire Sum,Count
+139,4,Engine,Status @ Misfire
+;
+140,0,--
+140,1,MIL,Status
+140,2,Drive Cycle Long-,est MIL Blinking
+140,3,Time Driving,Total MIL Blinking
+140,4,Drive Cycles,MIL Blinking
+;
+141,0,--
+141,1,Leak Diagnosis,Period
+141,2,Leak Diagnosis,Min Period
+141,3,Leak Diag Attempts, Count
+141,4,Diagnostic,Status
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Engine (J220) Coding
+C01,??xxx: Country/Emissions
+C02,06 - USA
+C03, 
+C04,xx?xx: Drive/Additional Functions
+C05,0 - Front-Wheel-Drive (FWD) without Traction Control (ASR)
+C06,1 - Front-Wheel-Drive (FWD) with Traction Control (ASR)
+C07,2 - All-Wheel-Drive (AWD) without Traction Control (ASR)
+C08,3 - All-Wheel-Drive (AWD) with Traction Control (ASR)
+C09, 
+C10,xxx?x: Transmission
+C11,0 - 5-Speed Manual Transmission
+C12,5 - Automatic Transmission (01V)
+C13, 
+C14,xxxx?: Vehicle Type
+C15,1 - Class B (eg. Audi A4 / VW Passat)
+;

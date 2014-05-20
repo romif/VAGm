@@ -1,0 +1,92 @@
+;
+; VAG-COM Label File
+;
+; VW Transporter (7H/7J)
+;
+; Component: J104 - Brake Electronics (#03) - MK25E1 ABS/EDS/ASR/ESP
+;
+; P/N: 7H0-907-37?-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7H-03.LBL
+; 7H0-907-37x-ABS-A.LBL (MK25 ABS AWD)
+; 7H0-907-37x-ASR-F.LBL (MK25 ASR FWD)
+; 7H0-907-37x-ESP-A.LBL (MK25 ESP AWD)
+; 7H0-907-37x-ESP-F.LBL (MK25 ESP FWD)
+; 7H0-907-37x-ABS.LBL   (MK25E1 ABS)
+; 7H0-907-37x-ESP.LBL   (MK25E1 ESP)
+;
+; created on 09/Aug/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 09/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Range: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °
+004,2,Lateral Acc.,Sensor (G200)
+004,3,Rotation Rate
+;
+005,0,Brake Pressure && Steering Angle Sensor Status
+005,1,Brake Pressure,Sensor (G201)
+005,2,Steering Angle,Sensor (G85)
+;
+007,0,ASR/ESP Button (E256)
+007,1,ASR/ESP Button,(E256),Range: Not Oper./Operated
+;
+010,0,Additional Functions
+010,1,Trailer,Status,Range: Trailer: Yes/Trailer: No
+010,2,Brake Wiping,(Front),Range: ON/OFF
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Drive,,Specification: AWD 1\nRange: AWD 1/AWD 0
+125,4,Transmission,,Specification: Transm. 1\nRange: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,(J285),Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,(J533),Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Engine Electronics
+225,2,Steering Angle,Sensor (G85)
+225,3,All-Wheel-Drive
+225,4,Transmission
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,Instrument Cluster,(J285)
+226,2,CAN-Gateway,(J533)
+;

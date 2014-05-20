@@ -1,0 +1,33 @@
+;
+; VCDS Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This is a redirect file.
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-56.LBL
+; 1Z-56.LBL
+; 5M-56.LBL
+; 5P-56.LBL
+; 5Z-56.LBL
+; 1K0-035-1xx-56.LBL
+; 5M0-035-1xx-56.CLB
+;
+; created on 26/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 27/Apr/2008
+;
+; requires VCDS 800.0 or newer
+;
+;
+REDIRECT,1K0-035-1xx-56.LBL,5M0-035-153-??? ; R100
+;
+REDIRECT,5M0-035-1xx-56.CLB,5M0-035-156-??? ; RCD210
+;
+REDIRECT,1K0-035-1xx-56.LBL,5M0-035-186-??? ; RCD300
+;
+REDIRECT,1K0-035-1xx-56.LBL,5M0-035-195-??? ; RCD500
+;

@@ -1,0 +1,111 @@
+;
+; VAG-COM Label File
+;
+; Component: Immobilizer (#25)
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1K-17.LBL
+; 1T-17.LBL
+; 1Z-17.LBL
+; 2K-17.LBL
+; 5P-17.LBL
+; 1K-25.LBL
+; 1T-25.LBL
+; 1Z-25.LBL
+; 2K-25.LBL
+; 5P-25.LBL
+; 8P-25.LBL
+; 1K0-920-xxx-17.LBL
+; 1K0-920-xxx-25.LBL
+;
+; created on 23/Mar/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 18/Jul/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Immobilizer I
+001,1,Engine Start,permitted,Specification: Yes\nRange: Yes/No
+001,2,Engine (ECU),responds,Specification: Yes\nRange: Yes/No
+001,3,Key Status,OK,Specification: Yes\nRange: Yes/No
+001,4,Number of,adapted Keys,Specification: 1...8
+;
+002,0,Immobilizer II
+002,1,Variable Code,authorized,Specification: Yes\nRange: Yes/No
+002,2,Key Status,(Transponder Lock),Range: Yes/No
+002,3,Fixed Code,authorized,Specification: Yes\nRange: Yes/No
+002,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 1 = End of Assembly Line: NEW (Delivery Condition of New Instrument Cluster)
+; 2 = End of Assembly Line: VIN adapted
+; 3 = End of Assembly Line: ECU adapted
+; 4 = Customer Service: NEW (Delivery Condition of Replacement Instrument Cluster)
+; 5 = Customer Service: Instrument Cluster adapted
+; 6 = Customer Service: Keys adapted (Normal Condition)
+; 7 = Customer Service: Key Adaptation active
+;
+003,0,Immobilizer III (Lock Time)
+003,1,Login-Lock,Tester,wrong Login (Specification: 0)
+003,2,Login-Lock,CAN-Bus,wrong PIN (Specification: 0)
+003,3,Lock,Scan Protection,Key (Specification: 0)
+003,4,Status,Immo-LED,See Label File (Specification: 0)
+; 0 = No Malfunction (LED OFF)
+; 1 = Enabling not possible (LED 1Hz)
+; 2 = Adaptation active (LED 1-2 s)
+; 3 = Input Malfunction (LED 2Hz)
+; 4 = Adaptation Error (LED 1Hz)
+; 5 = Malfunction in Line Mode (LED 4Hz)
+; 6 = Confirmation active (LED 2s + 1Hz)
+;
+007,1,Brand (Key),Recognition
+;
+021,0,Immobilizer I
+021,1,Engine Start,permitted,Specification: Yes\nRange: Yes/No
+021,2,Engine (ECU),responds,Specification: Yes\nRange: Yes/No
+021,3,Key Status,OK,Specification: Yes\nRange: Yes/No
+021,4,Number of,adapted Keys,Specification: 1...8
+;
+022,0,Immobilizer II
+022,1,Variable Code,authorized,Specification: Yes\nRange: Yes/No
+022,2,Key Status,(Transponder Lock),Range: Yes/No
+022,3,Fixed Code,authorized,Specification: Yes\nRange: Yes/No
+022,4,Immobilizer,Status,Specification: 6 (Immobilizer adapted)
+; 1 = End of Assembly Line: NEW (Delivery Condition of New Instrument Cluster)
+; 2 = End of Assembly Line: VIN adapted
+; 3 = End of Assembly Line: ECU adapted
+; 4 = Customer Service: NEW (Delivery Condition of Replacement Instrument Cluster)
+; 5 = Customer Service: Instrument Cluster adapted
+; 6 = Customer Service: Keys adapted (Normal Condition)
+; 7 = Customer Service: Key Adaptation active
+;
+023,0,Immobilizer III (Lock Time)
+023,1,Login-Lock,Tester,wrong Login (Specification: 0)
+023,2,Login-Lock,CAN-Bus,wrong PIN (Specification: 0)
+023,3,Lock,Scan Protection,Key (Specification: 0)
+023,4,Status,Immo-LED,See Label File (Specification: 0)
+; 0 = No Malfunction (LED OFF)
+; 1 = Enabling not possible (LED 1Hz)
+; 2 = Adaptation active (LED 1-2 s)
+; 3 = Input Malfunction (LED 2Hz)
+; 4 = Adaptation Error (LED 1Hz)
+; 5 = Malfunction in Line Mode (LED 4Hz)
+; 6 = Confirmation active (LED 2s + 1Hz)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Vehicle Identification Number (VIN)
+;
+082,0,Advanced Control Module Identification III
+;

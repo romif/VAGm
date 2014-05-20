@@ -1,0 +1,224 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; P/N: 7L0-907-273-???
+;
+; includes measuring blocks, coding, adaptation and sec. access
+;
+; created on 09/Nov/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 14/Aug/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Front Left Wheel Status I
+001,1,Position,No Display = Not yet recognized
+001,2,Wheel,Temperature,Range: -40.0...+120.0 °C / Not Recogn.
+001,3,Wheel Pressure,(actual),Range: 0.0...5.37 bar
+001,4,Wheel Pressure,(specified),Range: 0.0...5.37 bar
+;
+002,0,Front Left Wheel Status II
+002,1,Position,No Display = Not yet recognized
+002,2,Remaining,Battery Life (Month),Range: 0...99 Month
+;
+003,0,Front Left Wheel Status III
+003,1,Wheel Sensor,Position,No Display = Not yet recognized
+003,2,Wheel Sensor,Identification
+003,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+003,4,Wheel Sensor,Battery Status
+;
+004,0,Front Right Wheel Status I
+004,1,Position,No Display = Not yet recognized
+004,2,Wheel,Temperature,Range: -40.0...+120.0 °C / Not Recogn.
+004,3,Wheel Pressure,(actual),Range: 0.0...5.37 bar
+004,4,Wheel Pressure,(specified),Range: 0.0...5.37 bar
+;
+005,0,Front Right Wheel Status II
+005,1,Position,No Display = Not yet recognized
+005,2,Remaining,Battery Life (Month),Range: 0...99 Month
+;
+006,0,Front Right Wheel Status II
+006,1,Wheel Sensor,Position,No Display = Not yet recognized
+006,2,Wheel Sensor,Identification
+006,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+006,4,Wheel Sensor,Battery Status
+;
+007,0,Rear Left Wheel Status I
+007,1,Position,No Display = Not yet recognized
+007,2,Wheel,Temperature,Range: -40.0...+120.0 °C / Not Recogn.
+007,3,Wheel Pressure,(actual),Range: 0.0...5.37 bar
+007,4,Wheel Pressure,(specified),Range: 0.0...5.37 bar
+;
+008,0,Rear Left Wheel Status II
+008,1,Position,No Display = Not yet recognized
+008,2,Remaining,Battery Life (Month),Range: 0...99 Month
+;
+009,0,Rear Left Wheel Status III
+009,1,Wheel Sensor,Position,No Display = Not yet recognized
+009,2,Wheel Sensor,Identification
+009,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+009,4,Wheel Sensor,Battery Status
+;
+010,0,Rear Right Wheel Status I
+010,1,Position,No Display = Not yet recognized
+010,2,Wheel,Temperature,Range: -40.0...+120.0 °C / Not Recogn.
+010,3,Wheel Pressure,(actual),Range: 0.0...5.37 bar
+010,4,Wheel Pressure,(specified),Range: 0.0...5.37 bar
+;
+011,0,Rear Right Wheel Status II
+011,1,Position,No Display = Not yet recognized
+011,2,Remaining,Battery Life (Month),Range: 0...99 Month
+;
+012,0,Rear Right Wheel Status III
+012,1,Wheel Sensor,Position,No Display = Not yet recognized
+012,2,Wheel Sensor,Identification
+012,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+012,4,Wheel Sensor,Battery Status
+;
+013,0,Spare Tire I
+013,1,Position,No Display = Not yet recognized
+013,2,Wheel,Temperature,Range: -40.0...+120.0 °C / Not Recogn.
+013,3,Wheel Pressure,(actual),Range: 0.0...5.37 bar
+013,4,Wheel Pressure,(specified),Range: 0.0...5.37 bar
+;
+014,0,Spare Tire II
+014,1,Position,No Display = Not yet recognized
+014,2,Remaining,Battery Life (Month),Range: 0...99 Month
+;
+015,0,Spare Tire III
+015,1,Wheel Sensor,Position,No Display = Not yet recognized
+015,2,Wheel Sensor,Identification
+015,3,Wheel Sensor,Status
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+015,4,Wheel Sensor,Battery Status
+;
+016,0,Wheel Sensor Status (from last Received Wheel ID) I
+016,1,Wheel Sensor,Identification
+016,2,Wheel Sensor,Status,No Display = Not yet recognized
+; Status x0h = Storage Mode
+; Status x1h = Standard Sending Mode
+; Status x2h = Fast Sending Mode
+; Status x3h = Temperature Shut-Off
+; Status x4h (and above) = Faulty
+016,3,Wheel Sensor,Battery Status
+016,4,Wheel Pressure,(actual)
+;
+017,0,General
+017,1,Work Shop Code,(Last Adaptation)
+017,2,Voltage,(Terminal 30)
+017,3,Vehicle Status,,0 = Vehicle driving (> 5 km/h)\n1 = Vehicle standing
+017,4,Vehicle Speed
+;
+018,0,General
+018,1,Ambient,Temperature,Range: -40.0....+120.0 °C
+;
+019,0,Calibration Status
+019,1,Calibration,Status,Specification: 00025 (Ideal)
+;
+020,0,CAN-Comfort Condition
+020,1,CAN-Comfort,Condition,Range: 1-Wire/2-Wire\nSpecification: 2-Wire
+;
+021,0,Antenna Diagnosis
+021,1,Diagnosis,Status,See Adaptation Channel 17
+;
+080,0,Advanced Control Module Identification I
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring (J502) Coding
+C01,Software Version "< 0052":
+C02,0012339 = Factory
+C03,0011339 = Factory (Shortened End of Line Test)
+C04,0010339 = Customer Service
+C05, 
+C06,Software Version "=> 0052":
+C07,0210390 = North American Region (NAR)
+C08,0110390 = Rest of World (RoW)
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A001,0,Tire Pressure Monitoring
+A001,5,Tire Pressure Monitoring
+A001,6,0 = Disabled
+A001,7,1 = Enabled
+A001,8, 
+A001,9,The TPMS has to be deactivated e.g. to use winter tires w/o wheel sensors
+A001,10,to suppress error messages. The TPMS symbol will be active and can not
+A001,11,be deactived unless the system is beeing activated again.
+;
+A004,0,Tire Pressure Adaptation
+A004,5,Tire Pressure Adaptation
+A004,6,To force the tire pressure learning process via diagnosis
+A004,7,save "1" as new value. As long as the warning message in
+A004,8,the dash is active make sure to do a continous 30 minute
+A004,9,driving cycle with a speed above 5 km/h. Driving "Stop and Go"
+A004,10,will extend the driving cycle. The warning message will
+A004,11,go off after the adaptation is successfully finished.
+A004,12,This procedure is the same as through the instrument cluster.
+;
+A017,0,Antenna Diagnosis
+A017,5,Antenna Diagnosis
+A017,6,0 = ON
+A017,7,1 = OFF
+A017,8, 
+A017,9,See Measuring Block 021.
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Tire Pressure Monitoring (J502) Security Access
+S01,10896 = General Adaptation "Enabling"
+;

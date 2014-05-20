@@ -1,0 +1,652 @@
+;
+; VAG-COM Labelfile
+;
+; Audi A6 (4F)
+;
+; Component: Engine (#01) - BKH
+;
+; P/N: 4F1-910-559-???
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4F-01.LBL
+; 4F1-910-559-BKH.LBL (3.2l FSI @ 256 HP - BKH)
+;
+; created on 17/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 25/Oct/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Engine Speed
+001,2,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+001,3,Lambda Control,Bank 1
+001,3,Lambda Control,Bank 2
+;
+002,0,General
+002,1,Engine Speed
+002,2,Engine Load
+002,3,Injection Timing
+002,4,Intake Manifold,Pressure
+;
+003,0,General
+003,1,Engine Speed
+003,2,Intake Manifold,Pressure
+003,3,Throttle Valve,Angle Sensor 1,Display Range: 0.0...100.0 %
+003,4,Ignition,Timing Angle
+;
+004,0,General
+004,1,Engine Speed
+004,2,Voltage
+004,3,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+004,4,Intake Air,Temperature,Specification: max. 80.0 °C\nDisplay Range: -40.5...+135.0 °C
+;
+005,0,General
+005,1,Engine Speed
+005,2,Engine Load
+005,3,Vehicle Speed
+005,4,Operating,Condition
+;
+006,0,General
+006,1,Engine Speed
+006,2,Engine Load
+006,3,Intake Air,Temperature,Specification: max. 80.0 °C\nDisplay Range: -40.5...+135.0 °C
+006,4,Altitude,Correction
+;
+009,0,General (Service Reminder)
+009,1,Oil Level
+009,2,Oil Level,Threshold
+009,3,Fuel Consumption,Signal
+009,4,Consumption,Equivalent
+;
+010,0,Iginition
+010,1,Engine Speed
+010,2,Engine Load
+010,3,Throttle Valve,Angle Sensor 1,Display Range: 0.0...100.0 %
+010,4,Ignition,Timing Angle
+;
+011,0,Iginition
+011,1,Engine Speed
+011,2,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+011,3,Intake Air,Temperature,Specification: max. 80.0 °C\nDisplay Range: -40.5...+135.0 °C
+011,4,Ignition,Timing Angle
+;
+014,0,Iginition (Misfire Recognition)
+014,1,Engine Speed
+014,2,Engine Load
+014,3,Misfire Counter
+014,4,Misfire,Recognition,Display Range: Active/Disabled
+;
+015,0,Iginition (Misfire Recognition)
+015,1,Counter,Cylinder 1
+015,2,Counter,Cylinder 2
+015,3,Counter,Cylinder 3
+015,4,Misfire,Recognition,Display Range: Active/Disabled
+;
+016,0,Iginition (Misfire Recognition)
+016,1,Counter,Cylinder 4
+016,2,Counter,Cylinder 5
+016,3,Counter,Cylinder 6
+016,4,Misfire,Recognition,Display Range: Active/Disabled
+;
+018,0,Iginition (Misfire Recognition)
+018,1,Lower,RPM-Threshold
+018,2,Upper,RPM-Threshold
+018,3,Lower,Load-Threshold
+018,4,Upper,Load-Threshold
+;
+020,0,Knock Control (Ignition Timing Retardation)
+020,1,Cylinder 1
+020,2,Cylinder 2
+020,3,Cylinder 3
+020,4,Cylinder 4
+;
+021,0,Knock Control (Ignition Timing Retardation)
+021,1,Cylinder 5
+021,2,Cylinder 6
+;
+022,0,Knock Control (Ignition Timing Retardation)
+022,1,Engine Speed
+022,2,Engine Load
+022,3,Cylinder 1
+022,4,Cylinder 2
+;
+023,0,Knock Control (Ignition Timing Retardation)
+023,1,Engine Speed
+023,2,Engine Load
+023,3,Cylinder 3
+023,4,Cylinder 4
+;
+024,0,Knock Control (Ignition Timing Retardation)
+024,1,Engine Speed
+024,2,Engine Load
+024,3,Cylinder 5
+024,4,Cylinder 6
+;
+026,0,Knock Control (Knock Control Voltages)
+026,1,Cylinder 1
+026,2,Cylinder 2
+026,3,Cylinder 3
+026,4,Cylinder 4
+;
+027,0,Knock Control (Knock Control Voltages)
+027,1,Cylinder 5
+027,2,Cylinder 6
+;
+028,0,Knock Control (Knock Sensor Test)
+028,1,Engine Speed
+028,2,Engine Load
+028,3,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+028,4,Test Result,,Display Range: Test ON/Test OFF/Syst. OK/Syst. n.OK
+;
+030,0,Lambda Control (Sensor Status)
+030,1,Bank 1,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,2,Bank 1,Sensor 2
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control active
+030,3,Bank 2,Sensor 1
+; 1xxxx - Lambda Sensor Control Cyl. 1 active
+; x1xxx - Catalytic Converter Venting active
+; xx1xx - Lambda Sensor Heating on
+; xxx1x - Lambda Sensor ready
+; xxxx1 - Lambda Control active
+030,4,Bank 2,Sensor 2
+; 1xxx - Enabling P Factor
+; x1xx - Lambda Sensor Heating on
+; xx1x - Lambda Sensor ready
+; xxx1 - Lambda Control active
+;
+031,0,Lambda Control (Lambda Sensor Voltages)
+031,1,Lambda Sensor,B1-S1 (actual)
+031,2,Lambda Sensor,B1-S1 (specified)
+031,3,Lambda Sensor,B2-S1 (actual)
+031,4,Lambda Sensor,B2-S1 (specified)
+;
+032,0,Lambda Control (Mixture Adaptation)
+032,1,Adaptation (Idle),Bank 1 Sensor 1
+032,2,Adaptation (Partial),Bank 1 Sensor 1
+032,3,Adaptation (Idle),Bank 2 Sensor 1
+032,4,Adaptation (Partial),Bank 2 Sensor 1
+;
+033,0,Lambda Control
+033,1,Lambda Control,Bank 1 Sensor 1
+033,2,Sensor Voltage,Bank 1 Sensor 1
+033,3,Lambda Control,Bank 2 Sensor 1
+033,4,Sensor Voltage,Bank 2 Sensor 1
+;
+034,0,Lambda Control (Aging Check Bank 1)
+034,1,Engine Speed
+034,2,Catalytic Converter,Temp. (Bank 1)
+034,3,Dynamic Factor,Bank 1 Sensor 1
+034,4,Result,Bank 1 Sensor 1,Display Range: Test ON/Test OFF/B1-S1 not OK/B1-S1 OK\nSpecification: B1-S1 OK
+;
+035,0,Lambda Control (Aging Check Bank 2)
+035,1,Engine Speed
+035,2,Catalytic Converter,Temp. (Bank 2)
+035,3,Dynamic Factor,Bank 2 Sensor 1
+035,4,Result,Bank 2 Sensor 1,Display Range: Test ON/Test OFF/B2-S1 not OK/B2-S1 OK\nSpecification: B2-S1 OK
+;
+036,0,Lambda Control (Sensor Readiness - After Catalyst)
+036,1,Sensor Voltage,Bank 1 Sensor 2
+036,2,Result,Bank 1 Sensor 2,Display Range: Test ON/Test OFF/B1-S2 not OK/B1-S2 OK\nSpecification: B1-S2 OK
+036,3,Sensor Voltage,Bank 2 Sensor 2
+036,4,Result,Bank 2 Sensor 2,Display Range: Test ON/Test OFF/B2-S2 not OK/B2-S2 OK\nSpecification: B2-S2 OK
+;
+037,0,Lambda Control (Delta Lambda - Bank 1)
+037,1,Engine Load
+037,2,Sensor Voltage,Bank 1 Sensor 2
+037,3,Delta Lambda,Bank 1 Sensor 2
+037,4,Result,,Specification: Test ON/Test OFF/B1-S1 OK/B1-S1 n.OK\nSpecification: B1-S1 OK
+;
+038,0,Lambda Control (Delta Lambda - Bank 2)
+038,1,Engine Load
+038,2,Sensor Voltage,Bank 2 Sensor 2
+038,3,Delta Lambda,Bank 2 Sensor 2
+038,4,Result,,Specification: Test ON/Test OFF/B2-S1 OK/B2-S1 n.OK\nSpecification: B2-S1 OK
+;
+039,0,Lambda Control (Sensor Exchange)
+039,1,Mass Air Flow
+039,2,Sensor Voltage,Bank 1 Sensor 2
+039,3,Sensor Voltage,Bank 2 Sensor 2
+039,4,Result,Sensor Exchange,Display Range: Test ON/Test OFF/System OK/System not OK\nSpecification: System OK
+;
+041,0,Lambda Sensor Heating (Bank 1)
+041,1,Resistance,Bank 1 Sensor 1
+041,2,Heater Condition,,Display Range: Htg. S1 OFF/Htg. S1 ON
+041,3,Resistance,Bank 1 Sensor 2
+041,4,Heater Condition,,Display Range: Htg. S2 OFF/Htg. S2 ON
+;
+042,0,Lambda Sensor Heating (Bank 2)
+042,1,Resistance,Bank 2 Sensor 1
+042,2,Heater Condition,,Display Range: Htg. S1 OFF/Htg. S1 ON
+042,3,Resistance,Bank 2 Sensor 2
+042,4,Heater Condition,,Display Range: Htg. S2 OFF/Htg. S2 ON
+;
+043,0,Lambda Sensor Aging (Bank 1)
+043,1,Engine Speed
+043,2,Catalytic Converter,Temp. (Bank 1)
+043,3,Lambda Voltage,Bank 1 Sensor 1
+043,4,Result,Aging,Display Range: Test ON/Test OFF/B1-S2 OK/B1-S2 n.OK\nSpecification: B1-S2 OK
+;
+044,0,Lambda Sensor Aging (Bank 2)
+044,1,Engine Speed
+044,2,Catalytic Converter,Temp. (Bank 2)
+044,3,Lambda Voltage,Bank 2 Sensor 1
+044,4,Result,Aging,Display Range: Test ON/Test OFF/B2-S2 OK/B2-S2 n.OK\nSpecification: B2-S2 OK
+;
+046,0,Catalytic Conversion Test (Bank 1)
+046,1,Engine Speed
+046,2,Catalytic Converter,Temp. (Bank 1)
+046,3,Catalytic Convers.,(Bank 1)
+046,4,Result,Cat. Conversion,Display Range: Test ON/Test OFF/CatB1 OK/CatB1 n.OK\nSpecification: CatB1 OK
+;
+047,0,Catalytic Conversion Test (Bank 2)
+047,1,Engine Speed
+047,2,Catalytic Converter,Temp. (Bank 2)
+047,3,Catalytic Convers.,(Bank 2)
+047,4,Result,Cat. Conversion,,Display Range: Test ON/Test OFF/CatB2 OK/CatB2 n.OK\nSpecification: CatB2 OK
+;
+050,0,Engine Speed Increase
+050,1,Engine Speed,(actual)
+050,2,Engine Speed,(specified)
+050,3,A/C Readiness,,Display Range: A/C-Low / A/C-High
+050,4,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+;
+051,0,Engine Speed Increase (Gear shifts)
+051,1,Engine Speed,(actual)
+051,2,Engine Speed,(specified)
+051,3,Selected Gear,(Automatic),Display Range: 0.0...7.0\n\n0 = P/N\n1...6 = Gear 1-6\n7 = R
+051,4,Battery Voltage
+;
+053,0,Engine Speed Increase (Generator Load)
+053,1,Engine Speed,(actual)
+053,2,Engine Speed,(specified)
+053,3,Battery Voltage
+53,4,,,
+;0.0 Nm,Torque,
+;
+054,0,Idle Speed Stabilization
+054,1,Engine Speed
+054,2,Operating,Condition
+054,3,Throttle Position,Potentiometer 1,Display Range: 0.0...100.0 %
+054,4,Throttle Valve,Angle Sensor 1,Display Range: 0.0...100.0 %
+;
+055,0,Idle Speed Stabilization
+055,1,Engine Speed
+055,2,Idle Speed Control,Torque Change
+055,3,Idle Speed Control,Torque Loss
+055,4,Operating,Status,00xxx? = A/C Ccompressor ON\n00xx?x = Drive Range engaged\n00x?xx = A/C Readiness ON\n00?xxx = Rear Window Heater ON
+;
+056,0,Idle Speed Stabilization
+056,1,Engine Speed,(actual)
+056,2,Engine Speed,(specified)
+056,3,Idle Speed Control,Torque Change
+056,4,Operating,Status,00xxx? = A/C Ccompressor ON\n00xx?x = Drive Range engaged\n00x?xx = A/C Readiness ON\n00?xxx = Rear Window Heater ON
+;
+057,0,Idle Speed Stabilization (Air Condition)
+057,1,Engine Speed,(actual)
+057,2,Engine Speed,(specified)
+057,3,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+57,4,,,
+;0.5 Nm,Torque,
+;
+058,0,Engine Mounting
+058,1,Engine Speed
+058,2,Engine Load
+058,3,Engine Mount,(Right)
+058,4,Engine Mount,(Left)
+;
+060,0,Electronic Throttle (Basic Setting: Adaptation)
+060,1,Throttle Valve,Angle Sensor 1,Display Range: 0.0...100.0 %
+060,2,Throttle Valve,Angle Sensor 2,Display Range: 0.0...100.0 %
+060,3,Throttle Valve,Step Counter
+060,4,Result,Throttle Valve Adp.,Display Range: ADP RUN/ADP. O.K./ADP ERROR\nSpecification: ADP. O.K.
+;
+061,0,Electronic Throttle
+061,1,Engine Speed
+061,2,Battery Voltage
+061,3,Throttle Valve,Angle
+061,4,Operating,Status,00xxx? = A/C Ccompressor ON\n00xx?x = Drive Range engaged\n00x?xx = A/C Readiness ON\n00?xxx = Rear Window Heater ON
+;
+062,0,Electronic Throttle
+062,1,Throttle Valve,Angle Sensor 1,Display Range: 0.0...100.0 %
+062,2,Throttle Valve,Angle Sensor 2,Display Range: 0.0...100.0 %
+062,3,Throttle Position,Potentiometer 1,Display Range: 0.0...100.0 %
+062,4,Throttle Position,Potentiometer 2,Specification: 0.0...100.0 %
+;
+063,0,Electronic Throttle (Basic Setting: Kick-Down Adaptation)
+063,1,Throttle Position,Potentiometer 1
+063,2,Throttle Position,Potentiometer 2
+063,3,Kick-Down,Switch,Display Range: Kick Down
+063,4,Kick-Down,Adaptation,Display Range: Learned/ADP RUN/ADP OK/ADP ERROR\nSpecification: Learned
+;
+064,0,Throttle Valve Potentiometer Adaption Values
+064,1,Potentiometer 1,Lower Adaptation
+064,2,Potentiometer 2,Lower Adaptation
+064,3,Emergency Air Gap,Potentiometer 1
+064,4,Emergency Air Gap,Potentiometer 2
+;
+066,0,Cruise Control System
+066,1,Vehicle Speed,(actual)
+066,2,Switch Position
+; xxxxxxx? = Brake Light Switch Pedal depressed
+; xxxxxx?x = Brake Pedal Switch Pedal depressed
+; xxxxx?xx = Sensor for Clutch Pedal Distance operated
+; xxxx?xxx = CCS Function enabled
+; xxx?xxxx = ACC Control Module available
+; xx?xxxxx = Main Switch engaged
+; x?xxxxxx = CCS Status for CAN
+; ?xxxxxxx = CCS Status for CAN
+066,3,Vehicle Speed,(specified)
+066,4,Switch Position
+; x0xxxxx? = CCS ON (CAN)
+; x0xxxx?x = Set (CCS ON)
+; x0xxx?xx = Delay
+; x0xx?xxx = Acceleration
+; x0x?xxxx = Set
+; x0?xxxxx = Resume
+; ?0xxxxxx = CCS on (Hardware Pin)
+;
+068,0,Transmission Status
+068,1,Engine Speed
+068,2,Engine Load
+068,3,Selected Gear,(Automatic),Display Range: 0.0...7.0\n\n0 = P/N\n1...6 = Gear 1-6\n7 = R
+068,4,Torque,Converter/Clutch,Display Range: TC Open/TC Closed/TC Control
+;
+070,0,Emission Reduction (Basic Setting: TEV)
+070,1,Evap. Emissions,Sol. Valve (Open),Specification: 0...100 %
+070,2,Lambda Control
+070,3,Evap. Emissions,Sol. Valve (Flow)
+070,4,Result,,Display Range: Test ON/Test OFF/TEV OK/TEV not OK
+;
+071,0,Exhaust Reduction (Basic Setting: Leak Diagnostic System)
+071,1,Reed Contact,Status,Display Range: Reed Open/Reed Closed
+071,2,Malfunction Display,,Display Range: minor leak/significant leak/Open circuit
+071,3,Leak Test,Status,Display Range: System test/Measurement end
+071,4,Leak Test,Result,Display Range: Test ON/Test OFF/System OK/System not OK
+;
+086,0,Readiness Code I
+086,1,Readiness Bits
+; 0xx00x0? = Catalytic Converter
+; 0xx00?0x = EVAP Valve
+; 0x?00x0x = Oxygen Sensor Aging
+; 0?x00x0x = Oxygen Sensor Heater
+086,2,Cycle Flags
+; xxxxxxx? = CAT Bank 1
+; xxxxxx?x = CAT Bank 2
+; xxxxx?xx = LDP
+; xxxx?xxx = EVAP Valve
+; xxx?xxxx = Heater B1-S1
+; xx?xxxxx = Heater B1-S2
+; x?xxxxxx = Heater B2-S1
+; ?xxxxxxx = Heater B2-S2
+086,3,Cycle Flags
+; 000xxxx? = B1-S1 ELE
+; 000xxx?x = B1-S2 ELE
+; 000xx?xx = B1-S1 (Delta-Lambda Shift) 
+; 000x?xxx = B1-S2 (Sensor Aging)
+; 000?xxxx = B1-S1 (Period Duration)
+086,4,Cycle Flags
+; 000xxxx? = B2-S1 ELE
+; 000xxx?x = B2-S2 ELE
+; 000xx?xx = B2-S1 (Delta-Lambda Shift) 
+; 000x?xxx = B2-S2 (Sensor Aging)
+; 000?xxxx = B2-S1 (Period Duration)
+;
+087,0,Readiness Code II
+087,1,Readiness Bits
+; 0xx00x0? = Catalytic Converter
+; 0xx00?0x = EVAP Valve
+; 0x?00x0x = Oxygen Sensor Aging
+; 0?x00x0x = Oxygen Sensor Heater
+087,2,Error Flags
+; xxxxxxx? = CAT Bank 1
+; xxxxxx?x = CAT Bank 2
+; xxxxx?xx = LDP
+; xxxx?xxx = EVAP Valve
+; xxx?xxxx = Heater B1-S1
+; xx?xxxxx = Heater B1-S2
+; x?xxxxxx = Heater B2-S1
+; ?xxxxxxx = Heater B2-S2
+087,3,Error Flags
+; 0xxxxxx? = B1-S1 ELE
+; 0xxxxx?x = B1-S2 ELE
+; 0xxxx?xx = B1-S1 (Delta-Lambda Shift)
+; 0xxx?xxx = B1-S2 (Sensor Aging)
+; 0xx?xxxx = B1-S1 (Period Duration)
+; 0x?xxxxx = SLS B1
+; 0?xxxxxx = SLS B2
+087,4,Error Flags
+; 000xxxx? = B2-S1 ELE
+; 000xxx?x = B2-S2 ELE
+; 000xx?xx = B2-S1 (Delta-Lambda Shift)
+; 000x?xxx = B2-S2 (Sensor Aging)
+; 000?xxxx = B2-S1 (Period Duration)
+;
+088,0,Readiness Code III
+088,1,Cycle Flags
+; xxxxxxx? = Exhaust Camshaft Bank 2
+; xxxxxx?x = Exhaust Camshaft Bank 1
+; xxxxx?xx = Intake Camshaft Bank 2
+; xxxx?xxx = Intake Camshaft Bank 1
+; xxx?xxxx = Knock Sensor 4
+; xx?xxxxx = Knock Sensor 3
+; x?xxxxxx = Knock Sensor 2
+; ?xxxxxxx = Knock Sensor 1
+088,2,Cycle Flags
+; 0xxxxxx? = Brake Light Switch
+; 0xxxxx?x = Clutch Switch
+; 0xxxx?xx = Idle Speed Control
+; 0xxx?xxx = Speed Signal
+; 0xx?xxxx = Idle Speed Switch
+; 0x?xxxxx = Tmot-Sensor
+; 0?xxxxxx = Throttle Valve Potentiometer
+088,3,Cycle Flags
+; xxxx?000 = Thermostat (only USA)
+; xxx?x000 = Charge Pressure Control
+; xx?xx000 = CCS Control Lever
+; x?xxx000 = Lambda-Adaptation B2 (Sum TRA + FRA)
+; ?xxxx000 = Lambda-Adaptation B1 (Sum TRA + FRA)
+;
+089,0,OBD
+089,1,Distance Driven,with MIL on
+089,2,Tank Condition,,Display Range: OK/too low
+;
+090,0,Camshaft Adjustment (Exhaust)
+090,1,Engine Speed
+090,2,Duty Cycle
+090,1,Bank 1 Camshaft,Adjustment
+090,2,Bank 2 Camshaft,Adjustment
+;
+091,0,Camshaft Adjustment (Intake - Bank 1)
+091,1,Engine Speed
+091,2,Duty Cycle
+091,3,Adjustment,(specified)
+091,4,Adjustment,(actual)
+;
+092,0,Camshaft Adjustment (Intake - Bank 2)
+092,1,Engine Speed
+092,2,Duty Cycle
+092,3,Adjustment,(specified)
+092,4,Adjustment,(actual)
+;
+094,0,Intake Camshaft Adjustment (Basic Setting)
+094,1,Bank 1 Camshaft,Adjustment
+094,2,Bank 2 Camshaft,Adjustment
+094,3,Test Result,Bank 1,Display Range: Test OFF/Test ON/System OK/System Not OK
+094,4,Test Result,Bank 2,Display Range: Test OFF/Test ON/System OK/System Not OK
+;
+095,0,Intake Manifold Change-Over
+095,1,Position,(actual)
+095,2,Position,(specified)
+095,3,Potentiometer,Offset
+095,4,Status
+;
+096,0,Continuous Camshaft Adjustment (Exhaust)
+096,1,Adjustment,Bank 1
+096,2,Adjustment,Bank 2
+096,3,Result Bank 1,,Display Range: Test ON/Test OFF/System OK/System Not OK\nSpecification: System OK
+096,4,Result Bank 2,,Display Range: Test ON/Test OFF/System OK/System Not OK\nSpecification: System OK
+;
+097,0,Intake Air Change-Over
+097,1,Engine Speed
+097,2,Engine Load
+097,3,Pressure
+097,4,Status,,Display Range: ON/OFF
+;
+098,0,Continuous Camshaft Adjustment (Exhaust - Bank 2)
+098,1,Engine Speed
+098,2,Engine Load
+098,3,Adjustment,(specified)
+098,4,Adjustment,(actual)
+;
+099,0,Lambda Control Shut-Off (Basic Setting)
+099,1,Engine Speed
+099,2,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+099,3,Lambda,Controller
+099,4,Lambda Sensor,Control Status
+;
+100,0,Readiness Code
+100,1,Readiness Bits,,Display Range: 0 = completed / 1 = not completed
+; xxx00x0? = Catalytic Converter
+; xxx00?0x = EVAP Valve
+; xx?00x0x = Oxygen Sensor Aging
+; x?x00x0x = Oxygen Sensor Heater
+; ?xx00x0x = EGR
+100,2,Engine,Temperature
+100,3,Time since,Engine Start
+100,4,OBD
+; xxxx00x? = No Warm-Up Cycle detected
+; xxxx00?x = Warm-Up Cycle detected
+; xxx?00xx = Malfunction(s) detected
+; xx?x00xx = Trip complete 
+; x?xx00xx = Driving-Cycle detected
+; ?xxx00xx = MIL active
+;
+101,0,Fuel Injection
+101,1,Engine Speed
+101,2,Engine Load
+101,3,Injection Timing
+101,4,Pressure
+;
+102,0,Fuel Injection
+102,1,Engine Speed
+102,2,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+102,3,Intake Air,Temperature,Specification: max. 80.0 °C\nDisplay Range: -40.5...+135.0 °C
+102,4,Injection Timing
+;
+103,0,Demand-Controlled Fuel Pump
+103,1,Fuel Pressure
+103,2,I-Controller,Fuel Pressure
+103,3,Adaptation Value,Electr. Fuel Pump
+103,4,Demand controlled,Fuel Pump Adapt.
+;
+104,0,Start Adaptation Values
+104,1,Engine Start,Temperature
+104,2,Temperature,Adaptation Factor
+;
+105,0,Cylinder Cut-Off
+105,1,Engine Speed
+105,2,Engine Load
+105,3,Coolant,Temperature,Specification: 80.0...110.0 °C\nDisplay Range: -40.5...+135.0 °C
+105,4,Cylinder Cut-Off,,Display Range: ON/OFF
+;
+106,0,Fuel Pressure
+106,1,Fuel Pressure
+106,2,Electrical,Fuel Pump
+106,4,Shut-Off Time
+;
+107,0,Oxygen Sensor Control (Basic Setting: Short Trip)
+107,1,Engine Speed
+107,2,Oxygen Sensor,Controller Bank 1
+107,3,Oxygen Sensor,Controller Bank 2
+107,4,Test Result,,Display Range: Test ON/Test OFF/System OK/System Not OK
+;
+120,0,Traction Control (ASR)
+120,1,Engine Speed
+120,2,Engine Load,(specified)
+120,3,Engine Load,(actual)
+120,4,Status,,Display Range: ASR OFF/ASR ON
+;
+122,0,Transmission
+122,1,Engine Speed
+122,2,Engine Load,(specified)
+122,3,Engine Load,(actual)
+122,4,Status,,Display Range: Torque red./No tor.red.
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Transmission,,Display Range: Transm. 1/Transm. 0
+125,2,Brake Electronics,,Display Range: ABS 1/ABS 0
+125,3,Instrument Cluster,,Display Range: Instruments 1/Instruments 0
+125,4,Heating/Air,Conditioning,Display Range: A/C 1 / A/C 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,2,Steering Angle,Sensor (G85),Display Range: Steer. ang. 1/Steer. ang. 0
+126,3,Airbag System,,Display Range: Airbag 1/Airbag 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,3,Steering Wheel,Electronics,Display Range: St. Wheel 1/St. Wheel 0
+;
+128,0,CAN-Databus Powertrain (Communication)
+128,1,Electrical,Ignition Lock,Display Range: El.Ign.Lock 1/El.Ign.Lock 0
+;
+129,0,CAN-Databus Powertrain (Communication)
+129,1,Energy/Battery,Management,Display Range: E-Mgmnt 1/E-Mgmnt 0
+;
+134,0,Temperatures
+134,1,Oil,Temperature
+134,2,Ambient,Temperature
+;
+135,0,Fan Activation
+135,2,Fan Activation
+;
+137,0,Air Condition Requirements
+137,1,A/C Readiness,,Display Range: A/C-Low / A/C-High
+137,2,A/C Compressor,,Display Range: Compr.OFF/Compr.ON
+;
+138,1,Engine Start,Temperature
+138,2,Mean Engine,Air Mass
+;
+139,0,Diagnostic Thermostat
+139,1,Engine,Temperature
+139,2,Air Mass Integral,(actual)
+;
+140,0,Pressure Control Valve
+140,1,Pressure Control,Valve Duty Cycle
+140,2,Rail Pressure,(specified)
+;
+141,0,Fuel Supply System
+141,1,Fuel Pressure,Regulator
+141,2,Rail Pressure,Regulator
+;
+142,0,Charge Motion Flap (Bank 1)
+142,1,Position,(actual)
+142,2,Position,(specified)
+;
+144,0,Charge Motion Flap (Bank 2)
+144,1,Position,(actual)
+144,2,Position,(specified)
+;
+170,0,Start Control
+170,1,Starter Input,(Terminal 50),Display Range: ON/OFF
+170,2,Feedback Wire,(Terminal 50R),Display Range: ON/OFF
+;

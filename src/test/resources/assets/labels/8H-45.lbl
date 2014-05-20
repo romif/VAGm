@@ -1,0 +1,22 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A4 Cabriolet (8H)
+;
+; Component: Interior Monitoring (#45)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8H-45.LBL
+; 8E0-951-177.LBL
+;
+; created on 16/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 16/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,8E0-951-177.LBL.LBL,8H0-951-178
+;

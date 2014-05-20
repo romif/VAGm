@@ -1,0 +1,21 @@
+;
+; VAG-COM Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 5J-56.LBL
+; 1K0-035-1xx-56.LBL
+;
+; created on 21/Jun/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 21/Jun/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+;5J0-035-161-??? ; BEAT
+;
+REDIRECT,1K0-035-1xx-56.LBL,5J0-035-161-??? ; DANCE
+;

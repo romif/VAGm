@@ -1,0 +1,86 @@
+;
+; VAG-COM Label File
+;
+; Audi A8 (4E)
+;
+; Component: J234 - Airbag (#15) - 9.41
+;
+; P/N: 4E0-910-655-???
+;
+; includes coding, security access and adaptation
+;
+; created on 22/Apr/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 24/Apr/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Airbag 9.41 (J234) Coding
+C01,0?xxxxx: Options I
+C02,4 = without Knee Airbag (PR-4UE/4UF)
+C03,5 = with Knee Airbag (PR-4UH/4UP)
+C04,0x?xxxx: Stages
+C05,3 = Standard
+C06,0xx?xxx: Options II
+C07,0 = without Passenger Airbag Shut-Off (PR-4UE/4UH+9P0/9P1)
+C08,1 = with Passenger Airbag Shut-Off via Key Switch (PR-4UF/4UP+9P0/9P1)
+C09,2 = with Passenger Airbag Shut-Off with Seat Occupation Detection (PR-4UH+9P5)
+C10,0xxx?xx: Side Airbags
+C11,7 = Front & Rear Side Airbags with Head Airbags (PR-4X4)
+C12,0xxxx?x: Belt Inquiry
+C13,0 = Standard
+C14,0xxxxx?: Belt Tensioner
+C15,5 = with electrically adjustable single seats (4-Seater / PR-5Z1)
+C16,7 = without electrically adjustable single seats (5-Seater / PR-5Z0)
+;
+;
+;---------------------------------------------------
+;
+; security access information
+;
+;---------------------------------------------------
+;
+;
+S00,Airbag (J234) Security Access
+S01,20324 = Seat Occupied Recognition Basic Settin/Zero Balancing
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A000,0,Seat Occupied Recognition Reset
+A000,5,Seat Occupied Recognition Reset
+A000,6,If a repair on the Seat Occupied Recognition
+A000,7,has been performed a reset has to be performed too.
+A000,8, 
+A000,9,Prerequisites:
+A000,10,* Seat in normal position.
+A000,11,* Seat must NOT be occupied during the whole procedure.
+A000,12,* Seatbelt must NOT be plugged in.
+A000,13,* No faults in the system.
+A000,14,* Interior temperature must be between 0 °C and 37 °C (32 °F and 98 °F).
+A000,15, 
+A000,16,NOTE: Perform Security Access first.
+;

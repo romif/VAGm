@@ -1,0 +1,203 @@
+;
+; VAG-COM label file - 3D0-919-283.lbl
+;
+; Bentley Continental GT (3W) / VW Phaeton (3D)
+;
+; component: Park Distance Control -J446- (#76)
+;
+; p/n: 3D0 919 283 A
+;      3D0 919 283 B
+;      3D0 919 283 C Component: 03 Einparkhilfe 0807 Coding: 0000000 (Phaeton)
+;      3W0 919 283   Component: 02 Einparkhilfe 0203 Coding: 0000000 (Bentley Continental GT)
+;      7L0 919 283 D Component: 33 Einparkhilfe 0806 Coding: 0000000 (Touareg) - via redirect file '7L-76.lbl'
+;
+;      fully tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; Includes measured value blocks and adaptation labels. No coding capabilities are know for this controller.
+;
+; This file is part of a redirection package,
+; make sure you have both of the following files.
+;
+; 7L-76.LBL
+; 3D0-919-283.lbl
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com)
+;
+; last modified: 11/05/2004 (Sebastian)
+; last modified: 03/June/2005 (Michael) 'PanEuropean' on the VW Vortex forum.
+;     - minor editorial changes, addition of 'not used' and 'needs to be defined' fields.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Direct echo from FRONT sensors - LEFT side
+001,1,Sensor 1, front LEFT outside,Specified value: 20...60 cm (255 = invalid/unlimited)
+001,2,Sensor 2, front LEFT center,Specified value: 20...120 cm (255 = invalid/unlimited)
+001,3,Sensor 3, front LEFT inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+001,4,Not,Used
+;
+002,0,Direct echo from FRONT sensors - RIGHT side
+002,1,Sensor 4, front RIGHT inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+002,2,Sensor 5, front RIGHT center,Specified value: 20...120 cm (255 = invalid/unlimited)
+002,3,Sensor 6, front RIGHT outside,Specified value: 20...60 cm (255 = invalid/unlimited)
+002,4,Not,Used
+;
+003,0,Cross echo from FRONT sensors
+003,1,#1/2 left outside,to left center,Specified value: 20...70 cm (255 = invalid/unlimited)
+003,2,#2/3 left center,to left inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+003,3,#3/4 left inside,to right inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+003,4,Not,Used
+;
+004,0,Cross echo from FRONT sensors continued
+004,1,#4/5 right inside,to right center,Specified value: 20...150 cm (255 = invalid/unlimited)
+004,2,#5/6 right center, to right outside,Specified value: 20...70 cm (255 = invalid/unlimited)
+004,3,Not,Used
+004,4,Not,Used
+;
+005,0,Distance value from FRONT sensors
+005,1,#1/2 left outside,to left center,Specified value: 20...70 cm (255 = invalid/unlimited)
+005,2,#2/3 left center,to left inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+005,3,#3/4 left inside,to right inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+005,4,Not,Used
+;
+006,0,Distance value from FRONT sensors continued
+006,1,#4/5 right inside,to right center,Specified value: 20...150 cm (255 = invalid/unlimited)
+006,2,#5/6 right center,to right outside,Specified value: 20...70 cm (255 = invalid/unlimited)
+006,3,Not,Used
+006,4,Not,Used
+;
+007,0,Direct echo from REAR sensors - RIGHT side
+007,1,Sensor 7,rear RIGHT outside,Specified value: 20...60 cm (255 = invalid/unlimited)
+007,2,Sensor 8,rear RIGHT center,Specified value: 20...120 cm (255 = invalid/unlimited)
+007,3,Sensor 9,rear RIGHT inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+007,4,Not,Used
+;
+008,0,Direct echo from REAR sensors - LEFT side
+008,1,Sensor 10,rear LEFT inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+008,2,Sensor 11,rear LEFT center,Specified value: 20...120 cm (255 = invalid/unlimited)
+008,3,Sensor 12,rear LEFT outside,Specified value: 20...60 cm (255 = invalid/unlimited)
+008,4,Not,Used
+;
+009,0,Cross echo from REAR sensors
+009,1,#7/8 right outside,to right center,Specified value: 20...70 cm (255 = invalid/unlimited)
+009,2,#8/9 right center,to right inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+009,3,#9/10 right inside,to left inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+009,4,Not,Used
+;
+010,0,Cross echo from REAR sensors continued
+010,1,#10/11 left inside,to left center,Specified value: 20...150 cm (255 = invalid/unlimited)
+010,2,#11/12 left center,to left outside,Specified value: 20...70 cm (255 = invalid/unlimited)
+010,3,Not,Used
+010,4,Not,Used
+;
+011,0,Distance value from REAR sensors
+011,1,#7/8 right outside, to right center,Specified value: 20...70 cm (255 = invalid/unlimited)
+011,2,#8/9 right center, to right inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+011,3,#9/10 right inside,to left inside,Specified value: 20...150 cm (255 = invalid/unlimited)
+011,4,Not,Used
+;
+012,0,Distance value from REAR sensors continued
+012,1,#10/11 left inside, to left center,Specified value: 20...150 cm (255 = invalid/unlimited)
+012,2,#11/12 left center, to left outside,Specified value: 20...70 cm (255 = invalid/unlimited)
+012,3,Not,Used
+012,4,Not,Used
+;
+013,0,Total distances calculated for display and warning tone purposes
+013,1,Left front corner,total distance,Specified value: 20...150 cm (255 = invalid)
+013,2,Right front corner,total distance,Specified value: 20...150 cm (255 = invalid)
+013,3,Right rear corner,total distance,Specified value: 20...150 cm (255 = invalid)
+013,4,Left rear corner,total distance,Specified value: 20...150 cm (255 = invalid)
+;
+014,0,Voltages Present on PDC system
+014,1,Supply voltage,,Specified value: 8.7...16.7 V
+014,2,Needs to,be defined
+014,3,Sensor,supply voltage,Specified value: 7.2...9.2 V
+014,4,Display-/speaker,supply voltage,Specified value: 7.5...16.5 V
+;
+015,0,Driver Control Inputs
+015,1,PDC Off Button,status,Specified value: 0 = not pressed/1 = pressed
+;
+016,0,Vehicle Configuration Information
+016,1,Automatic,transmission,Specified value: 0 = not installed/1 = installed
+016,2,Gear selector,lever position,Specified values: 00/01/02/03/12/14
+016,3,Parking,brake,Specified value: 0 = inactive/1 = active
+016,4,Needs to,be defined
+;
+017,0,Information about configuration of PDC system
+017,1,Trailer,attached,Specified value: 0 = attached to car/1 = not attached to car
+017,2,Trailer,control module,Specified value: 0 = not installed/1 = installed
+017,3,Vehicle Speed,,Specified value: 0...250 km/h
+017,4,Speed shut-off,,Specified value: 0 = inactive/1= active
+;
+018,0,Information about status of PDC system
+018,1,Term 15 (Ignition),status,0 = off/1 = on
+018,2,System status,,0 = inactive/1 = active
+018,3,Display,brightness,Specified value: 50...100 %
+018,4,Acoustic,warning,0 = inactive/1 = active
+;
+019,0,Unknown - May possibly be attenuation times.
+;
+;Remark: Could these be attenuation times?
+;
+020,0,Unknown
+;
+021,0,*Next MVB is 080.
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Next measuring block used is Group 082
+;
+082,0,Flash-Tool-Code (FTC)
+; Flash-Date (in dd.mm.yy)
+;
+083,0,*End of MVB for this controller.
+;
+;
+;
+;---------------------------------------------------
+;
+; Adaptation information
+;
+;---------------------------------------------------
+;
+;
+A01,0,Front Warning Tone Volume
+A01,5,Front Warning Tone Volume
+A01,6,Adjustment of the front warning tone volume.
+A01,7,
+A01,8,Range: 0 - 100 %
+;
+A02,0,Rear Warning Tone Volume
+A02,5,Rear Warning Tone Volume
+A02,6,Adjustment of the rear warning tone volume.
+A02,7, 
+A02,8,Range: 0 - 100 %
+;
+A03,0,Shut-off speed
+A03,5,Shut-off speed
+A03,6,Adjustment of the vehicle speed for PDC shutdown.
+A03,7, 
+A03,8,Range: 1 - 15 kilometers per hour
+A03,9,Standard value: 14
+;
+A04,0,Offset distance for rear bumper warnings
+A04,5,Offset distance for rear bumper warnings
+A04,6,Here you can enter an additional distance (in cm)
+A04,7,to be added to rear measurements to allow for
+A04,8,the presence of a trailer hitch or bicycle carrier.
+A04,9, 
+A04,10,Range: 1 - 30 cm
+;

@@ -1,0 +1,123 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4F)
+;
+; Component: J772 - Back-Up Camera (#6C)
+;
+; P/N: 4?0-910-441-???
+;
+; includes measuring blocks, coding and security access
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-6C.LBL
+; 4F-6C.LBL
+; 8T-6C.LBL
+; 4L0-910-441.LBL
+;
+; created on 02/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Jan/2008
+;
+; requires VAG-COM 607.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,3,Reverse Gear,Status,Range: Reverse ON/Reverse OFF
+;
+002,0,General (Voltages)
+002,1,Voltage,(Terminal 30)
+002,3,Camera Voltage
+;
+003,0,Video Connections
+003,1,Connection,to Camera
+003,2,Connection,Status (Camera)
+003,3,Connection,to Display
+003,4,Connection,Status (Display)
+;
+004,0,Steering Angle
+004,1,Steering Angle,(Current)
+004,2,Steering Angle,(Left Stop)
+;
+005,0,Calibration
+005,1,Calibration,X-Offset
+005,2,Calibration,Y-Offset
+005,3,Calibration,Turn Angle Offset
+;
+010,0,Camery Settings
+010,1,Color,,Range: 0.0...100.0 %
+010,2,Brightness,,Range: 0.0...100.0 %
+010,3,Contrast,,Range: 0.0...100.0 %
+010,4,Color Vector,,Range: 0.0...100.0 %
+;
+011,1,Terminal 15,Status,Range: Term 15 On/Term 15 Off
+011,2,Back-Up Cam.,Status
+011,3,Vehicle Speed
+011,4,Rear Lid,Status,Range: Lid Closed/Lid Open
+;
+130,0,Calibration
+130,1,Calibration,Mode Status,Range: Deactivated/Activated
+130,2,Calibration,Status,0 = Not calibrated\n1 = Calibrated\n2 = Calibration failed
+130,3,Calibration,Status,See Label File
+; 0x0000 = No Malfunction
+; 0x0003 = Marking not recognized
+; 0x0004 = Correction values out of range
+; 0x0005 = Picture correction not possible
+; 0x0066 = Calibration running (Phase 1)
+; 0x00AA = Calibration running (Phase 2)
+; 0x00FC = Calibration running
+; 0x00FD = Calibration still running
+; 0x00FE = System already calibrated
+; 0x00FF = Factory setting after production
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Back-Up Camera (J772) Coding
+C01,?0x0x0x: Manufacturer
+C02,1 = Audi
+C03,x0?0x0x: Trailer & Parking System
+C04,+1 = Tailer Hitch installed
+C05,+2 = Optical Parking System installed
+C06,x0x0?0x: Camera Heights
+C07,0 = Camera Heights 1 (970 mm)
+C08,1 = Camera Heights 2 (985 mm)
+C09,2 = Camera Heights 3 (1000 mm)
+C10,3 = Camera Heights 4 (1015 mm)
+C11,4 = Camera Heights 5 (1030 mm)
+C12,5 = Camera Heights 6 (1045 mm)
+C13,6 = Camera Heights 7 (1060 mm)
+C14,7 = Camera Heights 8 (1075 mm)
+C15,x0x0x0?: Model
+C16,1 = Audi Q7 (4L)
+C17,2 = Audi A8 (4E) Short Wheel Base
+C18,3 = Audi A8 (4E) Long Wheel Base
+C19,4 = Audi A6 (4F) Sedan
+C20,5 = Audi A6 (4F) Wagon/Avant
+C21,8 = Audi A5 (8K) Coupé
+;
+;
+;---------------------------------------------------
+;
+; security access
+;
+;---------------------------------------------------
+;
+;
+S00,Back-Up Camera (J772) Security Access
+S01,22351 = Adaptation Enabling (e.g. Back-Up Camera Calibration)
+;

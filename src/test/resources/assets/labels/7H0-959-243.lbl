@@ -1,0 +1,97 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Transporter (7H/7J)
+;
+; Komponente: Schiebetür rechts/links (#0D/78)
+;
+; T/N: 7H0-959-243-???
+;
+; beinhaltet Messwertgruppen und Anpassung
+;
+; erstellt am 10.05.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 02.09.2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Taster,Trittstufe,Wertebereich: betätigt/unbetätigt
+001,2,Taster (E443),Absch.-Schiebtür,Wertebereich: betätigt/unbetätigt
+001,3,Taster (E442),Schiebetür,Wertebereich: betätigt/unbetätigt
+001,4,Zuziehhilfe,,Wertebereich: betätigt/unbetätigt
+;
+002,0,Längsverstellung && Trittstufe
+002,1,Position,Längsverstellung,0 = Tür geöffnet\n700 > = Tür geschlossen
+002,2,Maximal-Position,Längsverstellung,Sollwert: mind. 700 (Tür geschlossen)
+002,3,Position,Trittstufe
+002,4,Maximal-Position,Trittstufe
+;
+003,1,Kontaktschalter,Zuziehhilfe,F340/F341 (Wertebereich: auf/zu)
+003,2,Türkontakt,(Hauptraste),Wertebereich: auf/zu
+003,3,Türkontakt,(Vorraste),Wertebereich: auf/zu
+003,4,Einklemmschutz,(G408),Wertebereich: betätigt/unbetätigt
+;
+004,0,Türgriffe && Türschloss
+004,1,Türgriff innen,(Auf),Wertebereich: betätigt/unbetätigt
+004,2,Türgriff innen,(Zu),Wertebereich: betätigt/unbetätigt
+004,3,Türgriff außen,(E371/E372),Wertebereich: betätigt/unbetätigt
+004,4,Schließeinheit ZV,(F222/F223),Wertebereich: verriegelt/entriegelt/safe
+;
+005,1,Zustand,Schiebetür,Wertebereich: aktiv/gesperrt
+005,2,Zustand,Trittstufe,Wertebereich: aktiv/gesperrt
+005,3,Spannung,(Klemme 30),Sollwert: 9...17 V
+005,4,Initialisierung,abgeschlossen,Wertebereich: Ja/Nein
+;
+006,1,Beleuchtung Taste,Deaktivierung,Wertebereich: ein/aus
+006,2,Beleuchtung Taste,Mittelkonsole,Wertebereich: ein/aus
+006,3,Akustischer,Signalgeber,Wertebereich: ein/aus
+;
+007,1,Zustand,(Klemme S),Wertebereich: ein/aus
+007,2,Zustand,(Klemme 15),Wertebereich: ein/aus
+007,3,Zustand,(Klemme X),Wertebereich: ein/aus
+007,4,Zustand,(Klemme 50),Wertebereich: ein/aus
+;
+008,1,Funkfernbedienung,Taste 1,Wertebereich: betätigt/unbetätigt
+008,2,Funkfernbedienung,Taste 2,Wertebereich: betätigt/unbetätigt
+008,3,Geschwindigkeit
+008,4,Zustand,Fahrzeug,Wertebereich: entriegelt/verriegelt/safe
+;
+009,0,CAN-Datenbus Kommunikation
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A001,0,FFB-Zuordnung
+A001,5,Zuordnung der Funkfernbedienungstaster
+A001,6,1 - Taste 1 öffnen/Taste 2 schließen
+A001,7,2 - Taste 1 schließen/Taste 2 öffnen
+;
+A002,0,Initialisierung
+A002,5,Initialisierung der Schiebetür
+A002,6,Um eine neue Initialisierung einleiten zu können muss
+A002,7,der aktuell gespeicherte Wert durch den Wert 0 ersetzt werden.
+A002,8,anschließend muss die Schiebetür manuell vollständig geöffnet
+A002,9,und wieder geschlossen werden.
+;
+A003,0,Trittstufe
+A003,5,Verbau Trittstufe
+A003,6,Verbau der elektrischen Trittstufe.
+A003,7, 
+A003,8,0 = nicht verbaut
+A003,9,1 = verbaut
+;

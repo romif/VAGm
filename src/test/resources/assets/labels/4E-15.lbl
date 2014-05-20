@@ -1,0 +1,27 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A8 (4E)
+;
+; Component: J234 - Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-15.LBL
+; 4E0-959-655-84.LBL
+; 4E0-959-655-94.LBL
+;
+; created on 23/Apr/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Apr/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4E0-910-655-84.LBL,4E0-910-655
+REDIRECT,4E0-910-655-84.LBL,4E0-910-655-A
+;REDIRECT,4E0-910-655-xx.LBL,4E0-910-655-E
+;REDIRECT,4E0-910-655-xx.LBL,4E0-910-655-G
+;REDIRECT,4E0-910-655-xx.LBL,4E0-910-655-H
+;REDIRECT,4E0-910-655-xx.LBL,4E0-910-655-J
+;

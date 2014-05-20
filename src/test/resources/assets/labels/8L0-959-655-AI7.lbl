@@ -1,0 +1,61 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A3 (8L)
+;
+; Komponente: Airbag 7 (#15)
+;
+; T/N: 8L0 959 655 C/F
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 26.04.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 26.04.2005
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Zünder Airbags/Gurtstraffer
+001,1,Airbag,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,2,Airbag,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,3,Gurtstraffer,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+001,4,Gurtstraffer,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+002,0,Zünder Gurtstraffer/Batterietrennelement
+002,1,Gurtstraffer,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,2,Gurtstraffer,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+002,3,Gurtstraffer,hinten mitte,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+004,0,Gurterkennung (hinten)
+004,1,Gurterkennung,hinten links,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+004,2,Gurterkennung,hinten rechts,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+004,3,Gurterkennung,hinten mitte,Wertebereich: zu klein/zu groß/n. Masse/n. Plus/Gurt ja/Gurt nein/n. verbaut
+;
+005,0,Zünder Seitenairbags
+005,1,Seitenairbag,Fahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+005,2,Seitenairbag,Beifahrer,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+005,3,Seitenairbag,hinten links,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+005,4,Seitenairbag,hinten rechts,Wertebereich: richtig/zu klein/zu groß/endp. Masse/endp. Plus
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Airbagsystem (J234) Codierung
+C1,Standard: Frontairbags/Gurtstraffer vorn
+C2, 
+C3,00002 - Standard
+C4,00004 - Standard + 2 Gurtstraffer hinten
+C5,00102 - Standard + Seitenairbags vorn
+C6,00104 - Standard + Seitenairbags vorn + 2 Gurtstraffer hinten
+;

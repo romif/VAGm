@@ -1,0 +1,168 @@
+;
+; VAG-COM Label File
+;
+; VW Touareg (7L6)
+;
+; Component: J104 - Brake Electronics (#03) - MK25E1
+;
+; P/N: 7L0-907-379-???
+;
+; includes measuring blocks, basic setting and coding
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 7L-03.LBL
+; 7L0-907-379-MK25.LBL   (MK25)
+; 7L0-907-379-MK25E1.LBL (MK25E1)
+;
+; created on 15/Feb/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Feb/2008
+;
+; requires VAG-COM 605.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Range: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Range: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Range: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Range: 0.0...255.0 km/h
+;
+B001,0,Brake System Bleeding
+B001,1,Status, , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Range: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Range: ON/OFF
+003,3,ABS,Warning L. (K47),Range: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Range: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,Sensor (G85),Range: -720.0...+720.0 °\nSpecification: ± 4.5 °
+004,2,Lateral Acc.,Sensor (G200),Range: -25.0...+25.0 m/s²\nSpecification: ± 1.5 m/s²
+004,3,Rotation Rate,Sensor (G202),Range: -69.0...+69.0 °/s\nSpecification: ± 2.5 °/s
+;
+005,0,Brake Pressure && Steering Angle Sensor Status
+005,1,Brake Pressure,Sensor (G201),Specification: ± 7.0 bar
+005,2,Steering Angle,Sensor (G85)
+;
+006,0,Longitudinal Acceleration
+006,1,Longitudinal,Acc. Sensor (G251),Specification: ± 2.5 m/s²
+;
+007,0,ASR/ESP Button (E256)
+007,1,ASR/ESP Button,(E256),Range: Not Oper./Operated
+;
+008,0,Clutch Pedal Switch (F36) Plausibility
+008,1,Clutch Pedal,Switch (F36),Signal Input: CAN
+008,2,Clutch Pedal,Switch (F36),Signal Input: Hardware
+008,3,Clutch Pedal,Switch (F36),Signal Input:
+;
+009,0,Parking Brake Switch (F321) Plausibility
+009,1,Parking Brake,Switch (F321),Signal Input: CAN
+009,2,Parking Brake,Switch (F321),Signal Input: Hardware
+009,3,Parking Brake,Switch (F321),Signal Input:
+;
+010,0,Additional Functions
+010,1,Trailer,Status,Range: Trailer: Yes/Trailer: No
+010,2,Brake Wiping,(Front),Range: ON/OFF
+;
+011,0,Speed Encoder Errors (Front Left)
+011,1,Encoder Errors,(G47) Minimum
+011,2,Encoder Errors,(G47) Maximum
+011,3,Encoder Errors,(G47) Average
+;
+012,0,Speed Encoder Errors (Front Right)
+012,1,Encoder Errors,(G45) Minimum
+012,2,Encoder Errors,(G45) Maximum
+012,3,Encoder Errors,(G45) Average
+;
+013,0,Speed Encoder Errors (Rear Left)
+013,1,Encoder Errors,(G46) Minimum
+013,2,Encoder Errors,(G46) Maximum
+013,3,Encoder Errors,(G46) Average
+;
+014,0,Speed Encoder Errors (Rear Right)
+014,1,Encoder Errors,(G44) Minimum
+014,2,Encoder Errors,(G44) Maximum
+014,3,Encoder Errors,(G44) Average
+;
+015,0,Emergency Brake Blinking
+015,1,Emergency Brake,Blinking,Range: EmBrk.n.Act./EmBrk.Act.\n\nSee Adaptation Channel 044
+;
+B060,0,Adjustment of Steering Angle Sensor (G85)
+B060,1,Adjustment
+B060,2,Adjustment,Status
+B060,3,Steering Angle,Sensor (G85)
+;
+B063,0,Adjustment of Lateral Acceleration Sensor (G200)
+B063,1,Adjustment
+B063,2,Adjustment,Status
+B063,3,Lateral Acc.,Sensor (G200)
+;
+B066,0,Adjustment of Brake Pressure Sensor (G201)
+B066,1,Adjustment
+B066,2,Adjustment,Status
+B066,3,Brake Pressure,Sensor (G201)
+;
+B069,0,Adjustment of Longitudinal Acceleration Sensor (G251)
+B069,1,Adjustment
+B069,2,Adjustment,Status
+B069,3,Long. Accel.,Sensor (G251)
+;
+087,0,ESP Sensor Cluster (G419) Serial Number
+087,1,Sensor Cluster,Serial Number
+;
+088,0,ESP Sensor Cluster (G419) Part Number
+088,1,Sensor Cluster,Part Number
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nRange: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Drive,,Specification: AWD 1\nRange: AWD 1/AWD 0
+125,4,Transmission,,Specification: Transm. 1\nRange: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,,Specification: Instruments 1\nRange: Instruments 1/Instruments 0
+126,2,CAN-Gateway,,Specification: Gateway 1\nRange: Gateway 1/Gateway 0
+126,3,Level Control,,Specification: Level 1\nRange: Level 1/Level 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,Damper Control,,Specification: Damper Ctrl 1\nRange: Damper Ctrl 1/Damper Ctrl 0
+127,2,Lock Electronics,,Specification: Lock-El. 1\nRange: Lock-El. 1/Lock-El. 0
+;
+225,0,CAN-Databus Powertrain (Time-Out)
+225,1,Engine Electronics
+225,2,Steering Angle,Sensor (G85)
+225,3,All-Wheel-Drive
+225,4,Transmission
+;
+226,0,CAN-Databus Powertrain (Time-Out)
+226,1,Instrument Cluster
+226,2,CAN-Gateway
+226,3,Level Control
+;
+227,0,CAN-Databus Powertrain (Time-Out)
+227,1,Damper Control
+227,2,Lock Electronics
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+
+;

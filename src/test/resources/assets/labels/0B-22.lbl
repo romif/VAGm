@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Audi TT (8J) / VW Tiguan (5N)
+;
+; Component: J492 - All Wheel Electronics (#22)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 0B-22.LBL
+; 0AY-907-554.LBL
+;
+; created on 12/Jun/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,0AY-907-554.LBL,0BR-907-554-???
+;

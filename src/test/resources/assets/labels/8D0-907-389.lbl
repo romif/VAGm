@@ -1,0 +1,131 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8D) / Audi A6 (4B) / VW Passat (3B)
+;
+; Component: J104 - Brake Electronics (#03) - Bosch 5.3 ABS/EDL/ASR/ESP
+;
+; P/N: 8D0-907-389-???
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4D-03.LBL
+; 4Z-03.LBL
+; 8D0-907-389.LBL (Bosch 5.3 ABS/EDL/ASR/ESP)
+;
+; includes measuring blocks, coding and login
+;
+; created on 21/Jan/2006 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 15/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel Speed
+001,1,Wheel Speed,Front Left,Display Range: 0.0...255.0 km/h
+001,2,Wheel Speed,Front Right,Display Range: 0.0...255.0 km/h
+001,3,Wheel Speed,Rear Left,Display Range: 0.0...255.0 km/h
+001,4,Wheel Speed,Rear Right,Display Range: 0.0...255.0 km/h
+;
+002,0,Switches && Buttons
+002,1,Brake Test Switch,,Display Range: 0/operated
+002,2,Brake Light Switch,,Display Range: 0/operated
+002,3,Parking Brake,Button,Display Range: 0/operated
+002,4,ESP-Passive,Button,Display Range: 0/operated
+;
+003,0,Engine Data
+003,1,Engine Speed
+003,2,Engine Torque
+003,3,Engine Torque,(loss)
+003,4,Throttle Valve Angle
+;
+004,1,Standing Time
+004,2,EDL-T Flag,,Display Range: ON/OFF\nSpecification: OFF
+;
+005,1,Steering Angle,Sensor (G85),Display Range: -720.0...+720.0 °\nTolerance (when straight): ±5.0 °
+005,2,Rotation Rate,,Display Range: -69.0...+69.0 °/s
+005,3,Brake Pressure,,Display Range: -41.0...+292.0 bar\n40.0 bar = Short to Ground\n290.0 bar = Short to Plus
+005,4,Transverse,Acceleration,Display Range: -25.0...+25.0 m/s²
+;
+006,1,Supply Voltage,(Terminal 30),Specification: 9.8...17.4 V
+006,2,Valve Relay,,Display Range: ON = OK / OFF = not OK
+006,3,Return Flow Pump,,Display Range: ON/OFF
+006,4,Work Shop Code
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 0/Steer. ang. 1
+125,2,Transmission,,Display Range: Transm. 1/Transm. 0
+125,3,Engine,,Specification: Engine 1\nDisplay Range: Engine 0/Engine 1
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Brake Electronics - Bosch 5.3 (J104) Login
+L01,0?xxx: Chassis
+L02,5 = Audi A8 (4D)
+L03,7 = Audi A6 (4B)
+L04,9 = Audi A4 (8D) / VW Passat (3B)
+L05,0x?xx: Brakes
+L06,3 = FNRG-60 (Teves/ATE)
+L07,4 = FN2/HP2 (Dual-Piston)
+L08,5 = FN3 (Teves/ATE)
+L09,6 = C54 (Lucas)
+L10,0xx?x: Engine
+L11,5 = 4/6 Cyl. Diesel
+L12,7 = 4/5 Cyl. Gasoline
+L13,9 = 6/8 Cyl. Gasoline
+L14,0xxx?: Transmission
+L15,3 = Manual with Low Range (only Audi A6 Allroad)
+L16,5 = Manual
+L17,7 = Automatic
+L18, 
+L19,Note #1: After Login/Coding-II has been carried out you need to recode the control module.
+L20,Note #2: For Audi A8 (4D) always use 4 as Selection for Brakes.
+L21, 
+L22,40168 = Basic Setting "Enabling"
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics - Bosch 5.3 (J104) Coding
+C01,0?xxx: Chassis
+C02,4 = Audi A4 (8D) / VW Passat (3B)
+C03,6 = Audi A6 (4B)
+C04,8 = Audi A8 (4D)
+C05,0x?xx: Brakes
+C06,1 = C54 (Lucas)
+C07,2 = FN3 (Teves/ATE)
+C08,3 = FN2/HP2 (Dual-Piston)
+C09,4 = FNRG-60 (Teves/ATE)
+C10,0xx?x: Engine
+C11,5 = 4/6 Cyl. Diesel
+C12,7 = 4/5 Cyl. Gasoline
+C13,9 = 6/8 Cyl. Gasoline
+C14,0xxx?: Transmission
+C15,3 = Manual with Low Range (only Audi A6 Allroad)
+C16,5 = Manual
+C17,7 = Automatic
+C18, 
+C19,Note #1: Coding is accepted after a specific login has been carried out.
+C20,Note #2: After successful coding the steering angle sensor basic setting needs to be carried out.
+C21,Note #3: For Audi A8 (4D) always use 3 as Selection for Brakes.
+;

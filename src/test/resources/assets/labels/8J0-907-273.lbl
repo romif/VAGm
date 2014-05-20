@@ -1,0 +1,162 @@
+;
+; VCDS Label File
+;
+; Audi TT (8J)
+;
+; Component: J502 - Tire Pressure Monitoring (#65)
+;
+; P/N: 8J0-907-273-???
+;
+; includes measuring blocks and coding
+;
+; created on 29/Oct/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Wheel 1 Wheel Status I
+001,1,Wheel,Position,No Display = Not yet recognized
+001,2,Wheel,Temperature
+001,3,Wheel Pressure,(actual)
+001,4,Wheel Pressure,(specified)
+;
+002,0,Wheel 1 Status II
+002,1,Wheel,Position,No Display = Not yet recognized
+002,2,Wheel,Acceleration,Range: 0.0...127.5
+;
+003,0,Wheel 1 Status III
+003,1,Wheel Sensor,Position / Identification
+;
+004,0,Wheel 2 Status I
+004,1,Wheel,Position,No Display = Not yet recognized
+004,2,Wheel,Temperature
+004,3,Wheel Pressure,(actual)
+004,4,Wheel Pressure,(specified)
+;
+005,0,Wheel 2 Status II
+005,1,Wheel,Position,No Display = Not yet recognized
+005,2,Wheel,Acceleration,Range: 0.0...127.5
+;
+006,0,Wheel 2 Status III
+006,1,Wheel Sensor,Position / Identification
+;
+007,0,Wheel 3 Status I
+007,1,Wheel,Position,No Display = Not yet recognized
+007,2,Wheel,Temperature
+007,3,Wheel Pressure,(actual)
+007,4,Wheel Pressure,(specified)
+;
+008,0,Wheel 3 Status II
+008,1,Wheel,Position,No Display = Not yet recognized
+008,2,Wheel,Acceleration,Range: 0.0...127.5
+;
+009,0,Wheel 3 Status III
+009,1,Wheel Sensor,Position / Identification
+;
+010,0,Wheel 4 Status I
+010,1,Wheel,Position,No Display = Not yet recognized
+010,2,Wheel,Temperature
+010,3,Wheel Pressure,(actual)
+010,4,Wheel Pressure,(specified)
+;
+011,0,Wheel 4 Status II
+011,1,Wheel,Position,No Display = Not yet recognized
+011,2,Wheel,Acceleration,Range: 0.0...127.5
+;
+012,0,Wheel 4 Status III
+012,1,Wheel Sensor,Position / Identification
+;
+016,0,Wheel Sensor Status (from last Received Wheel ID) I
+016,1,Wheel Sensor,Identification
+;
+17,0,Status
+17,1,System Status
+; 000xxxxx xxxxxxx1 = System ready
+; 000xxxxx xxxxxx1x = Automatic Learning active
+; 000xxxxx xxxxx1xx = Automatic Learning successful
+; 000xxxxx xxxx1xxx = Automatic Learning not successful
+; 000xxxxx xxx1xxxx = Specified Pressure saving active
+; 000xxxxx xx1xxxxx = Specified Pressure saved
+; 000xxxxx x1xxxxxx = Specified Pressure not saved
+; 000xxxxx 1xxxxxxx = Unspecified Warning
+; 000xxxx1 xxxxxxxx = Wheel Electronics overheated
+; 000xxx1x xxxxxxxx = Radio Interference
+; 000xx1xx xxxxxxxx = Radio Receiver Diagnostics active
+; 000x1xxx xxxxxxxx = Fault stored
+; 0001xxxx xxxxxxxx = Button active
+17,2,Vehicle Status
+; 000000xx xxxxxxx1 = Terminal 15 ON
+; 000000xx xxxxxx1x = Vehicle Speed > 25km/h
+; 000000xx xxxxx1xx = CAN-Signal Ambient Temperature OK
+; 000000xx xxxx1xxx = CAN-Signal Terminal 15 OK
+; 000000xx xxx1xxxx = CAN-Signal Vehicle Speed OK
+; 000000xx xx1xxxxx = CAN-Signal Date/Time OK
+; 000000xx x1xxxxxx = Standing Information available
+; 000000xx 1xxxxxxx = End of Line Mode active
+; 000000x1 xxxxxxxx = End of Line Mode OK
+; 0000001x xxxxxxxx = MIL active
+;
+021,0,Wheel Temperatures
+021,1,Wheel 1,Temperature
+021,2,Wheel 2,Temperature
+021,3,Wheel 3,Temperature
+021,4,Wheel 4,Temperature
+;
+022,0,Pressure Deviation (Actual vs. Specified)
+022,1,Wheel 1,Pressure Deviation
+022,2,Wheel 2,Pressure Deviation
+022,3,Wheel 3,Pressure Deviation
+022,4,Wheel 4,Pressure Deviation
+;
+124,0,CAN-Databus Communication
+124,1,Voltage,(Terminal 30)
+124,2,Vehicle Speed
+124,3,Speed Signal,from ABS received,Range: ABS 1/ABS 0
+124,4,Status,Terminal 15,Range: Term 15 On/Term 15 Off
+;
+125,0,CAN-Databus Communication
+125,1,Ambient,Temperature
+125,2,Temp. Signal,from A/C received,Range: A/C 1 / A/C 0
+;
+126,0,CAN-Databus Communication
+126,1,TPMS Button,(E226),Range: Operated/Not Oper.
+126,2,TPMS Warning,Lamp,Range: Lamp OFF/Lamp ON
+;
+127,0,CAN-Databus Communication
+127,1,Date
+127,2,Time
+127,3,Standing Time
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Tire Pressure Monitoring (J502) Coding
+C01,0?x00xx: Data Carrier
+C02,8 = 1 Antenna + 4 Trigger @ 315 MHz (PR-7K8)
+C03,0x?00xx: Type
+C04,4 = USA
+C05,0xx00?x: Specified Pressure I
+C06,1 = 1.x bar (Standard)
+C07,2 = 2.x bar
+C08,3 = 3.x bar
+C09,0xx00x?: Specified Pressure II
+C10,0 = x.0 bar / 1 = x.1 bar
+C11,2 = x.2 bar / 3 = x.3 bar
+C12,4 = x.4 bar / 5 = x.5 bar
+C13,6 = x.6 bar / 7 = x.7 bar
+C14,8 = x.8 bar / 9 = x.9 bar (Standard)
+;

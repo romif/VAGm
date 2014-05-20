@@ -1,0 +1,225 @@
+;
+; VAG-COM label file 3D0-907-135.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton NAR and ROW)
+;
+; component: Roof Electronics -J528-  (#38)
+;
+; p/n: 3D0 907 135 B Component: Dachmodul 0605  Coding: 0000015 (NAR and ROW Phaeton)
+; p/n: 3W0 907 135 C Component: Dachmodul 0703  Coding: 0000157 (Bentley Continental GT - not tested)
+;
+; includes measured value blocks, coding, and adaptation
+;
+; by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; last modified: 22/July/2005 (Michael)
+;  - coding information clarified to avoid confusion between heat reflecting and heat insulating glass.
+;                29/November/2005 (Michael) - measuring block data enhanced.
+;                13/December 2005 (Michael) - production codes added to coding section.
+;                                           - refer to build sticker in spare tire well or owner manual.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+;Remark: Data exists many blocks, but it is not fully documented
+;
+;
+001,0,Power Supply to Controller
+001,1,Battery,Voltage,Voltage measured at roof controller.
+001,2,Not Used
+001,3,Not Used
+001,4,Not Used
+;
+002,0,Cabin Dome Lights
+002,1,Front Cabin,Switch E326,Position of Front Cabin Dome Light Switch.
+002,2,Front Cabin W1,% Illumination
+002,3,Rear Cabin,Switch E327,Position of Rear Cabin Dome Light Switch.
+002,4,Rear Cabin W43,% Illumination
+;
+003,0,Front Seat (Driver and Front Passenger) Reading Lights
+003,1,Driver Reading,Switch E457/E458
+003,2,Not Used
+003,3,Driver Lamp W19,% Illumination
+003,4,Passenger Lamp W13,% Illumination
+;
+004,0,Rear Seat Reading Lights
+004,1,Left Rear,Switch E454/E456
+004,2,Not Used
+004,3,Left Rear Seat,% Illumination
+004,4,Right Rear Seat,% Illumination
+;
+005,0,Interior Rear View Mirror Position Sensor (for cars with memory mirror)
+005,1,Horizontal Position,Sensor G353
+005,2,Horizontal Position,Sensor G353
+005,3,Vertical Position,Sensor G354
+005,4,Vertical Position,Sensor G354
+;
+006,0,Unknown
+;
+007,0,Sunroof Switches
+007,1,Sunroof Blind,Button
+007,2,Sunroof Switch,E8
+007,3,Not Used
+007,4,Not Used
+;
+008,0,Automatic Day Night Interior Mirror (Auto-Dimming Mirror)
+; REMARK - need to get full width text from VAS 5052
+008,1,Y7 EC mirror in,inside mirror, (voltage)
+008,2,Not Used
+008,3,E386 Button for,anti dazzle mirror,Mirror dark - button active. Mirror light - button not active.
+008,4,E386 Button for,anti dazzle mirror,Mirror dark - button active. Mirror light - button not active.
+;
+009,0,Sunroof
+009,1,Unknown
+009,2,Sunroof,Status
+009,3,Sunroof,Installed,Indicates if a sunroof is installed.
+009,4,Not Used
+;
+010,0,Interior Monitoring (Anti-Theft)
+010,1,K-Wire,Status
+010,2,Monitoring,Status
+010,3,Monitoring,Installed
+010,4,Not Used
+;
+011,0,Rain and Light Sensor
+011,1,K-wire,Status
+011,2,Rain sensor,Status
+011,3,Light sensor,Status
+011,4,Auto light control,Installed
+;
+012,0,G355 Humidity Sensor (IR sensor facing forward on interior mirror mounting arm)
+012,1,Temperature,sensor
+012,2,Reference,temperature
+012,3,Air,temperature
+012,4,Air humidity,frequency
+;
+013,0,G355 Humidity Sensor (IR sensor facing forward on interior mirror mounting arm)
+013,1,Voltage,supply
+013,2,Not Used
+013,3,N340 Heater,for sensor
+013,4,N340 Heater,return message
+;
+014,0,Unknown
+014,3,Not Used
+014,4,Not Used
+;
+015,0,Electrical Supply
+015,1,Terminal 30,SW
+015,2,Not Used
+015,3,unknown
+015,4,Terminal 58D,Term 30 SW status
+;
+016,0,*This measuring block returns an error message.
+;
+017,0,Unknown
+;
+017,2,Not Used
+017,3,Not Used
+017,4,Not Used
+;
+018,0,Control Module Temperatures
+; REMARK - need to get full width text from VAS 5052
+018,1,J528 Module,temperature
+018,2,Rear module,temperature
+018,3,Door switch,for front E459
+018,4,Rear door switch,number 2 E456
+;
+019,0,*Next measuring block used is 025
+;
+025,0,Unknown
+;
+025,2,Not Used
+025,3,Not Used
+025,4,Not Used
+;
+026,0,*Next measuring block used is 032
+;
+032,0,Ultrasonic Interior Monitoring
+;
+033,0,Ultrasonic sensors for anti-theft warning (Cabin Monitoring)
+; REMARK - need to get full width text from VAS 5052
+033,1,G209 Ultrasonsic,Security Sensor,active
+033,2,G209 Ultrasonsic,Security Sensor,disabled
+033,3,Not Used
+033,4,Not Used
+;
+034,0,Ultrasonic sensors for anti-theft warning (Cabin Monitoring)
+; REMARK - need to get full width text from VAS 5052
+034,1,
+034,2,
+034,3,
+034,4,
+;
+035,0,Unknown Counts
+;
+036,0,*Next measuring block used is 048
+;
+048,0,Unknown - Status Messages (On-Off)
+;
+049,0,Unknown - Status Messages (On-Off)
+;
+050,0,Unknown - Status Messages (On-Off)
+;
+051,0,Unknown - Status Messages (On-Off)
+;
+052,0,Unknown - Status Messages (On-Off)
+;
+053,0,*Next measuring block used is 080
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,*Block 80 is the last block used by this controller.
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton Roof Electronics (J528) Coding - Refer to production code sticker in spare tire well
+C01,xxxxx?? - Sum up all the applicable codes to get the correct number
+C02,
+C03,+00 - Solar reflecting safety glass on cabin windows (4KV, NOT 4KC!)
+C04,+01 - Automatic headlight control (tunnel symbol on light switch 8K7 or 8K9)
+C05,+02 - Inside rear view mirror with memory capability (motorized interior mirror 4L9)
+C06,+04 - Cabin interior anti-theft monitoring (7AL)
+C07,+08 - Standard glass sunroof (without solar electrical generating panels 3FE)
+C08,+16 - Solar power generating glass sunroof (3FR)
+C09,+24 - Heat insulating glass on cabin windows (Production Code 4KC - NOT 4KV!)
+C10,+32 - No sunroof at all (solid steel roof 3FA)
+;
+;REMARK: Do not confuse 4KC (warmeschutzglas) with 4KV (infrared glass). Add 24 to the code
+;        only if the car is NOT equipped with infrared reflecting glass.
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+;Remark: Channels 11, 12, 13 are used, but the function of these is unknown.
+;No other channels are used.
+;
+;Channel 11 value = 58474
+;Channel 12 value = 8824
+;Channel 13 value = 13520
+;
+;Above values taken from a 2004 W12 North American Phaeton.
+;
+;
+;

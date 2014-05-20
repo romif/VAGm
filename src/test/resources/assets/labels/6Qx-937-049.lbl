@@ -1,0 +1,156 @@
+;
+; VAG-COM Labeldatei
+;
+; Komponente: J519 - Bordnetz (#09)
+;
+; T/N: 6Q? 937 049
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; **Modification history**
+; created:  Olaf Berend, 19. August 2002
+; please email any comments or corrections: olbetec@gmx.de
+;
+; changes: Sebastian Stange, 01. August 2004
+;   added: all missing measuring blocks
+;   added: adaption and coding
+; please email any comments or corrections: sebastian@ross-tech.com
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6Q-09.LBL
+; 6Qx-937-049.LBL
+;
+; Teile dieser Labeldatei basieren auf
+; Informationen von http://www.openobd.org
+;
+; letzte Änderung: 01.08.2004
+;
+; benötigt mindestens VAG-COM 405.0 oder höher
+;
+; comment from the original author:
+;
+; Certain conditions may not be observable, since VAG-COM requires ignition to be on,
+; but control module operates even with ignition off.
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Klemmen Übersicht (Spannung/Zündung)
+001,1,Klemme S
+001,2,Klemme 50
+001,3,Klemme X
+001,4,Klemme 15
+;
+002,1,Bordspannung
+002,2,Eingriff,Lastmanagement
+002,3,Blinker Schalter
+002,4,Warnbl. Schalter
+;
+003,0,Übersicht Scheibenwischer (front)
+003,1,Wischer Intervall
+003,2,Wischer Stufe 1
+003,3,Wischer Stufe 2
+003,4,Intervallstufe
+;
+004,1,Wisch-Wasch-,Wasser Pumpe
+004,2,Heckscheiben-,heizung
+004,3,Hupenkontakt
+004,4,Motorhauben-,kontakt
+;
+005,0,Tür Status
+005,1,vorn,links
+005,2,vorn,rechts
+005,3,hinten,links
+005,4,hinten,rechts
+;
+6,0,Heckklappen Status I
+6,1,Hauptkontakt,Verriegelung,Schalter für Zentralverriegelung
+6,2,Nebenkontakt,Verriegelung,Schalter für Koferraumbeleuchtung
+6,3,[N/A]
+6,4,[N/A]
+;
+7,0,Heckklappen Status II
+7,1,Grifftaster,Entriegelung,E234
+7,2,Innentaster,Fernentriegelung
+7,3,Werkstatt-,stellung
+7,4,[N/A]
+;
+8,1,Scheinwerfer-,reinigungsanl.
+8,2,beheizbare,Außenspiegel
+8,3,Rückfahrlicht-,schalter
+8,4,beheizbare,Frontscheibe
+;
+009,0,GRA Status (Geschwindigkeits-Regel-Anlage)
+009,1,Schalter,Arretierung,Schalter auf OFF
+009,2,Schalter,Zwischenpos.,Schalter auf ON
+009,3,Schalter,Bremsphase,Schalter auf SET
+009,4,Schalter,Beschl.,Schalter auf RES
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J519 - Steuergerät für Bordnetz
+C1,Die Codierung ergibt sich aus
+C2,der Summe der,einzelnen Werte.
+C3,+00001 - Anhängekupplung
+C4,+00002 - Heckdeckelfernentriegelung
+C5,+00004 - elektrische Lastmanagement aktiv
+C6,+00008 - Innenlichtsteuerung
+C7,+00016 - 4-türige Ausführung
+C8,+00032 - beheizbare Sitze
+C9,+00064 - beheizbare Frontscheibe
+C10,+00128 - beheizbare Außenspiegel
+C11,+00256 - Scheinwerferreinigungsanlage
+C12,+00512 - Regensensor
+C13,+01024 - Heckdeckelfernentriegelung impulsgesteuert
+C14,+02048 - Heckscheibenwischer mit Komfortschaltung
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+; Hinweis: Vor der Anpassung hat ein Login zu erfolgen!
+;
+; Logincode: 21343
+;
+A1,0,Klemme 30G
+A1,5,Klemme 30G Abklemmen - Zurücknahme
+A1,6,Wertebereich: 1-253 = 0.66-173 min
+A1,7,Standardwert: 44 = 30 min
+;
+A2,0,beheizbaren Frontscheibe
+A2,5Abschaltungszeit der beheizbaren Frontscheibe
+A2,6,Wertebereich: 1-253 = 0.66-173 min
+A2,7,Standardwert: 29 = 20 min
+;
+A3,0,beheizbaren Außenspiegel
+A3,5,Abschaltungszeit der beheizbaren Außenspiegel
+A3,6,Wertebereich: 1-253 = 0.66-173 min
+A3,7,Standardwert (bis 04/02): 29 = 20 min
+A3,8,Standardwert (ab 05/02): 254 (ohne Abschaltung)
+;
+A4,0,beheizbaren Heckscheibe
+A4,5,Abschaltungszeit der beheizbaren Heckscheibe
+A4,6,Wertebereich: 1-253 = 0.66-173 min
+A4,7,Standardwert: 29 = 20 min
+;
+A5,0,Heckdeckelfernentriegelung
+A5,5,Zeit der Heckdeckelfernentriegelung
+A5,6,Wertebereich: 1-254 = 0.32-81.6 s
+A5,7,Standardwert: 3 = 1 s
+;

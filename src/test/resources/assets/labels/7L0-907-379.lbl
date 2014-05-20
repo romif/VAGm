@@ -1,0 +1,115 @@
+;
+; VAG-COM Labelfile
+;
+; VW Touareg (7LA)
+;
+; Component: J104 - Brake Electronics (#03)
+;
+; P/N: 7L0-907-379-???
+;
+; includes coding and measuring groups
+;
+; created on 14/Oct/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 14/Oct/2005
+;
+; requires VAG-COM 402.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Brake Electronics (J104) Coding
+C01,Model:
+C02,+0000001 - Touareg (Through Part Number Index D)
+C03,+0000002 - Touareg (From Part Number Index E)
+C04, 
+C05,Brakes:
+C06,+0000000 - 16" Front Disc Brake (PR-1LB)
+C07,+0008192 - 17" Front Disc Brake (PR-1LC/LD)
+C08,+0016384 - 18" Front Disc Brake (PR-1LF)
+C09, 
+C10,Suspension:
+C11,+0000000 - Standard Springs/Shocks (PR-1BA/BE)
+C12,+0000128 - 4-Corner Air Suspension (PR-1BS/2BK)
+C13,+0000256 - 4-Corner Air Suspension with electr. regluated Shocks (PR-1BK)
+C14, 
+C15,Transmission:
+C16,+0006144 - Automatic & Manual Transmission (Through Part Number Index C)
+C17, 
+C18,+0004096 - Manual Transmission (From Part Number Index D)
+C19,+0006144 - Automatic Transmission (From Part Number Index D)
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Current Wheel Speed
+001,1,Speed Sensor,Front Left (G47),Specification: 0.0...255.0 km/h
+001,2,Speed Sensor,Front Right (G45),Specification: 0.0...255.0 km/h
+001,3,Speed Sensor,Rear Left (G46),Specification: 0.0...255.0 km/h
+001,4,Speed Sensor,Rear Right (G44),Specification: 0.0...255.0 km/h
+;
+002,0,Starting Wheel Speed
+002,1,Speed Sensor,Front Left (G47),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,2,Speed Sensor,Front Right (G45),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,3,Speed Sensor,Rear Left (G46),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+002,4,Speed Sensor,Rear Right (G44),Specification: 0.0...254.0 km/h (255.0 km/h = standing)
+;
+003,0,Switches and Warning Lights
+003,1,Brake Light,Switch (F),Specification: Not Oper./Operated
+003,2,Brake System,Warning L. (K118),Specification: ON/OFF
+003,3,ABS,Warning L. (K47),Specification: ON/OFF
+003,4,ASR/ESP,Warning L. (K155),Specification: ON/OFF
+;
+004,0,Steering Angle / Lateral Acceleration / Rotation Rate
+004,1,Steering Angle,,Specification: ± x.x °
+004,2,Lateral,Acceleration,Specification: ± 1.5 m/s²
+004,3,Rotation Rate,,Specification: ± 2.5 °/s
+;
+005,0,Brake Pressure
+005,1,Brake Pressure,Sensor,Specification: ± 7.0 bar
+;
+006,0,Longitudinal Acceleration
+006,1,Longitudinal,Acc. Sensor,Specification: ± 1.5 m/s²
+;
+007,0,Brake Pedal Path
+007,1,Pedal Path,(Not Corrected)
+007,2,Pedal Path,(Corrected)
+007,3,Pedal Path,(Offset)
+;
+011,0,Speed Encoder Errors (Front Left)
+;
+012,0,Speed Encoder Errors (Front Right)
+;
+013,0,Speed Encoder Errors (Rear Left)
+;
+014,0,Speed Encoder Errors (Rear Right)
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus Powertrain (Communication)
+125,1,Engine Electronics,,Specification: Engine 1\nDisplay Range: Engine 1/Engine 0
+125,2,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nDisplay Range: Steer. ang. 1/Steer. ang. 0
+125,3,All-Wheel-Drive,,Specification: AWD 1\nDisplay Range: AWD 1/AWD 0
+125,4,Transmission,,Specification: Transm. 1\nDisplay Range: Transm. 1/Transm. 0
+;
+126,0,CAN-Databus Powertrain (Communication)
+126,1,Instrument Cluster,,Specification: Instruments 1\nDisplay Range: Instruments 1/Instruments 0
+126,2,CAN-Gateway,,Specification: Gateway 1\nDisplay Range: Gateway 1/Gateway 0
+126,3,Level Control,,Specification: Level 1\nDisplay Range: Level 1/Level 0
+;
+127,0,CAN-Databus Powertrain (Communication)
+127,1,Damper Control,,Specification: Damper Ctrl 1\nDisplay Range: Damper Ctrl 1/Damper Ctrl 0
+127,2,Lock Electronics,,Specification: Lock-El. 1\nDisplay Range: Lock-El. 1/Lock-El. 0
+;

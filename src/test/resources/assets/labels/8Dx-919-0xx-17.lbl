@@ -1,0 +1,130 @@
+;
+; VAG-COM Label File
+;
+; Audi A4 (8D)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 8D?-919-0??-???
+;
+; includes measuring blocks, adaptation, coding, login and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-17.LBL
+; 8Dx-919-0xx.LBL  ; Model Year 1995-1997
+; 8Dx-919-8xx.LBL  ; Model Year 1998-1999
+; 8Dx-920-9xx.LBL  ; Model Year 2000+
+;
+; created by Mike Sauve (www.alientech.net)
+; updated on 15/Sep/2003 by Alexey V. Gubin
+; updated on 27/Feb/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 04/Apr/2007
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+;
+;
+1,0,Display
+1,1,Road speed,
+1,2,Engine speed,
+1,3,Oil press. switch,
+1,4,None
+;
+2,0,Display
+2,1,Total odometer,
+2,2,Fuel gauge,
+2,3,None
+2,4,None
+;
+3,0,Temperature
+3,1,Engine coolant,temperature
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A02,0,Service Reminder
+A02,5,Service Reminder
+A02,6,Displayed Values:
+A02,7,01 = Oil Service Due
+A02,8,10 = Inspection Due
+A02,9,11 = Oil Service and Inspection Due
+A02,10, 
+A02,11,New Values:
+A02,12,00 = Reset Oil Service and Inspection
+A02,13,01 = Reset Oil Service
+A02,14,10 = Reset Inspection
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,5,Distance to Oil Change (OEL),1000,km
+RD,6,Distance to Inspection 1 (IN1),1000,km
+RD,7,Time to Inspection 1 (IN1),10,Days
+RD,8,Time to Inspection 2 (IN2),10,Days
+;
+RJ,0,0,Service Reset (OIL &  INSP),,
+RJ,0,1,2,0
+;
+RJ,1,0,Service Reset (OIL),,
+RJ,1,1,2,10
+;
+RJ,2,0,Service Reset (INSP),,
+RJ,2,1,2,1
+;
+RJ,3,0,Individual Service Reset (OIL &  INSP),,
+RJ,3,1,5,15
+RJ,3,2,6,30
+RJ,3,3,7,36
+RJ,3,4,8,72
+;
+RJ,4,0,Individual Service Reset (OIL),,
+RJ,4,1,5,15
+;
+RJ,5,0,Individual Service Reset (INSP),,
+RJ,5,1,6,30
+RJ,5,2,7,36
+RJ,5,3,8,72
+;

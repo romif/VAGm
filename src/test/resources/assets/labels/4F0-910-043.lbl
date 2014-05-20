@@ -1,0 +1,598 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F)
+;
+; Component: J255 - Climate Control (#08)
+;
+; P/N: 4F0-910-043-???
+;
+; includes measuring blocks, basic setting, coding, adaptation and selective output test
+;
+; created on 10/Oct/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 23/Mar/2007
+;
+; requires VAG-COM 602.3 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+001,0,Basic Information
+001,1,A/C Regulating,Valve (N280),0.000...0.050 A = Compressor OFF\n0.300...0.650 A = Compressor in Loop Control Mode
+001,2,A/C Regulating,Valve (N280),0.0 % = Compressor OFF\n30.0...100.0 % = Compressor in Loop Control Mode
+001,4,Refrigerant,Circuit Pressure,Specification: 2.6...29.0 bar
+;
+B001,0,Potentiometer && Flap Adaptation
+B001,1, , , 
+B001,2, , , 
+B001,3, , , 
+B001,4, , , 
+;
+002,0,Compressor Shut-Off Conditions
+;  0 = Compressor ON  (no shut-off condition detected)
+;  1 = Compressor OFF (pressure in refrigerant circuit was or is too high)
+;  2 = Compressor OFF (basic setting not performed or not performed without error)
+;  3 = Compressor OFF (pressure in refrigerant circuit is too low)
+;  4 = Compressor OFF (engine not running or has been running for less than 2 sec.)
+;  5 = Compressor OFF (engine speed is below 300 rpm)
+;  6 = Compressor OFF (compressor switched off by ECON function)
+;  7 = Compressor OFF (compressor switched off by OFF function)
+;  8 = Compressor OFF (measured ambient temperature was below +2°C and is still below +5°C, there is no request for recirculated air)
+;  9 = Compressor OFF (no readout currently planned)
+; 10 = Compressor OFF (vehicle voltage is below 9.5V)
+; 11 = Compressor OFF (coolant temperature is too high, currently 118°C)
+; 12 = Compressor OFF (because of a request from the engine control unit, via data bus)
+; 13 = Compressor OFF (because of a missing signals from the refrigerant pressure/temperature sender -G395)
+; 14 = Compressor OFF (because of a fault in the data bus system)
+; 15 = Compressor OFF (the pressure in the refrigerant circuit in this driving period was at least 30 times too high)
+; 16 = Compressor OFF (the measured temperature downstream of the evaporator has for over a minute been below 0°C)
+; 17 = Compressor OFF (the measured temperature downstream of the evaporator is below -5°C)
+; 18 = Compressor OFF (there is no valid measured value for the ambient temperature, possibly both ambient temperature sensor -G17 and fresh air intake duct temperature sensor -G89 defective) 
+; 19 = Compressor OFF (Climatronic control unit -J255 was switched on by "auxiliary heater" function)
+; 21 = Compressor OFF (measured ambient temperature was below -8°C and is still below -5°C, there is no request for automatic recirculated air mode or the measured ambient temperature was below + 2°C and is still below + 5°C and the "automatic recirculated air" function is not active) 22   Compressor off (the measured passenger compartment temperature is below 8°C, the measured ambient temperature was below -8°C and is still below -5°C, there is a request for recirculated air mode).
+; 23 = Compressor OFF (via the data bus system a fault message for activation of the radiator fans was sent, e.g. by the relevant engine control unit, and received by the Climatronic control unit -J255).
+002,1,Current,Shut-Off Condition
+002,2,Last,Shut-Off Condition
+002,3,Last but One,Shut-Off Condition
+002,4,Last but Two,Shut-Off Condition
+;
+003,0,Air Recirculation Flap Control Motor (V113) / Potentiometer (G143)
+003,1,Current Value,,Specification: 10...250\nTolerance (to Spec.): 4
+003,2,Specified Value,,Specification: 6...254
+003,3,Minimum Position,(Lower Stop/Close),Specification: 10...55
+003,4,Maximum Position,(Upper Stop/Open),Specification: 200...250
+;
+004,0,Air Flow Flap Control Motor (V71) / Potentiometer (G113)
+004,1,Current Value,,Specification: 15...245\nTolerance (to Spec.): 9
+004,2,Specified Value,,Specification: 6...245
+004,3,Minimum Position,(Lower Stop/Close),Specification: 15...65
+004,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+005,0,Defroster Flap Control Motor (V107) / Potentiometer (G135)
+005,1,Current Value,,Specification: 20...245
+005,2,Specified Value,,Specification: 6...254
+005,3,Minimum Position,(Lower Stop/Close),Specification: 20...70
+005,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+006,0,Front (Left) Chest Vent Control Motor (V237) / Potentiometer (G387)
+006,1,Current Value,,Specification: 20...245
+006,2,Specified Value,,Specification: 6...254
+006,3,Minimum Position,(Lower Stop/Close),Specification: 20...70
+006,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+007,0,Front Right Chest Vent Control Motor (V238) / Potentiometer (G388)
+007,1,Current Value,,Specification: 15...250
+007,2,Specified Value,,Specification: 6...254
+007,3,Minimum Position,(Lower Stop/Close),Specification: 15...70
+007,4,Maximum Position,(Upper Stop/Open),Specification: 195...250
+;
+008,0,(Left) Footwell Flap Control Motor (V108) / Potentiometer (G139)
+008,1,Current Value,,Specification: 20...245
+008,2,Specified Value,,Specification: 6...254
+008,3,Minimum Position,(Lower Stop/Close),Specification: 20...70
+008,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+009,0,Right Footwell Flap Control Motor (V109) / Potentiometer (G140)
+009,1,Current Value,,Specification: 20...245
+009,2,Specified Value,,Specification: 6...254
+009,3,Minimum Position,(Lower Stop/Close),Specification: 20...70
+009,4,Maximum Position,(Upper Stop/Open),Specification: 190...245
+;
+010,0,Central Vents Control Motor (V102) / Potentiometer (G138)
+010,1,Current Value,,Specification: 10...250
+010,2,Specified Value,,Specification: 6...254
+010,3,Minimum Position,(Lower Stop/Close),Specification: 10...60
+010,4,Maximum Position,(Upper Stop/Open),Specification: 200...250
+;
+011,0,Front Cold Air Flap Control Motor (V197) / Potentiometer (G315)
+011,1,Current Value,,Specification: 10...250
+011,2,Specified Value,,Specification: 6...254
+011,3,Minimum Position,(Lower Stop/Close),Specification: 10...70
+011,4,Maximum Position,(Upper Stop/Open),Specification: 200...250
+;
+012,0,Rear Footwell Vent Control Motor (V102) / Potentiometer (G141)
+012,1,Current Value,,Specification: 10...250
+012,2,Specified Value,,Specification: 6...254
+012,3,Minimum Position,(Lower Stop/Close),Specification: 10...60
+012,4,Maximum Position,(Upper Stop/Open),Specification: 200...250
+;
+015,0,Indirect Ventilation Flap Control Motor (V213) / Potentiometer (G330)
+015,1,Current Value,,Specification: 10...250
+015,2,Specified Value,,Specification: 6...254
+015,3,Minimum Position,(Lower Stop/Close),Specification: 10...60
+015,4,Maximum Position,(Upper Stop/Open),Specification: 195...250
+;
+016,0,Vent Sensors && Voltages
+016,1,Centre Left Vent,Sensor (G347),10.0...80.0 = Closed\n180.0...250.0 = Open
+016,2,Centre Right Vent,Sensor (G348),10.0...80.0 = Closed\n180.0...250.0 = Open
+016,3,Voltage,(5V),Specification: 4.5...5.5 V
+016,4,Voltage,(Terminal 15)
+;
+017,0,Temperatures I
+017,1,Left Vent (G150),Temperature
+017,2,Right Vent (G151),Temperature
+017,3,Center Vent (G191),Temperature
+;
+018,0,Temperatures II
+018,1,Evaporator (G263),Temperature 
+018,2,Air Intake (G89),Temperature 
+018,3,Ambient (G17),Temperature 
+;
+019,0,Temperatures III
+019,1,Dash Panel (G56),Temperature 
+019,2,Temp. Sensor,Blower Speed,(V42)
+019,3,Coolant,Temperature
+019,4,Idle Speed,Increase Request,Display Range: ON/OFF
+;
+020,0,Vehicle && Compressor Status
+020,1,Engine Speed
+020,2,Vehicle Speed
+020,3,Compressor,Torque Status,0 = Transmitted Compressor Torque (Actual)\n1 = Transmitted Compressor Torque (Outdated)
+020,4,Compressor,Torque,0.0...1.0 Nm = Compressor OFF (A/C Valve [N280] not activated)\n1.5...X.X Nm = Compressor ON (A/C Valve [N280] activated)
+;
+021,0,Voltages
+;021,0,Seat Ventilation && Voltages
+;021,1,Status Driver,Seat Ventilation
+;021,2,Status Passenger,Seat Ventilation
+021,3,Voltage via CAN,(Terminal 58d),Display Range: 0.0...100.0 %
+021,4,Voltage via CAN,(Terminal 58s),Display Range: 0.0...100.0 %
+;
+022,0,Radiator Fans
+022,1,Radiator Fans (V7),Request,0.0...4.0 % = No Request from Climatronic\n5.0...100.0 % = Request from Climatronic
+022,2,Radiator Fans (V7),Feedback,0.0...4.0 % = No Activation\n5.0...100.0 % = Activation by Radiator Fan Control Unit
+022,3,Air Quality,Sensor (G238),7      = No Request for recirculated Air\n5...7 = Minor Rise in Air Pollution\n2...4 = Greater Rise in Air Pollution\n0      = No Signal from Air Quality Sensor (G238)
+022,4,Fresh/Recirculated,Air Request
+;  0 = No Recirculated Air Request (fresh air mode)
+; 10 = No Request for Recirculated Air Mode from Air Quality Sensor (G238)
+; 11 = Automatic Recirculated Air Function switched off (fresh air mode)
+; 12 = Compressor not running (fresh air mode)
+; 13 = Defrost Mode selected
+; 20 = Recirculated Air Mode selected
+; 30 = Windscreen Wiper is/was in "wipe/wash mode"
+; 40 = Increased Cooling Power requested
+; 50 = "OFF" Mode Preset
+; 60 = Request for Partial Recirculated Air Mode
+;
+023,0,Heated Rear Window && Rear Roller Blind
+023,1,Button Status
+023,2,CAN-Comfort,Signal Status
+023,3,Activation,Feedback,received via CAN-Databus Comfort
+023,4,Rear Roller Blind,Button (E385),Display Range: Not Occup.
+;
+024,0,Sunlight Penetration
+024,1,Photosensor,Left Side (G107),Display Range: 0.2...4.0 V
+024,2,Photosensor,Left Side (G107),Display Range: 0...1000 W/m²
+024,3,Photosensor,Right Side (G107),Display Range: 0.2...4.0 V
+024,4,Photosensor,Right Side (G107),Display Range: 0...1000 W/m²
+;
+025,0,Terminals && Voltage
+025,1,Status (via CAN),Terminal 15,Display Range: ON/OFF
+025,2,Status (via CAN),Terminal 75/X,Display Range: ON/OFF
+025,3,Status,Terminal 15,Display Range: ON/OFF
+025,4,Voltage,(Terminal 30)
+;
+026,1,Standing Time,,Dispplay Range: 00:00....04:00 h
+026,2,Windscreen Wiper,Operating Status
+; 00000 = no windscreen wiper or wash/wipe operation active
+; 00001 = windscreen wipers "intermittent"
+; XXX1X = windscreen wipers stage "1" or in "single-wipe" mode
+; XX1XX = windscreen wipers stage "2"
+; X1XXX = windscreen wipers in "wipe/wash mode"
+; 1XXXX = windscreen wipers in "single-wipe" mode (rain detected by climatronic)
+026,3,Status Driver,Seat Heating,Display Range: ON/OFF
+026,4,Status Passenger,Seat Heating,Display Range: ON/OFF
+;
+027,0,Seat Heating I (Front Left)
+027,1,Seat Heating,Stage,Display Range (Basic): 0...3\n0 = ~0 °C (seat heating off)\n1 = ~19 °C\n2 = ~31 °C\n3 = ~44 °C\nDisplay Range (Comfort): 0...6\n0 = ~0 °C (seat heating off)\n1 = ~13 °C\n2 = ~19 °C\n3 = ~30 °C\n4 = ~38 °C\n5 = ~47 °C\n6 = ~60 °C
+027,3,Actual (G344),Seat Temperature
+027,4,Specified (G344),Seat Temperature
+;
+028,0,Seat Heating II (Front Right)
+028,1,Seat Heating,Stage,Display Range (Basic): 0...3\n0 = ~0 °C (seat heating off)\n1 = ~19 °C\n2 = ~31 °C\n3 = ~44 °C\nDisplay Range (Comfort): 0...6\n0 = ~0 °C (seat heating off)\n1 = ~13 °C\n2 = ~19 °C\n3 = ~30 °C\n4 = ~38 °C\n5 = ~47 °C\n6 = ~60 °C
+028,3,Actual (G345),Seat Temperature
+028,4,Specified (G345),Seat Temperature
+;
+029,0,Auxiliary Heating/Ventilation I
+029,1,Aux. Heat./Vent.,ON-Signal,via CAN from Additional Heater Control Unit (J364)
+029,2,Aux. Heat./Vent.,OFF-Signal,via CAN from Additional Heater Control Unit (J364)
+029,3,Add. Air Heating,Request Signal,Diesel Engines only
+029,4,Status
+; 00 or 10 = Petrol Engine (No Additional Heating), No Shut-Off Condition (Additional Heating)
+; 01 or 11 = Coolant Temperature is above 80°C (No Additional Heating)
+; 05 or 15 = Engine NOT running (No Additional Heating)
+; 06 or 16 = Climatronic Control Unit (J255) or MMI set to ECON (No Additional Heating)
+; 07 or 17 = Climatronic Control Unit (J255) is set to OFF (No Additional Heating)
+; 08 or 18 = Ambient Temperature above +5°C (No Additional Heating)
+; 20       = Desired Interior Temperature can be reached without Additional Heating
+; 30       = Additional Heating switched OFF in MMI
+;
+030,0,Auxiliary Heating/Ventilation II
+030,1,Aux. Heat./Vent.,ON-Signal,from retrofitted auxiliary heater
+030,2,Aux. Heat./Vent.,Request,00 = No Request for Auxiliary Heater or Auxiliary Ventilation\n01 = Request for Auxiliary Heating\n10 = Request for Auxiliary Ventilation.
+030,3,Fresh Air Blower,(V2) Request
+030,4,Max. Remaining,Aux.Heat. ON-Time
+;
+031,0,Auxiliary Heating/Ventilation III
+031,1,MMI-Timer,Switching Status,0 = MMI-Timer not active\n1 = MMI-Timer active\n2 = MMI-Timer elapsed\n3 = Fault stored in MMI or Timer faulty
+031,2,MMI-Timer,Operating Status,0 = MMI-Timer not active\n1 = MMI-Timer active\n3 = MMI-Timer active (Request sent to switch on auxiliary heating)\n4 = MMI-Timer active (Request sent to switch on auxiliary ventilation)\n6 = MMI-Timer elapsed
+031,3,Aux. Heater,Request,0 = Auxiliary Heater can be switched on or remain on\n1 = No Auxiliary Heating required/Auxiliary Heater not switched on
+031,4,Aux. Ventilation,Request,0 = No Request\n1 = Request
+;
+032,0,Personalisation (Keys & Fingerprint)
+032,1,Key,(Ignition),Display Range: 0...4
+032,2,Driver,(Fingerprint),Display Range: 0...4
+032,3,Key Condition,,0 = Key not authorized\n1 = Key authorized
+;
+033,0,Electrical Shut-Off I
+033,1,Last Request,Electrical Shut-Off
+033,2,Last but One,Electrical Shut-Off
+033,3,Last but Two,Electrical Shut-Off
+033,4,Additional Heater,(Z35) Request,00 = No Request\nx1 = Request for 1st Stage (33%)\n1x = Request for 2nd Stage (66%)
+;
+034,0,Electrical Shut-Off II
+034,1,Last Request,Electrical Shut-Off,0 = No Request\n4 = Request for Complete Shut-Off (Transport Mode)
+034,2,Current Request,Electrical Shut-Off
+034,3,Capacity,Utilisation,0 = Alternator not governed\n1...3 = Alternator Capacity not used up\n4 = Alternator overloaded\n5 = Alternator Capacity fully utilised or slightly overloaded
+034,4,Consumption,Status,0 = Voltage Regulator not active\n1 = Voltage Regulator active
+;
+035,0,Electrical Shut-Off III
+035,1,Heated,Windscreen (Z2),0     = Voltage Regulator not active/Heated Windscreen (Z2) can activated with no limitation\n254 = Voltage Regulator active/Heated Windscreen (Z2) may be activated at reduced power\n255 = Voltage Regulator active/Heated Windscreen (Z2) must not be activated
+035,2,Seat Heating,Status
+; xxxxxxx1 = Front Left Seat Heating Power Reduction (25 %)
+; xxxxxx1x = Front Left Seat Heating OFF
+; xxxxx1xx = Front Right Seat Heating Power Reduction (25 %)
+; xxxx1xxx = Front Right Seat Heating OFF
+; xxx1xxxx = Rear Left Seat Heating Power Reduction (25 %)
+; xx1xxxxx = Rear Left Seat Heating OFF
+; x1xxxxxx = Rear Right Seat Heating Power Reduction (25 %)
+; 1xxxxxxx = Rear Right Seat Heating OFF
+035,3,Number of,Shut-Off Requests
+035,4,Last Active,Shut-Off Request,
+;
+036,0,CAN-Databus Operating Status
+036,1,CAN-Comfort,,Specification: 2-Wire
+;
+037,0,CAN-Databus Network Management
+037,1,CAN-Comfort
+;
+038,0,Air Humidity
+038,1,Air Humidity,Specified Value,Display Range: 0.0...100.0 %
+038,2,Air Humidity,Actual Value,Display Range: 0.0...100.0 %
+;
+040,0,Heat Regulation Valves (N175/N176) && Coolant Circulation Pump (V50)
+040,2,Heat Regulation,Valve Left (N175),0.0 %     = Valve permanently closed\n100.0 % = Valve permanently open
+040,3,Heat Regulation,Valve Right (N176),0.0 %     = Valve permanently closed\n100.0 % = Valve permanently open
+040,4,Coolant Circ.,Pump (V50),Display Range: ON/OFF
+;
+042,0,Fresh Air Blower Control Unit (J126) I
+042,1,Serial Number,(J126)
+;
+043,0,Fresh Air Blower Control Unit (J126) II
+043,3,Electronics,Temperature
+043,4,Status,,Specification: 00000000
+; 00000001 = Voltage too low (below 8.5 V)
+; 00000010 = Voltage too high (above 16.5 V)
+; 00000100 = Fresh Air Blower (V2) blocked
+; 00001000 = Fresh Air Blower (V2) not moving smoothly
+; 00010000 = Fresh Air Blower (V2) open/short circuit
+; 00100000 = Fresh Air Blower Control Unit (J126) too hot (temperature above 110°C)
+; 01000000 = Fresh Air Blower Control Unit (J126) built-in relay defective
+; 10000000 = Fresh Air Blower Control Unit (J126) defective
+;
+044,0,Fresh Air Blower (V2)
+044,1,Actual Current,,Specification: 0.0...25.0 A
+044,2,Operating Hours,(by Solar Sunroof),
+044,3,Actual Voltage,,Specification: 0.0...12.5 V
+044,4,Specified Voltage,,Specification: 0.0...12.5 V
+;
+045,0,Heated Windscreen (Z2) / Heated Windscreen Control Unit (J505) I
+045,1,Specified Output,(Watts)
+045,2,Actual Output,(Watts)
+045,3,Actual Current
+045,4,Status,,Specification: 00000000
+; 00000001 = Voltage too low (below 11.5 V)
+; 00000010 = Voltage too high (above 16.5 V)
+; 00000100 = Heated Windscreen Control Unit (J505) Temperature too high.
+; 00001000 = Heated Windscreen (Z2) Resistance too high (wire resistance or possibly window breakage)
+; 00010000 = Heated Windscreen (Z2) Resistance too low (possibly short between heater element and vehicle body)
+; 00100000 = Heated Windscreen (Z2) Resistance too low (possibly short between J505 and Z2)
+; 10000000 = Heated Windscreen Control Unit (J505) defective
+;
+046,0,Heated Windscreen (Z2) / Heated Windscreen Control Unit (J505) II
+046,1,Resistance,Lower Limit,0.0 Ohm = J505 Not Installed OR Short Circuit to Z2\n0.5...2.5 Ohm = Ok
+046,2,Resistance,Upper Limit,0.0 Ohm = J505 Not Installed OR Short Circuit to Z2\n0.5...2.5 Ohm = Ok
+046,3,Resistance,Actual Value,0.0 Ohm = J505 Not Installed OR Short Circuit to Z2\n0.5...2.5 Ohm = Ok
+;
+047,0,Fresh Air Blower Control Unit (J126) && Windscreen Control Unit (J505)
+047,1,Fresh Air Blower,Hardware Version
+047,2,Fresh Air Blower,Software Version
+047,3,Heated Windscr.,Hardware Version,0.0 = Not Installed
+047,4,Heated Windscr.,Software Version,0.0 = Not Installed
+;
+050,0,Climatronic Control Unit (J255)
+050,1,Code 1,Engine && Country
+050,2,Code 2,Body && Extras
+050,3,Code 3,Fuel Inj. && Extras
+050,4,Hardware Version
+;
+051,0,Air Ionisation Module (J707) I
+051,1,Specified Value,for Activation 
+051,2,Actual Value,for Activation 
+051,3,Actual Voltage,for Activation
+051,4,Status,,x00000x1 = Voltage too low (below 11.5V)\nx000001x = Voltage too high (above 16.5V)\n100000xx = Air Ionisation Module (J707) Electronics faulty
+;
+052,0,Air Ionisation Module (J707) II
+052,1,Hardware/Software,Version 
+052,2,Serial Number
+052,3,Operating Hours 
+;
+053,0,Coolant Circulation Pump (V50)
+053,1,Actual Speed,Cool. Pump (V50),Display Range: 350.0...650.0 Hz
+053,2,Lower Speed Limit,Cool. Pump (V50),Display Range: 200.0...350.0 Hz
+053,3,Upper Speed Limit,Cool. Pump (V50),Display Range: 650.0...800.0 Hz
+053,4,Coolant Circ.,Pump (V50),Display Range: ON/OFF
+;
+054,0,Refrigerant Pressure/Temperature Sensor (G395)
+054,1,Refrigerant,Circuit Pressure,Specification: 2.6...29.0 bar
+054,2,Refrigerant,Temperature,Display Range: -100.0...150.0 °C
+054,3,SW/HW-Version,Press./Temp.Sens.,Refrigerant Pressure/Temperature Sensor (G395)
+054,4,Status Refrigerant,Press./Temp.Sens.,0000xxx1 = Measured Value of installed Pressure Sensor faulty\n0000xx1x = Measured Value of installed Temperature Sensor faulty\n0000x1xx = Fault in one of the two installed Sensors or in the Electronics\n00001xxx = Fault in Electronics of the Refrigerant Pressure/Temperature Sensor (G395)
+;
+069,0,Climatronic Control Unit (J255) Design Status
+069,1,Design Status
+;
+071,0,Temperature && Air Distribution Control I
+071,1,Temperature,Knob Left,1.0...5.0     = Full Cold\n30.0...40.0 = Full Warm
+071,2,Air Distribution,Control Knob,1.0...5.0     = Air into Footwell\n19.0...23.0 = Air to Dash Panel Vents\n24.0           = Automatic Control of Air Distribution
+071,3,Fresh Air Blower,Speed Knob,1.0             = Automatic Fresh Air Blower Speed\n2.0...5.0     = Low Fresh Air Blower Speed\n20.0...30.0 = Full Fresh Air Blower Speed
+071,4,Temperature,Knob Right,1.0...5.0     = Full Cold\n30.0...40.0 = Full Warm
+;
+072,0,Calculated Specified Out-Flow Temperatures
+072,1,Calculated (spec.),Out-Flow Left,Specification: 14.0...30.0 °C
+072,2,Calculated (spec.),Out-Flow Right,Specification: 14.0...30.0 °C
+;
+073,0,Temperature && Air Distribution Control II (Raw Values)
+073,1,Temperature,Knob Left,1.0...50.0       = Full Cold\n220.0...254.0 = Full Warm
+073,2,Air Distribution,Control Knob,1.0...50.0       = Air into Footwell\n220.0...254.0 = Automatic Control of Air Distribution
+073,3,Fresh Air Blower,Speed Knob,1.0...50.0       = Automatic Fresh Air Blower Speed\n220.0...254.0 = Full Fresh Air Blower Speed
+073,4,Temperature,Knob Right,1.0...50.0       = Full Cold\n220.0...254.0 = Full Warm
+;
+074,0,Temperature && Air Distribution Control III (Lowest Learned Values)
+074,1,Temperature,Knob Left,1.0...50.0 = Full Cold
+074,2,Air Distribution,Control Knob,1.0...50.0 = Air into Footwell
+074,3,Fresh Air Blower,Speed Knob,1.0...50.0 = Automatic Fresh Air Blower Speed
+074,4,Temperature,Knob Right,1.0...50.0 = Full Cold
+;
+075,0,Temperature && Air Distribution Control IV (Highest Learned Values)
+075,1,Temperature,Knob Left,220.0...254.0 = Full Warm
+075,2,Air Distribution,Control Knob,20.0...254.0 = Automatic Control of Air Distribution
+075,3,Fresh Air Blower,Speed Knob,220.0...254.0 = Full Fresh Air Blower Speed
+075,4,Temperature,Knob Right,220.0...254.0 = Full Warm
+;
+076,0,Temperature/Brightness (Raw Values)
+076,1,Measured,Temperature
+076,2,Brightness,(Sunlight)
+076,3,Reference,Temperature
+076,4,Calculated,Temperature
+;
+077,0,Temperature/Brightness II
+077,1,Measured,Temperature
+077,2,Brightness,(Sunlight)
+077,3,Reference,Temperature
+077,4,Calculated,Temperature
+;
+078,0,Calculated Code Numbers
+078,1,Heat Regulation,Valve Left (N175)
+078,2,Heat Regulation,Valve Right (N176)
+078,3,Specified Out-Flow,Temperature Left
+078,4,Specified Out-Flow,Temperature Right
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Climate Control (J255) Coding
+C01,+000004 = 4-Cylinder Engine
+C02,+000006 = 6-Cylinder Engine
+C03,+000008 = 8-Cylinder Engine
+C04,+000016 = Diesel Engine
+C05,+000032 = Country: USA
+C06,+000064 = Country: Japan and China
+C07,+000096 = Country: Rest of World (Alternative)
+C08,+000256 = Avant (Wagon)
+C09,+001024 = Vehicle with Right-Hand Drive
+C10,+002048 = Auxiliary Heater (Factory) installed
+C11,+004096 = Sunroof with Solar Cells installed
+C12,+008192 = Electric Rear Roller Blind installed
+C13,+524288 = FSI-Engine
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;
+A03,0,
+;1
+;
+A004,0,A/C Regulating Valve (N280) Current Limit
+A004,5,A/C Regulating Valve (N280) Current Limit
+A004,6,The basic value "0" represents the limit according
+A004,7,to the control module coding.
+A004,8,Example: 2.0 = 200 mA
+A004,9,Note: Adaptation channel must (can) not be changed.
+;
+A05,0,
+;0
+;
+A006,0,Auxiliary Heating/Venting Aid
+A006,5,Auxiliary Heating/Venting Aid
+A006,6,Setting effects how the way the control module decides
+A006,7,at "Ignition OFF" on whether the auxiliary heating/venting
+A006,8,is required or not.
+A006,9, 
+A006,10,0 = Automatic
+A006,11,1 = Last MMI Preset
+;
+A007,0,Auxiliary Heating/Venting Shut-Off
+A007,5,Auxiliary Heating/Venting Shut-Off
+A007,6,0 = Shut-off based on operating time or manual input
+A007,7,1 = Shut-off based on engine switched off
+;
+A009,0,Adaptation Channel Reset (based on Coding)
+A009,5,Adaptation Channel Reset (based on Coding)
+A009,6,To reset all adaptation channels back to the setting
+A009,7,represented by the coding enter "1" as new value.
+;
+A10,0,
+;10
+;
+A011,0,Solar Sunroof
+A011,5,Solar Sunroof
+A011,6,0 = Solar Sunroof MMI Setting available
+A011,7,1 = Solar Sunroof MMI Setting NOT available
+;
+A014,0,Not Relevant for Customer Service
+;
+A015,0,Fresh Air Blower (V2) Speed at Aux. Heat./Vent.
+A015,5,Fresh Air Blower (V2) Speed at Aux. Heat./Vent.
+A015,6,Range: 30...80 (3.0...8.0 V)
+A015,7,Standard: 60 (6.0 V)
+;
+A16,0,
+;0
+;
+A17,0,
+;0
+;
+A19,0,
+;0
+;
+A20,0,
+;1
+;
+A021,0,Engine Heating via Auxiliary Heating 
+A021,5,Engine Heating via Auxiliary Heating 
+A021,6,0 = MMI Setting "incl. Engine" NOT available
+A021,7,1 = MMI Setting "incl. Engine" available
+;
+A022,0,Fresh Air Blower (V2) Characteristic
+A022,5,Fresh Air Blower (V2) Characteristic
+A022,6,0 = Automatic (based on current Coding)
+A022,7,1 = Rest of World - Low (Lower speed across the full characteristic curve)
+A022,8,2 = Rest of World - High (Higher speed across the full characteristic curve)
+A022,9,3 = USA (in some areas at slightly higher speed)
+;
+A023,0,Temperature Characteristic
+A023,5,Temperature Characteristic
+A023,6,0 = Automatic (based on current Coding)
+A023,7,1 = Rest of World (Warmer Characteristic)
+A023,8,2 = USA (Cooler Characteristic)
+;
+A27,0,
+;2
+;
+A28,0,
+;5
+;
+A33,0,
+;60
+;
+A38,0,
+;0
+;
+A39,0,
+;5
+;
+A40,0,
+;30
+;
+A41,0,
+;0
+;
+A42,0,
+;0
+;
+A43,0,
+;48
+;
+A44,0,
+;36
+;
+A45,0,
+;12
+;
+A46,0,
+;10
+;
+;
+;---------------------------------------------------
+;
+; selective output test information
+;
+;---------------------------------------------------
+;
+;
+T18,Front Cold Air Flap Control Motor (V197)
+T41,Indirect Ventilation Flap Control Motor (V213)
+;T355,
+;T356,
+T361,Heater Element for Auxiliary Heater (Z35)
+T657,Central Vents Control Motor (V102)
+T708,Coolant Fan
+T710,Defroster Flap Control Motor (V107)
+T711,Left Footwell Flap Control Motor (V108)
+T712,Right Footwell Flap Control Motor (V109)
+T715,Rear Footwell Vent Positioning Motor (V112)
+T716,Air Recirculation Flap Control Motor (V113)
+T737,Heat Regulation Valve Left (N175)
+T738,Heat Regulation Valve Right (N176)
+T739,Coolant Circulation Pump (V50)
+T796,Fan for Interior Temp Sensor (V42)
+T798,Segment Test (Display)
+T831,Coolant Fan Control Module (J293)
+T975,Heated Rear Window (Z1)
+T1232,A/C Compressor Regulator Valve (N280)
+T1273,Fresh Air Blower (V2)
+T1274,Air Flow Flap Control Motor (V71)
+;T1282,
+T1593,Heated Windshield (Z2)
+T1853,Seat Heating Front Left (Z45)
+T1854,Seat Heating Front Right (Z46)
+;

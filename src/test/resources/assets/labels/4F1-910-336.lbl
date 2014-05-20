@@ -1,0 +1,89 @@
+;
+; VAG-COM Label File
+;
+; Audi A6 (4F) / Audi A8 (4E) / Audi Q7 (4L)
+;
+; Component: R36 - Telephone Bluetooth (#77) - PR-9ZW
+;
+; P/N: 4F1-910-336-???
+;
+; includes measuring blocks, coding and adaptation
+;
+; created on 28/Nov/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 28/Nov/2006
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone Bluetooth (R36) Coding
+C01,?0x00xx: Cradle/Charger
+C02,0 = No Cell Phone Cradle/Charger installed
+C03,1 = 1 Cell Phone Cradle/Charger installed
+C04,2 = 2 Cell Phone Cradles/Chargers installed 
+C05,x0?00xx: Vehicle Type
+C06,4 = Audi A6 (4F) Sedan
+C07,5 = Audi A6 (4F) Avant/Wagon/Allroad
+C08,6 = Audi A8 (4E)
+C09,7 = Audi Q7 (4L) 
+C10,x0x00?x: Voice Control Language
+C11,0 = Voice Control OFF
+C12,1 = German / 2 = English
+C13,3 = French / 4 = Italian
+C14,5 = Spanish / 6 = Portuguese
+C15,7 = Czech
+C16,9 = Speaker depend Voice Selection 
+C17,x0x00x?: MMI System
+C18,1 = MMI High
+C19,2 = MMI Standard 
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A007,0,Microphone Sensitivity
+;
+A008,0,Delay Time
+A008,5,Delay Time
+A008,6,Adjustment of the delay times to compensate the
+A008,7,audio component delay and acoustic running times.
+A008,8, 
+A008,9,Range: 0...12 ms
+;
+A096,0,Optical Performance
+A096,5,Optical Performance
+A096,6,The optical performance of the MOST bus can be adapted.
+A096,7, 
+A096,8,0 = Normal Performance
+A096,9,3 = Reduced Performance (-3 dB)
+;
+A133,0,Bluetooth
+A133,5,Bluetooth
+A133,6,0 = Bluetooth OFF
+A133,7,1 = Bluetooth ON
+;
+A135,0,Bluetooth Pass Key
+A135,5,Bluetooth Pass Key
+A135,6,Set the 4-digit Bluetooth pass key using this channel.
+;

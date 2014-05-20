@@ -1,0 +1,37 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi 80 (8C) / Audi 100 (4A) / Audi Cabriolet (8G) / Audi Coupe (8B)
+;
+; Komponente: J153 - Steuergerät für Magnetkupplung (#08)
+;
+; T/N: 4A0-919-579-?
+;
+; beinhaltet Messwertgruppen
+;
+; erstellt am 31.05.2004 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 31.05.2004
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Abschalt-,bedingungen,des Kompressors (Sollwert: 0 = nicht abgeschaltet)
+; 1 = abgeschaltet (Einschaltverzögerung nach Motorstart / zu geringe bzw. keine Motordrhzahl)
+; 2 = abgeschaltet (Spannungsunterbrechung)
+; 3 = abgeschaltet (Kühlmittelteperatur zu hoch)
+; 4 = abgeschaltet (Klimakompressoreingriff)
+; 5 = abgeschaltet (Riemenschlupf zu groß/Kompressordrehzahl nicht erkannt/Steuergerät für Magnetkupplung falsch)
+; 6 = abgeschaltet (bis 12 Sekunden nach Kick-Down)
+; 7 = abgeschaltet (Kick-Down aktiv)
+001,2,Motordrehzahl
+001,3,Kompressor-,drehzahl
+001,4,aktueller,Riemenschlupf,Sollwert: max. 30 %
+;

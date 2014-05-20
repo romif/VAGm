@@ -1,0 +1,332 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A4 (8D)
+;
+; Komponente: J285 - Kombiinstrument (#17)
+;
+; T/N: 8D?-919-9??-???
+;
+; beinhaltet Messwertgruppen, Anpassung und Codierung
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; Diese Datei gehört zu einem Redirect-Paket, stellen
+; Sie sicher, das alle folgenden Dateien vorhanden sind.
+;
+; 8D-17.LBL
+; 8Dx-919-0xx.LBL  ; Modelyear 1995-1997
+; 8Dx-919-8xx.LBL  ; Modelyear 1998-1999
+; 8Dx-920-9xx.LBL  ; Modelyear 2000+
+;
+; von Sebastian Stange
+; sebastian@ross-tech.com
+;
+; letzte Änderung: 21.09.2004
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Geschwindigkeit,[km/h]
+001,2,Motordrehzahl,[U/min]
+001,3,Öldruck-,schalter 2,Wertebereich: Ok/n.Ok
+001,4,Uhrzeit,[hh:mm]
+;
+002,1,Wegstrecken-,zähler
+002,2,Tankanzeige,[l]
+002,3,Tankgeber,[Ohm],Wertebereich (leer -> voll): 280...40 Ohm
+002,4,Außen-,temperatur,Wertebereich: -40...+70 °C
+;
+003,1,Kühlmittel-,temperatur,Wertebereich: 50...130°C
+003,2,[N/A]
+003,3,[N/A]
+003,4,[N/A]
+;
+010,1,Anpassungs-,kanal 30
+010,2,Tankgeber-,kennlinie,Standardwert: 128
+010,3,Anpassungs-,kanal 09
+010,4,Wegstrecken-,zähler
+;
+011,1,Anpassungs-,kanal 04
+011,2,Sprachvariante,,siehe Anpassung
+011,3,Anpassungs-,kanal 03
+011,4,Verbrauchs-,anzeige
+;
+012,0,Wartungsintervallanzeige (seit Service)
+012,1,Anpassungs-,kanal 40
+012,2,Wegstrecke,seit Service
+012,3,Anpassungs-,kanal 41
+012,4,Zeit, seit Service
+;
+013,0,Wartungsintervallanzeige (bis Service)
+013,1,Anpassungs-,kanal 42
+013,2,minimale,Fahrleistung
+013,3,Anpassungs-,kanal 43
+013,4,maximale,Fahrleistung
+;
+014,0,Wartungsintervallanzeige (bis Service)
+014,1,Anpassungs-,kanal 44
+014,2,maximales,Zeitintervall
+014,3,[N/A]
+014,4,[N/A]
+;
+015,1,Anpassungs-,kanal 45
+015,2,Ölqualität
+015,3,Anpassungs-,kanal 46
+015,4,Gesamtverbrauchs-,menge
+;
+016,1,Anpassungs-,kanal 47
+016,2,Rußindex
+016,3,Anpassungs-,kanal 48
+016,4,Thermische,Belastung
+;
+017,0,CAN-Datenbus Teilnehmer
+017,1,Anpassungs-,kanal 60
+017,2,Antrieb,,siehe Anpassung
+017,3,Anpassungs-,kanal 61
+017,4,Komfort,,siehe Anpassung
+;
+022,0,Wegfahrsperre
+022,1,Motorstart erlaubt?,0=Nein 1=Ja
+022,2,STG Antwort?,0=Nein 1=Ja
+022,3,Schlüssel Ok?,0=Nein 1=Ja
+022,4,Anzahl der,Schlüssel
+;
+023,0,Wegfahrsperre
+023,1,Variabler Code,0=Nein 1=Ja
+023,2,Transponder Status,0=Nein 1=Ja
+023,3,Fester Code,0=Nein 1=Ja
+023,4,WFS-Status
+;
+024,0,Wegfahrsperre (Sperr-Zeit)
+024,1,Kombiinstrument,,Bereich: 0...255 Minuten
+024,2,Motor-,steuergerät,Bereich: 0...255 Minuten
+024,3,[N/A]
+024,4,Transponder,,Bereich: 0...10 Minuten
+;
+025,0,Wegfahrsperre
+025,1,Kommunikation,Motorelektronik
+025,2,[N/A]
+025,3,[N/A]
+025,4,[N/A]
+;
+050,1,Wegstrecken-,zähler
+050,2,Motordrehzahl,[U/min]
+050,3,Öltemperatur,[°C]
+050,4,Kühlmittel-,temperatur,Wertebereich: 50...130°C
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Motor-,elektronik
+125,2,Getriebe-,elektronik
+125,3,Bremsen-,elektronik
+125,4,ADR
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,Klima
+126,2,[N/A]
+126,3,[N/A]
+126,4,[N/A]
+;
+130,0,CAN-Datenbus Kommunikation (Komfort)
+130,1,Reifendruck
+130,2,Standheizung
+130,3,[N/A]
+130,4,Einparkhilfe
+;
+140,0,CAN-Datenbus Kommunikation (Infotainment)
+140,1,Radio
+140,2,Telefon
+140,3,Navigation
+140,4,Telematik
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,J285 - Kombiinstrument
+C1,??xxx: Mehrausstattung
+C2,+00 - keine Mehrausstattung bzw. Nav. III 
+C3,+02 - Sicherheitsgurtwarnanzeige aktiv
+C4,+16 - Navigation I & II
+C5, 
+C6,xx?xx: Länderauswahl
+C7,0 - Deutschland (D) / 1 - Rest der Welt Linkslenker (RdW)
+C8,2 - USA (US) / 3 - Kanada (CDN) / 4 - Großbritannien (GB)
+C9,5 - Japan Linkslenker (JP) / 6 - Saudi Arabien (SA)
+C10,7 - Australien (AUS) / 8 - Rest der Welt Rechtslenker (RdW)
+C11,9 - Japan Rechtslenker (JP)
+C12, 
+C13,xxx?x: Zylinderzahl
+C14,4 - 4-Zylinder / 6 - 6-Zylinder / 8 - 8-Zylinder
+C15, 
+C16,xxxx?: Motorvariante
+C17,0 - TDI-Motor / 2 - 4-Zylinder und 6-Zylinder Otto-Motor
+C18,3 - 8-Zylinder Otto-Motor / 4 - Turbo-Motor
+;
+;
+;---------------------------------------------------
+;
+; Anpassungs Informationen
+;
+;---------------------------------------------------
+;
+;
+A02,0,Serviceintervall
+A02,5,Serviceintervall
+A02,6,Rücksetzen des Serviceinterrvalls.
+A02,7, 
+A02,8,Angezeigte Werte:
+A02,9,01 - Ölservice fällig
+A02,10,10 - Inspektionsservice fällig
+A02,11,11 - Öl- und Inspektionsservice fällig
+A02,12, 
+A02,13,Anpassungswert:
+A02,14,00 - Öl- und Inspektionsservice löschen
+A02,15,01 - Ölservice löschen
+A02,16,10 - Inspektionsservice löschen
+;
+A03,0,Verbrauchsanzeige
+A03,5,Anpassung der Verbrauchsanzeige
+A03,6,Basiswert: 100
+A03,7,Bereich: 85 - 115
+A03,8,Einheit: 5 % (Prozent)
+;
+A04,0,Sprachvariante für Fehlermeldungen und Navigation (nur MFA)
+A04,1,Sprache
+A04,5,Sprachvariante für Fehlermeldungen und Navigation
+A04,6,1 - Deutsch (German)
+A04,7,2 - Englisch (English)
+A04,8,3 - Französisch (French)
+A04,9,4 - Italienisch (Italian)
+A04,10,5 - Spanisch (Spanish)
+A04,11,6 - Portugiesisch (Portuguese)
+;
+A09,0,Kilometerstand (in 10km)
+A09,1,Kilometerstand
+A09,2,in 10
+A09,3,km
+A09,5,Kilometerstand einstellen
+A09,6,Bevor das Kombiinstrument den
+A09,7,neuen Kilometerstand akzeptiert
+A09,8,muss ein Login mit 13861 erfolgen.
+A09,9, 
+A09,10,Der Kilometerstand kann nur eingestellt werden
+A09,11,solange der alte Wert 100km nicht übersteigt.
+;
+A18,0,Standheizung
+A18,5,Standheizung
+A18,6,00 - keine Standheizung verbaut
+A18,7,01 - Standheizung verbaut - unabhängig vom Motorlauf
+A18,8,10 - Standheizung verbaut - abhängig vom Motorlauf
+;
+A30,0,Tankgeberkennlinie
+A30,1,Aktueller,Wert
+A30,5,Tankgeberkennlinie
+A30,6,Basiswert: 100
+A30,7,Bereich: 120 - 136
+A30,8,Einheit: 1 Ohm
+;
+A35,0,Drehzahlschwelle
+A35,5,Anhebung der Drehzahlschwelle
+A35,6,Basiswert: 0
+A35,7,Bereich: 0 - 1000
+A35,8,Einheit: 250 U/min
+;
+A40,0,Strecke seit letztem Service (in 100km)
+A40,1,Aktueller,Wert
+A40,2,Insp. vor
+A40,3,100km
+A40,5,Strecke seit letztem Services
+A40,6,Basiswert: 0
+A40,7,Bereich: 0 - ????
+A40,8,Einheit: 1 (entspricht 100km)
+;
+A41,0,Zeit seit letztem Service (in Tagen)
+A41,1,Aktueller,Wert
+A41,2,Insp. vor
+A41,3,1 Tagen
+;
+A42,0,Minimale Fahrleistung bis Öl-Service (in 1000km)
+A42,1,Minimal,Wert
+A42,2,Öl in
+A42,3,1000 km
+A42,5,Minimale Fahrleistung bis Öl-Service
+A42,6,15 - 15.000 km  (Standard)
+;
+A43,0,Maximale Fahrleistung bis Öl-Service (in 1000km)
+A43,1,Maximal,Wert
+A43,2,Öl in
+A43,3,1000 km
+A43,5,Maximale Fahrleistung bis Öl-Service
+A43,6,15 - kein Longlife
+A43,7,30 - Benzinmotoren (Long Life)
+;
+A44,0,Maximale Zeit bis Service (in Tagen)
+A44,1,Maximal,Wert
+A44,2,Insp. in
+A44,3,1 Tagen
+A44,5,Maximale zeit bis Service
+A44,6,365 - ohne Longlife
+A44,7,730 - mit Longlife
+;
+A45,0,Ölqualität
+A45,5,Ölqualität
+A45,6,1 - festes Wartungsintervall
+A45,7,2 - flexibles Wartungsintervall
+;
+A46,0,Gesamtverbrauchsmenge (nur Benzinmotoren)
+A46,5,Gesamtverbrauchsmenge
+A46,6,Der in Litern angegebene Wert stellt nicht den
+A46,7,tatsächlichen Verbrauch dar, sondern einen
+A46,8,Rechenwert für die Serviceanzeige aus
+A46,9,verschiedenen Motordaten und Laufleistung.
+;
+A47,0,Rußeintrag (nur Dieselmotoren)
+A47,5,Rußeintrag
+A47,6,Der angegebene Wert stellt einen Vergleichswert
+A47,7,für die Serviceanzeige dar und ist ein Rechenwert
+A47,8,für den Rußanteil im Motoröl bezogen auf eine
+A47,9,Strecke von 100 km.
+
+A48,0,Thermische Belastung (nur Dieselmotoren)
+A48,5,Thermische Belastung
+A48,6,Der angegebene Wert stellt einen Vergleichswert
+A48,7,für die Serviceanzeige dar und ist ein Rechenwert
+A48,8,für die thermische Belastung im Motoröl bezogen
+A48,9,auf eine Strecke von 100 km.
+;
+A60,0,CAN-Datenbus Antrieb Teilnehmer
+A60,5,CAN-Datenbus Antrieb Teilnehmer
+A60,6,+00001 - Motorelektronik
+A60,7,+00002 - Autom. Getriebe
+A60,8,+00004 - Bremsenelektronik
+A60,9,+00008 - Klima-/Heizungselektronik
+A60,10,+00032 - ADR 
+A60,11,+01024 - Kombiinstrument
+;
+A61,0,CAN-Datenbus Komfort Teilnehmer
+A61,5,CAN-Datenbus Komfort Teilnehmer
+A61,6,+00256 - Kombiinstrument
+A61,7,+00512 - Reifendruck
+A61,8,+16384 - Einparkhilfe
+A61,9,+32768 - Standheizung
+;
+A62,0,CAN-Datenbus Infotainment Teilnehmer
+A62,5,CAN-Datenbus Infotainment Teilnehmer
+A62,6,+00001 - Radio (nur Symphony)
+A62,7,+00002 - Telefon
+A62,8,+00004 - Navigation
+A62,9,+00008 - Telematik
+;

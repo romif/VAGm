@@ -1,0 +1,38 @@
+;
+; VCDS Redirect File
+;
+; Component: R - Radio (#56)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1C-56.LBL
+; 1J-56.LBL
+; 6N-56.LBL
+; 6Q-56.LBL
+; 6X-56.LBL
+; 1J0-035-15x-56.LBL
+; 1J0-035-18x-56.LBL
+;
+; created on 02/Jun/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 22/May/2008
+;
+; requires VCDS 804.0 or newer
+;
+;
+REDIRECT,1J0-035-15x-56.LBL,1J0-035-152-B   ; BETA
+REDIRECT,1J0-035-15x-56.LBL,1J0-035-152-C   ; BETA
+REDIRECT,1J0-035-15x-56.LBL,1J0-035-152-E   ; BETA
+REDIRECT,3B0-035-186.LBL,1J0-035-152-G      ; MFD
+;
+REDIRECT,1J0-035-15x-56.LBL,1J0-035-153-??? ; ALPHA
+;
+REDIRECT,1J0-035-18x-56.LBL,1J0-035-156-??? ; RHAPSODY
+;
+REDIRECT,1J0-035-18x-56.LBL,1J0-035-180-??? ; PREMIUM IV
+;
+REDIRECT,1J0-035-18x-56.LBL,1J0-035-186-??? ; GAMMA
+;
+REDIRECT,1J0-035-18x-56.LBL,1JM-035-157-??? ; PREMIUM V
+;

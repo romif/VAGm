@@ -1,0 +1,23 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A5 (8T)
+;
+; Component: J772 - Back-Up Camera (#6C)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4E-6C.LBL
+; 4F-6C.LBL
+; 8T-6C.LBL
+; 4L0-910-441.LBL
+;
+; created on 29/Jan/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 29/Jan/2008
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,4L0-910-441.LBL,8T0-907-441-???
+;

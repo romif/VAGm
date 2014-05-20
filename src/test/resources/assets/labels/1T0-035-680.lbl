@@ -1,0 +1,404 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z) / Skoda Superb (3T)
+; VW Caddy (2K) / VW Golf/Jetta (1K/5M) / VW Passat (3C) / VW Touareg (7L) / VW Touran (1T)
+;
+; Component: J506 - Radio-/Navigation System (#37/56) - RNS510
+;
+; P/N: 1T0-035-680-??? / 1Z0-035-680-??? / 3C0-035-68?-??? / 5P0-035-680-???
+;      7L6-035-680-???
+;
+; includes measuring blocks, adaptation, long coding and selective output tests
+;
+; created on 10/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 19/Apr/2008
+;
+; requires VAG-COM 707.0 / LCode 710.2 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Supply Voltage,(Terminal 30),Specification: 9.0...15.0 V
+001,2,Dimming,(Terminal 58s),Range: 0.0...100.0 %
+001,3,Dimming,(Terminal 58d),Range: 0.0...100.0 %
+001,4,Status,S-Contact (CAN),Range: ON/OFF
+;
+002,0,Telephone
+002,1,Telephone
+002,2,Mute Status,(Analog),Range: ON/OFF
+002,4,Mute Status,(CAN),Range: ON/OFF/Not Recognized
+;
+003,0,Speaker/Line-Out (Front Left)
+003,1,Location/Type,,Range: Line-Out F/Lf / Spkr. Frt/Lft
+003,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+004,0,Speaker/Line-Out (Front Right)
+004,1,Location/Type,,Range: Line-Out F/Rt / Spkr. Frt/Rt
+004,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+005,0,Speaker/Line-Out (Rear Left)
+005,1,Location/Type,,Range: LLine-Out R/Lf / Spkr. R/Lft
+005,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+006,0,Speaker/Line-Out (Rear Right)
+006,1,Location/Type,,Range: Line-Out R/Rt / Spkr. R/Rt
+006,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+007,0,Remote Feed Antenna I
+007,1,Antenna Type,,Range: Active
+007,2,Component
+007,3,Status,,Range: OK/Short Circuit/Open Circuit
+;
+008,0,Signal Strength
+008,1,Signal Strength
+008,2,Signal Strength,Tuner I
+008,3,Signal Strength
+008,4,Signal Strength,Tuner II
+;
+010,0,Remote Feed Antenna II
+010,1,Antenna Type,,Range: Active
+010,2,Component
+010,3,Status,,Range: OK/Short Circuit/Open Circuit
+;
+011,0,Communication Status CD-Changer (R41)
+011,1,Component
+011,2,Status,,Range: OK/Not OK
+011,4,Communication,Status
+;
+013,0,Communication Sound System (DSP)
+013,1,Component
+013,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+020,0,Card Reader
+020,2,Card Reader,Status,xxxxxxx? = Card Reader ready\nxxxxxx?x = SD-Card recognized and valid\nxxxxx?xx = SD-Card reading\nxxxx?xxx = SD-Card writing\nxxx?xxxx = No Card\nxx?xxxxx = MMC Card\nx?xxxxxx = SD-Card write protected\?xxxxxxx = Error
+020,3,Memory Card,Capacity
+020,4,Memory Card,Free Capacity
+;
+025,0,Internal Control Module Malfunctions
+025,1,Control Module,Status,Specification: 0\n\n0 = No Error recognized\n1 = Button(s) jammed\n2 = Checksum Error ROM/EPROM/Flash-ROM\n3 = Checksum Error EEPROM\n5 = CD/DVD-Drive Error
+;
+030,0,SDARS (Sirius)
+030,1,Service ID,Sirius Audio
+;
+031,0,SDARS (Sirius)
+031,1,Service ID,Sirius Traffic
+;
+032,0,SDARS (Sirius)
+032,1,Sirius Service,Status,1 = No Signal\n2 = Signal Quality insufficient\n3 = Signal Quality good\n4 = Signal Quality very good
+032,2,Sirius Service,Mute Status,Range: Yes/No
+032,3,Sirius Service,Current Channel
+032,4,Sirius Service,Adjustment,xx1 = Country\nx1x = SAT1\n1xx = SAT2
+;
+033,0,SDARS (Sirius Audio)
+033,1,Sirius Audio,subscribed,Range: Yes/No
+033,2,Sirius Audio,Mute Status,Range: Yes/No
+033,3,Sirius Audio,activated,Range: Yes/No
+033,4,Sirius Audio,Activation Time
+;
+034,0,SDARS (Sirius Traffic)
+034,1,Sirius Traffic,subscribed,Range: Yes/No
+034,2,Sirius Traffic,Mute Status,Range: Yes/No
+034,3,Sirius Traffic,activated,Range: Yes/No
+034,4,Sirius Traffic,Activation Time
+;
+035,0,SDARS (Regional Code)
+035,1,Regional Code,Flash
+035,2,Regional Code,PSV
+035,3,Regional Code,eGCI
+035,4,Regional Code
+;
+036,1,SDARS (Sirius)
+;
+040,0,DAB
+041,0,DAB
+042,0,DAB
+;
+051,0,Allgemein
+051,1,Status,Terminal 15,Range: Term. 15 ON/Term. 15 OFF
+051,2,Status,Reverse Gear
+051,3,Speed Signal,(CAN)
+051,4,Speed Signal,(Status)
+;
+052,0,GPS-Reception
+052,1,Component
+052,2,Used,Satellites
+052,3,Visible,Satellites
+;
+053,0,Geographic Position (Longitude)
+053,1,Longitude
+;
+054,0,Geographic Position (Latitude)
+054,1,Latitude
+;
+055,0,Device Temperture Monitoring
+055,1,Temperature
+055,2,Temperature,Status
+055,3,Current Device,Temperature
+;
+056,0,DVD-Drive (Read Errors)
+056,1,DVD-Drive,Read Errors
+056,2,Status,Read Errors
+056,3,Number of,Read Errors
+;
+057,0,DVD-Drive (Access Time)
+057,1,DVD-Drive,Access Time
+057,2,DVD-Drive,Access Time
+;
+058,0,DVD-Drive (Read Errors/Access Time)
+058,1,DVD-Drive,Read/Access
+058,2,Status,Read Errors
+058,3,Number of,Read Errors
+058,4,Access Time
+;
+059,0,Wakeup Reason
+059,1,Wakeup Reason
+059,2,Wakeup Reason
+059,3,Wakeup Reason,CAN-Messages
+;
+060,0,DVD-Drive
+060,1,Status,DVD-Drive
+060,2,Status,DVD-Drive,0 = Ready, No DVD/CD\n1 = Ready, Load/Eject in progress\n2 = Ready, No DVD/CD inserted\n3 = Medium recognized but Rear Error\n4 = Medium recognized and OK\n5 = Load/Eject Error\n6 = Error (Initialisation failed)\n7 = Over-Temperature, Drive deactivated\n8 = Positioning Error\n9 = Voltage Error, Drive deactivated\n15 = Unknown Error
+060,3,Regional Code
+060,4,Regional Code,rem. Changes
+;
+061,1,Satellite-ID,(best Signal)
+061,2,Signal Level,(best Signal)
+061,3,Satellite-ID,(sec. best Signal)
+061,4,Signal Level,(sec. best Signal)
+;
+062,1,Satellite-ID,(best Signal)
+062,2,Signal Level,(best Signal)
+062,3,Satellite-ID,(sec. best Signal)
+062,4,Signal Level,(sec. best Signal)
+;
+063,0,GPS-Antenna
+063,1,Component
+063,2,Status,,Range: OK/Short Circuit/Open Circuit
+;
+065,1,Hardkeys
+065,2,Hardkeys
+;
+066,0,Buttons
+066,1,Button Status,,1x = Rotary Knob pressed\nx1 = Volume Knob pressed
+066,2,Volume Knob
+066,3,Rotary Knob
+;
+070,0,CAN-Data Bus Communication
+070,1,TV-Tuner,,Range: TV-Tuner 0/TV-Tuner 1
+;
+090,0,Speech Dialog System (SDS)
+091,0,Speech Dialog System (SDS)
+;
+093,0,Multifunction Steering Wheel Buttons
+093,1,Buttons
+093,2,Button,Status
+;
+094,0,Communication Electronic-Toll-Collect (ETC)
+;
+095,0,DVD-Drive Status
+;095,1,,,
+;DVD Status, ,
+;095,2,,,
+;1.0,(no units),
+;095,3,,,
+;5.0,(no units),
+;
+107,0,Remote Feed Antenna I
+107,1,Connection
+107,2,Radio
+107,3,Antenna
+107,4,Status,,Specification: OK
+;
+110,0,Remote Feed Antenna II
+110,1,Connection
+110,2,Radio
+110,3,Antenna
+110,4,Status,,Specification: OK
+;
+127,0,Software Version (Siemens/VDO)
+127,1,Software Version,(Siemens/VDO)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A010,0,Remote Control
+A010,5,Remote Control
+A010,6,0 = Playback disabled
+A010,7,1 = Playback enabled
+A010,8, 
+A010,9,Note: After closing the Diagnostic Session/Communication
+A010,10,the Standard Value 0 is automatically being restored.
+;
+A011,0,Remote Control: Source
+A011,5,Remote Control: Source
+A011,6,0 = FM
+A011,7,1 = AM
+A011,8, 
+A011,9,Note: After closing the Diagnostic Session/Communication
+A011,10,the Standard Value 0 is automatically being restored.
+;
+A012,0,Remote Control: Frequency FM
+A012,5,Remote Control: Frequency FM
+A012,6,The Frequency Adjustment is being carried out
+A012,7,incrementally starting with 0 = 88.3 MHz.
+A012,8, 
+A012,9,Note: After closing the Diagnostic Session/Communication
+A012,10,the Standard Value 0 is automatically being restored.
+;
+A013,0,Remote Control: Frequency AM
+A013,1,Remote Control: Frequency AM
+A013,6,The Frequency Adjustment is being carried out
+A013,7,incrementally starting with 0 = 540 kHz.
+A013,8, 
+A013,9,Note: After closing the Diagnostic Session/Communication
+A013,10,the Standard Value 0 is automatically being restored.
+;
+A014,0,Remote Control: Volume
+A014,5,Remote Control: Volume
+A014,6,Range: 0...100
+A014,7,Standard: 40
+A014,8, 
+A014,9,Note: After closing the Diagnostic Session/Communication
+A014,10,the Standard Value 0 is automatically being restored.
+;
+A015,0,Remote Control: Balance
+A015,5,Remote Control: Balance
+A015,6,Note: After closing the Diagnostic Session/Communication
+A015,7,the Standard Value 0 is automatically being restored.
+;
+A016,0,Remote Control: Fader
+A016,1,Remote Control: Fader
+A016,6,Note: After closing the Diagnostic Session/Communication
+A016,7,the Standard Value 0 is automatically being restored.
+;
+A17,0,
+;0
+;
+A18,0,
+;0
+;
+A19,0,
+;255
+;
+A20,0,
+;0
+;
+A43,0,
+;0
+;
+A44,0,
+;0
+;
+A050,0,Development Test Mode
+A050,5,Development Test Mode
+A050,6,To Enable the Development Test Mode save "1" as new value.
+;
+A121,0,
+;0
+;
+A125,0,
+;0
+;
+A130,0,
+;0
+;
+A131,0,
+;3
+;
+A132,0,
+;6
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+; (Radio Configuration I)
+LC,00,1,CD-Changer/iPod/USB Connection Monitoring active
+LC,00,2,AUX-Input Connection Monitoring active
+LC,00,3,Parking Aid/Park SteerAssist Monitoring inactive
+; (Sound System Correction)
+LC,01,0~7,00,Soundsystem not installed
+LC,01,0~7,01,Volkswagen Soundsystem
+LC,01,0~7,02,Skoda Soundsystem (CAN DSP)
+LC,01,0~7,05,Dynaudio Soundsystem
+LC,01,0~7,06,Volkswagen Soundsystem (BAP DSP)
+LC,01,0~7,07,Dynaudio Soundsystem (BAP DSP)
+; (Speaker Channels)
+LC,02,0~7,00,Sound System (active Speakers)
+LC,02,0~7,02,2 Speaker Channels (Front only)
+LC,02,0~7,04,4 Speaker Channels (Front and Rear)
+; (Radio Configuration II)
+LC,03,1,Microphone Diagnostics active
+LC,03,6,Back-Up Camera Low (without Control Module) installed
+; (Treble Speaker Monitoring)
+LC,04,0~7,00,Not coded
+LC,04,0~7,01,Speaker Monitoring: inactive (Sound System)
+LC,04,0~7,02,Speaker Monitoring: Front active / Rear inactive
+LC,04,0~7,03,Speaker Monitoring: Front inactive / Rear active
+LC,04,0~7,04,Speaker Monitoring: Front and Rear active
+; (Vehicle Specific Equalization)
+LC,05,0~7,00,Equalization: Linear
+LC,05,0~7,01,Equalization: Seat Altea (5P) / Skoda Octavia (1Z)
+LC,05,0~7,02,Equalization: Seat Leon (1P)
+LC,05,0~7,03,Equalization: Seat Toledo (5P)
+LC,05,0~7,04,Equalization: Seat Altea XL (5P) / Skoda Superb (3T)
+; (Radio Configuration III)
+; Byte 06 only for Audi
+; (Navigation System Configuration I)
+LC,07,0,Multifunction Steering Wheel installed
+LC,07,1,Voice Control inactive
+LC,07,2,Speed Threshold for Destination Input active
+LC,07,3,Speed Threshold for Speech Destination Input active
+LC,07,4~5,00,Display Variant: Highline
+LC,07,4~5,10,Display Variant: Sportsline
+LC,07,4~5,20,Display Variant: Premium
+LC,07,7,Communication Instrument Cluster via Operation and Display Protocol (BAP)
+; Byte 07 Bit 7: 0 = Display Data Protocol (DDP) / 1 = Operation and Display Protocol (BAP)
+; (Navigation System Configuration II)
+LC,08,4,Logo Company FAW (ONLY Japan/China)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T3042,Speaker Front Left
+T3043,Speaker Front Right
+T3044,Speaker Rear Left
+T3045,Speaker Rear Right
+T419,Midrange Speaker Front Left (R103)
+T420,Midrange Speaker Front Right (R104)
+T421,Midrange Speaker Rear Left (R105)
+T422,Midrange Speaker Rear Right (R106)
+T870,Bass Speaker Front Left (R21)
+T871,Bass Speaker Front Right (R23)
+T872,Bass Speaker Rear Left (R15)
+T873,Bass Speaker Rear Right (R17)
+T874,Treble Speaker Front Left (R20)
+T875,Treble Speaker Front Right (R22)
+T876,Treble Speaker Rear Left (R14)
+T877,Treble Speaker Rear Right (R16)
+T854,Display Test
+T2875,CD/DVD-Drive: Short Test
+T2876,CD/DVD-Drive: Random Test
+;

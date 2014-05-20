@@ -1,0 +1,30 @@
+;
+; VAG-COM label file
+;
+; VW Touareg (7L)
+;
+; component: R12 - Sound System (#47)
+;
+; p/n: 7L6-035-466
+;
+; includes measuring blocks
+;
+; created on 15/Aug/2005 by Sebastian Stange (sebastian@ross-tech.com)
+;
+; last modification: 15/Aug/2005
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Supply Voltage
+001,1,Supply Voltage,(Terminal 30)
+;
+080,0,Advanced Control Module Identification I
+;

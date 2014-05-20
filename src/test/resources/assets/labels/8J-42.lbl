@@ -1,0 +1,22 @@
+;
+; VCDS Redirect File
+;
+; Component: J386 - Door Electronics Driver (#42)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8J-42.LBL
+; 8Jx-959-801-MAX.LBL
+;
+; created on 04/Sep/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 12/Jun/2008
+;
+; requires VCDS 805.0 or newer
+;
+;
+REDIRECT,8Jx-959-801-MAX.LBL,8J?-959-801-B   ; MAX
+REDIRECT,8Jx-959-801-MAX.LBL,8J?-959-801-C   ; MAX
+REDIRECT,8Jx-959-801-MAX.LBL,8J?-959-801-E   ; MAX
+;

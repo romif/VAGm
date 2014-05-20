@@ -1,0 +1,139 @@
+;
+; VAG-COM Measuring Block Labels Template file.; TDi 1.9 ( 1Z engine) ECU 028 906 021 xxx
+;
+; 
+; thank's  Mike Sauve www.alientech.net
+; testing and modification Claudio Gonella www.mectronik.com
+; (31/03/2001)
+
+1,0,Injected Quantity
+1,1,Engine speed,861-945
+1,2,Injection Quantity,3-9
+1,3,Mod. Piston Displ.,1.35-2.10
+1,4,Coolant Temp.,80-110
+
+2,0,Idle display
+2,1,Engine speed,861-945
+2,2,Throttle Position,0
+2,3,Operating Cond/AC,speed/throttle/AC
+;xxx
+;1   Idle speed increased because compressor is on
+; 1  Throttle Position switch closed
+;  1 Air Cond. compressor on
+2,4,Coolant Temp,80-110
+
+3,0,EGR
+3,1,Engine speed,861-945
+3,2,MAF (specified),240-340
+3,3,MAF (actual),240-340
+3,4,EGR duty cycle,4-84
+
+4,0,Start of Injection
+4,1,Engine speed,861-945
+4,2,Specified start,2 to -3
+4,3,Actual start,2 to -3
+4,4,Cold Start Valve,3-70
+
+5,0,Starting conditions
+5,1,Engine speed,
+5,2,Start Inj Qty,
+5,3,Actual Start of Inj,
+5,4,Coolant temp,
+
+6,0,Switch positions
+6,1,Speed,
+6,2,Brake Pedal,F/F47/F36 
+; xxx 
+; 1    switch F closed
+;  1   switch F47 open (Brake switch)
+;   1  switch F36 open (Clutch vacuum vent valve)
+
+6,3,Cruise Control,Cl/Br/Re/Ac/on/on
+; xxxxxx
+; 1      Clutch pedal operated
+;  1     Brake pedal operated
+;   1    Resume/acceleration
+;    1   Acceleration
+;     0  CC switched off (momentary)
+;      0 CC switched off (permanent)
+6,4,Cruise present?,
+;1.0 = normal?
+;17.0 = brake pressed?
+
+7,0,Temperatures
+7,1,Fuel Temp,
+7,2,n/a
+7,3,Intake Air Temp,
+7,4,Coolant Temp,
+
+8,0,Injection Quantities? (undocumented)
+8,1,Engine speed
+8,2,Inj qty,?
+8,3,Inj qty,?
+8,4,Inj qty,?
+
+9,0,Injected quantity limitation
+9,1,Engine speed,
+9,2,Injection Quantity,CC active
+9,3,Inj limit,during a/t shift
+9,4,,
+
+10,0,Air system
+10,1,Mass Air Flow,
+10,2,Barometric,Pressure
+10,3,Manifold ,Pressure
+10,4,Position,Throttle
+
+11,0,Manifold Air Pressure
+11,1,Engine speed,
+11,2,Specified MAP,
+11,3,Actual MAP,
+11,4,Duty cycle,Boost Valvle
+
+12,0,Glow plugs (see label file for #1)
+12,1,Glow status,all 1's=off
+; xxxxxxxx
+; 11111111 Glowing off
+; 00010000 Pre-glow
+; 01110000 Start of glow
+; 11110000 Interim glow
+; 10110000 Post-glow
+; 00110000 Readiness glowing
+12,2,Pre-glow period,
+12,3,Supply Voltage,
+12,4,Coolant Temp,
+
+13,0, Idle speed smooth running adjustments
+13,1,Cyl 1,-2 to +2
+13,2,Cyl 2,-2 to +2
+13,3,Cyl 3,-2 to +2
+13,4,Cyl 4,-2 to +2
+
+15,0,Fuel consumption
+15,1,Engine speed,
+15,2,Inj Qty (actual),
+15,3,Fuel Consumption,
+15,4,Inj Qty requested,(accelerator)
+
+16,0,Auxiliary heater
+16,1,Generator loading,
+16,2,Aux. heat,(see label file)
+; xxxxxxxx
+; 1        Not relevant
+;  1       Not relevant
+;   1      Coolant Temp. sensor G62 or IAT sensor G72 faulty
+;    1     Engine start in last 10 seconds
+;     1    Engine below 760 RPM
+;      1   Battery below 9 volts
+;       1  Generator faulty
+;        1 Coolant temp > 70-80C or IAT > 5C
+16,3,Activation,Hi/Lo
+; xx
+; 1  High heat output,J360 on
+;  1 Low heat output,J459 on
+16,4,Voltage supply,
+;
+;end
+
+
+

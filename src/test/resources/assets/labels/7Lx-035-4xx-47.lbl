@@ -1,0 +1,37 @@
+;
+; VAG-COM Label File
+;
+; VW Phaeton (3D) / VW Touareg (7L) / VW Transporter (7H/7J)
+;
+; Component: R12 - Sound System (#47)
+;
+; P/N: 7L?-035-4??-??
+;
+; includes measuring blocks
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-47.LBL
+; 7L-47.LBL
+; 7Lx-035-4xx-47.LBL
+;
+; created on 15/Aug/2005 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 07/Aug/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Supply Voltage
+001,1,Supply Voltage,(Terminal 30)
+;
+080,0,Advanced Control Module Identification I
+;

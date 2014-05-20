@@ -1,0 +1,19 @@
+;
+; VAG-COM Redirect File
+;
+; Component: J234 - Airbag (#15)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6N-15.LBL
+; 6N0-909-60x-VW2.LBL
+;
+; created on 01/Sep/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Sep/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,6N0-909-60x-VW2.LBL,6N0-909-60?-??? ; VW2
+;

@@ -1,0 +1,150 @@
+;
+; VAG-COM Label File
+;
+; Seat Altea/Toledo (5P) / Seat Leon (1P) / Skoda Octavia (1Z)
+;
+; Component: R36 - Telephone Preperation (#77)
+;
+; P/N: 5P0-862-335-???
+;
+; includes measuring blocks, adaptation, coding and selective output test
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 1Z-77.LBL
+; 5P0-862-335.LBL
+;
+; created on 31/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 31/Oct/2007
+;
+; requires VAG-COM 602.3 or above
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage
+001,1,Voltage,(Terminal 30),Specification: 9.0...15.0 V
+;
+005,0,Input Signals
+005,1,Input Signals,,1xxx = Communication to Mobile Phone active\nx1xx = Mobile Phone Switched ON\nxx1x = Mobile Phone inserted\nxxx1 = Push-To-Talk (PTT) Button pressed
+;
+010,0,Signal Strengths
+010,1,Signal Strengths
+010,2,Reception,Signal Strengths,Display Range: -113.0...33.0 dBm\n128.0 dBM = No Communication with Mobile Phone
+;
+011,0,Main Antenna
+011,1,Main Antenna
+011,2,Main Antenna,Status,Display Range: OK/Short Circuit/Open Circuit/Not Possible
+;
+014,0,Bluetooth Devices
+014,1,Bluetooth Devices
+014,2,Connected,Bluetooth Devices
+;
+019,0,Microphone Input
+019,1,Microphone Input,Voltage
+019,2,Microphone Input,Status
+;
+020,0,Connected Bluetooth Devices && Reception Signal Strength
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+081,1,Serial Number
+;
+082,0,Advanced Control Module Identification III
+;
+133,0,Bluetooth Antenna
+133,1,Bluetooth Antenna
+133,2,Bluetooth Antenna,Status
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A128,0,Volume Output
+;
+A129,0,Afterrun Time
+A129,5,Afterrun Time
+A129,6,The time the mobile phone plate is active after "Ignition OFF".
+A129,7, 
+A129,8,Range: 0...6 (30 Seconds to 30 Minutes)
+A129,9,Increments: 1 = 5 Minutes (0 = 30 Seconds)
+;
+A130,0,Delay Time
+A130,5,Delay Time
+A130,6,Adjustment of the delay times to compensate the
+A130,7,audio component delay and acoustic running times.
+A130,8, 
+A130,9,Range: 0...12 ms
+;
+A131,0,Microphone Sensitivity
+;
+A132,0,
+;
+A133,0,Bluetooth
+A133,5,Bluetooth
+A133,6,0 = Bluetooth OFF
+A133,7,1 = Bluetooth ON
+;
+A134,0,Hands Free Function
+A134,5,Hands Free Function
+A134,6,0 = Hands-free active while Bluetooth connection is active but without cell phone engaged
+A134,7,1 = Hands-free only active with cell phone engaged
+;
+A135,0,Bluetooth Pass Key
+A135,5,Bluetooth Pass Key
+A135,6,Set the 4-digit Bluetooth pass key using this channel.
+;
+A136,0,
+;5
+;
+A138,0,
+;0
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Telephone Preperation (R36) Coding
+C01,0000?xx: Installation List
+C02,3 = Radio or Radio/Navigation System
+C03,4 = Multi-Function Steering Wheel and Radio or Radio/Navigation System
+C04,0000x?x: Language (Voice Control)
+C05,0 = Voice Control OFF OR via external Device (e.g. Radio/Navigation System)
+C06,1 = German / 2 = English (UK) / 3 = French
+C07,4 = Italian / 5 = Spanish / 6 = Czech
+C08,7 = English (US)
+C09,9 = Speaker dependent (Voice Commands inactive, Acoustic Name Selection active) 
+C10,0000xx?: Language (Display)
+C11,0 = No Display / 1 = German / 2 = English (UK) / 3 = French
+C12,4 = Italian / 5 = Spanish / 7 = English (US)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T851,Speaker
+T1530,Radio Mute
+T2502,Signal Telephone ON
+T2612,Audio Wire (only with Test Adapter)
+T2619,Communication Wire (only with Test Adapter)
+;

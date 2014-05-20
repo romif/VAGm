@@ -1,0 +1,225 @@
+; VAG-COM Measuring Block Labels file.
+; Engine Codes ADY,AFT,AGG,AKR,AKS    
+; 
+; VW Golf, Vento, Passat, Cabrio, Corrado, Sharan
+; Petrol Engine 2.0ltr, 4 cylinder - 8 valve
+;
+; ECU p/n  :  037 906 025 series  Simos Injection & Ignition System
+;
+; ADY,AGG,AKR  ECU known Suffix: -, A, D, F, G, H, P, Q, R, S, AC
+;
+; AFT,AKS      ECU known Suffix: T, AA
+;
+;
+; Information sourced from VW Service Workshop Manual Edition 12.95
+;
+; Engines with Simos Injection 1992 onwards.
+;
+; *********************************
+; ******Modification history*******
+; *********************************
+;
+; Created:     Chris Gaskell, Stockport, UK.   22-June-2001
+;              chrisgaskell@yahoo.com
+;
+; Note:        File set up for ADY,AFT,AGG engine codes
+;              Engine codes AKR,AKS commented off
+;              Swop commenting marks to switch on/off appropriate
+;              measuring blocks
+;
+; File status: Untested, layout not proven
+;              (but records of an 8v using basic VAG-COM agree)
+;              (on 037 906 025D Corrado 8v 2.0ltr)
+;
+; Modified:    -
+;
+;
+; *********************************
+;
+;0,0,Measuring block (Engine Codes ADY, AGG, AKR)
+;0,1,Intake Air Temp,70...160 =4.5....72°C
+;0,2,Batt Voltage,115...161 =12..16.5V
+;0,3,Coolant Temp,120..150 =80...110 C
+;0,4,Engine load,25...53 =9.75...19.5 %
+;0,5,O2 Sensor,0...55 =0.00...1.10V
+;0,6,O2 Sensor,0...22 =0...0.75ms
+;0,7,Operating Cond.,not relevant
+;0,8,Throttle Angle,5...14 =2.5...6.5<°
+;0,9,Injection Time,2...4 =2...4ms
+;0,10,Engine Speed,23...27 =736...864/min
+;
+;
+;0,0,Measuring block (Engine Codes AFT, AKS)
+;0,1,Intake Air Temp,70...160 =4.5....72°C
+;0,2,Batt Voltage,115...161 =12..16.5V
+;0,3,Coolant Temp,120..150 =80...110°C
+;0,4,Engine load,30...45 =11.7...17.5 %
+;0,5,O2 Sensor,10...50 =0.20...1.00V
+;0,6,O2 Sensor,0...20 =0...0.64ms
+;0,7,Operating Cond.,not relevant
+;0,8,Throttle Angle,5...11 =2.5...4.7<°
+;0,9,Injection Time,2...4 =2...4ms
+;0,10,Engine Speed,24...28 =768...896/min
+;
+;
+1,0,Engine Data (Adj. conditions) ADY, AGG, AKR
+1,1,Engine Speed,750...850rpm
+1,2,Coolant Temp,80...110°C
+1,3,O2 Sensor,0.0 ... 1.1V
+1,4,Adjust. Cond.,00000000
+;                 1        -DTC recognised - in not yet memory,overrun
+;                  1       -Signal Autobox, idling
+;                   1      -Aircond on, part load
+;                    1     -F60 Open,throttle valve idling switch
+;                     1    -Fault in Lambda control
+;                      1   -Throttle sw Open,.0-Throttle sw Close
+;                       1  -Engine running
+;                        1 -Coolant temp<80°C,0-Coolant temp>80°C
+;
+;
+;1,0,Engine Data (Adj. conditions) AFT, AKS
+;1,1,Engine Speed,780...880rpm
+;1,2,Coolant Temp,80...110°C
+;1,3,O2 Sensor,0.2 ... 1.0V
+;1,4,Adjust. Cond.,00000000
+;                 1        -DTC recognised - in not yet memory,overrun
+;                  1       -Signal Autobox, idling
+;                   1      -Aircond on, part load
+;                    1     -F60 Open,throttle valve idling switch
+;                     1    -Fault in Lambda control
+;                      1   -Throttle sw Open,.0-Throttle sw Close
+;                       1  -Engine running
+;                        1 -Coolant temp<80°C,0-Coolant temp>80°C
+;
+;
+2,0,General Engine Data  ADY, AGG, AKR
+2;1,Engine Speed,750...850rpm
+2,2,Injection Time,2...4ms
+2,3,Battery Volts,12.0...16.5V
+2,4,Intake Air Temp,15...55°C
+;
+;
+;2,0,General Engine Data  AFT, AKS
+;2;1,Engine Speed,780...880rpm
+;2,2,Injection Time,2...4ms
+;2,3,Battery Volts,12.0...16.5V
+;2,4,Intake Air Temp,20...70°C
+;
+;
+3,0,General Engine Data  ADY, AGG, AKR
+3,1,Engine Speed,750...850rpm
+3,2,Engine Load,9.75...19.5%
+3,3,Throttle Angle,2.5...6.5 <°
+3,4,Thottle Regl,6...21%
+;
+;
+;3,0,General Engine Data   AFT,AKS
+;3,1,Engine Speed,780...880rpm
+;3,2,Engine Load, 12...17%
+;3,3,Throttle Angle,3.0 ... 4.5 <°
+;3,4,Thottle Regl,10...20%
+;
+4,0,Engine Data (Adj. conditions)ADY, AGG, AKR
+4,1,Engine Speed,750...850rpm
+4,2,Engine Load,9.75....19.5%
+4,3,Vehicle Speed,0km/h
+4,4,Operating Con.,00000000
+;                  1        -DTC recognised - in not yet memory,overrun
+;                   1       -Signal Autobox, idling
+;                    1      -Aircond on, part load
+;                     1     -F60 Open,throttle valve idling switch
+;                      1    -Fault in Lambda control
+;                       1   -Throttle sw Open,.0-Throttle sw Close
+;                        1  -Engine running
+;                         1 -Coolant temp<80°C,0-Coolant temp>80°C
+;
+;
+;4,0,Engine Data (Adj. conditions)  AFT, AKS
+;4,1,Engine Speed,780...880rpm
+;4,2,Engine Load,12....17%
+;4,3,Vehicle Speed,0km/h
+;4,4,Operating Con.,00000000
+;                  1        -DTC recognised - in not yet memory,overrun
+;                   1       -Signal Autobox, idling
+;                    1      -Aircond on, part load
+;                     1     -F60 Open,throttle valve idling switch
+;                      1    -Fault in Lambda control
+;                       1   -Throttle sw Open,.0-Throttle sw Close
+;                        1  -Engine running
+;                         1 -Coolant temp<80°C,0-Coolant temp>80°C
+;
+;
+5,0,Throttle Control (Lambda control) ADY, AGG, AKR
+5,1,Engine Speed,750...850rpm
+5,2,Charcoal Valve Duty,7...9%
+5,3,Fuel Consumption,ms
+5,4,Operating Cond.,Lambda 00000000  
+;                          1         -Coding for synchro, mechanical emergency running
+;                           1        -Not in use
+;                            1       -Not in use
+;                             1      -Lambda control at limit
+;                              1     -Lambda control active
+;                               1    -Fault in fault memory
+;                                1   -Lambda probe operationally ready
+;                                 1  -Rich mixture, 0=lean - idle switch open
+;
+;
+;5,0,Throttle Control (Lambda control) AFT, AKS
+;5,1,Engine Speed,780...880rpm
+;5,2,Charcoal Valve Duty,7...9%
+;5,3,Fuel Consumption,ms
+;5,4,Operating Cond.,Lambda 00000000  
+;                          1         -Coding for synchro, mechanical emergency running
+;                           1        -Not in use
+;                            1       -Not in use
+;                             1      -Lambda control at limit
+;                              1     -Lambda control active
+;                               1    -Fault in fault memory
+;                                1   -Lambda probe operationally ready
+;                                 1  -Rich mixture, 0=lean - idle switch open
+;
+;
+6,0,Lambda/Throttle Data   ADY, AGG, AKR
+6,1,Learnt value 0-0.75ms,Lambda Cntrl-idle
+6,2,Learnt value 0.90-1.1,Lambda Cntrl-part load
+6,3,Learnt value 0.95-1.05,Throttle Valve-idle cntrl
+6,4,Learnt value 0.95-1.05,Throttle Valve-Autobox
+;
+;
+;6,0,Lambda/Throttle Data   AFT, AKS
+;6,1,Learnt value 0-0.60ms,Lambda Cntrl-idle
+;6,2,Learnt value 0.90-1.1,Lambda Cntrl-part load
+;6,3,Learnt value 0.90-1.1,Throttle Valve-idle cntrl
+;6,4,Learnt value 0.90-1.1,Throttle Valve-Autobox
+;
+;
+7,0,Hall Sender Data    ADY, AGG, AKR
+7,1,Hall - Engine Senders,57...60 or 1.0
+7,2,Hall - Engine Senders,5...8
+7,3,Altitude Correction,0.85 ... 1.15
+7,4,Operating Cond.,Throttle 00000000
+;                            1         -Coding for synchro, mechanical emergency running
+;                             1        -Not in use
+;                              1       -Not in use
+;                               1      -Lambda control at limit
+;                                1     -Lambda control active
+;                                 1    -Fault in fault memory
+;                                  1   -Lambda probe operationally ready
+;                                   1  -Rich mixture, 0=lean - idle switch open
+;
+;
+;7,0,Hall Sender Data    AFT, AKS
+;7,1,Hall - Engine Senders,57...60 or 1.0
+;7,2,Hall - Engine Senders,5...8
+;7,3,Altitude Correctn,0.80 ... 1.20
+;7,4,Operating Cond.,Throttle 00000000
+;                            1         -Coding for synchro, mechanical emergency running
+;                             1        -Not in use
+;                              1       -Not in use
+;                               1      -Lambda control at limit
+;                                1     -Lambda control active
+;                                 1    -Fault in fault memory
+;                                  1   -Lambda probe operationally ready
+;                                   1  -Rich mixture, 0=lean - idle switch open
+;
+;

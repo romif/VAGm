@@ -1,0 +1,630 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A6 (4F) / Audi A8 (4E) / VW Phaeton (3D) / VW Touareg (7L)
+;
+; Komponente: J248 - Motorelektronik (#01) - ASB/BKS/BMK/BNG
+;
+; T/N: 3D0 907 401
+;      4E0 910 401 ??
+;      4F0 910 401 ??
+;      7L0 907 401
+;
+; NICHT GETESTET
+;
+; beinhaltet Messwertgruppen
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 3D-01.LBL
+; 4E-01.LBL
+; 4F-01.LBL
+; 7L-01.LBL
+; 059-907-401-ASB.LBL (3.0l TDI @ 211-232 HP - ASB/BKS/BMK/BNG)
+;
+; erstellt am 13.01.2005 von Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; letzte Änderung: 13.01.2005
+;
+; benötigt VAG-COM 405.0 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Mengenanpassung
+001,1,Motordrehzahl,,Sollwert: 720...820 U/min
+001,2,Einspritzmenge,,Sollwert: 4...10.5 mg/Hub
+001,3,Raildruck (IST),,Sollwert: 220...280 bar
+001,4,Kühlmittel-,temperatur,Sollwert: 75...110 °C
+;
+002,0,Leerlaufdrehzahl
+002,1,Motordrehzahl,,Sollwert: 720...820 U/min
+002,2,Gaspedalstellung,,Sollwert (Leerlauf): 0 % | Sollwert (Vollast): 100 %
+002,3,Schalterstellungen,,Wertebereich: 1xx - Leerlaufdrehzahl erhöht / x1x - Kick-Down-Schalter EIN / xx1 - Leerlaufschalter EIN
+002,4,Kühlmittel-,temperatur,Sollwert: 75...110 °C
+;
+003,0,Abgasrückführung
+003,1,Motordrehzahl,,Sollwert: 720...820 U/min
+003,2,Luftmasse (SOLL),[mg/Hub]
+003,3,Luftmasse (IST),[mg/Hub]
+003,4,Tastverhältnis,AGR-Ventil [%]
+;
+004,0,Haupteinspritzung
+004,1,Motordrehzahl,,Sollwert: 720...820 U/min
+004,2,Einspritzbeginn,Haupteinspritzung,[°KW]
+004,3,Einspritzdauer,Haupteinspritzung,[ms]
+004,4,Raildruck (IST),,Sollwert: 220...280 bar
+;
+005,0,Startverhältnisse (Vom letzten Motorstart gespeichert)
+005,1,Motordrehzahl
+005,2,Start-,einspritzmenge
+005,3,Start-,synchronisation,siehe Labelfile
+; 000 - Grundinitialisierung 
+; 001 - Rücksetzen des Zählers
+; 002 - Motorstillstand oder Fehlerfall
+; 003 - Übergangszustände
+; 004 - Plausibilisierungsphase
+; 005 - Plausibilisierungsphase
+; 006 - Plausibilisierungsphase
+; 008 - Plausibilisierungsphase
+; 016 - Phasenbestimmung
+; 032 - Synchronisationsphase
+; 033 - Positionierung des Systems
+; 048 - Berechnungssequenzen aktiviert  --> Startvorgang i.O.
+; 064 - System wartet auf Motorstillstand
+; 128 - Dynamische Plausibilisierung
+005,4,Kühlmittel-,temperatur
+;
+006,0,Geschwindigkeitsregelanlage (GRA)
+006,1,Aktuelle Fahrzeug-,geschwindigkeit,GRA aktivierbar: ab 35 km/h
+006,2,GRA-Status,,siehe Labelfile
+; xxxxxxx1 - Bremslichtschalter betätigt
+; xxxxxx1x - Bremspedalschalter betätigt
+; xxxxx1xx - Kupplungspedalschalter betätigt
+; xxxx1xxx - GRA freigeschaltet
+; xxx1xxxx - ACC freigeschaltet
+; xx0xxxxx - Hauptschalter
+; 00xxxxxx - ACC/GRA Modus nicht aktiv
+; 10xxxxxx - Zustand übertreten
+; 01xxxxxx - ACC/GRA im Regelbereich
+; 11xxxxxx - ACC nicht freigegeben
+006,3,Gespeicherte Ziel-,geschwindigkeit
+006,4,Schalter-,stellungen (GRA),siehe Labelfile
+; x-xxxxx1 - Gerastet EIN
+; x-xxxx1x - Getastet AUS
+; x-xxx1xx - Tip-Down, Verzögern
+; x-xx1xxx - Tip-Up, Beschleunigen
+; x-x1xxxx - Setzen
+; x-1xxxxx - Wiederaufnahme  
+; 1-xxxxxx - Gerastet EIN von Hardware
+;
+007,0,Temperaturgeber
+007,1,Kraftstoff-,temperatur,Sollwert: bis 60 °C
+007,2,Öltemperatur,,Sollwert: 60...100 °C
+007,3,Ansaugluft-,temperatur,Sollwert: bis 75 °C
+007,4,Kühlmittel-,temperatur,Sollwert: 75...110 °C
+;
+008,0,Begrenzungsmomente 1
+008,1,Motordrehzahl
+008,2,Inneres,Moment
+008,3,Drehmoment-,begrenzung
+008,4,Rauchbegrenzung
+;
+009,0,Begrenzungsmomente 2
+009,1,Angefordertes,Drehmoment,vom Gaspedal
+009,2,Begrenzungs-,moment (EGS),vom Autom. Getriebe (während Schaltvorgang)
+009,3,Begrenzungs-,moment (MSR),von Motor-Schleppmomenten-Regelung
+009,4,Begrenzungs-,moment (ASR),von Antriebs-Schlupf-Regelung
+;
+010,0,Luftgrössen
+010,1,Angesaugte,Luftmasse,Sollwert (Leerlauf): 210...280 mg/Hub | Sollwert (Vollast): > 1050 mg/Hub
+010,2,Umgebungs-,luftdruck,Sollwert: 970...1020 mbar
+010,3,Ladedruck,IST,Sollwert (Leerlauf): 950...1080 mbar | Sollwert (Vollast): > 2150 mbar | Sollwert (Umgebungsluftdruck): 970...1020 mbar
+010,4,Gaspedalstellung
+;
+011,0,Ladedruckregelung 1
+011,1,Motordrehzahl
+011,2,Ladedruck,(SOLL)
+011,3,Ladedruck,(IST),Sollwert (Umgebungsluftdruck): 970...1020 mbar
+011,4,Ansteuerung,Stellmotor
+;
+012,0,Vorglühanlage
+012,1,Glühstatus,,siehe Labelfile
+; 00000000 - Warten auf Kühlmitteltemperatur
+; 00000001 - Warten auf ECO Startanforderung
+; 00010000 - Vorglühen
+; 01010000 - Kein Vorglühen
+; 10110000 - Nachglühen
+; 11000000 - Kein Startglühen
+; 11110000 - Zwischenglühen
+; 00110000 - Bereitschaftsglühen
+; 01110000 - Startglühen
+; 10110001 - Warten auf Nachglühen
+; 11010000 - Kein Nachglühen
+; 11110001 - Warten auf Zwischenglühen
+; 11111111 - Kein Glühen
+012,2,Vorglühzeit
+012,3,Bordspannung
+012,4,Kühlmittel-,temperatur
+;
+013,0,Laufruheregelung 1 (Einspritzmengenabweichung)
+013,1,Zylinder 1,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+013,2,Zylinder 2,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+013,3,Zylinder 3,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+013,4,[N/A]
+;
+014,0,Laufruheregelung 2 (Einspritzmengenabweichung)
+014,1,Zylinder 4,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+014,2,Zylinder 5,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+014,3,Zylinder 6,,Toleranz (Leerlauf): ± 2.99 mg/Hub
+014,4,[N/A]
+;
+015,0,Kraftstoffverbrauch
+015,1,Motordrehzahl
+015,2,Einspritzmenge
+015,3,Kraftstoffverbrauch
+015,4,Angefordertes,Drehmoment,Fahrerwunsch über Gaspedal
+;
+016,0,Zusatzheizung (nur Audi A6)
+016,1,Energie-,management,J644 (siehe Labelfile)
+; 00 - Keine Freigabe
+; 01 - Freigabe Stufe 1
+; 10 - Freigabe Stufe 2
+; 11 - Freigabe Sufe 1 und 2
+016,2,Abschaltbedingung,Zusatzheizung
+; 00000000 - Keine Abschaltbedingung
+; 00000001 - Kühlmitteltemperatur ausreichend
+; 00000010 - Generatorlast SRC Fehler
+; 00000100 - Batteriespannung zu hoch
+; 00001000 - Drehzahl zu niedrig
+; 00010000 - Startverzögerung aktiv
+; 00100000 - Wassertemperaturfühler Lufttemperaturfühler oder Endstufe defekt
+; 01000000 - Bedienteil (nicht aktiv)
+; 10000000 - Saugrohrtemperatur ausreichend
+016,3,Ansteuerg. Relais,Zusatzheizung,siehe Labelfile
+; 00 - Relais nicht angesteuert
+; 01 - Relaiskontakt für kleine Heizleistung
+; 10 - Relaiskontakt für grosse Heizleistung
+; 11 - Beide Relaiskontakte aktiv
+016,4,Bordspannung
+;
+017,0,Readiness Code (EOBD)
+017,1,CARB Mode 01,DATA A,siehe Labelfile
+; x0000000 - Keine Fehlermeldungen im Motorsteuergerät gespeichert
+; 0xxxxxxx - Abgaswarnleuchte (MIL) AUS
+; 1xxxxxxx - Abgaswarnleuchte (MIL) EIN
+017,2,CARB Mode 01,DATA B,siehe Labelfile
+; -xx--xx1 - Überwachung Zündaussetzer aktiviert
+; -xx--x1x - Überwachung Kraftstoffanlage aktiviert
+; -xx--1xx - Überwachung Gesamtsystem aktiviert
+; -x0--xxx - EOBD-Test Kraftstoffanlage mit i.O. abgeschlossen
+; -0x--xxx - EOBD-Test Gesamtsystem mit i.O. abgeschlossen
+017,3,CARB Mode 01,DATA C,siehe Labelfile
+; xxxx-xx1 - Überwachung Katalysator aktiviert
+; xxxx-x1x - Überwachung Katalysator Heiss aktiviert
+; xxxx-1xx - Überwachung Verdunstungssystem aktiviert
+; xxx1-xxx - Überwachung Kühlmittel Klimaanlage aktiviert
+; xx1x-xxx - Überwachung Lambda-Sonde aktiviert
+; x1xx-xxx - Überwachung Lambda-Sonden-Heizung aktiviert
+; 1xxx-xxx - Überwachung Abgasrückführung aktiviert
+017,4,CARB Mode 01,DATA D,siehe Labelfile
+; 0------x - EOBD-Test Abgasrückführung mit i.O. abgeschlossen
+;
+018,0,Drosselklappensteuerung
+018,1,Motordrehzahl
+018,2,Ansteuerung,Stellmotor
+018,3,Ansaugluft-,temperatur
+018,4,Luftmasse,(IST)
+;
+019,0,Kühlerlüfteransteuerung
+019,1,Kühlmittel-,temperatur
+019,2,Ansteuerung Lüfter,Klimaanlage
+019,3,Ansteuerung,Lüfter 1 (Kühlmittel)
+019,4,Ansteuerung,Lüfter 2 (Kühlmittel)
+;
+020,0,Klimakompressor
+020,1,Umgebungs-,temperatur
+020,2,[N/A]
+020,3,Abschaltstatus 1,Klimakompressor,siehe Labelfile
+; xxxxxxx1 - Fahrzeug befindet sich im Anfahrzustand
+; xxxxxx1x - Abschaltung wegen Anfahrzustand
+; xxxxx1xx - Fahrzeug befindet sich im Beschleunigungszustand
+; xxxx1xxx - Abschaltung wegen Beschleunigung
+; xxx1xxxx - Abschaltung wegen Startvorgang
+; xx1xxxxx - Systemfehler erkannt
+; x1xxxxxx - Abschaltung wegen Systemfehler
+; 1xxxxxxx - Abschalten wegen Unterschreiten der Leerlaufdrehzahl
+020,4,Abschaltstatus 2,Klimakompressor,siehe Labelfile
+; xxxxxxx1 - Abschalten wegen überhöhter Kühlmitteltemperatur
+; xxxxxx1x - Abschaltung durch Steuergerät Getriebe
+; xxxxx1xx - Abschaltung durch Steuergerät ABS/ESP
+; xxxx1xxx - Abschaltung wegen Kältemitteldruck oder Umgebungstemperatur
+; xxx1xxxx - Leistungsreduzierung wegen überhöhter Temperatur
+; xx1xxxxx - Abschaltung wegen Fehler an einem Kühlerlüfter
+; x1xxxxxx - Abschaltung wegen Fehler an beiden Kühlerlüftern
+; 1xxxxxxx - Mindesteinschaltdauer
+;
+021,0,Status CAN-Datenbus Antrieb
+021,1,[N/A]
+021,2,Steuergerät,Autom. Getriebe,siehe Labelfile
+; xxxxxxx1 - Mengeneingriff aktiv
+; xxxxxx1x - Momenteneingriff durch Getriebesteuergerät über Rampe
+; xxxxx1xx - Kein Momenteneingriff durch Getriebesteuergerät (Rampenwert erreicht)
+; xxxx1xxx - Momenteneingriff durch Getriebesteuergerät über Anfahrkennlinie
+; xxx1xxxx - CAN-Fehler (Baustein defekt, Bus-Off)
+; xx1xxxxx - Getriebesteuergerät Anforderungsbit (Eingriffsmoment wird gültig)
+; x1xxxxxx - Ausblendung der Überwachung
+; 1xxxxxxx - CAN Botschaftsfehler (Zählfehler, Fehlerwert FF(hex)oder Timeout)
+021,3,Steuergerät,ABS/ESP,siehe Labelfile
+; xxxxxxx1 - TCS(ASR)- Eingriff aktiv
+; xxx1xxxx - DCS(MSR)- Eingriff aktiv
+021,4,[N/A]
+;
+022,0,Rail-Druckregelung
+022,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+022,2,Raildruck,(SOLL),Sollwert (Leerlauf): 210...290 bar
+022,3,Raildruck,(IST),Sollwert (Leerlauf): 210...290 bar | Toleranz: ±20 bar
+022,4,Ansteuerung,Druckregelventil,Sollwert (Leerlauf): 15...30 %
+;
+023,0,Rail-Mengenregelung
+023,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+023,2,Raildruck,(SOLL),Sollwert (Leerlauf): 210...290 bar
+023,3,Raildruck,(IST),Sollwert (Leerlauf): 210...290 bar | Toleranz: ±20 bar
+023,4,Ansteuerung,Mengenregelventil,Sollwert (Leerlauf): 35...48 %
+;
+024,0,Voreinspritzung 1
+024,1,Motordrehzahl
+024,2,Ansteuerbeginn,Voreinspritzung 1
+024,3,Ansteuerdauer,Voreinspritzung 1
+024,4,Raildruck (IST)
+;
+025,0,Voreinspritzung 2
+025,1,Motordrehzahl
+025,2,Ansteuerbeginn,Voreinspritzung 2
+025,3,Ansteuerdauer,Voreinspritzung 2
+025,4,Raildruck (IST)
+;
+026,0,Nacheinspritzung
+026,1,Motordrehzahl
+026,2,Ansteuerbeginn,Nacheinspritzung 1
+026,3,Ansteuerdauer,Nacheinspritzung 1
+026,4,Raildruck (IST)
+
+028,0,Datensatz Checksumme
+028,1,Checksumme
+028,2,[N/A]
+028,3,[N/A]
+028,4,[N/A]
+;
+029,0,Abstandsregelung ACC/ADR
+029,1,Sollwert-,nachführung,siehe Labelfile
+; 001 - Sollwertnachführung freilaufend
+; 002 - Sollwertnachführung EIN
+; 003 - Sollwertnachführung AUS
+029,2,ACC/ADR,Status,Adaptive Distanzregelung (siehe Labelfile)
+; xxxxxx00 - ACC/ADR nicht aktiv
+; xxxxxx01 - ACC/ADR aktiv
+; xxxxxx10 - ACC/ADR passiv
+; xxxxxx11 - ACC/ADR Initialisierung
+; xxxxx0xx - Kein Neutralwert
+; xxxxx1xx - Neutralwert
+; xx0xxxxx - Nicht erlaubt
+; xx1xxxxx - Erlaubt
+029,3,Fahrzeug-,geschwindigkeit
+029,4,[N/A]
+;
+030,0,Gaspedalstellung
+030,1,Spannung,Pedalwertgeber 1
+030,2,Spannung,Pedalwertgeber 2
+030,3,Schalterstellungen,,siehe Labelfile
+; xx1 - Leerlaufschalter EIN
+; x1x - Kick-Down-Schalter EIN
+; 1xx - Leerlaufdrehzahl erhöht
+030,4,Gaspedalstellung
+;
+034,0,Ladedruckregelung 2
+034,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+034,2,Ansteuerung,Stellmotor,Sollwert (Leerlauf): 20...80 %
+034,3,Rückmeldung,Stellmotor,Sollwert (Leerlauf): 19...81 %
+034,4,Ladedruck,(IST)
+;
+035,0,Turbolader Temperaturschutz
+035,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+035,2,Abgastemperatur,vor Turbolader,T3-Sensor [Sollwert (Leerlauf): 140...310 °C | Sollwert (Vollast): 540...830 °C]
+035,3,Abgas,Abregelfaktor,Sollwert (Leerlauf): 99...101 %
+035,4,Abregelfaktor,gesamt,Sollwert (Leerlauf): 99...101 %
+;
+036,0,Saugrohrklappen Bank 1
+036,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+036,2,Ansteuerung,Stellmotor,Sollwert (Leerlauf): 79...81 %
+036,3,Rückmeldung,Stellmotor,Sollwert (Leerlauf): 79...81 %
+036,4,Luftmasse,(IST)
+;
+037,0,Saugrohrklappen Bank 2
+037,1,Motordrehzahl,,Sollwert (Leerlauf): 720...820 U/min
+037,2,Ansteuerung,Stellmotor,Sollwert (Leerlauf): 79...81 %
+037,3,Rückmeldung,Stellmotor,Sollwert (Leerlauf): 79...81 %
+037,4,Luftmasse,(IST)
+;
+040,0,Lambdasonde Messwerte 1
+040,1,Abgleichwert,Innenwiderstand
+040,2,Sauerstoffsignal
+040,3,Sauerstoff-,konzentration
+040,4,Status Abgleich,Sauerstoffsignal
+;
+041,0,Lambdasonde Messwerte 2
+041,1,Luftmassen-,durchsatz
+041,2,Tastverhältnis,Sondenheizung
+041,3,Temperatursignal
+041,4,Lambdasignal
+;
+042,0,Lambdasonde Messwerte 3
+042,1,Luftmassen-,durchsatz
+042,2,Umgebungs-,temperatur
+042,3,Druck an,Lambdasonde
+042,4,Sauerstoff-,konzentration
+;
+043,0,Lambdasonde Messwerte 4
+043,1,Motordrehzahl
+043,2,Abgastemperatur,an Lambdasonde
+043,3,Abgas-,gegendruck
+043,4,Abgas-,massenstrom
+;
+044,0,Lambdasonden Status
+044,1,Motordrehzahl
+044,2,Lambdasonden,Elektronik,siehe Labelfile
+; xxxxxxx1 - Vollastregler ein/ausgeschaltet
+; xxxxxx1x - Vollast
+; xxxxx1xx - Regelabweichung negativ,d.h. Gemisch zu fett
+; xxxx1xxx - Systemfehler
+; xxx1xxxx - Sauerstoffsignal ungültig oder keine Korrektur duch Adaptation der Lambdasonde
+; xx1xxxxx - Motor im Startzustand
+; x1xxxxxx - Momentbegrenzung oder Mengenbegrenzung aktiv
+; 1xxxxxxx - Regeneration Abgasnachbehandlung
+044,3,Plausibilisierung,Lambdasonde,siehe Labelfile
+; 001 - Aktuelle Sauerstoffkonzentration unplausibel hoch
+; 002 - Aktuelle Sauerstoffkonzentration unplausibel niedrig
+; 004 - Sauerstoffkonzentration ist stationär
+; 008 - Plausibilisierung ist freigegeben
+; 016 - Sauerstoffkonzentration liegt bei Null
+; 032 - Im letzten Zeitintervall kein Fettbetrieb
+044,4,Lambdasonden-,diagnose,siehe Labelfile
+; 004 - Dynamik des Signals zu gering
+; 008 - Kabelunterbrechung (Lambda 1)
+; 016 - Sauerstoffsignal im Schub unplausibel niedrig
+; 032 - Sauerstoffsignal im Schub unplausibel hoch
+; 064 - Sauerstoffsignal bei Teillast unplausibel niedrig
+; 128 - Sauerstoffsignal bei Teillast unplausibel hoch
+;
+050,0,Mengen-Mittelwertadaptation (FMA)
+050,1,Motordrehzahl
+050,2,Einspritzmenge
+050,3,Mengenfehler,bei FMA
+050,4,Abschaltstatus,FMA,siehe Labelfile
+; ------x1 - Fehlermodell reinitialisiert
+; ------1x - Adaptation anhalten
+;
+051,0,Drehzahlerfassung
+051,1,Motordrehzahl
+051,2,Nockenwellen-,drehzahl
+051,3,Start-,synchronisation,siehe Labelfile
+; 000 - Grundinitialisierung
+; 001 - Rücksetzen des Zählers
+; 002 - Motorstillstand oder Fehlerfall
+; 003 - Übergangszustände
+; 004 - Plausibilisierungsphase
+; 005 - Plausibilisierungsphase
+; 006 - Plausibilisierungsphase
+; 008 - Plausibilisierungsphase
+; 016 - Phasenbestimmung
+; 032 - Synchronisationsphase
+; 033 - Positionierung des Systems
+; 048 - Berechnungssequenzen aktiviert  --> Startvorgang i.O.
+; 064 - System wartet auf Motorstillstand
+; 128 - Dynamische Plausibilisierung
+051,4,Abschaltung,Einspritzsequenz,siehe Labelfile
+; xxxxxxx1 - Defekter externer Watchdog
+; xxxxxx1x - Ungültige Drehzahl
+; xxxxxx11 - Nachlauf
+; xxxxx1xx - Abschaltanforderung zum zeitsyn.Ab.
+; xxxxx1x1 - Magnetventilfehler
+; xxxxx11x - Schubbetrieb
+; xxx1xxxx - Minimale Menge der Nacheinspritzung unterschritten
+; xx1xxxxx - Minimale Ansteuerdauer der Nacheinspritzung
+; x1xxxxxx - Deaktivierung der Nacheinspritzung über Drehzahl
+; 1xxxxxxx - Deaktivierung der Nacheinspritzung wegen Fehler
+;
+058,0,Ventile Motorlagerung
+058,1,Motordrehzahl
+058,2,Fahrzeug-,geschwindigkeit
+058,3,Ventil links,für Motorlagerung,Wertebereich: 0 = aus / 1 = ein
+058,4,Ventil rechts,für Motorlagerung,Wertebereich: 0 = aus / 1 = ein
+;
+059,0,Ventile Getriebelagerung (nur Audi A8)
+059,1,Motordrehzahl
+059,2,Fahrzeug-,geschwindigkeit
+059,3,Ventil 1 für,Getriebelagerung,Wertebereich: 0 = aus / 1 = ein
+059,4,Ventil 2 für,Getriebelagerung,Wertebereich: 0 = aus / 1 = ein
+;
+060,0,Momente Nebenaggregate 1
+060,1,Motordrehzahl
+060,2,Indiziertes,Motormoment
+060,3,Motor-,verlustmoment
+060,4,Nebenaggregate
+;
+061,0,Momente Nebenaggregate 2
+061,1,Motor-,verlustmoment
+061,2,Inneres,Reibmoment
+061,3,Klimakompressor-,moment
+061,4,Generatorleistung
+;
+070,0,Nullmengen Kalibrierung Zykluszähler
+070,1,Lernzykluszähler,1. Kalibrierdruck
+070,2,Lernzykluszähler,2. Kalibrierdruck
+070,3,Lernzykluszähler,3. Kalibrierdruck
+070,4,[N/A]
+;
+071,0,Nullmengen Kalibrierung Status
+071,1,Status,Freigabe,Ansteuerdauerkorrektur
+071,2,Zylinderspezifische,Freigabe,Ansteuerdauerkorrektur
+071,3,Motorsteuergerät,getauscht
+071,4,Injektorspezifischer,Status,Initialisierung mit Vorsteuerwerten
+;
+072,0,Nullmengen Kalibrierung Zyl. 1
+072,1,Ansteuerdauer,Kalibrierpunkt 1
+072,2,Ansteuerdauer,Kalibrierpunkt 2
+072,3,Ansteuerdauer,Kalibrierpunkt 3
+072,4,[N/A]
+;
+073,0,Nullmengen Kalibrierung Zyl. 2
+073,1,Ansteuerdauer,Kalibrierpunkt 1
+073,2,Ansteuerdauer,Kalibrierpunkt 2
+073,3,Ansteuerdauer,Kalibrierpunkt 3
+073,4,[N/A]
+;
+074,0,Nullmengen Kalibrierung Zyl. 3
+074,1,Ansteuerdauer,Kalibrierpunkt 1
+074,2,Ansteuerdauer,Kalibrierpunkt 2
+074,3,Ansteuerdauer,Kalibrierpunkt 3
+074,4,[N/A]
+;
+075,0,Nullmengen Kalibrierung Zyl. 4
+075,1,Ansteuerdauer,Kalibrierpunkt 1
+075,2,Ansteuerdauer,Kalibrierpunkt 2
+075,3,Ansteuerdauer,Kalibrierpunkt 3
+075,4,[N/A]
+;
+076,0,Nullmengen Kalibrierung Zyl. 5
+076,1,Ansteuerdauer,Kalibrierpunkt 1
+076,2,Ansteuerdauer,Kalibrierpunkt 2
+076,3,Ansteuerdauer,Kalibrierpunkt 3
+076,4,[N/A]
+;
+077,0,Nullmengen Kalibrierung Zyl. 6
+077,1,Ansteuerdauer,Kalibrierpunkt 1
+077,2,Ansteuerdauer,Kalibrierpunkt 2
+077,3,Ansteuerdauer,Kalibrierpunkt 3
+077,4,[N/A]
+;
+095,0,Startersteuerung 1
+095,1,Klemme 50,,Wertebereich: 0 = nicht aktiv / 1 = aktiv
+095,2,P/N-Signal,,Signal vom Wählhebelschalter (nur Fahrzeuge mit Automatikgetriebe)
+095,2,Interlock-Signal,,Signal vom Kupplungspedalschalter für Motorstart (nur Fahrzeuge mit Schaltgetriebe)
+095,3,Relais 1,für Anlasser,Wertebereich: 0 = Aus / 1 = Ein
+095,4,Relais 2,für Anlasser,Wertebereich: 0 = Aus / 1 = Ein
+;
+096,0,Startersteuerung 2
+096,1,Klemme 50,Rückmeldung,Wertebereich: 0 = nicht aktiv / 1 = aktiv
+096,2,[N/A]
+096,3,Abschalt-,bedingungen,siehe Labelfile
+; xxxxxxx1 - Startabwurfdrehzahl erreicht
+; xxxxxx1x - Fahrgeschwindigkeitsschwelle
+; xxxxx1xx - Maximale Startzeit glühabhängig
+; xxxx1xxx - Maximale Startzeit
+; xxx1xxxx - Klemme 15
+; xx1xxxxx - Klemme 15 Sperre
+; x1xxxxxx - Klemme 50 und 50-Rück
+; 1xxxxxxx - Einspurfehlererkennung
+096,4,Bordspannung
+;
+100,0,Service Regeneration (Partikelfilter)
+100,1,Motordrehzahl,,Sollwert (bei Service Regeneration): ca. 1500 U/min
+100,2,Abgastemperatur,vor Partikelfilter,Sollwert (Regeneration aktiv): grösser 550 °C | Maximalwert: 820 °C | Abbruch: 720 °C länger als 12 Sek. überschritten
+100,3,Aktuelle,Regenerationsdauer,Wertebereich: 0...255 | Gesamtdauer: 10 bis 40 Minuten
+100,4,Abbruch,erkannt,Wertebereich: 0 = nicht abgebrochen / 1 = wurde abgebrochen
+;
+101,0,Status Service Regeneration (Partikelfilter)
+101,1,Freigabe-,bedingungen 1,siehe Labelfile
+; xxxxxxx1 - Motorzustand normal
+; xxxxxx1x - Motortemperatur im zulässigen Bereich
+; xxxxx1xx - Öltemperatur im zulässigen Bereich
+; xxxx1xxx - Umgebungsluftdruck hoch genug
+; xxx1xxxx - Kraftstofftemperatur kühl genug
+; xx1xxxxx - Batteriespannung ausreichend
+; x1xxxxxx - keine Kupplung getreten
+; 1xxxxxxx - kein Gang eingelegt
+101,2,Freigabe-,bedingungen 2,siehe Labelfile
+; xxxxxxx1 - Fahrgeschwindigkeit = 0
+; xxxxxx1x - Motordrehzahl im Bereich
+; xxxxx1xx - Einspritzmenge im zulässigen Bereich
+; xxxx1xxx - Fahrpedal kleiner Schwelle
+; xxx1xxxx - Partikelfiltertemperatur im zul. Bereich
+; xx1xxxxx - Vorkatalysatortemperatur im zul. Bereich
+; x1xxxxxx - Russmasse im Partikelfilter im zul. Bereich
+; 1xxxxxxx - Fehlerspeicher Motorsteuergerät gelöscht 
+101,3,Abbruch-,bedingungen,siehe Labelfile
+; xxxx1 - Nach Überwachungszeit Temperaturen nicht erreicht
+; xxx1x - Temperatur für Partikelfilter überschritten
+; xx1xx - Temperatur für Vorkatalysator überschritten
+; x1xxx - Abbruch über Freigabebedingungen
+; 1xxxx - Abbruch durch Gesamtregenerationsdauer
+101,4,Regenerations-,phase,000 - Start oder nicht aktiviert\n001 - Anheizen\n010 - Regeneration aktiv\n100 - Abkühlen
+;
+102,0,Geberwerte Abgasnachbehandlung (Partikelfilter)
+102,1,Abgastemperatur,nach Vorkatalys.,Sollwert (Leerlauf): 90...270 °C | Sollwert (Vollast): 490...830 °C
+102,2,Abgastemperatur,vor Partikelfilter,Sollwert (Leerlauf): 70...250 °C | Sollwert (Vollast): 490...830 °C
+102,3,Differenzdruck,Partikelfilter,Sollwert: 0...950 mbar
+102,4,Offset,Differenzdruck
+;
+103,0,Status Feld Regeneration (Partikelfilter)
+103,1,Regenerations-,modus (Status),Wertebereich: 0...18
+103,2,Regenerations-,anforderung,siehe Labelfile
+; xxx1 - Zähleranforderung aktiv
+; xx1x - Anforderung durch Kraftstoffverbrauch
+; x1xx - Anforderung durch Betriebszeit
+; 1xxx - Anforderung durch gefahrene Strecke
+103,3,[N/A]
+103,4,Regenerations-,sperrung,Wertebereich: x1 - Regeneration gesperrt / 1x - Maximale Regenerationszeit abgelaufen
+;
+104,0,Partikelfilter
+104,1,Ölaschevolumen
+104,2,Beladungsruss-,massenwert,berechnet
+104,3,Beladungsruss-,massenwert,gemessen
+104,4,Strecke seit letzter,Regeneration
+;
+110,0,Status Raildruckregelung
+110,1,Motordrehzahl
+110,2,Kraftstoff-,temperatur
+110,3,Status Rail-,druckregelung,siehe Labelfile
+; 0 - Zündung an, Steuerbetrieb
+; 4 - Regelventil über Druckregelventil (normaler Betriebsmodus)
+; 5 - Regelbetrieb über Zumesseinheit (normaler Betriebsmodus)
+; 7 - Steuerbetrieb (Motor wird abgestellt)
+110,4,[N/A]
+;
+125,0,CAN-Datenbus Kommunikation (Antrieb)
+125,1,Autom. Getriebe,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+125,2,ABS/ESP,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+125,3,Kombiinstrument,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+125,4,Klima,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,ACC/ADR,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+126,2,[N/A]
+126,3,Airbag,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+126,4,[N/A]
+;
+127,0,CAN-Datenbus Kommunikation (Antrieb)
+127,1,[N/A]
+127,2,[N/A]
+127,3,Lenksäulenmodul,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+127,4,[N/A]
+;
+128,0,CAN-Datenbus Kommunikation (Antrieb)
+128,1,Elektronisches,Zündschloss,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+128,2,[N/A]
+128,3,[N/A]
+128,4,[N/A]
+;
+129,0,CAN-Datenbus Kommunikation (Antrieb)
+129,1,Batterie-/Energie-,management,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+129,2,Gateway,,Wertebereich: 0 = nicht aktiv/1 = aktiv/--- = nicht vorhanden
+129,3,[N/A]
+129,4,[N/A]
+;

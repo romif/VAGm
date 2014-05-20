@@ -1,0 +1,22 @@
+; 4B0-907-357.LBL file
+; version 2003 Aug. 17
+;
+; for (xenon) head lights range adjusting module (PR-8Q2)
+; 4B0 907 357 module mainly used in Passat and A3/A4/A6/TT designed until year 2001
+; (4BO 907 357 C module used short period for PR-8Q3 in other VAG cars)
+;
+; Made by Alberto Salvador (Spain/EU), alberto.salvador@wanadoo.es , berto @ VW group related forums
+;
+1,0,Voltages and Speed
+1,1,Power Supply,Voltage
+1,2,Main Beam Voltage,-56b- pin
+1,3,Speed,( Km/h )
+;
+2,0,Axles sensors and Adaptation
+2,1,Front level sensor,-G78- Voltage
+2,2,Rear level sensor,-G76- Voltage
+2,3,Adaptation [O.K.],(Run/ON=Leveling)
+;
+; If adaptation it's OK should display "ADP. O.K."
+; "ADP. ON" or "ADP. Run" it's displayed while
+; leveling motors (-V48- and -V49-) are adjusting headlights

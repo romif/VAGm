@@ -1,0 +1,102 @@
+;
+; VAG-COM label file 3D0-915-181.lbl
+;
+; VW Phaeton (3D) - up to and including model year 2005 (fully tested with 2004 W12 Phaeton)
+; VW Bentley Continental GT - up to and including model year 2005 (not tested with this vehicle)
+;
+; component: Battery Charger -J367-  (#71)
+;
+; p/n: 3D0 915 181 A Component: Batteriemanagement 2500 (Phaeton very early production)
+;      3D0 915 181 B Component: Batteriemanagement 2600 (Phaeton mid production, Bentley Continental GT ROW)
+;      3D0 915 181 C Component: Batteriemanagement 2700 (Phaeton with effect from late MY 2004 production)
+;      3D0 915 181 D Component: Batteriemanagement 2800 (Phaeton with effect from late August 2006 production)
+;
+; NOTE:  There are known deficiencies with the early controllers that have the A suffix and 2500 software, these
+; MUST be replaced with newer controllers.  See this thread on VW Vortex for further information: 
+; http://forums.vwvortex.com/zerothread?id=2020343
+: European Phaeton owners should refer to VW Campaign 97J9, 03.02.05, criteria 11.1 which mandates replacing A suffix controllers.
+;
+; This labelfile includes measured value blocks. This component does not support coding or adaptation.
+; Due to hardware differences between each of the 4 generations of controller, flash-updating of software is not possible.
+;
+; by Sebastian Stange (sebastian@ross-tech.com)
+; modified by Michael Moore (Moore@ross-tech.com) 'PanEuropean' on the VW Vortex forum.
+; tested on a 2004 W12 Phaeton - not all blocks may show on other vehicles.
+;
+; last modified: 11/05/2004 (Sebastian)
+; last modified: 22/July/2005 (Michael)
+; - note added above about part number changes of this controller, URL to Vortex discussion of this controller added.
+; last modified: 06/October/2006 (Michael) - reference to campaign 97J9 and new suffix D controller added.
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; measured value block information
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltages Present
+001,1,Term 15 (Ignition),(start relevant),Specified value: 0...16.5 V
+001,2,Terminal 30,(start relevant),Specified value: 0...16.5 V
+001,3,Terminal 30,(Comfort battery),This is the left hand battery.
+001,4,Terminal 30,(starter battery),This is the right hand battery.
+;
+002,0,Current Demands
+002,1,Current,Term 15 (Ignition),start relevant
+002,2,Current,Term 30 (Battery),start relevant
+002,3,Battery compartment,temperature
+002,4,Internal battery, temperature
+;
+003,0,Digital inputs
+003,1,Digital input,Term 15 (Ignition),Specified value: Term. 15 on/Term. 15 off
+003,2,Digital input,Term 50 (Starter),Specified value: Term. 15 on/ Term. 15 off
+003,3,Digital input,Key In,Specified value: on/off
+;
+004,0,*This group not used.
+;
+005,0,Engine Related Information
+005,1,Engine Speed
+005,2,Temperature,of generator
+005,3,Unknown
+;
+006,0,Unknown - could this be intervention load management status?
+006,1,Unknown
+006,2,Battery warning,indication lamp,Status = on or off
+;
+007,0,*Next measuring block used is block 80.
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0*End of documented measuring blocks for this module.
+;Remark: No further blocks up to 105, did not check beyond that/
+;
+;
+;---------------------------------------------------
+;
+; coding information
+;
+;---------------------------------------------------
+;
+;
+C00,Phaeton Battery Charging System (J367) Coding
+C01,
+C02,0000000 - No coding variations are known for this module.
+;
+;
+;---------------------------------------------------
+;
+; adaptation information
+;
+;---------------------------------------------------
+;
+;Remark - no adaptation appears possible.
+;
+;

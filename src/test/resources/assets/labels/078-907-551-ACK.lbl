@@ -1,0 +1,80 @@
+;
+; VCDS Label File
+;
+; Audi A4 (8D) / Audi A6 (4B)
+;
+; Component: Engine (#01) - ACK/ALG/APR
+;
+; P/N: 4D0-907-551-???
+;
+; includes coding and adaptation
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 4D-01.LBL
+; 078-907-551-ACK.LBL  (2.8l E   @ 193 HP - ACK/ALG/APR)
+;
+; created on 26/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 26/Mar/2008
+;
+; requires VCDS 803.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks & basic setting
+;
+;---------------------------------------------------
+;
+;
+
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Engine (J220) Coding
+C01,??xxx: Emissions
+C02,02 = MVEG I (non-EU Members)
+C03,04 = MVEG II (EU Members)
+C04,05 = MVEG III (with Sec. Air Injection)
+C05,08 = China and Russia/GUS
+C06,xx?xx: Powertrain
+C07,0 = Front-Wheel-Drive without ASR
+C08,1 = Front-Wheel-Drive with ASR
+C09,2 = All-Wheel-Drive without ASR
+C10,3 = All-Wheel-Drive with ASR
+C11,xxx?x: Transmission
+C12,0 = 5-Speed Manual Transmission
+C13,5 = 5-Speed Automatic Transmission (01V)
+C14,xxxx?: Model
+C15,1 = Audi A4 (8D)
+C16,2 = Audi A6 (4B)
+C17,3 = Audi A8 (4D)
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Idle Speed
+A001,1,Engine Speed,(actual)
+A001,2,Engine Speed,(specified)
+A001,3,A/C Readiness,,Range: A/C-Low / A/C-High
+A001,4,A/C Compressor,,Range: Compr.OFF/Compr.ON
+; 
+A091,0,Immobilizer Status
+A091,5,Immobilizer Status (Read Only)
+A091,6,0 = Immobilizer not matched (NEW)
+A091,7,1 = Immobilizer disabled
+A091,8,4 = Immobilizer matched (System OK)
+;

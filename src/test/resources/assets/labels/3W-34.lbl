@@ -1,0 +1,39 @@
+;
+; VAG-COM Redirect File
+;
+; VW Bentley Continental GT (3W)
+;
+; component: Level Control System (#34)
+;
+; p/n: 3D0 907 553 A
+;      3D0 907 553 B Component: LUFTFDR.-CDC- 3C1V0 1101 (NAR and ROW Phaeton) - fully tested on this vehicle
+;      3D0 907 553 C
+;      3W0 907 553   Component: LUFTFDR.-CDC- 3C1V0 7014 (NAR and ROW Bentley) - not tested on this vehicle
+;
+; NOTE: both NAR and ROW Bentley Continental GT are coded 15500 by default.
+;
+; This file is part of a redirection package,
+; make sure you have both of the following files.
+;
+; 3W0-907-553.lbl (this file)
+; 3D0-907-553.lbl (the Phaeton ABS file that this redirect sends you to)
+;
+; created on 23/Sep/2005 by Michael Moore (Moore@Ross-Tech.com)
+; updated on 25/Sep/2006 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/September/2006
+;
+; requires VAG-COM 405.0 or newer
+;
+;
+REDIRECT,3D0-907-553.lbl,3W0-907-553-???
+;
+;
+;Explanation of why this redirect file exists
+;
+;This file provides labels for the level control system on the Bentley Continental GT
+;by calling up an existing label file for level control on the Phaeton.  It appears to 
+;the author that both of these controllers (Phaeton and Bentley Continental GT) are identical, however, this
+;label file has not been fully tested on the Bentley.
+;
+;

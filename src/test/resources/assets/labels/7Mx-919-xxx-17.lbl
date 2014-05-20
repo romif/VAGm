@@ -1,0 +1,156 @@
+;
+; VAG-COM Label File
+;
+; Ford Galaxy (7M) / Seat Alhambra (7M) / VW Sharan (7M)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 7M?-919-???-???
+;
+; includes measuring blocks, adaptation, login, coding and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; Diese Datei gehört zu einem Redirect-Paket, stellen
+; Sie sicher, das alle folgenden Dateien vorhanden sind.
+;
+; 7M-17.LBL
+; 7Mx-919-xxx-17.LBL
+; 7Mx-920-xxx-17.LBL
+;
+; created on 18/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Distance Impulse
+001,2,Vehicle Speed
+001,3,Engine Speed
+001,4,Fuel Consumption
+;
+002,0,General
+002,1,Odometer
+002,2,Coolant,Temperature
+002,3,Oil Temperature
+002,4,Ambient,Temperature
+;
+003,0,General
+003,1,Fuel Level
+;
+004,1,Oil Pressure,Switch 1,at 0.3 bar
+004,2,Oil Pressure,Switch 2,at 0.9/1.4/1.8 bar
+004,3,Odometer Display,Switch
+004,4,MFD 1/2,Switch
+;
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil Temperature
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,00?xx: Anti-Lock Braking System (ABS)
+C02,0 = Anti-Lock Braking System (ABS) not installed
+C03,1 = Anti-Lock Braking System (ABS) installed
+C04,00x?x: Transmission (Distance Impulse Number)
+C05,1 = Automatic Trabsmission (3440)
+C06,2 = Manual Transmission (4815)
+C07,00xx?: Cylinders
+C08,4 = 4-Cylinders
+C09,6 = 6-Cylinders
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A001,0,Tank Characteristic (Fuel Level Sensor)
+A001,5,Tank Characteristic (Fuel Level Sensor)
+A001,6,Range: 0...254
+A001,7, 
+A001,8,Refer to Factory Repair Manual for further details.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Increments: 1 = 10 km
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km.
+A009,11, 
+A009,12,NOTE: Perform Login first.
+;
+;
+;---------------------------------------------------
+;
+; login
+;
+;---------------------------------------------------
+;
+;
+L00,Instrument Cluster (J285) Login
+L01,13861 = Adaptation Enabling
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,5,Oil Service (Distance),1000,km
+RD,6,Oil Service (Time),1,Tage
+RD,7,Inspection 1 (Time),1,Tage
+RD,8,Inspection 2 (Distance),1000,km
+;
+RJ,0,0,Service Reset (Oil Service),,
+RJ,0,1,5,0
+RJ,0,2,6,0
+;
+RJ,1,0,Service Reset (Inspection 1),,
+RJ,1,1,5,0
+RJ,1,2,6,0
+RJ,1,3,7,0
+;
+RJ,2,0,Service Reset (Inspection 2),,
+RJ,2,1,5,0
+RJ,2,2,6,0
+RJ,2,3,7,0
+RJ,2,4,8,0
+;
+RJ,3,0,Service Reset (Delivery Inspection),,
+RJ,3,1,5,0
+RJ,3,2,6,0
+RJ,3,3,7,0
+RJ,3,4,8,0
+;

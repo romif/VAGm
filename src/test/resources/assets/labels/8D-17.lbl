@@ -1,0 +1,26 @@
+;
+; VAG-COM Redirect File
+;
+; Audi A4 (8D)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8D-17.LBL
+; 8D0-919-0xx-17.LBL  (MY 1995-1997)
+; 8D0-919-xxx-17.LBL  (MY 1998-1999)
+; 8D0-920-xxx-17.LBL  (MY 2000+)
+;
+; created on 30/Oct/2004 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 25/Oct/2007
+;
+; requires VAG-COM 405.0 or newer
+;
+REDIRECT,8D0-919-0xx-17.LBL,8D?-919-0??-???
+REDIRECT,8D0-919-xxx-17.LBL,8D0-919-8??-???
+REDIRECT,8D0-919-xxx-17.LBL,8D0-919-9??-???
+REDIRECT,8D0-920-xxx-17.LBL,8D0-920-???-???
+;

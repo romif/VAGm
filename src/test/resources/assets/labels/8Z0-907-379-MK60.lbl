@@ -1,0 +1,124 @@
+;
+; VAG-COM Labeldatei
+;
+; Audi A2 (8Z)
+;
+; Komponente: J104 - Bremsenelektronik (#03) - MK60
+;
+; T/N: 8Z0-907-37?-???
+;
+; beinhaltet Messwertgruppen und Login
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 8Z-03.LBL
+; 8Z0-907-379-MK20.LBL (MK20)
+; 8Z0-907-379-MK60.LBL (MK60)
+;
+; erstellt am 17.10.2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 17.10.2005
+;
+; benötigt VAG-COM 405.0 oder neuer
+;
+;
+;---------------------------------------------------
+;
+; Codierung Informationen
+;
+;---------------------------------------------------
+;
+;
+C00,Bremsenelektronik MK60 (J104) Codierung
+C01,Steuergerät "8Z0-907-37x-C":
+C02,19470 - 1.2l/45kW TDI (mechanische Lenkung)
+C03,19474 - 1.2l/45kW TDI (elektrohydraulische Lenkung)
+C04,19463 - 1.4l/55kW MPI
+C05,19591 - 1.4l/55kW TDI
+C06,19599 - 1.4l/66kW TDI
+C07,19471 - 1.6l/81kW FSI
+C08, 
+C09,Steuergerät "8Z0-907-37x-D":
+C10,07182 - 1.2l/45kW TDI (mechanische Lenkung)
+C11,07186 - 1.2l/45kW TDI (elektrohydraulische Lenkung)
+C12,07175 - 1.4l/55kW MPI
+C13,07303 - 1.4l/55kW TDI
+C14,07311 - 1.4l/66kW TDI
+C15,07183 - 1.6l/81kW FSI
+;
+;
+;---------------------------------------------------
+;
+; Login Informationen
+;
+;---------------------------------------------------
+;
+;
+L00,Bremsenelektronik MK20 (J104) Login
+L01,40168 - Freischaltung Grundeinstellung
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,0,Radgeschwindigkeit (Grundeinstellung: Entlüftung der Hydraulikeinheit)
+001,1,Drehzahlfühler,vorn links (G47),Wertebereich: 0.0...255.0 km/h
+001,2,Drehzahlfühler,vorn rechts (G45),Wertebereich: 0.0...255.0 km/h
+001,3,Drehzahlfühler,hinten links (G46),Wertebereich: 0.0...255.0 km/h
+001,4,Drehzahlfühler,hinten rechts (G44),Wertebereich: 0.0...255.0 km/h
+;
+002,0,Startgeschwindigkeit
+002,1,Drehzahlfühler,vorn links (G47),Wertebereich: 0.0...254.0 km/h (255.0 km/h = Stand/kein Messwert)
+002,2,Drehzahlfühler,vorn rechts (G45),Wertebereich: 0.0...254.0 km/h (255.0 km/h = Stand/kein Messwert)
+002,3,Drehzahlfühler,hinten links (G46),Wertebereich: 0.0...254.0 km/h (255.0 km/h = Stand/kein Messwert)
+002,4,Drehzahlfühler,hinten rechts (G44),Wertebereich: 0.0...254.0 km/h (255.0 km/h = Stand/kein Messwert)
+;
+003,0,Schalter und Kontrolleuchten
+003,1,Bremslicht-,schalter (F),Wertebereich: unbetätigt/betätigt
+003,2,Kontrollampe,Bremsanl. (K118),Wertebereich: ein/aus
+003,3,Kontrollampe,ABS (K47),Wertebereich: ein/aus
+003,4,Kontrollampe,ASR/ESP (K155),Wertebereich: ein/aus
+;
+004,0,Lenkwinkel / Querbeschleunigung / Drehrate
+004,1,Geber (G85) für,Lenkwinkel,Sollwert (Geradeausfahrt): ± 4.5 °
+004,2,Geber (G200) für,Querbeschleunig.,Sollwert (Stand): ± 0.5 m/s²
+004,3,Geber (G202) für,Drehrate,Sollwert (Stand): ± 2.5 °/s²
+;
+005,0,Bremsdruck und Lenkwinkelsensor
+005,1,Geber (G201) für,Bremsdruck,Sollwert: ± 7 bar
+005,2,Status (G85) Lenk-,winkelsensor,Wertebereich: initialisiert/nicht initialisiert/unplausibel
+;
+007,0,ASR-Taster
+007,1,ASR-Taster,(E256),Wertebereich: unbetätigt/betätigt
+;
+011,0,Zahnradfehler/Teilungsfehler (vorne links)
+;
+012,0,Zahnradfehler/Teilungsfehler (vorne rechts)
+;
+013,0,Zahnradfehler/Teilungsfehler (hinten links)
+;
+014,0,Zahnradfehler/Teilungsfehler (hinten rechts)
+;
+060,0,Grundeinstellung: Nullabgleich Geber für Lenkwinkel (G85)
+;
+063,0,Grundeinstellung: Nullabgleich Geber für Querbeschleunigung (G200)
+;
+066,0,Grundeinstellung: Nullabgleich Geber 1 für Bremsdruck (G201)
+;
+080,0,Erweiterte Steuergerät Identifikation I
+;
+125,0,CAN-Datenbus Antrieb (Kommunikation)
+125,1,Motorelektronik,,Sollwert: Motor 1\nWertebereich: Motor 1/Motor 0
+125,2,Lenkwinkelsensor,(G85),Sollwert: Lenkwink. 1\nWertebereich: Lenkwink. 1/Lenkwink. 0
+125,3,Getriebeelektronik,,Wertebereich: Getriebe 1/Getriebe 0
+;
+126,0,CAN-Datenbus Antrieb (Kommunikation)
+126,1,Kombiinstrument,(J285),Sollwert: Kombi 1\nWegfahrsperre: Kombi 1/Kombi 0
+126,2,CAN-Gateway,(J533),Sollwert: Gateway 1\nWegfahrsperre: Gateway 1/Gateway 0
+126,3,Wegfahrsperre,,Sollwert: WFS 1\nWegfahrsperre: WFS 1/WFS 0
+;

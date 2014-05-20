@@ -1,0 +1,45 @@
+;
+; VAG-COM Labeldatei
+;
+; VW Bora/Golf/Jetta (1J/9M)
+;
+; Komponente: J431 - Leuchtweitenregulierung (#55)
+;
+; T/N: 1J0-941-651
+;
+; beinhaltet Messwertgruppen und Codierung
+;
+; erstellt am 01/Jun/2005 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung: 01/Jun/2005
+;
+; benötigt mindestens VAG-COM 402.3 oder höher
+;
+;
+;---------------------------------------------------
+;
+; Messwertgruppen Informationen
+;
+;---------------------------------------------------
+;
+;
+001,1,Versorgungs-,spannung
+;
+002,1,Geber (G78) vorn,Fahrzeugniveau,Sollwert: 1.0...2.0
+002,2,Geber (G76) hinten,Fahrzeugniveau,Sollwert: 2.0...3.5
+002,3,Status,Grundeinstellung
+;
+;
+;---------------------------------------------------
+;
+; Codierungs Informationen
+;
+;---------------------------------------------------
+;
+;
+C0,Leuchtweitenregulierung (J431) Codierung
+C1,00001 - Golf Frontantrieb
+C2,00002 - Golf 4 Motion
+C3,00003 - Bora Frontantrieb
+C4,00004 - Bora 4 Motion
+;

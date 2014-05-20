@@ -1,0 +1,298 @@
+;
+; VAG-COM Measuring Block Labels for 24V AXK VR6.
+; as installed in 2001 EuroVan.
+; ECU number 022-906-032-F 
+;
+;
+1,0,Basic functions at idle. 
+1,1,Engine Speed idle,650 to 750 RPM
+1,2,Coolant temp, 80 to 100C
+1,3,O2 sensor before cat, -10.0 to 10.0 %
+1,4,Adjustment requirements,*ABCDEFGH
+;
+;Explanation of field #4 [ABCDEFGH]
+;A  No malfunctions seen by OBD
+;B  X no meaning
+;C  A/C compressor swithced off
+;D  Idle switch closed
+;E  O2 sensor regulation good
+;F  Throttle valve closed
+;G  RPMs below 2000
+;H  Coolant temp above 90C
+;
+2,0,MAF sensor
+2,1,Engine RPM idle, 650 to 750
+2,2,Enigine load, 12 to 26 %
+2,3,Injection timing, 1.0 to 4.0 ms
+2,4,Mass air taken in, 3.0 to 5.0 g/s
+;
+3,0, MAF sensor
+3,1,Engine RPM idle, 650 to 750
+3,2,Mass air taken in, 3.0 to 5.0 g/s
+3,3,Throttle valve angle, 0.2 to 4.0 %
+3,4,Ignition angle, 9 to 15 deg BTDC
+;
+4,0,engine running at idle
+4,1,Engine RPM idle, 650 to 750
+4,2,Voltage to ECM, 12.0 to 15.0 V
+4,3,Coolant temp, 80 to 110 C
+4,4,Intake air temp, -48 to 143 C
+;
+5,0,engine running at idle
+5,1,Engine RPM idle,650 to 750
+5,2,Engine load,12 to 26 %
+5,3,Van speed,0 km/h
+5,4,Operating condition, idle
+;
+6,0,engine running at idle
+6,1,Engine RPM idle,650 to 750
+6,2,Engine load,12 to 26%
+6,3,Intake air temp,-48 to 143 C
+6,4,High correction factor, -50 to 10 %
+;
+;No info on 7 - 9
+;
+10,0,Ignition
+10,1,Engine speed idle, 650 to 750
+10,2,Engine load,12 to 26 %
+10,3,Throttle valve angle,.2 to 4.0 %
+10,4,Ignition angle,9 to 15 deg BTDC
+;
+;No info on 11 - 13
+;
+14,0,Ign - misfire recognition
+14,1,Engine speed idle,650 to 750
+14,2,Engine load,15 to 25%
+14,3,# of misfires, 0 hopefully!
+14,4,Misfire recognition,activated
+;
+;No info on 15 - 21
+;
+22,0,Ignition knock control
+22,1,Engine speed,630 to 6800
+22,2,Engine load,10 to 100 %
+22,3,ang retrd #1 by K.C.,0 to 12.0 KW
+22,4,ang retrd #2 by K.C.,0 to 12.0 KW
+;
+23,0,Ignition knock control
+23,1,Engine speed,630 to 6800
+23,2,Engine load,10 to 100 %
+23,3,ang retrd #3 by K.C.,0 to 12.0 KW
+23,4,ang retrd #4 by K.C.,0 to 12.0 KW
+;
+24,0,Ignition knock control
+24,1,Engine speed,630 to 6800
+24,2,Engine load,10 to 100 %
+24,3,ang retrd #5 by K.C.,*0 to 12.0 KW
+24,4,ang retrd #6 by K.C.,*0 to 12.0 KW
+;
+;foot notes for 22 - 24
+;fields 3 and 4 are as follows
+;Ignition angle retardation cyclinder # via knock control
+;
+;At idle the value should be 0.0 KW
+;
+;No info for 25 - 27
+;
+28,0,Ignition knock control
+28,1,Engine speed,2200 to 6800
+28,2,Engine load,10 to 100 %
+28,3,Coolant temp,40 to 110 C
+28,4,Knock sensor test,Sys OK
+;
+;No info on 29
+;
+30,0,Status O2 control
+30,1,O2 status bank 1 precat,111
+30,2,O2 status bank 2 postcat,111
+30,3,blank
+30,4,blank,VW rocks
+;
+;No info on 31
+;
+32,0,O2 sensor control - adaptation values
+32,1,S1 B1 @ idle,-5.4 to 5.4 %
+32,2,S1 B1 @ part throttle,-10 to 10 %
+32,3,blank
+32,4,blank
+;
+33,0,O2 sensor control - control values
+33,1,O2 control B1,-10 to 10 %
+33,2,S1 B1 voltage,1.400 to 1.600 V
+33,3,blank
+33,4,blank
+;
+34,0,O2 control - precat aging test
+34,1,Engine speed,2000 to 2300
+34,2,Cat temp,>350 C
+34,3,Dynamic factor, 0 to 2
+34,4,Results,B1-S1 OK
+;
+;No info on 35
+;
+36,0,O2 control postcat 04(basic setting) @ idle
+36,1,O2 voltage,0.100 to 0.900 V
+36,2,Results,B1-S2 OK
+36,3,blank
+36,4,blank
+;
+;No info on 37 - 40
+;
+41,0,O2 heating pre & postcat B1
+41,1,blank
+41,2,O2 precat heating
+41,3,Res O2 postcat,0 to 25 kOhms
+41,4,O2 postcat heating
+;
+;No info on 42
+;Man... how many are there.....
+;
+43,0,O2 control diagnostic of postcat aging test 04(basic setting)
+43,1,Engine speed,2000 to 2300 RPM
+43,2,Cat temp,>350 C
+43,3,O2 voltage S2 B1,0.00 to 1.00 V
+43,4,Results, B1-S1 OK
+;
+;No info 44 - 45
+;
+46,0,O2 control - cat test
+46,1,Engine speed,2000 - 2300
+46,2,Cat temp,> 350 C
+46,3,Cat conversion rate,0.0 to 100.0 %
+46,4,Cat test,Cat B1 OK
+;
+;No info 47 - 49
+;
+50,0,RPM regulation operating conditions
+50,1,Engine speed idle,650 - 750
+50,2,Engine speed*,700 RPM
+50,3,A/C system,high or low
+50,4,A/C compressor,on or off
+;
+;50,2 - Engine speed (specified value-idle speed)
+;
+;No info on 51 - 53
+;
+54,0,RPM regulation
+54,1,Engine speed,650 - 750
+54,2,Op condition,*
+54,3,Throttle Postion,0 to 97 %
+54,4,Throttle angle,0 to 100 %
+;
+55,0,RPM regulation
+55,1,Engine idle,650 - 750
+55,2,Idle control,-5.0 to 10.0 %
+55,3,Idle control*,-5.0 to 5.0 %
+55,4,Operation condition,*ABCDE
+;
+;55,3,Adaptation value idle control
+;A/C system on (A/C-high)
+;A/C system off (A/C-low)
+;55,4, ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+56,0,RPM regulation idle stabillzation
+56,1,Engine speed,650 - 750
+56,2,Engine speed*,700 RPM
+56,3,Idle control,-5.0 to 10.0 %
+56,4,Operating condition,*ABCDE
+;
+;56,2,Engine speed (specified value-idle speed)
+;56,4, ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+;No info on 57 - 59
+;
+60,0,RPM regulation adaptation e-gas system
+60,1,Throttle angle G187,3 to 93 %
+60,2,Throttle angle G188,97 to 3 %
+60,3,Adaption step counter,0 to 8
+60,4,Adaptation test, ADP OK
+;
+61,0,RPM regulation e-gas system
+61,1,Engine speed,650 - 6500
+61,2,Volt to ECM,12.0 to 15.0 V
+61,3,Throttle angle G187,o to 100 %
+61,4,Operating condition,*ABCD
+;
+;61,4,ABCDE
+;A  Pressure switch for power steering on (not indicated for 4 digit number block)
+;B  Atomic batteries to speed or "no meaning"
+;C  A/C system switched on
+;D  Driving mode selected
+;E  A/C compressor switched on
+;
+62,0,RPM regulation e-gas system
+62,1,Throttle angle G187,3 to 93 %
+62,2,Throttle angle G188,97 to 3 %
+62,3,Throttle postion,12 to 97 %
+62,4,Sender G185,4 to 49 %
+;
+63,0,RPM regulation kick-dowm adaptation
+63,1,Throttle postion,70 to 97 %
+63,2,Sender G185,80 to 100 %
+63,3,Kick down switch,Kick down
+63,4,Operating test,ADP OK
+;
+;No info on 64 - 65
+;
+66,0,Cruise control system
+66,1,Vehicle speed,O km/h
+66,2,Brake switch,00001000
+66,3,speed stored, by cruise control
+66,4,Cruise switch,00000000
+; 
+
+81,0,VIN & Immo ID (if Immo-3)
+;
+82,0,Flash Tool Code Flash Date, Hardware, Software 
+;
+90,0,Power enhancements - exhaust camshaft
+90,1,Engine speed,650 - 6500
+90,2,Cam adjustment,on/off
+90,3,Cam adjustment,0 to 25 deg
+90,4,VAG-COM,rocks
+;
+91,0,Power enhancement - intake camshaft
+91,1,Engine speed,650 - 6500
+91,2,Duty cycle,0 to 100 %
+91,3,cam adjustment,0 to 52 deg
+91,4,cam adjustment,0 to 52 deg
+;
+;No info on 92 - 94
+;
+95,0,Power enhancements - intake change over
+95,1,Engine speed,650 - 6500
+95,2,Engine load,0 to 120 %
+95,3,Coolant temp,80 to 110 C
+95,4,Status of intake,on or off
+;
+;No info on 96 - 98
+;
+99,0,O2 sensor control
+99,1,Engine idle,650 - 750
+99,2,Coolant temp,80 to 110 C
+99,3,O2 sensor control,-10.0 to 10.0%
+99,4,Op condition O2 control,on or off
+;
+;No info on 100 to 124
+;
+125,0,CAN bus messages
+125,1,Tranny status,Transmission 1
+125,2,ABS status,ABS 1
+125,3,Combi status,Combi 1
+124,4,SUVs,blow
+;
+;OK - that was a lot to typing...
+;If you enjoy this, honk your horn 3 times at every redlight.
+
+
+

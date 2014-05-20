@@ -1,0 +1,115 @@
+;
+; VAG-COM Label File
+;
+; Audi A3/Cabriolet (8P) / Seat Altea/Toledo (5P) / Seat Leon (1P)
+; Skoda Octavia (1Z) / VW Caddy (2K) / VW Eos (1F) / VW Golf/Jetta (1K)
+; VW Golf Plus (5M) / VW Passat (3C) /  VW Tiguan (5N) / VW Touran (1T)
+;
+; Component: J345 - Trailer (#69)
+;
+; P/N: 1K0-907-383-D/E
+;
+; includes measuring blocks, long coding and selective output tests
+;
+; created on 15/Mar/2008 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 15/Mar/2008
+;
+; requires VAG-COM 505.1 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage Supply I
+001,1,Voltage,(Terminal 30)
+001,3,Status Term. 15,(Emergency Run),Range: ON/OFF
+;
+002,0,Voltage Supply II
+002,1,Status,Terminal 30L,Range: ON/OFF\nSignal Type: Input
+002,2,Status,Terminal 30R,Range: ON/OFF\nSignal Type: Input
+;
+003,0,Input Signals I
+003,2,Brake Light Switch,,Range: ON/OFF\nSignal Type: Input
+003,3,Control Module,Temperature
+;
+004,0,Output Signals I
+004,1,Turn Signal,Rear Left,Range: ON/OFF\nSignal Type: Output
+004,2,Turn Signal,Rear Right,Range: ON/OFF\nSignal Type: Output
+004,3,Tail Light,Rear Left,Range: ON/OFF\nSignal Type: Output
+004,4,Tail Light,Rear Right,Range: ON/OFF\nSignal Type: Output
+;
+005,0,Output Signals II
+005,1,Brake Lights,Rear,Range: ON/OFF\nSignal Type: Output
+005,2,Back-Up Lights,Rear,Range: ON/OFF\nSignal Type: Output
+005,3,Rear Fog Lights,,Range: ON/OFF\nSignal Type: Output
+;
+006,0,Input Signals II (CAN)
+006,1,Status,Terminal 15,Range: ON/OFF\nSignal Type: Input/CAN
+006,2,Status,Terminal X,Range: ON/OFF\nSignal Type: Input/CAN
+006,4,Trailer,attached,Range: ON/OFF\nSignal Type: Input/CAN
+;
+007,0,Input Signals III (CAN)
+007,1,Turn Signal,Left,Range: ON/OFF\nSignal Type: Input/CAN
+007,2,Turn Signal,Right,Range: ON/OFF\nSignal Type: Input/CAN
+007,3,Emergency Flasher,Warning Lights,Range: ON/OFF\nSignal Type: Input/CAN
+;
+008,0,Input Signals IV (CAN)
+008,1,Brake Light Switch,,Range: ON/OFF\nSignal Type: Input/CAN
+008,2,Brake Test Switch,,Range: ON/OFF\nSignal Type: Input/CAN
+;
+009,0,Input Signals V (CAN)
+009,1,Side Marking,Lights,Range: ON/OFF\nSignal Type: Input/CAN
+009,2,Parking Light,Left,Range: ON/OFF\nSignal Type: Input/CAN
+009,3,Parking Light,Right,Range: ON/OFF\nSignal Type: Input/CAN
+;
+010,0,Input Signals VI (CAN)
+010,1,Rear Fog Light,,Range: ON/OFF\nSignal Type: Input/CAN
+010,2,Back-Up Light,,Range: ON/OFF\nSignal Type: Input/CAN
+;
+011,0,Input Signals VII (CAN)
+011,1,Rear Lid,,Range: Open/Closed\nSignal Type: Input/CAN
+011,2,Vehicle Speed,,Signal Type: Input/CAN
+011,3,Rear Windshield,,Range: Open/Closed\nSignal Type: Input/CAN
+;
+012,0,CAN-Databus Communication (Comfort)
+012,1,Central Electronics,(J519),Range: E.Load.Crtl 1/E.Load.Crtl 0\nSpecification: E.Load.Crtl 1
+012,3,Gateway,(J533),Range: Gateway 1/Gateway 0\nSpecification: Gateway 1
+012,4,Comfort System,(J393)
+;
+;
+;---------------------------------------------------
+;
+; selective output test
+;
+;---------------------------------------------------
+;
+;
+T1019,Relay (Terminal 30G)
+T2562,Trailer Brake Lights
+T2564,Trailer Tail Light Left (M60)
+T2563,Trailer Tail Light Right (M61)
+T2566,Trailer Turn Signals Left (M62)
+T2565,Trailer Turn Signals Right (M63)
+T2567,Trailer Rear Fog Lights (M64)
+T2568,Trailer Back-Up Lights
+;
+;
+;---------------------------------------------------
+;
+; long coding
+;
+;---------------------------------------------------
+;
+;
+LC,00,0~7,00,Control Module not coded
+LC,00,0~7,01,Rest of World (RoW)
+LC,00,0~7,02,North American Region (NAR)
+LC,00,0~7,03,Australia
+;
+;LC,03,1,Unknown (Standard?)
+;

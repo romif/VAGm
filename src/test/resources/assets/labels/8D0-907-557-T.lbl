@@ -1,0 +1,221 @@
+;
+; VAG-COM Measuring Block labels for 
+; AEB EURO spec Engine Label file.
+; Will probably also work for 1.8 20V ADR engine (some values are different but most measuring blocks are the same)
+; Created from a 97 Passat B5 1.8T (Norway)
+;
+; Created by Bjorn Badowski
+; bjorn.badowski@online.no
+;
+; VAG number 8D0-907-557T
+; Component name: 1.8L R4/5VT MOTR HS D06
+; Soft. Coding 04001
+;
+;Most data is taken from erwin Workshop manual (ADR/AEB)
+;
+;Measuring block 0 data for reference.
+;0,0,Measuring block       				;Engine idling
+;0,1,Engine coolant temp,        			;170 - 204 = 80 - 105 deg C
+;0,2,Engine Load,        					;10 - 40 = 0.5 - 2.0 ms (AEB)
+;0,3,Engine Speed (idle speed),    			;76 - 96 = 760 - 960 rpm
+;0,4,Engine Control Module (ECU) supply voltage,	;170 - 206 = 12 - 14.5 Volts
+;0,5,Throttle valve angle,  				;0 - 12 = 0 - 5 deg angle
+;0,6,Idle Air Control,       					;122 - 134 = -0.5 to 0.5 ms
+;0,7,Idle Air Control learned value,         		;120 - 136 = -4 to 4 kg/h
+;0,8,Oxygen sensor control,                  		;78 - 178 = -10% to 10%, <77 = rich, >179 = lean, 128 fuel starvation 
+;0,9,Mixture formation learned value, 		;115 - 141 = -0.7 - 0.7 ms
+;0,10,Mixture formation learned value, 		;118 to 138 = -8% - 8%
+;
+; 
+1,0,Idle Speed test
+1,1,Engine speed,760-960 rpm
+1,2,Engine load,0.5-1.5 ms
+1,3,Throttle body angle,0-5 deg
+1,4,Ignition angle,9-15 deg BTDC
+;
+2,0,Idle Speed test
+2,1,Engine speed,760-960 rpm
+2,2,Engine load,0.5-1.5 ms
+2,3,Inj period corr.,1-3 ms
+2,4,Air mass drawn,1.8-4.0 g/s
+;
+3,0,Idle Speed test
+3,1,Engine speed,760-960 rpm
+3,2,ECU Voltage,12-14.5 V
+3,3,Coolant temp,80-105 deg C
+3,4,Intake air temp,-45-108.5 deg C
+;
+4,0,Idling stabilisation
+4,1,Throttle body angle,0-5 deg
+4,2,Air mass auto(P/N),learned -1.1-1.1 g/s
+4,3,Air mass (in gear),learned -1.1-1.1 g/s
+4,4,Operating mode,Idle/throttle/enrich
+;
+5,0,Idling stabilisation
+5,1,Engine speed,760-960 rpm
+5,2,Idle speed spec.,normal 860 rpm
+5,3,Idle regulation,-10 - 10 %
+5,4,Air mass drawn,1.8-4.0 g/s
+;
+6,0,Idling stabilisation
+6,1,Engine speed,760-960 rpm
+6,2,Idle regulation,-10 - 10 %
+6,3,Lambda reg,-10 - 10 %
+6,4,Ignition ang,9-15 deg BTDC
+;
+7,0,Lambda learnt values
+7,1,Lambda reg control,valve -10-10 %
+7,2,Lambda probe,voltage 0-1.1 V
+7,3,Act. charcoal filter,duty cycle 0-99 %
+7,4,Lambda correction,factor 0.3-1.2
+;
+8,0,Lambda learnt values
+8,1,Inj period corrected,1-3 ms
+8,2,L learnt value idle,(add) -10-10 %
+8,3,L learnt val part thr,(mult) -8-8 %
+8,4,Fuel tank venting,ON/OFF/adapt
+;
+9,0,Lambda learnt values
+9,1,Engine speed,760-960 rpm
+9,2,Lambda reg contr,value -10-10 %
+9,3,Lambda probe,voltage 0-1.1 V
+9,4,L. learnt val idle,(add) -10-10 %
+;
+10,0,Fuel tank breather
+10,1,Act. charcoal filter,duty cycle 0-99 %
+10,2,Lambda corr tank,vent active 0.3-1.2
+10,3,Charge level char-,coal filter -3-32
+10,4,Fuel tank venting,purge rate 0.0-0.3 
+;
+11,0,Fuel Consumption
+11,1,Engine speed,760-960 rpm
+11,2,Engine load,0.5-1.5 ms
+11,3,Road speed,0 km/h
+11,4,Fuel consumption,0.5-1.5 l/h
+;
+;  Not found in erwin - improvised
+12,0,Fuel Consumtion
+12,1,Engine speed,760-960 rpm
+12,2,ECU Voltage,12-14.5 V
+12,3,Fuel consumption,0.5-1.5 l/h
+12,4,Ignition angle,9-15 deg BTDC
+;
+13,0,Knock control
+13,1,Cylinder 1 retard,0-12 deg CA
+13,2,Cylinder 2 retard,0-12 deg CA
+13,3,Cylinder 3 retard,0-12 deg CA
+13,4,Cylinder 4 retard,0-12 deg CA
+;
+14,0,Knock control
+14,1,Engine speed,760-960 rpm
+14,2,Engine load,0.5-1.5 ms
+14,3,Cylinder 1 retard,0-12 deg CA
+14,4,Cylinder 2 retard,0-12 deg CA
+;
+15,0,Knock control
+15,1,Engine speed,760-960 rpm
+15,2,Engine load,0.5-1.5 ms
+15,3,Cylinder 3 retard,0-12 deg CA
+15,4,Cylinder 4 retard,0-12 deg CA
+;
+16,0,Knock control
+16,1,Cyl 1 knock voltage,0.4-1.4 V
+16,2,Cyl 2 knock voltage,0.4-1.4 V
+16,3,Cyl 3 knock voltage,0.4-1.4 V
+16,4,Cyl 4 knock voltage,0.4-1.4 V
+;
+; Not found in erwin - improvised 
+17,0,Knock control
+17,1,Engine speed,760-960 rpm
+17,2,Engine load,0.5-1.5 ms
+17,3,
+17,4,Ignition ang,9-15 deg BTDC
+;
+18,0,Altitude adaption
+18,1,Engine speed,760-960 rpm
+18,2,Engine load,0.5-1.5 ms
+18,3,Engine load, throtte valve angle
+18,4,Altitude correction,factor -50 - 10 %
+;
+19,0,Torque reduction for cars with automatic gearbox
+19,1,Engine speed,760-960 rpm
+19,2,Engine load,0.5-1.5 ms
+19,3,Op. cond ign timing,x1 x = no retard 
+19,4,Ignition angle,9-15 deg BTDC
+;
+20,0,Operating modes
+20,1,Engine speed,760-960 rpm
+20,2,Auto box op. mode,neutral or in gear
+20,3,A/C operating,mode High/Low
+20,4,Air Conditioning,compr. ON/OFF
+;
+21,0,Lambda control
+21,1,Engine speed,760-960 rpm
+21,2,Engine load,0-10 ms
+21,3,Coolant temp,-40-125 deg C
+21,4,Lambda contr op,mode reg. ON/OFF
+;
+; Not found in erwin - improvised 
+22,0,
+22,1,Engine speed,0-6800 rpm
+22,2,Engine load,0-10 ms
+22,3,Engine load ?,0-10 ms
+22,4,Air mass drawn, g/s
+;
+23,0,Adaption of throttle valve control part
+23,1,Learning required,if !=100000
+23,2,Throttle valve min,pos stop 72-95 %
+23,3,Thr v emergency,stop 60-91%
+23,4,Throttle valve max,pos stop 18-54 %
+;
+24,0,Knock control
+24,1,Engine speed,0-6800 rpm
+24,2,Engine load,0-10 ms
+24,3,Ignition angle,20 ATDC-40 BTDC
+24,4,Sum cyl 1-4 retard,0-72 deg CA
+;
+25,0,Charge pressure control (Wastegate)
+25,1,Engine load,wanted 3-8 ms
+25,2,Engine load,correction 0-8 ms
+25,3,Actual engine,load 0.5-8.0 ms
+25,4,Charge pressure,duty cycle 0-99%
+;
+; Not found in erwin - improvised 
+26,0,
+26,1,Idle regulation,-10 - 10 %
+26,2,Air mass drawn, g/s
+26,3,Coolant temp,-40-125 deg C
+26,4,Engine speed,0-6800 rpm
+;
+; Not found in erwin - improvised 
+27,0,Charge pressure control
+27,1,Engine load,correction 0-8 ms
+27,2,Actual engine,load 0.5-8.0 ms
+27,3,Engine speed,0-6800 rpm
+27,4,Charge pressure,duty cycle 0-99%
+;
+95,0,Basic functions - Idle control
+95,1,Engine speed,760-960 rpm
+95,2,Engine load,0.5-1.5 ms
+95,3,Ignition angle fixed,12 deg BTDC
+95,4,Coolant temp,80-105 deg C
+;
+; Not found in erwin - improvised 
+97,0,
+97,1,Load?,%
+97,2,Load?,%
+97,3,Load?,%
+97,4,Load?,%
+;
+98,0,Matching throttle valve control part (Used with "Switch to basic settings")
+98,1,Throttle valve pot, Voltage
+98,2,Throttle valve pot,sender 0.5-4.9 V
+98,3,Operating mode, idle/throttle/enrich
+98,4,Adaption status,ADP OK/ERROR
+;
+99,0,Lambda regulation
+99,1,Engine speed,760-960 rpm
+99,2,Coolant temp,80-105 deg C
+99,3,Lambda regulation, -10 - 10 %
+99,4,Lambda regulation,status reg. ON/OFF
+;

@@ -1,0 +1,217 @@
+;
+; VAG-COM Label File
+;
+; Seat Ibiza (6L)
+;
+; Component: J285 - Instrument Cluster (#17)
+;
+; P/N: 6L0-920-??3-???
+;
+; includes measuring blocks, adaptation, coding and service reset
+;
+; This file is part of a redirection package,
+; make sure you have all of the following files.
+;
+; 6L-17.LBL
+; 6L0-920-xx0-17.LBL  (< MY 2006)
+; 6L0-920-xx3-17.LBL  (MY 2007 >)
+;
+; created on 22/Oct/2007 by Sebastian Stange (Sebastian@Ross-Tech.com)
+;
+; last modification: 01/Jan/2008
+;
+; requires VAG-COM 610.0 or newer
+;
+;
+;---------------------------------------------------
+;
+; measuring blocks
+;
+;---------------------------------------------------
+;
+;
+001,0,General
+001,1,Vehicle Speed
+001,2,Engine Speed
+001,3,Oil Pressure,Switch 2,Range: Oil Pr. 2 <min / Oil Pr. 2 OK
+001,4,Time
+;
+002,0,General
+002,1,Odometer
+002,2,Fuel Level
+002,3,Fuel Sender,Resistance
+002,4,Ambient,Temperature
+;
+003,0,General
+003,1,Coolant,Temperature
+;
+005,0,Service Reminder
+005,1,Distance since,Service exceeded,Unit: 100 km
+005,2,Time since,Service exceeded,Unit: 1 day(s)
+005,3,Remaining dist.,until Service,Unit: 100 km
+005,4,Remaining time,until Service,Unit: 1 day(s)
+;
+012,0,Adaptation Channels 040 && 041
+012,1,Adaptation,Channel
+012,2,Mileage,since Service,See Adaptation Channel 040
+012,3,Adaptation,Channel
+012,4,Time,since Service,See Adaptation Channel 041
+;
+013,0,Adaptation Channels 042 && 043
+013,1,Adaptation,Channel
+013,2,Minimum Mileage,to Service,See Adaptation Channel 042
+013,3,Adaptation,Channel
+013,4,Maximum Mileage,to Service,See Adaptation Channel 043
+;
+014,0,Adaptation Channels 044 && 049
+014,1,Adaptation,Channel
+014,2,Maximum Time,to Service,See Adaptation Channel 044
+014,3,Adaptation,Channel
+014,4,Minimum Time,to Service,See Adaptation Channel 049
+;
+050,0,General
+050,1,Odometer
+050,2,Engine Speed
+050,3,Oil Temperature
+050,4,Coolant,Temperature
+;
+080,0,Advanced Control Module Identification I
+;
+081,0,Advanced Control Module Identification II
+;
+125,0,CAN-Databus Communication (Powertrain)
+125,1,Engine,,Specification: Engine 1\nRange: Engine 0/Engine 1
+125,2,Transmission,,Range: Transm. 0/Transm. 1
+125,3,Brake Electronics,(J104),Specification: ABS 1\nRange: ABS 0/ABS 1
+;
+126,0,CAN-Databus Communication (Powertrain)
+126,2,Airbags,(J234),Specification: Airbag 1\nRange: Airbag 0/Airbag 1
+126,3,Steering Angle,Sensor (G85),Specification: Steer. ang. 1\nRange: Steer. ang. 0/Steer. ang. 1
+;
+127,0,CAN-Databus Communication (Powertrain)
+127,1,Central Electronics,(J519),Specification: E.Load.Crtl 1\nDisplay Range: E.Load.Crtl 1/E.Load.Crtl 0
+;
+201,1,Distance Impulse,Number
+;
+;
+;---------------------------------------------------
+;
+; coding
+;
+;---------------------------------------------------
+;
+;
+C00,Instrument Cluster (J285) Coding
+C01,??x0x: Options
+C02,+01 = Brakepad Warning active
+C03,+02 = Seatbelt Warning active
+C04,+04 = Washer Fluid Warning active
+C05,xx?0x: Country
+C06,0 = Germany / 1 = Europe
+C07,4 = Great Britain (GB)
+C08,6 = Saudi Arabia
+C09,7 = Australia (AUS)
+C10,xxxxx?: Distance Impulse Number (K-Value)
+C11,1 = Engine Code BPX/BUK/BBU/BLZ/BJX/BKV
+C12,2 = Engine Code ATD/AXR/BMT/BNV/BMS
+C13,5 = Engine Code BBY/BKY/BBZ/BBX/BAH/ASZ/BLT/BNM/BTS/BXV/BXW
+;
+;
+;---------------------------------------------------
+;
+; adaptation
+;
+;---------------------------------------------------
+;
+;
+A002,0,Service Reminder
+A002,5,Service Reminder
+A002,6,0 = Service NOT Due
+A002,7,1 = Service Due
+A002,8, 
+A002,9,To reset the service reminder save 0 as new value.
+;
+A003,0,Consumption Correction
+A003,5,Consumption Correction
+A003,6,Standard Value: 100 %
+A003,7,Display Range: 85...115 %
+A003,8,Increments: 1 %
+A003,9, 
+A003,10,Calculation based on volume per distance (e.g. l/100km):
+A003,11,New Adaptation Value = Old Adaptation Value * Calculated Consumption / Old Display Value
+A003,12,Calculation based on distance per volume (e.g. MPG):
+A003,13,New Adaptation Value = Old Adaptation Value * Old Display Value / Calculated Consumption 
+;
+A004,0,Language
+A004,5,Language
+A004,6,1 = German
+A004,7,2 = English
+A004,8,3 = French
+A004,9,4 = Italian
+A004,10,5 = Spanish
+A004,11,6 = Portuguese
+;
+A009,0,Mileage/Odometer
+A009,5,Mileage/Odometer
+A009,6,Resolution: 1 = 10 km
+A009,9,The distance can only be changed once until
+A009,10,the current value is not over 100 km.
+;
+;A025,0,
+;0
+;
+A030,0,Tank Characteristic (Fuel Level Sensor)
+A030,5,Tank Characteristic (Fuel Level Sensor)
+A030,6,This channel is used to set the fuel gauge reserve mark
+A030,7,therfor fill the tank with 7 l of fuel and correct the
+A030,8,needle to hit the reserve mark. This is a parallel shift
+A030,9,of the tank characteristic.
+A030,10, 
+A030,11,Standard: 128
+A030,12,Range: 120...136 (-2.0...+2.0 l)
+A030,13,Increments: 1 = 1 Ohm = 1/4 l
+;
+A035,0,Speed Threshold
+A035,5,Speed Threshold
+A035,6,This value represents the speed threshold of the
+A035,7,dynamic oil pressure system. The threshold can be
+A035,8,raised in increments of 250 RPM.
+;
+A040,0,Mileage since Service
+A040,5,Mileage since Service
+A040,6,Increments: 1 = 100 km/mi
+;
+A041,0,Time since Service
+A041,5,Time since Service
+A041,6,Increments: 1 = 1 day(s)
+;
+A043,0,Maximum Mileage to Service
+A043,5,Maximum Mileage to Service
+A043,6,Increments: 1 = 100 km/mi
+A043,7,00150 = fixed Service Intervals (15.000 km - w/o Longlife)
+A043,8,or (if coded to miles)
+A043,9,00093 = fixed Service Intervals (9.300 mi - w/o Longlife)
+;
+A044,0,Maximum Time to Service
+A044,5,Maximum Time to Service
+A044,6,Increments: 1 = 1 day(s)
+A044,7,00365 = fixed Service Intervals (w/o Longlife)
+;
+;
+;---------------------------------------------------
+;
+; service reset
+;
+;---------------------------------------------------
+;
+;
+RD,2,Service Reminder Status,1,
+RD,40,Mileage since Service,100,DIST
+RD,41,Time since Service,1,Days
+RD,42,Min Mileage to Service,100,DIST
+RD,43,Max Mileage to Service,100,DIST
+RD,44,Max Time to Service,1,Days
+;
+RJ,0,0,Service Reset,,
+RJ,0,1,2,0
+;

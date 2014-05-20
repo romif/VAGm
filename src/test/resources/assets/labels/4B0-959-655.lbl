@@ -1,0 +1,57 @@
+;
+; VAG-COM Measuring Block Labels file."
+; Module 15 -- AIRBAG  8.xx
+;
+; from  2002 Audi  
+; 
+; 
+; 
+; **Modification history**"
+; created:  Dima Suhov, 23 July 2002."
+; please email any comments or corrections: terma@svitonline.com"
+;
+; **********************************************************************"
+;
+1,0,Resistance 
+1,1,Driver's,airbag
+1,2,Passenger's,airbag
+1,3,Driver's,belt tension.
+1,4,Passenger's,belt tension.
+;
+2,0,Resistance
+2,1,Rear belt tens,driver's side
+2,2,Rear belt tens,passenger's side
+2,3,Rear belt tens,centre
+2,4,Disregard displ,zone
+;
+3,1,Power supply
+3,2,Seat-occupied,passenger's side
+3,3,Belt switch,driver's side
+3,4,Belt switch,passenger's side
+;"
+4,0,Rear seat belt query:
+4,1,Driver's side
+4,2,Passenger's side
+4,3,Centre
+4,4,Display zone,not used
+;
+6,0,Igniter for:Airbag
+6,1,fr.side airbag,driver's side
+6,2,fr.side airbag,passenger's side
+6,3,rear side airbag,driver's side
+6,4,rear side airbag,passenger's side
+;
+7,0,Rear seat-occupied sensor
+7,1,Driver's side
+7,2,Passenger's side
+7,3,Display zone,not used
+7,4,Display zone,not used
+;
+8,0,Igniter for:Airbag
+8,1,Second stage,driver's side
+8,2,Second stage,passenger's side
+8,3,Head,driver's side
+8,4,Head,passenger's side
+;
+;
+;<end of file>

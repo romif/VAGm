@@ -1,0 +1,164 @@
+;
+; VAG-COM label file
+;
+; VW Touareg (7L)
+;
+; component: level control system -J197- (#34)
+;
+; ECU p/n: 7L6 907 533 B/F
+;
+; includes measuring blocks, coding and adaption
+;
+; by Sebastian Stange
+; sebastian@ross-tech.com
+;
+; last modified: 03/15/2004
+;
+; ready for VAG-COM 402.3 and above
+;
+;
+;---------------------------------------------------
+;
+; Measuaring block informations
+;
+;---------------------------------------------------
+;
+;
+001,0,Voltage and Speed
+001,1,Voltage (Term.15),Specified Value: 0...20 V
+001,2,Voltage (Term.30),Specified Value: 0...20 V
+001,3,Speed
+001,4,Terminal 50,(Starter),Specified Value: Term. 50 on/Term. 50 off
+;
+002,0,Door Status
+002,1,Door Status
+002,2,Tailgate Status
+002,3,Power Supply,(right),Specified Value: 0...10 V
+002,4,Power Supply,(left),Specified Value: 0...10 V
+;
+003,0,Switch and compressor status
+003,1,Level control,switch selected
+003,2,Dumper control, switch selected
+003,3,[N/A]
+003,4,Compressor,relay status
+;
+004,0,Level deviation from nominal level
+004,1,Level deviation,front/left
+004,2,Level deviation,front/right
+004,3,Level deviation,rear/left
+004,4,Level deviation,rear/right
+;
+005,0,Car heights in mm
+005,1,Absolute height,front/left
+005,2,Absolute height,front/right
+005,3,Absolute height,rear/left
+005,4,Absolute height,rear/right
+;
+006,0,Pressure and pressure accumulator
+006,1,Compressor,temperature
+006,2,Compressor,signal
+06,3,Drain valve,status
+006,4,Pressure,accumulator valve
+;
+007,0,Dump valves
+007,1,Dump valve,front/left
+007,2,Dump valve,front/right
+007,3,Dump valve,rear/left
+007,4,Dump valve,rear/right
+;
+008,0,Pitch angle
+008,1,Pitch angle,increments
+008,2,Pitch angle,duty cycle (%)
+008,3,[N/A]
+008,4,System Status
+;
+009,0,Long. Acceleration and Deviation
+009,1,System Status
+009,2,Longitudinal,Acceleration
+009,3,Deviation,(front),Deviation from normal level.
+009,4,Deviation,(rear),Deviation from normal level.
+;
+010,0,Level deviation from desired level.
+010,1,Level deviation,front/left
+010,2,Level deviation,front/right
+010,3,Level deviation,rear/left
+010,4,Level deviation,rear/right
+;
+011,0,Damper current
+011,1,Damper current,front/left
+011,2,Damper current,front/right
+011,3,Damper current,rear/left
+011,4,Damper current,rear/right
+;
+012,0,Buildup,acceleration
+012,1,Buildup,acceleration (F/L)
+012,2,Buildup,acceleration (F/R)
+012,3,Buildup,acceleration (rear)
+012,4,[N/A]
+;
+013,0,Damper speed
+013,1,Damper speed,front/left,Neutral level: 2.5V
+013,2,Damper speed,front/right,Neutral level: 2.5V
+013,3,Damper speed,rear/left,Neutral level: 5V
+013,4,Damper speed,rear/right,Neutral level: 5V
+;
+014,0,Damper and duty cycle status
+014,1,Duty cycle,status
+014,2,Damper status
+014,3,[N/A]
+014,4,[N/A]
+;
+015,0,Driving Information
+015,1,Steering Angle
+015,2,Speed
+015,3,weighted,brake signal
+015,4,CDC,limp mode
+;
+017,1,Regulation,requirement,Specified value: 0/1
+;
+023,3,Pressure,reservoir,Specified value: 1 = installed / 0 = not installed
+;
+080,0,Manufacturer work number and identification
+; Date of manufacture
+; Manufacturer changing status
+; Manufacturer test stand no.
+; Running manufacturer no.
+; e.g. BPA = Bosch factory Ansbach
+;
+081,0,Vehicle Identification Number (VIN)
+; Serial number
+; Type test numbers
+;
+;
+;---------------------------------------------------
+;
+; Coding informations
+;
+;---------------------------------------------------
+;
+;
+C00,Touareg J197 Level Control Coding
+C01,?xxxx - automatic vertical headlight (1 = not installed / 2 = installed)
+C02,x?xxx - measurement of front axle
+C03,(0 = -25mm / 1 = -20mm / 2 = -15mm / 3 = -10mm / 4 = -5mm)
+C04,(5 = 0mm / 6 = +5mm / 7 = +10mm / 8 = +15mm / 9 = +20mm)
+C05,xx?xx - measurement of rear axle
+C06,(0 = -25mm / 1 = -20mm / 2 = -15mm / 3 = -10mm / 4 = -5mm)
+C07,(5 = 0mm / 6 = +5mm / 7 = +10mm / 8 = +15mm / 9 = +20mm)
+C08,xxx?x - vehicle type (2 = VW-E1-MAC)
+C09,xxxx? - Country (0 = Rest of World / 1 = USA)
+;
+;
+;---------------------------------------------------
+;
+; Adaptation informations
+;
+; this could rise/lower the air suspension
+; login with security access code (function 16) before
+; the correct login code will be 31564
+;
+;
+;---------------------------------------------------
+;
+;
+s
