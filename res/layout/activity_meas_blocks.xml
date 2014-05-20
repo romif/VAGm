@@ -6,7 +6,7 @@
     android:background="@color/mainBackground"
     android:fillViewport="true"
     android:keepScreenOn="true"
-    tools:context=".ControllerActivity" >
+    tools:context=".MeasBlocksActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"

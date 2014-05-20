@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="title_activity_fault_codes">FaultCodesActivity</string>
+    <string name="unknown_error">unknown error</string>
+    <string name="no_errors">no error</string>
+    <string name="fault_codes">Fault Codes</string>
+    <string name="bClearCodes">Clear Codes - 05</string>
+
+</resources>

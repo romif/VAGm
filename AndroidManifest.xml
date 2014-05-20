@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
@@ -17,8 +17,9 @@
     </instrumentation>
 
     <application
+        android:name="com.vagm.vagmdroid.Application"
         android:icon="@drawable/icon"
-        android:label="@string/app_name" android:name="Application">
+        android:label="@string/app_name" >
         <activity
             android:name="com.vagm.vagmdroid.activities.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -53,14 +54,17 @@
         <activity
             android:name="com.vagm.vagmdroid.activities.MeasBlocksActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_meas_blocks"
-            android:parentActivityName="com.vagm.vagmdroid.activities.ControllerActivity" >
+            android:parentActivityName="com.vagm.vagmdroid.activities.ControllerActivity"
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.vagm.vagmdroid.activities.ControllerActivity" />
         </activity>
-
+        <activity
+            android:name="com.vagm.vagmdroid.FaultCodesActivity"
+            android:label="@string/title_activity_fault_codes" >
+        </activity>
     </application>
 
 </manifest>

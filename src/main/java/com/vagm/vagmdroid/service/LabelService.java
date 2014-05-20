@@ -10,8 +10,6 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import org.junit.Assert;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +44,7 @@ public class LabelService {
 	 */
 	@Inject
 	private PropertyService propertyService;
-	
+
 	/**
 	 * context.
 	 */
@@ -77,8 +75,9 @@ public class LabelService {
 		InputStream inputStream = null;
 		BufferedReader reader = null;
 		try {
-			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
+			inputStream = LabelService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
 			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+			LOG.debug(inputStream.toString());
 
 			String st;
 			while (((st = reader.readLine()) != null)) {
@@ -230,7 +229,7 @@ public class LabelService {
 				}
 			}
 		}
-		Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
+		//Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
 		LOG.debug("Found group records: " + result.size());
 		return result;
 	}

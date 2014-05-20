@@ -33,6 +33,11 @@ public final class VAGmConstans {
 	public static final int START_MEAS_BLOCKS = 0x08;
 
 	/**
+	 * START_FAULT_CODES.
+	 */
+	public static final int START_FAULT_CODES = 0x02;
+
+	/**
 	 * CONTROLLER_NO_ANSWER.
 	 */
 	public static final int CONTROLLER_NO_ANSWER = 0x01;

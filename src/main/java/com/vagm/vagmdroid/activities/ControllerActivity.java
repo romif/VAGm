@@ -161,10 +161,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			break;
 
 		case R.id.bFaultCodes:
-			//getmCommandService().write(FunctionCode.FAULT_CODES.getCode());
-			// final Intent faultCodeIntent = new Intent(this,
-			// FaultCodeActivity.class);
-			// startActivityForResult(faultCodeIntent, -1);
+			bluetoothService.write(FunctionCode.FAULT_CODES.getCode());
+			final Intent faultCodesIntent = new Intent(this, FaultCodesActivity.class);
+			startActivityForResult(faultCodesIntent, -1);
 			break;
 
 		case R.id.bMeasBlocks:

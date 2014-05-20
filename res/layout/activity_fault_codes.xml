@@ -1,0 +1,72 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/measBlocksLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mainBackground"
+    android:fillViewport="true"
+    android:keepScreenOn="true"
+    tools:context=".FaultCodesActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/innerLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#d0e0e0" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/frame"
+                android:orientation="vertical"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/faultCodes"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/panel"
+                    android:padding="3dp"
+                    android:textColor="#009900" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="#d0e0e0"
+                android:padding="3dp"
+                android:text="@string/fault_codes"
+                android:textColor="@android:color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/innerLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/innerLayout1"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom" >
+
+            <Button
+                android:id="@+id/bClearCodes"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bClearCodes" />
+
+            <Button
+                android:id="@+id/bFaultCodesBack"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bClearCodes"
+                android:text="@string/bMeasBlocksBack" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

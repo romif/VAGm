@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import android.content.Context;
 
 import com.google.inject.Inject;
+import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
@@ -32,12 +33,18 @@ public class BufferService {
 	 */
 	@Inject
 	private DataStreamService dataStreamService;
-	
+
 	/**
 	 * context.
 	 */
 	@Inject
 	private Context context;
+
+	/**
+	 * faultCodesService.
+	 */
+	@Inject
+	private FaultCodesService faultCodesService;
 
 	/**
 	 * Constructor.
@@ -157,6 +164,44 @@ public class BufferService {
 		}
 
 		return dtos;
+	}
+
+	/**
+	 * getFaultCodesInfo.
+	 * @param buffer buffer
+	 * @return FaultCodesInfo
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public String getFaultCodesInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+		if (buffer.length == 1) {
+			if (buffer[0] == CONTROLLER_NO_ANSWER) {
+				throw new ControllerCommunicationException();
+			}
+		}
+
+		int responseCode = byteToInt(buffer[0]);
+		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
+			LOG.debug("Error");
+			//TODO
+			return "ERROR";
+		}
+		if (responseCode != VAGmConstans.VAG_BTI_DTC_RES) {
+			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_DTC_RES
+					+ ", but was: " + responseCode);
+		}
+		if ((buffer[1] == 0xFF) && (buffer[2] == 0xFF)) {
+			return context.getString(R.string.no_errors);
+		}
+
+		String result = "";
+		for (int i = 0; i < buffer.length / 3; i++) {
+			int errorCode = Integer.parseInt(Integer.toHexString(buffer[i * 3 + 1]) + Integer.toHexString(buffer[i * 3 + 2]), 16);
+			String errorString = faultCodesService.getDTC(errorCode);
+			String errorType = faultCodesService.getDTC(byteToInt(buffer[i * 3 + 3]));
+			result += errorString + " - " + errorType + "\r\n\r\n";
+		}
+		return result;
 	}
 
 	/**

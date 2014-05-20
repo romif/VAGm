@@ -1,8 +1,5 @@
 package com.vagm.vagmdroid.enums;
 
-import android.util.Log;
-
-import com.vagm.vagmdroid.R;
 
 /**
  * The Class FunctionCode.
@@ -13,22 +10,23 @@ public enum FunctionCode {
 	/**
 	 * FAULT_CODES.
 	 */
-	FAULT_CODES(0x02, R.id.bFaultCodes),
+	FAULT_CODES(0x02),
 
 	/**
 	 * MEAS_BLOCKS.
 	 */
-	MEAS_BLOCKS(0x08, R.id.bMeasBlocks),
+	MEAS_BLOCKS(0x08),
 
 	/**
 	 * OUTPUT_TESTS.
 	 */
-	OUTPUT_TESTS(0x02, R.id.bOuputTests);
+	OUTPUT_TESTS(0x02),
 
 	/**
-	 * TAG constant.
+	 * CLEAR_CODES.
 	 */
-	private static final String TAG = "VAGm_FunctionCode";
+	CLEAR_CODES(0x05);
+
 
 	/**
 	 * code.
@@ -36,18 +34,11 @@ public enum FunctionCode {
 	private int code;
 
 	/**
-	 * id.
-	 */
-	private int id;
-
-	/**
 	 * constructor.
 	 * @param code code
-	 * @param id id
 	 */
-	private FunctionCode(final int code, final int id) {
+	private FunctionCode(final int code) {
 		this.code = code;
-		this.id = id;
 	}
 
 	/**
@@ -56,21 +47,6 @@ public enum FunctionCode {
 	 */
 	public int getCode() {
 		return code;
-	}
-
-	/**
-	 * Gets FunctionCode.
-	 * @param id id
-	 * @return ControllerCode
-	 */
-	public static FunctionCode getFunctionCode(final int id) {
-		for (final FunctionCode code : FunctionCode.values()) {
-			if (code.id == id) {
-				return code;
-			}
-		}
-		Log.e(TAG, "Controller with id: " + id + "doesn't exist");
-		return null;
 	}
 
 }
