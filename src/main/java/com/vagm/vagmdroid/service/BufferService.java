@@ -7,6 +7,8 @@ import javax.inject.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.content.Context;
+
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.enums.VAGmConstans;
@@ -30,6 +32,12 @@ public class BufferService {
 	 */
 	@Inject
 	private DataStreamService dataStreamService;
+	
+	/**
+	 * context.
+	 */
+	@Inject
+	private Context context;
 
 	/**
 	 * Constructor.
@@ -125,7 +133,8 @@ public class BufferService {
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
 			LOG.debug("No data for current group");
-			return new DataStreamDTO[]{DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault(), DataStreamDTO.getDefault()};
+			return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
+					DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context) };
 		}
 		if (responseCode != VAGmConstans.VAG_BTI_GROUP_RES) {
 			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
@@ -144,7 +153,7 @@ public class BufferService {
 					byteToInt(buffer[i * 3 + 3]));
 		}
 		for (int i = groupsCount - 1; i < 4; i++) {
-			dtos[i] = DataStreamDTO.getDefault();
+			dtos[i] = DataStreamDTO.getDefault(context);
 		}
 
 		return dtos;

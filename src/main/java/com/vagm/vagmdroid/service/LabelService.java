@@ -11,9 +11,11 @@ import java.util.Locale;
 import java.util.Set;
 
 import org.junit.Assert;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.content.Context;
 import android.os.Environment;
 import android.util.SparseArray;
 
@@ -44,6 +46,12 @@ public class LabelService {
 	 */
 	@Inject
 	private PropertyService propertyService;
+	
+	/**
+	 * context.
+	 */
+	@Inject
+	private Context context;
 
 	/**
 	 * constructor.
@@ -69,8 +77,7 @@ public class LabelService {
 		InputStream inputStream = null;
 		BufferedReader reader = null;
 		try {
-			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream(
-					"assets" + File.separator + "labels" + File.separator + "Redirect.txt");
+			inputStream = DataStreamService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
 			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 
 			String st;
@@ -143,6 +150,7 @@ public class LabelService {
 					+ "labels" + File.separator + fileName);
 			if (!file.exists()) {
 				LOG.debug("Label file: " + fileName + " doesn't exist");
+				System.out.println("Label file: " + fileName + " doesn't exist");
 				return result;
 			}
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
@@ -195,13 +203,13 @@ public class LabelService {
 
 				if (firstCycle) {
 					prevGroupNumber = groupNumber;
-					labelDTO = new LabelDTO();
+					labelDTO = new LabelDTO(context);
 					firstCycle = false;
 				}
 
 				if (groupNumber != prevGroupNumber) {
 					result.put(prevGroupNumber, labelDTO);
-					labelDTO = new LabelDTO();
+					labelDTO = new LabelDTO(context);
 				}
 
 				prevGroupNumber = groupNumber;
@@ -213,7 +221,7 @@ public class LabelService {
 			}
 
 		} catch (final IOException ex) {
-			LOG.error("Cannot label file", ex);
+			LOG.error("Cannot find label file", ex);
 		} finally {
 			if (reader != null) {
 				try {

@@ -268,17 +268,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private void setLabels() {
 		if (group != null) {
-			((TextView) findViewById(R.id.group1Title)).setText(labels.get(group, LabelDTO.getDefaultLabelDTO(this)).getTitle());
-			((TextView) findViewById(R.id.block11Label)).setText(labels.get(group, LabelDTO.getDefaultLabelDTO(this)).getGroup()[0]
-					.getTitle());
-			((TextView) findViewById(R.id.block12Label)).setText(labels.get(group, LabelDTO.getDefaultLabelDTO(this)).getGroup()[1]
-					.getTitle());
-			((TextView) findViewById(R.id.block13Label)).setText(labels.get(group, LabelDTO.getDefaultLabelDTO(this)).getGroup()[2]
-					.getTitle());
-			((TextView) findViewById(R.id.block14Label)).setText(labels.get(group, LabelDTO.getDefaultLabelDTO(this)).getGroup()[3]
-					.getTitle());
+			((TextView) findViewById(R.id.group1Title)).setText(labels.get(group, new LabelDTO(this)).getTitle());
+			((TextView) findViewById(R.id.block11Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[0].getTitle());
+			((TextView) findViewById(R.id.block12Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[1].getTitle());
+			((TextView) findViewById(R.id.block13Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[2].getTitle());
+			((TextView) findViewById(R.id.block14Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[3].getTitle());
 		}
-
 	}
 
 }

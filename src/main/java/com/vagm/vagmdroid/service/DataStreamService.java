@@ -81,6 +81,7 @@ public class DataStreamService {
 			try {
 				inputStream = DataStreamService.class.getClassLoader().getResourceAsStream(
 						"assets" + File.separator + "NA37Strings" + File.separator + "NA37.txt");
+				System.out.println("assets" + File.separator + "NA37Strings" + File.separator + "NA37.txt");
 				reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 				String st;
 				int i = 0;

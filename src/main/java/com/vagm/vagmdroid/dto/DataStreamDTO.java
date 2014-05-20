@@ -1,5 +1,9 @@
 package com.vagm.vagmdroid.dto;
 
+import com.vagm.vagmdroid.R;
+
+import android.content.Context;
+
 /**
  * The Class DataStreamDTO.
  * @author Roman_Konovalov
@@ -88,8 +92,8 @@ public class DataStreamDTO {
 	 * gets DefaultDataStreamDTO.
 	 * @return DefaultDataStreamDTO
 	 */
-	public static DataStreamDTO getDefault() {
-		return new DataStreamDTO("", "", 0);
+	public static DataStreamDTO getDefault(Context context) {
+		return new DataStreamDTO(context.getString(R.string.no_data), "", 0);
 	}
 
 	/**

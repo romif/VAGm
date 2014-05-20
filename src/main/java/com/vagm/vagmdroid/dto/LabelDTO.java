@@ -18,9 +18,14 @@ public class LabelDTO {
 	private String title;
 
 	/**
-	 * group1.
+	 * group.
 	 */
-	private Group[] group = new Group[4];
+	private Group[] group;
+	
+	public LabelDTO(Context context) {
+		title = context.getString(R.string.group1);
+		group = getDefaultGroups(context);
+	}
 
 	/**
 	 * @return the title
@@ -50,21 +55,13 @@ public class LabelDTO {
 	public void setGroup(final Group[] group) {
 		this.group = group;
 	}
-
-	/**
-	 * getDefaultLabelDTO.
-	 * @param context context
-	 * @return DefaultLabelDTO
-	 */
-	public static LabelDTO getDefaultLabelDTO(final Context context) {
-		LabelDTO labelDTO = new LabelDTO();
+	
+	private static Group[] getDefaultGroups(Context context) {
 		Group group1 = new Group(context.getString(R.string.block1), "", "");
 		Group group2 = new Group(context.getString(R.string.block2), "", "");
 		Group group3 = new Group(context.getString(R.string.block3), "", "");
 		Group group4 = new Group(context.getString(R.string.block4), "", "");
-		labelDTO.setTitle(context.getString(R.string.group1));
-		labelDTO.setGroup(new Group[] {group1, group2, group3, group4});
-		return labelDTO;
+		return new Group[] {group1, group2, group3, group4};
 	}
 
 	/**

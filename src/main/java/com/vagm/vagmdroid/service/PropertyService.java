@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import junit.framework.Assert;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
