@@ -89,10 +89,11 @@ public class DataStreamDTO {
 	}
 
 	/**
-	 * gets DefaultDataStreamDTO.
-	 * @return DefaultDataStreamDTO
+	 * getDefault.
+	 * @param context context
+	 * @return DataStreamDTO
 	 */
-	public static DataStreamDTO getDefault(Context context) {
+	public static DataStreamDTO getDefault(final Context context) {
 		return new DataStreamDTO(context.getString(R.string.no_data), "", 0);
 	}
 

@@ -14,20 +14,24 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.shadows.ShadowLog;
+
+import android.content.Context;
 
 import com.google.inject.Inject;
+import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 
 /**
- * A testcase that swaps in a TestVibrator to verify that
- * Astroboy's {@link org.roboguice.astroboy.controller.Astroboy#brushTeeth()} method
- * works properly.
+ * The Class BufferServiceTest.
+ * @author roman_konovalov
  */
 @RunWith(RobolectricTestRunner.class)
 public class BufferServiceTest {
@@ -37,6 +41,16 @@ public class BufferServiceTest {
      */
 	@Inject
     private BufferService bufferService;
+	
+	/**
+	 * context.
+	 */
+	@Inject
+	private Context context;
+	
+	{
+		ShadowLog.stream = System.out;
+	}
 
     /**
 	 * testGetControllerInfo.
@@ -49,9 +63,9 @@ public class BufferServiceTest {
 		for (String message : BUFFER_STRING_ARRAY) {
 			result = bufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		Assert.assertEquals(ECU_INFO[0], result[0]);
-		Assert.assertEquals(ECU_INFO[1], result[1]);
-		Assert.assertEquals(ECU_INFO[2], result[2]);
+		assertEquals(ECU_INFO[0], result[0]);
+		assertEquals(ECU_INFO[1], result[1]);
+		assertEquals(ECU_INFO[2], result[2]);
 	}
 
 	/**
@@ -65,9 +79,9 @@ public class BufferServiceTest {
 		for (String message : BUFFER_STRING_ARRAY1) {
 			result = bufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		Assert.assertEquals(ECU_INFO1[0], result[0]);
-		Assert.assertEquals(ECU_INFO1[1], result[1]);
-		Assert.assertEquals(ECU_INFO1[2], result[2]);
+		assertEquals(ECU_INFO1[0], result[0]);
+		assertEquals(ECU_INFO1[1], result[1]);
+		assertEquals(ECU_INFO1[2], result[2]);
 	}
 
 	/**
@@ -81,9 +95,9 @@ public class BufferServiceTest {
 		for (String message : BUFFER_STRING_ARRAY2) {
 			result = bufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		Assert.assertEquals(ECU_INFO2[0], result[0]);
-		Assert.assertEquals(ECU_INFO2[1], result[1]);
-		Assert.assertEquals(ECU_INFO2[2], result[2]);
+		assertEquals(ECU_INFO2[0], result[0]);
+		assertEquals(ECU_INFO2[1], result[1]);
+		assertEquals(ECU_INFO2[2], result[2]);
 	}
 
 	/**
@@ -97,9 +111,9 @@ public class BufferServiceTest {
 		for (String message : BUFFER_STRING_ARRAY3) {
 			result = bufferService.getControllerInfo(hexStringToByteArray(message), result);
 		}
-		Assert.assertEquals(ECU_INFO3[0], result[0]);
-		Assert.assertEquals(ECU_INFO3[1], result[1]);
-		Assert.assertEquals(ECU_INFO3[2], result[2]);
+		assertEquals(ECU_INFO3[0], result[0]);
+		assertEquals(ECU_INFO3[1], result[1]);
+		assertEquals(ECU_INFO3[2], result[2]);
 	}
 
 	/**
@@ -107,19 +121,14 @@ public class BufferServiceTest {
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
-    @Test
+    @Test(expected = ControllerCommunicationException.class)
 	public final void testGetControllerInfoNegative() throws ControllerCommunicationException, ControllerWrongResponseException {
 		String[] result = {"", "", "" };
 
 		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
-		Assert.assertEquals(ECU_INFO1[0], result[0]);
+		assertEquals(ECU_INFO1[0], result[0]);
 
-		try {
-			result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
-			Assert.fail("Should have thrown ControllerCommunication Exception");
-		} catch (ControllerCommunicationException e) {
-			// success
-		}
+		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
 	}
 
 	/**
@@ -129,10 +138,32 @@ public class BufferServiceTest {
 	 */
     @Test
 	public final void testGetMeasBlocksInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
-		bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_1GROUPS));
-		bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_2GROUPS));
-		bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_3GROUPS));
-		bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS));
+    	DataStreamDTO[] result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_1GROUPS));
+    	assertNotEquals(DataStreamDTO.getDefault(context), result[0]);
+		for (int i = 1; i < 4; i++) {
+			assertEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
+		
+		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_2GROUPS));
+		for (int i = 0; i < 2; i++) {
+			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
+		for (int i = 2; i < 4; i++) {
+			assertEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
+		
+		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_3GROUPS));
+		for (int i = 0; i < 3; i++) {
+			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
+		for (int i = 3; i < 4; i++) {
+			assertEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
+		
+		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS));
+		for (int i = 0; i < 4; i++) {
+			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
+		}
 	}
 
 }

@@ -133,7 +133,7 @@ public class BufferService {
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
 			LOG.debug("No data for current group");
-			return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
+			return new DataStreamDTO[] {DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
 					DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context) };
 		}
 		if (responseCode != VAGmConstans.VAG_BTI_GROUP_RES) {
@@ -152,7 +152,7 @@ public class BufferService {
 			dtos[i] = dataStreamService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
 					byteToInt(buffer[i * 3 + 3]));
 		}
-		for (int i = groupsCount - 1; i < 4; i++) {
+		for (int i = groupsCount; i < 4; i++) {
 			dtos[i] = DataStreamDTO.getDefault(context);
 		}
 
