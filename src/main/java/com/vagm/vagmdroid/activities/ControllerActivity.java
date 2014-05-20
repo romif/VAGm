@@ -50,7 +50,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * VAGnumber.
 	 */
 	@InjectView(R.id.VAGnumber)
-	private TextView VAGnumber;
+	private TextView vagNumber;
 
 	/**
 	 * component.
@@ -109,12 +109,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private String[] controllerInfo = {"", "", "" };
 
 	/**
-	 * propertyService.
-	 */
-	@Inject
-	private PropertyService propertyService;
-
-	/**
 	 * bufferService.
 	 */
 	@Inject
@@ -135,6 +129,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 				try {
 					proceedMessage(message);
 				} catch (ControllerCommunicationException e) {
+					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
 					LOG.warn("Wrong response", e);
@@ -236,7 +231,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			}, 15 * 1000);
 		} else {
 			boudRate.setText(savedInstanceState.getString(BOUD_RATE));
-			VAGnumber.setText(savedInstanceState.getString(VAG_NUMBER));
+			vagNumber.setText(savedInstanceState.getString(VAG_NUMBER));
 			component.setText(savedInstanceState.getString(COMPONENT));
 		}
 
@@ -249,7 +244,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	protected void onSaveInstanceState(final Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putString(BOUD_RATE, boudRate.getText().toString());
-		outState.putString(VAG_NUMBER, VAGnumber.getText().toString());
+		outState.putString(VAG_NUMBER, vagNumber.getText().toString());
 		outState.putString(COMPONENT, component.getText().toString());
 	}
 
@@ -264,7 +259,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
 		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
 		boudRate.setText(controllerInfo[0]);
-		VAGnumber.setText(controllerInfo[1]);
+		vagNumber.setText(controllerInfo[1]);
 		component.setText(controllerInfo[2]);
 
 		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {

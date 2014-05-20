@@ -108,7 +108,6 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
 				}
 			} catch (IOException e) {
 				LOG.error("Cannot close InputStream / OutputStream", e);
-				return false;
 			}
 		}
 		return true;
