@@ -150,7 +150,6 @@ public class LabelService {
 					+ "labels" + File.separator + fileName);
 			if (!file.exists()) {
 				LOG.debug("Label file: " + fileName + " doesn't exist");
-				System.out.println("Label file: " + fileName + " doesn't exist");
 				return result;
 			}
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));

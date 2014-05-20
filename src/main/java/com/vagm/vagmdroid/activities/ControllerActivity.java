@@ -6,6 +6,7 @@ import java.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import roboguice.inject.InjectView;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -38,6 +39,24 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * LOG.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(ControllerActivity.class);
+
+	/**
+	 * boudRate.
+	 */
+	@InjectView(R.id.boudRate)
+	private TextView boudRate;
+
+	/**
+	 * VAGnumber.
+	 */
+	@InjectView(R.id.VAGnumber)
+	private TextView VAGnumber;
+
+	/**
+	 * component.
+	 */
+	@InjectView(R.id.component)
+	private TextView component;
 
 	/**
 	 * boudRate.
@@ -135,6 +154,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	public void onClick(final View v) {
 		switch (v.getId()) {
 		case R.id.bCloseController:
+			LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
 			bluetoothService.write(VAGmConstans.EXIT_COMMAND);
 			stopTimer();
 			finish();
@@ -188,7 +208,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		}*/
 		if (savedInstanceState == null) {
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
-			//bluetoothService = getIntent().getParcelableExtra(BluetoothService.BLUETOOTH_SERVICE_INSTANCE);
 			LOG.debug("Sending controller code: {}", controllerCode);
 			bluetoothService.write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
@@ -196,9 +215,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			progressBar = new ProgressDialog(this);
 			progressBar.setMessage(getString(R.string.connecting_to_controller));
 			progressBar.setCancelable(false);
-			if (propertyService.isProduction()) {
-				progressBar.show();
-			}
+			progressBar.show();
 			h = new Handler();
 			longTimer = new Timer();
 			longTimer.schedule(new TimerTask() {
@@ -219,9 +236,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 				}
 			}, 15 * 1000);
 		} else {
-			((TextView) findViewById(R.id.boudRate)).setText(savedInstanceState.getString(BOUD_RATE));
-			((TextView) findViewById(R.id.VAGnumber)).setText(savedInstanceState.getString(VAG_NUMBER));
-			((TextView) findViewById(R.id.component)).setText(savedInstanceState.getString(COMPONENT));
+			boudRate.setText(savedInstanceState.getString(BOUD_RATE));
+			VAGnumber.setText(savedInstanceState.getString(VAG_NUMBER));
+			component.setText(savedInstanceState.getString(COMPONENT));
 		}
 
 	}
@@ -232,9 +249,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	@Override
 	protected void onSaveInstanceState(final Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putString(BOUD_RATE, ((TextView) findViewById(R.id.boudRate)).getText().toString());
-		outState.putString(VAG_NUMBER, ((TextView) findViewById(R.id.VAGnumber)).getText().toString());
-		outState.putString(COMPONENT, ((TextView) findViewById(R.id.component)).getText().toString());
+		outState.putString(BOUD_RATE, boudRate.getText().toString());
+		outState.putString(VAG_NUMBER, VAGnumber.getText().toString());
+		outState.putString(COMPONENT, component.getText().toString());
 	}
 
 	/**
@@ -247,9 +264,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
 		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
-		((TextView) findViewById(R.id.boudRate)).setText(controllerInfo[0]);
-		((TextView) findViewById(R.id.VAGnumber)).setText(controllerInfo[1]);
-		((TextView) findViewById(R.id.component)).setText(controllerInfo[2]);
+		boudRate.setText(controllerInfo[0]);
+		VAGnumber.setText(controllerInfo[1]);
+		component.setText(controllerInfo[2]);
 
 		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {
 			ecu = controllerInfo[1];

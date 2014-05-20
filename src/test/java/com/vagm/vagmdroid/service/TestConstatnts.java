@@ -1,5 +1,7 @@
 package com.vagm.vagmdroid.service;
 
+import com.vagm.vagmdroid.dto.DataStreamDTO;
+
 /**
  * The Class TestConstatnts.
  * @author Roman_Konovalov
@@ -61,7 +63,13 @@ public final class TestConstatnts {
 	/**
 	 * BUFFER_MEAS_BLOCKS_4GROUPS.
 	 */
-	public static final String BUFFER_MEAS_BLOCKS_4GROUPS = "e7076401076401076401076401";
+	public static final String BUFFER_MEAS_BLOCKS_4GROUPS = "e701690027330015142405097c";
+	
+	/**
+	 * DATA_STREAM_DTOS4.
+	 */
+	public static final DataStreamDTO[] DATA_STREAM_DTOS4 = {new DataStreamDTO("0.0", " rpm", 0.0F),
+			new DataStreamDTO("0.0", " mg/h", 0.0F), new DataStreamDTO("0.72", " V", 0.72F), new DataStreamDTO("21.6", " °C", 21.6F) };
 
 	/**
 	 * BUFFER_MEAS_BLOCKS_3GROUPS.

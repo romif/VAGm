@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowEnvironment;
+import org.robolectric.shadows.ShadowLog;
 
 import android.os.Environment;
 import android.util.Log;
@@ -60,6 +61,11 @@ public class LabelServiceTest {
 	 * ECU.
 	 */
 	public static final String ECU = "028906021GL";
+	
+	/**
+	 * LABEL_FILE.
+	 */
+	public static final String LABEL_FILE = "028-906-021-AHU.lbl";
 
 	/**
 	 * propertyService.
@@ -72,6 +78,10 @@ public class LabelServiceTest {
 	 */
 	@Inject
 	private LabelService labelService;
+	
+	{
+		ShadowLog.stream = System.out;
+	}
 
 	/**
 	 * testGetLabelFileName.
