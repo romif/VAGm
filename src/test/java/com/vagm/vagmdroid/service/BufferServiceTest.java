@@ -1,5 +1,8 @@
 package com.vagm.vagmdroid.service;
 
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES1;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES2;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES_NO_ERRORS;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_1GROUPS;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_2GROUPS;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_3GROUPS;
@@ -13,6 +16,8 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
+import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING1;
+import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -25,6 +30,7 @@ import org.robolectric.shadows.ShadowLog;
 import android.content.Context;
 
 import com.google.inject.Inject;
+import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
@@ -165,5 +171,22 @@ public class BufferServiceTest {
 			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
 		}
 	}
+    
+    /**
+     * testGetFaultCodesInfo.
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+     */
+    @Test
+    public void testGetFaultCodesInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
+    	String result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES1));
+    	assertEquals(FAULT_CODES_STRING1, result);
+    	
+    	result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES2));
+    	assertEquals(FAULT_CODES_STRING2, result);
+    	
+    	result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES_NO_ERRORS));
+    	assertEquals(context.getString(R.string.no_errors), result);
+    }
 
 }
