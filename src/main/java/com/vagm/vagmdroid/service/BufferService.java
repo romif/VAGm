@@ -190,16 +190,21 @@ public class BufferService {
 			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_DTC_RES
 					+ ", but was: " + responseCode);
 		}
-		if ((buffer[1] == 0xFF) && (buffer[2] == 0xFF)) {
+		if ((byteToInt(buffer[1]) == 0xFF) && (byteToInt(buffer[2]) == 0xFF)) {
 			return context.getString(R.string.no_errors);
 		}
 
 		String result = "";
 		for (int i = 0; i < buffer.length / 3; i++) {
-			int errorCode = Integer.parseInt(Integer.toHexString(buffer[i * 3 + 1]) + Integer.toHexString(buffer[i * 3 + 2]), 16);
+			int errorCode = Integer.parseInt(
+					Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])), 16);
 			String errorString = faultCodesService.getDTC(errorCode);
-			String errorType = faultCodesService.getDTC(byteToInt(buffer[i * 3 + 3]));
-			result += errorString + " - " + errorType + "\r\n\r\n";
+			int errorTypeInt = byteToInt(buffer[i * 3 + 3]);
+			if (errorTypeInt > 0x80) {
+				errorTypeInt = errorTypeInt - 0x80;
+			}
+			String errorType = faultCodesService.getErrorType(errorTypeInt);
+			result += "" + errorCode + " " + errorString + " - " + errorType + "\r\n\r\n";
 		}
 		return result;
 	}

@@ -62,7 +62,8 @@
                 android:value="com.vagm.vagmdroid.activities.ControllerActivity" />
         </activity>
         <activity
-            android:name="com.vagm.vagmdroid.FaultCodesActivity"
+            android:name="com.vagm.vagmdroid.activities.FaultCodesActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_fault_codes" >
         </activity>
     </application>
