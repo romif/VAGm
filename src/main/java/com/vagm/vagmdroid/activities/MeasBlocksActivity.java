@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import roboguice.inject.InjectView;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -64,7 +66,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	/**
 	 * group.
 	 */
-	private Integer group;
+	private Integer group1;
 
 	/**
 	 * bufferService.
@@ -77,6 +79,18 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@Inject
 	private LabelService labelService;
+
+	/**
+	 * groupInput1.
+	 */
+	@InjectView(R.id.groupInput1)
+	private EditText groupInput1;
+
+	/**
+	 * groupInput1.
+	 */
+	@InjectView(R.id.groupInput2)
+	private EditText groupInput2;
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -112,30 +126,30 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 		try {
 			switch (v.getId()) {
 			case R.id.bGo1:
-				group = getGroup1();
-				LOG.debug("Request for group {}", group);
-				bluetoothService.write(group);
+				group1 = getGroup1();
+				LOG.debug("Request for group {}", group1);
+				bluetoothService.write(group1);
 				setLabels();
 				break;
 
 			case R.id.bUp1:
-				group = getGroup1();
-				if (group < 0xFF) {
-					group++;
-					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
-					LOG.debug("Request for group {}", group);
-					bluetoothService.write(group);
+				group1 = getGroup1();
+				if (group1 < 0xFF) {
+					group1++;
+					groupInput1.setText(String.format("%03d", group1));
+					LOG.debug("Request for group {}", group1);
+					bluetoothService.write(group1);
 				}
 				setLabels();
 				break;
 
 			case R.id.bDn1:
-				group = getGroup1();
-				if (group > 1) {
-					group--;
-					((EditText) findViewById(R.id.groupInput1)).setText(String.valueOf(group));
-					LOG.debug("Request for group {}", group);
-					bluetoothService.write(group);
+				group1 = getGroup1();
+				if (group1 > 1) {
+					group1--;
+					groupInput1.setText(String.format("%03d", group1));
+					LOG.debug("Request for group {}", group1);
+					bluetoothService.write(group1);
 				}
 				setLabels();
 				break;
@@ -146,21 +160,21 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				break;
 
 			case R.id.bUp2:
-				group = getGroup2();
-				if (group < 0xFF) {
-					group++;
-					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+				group1 = getGroup2();
+				if (group1 < 0xFF) {
+					group1++;
+					groupInput2.setText(String.format("%03d", group1));
+					bluetoothService.write(group1);
 				}
 				setLabels();
 				break;
 
 			case R.id.bDn2:
-				group = getGroup2();
-				if (group > 1) {
-					group--;
-					((EditText) findViewById(R.id.group2)).setText(String.valueOf(group));
-					bluetoothService.write(group);
+				group1 = getGroup2();
+				if (group1 > 1) {
+					group1--;
+					groupInput2.setText(String.format("%03d", group1));
+					bluetoothService.write(group1);
 				}
 				setLabels();
 				break;
@@ -178,26 +192,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			Toast.makeText(MeasBlocksActivity.this, getString(R.string.wrong_number), Toast.LENGTH_LONG).show();
 			return;
 		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.meas_blocks, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		final int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -227,8 +221,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * @return group
 	 */
 	private int getGroup1() {
-		EditText text = (EditText) findViewById(R.id.groupInput1);
-		return Integer.parseInt(text.getText().toString());
+		return Integer.parseInt(groupInput1.getText().toString());
 	}
 
 	/**
@@ -236,8 +229,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * @return group
 	 */
 	private int getGroup2() {
-		EditText text = (EditText) findViewById(R.id.group2);
-		return Integer.parseInt(text.getText().toString());
+		return Integer.parseInt(groupInput2.getText().toString());
 	}
 
 	/**
@@ -268,12 +260,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * setLabels.
 	 */
 	private void setLabels() {
-		if (group != null) {
-			((TextView) findViewById(R.id.group1Title)).setText(labels.get(group, new LabelDTO(this)).getTitle());
-			((TextView) findViewById(R.id.block11Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[0].getTitle());
-			((TextView) findViewById(R.id.block12Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[1].getTitle());
-			((TextView) findViewById(R.id.block13Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[2].getTitle());
-			((TextView) findViewById(R.id.block14Label)).setText(labels.get(group, new LabelDTO(this)).getGroup()[3].getTitle());
+		if (group1 != null) {
+			((TextView) findViewById(R.id.group1Title)).setText(labels.get(group1, new LabelDTO(this)).getTitle());
+			((TextView) findViewById(R.id.block11Label)).setText(labels.get(group1, new LabelDTO(this)).getGroup()[0].getTitle());
+			((TextView) findViewById(R.id.block12Label)).setText(labels.get(group1, new LabelDTO(this)).getGroup()[1].getTitle());
+			((TextView) findViewById(R.id.block13Label)).setText(labels.get(group1, new LabelDTO(this)).getGroup()[2].getTitle());
+			((TextView) findViewById(R.id.block14Label)).setText(labels.get(group1, new LabelDTO(this)).getGroup()[3].getTitle());
 		}
 	}
 

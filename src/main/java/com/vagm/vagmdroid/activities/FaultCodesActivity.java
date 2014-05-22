@@ -8,8 +8,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -77,6 +75,35 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void onClick(final View v) {
+		switch (v.getId()) {
+		case R.id.bFaultCodesBack:
+			LOG.debug("Exiting FaultCodes Activity");
+			finish();
+			break;
+
+		case R.id.bClearCodes:
+			faultCodes.setText("");
+			bluetoothService.write(FunctionCode.CLEAR_CODES.getCode());
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Handler getHandler() {
+		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
@@ -104,55 +131,6 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 			faultCodes.append(error);
 		} else {
 			faultCodes.append("\r\n\r\n" + error);
-		}
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.fault_codes, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(final MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.bFaultCodesBack:
-			LOG.debug("Exiting FaultCodes Activity");
-			finish();
-			break;
-
-		case R.id.bClearCodes:
-			faultCodes.setText("");
-			bluetoothService.write(FunctionCode.CLEAR_CODES.getCode());
-			break;
-
-		default:
-			break;
 		}
 	}
 

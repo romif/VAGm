@@ -158,10 +158,10 @@ public class ControllerActivityTest {
 	}
 
 	/**
-	 * testHandleMessageNegative.
+	 * testHandleMessageControllerNotAnswer.
 	 */
 	@Test
-	public final void testHandleMessageNegative() {
+	public final void testHandleMessageControllerNotAnswer() {
 		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 

@@ -29,7 +29,7 @@
                 android:maxLength="3"
                 android:minEms="2"
                 android:padding="3dp"
-                android:text="01"
+                android:text="001"
                 android:textColor="@android:color/black" />
 
             <RelativeLayout
@@ -164,7 +164,7 @@
             android:layout_marginTop="10dp" >
 
             <EditText
-                android:id="@+id/group2"
+                android:id="@+id/groupInput2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -175,14 +175,14 @@
                 android:maxLength="3"
                 android:minEms="2"
                 android:padding="3dp"
-                android:text="01"
+                android:text="001"
                 android:textColor="@android:color/black" />
 
             <RelativeLayout
                 android:id="@+id/innerLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/group2" >
+                android:layout_toRightOf="@+id/groupInput2" >
 
                 <Button
                     android:id="@+id/bUp2"

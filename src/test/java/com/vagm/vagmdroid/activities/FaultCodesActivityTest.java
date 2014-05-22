@@ -8,6 +8,7 @@ import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -17,12 +18,16 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowAlertDialog;
 import org.robolectric.shadows.ShadowLog;
+import org.robolectric.shadows.ShadowToast;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
@@ -87,7 +92,7 @@ public class FaultCodesActivityTest {
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 		assertThat(faultCodes.getText().toString(), equalTo(activity.getString(R.string.no_errors)));
 	}
-	
+
 	/**
 	 * testHandleMessageNegative.
 	 */
@@ -97,6 +102,34 @@ public class FaultCodesActivityTest {
 		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY1[1]);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 		assertEquals(expected, faultCodes.getText());
+	}
+
+	/**
+	 * testHandleMessageConnectionLost.
+	 */
+	@Test
+	public final void testHandleMessageConnectionLost() {
+		activity.getHandler().obtainMessage(ServiceCommand.CONNECTION_LOST.ordinal(), -1, -1).sendToTarget();
+
+		// postcondition
+		Toast toast = ShadowToast.getLatestToast();
+		assertNotNull("Should be error dialog", toast);
+		assertThat(ShadowToast.getTextOfLatestToast(), equalTo(activity.getString(R.string.connection_lost)));
+	}
+
+	/**
+	 * testHandleMessageControllerNotAnswer.
+	 */
+	@Test
+	public final void testHandleMessageControllerNotAnswer() {
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+
+		// postcondition
+		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
+		assertNotNull("Should be error dialog", alert);
+		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
+		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_answer)));
 	}
 
 	/**
