@@ -91,7 +91,7 @@ public class BufferService {
 
 			if (response != VAGmConstans.VAG_BTI_INFO_RES) {
 				throw new ControllerWrongResponseException("Wrong response from controller: expected "
-						+ VAGmConstans.VAG_BTI_INFO_RES + ", but was: " + response);
+						+ String.format("%02x", VAGmConstans.VAG_BTI_INFO_RES) + ", but was: " + String.format("%02x", response));
 			}
 
 			if (result[1].length() == 0) {
@@ -191,7 +191,7 @@ public class BufferService {
 				errorTypeInt = errorTypeInt - 0x80;
 			}
 			String errorType = faultCodesService.getErrorType(errorTypeInt);
-			result += "" + errorCode + " " + errorString + " - " + errorType + "\r\n\r\n";
+			result += "" + errorCode + " " + errorString + " - " + errorType;
 		}
 		return result;
 	}

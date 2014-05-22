@@ -27,7 +27,6 @@ import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
-import com.vagm.vagmdroid.service.PropertyService;
 
 /**
  * The Class ControllerActivity.
@@ -132,7 +131,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
-					LOG.warn("Wrong response", e);
+					LOG.info(e.getMessage());
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -194,6 +193,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		LOG.debug("onCreate");
 		setContentView(R.layout.activity_controller);
 		/*if (BluetoothService.getInstance().getState() != ConnectionState.CONNECTED) {
 			Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();

@@ -96,7 +96,15 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 	 */
 	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
 		String error = bufferService.getFaultCodesInfo(message);
-		faultCodes.append(error);
+		if (error.equals(getText(R.string.no_errors))) {
+			faultCodes.setText(error);
+			return;
+		}
+		if (faultCodes.getText().length() == 0) {
+			faultCodes.append(error);
+		} else {
+			faultCodes.append("\r\n\r\n" + error);
+		}
 	}
 
 	@Override
@@ -139,6 +147,7 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 			break;
 
 		case R.id.bClearCodes:
+			faultCodes.setText("");
 			bluetoothService.write(FunctionCode.CLEAR_CODES.getCode());
 			break;
 

@@ -46,14 +46,14 @@ public class BufferServiceTest {
      * bufferService.
      */
 	@Inject
-    private BufferService bufferService;
-	
+	private BufferService bufferService;
+
 	/**
 	 * context.
 	 */
 	@Inject
 	private Context context;
-	
+
 	{
 		ShadowLog.stream = System.out;
 	}
@@ -137,6 +137,17 @@ public class BufferServiceTest {
 		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
 	}
 
+    /**
+	 * testGetControllerInfoNegativ1e.
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+    @Test(expected = ControllerWrongResponseException.class)
+	public final void testGetControllerInfoNegative1() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String[] result = {"", "", "" };
+		bufferService.getControllerInfo(hexStringToByteArray(BUFFER_FAULT_CODES1), result);
+	}
+
 	/**
 	 * testGetMeasBlocksInfo.
 	 * @throws ControllerCommunicationException if some communication error occurs
@@ -149,7 +160,7 @@ public class BufferServiceTest {
 		for (int i = 1; i < 4; i++) {
 			assertEquals(DataStreamDTO.getDefault(context), result[i]);
 		}
-		
+
 		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_2GROUPS));
 		for (int i = 0; i < 2; i++) {
 			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);

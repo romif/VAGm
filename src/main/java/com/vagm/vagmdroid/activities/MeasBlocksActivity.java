@@ -166,6 +166,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				break;
 
 			case R.id.bMeasBlocksBack:
+				LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
 				bluetoothService.write(VAGmConstans.EXIT_COMMAND);
 				finish();
 				break;

@@ -1,5 +1,6 @@
 package com.vagm.vagmdroid.activities;
 
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES1;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGATIVE;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
@@ -195,6 +196,15 @@ public class ControllerActivityTest {
 		assertNotNull("Should be error dialog", alert);
 		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
 		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_answer)));
+	}
+
+	/**
+	 * testHandleMessageNegative2.
+	 */
+	@Test
+	public final void testHandleMessageNegative2() {
+		byte[] buffer = hexStringToByteArray(BUFFER_FAULT_CODES1);
+		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 	}
 
 	/**
