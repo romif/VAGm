@@ -1,12 +1,13 @@
 package com.vagm.vagmdroid.activities;
 
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES1;
+import static com.vagm.vagmdroid.service.TestConstatnts.*;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES2;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES_NO_ERRORS;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING1;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -85,6 +86,17 @@ public class FaultCodesActivityTest {
 		buffer = hexStringToByteArray(BUFFER_FAULT_CODES_NO_ERRORS);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 		assertThat(faultCodes.getText().toString(), equalTo(activity.getString(R.string.no_errors)));
+	}
+	
+	/**
+	 * testHandleMessageNegative.
+	 */
+	@Test
+	public final void testHandleMessageNegative() {
+		CharSequence expected = faultCodes.getText();
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY1[1]);
+		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+		assertEquals(expected, faultCodes.getText());
 	}
 
 	/**

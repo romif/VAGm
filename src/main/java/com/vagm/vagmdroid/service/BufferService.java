@@ -89,10 +89,7 @@ public class BufferService {
 				dataStartPosition = 2;
 			}
 
-			if (response != VAGmConstans.VAG_BTI_INFO_RES) {
-				throw new ControllerWrongResponseException("Wrong response from controller: expected "
-						+ String.format("%02x", VAGmConstans.VAG_BTI_INFO_RES) + ", but was: " + String.format("%02x", response));
-			}
+			checkResponseCode(VAGmConstans.VAG_BTI_INFO_RES, response);
 
 			if (result[1].length() == 0) {
 				if (byteToInt(buffer[dataStartPosition]) > 0x80) {
@@ -130,14 +127,12 @@ public class BufferService {
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
-			LOG.debug("No data for current group");
+			LOG.trace("No data for current group");
 			return new DataStreamDTO[] {DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
 					DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context) };
 		}
-		if (responseCode != VAGmConstans.VAG_BTI_GROUP_RES) {
-			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_GROUP_RES
-					+ ", but was: " + responseCode);
-		}
+
+		checkResponseCode(VAGmConstans.VAG_BTI_GROUP_RES, responseCode);
 		if ((buffer.length - 1) % 3 != 0) {
 			throw new ControllerWrongResponseException("Wrong response length from controller: expected multiplicity of three, but was: "
 					+ (buffer.length - 1));
@@ -169,13 +164,14 @@ public class BufferService {
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
-			LOG.debug("Error");
+			LOG.trace("Error");
 			//TODO
 			return "ERROR";
 		}
-		if (responseCode != VAGmConstans.VAG_BTI_DTC_RES) {
-			throw new ControllerWrongResponseException("Wrong response code from controller: expected " + VAGmConstans.VAG_BTI_DTC_RES
-					+ ", but was: " + responseCode);
+		checkResponseCode(VAGmConstans.VAG_BTI_DTC_RES, responseCode);
+		if ((buffer.length - 1) % 3 != 0) {
+			throw new ControllerWrongResponseException("Wrong response length from controller: expected multiplicity of three, but was: "
+					+ (buffer.length - 1));
 		}
 		if ((byteToInt(buffer[1]) == 0xFF) && (byteToInt(buffer[2]) == 0xFF)) {
 			return context.getString(R.string.no_errors);
@@ -231,6 +227,19 @@ public class BufferService {
 			if (buffer[0] == CONTROLLER_NO_ANSWER) {
 				throw new ControllerCommunicationException();
 			}
+		}
+	}
+
+	/**
+	 * checkResponseCode.
+	 * @param expectedCode expectedCode
+	 * @param actualCode actualCode
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	private void checkResponseCode(final int expectedCode, final int actualCode) throws ControllerWrongResponseException {
+		if (expectedCode != actualCode) {
+			throw new ControllerWrongResponseException("Wrong response from controller: expected 0x"
+					+ String.format("%02x", expectedCode) + ", but was: 0x" + String.format("%02x", actualCode));
 		}
 	}
 

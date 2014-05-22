@@ -64,7 +64,7 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 				} catch (final ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
-					LOG.warn("Wrong response", e);
+					LOG.info(e.getMessage());
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();

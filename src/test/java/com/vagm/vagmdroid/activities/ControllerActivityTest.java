@@ -7,6 +7,7 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -203,8 +204,10 @@ public class ControllerActivityTest {
 	 */
 	@Test
 	public final void testHandleMessageNegative2() {
+		CharSequence expected = VAGnumber.getText();
 		byte[] buffer = hexStringToByteArray(BUFFER_FAULT_CODES1);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+		assertEquals(expected, VAGnumber.getText());
 	}
 
 	/**

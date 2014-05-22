@@ -1,6 +1,7 @@
 package com.vagm.vagmdroid.activities;
 
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_4GROUPS;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY1;
 import static com.vagm.vagmdroid.service.TestConstatnts.DATA_STREAM_DTOS4;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -116,7 +117,7 @@ public class MeasBlocksActivityTest {
 	 * @throws IOException
 	 */
 	@Test
-	public final void testGetHandler() throws IOException {
+	public final void testGetHandler() {
 		byte[] buffer = hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 		assertThat(block11.getText().toString(), equalTo(DATA_STREAM_DTOS4[0].getValue() + DATA_STREAM_DTOS4[0].getUnit()));
@@ -125,6 +126,16 @@ public class MeasBlocksActivityTest {
 		assertThat(block14.getText().toString(), equalTo(DATA_STREAM_DTOS4[3].getValue() + DATA_STREAM_DTOS4[3].getUnit()));
 
 		// assertThat(group1Title.getText().toString(), equalTo(GROUP1_TITLE));
+	}
+
+	/**
+	 * testGetHandlerNegative.
+	 * @throws IOException
+	 */
+	@Test
+	public final void testGetHandlerNegative() {
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY1[1]);
+		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 	}
 
 }

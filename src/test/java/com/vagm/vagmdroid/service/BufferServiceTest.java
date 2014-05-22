@@ -145,7 +145,7 @@ public class BufferServiceTest {
     @Test(expected = ControllerWrongResponseException.class)
 	public final void testGetControllerInfoNegative1() throws ControllerCommunicationException, ControllerWrongResponseException {
 		String[] result = {"", "", "" };
-		bufferService.getControllerInfo(hexStringToByteArray(BUFFER_FAULT_CODES1), result);
+		bufferService.getControllerInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS), result);
 	}
 
 	/**
