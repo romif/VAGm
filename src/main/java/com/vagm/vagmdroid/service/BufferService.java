@@ -76,15 +76,10 @@ public class BufferService {
 	 */
 	public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
 			throws ControllerCommunicationException, ControllerWrongResponseException {
+		checkAdapterErrors(buffer);
 		final String[] result = controllerInfo;
-		if (buffer.length == 1) {
-			if (buffer[0] == CONTROLLER_NO_ANSWER) {
-				throw new ControllerCommunicationException();
-			}
-			if (buffer[0] > 1) {
-				result[0] = String.valueOf(1000000 / byteToInt(buffer[0]));
-			}
-
+		if ((buffer.length == 1) && (buffer[0] > 1)) {
+			result[0] = String.valueOf(1000000 / byteToInt(buffer[0]));
 		} else {
 
 			int response = byteToInt(buffer[0]);
@@ -131,11 +126,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
-		if (buffer.length == 1) {
-			if (buffer[0] == CONTROLLER_NO_ANSWER) {
-				throw new ControllerCommunicationException();
-			}
-		}
+		checkAdapterErrors(buffer);
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
@@ -174,11 +165,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	public String getFaultCodesInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
-		if (buffer.length == 1) {
-			if (buffer[0] == CONTROLLER_NO_ANSWER) {
-				throw new ControllerCommunicationException();
-			}
-		}
+		checkAdapterErrors(buffer);
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
@@ -232,6 +219,19 @@ public class BufferService {
 	 */
 	private static int byteToInt(final byte b) {
 		return b < 0 ? b + 256 : b;
+	}
+
+	/**
+	 * Checks AdapterErrors.
+	 * @param buffer buffer
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 */
+	private void checkAdapterErrors(final byte[] buffer) throws ControllerCommunicationException {
+		if (buffer.length == 1) {
+			if (buffer[0] == CONTROLLER_NO_ANSWER) {
+				throw new ControllerCommunicationException();
+			}
+		}
 	}
 
 }
