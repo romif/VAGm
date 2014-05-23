@@ -77,7 +77,6 @@ public class LabelService {
 		try {
 			inputStream = LabelService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
 			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
-			LOG.debug(inputStream.toString());
 
 			String st;
 			while (((st = reader.readLine()) != null)) {

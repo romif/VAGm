@@ -35,33 +35,33 @@ public class LabelServiceTest {
 	/**
 	 * GROUP1_TITLE.
 	 */
-	public static final String GROUP1_TITLE = "Current Values (Longitudinal && Backrest Rake Adjustment)";
+	public static final String GROUP1_TITLE = "Injected Quantity";
 
 	/**
 	 * BLOCK1_TITLE.
 	 */
-	public static final String BLOCK1_TITLE = "Longitudinal Seat";
+	public static final String BLOCK1_TITLE = "Engine speed";
 
 	/**
 	 * BLOCK2_TITLE.
 	 */
-	public static final String BLOCK2_TITLE = "Longitudinal Seat";
+	public static final String BLOCK2_TITLE = "Injection Quantity";
 
 	/**
 	 * BLOCK3_TITLE.
 	 */
-	public static final String BLOCK3_TITLE = "Backrest Rake";
+	public static final String BLOCK3_TITLE = "Mod. Piston Displ.";
 
 	/**
 	 * BLOCK4_TITLE.
 	 */
-	public static final String BLOCK4_TITLE = "Backrest Rake";
+	public static final String BLOCK4_TITLE = "Coolant Temp.";
 
 	/**
 	 * ECU.
 	 */
 	public static final String ECU = "028906021GL";
-	
+
 	/**
 	 * LABEL_FILE.
 	 */
@@ -78,7 +78,7 @@ public class LabelServiceTest {
 	 */
 	@Inject
 	private LabelService labelService;
-	
+
 	{
 		ShadowLog.stream = System.out;
 	}
@@ -141,7 +141,7 @@ public class LabelServiceTest {
 
 	/**
 	 * testGetLabels.
-	 * @throws IOException 
+	 * @throws IOException IOException
 	 */
 	@Test
 	public final void testGetLabels() throws IOException {
@@ -156,7 +156,7 @@ public class LabelServiceTest {
 
 	/**
 	 * testAllLabels.
-	 * @throws IOException 
+	 * @throws IOException IOException
 	 */
 	@Test
 	public final void testAllLabels() throws IOException {
@@ -173,7 +173,7 @@ public class LabelServiceTest {
 	/**
 	 * getAllFileNames.
 	 * @return AllFileNames
-	 * @throws IOException 
+	 * @throws IOException IOException
 	 */
 	private String[] getAllFileNames() throws IOException {
 		File file = new File("assets" + File.separator + "labels");
@@ -185,7 +185,7 @@ public class LabelServiceTest {
 
 	/**
 	 * copyFiles.
-	 * @throws IOException
+	 * @throws IOException IOException
 	 */
 	private void copyFiles() throws IOException {
 		File file = new File("assets" + File.separator + "labels");

@@ -6,14 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.SparseArray;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -67,6 +64,11 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * group.
 	 */
 	private Integer group1;
+	
+	/**
+	 * group.
+	 */
+	private Integer group2;
 
 	/**
 	 * bufferService.
@@ -107,9 +109,10 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				try {
 					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
+					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
-					LOG.info(e.getMessage());
+					LOG.info(e.getMessage(), e);
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
@@ -127,61 +130,49 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 			switch (v.getId()) {
 			case R.id.bGo1:
 				group1 = getGroup1();
-				LOG.debug("Request for group {}", group1);
-				bluetoothService.write(group1);
-				setLabels();
+				setGroup1();
 				break;
 
 			case R.id.bUp1:
 				group1 = getGroup1();
 				if (group1 < 0xFF) {
 					group1++;
-					groupInput1.setText(String.format("%03d", group1));
-					LOG.debug("Request for group {}", group1);
-					bluetoothService.write(group1);
+					setGroup1();
 				}
-				setLabels();
 				break;
 
 			case R.id.bDn1:
 				group1 = getGroup1();
 				if (group1 > 1) {
 					group1--;
-					groupInput1.setText(String.format("%03d", group1));
-					LOG.debug("Request for group {}", group1);
-					bluetoothService.write(group1);
+					setGroup1();
 				}
-				setLabels();
 				break;
 
 			case R.id.bGo2:
-				bluetoothService.write(getGroup2());
-				setLabels();
+				group2 = getGroup2();
+				setGroup2();
 				break;
 
 			case R.id.bUp2:
-				group1 = getGroup2();
-				if (group1 < 0xFF) {
-					group1++;
-					groupInput2.setText(String.format("%03d", group1));
-					bluetoothService.write(group1);
+				group2 = getGroup2();
+				if (group2 < 0xFF) {
+					group2++;
+					setGroup2();
 				}
-				setLabels();
 				break;
 
 			case R.id.bDn2:
-				group1 = getGroup2();
-				if (group1 > 1) {
-					group1--;
-					groupInput2.setText(String.format("%03d", group1));
-					bluetoothService.write(group1);
+				group2 = getGroup2();
+				if (group2 > 1) {
+					group2--;
+					setGroup2();
 				}
-				setLabels();
 				break;
 
 			case R.id.bMeasBlocksBack:
 				LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
-				bluetoothService.write(VAGmConstans.EXIT_COMMAND);
+				bluetoothService.write(0xFF);
 				finish();
 				break;
 
@@ -225,11 +216,31 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	}
 
 	/**
+	 * setGroup1.
+	 */
+	private void setGroup1() {
+		groupInput1.setText(String.format("%03d", group1));
+		LOG.debug("Request for group {}", group1);
+		bluetoothService.write(group1);
+		setLabels();
+	}
+
+	/**
 	 * getGroup2.
 	 * @return group
 	 */
 	private int getGroup2() {
 		return Integer.parseInt(groupInput2.getText().toString());
+	}
+
+	/**
+	 * setGroup1.
+	 */
+	private void setGroup2() {
+		groupInput2.setText(String.format("%03d", group2));
+		LOG.debug("Request for group {}", group2);
+		bluetoothService.write(group2);
+		setLabels();
 	}
 
 	/**
