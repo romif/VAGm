@@ -33,7 +33,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/panel"
                     android:padding="3dp"
-                    android:textColor="#009900" />
+                    android:textColor="@android:color/black" />
             </RelativeLayout>
 
             <TextView

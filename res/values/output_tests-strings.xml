@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="title_activity_output_tests">OutputTestsActivity</string>
+	<string name="activated_output">Activated output:</string>
+	<string name="bStart">Start</string>
+	<string name="bNext">Next</string>
+
+</resources>

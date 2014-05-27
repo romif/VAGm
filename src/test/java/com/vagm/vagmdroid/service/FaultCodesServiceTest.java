@@ -8,7 +8,10 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLog;
 
+import android.content.Context;
+
 import com.google.inject.Inject;
+import com.vagm.vagmdroid.R;
 
 /**
  * The Class FaultCodesServiceTest.
@@ -17,16 +20,25 @@ import com.google.inject.Inject;
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "AndroidManifest.xml")
 public class FaultCodesServiceTest {
-	
+
+	/**
+	 * faultCodesService.
+	 */
 	@Inject
 	private FaultCodesService faultCodesService;
-	
+
+	/**
+	 * context.
+	 */
+	@Inject
+	private Context context;
+
 	{
 		ShadowLog.stream = System.out;
 	}
 
 	/**
-	 * Test method for {@link com.vagm.vagmdroid.service.FaultCodesService#getDTC(int)}.
+	 * testGetDTC.
 	 */
 	@Test
 	public final void testGetDTC() {
@@ -42,7 +54,15 @@ public class FaultCodesServiceTest {
 	}
 
 	/**
-	 * Test method for {@link com.vagm.vagmdroid.service.FaultCodesService#getErrorType(int)}.
+	 * testGetDTCNegative.
+	 */
+	@Test
+	public final void testGetDTCNegative() {
+		assertEquals(context.getString(R.string.unknown_error), faultCodesService.getDTC(-1));
+	}
+
+	/**
+	 * testGetErrorType.
 	 */
 	@Test
 	public final void testGetErrorType() {

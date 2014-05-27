@@ -149,7 +149,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		switch (v.getId()) {
 		case R.id.bCloseController:
 			LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
-			bluetoothService.write(VAGmConstans.EXIT_COMMAND);
+			bluetoothService.write(0xAA);
 			stopTimer();
 			finish();
 			break;
@@ -168,10 +168,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			break;
 
 		case R.id.bOuputTests:
-			//getmCommandService().write(FunctionCode.OUTPUT_TESTS.getCode());
-			// final Intent outputTestsIntent = new Intent(this,
-			// OutputTestsActivity.class);
-			// startActivityForResult(outputTestsIntent, -1);
+			final Intent outputTestsIntent = new Intent(this, OutputTestsActivity.class);
+			startActivityForResult(outputTestsIntent, -1);
 			break;
 
 		default:

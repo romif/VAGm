@@ -66,6 +66,10 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_fault_codes" >
         </activity>
+        <activity
+            android:name="com.vagm.vagmdroid.activities.OutputTestsActivity"
+            android:label="@string/title_activity_output_tests" >
+        </activity>
     </application>
 
 </manifest>

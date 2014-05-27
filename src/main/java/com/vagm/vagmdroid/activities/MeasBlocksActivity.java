@@ -64,7 +64,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * group.
 	 */
 	private Integer group1;
-	
+
 	/**
 	 * group.
 	 */

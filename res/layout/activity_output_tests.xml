@@ -1,0 +1,62 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/controllerLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mainBackground"
+    android:fillViewport="true"
+    tools:context=".OutputTestsActivity" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/innerLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/activatedOutputTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/activated_output"
+                android:textColor="#0000ff" />
+
+            <TextView
+                android:id="@+id/activatedOutput"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/activatedOutputTitle"
+                android:background="@drawable/panel"
+                android:padding="3dp"
+                android:layout_margin="10dp"
+                android:textColor="#009900" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/innerLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/innerLayout1"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom" >
+
+            <Button
+                android:id="@+id/bStart"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bStart" />
+
+            <Button
+                android:id="@+id/bOutputTestsBack"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bStart"
+                android:text="@string/bMeasBlocksBack" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

@@ -20,7 +20,7 @@ public enum FunctionCode {
 	/**
 	 * OUTPUT_TESTS.
 	 */
-	OUTPUT_TESTS(0x02),
+	OUTPUT_TESTS(0x03),
 
 	/**
 	 * CLEAR_CODES.

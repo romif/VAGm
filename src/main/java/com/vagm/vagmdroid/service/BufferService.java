@@ -193,6 +193,29 @@ public class BufferService {
 	}
 
 	/**
+	 * getOutputTestsInfo.
+	 * @param buffer buffer
+	 * @return FaultCodesInfo
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 */
+	public String getOutputTestsInfo(final byte[] buffer)throws ControllerCommunicationException, ControllerWrongResponseException {
+		checkAdapterErrors(buffer);
+
+		int responseCode = byteToInt(buffer[0]);
+		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
+			LOG.trace("Error");
+			//TODO
+			return "ERROR";
+		}
+		checkResponseCode(VAGmConstans.VAG_BTI_ACT_RES, responseCode);
+
+		int outputTestCode = Integer.parseInt(
+				Integer.toHexString(byteToInt(buffer[1])) + Integer.toHexString(byteToInt(buffer[2])), 16);
+		return faultCodesService.getErrorType(outputTestCode);
+	}
+
+	/**
 	 * hexStringToByteArray.
 	 * @param s
 	 *            String
