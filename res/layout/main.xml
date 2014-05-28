@@ -5,15 +5,15 @@
     android:background="@color/mainBackground"
     android:fillViewport="true" >
 
-    <TableLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
-        android:label="@string/component"
-        android:orientation="horizontal"
-        android:weightSum="1" >
+        android:layout_height="wrap_content" >
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/innerLayout1"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content" >
 
             <Button
                 android:id="@+id/bEngine"
@@ -28,9 +28,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/bABS" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/innerLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/innerLayout1" >
 
             <Button
                 android:id="@+id/bAirbags"
@@ -45,9 +50,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/bInstruments" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/innerLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/innerLayout2" >
 
             <Button
                 android:id="@+id/bImmobilizer"
@@ -62,9 +72,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="@string/bComfort" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/innerLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/innerLayout3" >
 
             <Button
                 android:id="@+id/button7"
@@ -79,9 +94,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="Button" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow>
+        <LinearLayout
+            android:id="@+id/innerLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/innerLayout4" >
 
             <Button
                 android:id="@+id/button9"
@@ -96,12 +116,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:text="Button" />
-        </TableRow>
+        </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeLayout"
+            android:id="@+id/innerLayout6"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/innerLayout5"
             android:background="#d0e0e0" >
 
             <RelativeLayout
@@ -153,6 +174,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:layout_below="@+id/innerLayout6"
             android:layout_marginTop="20dp"
             android:gravity="bottom" >
 
@@ -162,6 +184,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/bConnectAdapter" />
         </LinearLayout>
-    </TableLayout>
+    </RelativeLayout>
 
 </ScrollView>

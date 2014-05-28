@@ -36,6 +36,7 @@
                 android:id="@+id/innerLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/groupInput1" >
 
                 <Button
@@ -43,6 +44,7 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:text="@string/bUp" />
 
                 <Button
@@ -51,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/bUp1"
+                    android:layout_centerHorizontal="true"
                     android:text="@string/bDn" />
             </RelativeLayout>
 
@@ -182,6 +185,7 @@
                 android:id="@+id/innerLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/groupInput2" >
 
                 <Button
@@ -189,6 +193,7 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:text="@string/bUp" />
 
                 <Button
@@ -197,6 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/bUp2"
+                    android:layout_centerHorizontal="true"
                     android:text="@string/bDn" />
             </RelativeLayout>
 
