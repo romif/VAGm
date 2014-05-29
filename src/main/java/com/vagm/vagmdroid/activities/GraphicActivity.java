@@ -144,8 +144,8 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
 		setContentView(R.layout.activity_graphic);
-		//group = getIntent().getExtras().getInt(MeasBlocksActivity.GROUP);
-		group = 1;
+		group = getIntent().getExtras().getInt(MeasBlocksActivity.GROUP);
+		//group = 1;
 		labels = labelService.getLabels();
 		initSpinners();
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
@@ -342,10 +342,15 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 			break;
 
 		case MultiSelectionSpinner.OK_BUTTON_ID:
-			blocks = spinner.getBlocks();
-			LOG.debug("blocks {}", Arrays.toString(blocks));
-			spinner.hideDialog();
-			initGraph(blocks);
+			if (blocks == null) {
+				blocks = spinner.getBlocks();
+			}
+			synchronized (blocks) {
+				blocks = spinner.getBlocks();
+				LOG.debug("blocks {}", Arrays.toString(blocks));
+				spinner.hideDialog();
+				initGraph(blocks);
+			}
 			break;
 
 		default:

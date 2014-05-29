@@ -108,7 +108,7 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
 		setContentView(R.layout.activity_fault_codes);
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
+		setButtonOnClickListner((ViewGroup) findViewById(R.id.faultCodesLayout), this);
 
 	}
 

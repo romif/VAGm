@@ -25,7 +25,8 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:description="@string/bComfort"
             android:label="@string/app_name"
-            android:singleUser="false" >
+            android:singleUser="false"
+            android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

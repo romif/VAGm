@@ -80,7 +80,7 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
 		setContentView(R.layout.activity_output_tests);
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.measBlocksLayout), this);
+		setButtonOnClickListner((ViewGroup) findViewById(R.id.outputTestsLayout), this);
 
 	}
 
