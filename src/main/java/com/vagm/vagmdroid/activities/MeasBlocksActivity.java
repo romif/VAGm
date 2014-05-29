@@ -1,12 +1,11 @@
 package com.vagm.vagmdroid.activities;
 
-import java.util.LinkedList;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -41,14 +40,9 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	private static final Logger LOG = LoggerFactory.getLogger(MeasBlocksActivity.class);
 
 	/**
-	 * dataList.
+	 * GROUP.
 	 */
-	private final LinkedList<float[]> dataList = new LinkedList<>();
-
-	/**
-	 * MAX_DATA_LIST_SIZE.
-	 */
-	private static final int MAX_DATA_LIST_SIZE = 1000;
+	public static final String GROUP = "group";
 
 	/**
 	 * labels.
@@ -170,6 +164,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 				}
 				break;
 
+			case R.id.bGraph:
+				final Intent graphIntent = new Intent(this, GraphicActivity.class);
+				graphIntent.putExtra(GROUP, group1);
+				startActivityForResult(graphIntent, -1);
+				break;
+
 			case R.id.bMeasBlocksBack:
 				LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
 				bluetoothService.write(0xFF);
@@ -252,14 +252,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 		if (dtos != null) {
-			if (dataList.size() > MAX_DATA_LIST_SIZE) {
-				dataList.removeFirst();
-			}
-			float[] fs = new float[4];
-			for (int i = 0; i < 4; i++) {
-				fs[i] = dtos[i].getValueFloat();
-			}
-			dataList.addLast(fs);
 			((TextView) findViewById(R.id.block11)).setText(dtos[0].getValue() + dtos[0].getUnit());
 			((TextView) findViewById(R.id.block12)).setText(dtos[1].getValue() + dtos[1].getUnit());
 			((TextView) findViewById(R.id.block13)).setText(dtos[2].getValue() + dtos[2].getUnit());

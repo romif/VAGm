@@ -47,6 +47,7 @@
 
         <activity
             android:name="com.vagm.vagmdroid.activities.GraphicActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_graphic" >
         </activity>
         <activity android:name="org.achartengine.GraphicalActivity" >

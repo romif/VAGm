@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="blocks_prompt">Выберите блоки для левой и правой оси</string>
+    <string name="x_axis_title">Время</string>
+
+</resources>

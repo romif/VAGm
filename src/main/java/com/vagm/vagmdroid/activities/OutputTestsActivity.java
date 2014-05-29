@@ -1,11 +1,9 @@
 package com.vagm.vagmdroid.activities;
 
-import org.fest.util.VisibleForTesting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +17,6 @@ import android.widget.Toast;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
-import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
@@ -41,9 +38,12 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
 	 */
 	@Inject
 	private BufferService bufferService;
-	
+
+	/**
+	 * activatedOutput.
+	 */
 	@InjectView(R.id.activatedOutput)
-	TextView activatedOutput;
+	private TextView activatedOutput;
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/blocks_promt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+     >
+
+    <com.vagm.vagmdroid.widget.DeselectableRadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        
+        android:orientation="horizontal" >
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio1l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block1" />
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio1r"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block1" />
+    </com.vagm.vagmdroid.widget.DeselectableRadioGroup>
+    
+    <!-- <com.vagm.vagmdroid.widget.DeselectableRadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio2l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block2" />
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio2r"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block2" />
+    </com.vagm.vagmdroid.widget.DeselectableRadioGroup>
+    
+    <com.vagm.vagmdroid.widget.DeselectableRadioGroup
+        android:id="@+id/radioGroup3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio3l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block3" />
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio3r"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block3" />
+    </com.vagm.vagmdroid.widget.DeselectableRadioGroup>
+    
+    <com.vagm.vagmdroid.widget.DeselectableRadioGroup
+        android:id="@+id/radioGroup4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio4l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block4" />
+
+        <com.vagm.vagmdroid.widget.DeselectableRadioButton
+            android:id="@+id/radio4r"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/block4" />
+    </com.vagm.vagmdroid.widget.DeselectableRadioGroup>
+ -->
+</LinearLayout>

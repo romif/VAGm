@@ -50,6 +50,11 @@ public class LabelService {
 	 */
 	@Inject
 	private Context context;
+	
+	/**
+	 * labels.
+	 */
+	private SparseArray<LabelDTO> labels;
 
 	/**
 	 * constructor.
@@ -134,13 +139,21 @@ public class LabelService {
 
 	/**
 	 * getLabels.
+	 * @return Labels
+	 */
+	public SparseArray<LabelDTO> getLabels() {
+		return labels == null ? new SparseArray<LabelDTO>() : labels;
+	}
+
+	/**
+	 * getLabels.
 	 * @param fileName fileName
 	 * @return Labels
 	 */
 	public SparseArray<LabelDTO> getLabels(final String fileName) {
 		//LOG.debug("Begin getting labels for ecu: " + ecu);
 		//String fileName = getLabelFileName(ecu);
-		SparseArray<LabelDTO> result = new SparseArray<LabelDTO>();
+		labels = new SparseArray<LabelDTO>();
 		BufferedReader reader = null;
 		Set<Integer> recordsCount = new HashSet<Integer>();
 		try {
@@ -148,7 +161,7 @@ public class LabelService {
 					+ "labels" + File.separator + fileName);
 			if (!file.exists()) {
 				LOG.debug("Label file: " + fileName + " doesn't exist");
-				return result;
+				return labels;
 			}
 			reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
 
@@ -205,7 +218,7 @@ public class LabelService {
 				}
 
 				if (groupNumber != prevGroupNumber) {
-					result.put(prevGroupNumber, labelDTO);
+					labels.put(prevGroupNumber, labelDTO);
 					labelDTO = new LabelDTO(context);
 				}
 
@@ -214,7 +227,7 @@ public class LabelService {
 
 			}
 			if (labelDTO != null) {
-				result.put(prevGroupNumber, labelDTO);
+				labels.put(prevGroupNumber, labelDTO);
 			}
 
 		} catch (final IOException ex) {
@@ -229,8 +242,8 @@ public class LabelService {
 			}
 		}
 		//Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
-		LOG.debug("Found group records: " + result.size());
-		return result;
+		LOG.debug("Found group records: " + labels.size());
+		return labels;
 	}
 
 	/**
