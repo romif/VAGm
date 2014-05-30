@@ -304,8 +304,8 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 			new CopyLabelsTask(this).execute();
 		}
 
-		/*final Intent faultCodesIntent = new Intent(this, GraphicActivity.class);
-		startActivityForResult(faultCodesIntent, -1);*/
+		final Intent faultCodesIntent = new Intent(this, GraphicActivity.class);
+		startActivityForResult(faultCodesIntent, -1);
 		/*String url = "http://vagm-romif.rhcloud.com/uploadFile";
 		File file = new File(Environment.getExternalStorageDirectory() + File.separator + PropertyService.getAppName(),
 		        "VAGm.log");

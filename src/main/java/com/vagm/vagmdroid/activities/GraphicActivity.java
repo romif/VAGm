@@ -1,5 +1,7 @@
 package com.vagm.vagmdroid.activities;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
@@ -7,6 +9,7 @@ import java.util.LinkedList;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.PointStyle;
+import org.achartengine.model.TimeSeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
@@ -49,6 +52,16 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * LOG.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(GraphicActivity.class);
+
+	/**
+	 * COLORS.
+	 */
+	private static final int[] COLORS = new int[] {Color.RED, Color.BLUE, Color.YELLOW, Color.GREEN };
+
+	/**
+	 * STYLES.
+	 */
+	private static final PointStyle[] STYLES = new PointStyle[] {PointStyle.POINT, PointStyle.POINT, PointStyle.POINT, PointStyle.POINT };
 
 	/**
 	 * group.
@@ -99,11 +112,11 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	private ScaleTimeSeries[] timeSeries;
 
 	/**
-	 * spinner1.
+	 * spinner.
 	 */
 	@InjectView(value = R.id.spinner)
 	private MultiSelectionSpinner spinner;
-	
+
 	/**
 	 * blocks.
 	 */
@@ -144,89 +157,70 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
 		setContentView(R.layout.activity_graphic);
-		group = getIntent().getExtras().getInt(MeasBlocksActivity.GROUP);
-		//group = 1;
+		//group = getIntent().getExtras().getInt(MeasBlocksActivity.GROUP);
+		group = 1;
 		labels = labelService.getLabels();
-		initSpinners();
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
+		spinner.setEnabled(false);
 		spinner.setOnClickListener(this);
 		
-
-
-       /* new Thread(new Runnable() {
-			@Override
-			public void run() {
-				for (int i = 0; i < 10; i++) {
-					timeSeries[0].add(new Date(), Math.cos((double) i / 10));
-					timeSeries[1].add(new Date(), Math.sin((double) i / 10));
-					timeSeries[2].add(new Date(), Math.tan((double) i / 10));
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					mChartView.repaint();
-				}
-			}
-		}).start();*/
-
+		test();
 
 	}
 
 	/**
-	 * initSpinner.
+	 * initSpinners.
+	 * @param blockCount blockCount
 	 */
-	private void initSpinners() {
-		spinner.setItems(new String[] {labels.get(group, new LabelDTO(this)).getGroup()[0].getTitle(),
-				labels.get(group, new LabelDTO(this)).getGroup()[1].getTitle(),
-				labels.get(group, new LabelDTO(this)).getGroup()[2].getTitle(),
-				labels.get(group, new LabelDTO(this)).getGroup()[3].getTitle() });
+	private void initSpinners(final int blockCount) {
+		String[] items = new String[blockCount];
+		for (int i = 0; i < items.length; i++) {
+			items[i] = labels.get(group, new LabelDTO(this)).getGroup()[i].getTitle();
+		}
+		spinner.setItems(items);
+	}
+
+	/**
+	 * initTimeSeries.
+	 * @param blockCount blockCount
+	 */
+	private void initTimeSeries(final int blockCount) {
+		timeSeries = new ScaleTimeSeries[blockCount];
+		for (int i = 0; i < blockCount; i++) {
+			timeSeries[i] = new ScaleTimeSeries(labels.get(group, new LabelDTO(this)).getGroup()[i].getTitle(), 1);
+		}
 	}
 
 	/**
 	 * initGraph.
 	 */
 	private void initGraph(boolean[] blocks) {
+		// create dataset and renderer
+		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer(2);
+		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+
 		int length = 0;
-		for (boolean b:blocks) {
-			if (b) {
+		for (int i = 0; i < blocks.length; i += 2) {
+			if (blocks[i] || blocks[i + 1]) {
+				timeSeries[i / 2].setScaleNumber(blocks[i] ? 0 : 1);
+				dataset.addSeries(timeSeries[i / 2]);
 				length++;
 			}
 		}
-		// create dataset and renderer
-		int[] colors = new int[] {Color.RED, Color.BLUE, Color.YELLOW, Color.GREEN };
-		PointStyle[] styles = new PointStyle[] {PointStyle.POINT, PointStyle.POINT, PointStyle.POINT, PointStyle.POINT };
 
-		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer(2);
-		setRenderer(renderer, colors, styles, length);
-
-		for (int i = 0; i < renderer.getSeriesRendererCount(); i++) {
-			XYSeriesRenderer r = (XYSeriesRenderer) renderer.getSeriesRendererAt(i);
-			r.setLineWidth(3f);
-		}
-
-		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
-		timeSeries = new ScaleTimeSeries[length];
-		int id = 0;
-		for (int i = 0; i < blocks.length; i += 2) {
-			if (!blocks[i] && !blocks[i + 1]) {
-				continue;
-			} else {
-				timeSeries[id] = new ScaleTimeSeries(labels.get(group, new LabelDTO(this)).getGroup()[i / 2].getTitle(), blocks[i] ? 0
-						: 1);
-				id++;
-			}
-		}
-
+		setRenderer(renderer, COLORS, STYLES, length);
 		for (int i = 0; i < length; i++) {
-			 dataset.addSeries(timeSeries[i]);
+		      XYSeriesRenderer r = (XYSeriesRenderer) renderer.getSeriesRendererAt(i);
+		      r.setLineWidth(3f);
+		    }
+		for (XYSeries series : dataset.getSeries()) {
+			LOG.debug(String.valueOf(series.getScaleNumber()));
 		}
 
-        mChartView = ChartFactory.getTimeChartView(this, dataset, renderer, "H:mm:ss");
-        chartContainer.removeAllViews();
-        chartContainer.addView(mChartView);
-        mChartView.repaint();
+		mChartView = ChartFactory.getTimeChartView(this, dataset, renderer, "H:mm:ss");
+		chartContainer.removeAllViews();
+		chartContainer.addView(mChartView);
+		mChartView.repaint();
 	}
 
 	/**
@@ -251,6 +245,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 			XYSeriesRenderer r = new XYSeriesRenderer();
 			r.setColor(colors[i]);
 			r.setPointStyle(styles[i]);
+			r.setLineWidth(3f);
 			renderer.addSeriesRenderer(r);
 		}
 	}
@@ -264,6 +259,18 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 
+		if (timeSeries == null) {
+			int blockCount = 0;
+			for (DataStreamDTO dto:dtos) {
+				if (!dto.getValue().equals(getString(R.string.no_data))) {
+					blockCount++;
+				}
+			}
+			initSpinners(blockCount);
+			initTimeSeries(blockCount);
+			spinner.setEnabled(true);
+		}
+
 		if (dtos != null) {
 			if (dataList.size() > MAX_DATA_LIST_SIZE) {
 				dataList.removeFirst();
@@ -275,13 +282,9 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 			dataList.addLast(fs);
 			
 			if (mChartView != null) {
-				int id = 0;
 				for (int i = 0; i < 4; i++) {
 					fs[i] = dtos[i].getValueFloat();
-					if (blocks[i * 2] || blocks[i * 2 + 1]) {
-						timeSeries[id].add(new Date(), dtos[i].getValueFloat());
-						id++;
-					}
+					timeSeries[i].add(new Date(), dtos[i].getValueFloat());
 				}
 				mChartView.repaint();
 			}
@@ -328,6 +331,36 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		// mChartView.repaint();
 
 	}
+	
+	private void test() {
+		byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
+		getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i = 0; i < 1000; i++) {
+					byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
+					getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+					try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					buffer = bufferService.hexStringToByteArray("e701690127340015142505098c");
+					getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+					try {
+						Thread.sleep(300);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
+
+	}
 
 	/**
 	 * {@inheritDoc}
@@ -370,7 +403,12 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * The Class ScaleTimeSeries.
 	 * @author Roman_Konovalov
 	 */
-	private class ScaleTimeSeries extends XYSeries {
+	private static class ScaleTimeSeries extends XYSeries  {
+
+		/**
+		 * LOG.
+		 */
+		private static final Logger LOG = LoggerFactory.getLogger(ScaleTimeSeries.class);
 
 		/**
 		 * serialVersionUID.
@@ -380,27 +418,51 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		/**
 		 * constructor.
 		 * @param title title
-		 * @param scaleNumber scaleNumber
 		 */
-		public ScaleTimeSeries(final String title, final int scaleNumber) {
+		/*public ScaleTimeSeries(final String title) {
+			super(title);
+			setScaleNumber(1);
+		}*/
+		
+		/**
+		 * constructor.
+		 * @param title title
+		 */
+		public ScaleTimeSeries(final String title, int scaleNumber) {
 			super(title, scaleNumber);
 		}
+		
+		/**
+		   * Adds a new value to the series.
+		   * 
+		   * @param x the date / time value for the X axis
+		   * @param y the value for the Y axis
+		   */
+		  public synchronized void add(Date x, double y) {
+		    super.add(x.getTime(), y);
+		  }
+		  
+		  protected double getPadding(double x) {
+		    return 1;
+		  }
 
 		/**
-		 * add.
-		 * @param x x
-		 * @param y y
+		 * Sets ScaleNumber.
+		 * @param scaleNumber scaleNumber
 		 */
-		public synchronized void add(final Date x, final double y) {
-			super.add(x.getTime(), y);
-		}
+		public void setScaleNumber(final int scaleNumber) {
+			try {
+				Field field = XYSeries.class.getDeclaredField("mScaleNumber");
+				field.setAccessible(true);
+				field.set(this, scaleNumber);
 
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		protected double getPadding(final double x) {
-			return 1;
+				Method method = XYSeries.class.getDeclaredMethod("initRange");
+				method.setAccessible(true);
+				method.invoke(this);
+			} catch (Exception e) {
+				LOG.error("Cannot set scaleNumber", e);
+				throw new RuntimeException("Cannot set scaleNumber");
+			}
 		}
 	}
 
