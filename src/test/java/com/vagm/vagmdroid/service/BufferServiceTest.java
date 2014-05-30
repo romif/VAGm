@@ -7,6 +7,9 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_1GROU
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_2GROUPS;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_3GROUPS;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_4GROUPS;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_CODES1;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_CODES2;
+import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_END;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY1;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY2;
@@ -18,6 +21,8 @@ import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING1;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
+import static com.vagm.vagmdroid.service.TestConstatnts.OUTPUTTESTS_STRING1;
+import static com.vagm.vagmdroid.service.TestConstatnts.OUTPUTTESTS_STRING2;
 import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -168,7 +173,7 @@ public class BufferServiceTest {
 		for (int i = 2; i < 4; i++) {
 			assertEquals(DataStreamDTO.getDefault(context), result[i]);
 		}
-		
+
 		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_3GROUPS));
 		for (int i = 0; i < 3; i++) {
 			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
@@ -176,28 +181,45 @@ public class BufferServiceTest {
 		for (int i = 3; i < 4; i++) {
 			assertEquals(DataStreamDTO.getDefault(context), result[i]);
 		}
-		
+
 		result = bufferService.getMeasBlocksInfo(hexStringToByteArray(BUFFER_MEAS_BLOCKS_4GROUPS));
 		for (int i = 0; i < 4; i++) {
 			assertNotEquals(DataStreamDTO.getDefault(context), result[i]);
 		}
 	}
-    
+
     /**
      * testGetFaultCodesInfo.
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
      */
     @Test
-    public void testGetFaultCodesInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
-    	String result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES1));
-    	assertEquals(FAULT_CODES_STRING1, result);
-    	
-    	result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES2));
-    	assertEquals(FAULT_CODES_STRING2, result);
-    	
-    	result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES_NO_ERRORS));
-    	assertEquals(context.getString(R.string.no_errors), result);
-    }
+	public void testGetFaultCodesInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES1));
+		assertEquals(FAULT_CODES_STRING1, result);
+
+		result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES2));
+		assertEquals(FAULT_CODES_STRING2, result);
+
+		result = bufferService.getFaultCodesInfo(hexStringToByteArray(BUFFER_FAULT_CODES_NO_ERRORS));
+		assertEquals(context.getString(R.string.no_errors), result);
+	}
+
+    /**
+     * testGetOutputTestsInfo.
+	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+     */
+    @Test
+	public void testGetOutputTestsInfo() throws ControllerCommunicationException, ControllerWrongResponseException {
+		String result = bufferService.getOutputTestsInfo(hexStringToByteArray(BUFFER_OUTPUTTESTS_CODES1));
+		assertEquals(OUTPUTTESTS_STRING1, result);
+
+		result = bufferService.getOutputTestsInfo(hexStringToByteArray(BUFFER_OUTPUTTESTS_CODES2));
+		assertEquals(OUTPUTTESTS_STRING2, result);
+
+		result = bufferService.getOutputTestsInfo(hexStringToByteArray(BUFFER_OUTPUTTESTS_END));
+		assertEquals(context.getString(R.string.test_ended), result);
+	}
 
 }

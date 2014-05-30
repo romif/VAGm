@@ -112,6 +112,31 @@ public final class TestConstatnts {
 	public static final String BUFFER_FAULT_CODES_NO_ERRORS = "fcffff88";
 
 	/**
+	 * BUFFER_OUTPUTTESTS_CODES1.
+	 */
+	public static final String BUFFER_OUTPUTTESTS_CODES1 = "f504f1";
+
+	/**
+	 * OUTPUTTESTS_STRING1.
+	 */
+	public static final String OUTPUTTESTS_STRING1 = "Клапан рециркуляции ОГ-N18";
+
+	/**
+	 * BUFFER_OUTPUTTESTS_CODES2.
+	 */
+	public static final String BUFFER_OUTPUTTESTS_CODES2 = "f50272";
+
+	/**
+	 * OUTPUTTESTS_STRING2.
+	 */
+	public static final String OUTPUTTESTS_STRING2 = "Контрольная лампа времени прогрева свечами накаливания-K29";
+
+	/**
+	 * BUFFER_OUTPUTTESTS_END.
+	 */
+	public static final String BUFFER_OUTPUTTESTS_END = "03";
+
+	/**
 	 * ECU_INFO3.
 	 */
 	public static final String[] ECU_INFO3 = {"9803", "3B0959796 K", " Zentral-SG Komfort  V41 " };

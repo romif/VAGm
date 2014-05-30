@@ -208,11 +208,14 @@ public class BufferService {
 			//TODO
 			return "ERROR";
 		}
+		if (responseCode == VAGmConstans.VAG_BTI_ACT_RES_END) {
+			return context.getString(R.string.test_ended);
+		}
 		checkResponseCode(VAGmConstans.VAG_BTI_ACT_RES, responseCode);
 
 		int outputTestCode = Integer.parseInt(
 				Integer.toHexString(byteToInt(buffer[1])) + Integer.toHexString(byteToInt(buffer[2])), 16);
-		return faultCodesService.getErrorType(outputTestCode);
+		return faultCodesService.getDTC(outputTestCode);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,12 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
 	 */
 	@InjectView(R.id.activatedOutput)
 	private TextView activatedOutput;
+
+	/**
+	 * bStart.
+	 */
+	@InjectView(R.id.bStart)
+	private Button bStart;
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -91,7 +98,13 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 */
 	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
-		activatedOutput.setText(bufferService.getOutputTestsInfo(message));
+		String activatedOutputText = bufferService.getOutputTestsInfo(message);
+		if (activatedOutputText == getString(R.string.test_ended)) {
+			bStart.setText(getString(R.string.bStart));
+		} else {
+			bStart.setText(getString(R.string.bNext));
+		}
+		activatedOutput.setText(activatedOutputText);
 	}
 
 	/**

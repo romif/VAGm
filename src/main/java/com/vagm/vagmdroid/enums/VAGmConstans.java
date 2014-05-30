@@ -53,6 +53,11 @@ public final class VAGmConstans {
 	public static final int VAG_BTI_ACT_RES =   0xF5; // Actuators response
 
 	/**
+	 * VAG_BTI_ACT_RES_END.
+	 */
+	public static final int VAG_BTI_ACT_RES_END = 0x03;
+
+	/**
 	 * VAG_BTI_DTC_RES.
 	 */
 	public static final int VAG_BTI_DTC_RES =   0xFC; // Diagnostic trouble codes response

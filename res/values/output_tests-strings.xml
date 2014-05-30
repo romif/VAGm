@@ -4,5 +4,6 @@
 	<string name="activated_output">Activated output:</string>
 	<string name="bStart">Start</string>
 	<string name="bNext">Next</string>
+	<string name="test_ended">Test ended</string>
 
 </resources>
