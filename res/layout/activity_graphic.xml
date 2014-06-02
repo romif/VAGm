@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graphicLayout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/mainBackground"
     android:fillViewport="true"
     android:keepScreenOn="true"
@@ -10,40 +10,62 @@
 
     <LinearLayout
         android:id="@+id/chart_container"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/graphicActivityControl"
         android:orientation="vertical" >
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/innerLayout"
-        android:gravity="center"
-        android:text="@string/blocks_prompt"
-        android:textColor="@android:color/black" />
-
     <LinearLayout
-        android:id="@+id/innerLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bGraphicBack"
-        android:gravity="bottom"
-        android:orientation="horizontal" >
-
-        <com.vagm.vagmdroid.util.MultiSelectionSpinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/bGraphicBack"
-        android:layout_width="fill_parent"
+        android:id="@+id/graphicActivityControl"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/bMeasBlocksBack" />
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/innerLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <com.vagm.vagmdroid.util.MultiSelectionSpinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5" />
+
+            <Button
+                android:id="@+id/bRec"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/start" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/innerLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bSave" />
+
+            <Button
+                android:id="@+id/bGraphicBack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/bMeasBlocksBack" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

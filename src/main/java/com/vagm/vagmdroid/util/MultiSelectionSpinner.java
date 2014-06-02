@@ -116,6 +116,7 @@ public class MultiSelectionSpinner extends Spinner implements OnMultiChoiceClick
 		//builder.setMultiChoiceItems(_items, _selection, listener);
 		alertDialog = builder.show();
 		alertDialog.setContentView(getLayout());
+		alertDialog.setCancelable(false);
 		return true;
 	}
 
@@ -306,6 +307,10 @@ public class MultiSelectionSpinner extends Spinner implements OnMultiChoiceClick
 	
 	public boolean[] getBlocks() {
 		return blocks;
+	}
+	
+	public void setBlocks(boolean[] blocks) {
+		this.blocks = blocks;
 	}
 	
 	public void hideDialog() {

@@ -26,6 +26,7 @@ import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
+import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
 
 /**
@@ -48,11 +49,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * labels.
 	 */
 	private SparseArray<LabelDTO> labels;
-
-	/**
-	 * ecu.
-	 */
-	private String ecu;
 
 	/**
 	 * group.
@@ -87,6 +83,13 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@InjectView(R.id.groupInput2)
 	private EditText groupInput2;
+
+	/**
+	 * controllerInfoService.
+	 */
+	@Inject
+	private ControllerInfoService controllerInfoService;
+
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -202,9 +205,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 		LOG.debug("onCreate");
 		setContentView(R.layout.activity_meas_blocks);
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.measBlocksLayout), this);
-		ecu = getIntent().getExtras().getString(ControllerActivity.ECU);
-		String fileName = labelService.getLabelFileName(ecu);
-		labels = labelService.getLabels(fileName);
+		labels = labelService.getLabels();
 	}
 
 	/**
@@ -221,6 +222,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	private void setGroup1() {
 		groupInput1.setText(String.format("%03d", group1));
 		LOG.debug("Request for group {}", group1);
+		controllerInfoService.setGroup(group1);
 		bluetoothService.write(group1);
 		setLabels();
 	}

@@ -27,6 +27,7 @@ import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
+import com.vagm.vagmdroid.service.ControllerInfoService;
 
 /**
  * The Class ControllerActivity.
@@ -93,16 +94,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private Handler h;
 
 	/**
-	 * ecu.
-	 */
-	private String ecu;
-
-	/**
-	 * ECU.
-	 */
-	public static final String ECU = "ecu";
-
-	/**
 	 * controllerInfo.
 	 */
 	private String[] controllerInfo = {"", "", "" };
@@ -112,6 +103,12 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@Inject
 	private BufferService bufferService;
+
+	/**
+	 * controllerInfoService.
+	 */
+	@Inject
+	private ControllerInfoService controllerInfoService;
 
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -150,31 +147,39 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		case R.id.bCloseController:
 			LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
 			bluetoothService.write(0xAA);
+			controllerInfoService.clear();
 			stopTimer();
 			finish();
 			break;
 
 		case R.id.bFaultCodes:
 			bluetoothService.write(FunctionCode.FAULT_CODES.getCode());
-			final Intent faultCodesIntent = new Intent(this, FaultCodesActivity.class);
-			startActivityForResult(faultCodesIntent, -1);
+			startActivityForResult(new Intent(this, FaultCodesActivity.class), -1);
+			fillControllerInfo();
 			break;
 
 		case R.id.bMeasBlocks:
 			bluetoothService.write(FunctionCode.MEAS_BLOCKS.getCode());
-			final Intent measBlocksIntent = new Intent(this, MeasBlocksActivity.class);
-			measBlocksIntent.putExtra(ECU, ecu);
-			startActivityForResult(measBlocksIntent, -1);
+			startActivityForResult(new Intent(this, MeasBlocksActivity.class), -1);
+			fillControllerInfo();
 			break;
 
 		case R.id.bOuputTests:
-			final Intent outputTestsIntent = new Intent(this, OutputTestsActivity.class);
-			startActivityForResult(outputTestsIntent, -1);
+			startActivityForResult(new Intent(this, OutputTestsActivity.class), -1);
+			fillControllerInfo();
 			break;
 
 		default:
 			break;
 		}
+	}
+
+	/**
+	 * fillControllerInfo.
+	 */
+	private void fillControllerInfo() {
+		controllerInfoService.setBoudRate(boudRate.getText().toString());
+		controllerInfoService.setComponent(component.getText().toString());
 	}
 
 	/**
@@ -261,7 +266,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		component.setText(controllerInfo[2]);
 
 		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {
-			ecu = controllerInfo[1];
+			controllerInfoService.setVagNumber(controllerInfo[1]);
+			LOG.debug("Found ecu: {}", controllerInfo[1]);
 			progressBar.dismiss();
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
 			stopTimer();

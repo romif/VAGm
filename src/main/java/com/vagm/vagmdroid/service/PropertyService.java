@@ -42,7 +42,12 @@ public class PropertyService {
 	/**
 	 * LABELS_FOLDER_PREFIX_KEY.
 	 */
-	private static final String LABELS_FOLDER_PREFIX_KEY = "vagm.labels.folder";
+	private static final String LABELS_FOLDER_PREFIX_KEY = "vagm.folder.labels";
+
+	/**
+	 * SAVED_CHARTS_FOLDER_PREFIX_KEY.
+	 */
+	private static final String SAVED_CHARTS_FOLDER_PREFIX_KEY = "vagm.folder.savedcharts";
 
 	/**
 	 * DEFAULT_NAME.
@@ -58,6 +63,11 @@ public class PropertyService {
 	 * DEFAULT_LABELS_FOLDER.
 	 */
 	private static final String DEFAULT_LABELS_FOLDER = "labels";
+
+	/**
+	 * DEFAULT_SAVED_CHARTS_FOLDER.
+	 */
+	private static final String DEFAULT_SAVED_CHARTS_FOLDER = "charts";
 
 	/**
 	 * propertiesFileName.
@@ -114,6 +124,14 @@ public class PropertyService {
 	 */
 	public String getLabelsFolder() {
 		return properties.getProperty(LABELS_FOLDER_PREFIX_KEY, DEFAULT_LABELS_FOLDER);
+	}
+
+	/**
+	 * getSavedChartsFolder.
+	 * @return SavedChartsFolder
+	 */
+	public String getSavedChartsFolder() {
+		return properties.getProperty(SAVED_CHARTS_FOLDER_PREFIX_KEY, DEFAULT_SAVED_CHARTS_FOLDER);
 	}
 
 }

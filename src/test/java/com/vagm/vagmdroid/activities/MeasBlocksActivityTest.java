@@ -41,6 +41,7 @@ import android.widget.Toast;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
 import com.vagm.vagmdroid.service.LabelServiceTest;
 import com.vagm.vagmdroid.service.PropertyService;
@@ -162,15 +163,21 @@ public class MeasBlocksActivityTest {
 	private TextView groupInput2;
 
 	/**
+	 * controllerInfoService.
+	 */
+	@Inject
+	private ControllerInfoService controllerInfoService;
+
+	/**
 	 * setUp.
 	 * @throws IOException IOException
 	 */
 	@Before
 	public void setUp() throws IOException {
 		ShadowLog.stream = System.out;
+		controllerInfoService.setVagNumber(LabelServiceTest.ECU);
 		copyFile();
 		Intent intent = new Intent(Robolectric.getShadowApplication().getApplicationContext(), ControllerActivity.class);
-		intent.putExtra(ControllerActivity.ECU, LabelServiceTest.ECU);
 		activity = Robolectric.buildActivity(MeasBlocksActivity.class).withIntent(intent).create().get();
 		block11 = (TextView) activity.findViewById(R.id.block11);
 		block12 = (TextView) activity.findViewById(R.id.block12);
@@ -316,7 +323,7 @@ public class MeasBlocksActivityTest {
 		Toast toast = ShadowToast.getLatestToast();
 		assertNotNull("Should be error dialog", toast);
 		assertThat(ShadowToast.getTextOfLatestToast(), equalTo(activity.getString(R.string.wrong_number)));
-		
+
 		groupInput2.setText("qwerty");
 		bGo2.callOnClick();
 		toast = ShadowToast.getLatestToast();

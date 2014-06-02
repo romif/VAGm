@@ -16,7 +16,7 @@
 		</tagEncoder>
 	</appender>
 
-	<root level="TRACE">
+	<root level="DEBUG">
 		<appender-ref ref="FILE" />
 		<appender-ref ref="LOGCAT" />
 	</root>

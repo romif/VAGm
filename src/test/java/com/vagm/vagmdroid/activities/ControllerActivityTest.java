@@ -32,8 +32,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelServiceTest;
 
 /**
@@ -85,13 +87,19 @@ public class ControllerActivityTest {
 	private TextView component;
 
 	/**
+	 * controllerInfoService.
+	 */
+	@Inject
+	private ControllerInfoService controllerInfoService;
+
+	/**
 	 * setUp.
 	 */
 	@Before
 	public void setUp() {
 		ShadowLog.stream = System.out;
+		controllerInfoService.setVagNumber(LabelServiceTest.ECU);
 		Intent intent = new Intent(Robolectric.getShadowApplication().getApplicationContext(), ControllerActivity.class);
-		intent.putExtra(ControllerActivity.ECU, LabelServiceTest.ECU);
 		activity = Robolectric.buildActivity(ControllerActivity.class).withIntent(intent).create().get();
 		bFaultCodes = (Button) activity.findViewById(R.id.bFaultCodes);
 		bMeasBlocks = (Button) activity.findViewById(R.id.bMeasBlocks);

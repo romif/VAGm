@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-    <string name="blocks_prompt">Choose blocks for left and right axis</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="bSave">Save chart</string>
     <string name="x_axis_title">Time</string>
 
 </resources>

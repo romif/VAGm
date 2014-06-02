@@ -50,7 +50,13 @@ public class LabelService {
 	 */
 	@Inject
 	private Context context;
-	
+
+	/**
+	 * controllerInfoService.
+	 */
+	@Inject
+	private ControllerInfoService controllerInfoService;
+
 	/**
 	 * labels.
 	 */
@@ -142,7 +148,7 @@ public class LabelService {
 	 * @return Labels
 	 */
 	public SparseArray<LabelDTO> getLabels() {
-		return labels == null ? new SparseArray<LabelDTO>() : labels;
+		return labels == null ? getLabels(getLabelFileName(controllerInfoService.getVagNumber())) : labels;
 	}
 
 	/**
@@ -244,6 +250,13 @@ public class LabelService {
 		//Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
 		LOG.debug("Found group records: " + labels.size());
 		return labels;
+	}
+
+	/**
+	 * clearLabels.
+	 */
+	public void clearLabels() {
+		labels = null;
 	}
 
 	/**
