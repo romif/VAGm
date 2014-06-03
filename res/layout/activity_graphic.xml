@@ -31,11 +31,12 @@
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
-            <com.vagm.vagmdroid.util.MultiSelectionSpinner
-                android:id="@+id/spinner"
+            <com.vagm.vagmdroid.widget.ChartSettingsButton
+                android:id="@+id/bChartSettings"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                android:text="@string/chart_settings" />
 
             <Button
                 android:id="@+id/bRec"

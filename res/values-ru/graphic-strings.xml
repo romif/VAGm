@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	
-    <string name="blocks_prompt">Выберите блоки для левой и правой оси</string>
+    <string name="chart_settings">Настройка графика</string>
+    <string name="use_right_axis">Использовать правую ось</string>
+    <string name="start">Старт</string>
+    <string name="stop">Стоп</string>
+    <string name="bSave">Сохранить график</string>
     <string name="x_axis_title">Время</string>
 
 </resources>

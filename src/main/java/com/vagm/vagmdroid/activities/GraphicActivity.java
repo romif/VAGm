@@ -21,6 +21,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.SparseArray;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -38,14 +40,63 @@ import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
-import com.vagm.vagmdroid.util.AChartUtil;
-import com.vagm.vagmdroid.util.MultiSelectionSpinner;
+import com.vagm.vagmdroid.util.ChartUtil;
+import com.vagm.vagmdroid.widget.ChartSettingsButton;
 
 /**
  * The Class GraphicActivity.
  * @author Roman_Konovalov
  */
 public class GraphicActivity extends CustomAbstractActivity implements OnClickListener {
+
+	/**
+	 * The Class ScaleTimeSeries.
+	 * @author Roman_Konovalov
+	 */
+	public static class ScaleTimeSeries extends TimeSeries  {
+
+		/**
+		 * LOG.
+		 */
+		private static final Logger LOG = LoggerFactory.getLogger(ScaleTimeSeries.class);
+
+		/**
+		 * serialVersionUID.
+		 */
+		private static final long serialVersionUID = 4020891366423167712L;
+
+		/**
+		 * constructor.
+		 * @param title title
+		 */
+		public ScaleTimeSeries(final String title) {
+			super(title);
+		}
+
+		/**
+		 * Gets Date.
+		 * @param index index
+		 * @return Date
+		 */
+		public Date getDate(final int index) {
+			return new Date((long) getX(index));
+		}
+
+		/**
+		 * Sets ScaleNumber.
+		 * @param scaleNumber scaleNumber
+		 */
+		public void setScaleNumber(final int scaleNumber) {
+			try {
+				Field field = XYSeries.class.getDeclaredField("mScaleNumber");
+				field.setAccessible(true);
+				field.set(this, scaleNumber);
+			} catch (Exception e) {
+				LOG.error("Cannot set scaleNumber", e);
+				throw new RuntimeException("Cannot set scaleNumber", e);
+			}
+		}
+	}
 
 	/**
 	 * LOG.
@@ -84,7 +135,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	@Inject
 	private LabelService labelService;
 
-	/**
+    /**
 	 * chartContainer.
 	 */
 	@InjectView(value = R.id.chart_container)
@@ -95,7 +146,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
      */
     private GraphicalView mChartView;
 
-    /**
+	/**
 	 * timeSeries.
 	 */
 	private ScaleTimeSeries[] timeSeries;
@@ -103,13 +154,13 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	/**
 	 * spinner.
 	 */
-	@InjectView(value = R.id.spinner)
-	private MultiSelectionSpinner spinner;
+	@InjectView(value = R.id.bChartSettings)
+	private ChartSettingsButton bChartSettings;
 
 	/**
 	 * blocks.
 	 */
-	private boolean[] blocks = {true, false, false, true, false, true, false, false};
+	private boolean[] blocks = {true, false, false, false, false, false, false, false};
 
 	/**
 	 * graphicActivityControl.
@@ -126,12 +177,12 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * aChartUtil.
 	 */
 	@Inject
-	private AChartUtil aChartUtil;
+	private ChartUtil chartUtil;
 
 	/**
 	 * isRocord.
 	 */
-	private boolean isRocord = true;
+	private boolean isRecording;
 
 	/**
 	 * bRec.
@@ -181,6 +232,110 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * {@inheritDoc}
 	 */
 	@Override
+	public void onClick(final View v) {
+		switch (v.getId()) {
+
+		case R.id.bGraphicBack:
+			LOG.debug("Exiting Graphic Activity");
+			finish();
+			break;
+
+		case R.id.bRec:
+			LOG.debug("Satrt/stop recording");
+			isRecording = !isRecording;
+			if (isRecording) {
+				bRec.setText(getString(R.string.stop));
+			} else {
+				bRec.setText(getString(R.string.start));
+			}
+			break;
+
+		case R.id.bSave:
+			chartUtil.saveChart(timeSeries, blocksCount);
+			break;
+
+		case ChartSettingsButton.OK_BUTTON_ID:
+			synchronized (blocks) {
+				blocks = bChartSettings.getBlocks();
+				LOG.debug("blocks {}", Arrays.toString(blocks));
+				bChartSettings.hideDialog();
+				initGraph();
+				repaint();
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onConfigurationChanged(final Configuration myConfig) {
+		super.onConfigurationChanged(myConfig);
+		int orient = getResources().getConfiguration().orientation;
+		switch (orient) {
+		case Configuration.ORIENTATION_LANDSCAPE:
+			graphicActivityControl.setVisibility(View.GONE);
+			break;
+		case Configuration.ORIENTATION_PORTRAIT:
+			graphicActivityControl.setVisibility(View.VISIBLE);
+			break;
+		default:
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(final Menu menu) {
+		int orient = getResources().getConfiguration().orientation;
+		if (orient == Configuration.ORIENTATION_LANDSCAPE) {
+			graphicActivityControl.setVisibility(View.VISIBLE);
+			new Handler().postDelayed(new Runnable() {
+				public void run() {
+					graphicActivityControl.setVisibility(View.GONE);
+				}
+			}, 3000);
+		}
+		return false;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean onKeyDown(final int keyCode, final KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+			if (controllerInfoService.getGroup() < 0xFF) {
+				controllerInfoService.setGroup(controllerInfoService.getGroup() + 1);
+				LOG.debug("Request for group {}", controllerInfoService.getGroup());
+				bluetoothService.write(controllerInfoService.getGroup());
+				timeSeries = null;
+			}
+			return true;
+		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+			if (controllerInfoService.getGroup() > 0x01) {
+				controllerInfoService.setGroup(controllerInfoService.getGroup() - 1);
+				LOG.debug("Request for group {}", controllerInfoService.getGroup());
+				bluetoothService.write(controllerInfoService.getGroup());
+				timeSeries = null;
+			}
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Handler getHandler() {
+		return mHandler;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
@@ -189,35 +344,12 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		controllerInfoService.setVagNumber("028906021GL");*/
 		labels = labelService.getLabels();
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
-		spinner.setEnabled(false);
-		spinner.setOnClickListener(this);
-		
+		bChartSettings.setEnabled(false);
+		bRec.setText(getString(R.string.stop));
+		isRecording = true;
+
 		//test();
 
-	}
-
-	/**
-	 * initSpinners.
-	 * @param blockCount blockCount
-	 */
-	private void initSpinners(final int blockCount) {
-		String[] items = new String[blockCount];
-		for (int i = 0; i < items.length; i++) {
-			items[i] = labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle();
-		}
-		spinner.setItems(items);
-		spinner.setBlocks(blocks);
-	}
-
-	/**
-	 * initTimeSeries.
-	 * @param blockCount blockCount
-	 */
-	private void initTimeSeries(final int blockCount) {
-		timeSeries = new ScaleTimeSeries[blockCount];
-		for (int i = 0; i < blockCount; i++) {
-			timeSeries[i] = new ScaleTimeSeries(labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle());
-		}
 	}
 
 	/**
@@ -230,14 +362,14 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 
 		int length = 0;
 		for (int i = 0; i < blocks.length; i += 2) {
-			if (blocks[i] || blocks[i + 1]) {
-				timeSeries[i / 2].setScaleNumber(blocks[i] ? 0 : 1);
+			if (blocks[i]) {
+				timeSeries[i / 2].setScaleNumber(blocks[i + 1] ? 1 : 0);
 				dataset.addSeries(timeSeries[i / 2]);
 				length++;
 			}
 		}
 
-		aChartUtil.setRenderer(renderer, labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getTitle(),
+		chartUtil.setRenderer(renderer, labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getTitle(),
 				getString(R.string.x_axis_title), length);
 		for (XYSeries series : dataset.getSeries()) {
 			LOG.debug(String.valueOf(series.getScaleNumber()));
@@ -247,6 +379,30 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 		chartContainer.removeAllViews();
 		chartContainer.addView(mChartView);
 		mChartView.repaint();
+	}
+
+	/**
+	 * initSpinners.
+	 * @param blockCount blockCount
+	 */
+	private void initSpinners(final int blockCount) {
+		String[] items = new String[blockCount];
+		for (int i = 0; i < items.length; i++) {
+			items[i] = labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle();
+		}
+		bChartSettings.setItems(items);
+		bChartSettings.setBlocks(blocks);
+	}
+
+	/**
+	 * initTimeSeries.
+	 * @param blockCount blockCount
+	 */
+	private void initTimeSeries(final int blockCount) {
+		timeSeries = new ScaleTimeSeries[blockCount];
+		for (int i = 0; i < blockCount; i++) {
+			timeSeries[i] = new ScaleTimeSeries(labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle());
+		}
 	}
 
 	/**
@@ -268,11 +424,11 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 			this.blocksCount = blocksCount;
 			initSpinners(blocksCount);
 			initTimeSeries(blocksCount);
-			spinner.setEnabled(true);
+			bChartSettings.setEnabled(true);
 			initGraph();
 		}
 
-		if (dtos != null && isRocord) {
+		if (dtos != null && isRecording) {
 			if (dataList.size() > MAX_DATA_LIST_SIZE) {
 				dataList.removeFirst();
 			}
@@ -336,121 +492,6 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 			}
 		}).start();
 
-	}
-	
-	@Override
-	public void onConfigurationChanged(Configuration myConfig) {
-	    super.onConfigurationChanged(myConfig);
-	    int orient = getResources().getConfiguration().orientation; 
-	    switch(orient) {
-	                case Configuration.ORIENTATION_LANDSCAPE:
-	                    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	                	graphicActivityControl.setVisibility(View.GONE);
-	                    break;
-	                case Configuration.ORIENTATION_PORTRAIT:
-	                	graphicActivityControl.setVisibility(View.VISIBLE);
-	                    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-	                    break;
-	                default:
-	                    //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-	                }
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-
-		case R.id.bGraphicBack:
-			LOG.debug("Exiting Graphic Activity");
-			finish();
-			break;
-
-		case R.id.bRec:
-			LOG.debug("Satrt/stop recording");
-			isRocord = !isRocord;
-			if (isRocord) {
-				bRec.setText(getString(R.string.stop));
-			} else {
-				bRec.setText(getString(R.string.start));
-			}
-			break;
-
-		case R.id.bSave:
-			aChartUtil.saveChart(timeSeries, blocksCount);
-			break;
-
-		case MultiSelectionSpinner.OK_BUTTON_ID:
-			synchronized (blocks) {
-				blocks = spinner.getBlocks();
-				LOG.debug("blocks {}", Arrays.toString(blocks));
-				spinner.hideDialog();
-				initGraph();
-			}
-			break;
-
-		default:
-			break;
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
-
-	/**
-	 * The Class ScaleTimeSeries.
-	 * @author Roman_Konovalov
-	 */
-	public static class ScaleTimeSeries extends TimeSeries  {
-
-		/**
-		 * LOG.
-		 */
-		private static final Logger LOG = LoggerFactory.getLogger(ScaleTimeSeries.class);
-
-		/**
-		 * serialVersionUID.
-		 */
-		private static final long serialVersionUID = 4020891366423167712L;
-
-		/**
-		 * constructor.
-		 * @param title title
-		 */
-		public ScaleTimeSeries(final String title) {
-			super(title);
-		}
-
-		/**
-		 * Gets Date.
-		 * @param index index
-		 * @return Date
-		 */
-		public Date getDate(final int index) {
-			return new Date((long) getX(index));
-		}
-
-		/**
-		 * Sets ScaleNumber.
-		 * @param scaleNumber scaleNumber
-		 */
-		public void setScaleNumber(final int scaleNumber) {
-			try {
-				Field field = XYSeries.class.getDeclaredField("mScaleNumber");
-				field.setAccessible(true);
-				field.set(this, scaleNumber);
-			} catch (Exception e) {
-				LOG.error("Cannot set scaleNumber", e);
-				throw new RuntimeException("Cannot set scaleNumber", e);
-			}
-		}
 	}
 
 }

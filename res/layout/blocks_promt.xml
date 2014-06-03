@@ -93,4 +93,11 @@
             android:text="@string/block4" />
     </com.vagm.vagmdroid.widget.DeselectableRadioGroup>
  -->
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
 </LinearLayout>

@@ -44,12 +44,12 @@ import com.vagm.vagmdroid.service.PropertyService;
  * @author Roman_Konovalov
  */
 @Singleton
-public class AChartUtil {
+public class ChartUtil {
 
 	/**
 	 * LOG.
 	 */
-	private static final Logger LOG = LoggerFactory.getLogger(AChartUtil.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ChartUtil.class);
 
 	/**
 	 * COLORS.
@@ -168,7 +168,7 @@ public class AChartUtil {
 			HSSFRow controllerInfoRow = dataSheet.getRow(0);
 			StringBuilder builder = new StringBuilder();
 			builder.append(context.getString(R.string.VAGnumber) + controllerInfoService.getVagNumber());
-			builder.append(" ");
+			builder.append("\n");
 			builder.append(context.getString(R.string.component) + controllerInfoService.getComponent());
 			controllerInfoRow.getCell(0).setCellValue(new HSSFRichTextString(builder.toString()));
 
