@@ -48,6 +48,11 @@ public class PropertyService {
 	 * SAVED_CHARTS_FOLDER_PREFIX_KEY.
 	 */
 	private static final String SAVED_CHARTS_FOLDER_PREFIX_KEY = "vagm.folder.savedcharts";
+	
+	/**
+	 * LOG_FOLDER_PREFIX_KEY.
+	 */
+	private static final String LOG_FILE_NAME = "vagm.folder.logfilename";
 
 	/**
 	 * DEFAULT_NAME.
@@ -68,6 +73,11 @@ public class PropertyService {
 	 * DEFAULT_SAVED_CHARTS_FOLDER.
 	 */
 	private static final String DEFAULT_SAVED_CHARTS_FOLDER = "charts";
+	
+	/**
+	 * DEFAULT_LOG_CHARTS_FOLDER.
+	 */
+	private static final String DEFAULT_LOG_FILE_NAME = "vagm.log";
 
 	/**
 	 * propertiesFileName.
@@ -132,6 +142,10 @@ public class PropertyService {
 	 */
 	public String getSavedChartsFolder() {
 		return properties.getProperty(SAVED_CHARTS_FOLDER_PREFIX_KEY, DEFAULT_SAVED_CHARTS_FOLDER);
+	}
+	
+	public String getLogFileName() {
+		return properties.getProperty(LOG_FILE_NAME, DEFAULT_LOG_FILE_NAME);
 	}
 
 }

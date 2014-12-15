@@ -10,5 +10,6 @@
     <dimen name="negborder">-2dp</dimen>
     <dimen name="margin">50dp</dimen>
     <dimen name="text">64sp</dimen>
+    <dimen name="log_text_size">5dp</dimen>
 
 </resources>

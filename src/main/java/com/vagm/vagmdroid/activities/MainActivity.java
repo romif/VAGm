@@ -219,14 +219,20 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 		final int itemId = item.getItemId();
 		if (itemId == R.id.settings) {
 			// Launch the DeviceListActivity to see devices and do scan
-			final Intent serverIntent = new Intent(this, DeviceListActivity.class);
+			final Intent serverIntent = new Intent(this,
+					DeviceListActivity.class);
+			startActivityForResult(serverIntent, REQUEST_SELECT_DEVICE);
+			return true;
+		} else if (itemId == R.id.exit) {
+			finish();
+			return true;
+		} else if (itemId == R.id.sendLog) {
+			final Intent serverIntent = new Intent(this,
+					SendLogActivity.class);
 			startActivityForResult(serverIntent, REQUEST_SELECT_DEVICE);
 			return true;
 		}
-		if (itemId == R.id.exit) {
-			finish();
-			return true;
-		}
+
 		return false;
 	}
 
