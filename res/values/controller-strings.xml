@@ -5,6 +5,7 @@
     <string name="boudRate">Boud Rate:</string>
     <string name="comm_status">Comm Status</string>
     <string name="controller_not_answer">No answer from controller</string>
+    <string name="controller_not_found">Controller not found</string>
     <string name="adapter_not_answer">No answer from adapter</string>
     <string name="connecting_to_controller">Connecting to controller...</string>
     <string name="error">Error</string>

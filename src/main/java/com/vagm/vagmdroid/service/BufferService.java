@@ -1,6 +1,7 @@
 package com.vagm.vagmdroid.service;
 
-import static com.vagm.vagmdroid.enums.VAGmConstans.CONTROLLER_NO_ANSWER;
+import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NOT_FOUND;
+import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NO_ANSWER;
 
 import javax.inject.Singleton;
 
@@ -11,9 +12,10 @@ import android.content.Context;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
-import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 
 /**
@@ -73,14 +75,16 @@ public class BufferService {
 	 * @return ControllerInfo
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
 	public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
-			throws ControllerCommunicationException, ControllerWrongResponseException {
+			throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		checkAdapterErrors(buffer);
 		final String[] result = controllerInfo;
-		if ((buffer.length == 1) && (buffer[0] > 1)) {
-			result[0] = String.valueOf(1000000 / byteToInt(buffer[0]));
-		} else {
+		if (buffer.length == 4) {
+			result[0] = String.valueOf(8000000 / Integer.parseInt(
+					Integer.toHexString(byteToInt(buffer[0])) + Integer.toHexString(byteToInt(buffer[1])), 16));
+		} else if (buffer.length > 4) {
 
 			int response = byteToInt(buffer[0]);
 			int dataStartPosition = 1;
@@ -121,8 +125,9 @@ public class BufferService {
 	 * @return DataStreamDTO array
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		checkAdapterErrors(buffer);
 
 		int responseCode = byteToInt(buffer[0]);
@@ -158,8 +163,9 @@ public class BufferService {
 	 * @return FaultCodesInfo
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	public String getFaultCodesInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException {
+	public String getFaultCodesInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		checkAdapterErrors(buffer);
 
 		int responseCode = byteToInt(buffer[0]);
@@ -198,8 +204,9 @@ public class BufferService {
 	 * @return FaultCodesInfo
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	public String getOutputTestsInfo(final byte[] buffer)throws ControllerCommunicationException, ControllerWrongResponseException {
+	public String getOutputTestsInfo(final byte[] buffer)throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		checkAdapterErrors(buffer);
 
 		int responseCode = byteToInt(buffer[0]);
@@ -247,9 +254,13 @@ public class BufferService {
 	 * Checks AdapterErrors.
 	 * @param buffer buffer
 	 * @throws ControllerCommunicationException if some communication error occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	private void checkAdapterErrors(final byte[] buffer) throws ControllerCommunicationException {
+	private void checkAdapterErrors(final byte[] buffer) throws ControllerCommunicationException, ControllerNotFoundException {
 		if (buffer.length == 1) {
+			if (buffer[0] == CONTROLLER_NOT_FOUND) {
+				throw new ControllerNotFoundException();
+			}
 			if (buffer[0] == CONTROLLER_NO_ANSWER) {
 				throw new ControllerCommunicationException();
 			}
