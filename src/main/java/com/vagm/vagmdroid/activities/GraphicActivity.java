@@ -35,6 +35,7 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
@@ -218,7 +219,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 				} catch (final ControllerCommunicationException e) {
 					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
-				} catch (ControllerWrongResponseException e) {
+				} catch (Exception e) {
 					LOG.info(e.getMessage(), e);
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
@@ -410,8 +411,9 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * @param message buffer
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
+	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 
 		if (timeSeries == null) {

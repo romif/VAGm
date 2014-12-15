@@ -18,6 +18,7 @@ import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
@@ -61,7 +62,7 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 					proceedMessage(message);
 				} catch (final ControllerCommunicationException e) {
 					getControllerNotAnswerAlert().show();
-				} catch (ControllerWrongResponseException e) {
+				} catch (Exception e) {
 					LOG.info(e.getMessage());
 				}
 			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
@@ -120,8 +121,9 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 	 *             if some communication error occurs
 	 * @throws ControllerWrongResponseException
 	 *             if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException {
+	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		String error = bufferService.getFaultCodesInfo(message);
 		if (error.equals(getText(R.string.no_errors))) {
 			faultCodes.setText(error);

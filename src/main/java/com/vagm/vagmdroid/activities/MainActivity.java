@@ -29,8 +29,8 @@ import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.ControllerCode;
-import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.service.BluetoothService.ConnectionState;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.PropertyService;

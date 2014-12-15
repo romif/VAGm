@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,9 +23,10 @@ import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.FunctionCode;
-import com.vagm.vagmdroid.enums.VAGmConstans;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
@@ -124,7 +127,10 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
-				} catch (ControllerCommunicationException e) {
+				} catch (ControllerNotFoundException e) {
+					LOG.error("Controller wasn't found", e);
+					getControllerNotFoundAlert().show();
+				}catch (ControllerCommunicationException e) {
 					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
 				} catch (ControllerWrongResponseException e) {
@@ -206,6 +212,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		if (savedInstanceState == null) {
 			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
 			LOG.debug("Sending controller code: {}", controllerCode);
+			bluetoothService.write(VAGmConstans.CONNECT_ECU);
 			bluetoothService.write(controllerCode);
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
@@ -258,8 +265,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * @throws ControllerCommunicationException
 	 *             if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
+	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException {
+	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
 		boudRate.setText(controllerInfo[0]);
 		vagNumber.setText(controllerInfo[1]);
@@ -282,6 +290,18 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			longTimer.cancel();
 			longTimer = null;
 		}
+	}
+	
+	protected AlertDialog getControllerNotFoundAlert() {
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(getString(R.string.controller_not_found)).setTitle(getString(R.string.error)).setCancelable(false)
+				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog, final int id) {
+						finish();
+					}
+				});
+		AlertDialog alertDialog = builder.create();
+		return alertDialog;
 	}
 
 }

@@ -100,6 +100,7 @@ public class ControllerActivityTest {
 		ShadowLog.stream = System.out;
 		controllerInfoService.setVagNumber(LabelServiceTest.ECU);
 		Intent intent = new Intent(Robolectric.getShadowApplication().getApplicationContext(), ControllerActivity.class);
+		intent.putExtra(MainActivity.CONTROLLER_CODE, 1);
 		activity = Robolectric.buildActivity(ControllerActivity.class).withIntent(intent).create().get();
 		bFaultCodes = (Button) activity.findViewById(R.id.bFaultCodes);
 		bMeasBlocks = (Button) activity.findViewById(R.id.bMeasBlocks);

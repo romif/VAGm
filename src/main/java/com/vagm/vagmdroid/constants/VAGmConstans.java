@@ -1,4 +1,4 @@
-package com.vagm.vagmdroid.enums;
+package com.vagm.vagmdroid.constants;
 
 /**
  * The Class VAGmConstans.
@@ -21,9 +21,14 @@ public final class VAGmConstans {
 	 * START_CONTROLLER_COMMUNICATION.
 	 */
 	public static final int START_CONTROLLER_COMMUNICATION = 0xFF;
+	
+	/**
+	 * CONNECT_ECU.
+	 */
+	public static final int CONNECT_ECU = 0x01;
 
 	/**
-	 * START_CONTROLLER_COMMUNICATION.
+	 * EXIT_COMMAND.
 	 */
 	public static final int EXIT_COMMAND = 0x06;
 
@@ -36,11 +41,16 @@ public final class VAGmConstans {
 	 * START_FAULT_CODES.
 	 */
 	public static final int START_FAULT_CODES = 0x02;
+	
+	/**
+	 * CONTROLLER_NOT_FOUND.
+	 */
+	public static final int CONTROLLER_NOT_FOUND = 0x50;
 
 	/**
 	 * CONTROLLER_NO_ANSWER.
 	 */
-	public static final int CONTROLLER_NO_ANSWER = 0x01;
+	public static final int CONTROLLER_NO_ANSWER = 0x51;
 
 	/**
 	 * VAG_BTI_INFO_RES.

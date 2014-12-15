@@ -10,22 +10,27 @@ public enum FunctionCode {
 	/**
 	 * FAULT_CODES.
 	 */
-	FAULT_CODES(0x02),
+	FAULT_CODES(0x07),
 
 	/**
 	 * MEAS_BLOCKS.
 	 */
-	MEAS_BLOCKS(0x08),
+	MEAS_BLOCKS(0x29),
 
 	/**
 	 * OUTPUT_TESTS.
 	 */
-	OUTPUT_TESTS(0x03),
+	OUTPUT_TESTS(0x04),
 
 	/**
 	 * CLEAR_CODES.
 	 */
-	CLEAR_CODES(0x05);
+	CLEAR_CODES(0x05),
+	
+	/**
+	 * GET_LOG.
+	 */
+	GET_LOG(0x11);
 
 
 	/**
