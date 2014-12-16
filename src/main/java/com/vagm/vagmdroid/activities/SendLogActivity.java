@@ -16,6 +16,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ import com.vagm.vagmdroid.service.LogService;
 /**
  * @author Roman_Konovalov
  */
-public class SendLogActivity extends RoboActivity implements OnClickListener {
+public class SendLogActivity extends CustomAbstractActivity implements OnClickListener {
 	
 	/**
 	 * LOG_TEXT.
@@ -196,6 +197,12 @@ public class SendLogActivity extends RoboActivity implements OnClickListener {
 			}
 
 		}
+	}
+
+	@Override
+	protected Handler getHandler() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
