@@ -6,23 +6,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.util.Collections;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.InputStreamEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore.Files;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -33,29 +26,47 @@ import android.widget.TextView;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.service.FileService;
+import com.vagm.vagmdroid.service.HttpPostService;
+import com.vagm.vagmdroid.service.HttpPostService.MediaType;
 import com.vagm.vagmdroid.service.LogService;
 
 /**
  * @author Roman_Konovalov
  */
 public class SendLogActivity extends RoboActivity {
-	
+
 	/**
 	 * LOG.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(SendLogActivity.class);
-	
+
 	/**
 	 * SERVER_URL.
 	 */
 	private static final String SERVER_URL = "http://vagmlog-romif.rhcloud.com/rest/log/11111111111/vagmdroidlog";
-	
+
 	/**
 	 * propertyService.
 	 */
 	@Inject
 	private LogService logService;
-	
+
+	/**
+	 * httpPostService.
+	 */
+	@Inject
+	private HttpPostService httpPostService;
+
+	/**
+	 * fileService.
+	 */
+	@Inject
+	private FileService fileService;
+
+	/**
+	 * logText.
+	 */
 	@InjectView(R.id.log_text)
 	private TextView logText;
 
@@ -77,27 +88,21 @@ public class SendLogActivity extends RoboActivity {
 
 		// Set result CANCELED incase the user backs out
 		setResult(Activity.RESULT_CANCELED);
-		
+
 		File file = logService.getLogFile();
-		
-		logText.append(readFileAsString(file));
 
-		/*try {
-		    HttpClient httpclient = new DefaultHttpClient();
+		if (file != null) {
+			try {
+				//logText.append(fileService.convertStreamToString(new FileInputStream(file)));
 
-		    HttpPost httppost = new HttpPost(SERVER_URL);
+				File zipFile = fileService.zip(file);
 
-		    InputStreamEntity reqEntity = new InputStreamEntity(
-		            new FileInputStream(file), -1);
-		    reqEntity.setContentType("multipart/form-data");
-		    //reqEntity.setChunked(true); // Send in multiple parts if needed
-		    httppost.setEntity(reqEntity);
-		    HttpResponse response = httpclient.execute(httppost);
-		    LOG.debug(response.getStatusLine().getReasonPhrase());
+				httpPostService.doMultipartRequest(SERVER_URL, Collections.EMPTY_MAP, zipFile, MediaType.MULTIPART_FORM_DATA);
+			} catch (IOException e) {
+				LOG.error(e.getMessage());
+			}
 
-		} catch (Exception e) {
-		    LOG.error(e.getMessage());
-		}*/
+		}
 
 		// Initialize the button to perform device discovery
 		final Button scanButton = (Button) findViewById(R.id.button_scan);
@@ -106,8 +111,6 @@ public class SendLogActivity extends RoboActivity {
 				v.setVisibility(View.GONE);
 			}
 		});
-
-
 
 	}
 
@@ -119,8 +122,6 @@ public class SendLogActivity extends RoboActivity {
 		super.onDestroy();
 
 	}
-
-
 
 	/**
 	 * The on-click listener for all devices in the ListViews.
@@ -143,20 +144,5 @@ public class SendLogActivity extends RoboActivity {
 		}
 	};
 
-	public static String readFileAsString(File file) {
-        StringBuilder stringBuilder = new StringBuilder();
-        String line;
-        BufferedReader in = null;
-
-        try {
-            in = new BufferedReader(new FileReader(file));
-            while ((line = in.readLine()) != null) stringBuilder.append(line);
-
-        } catch (IOException e) {
-        	LOG.error(e.getMessage());
-        } 
-
-        return stringBuilder.toString();
-    }
 
 }

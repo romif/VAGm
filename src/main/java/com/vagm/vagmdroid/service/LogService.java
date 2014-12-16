@@ -10,6 +10,10 @@ import android.os.Environment;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
+/**
+ * The Class LogService.
+ * @author roman_konovalov
+ */
 @Singleton
 public class LogService {
 
@@ -23,18 +27,25 @@ public class LogService {
 	 */
 	@Inject
 	private PropertyService propertyService;
-	
+
+	/**
+	 * Default constructor.
+	 */
 	public LogService() {
 	}
 
+	/**
+	 * getLogFile.
+	 * @return LogFile
+	 */
 	public File getLogFile() {
-		
-		File file = new File(Environment.getExternalStorageDirectory()
-				+ File.separator + propertyService.getAppName()
-				+ File.separator + propertyService.getLogFileName());
+
+		File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
+				+ propertyService.getLogFileName());
 
 		if (!file.exists()) {
-			throw new RuntimeException();
+			LOG.error("File not found:" + Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName()
+					+ File.separator + propertyService.getLogFileName());
 		}
 		return file;
 	}
