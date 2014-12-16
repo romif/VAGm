@@ -7,37 +7,22 @@
     android:orientation="vertical"
     tools:context=".SendLogActivity" >
 
-    <TextView
-        android:id="@+id/title_paired_devices"
+    <Button
+        android:id="@+id/bViewMobileLog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#666"
-        android:paddingLeft="5dp"
-        android:text="@string/title_paired_devices"
-        android:textColor="#fff"
-        android:visibility="gone" />
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbars="vertical" >
-
-        <TextView
-            android:id="@+id/log_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="none"
-            android:textSize="@dimen/log_text_size" >
-
-        </TextView>
-    </ScrollView>
+        android:text="@string/bViewMobileLog" />
 
     <Button
-        android:id="@+id/button_scan"
+        android:id="@+id/bViewAdapterLog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_scan" />
+        android:text="@string/bViewAdapterLog" />
+
+    <Button
+        android:id="@+id/bSendLog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bSendLog" />
 
 </LinearLayout>

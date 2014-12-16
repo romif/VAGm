@@ -291,7 +291,11 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			longTimer = null;
 		}
 	}
-	
+
+	/**
+	 * getControllerNotFoundAlert.
+	 * @return AlertDialog
+	 */
 	protected AlertDialog getControllerNotFoundAlert() {
 		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage(getString(R.string.controller_not_found)).setTitle(getString(R.string.error)).setCancelable(false)

@@ -44,7 +44,7 @@ public class FileService {
 	 * zip file.
 	 * @param file file
 	 * @return zipped file
-	 * @throws IOException
+	 * @throws IOException if exception occurs
 	 */
 	public File zip(File file) throws IOException {
 		File zipFile = File.createTempFile("ZipFileTest", ".zip");

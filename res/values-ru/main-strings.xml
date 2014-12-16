@@ -38,6 +38,6 @@
     <string name="savedDevice">savedDevice</string>
     <string name="bConnectAdapter">Подключиться к адаптеру</string>
     <string name="copying_labels">Копирование label файлов</string>
-    <string name="sendLog">Послать лог</string>
+    <string name="viewLog">Просмотреть лог</string>
     
 </resources>
