@@ -10,29 +10,22 @@ import java.util.concurrent.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.AdapterLogKey;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.FileService;
-import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 
 /**
  * @author Roman_Konovalov
@@ -172,37 +165,6 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 
 			}
 		}
-	}
-	
-	/**
-	 * The Handler that gets information back from the BluetoothService.
-	 */
-	@SuppressLint("HandlerLeak")
-	private final Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(final Message msg) {
-			super.handleMessage(msg);
-			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
-			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-			byte[] message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
-				try {
-					encodeAdapterLog(message);
-				} catch (Exception e) {
-					LOG.info(e.getMessage(), e);
-				}
-			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
-				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
-				finish();
-			}
-		}
-
-
-	};
-
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
 	}
 
 }

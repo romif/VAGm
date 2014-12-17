@@ -1,22 +1,18 @@
 package com.vagm.vagmdroid.activities;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collections;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -197,12 +193,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 			}
 
 		}
-	}
-
-	@Override
-	protected Handler getHandler() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

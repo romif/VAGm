@@ -38,6 +38,7 @@ import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
@@ -179,6 +180,12 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@Inject
 	private ChartUtil chartUtil;
+	
+	/**
+	 * bluetoothService.
+	 */
+	@Inject
+	private BluetoothService bluetoothService;
 
 	/**
 	 * isRocord.
@@ -201,33 +208,6 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@Inject
 	private ControllerInfoService controllerInfoService;
-
-	/**
-	 * The Handler that gets information back from the BluetoothService.
-	 */
-	@SuppressLint("HandlerLeak")
-	private final Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(final Message msg) {
-			super.handleMessage(msg);
-			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
-			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				byte[] message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
-				try {
-					proceedMessage(message);
-				} catch (final ControllerCommunicationException e) {
-					LOG.error("No answer from controller", e);
-					getControllerNotAnswerAlert().show();
-				} catch (Exception e) {
-					LOG.info(e.getMessage(), e);
-				}
-			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
-				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
-				finish();
-			}
-		}
-	};
 
 	/**
 	 * {@inheritDoc}
@@ -329,14 +309,6 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
@@ -413,7 +385,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 
 		if (timeSeries == null) {

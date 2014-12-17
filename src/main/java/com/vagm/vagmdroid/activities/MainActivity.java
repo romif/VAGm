@@ -33,6 +33,7 @@ import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.ControllerCode;
 import com.vagm.vagmdroid.service.BluetoothService.ConnectionState;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.PropertyService;
 import com.vagm.vagmdroid.util.CopyLabelsTask;
 
@@ -102,6 +103,12 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	 */
 	@Inject
 	private PropertyService propertyService;
+	
+	/**
+	 * bluetoothService.
+	 */
+	@Inject
+	private BluetoothService bluetoothService;
 
 	/**
 	 * The Handler that gets information back from the BluetoothCommandService.
@@ -240,11 +247,6 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 	protected BluetoothService getBluetoothService() {
 		return BluetoothService.getInstance();
 	}*/
-
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
 
 	/**
 	 * {@inheritDoc}

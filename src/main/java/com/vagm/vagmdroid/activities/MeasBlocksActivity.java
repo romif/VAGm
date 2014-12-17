@@ -4,11 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,7 +22,7 @@ import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
@@ -90,34 +87,12 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@Inject
 	private ControllerInfoService controllerInfoService;
-
-
+	
 	/**
-	 * The Handler that gets information back from the BluetoothService.
+	 * bluetoothService.
 	 */
-	@SuppressLint("HandlerLeak")
-	private final Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(final Message msg)  {
-			super.handleMessage(msg);
-			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
-			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				byte[] message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
-				try {
-					proceedMessage(message);
-				} catch (final ControllerCommunicationException e) {
-					LOG.error("No answer from controller", e);
-					getControllerNotAnswerAlert().show();
-				} catch (Exception e) {
-					LOG.info(e.getMessage(), e);
-				}
-			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
-				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
-				finish();
-			}
-		}
-	};
+	@Inject
+	private BluetoothService bluetoothService;
 
 	/**
 	 * {@inheritDoc}
@@ -193,14 +168,6 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected Handler getHandler() {
-		return mHandler;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		LOG.debug("onCreate");
@@ -253,7 +220,7 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 		if (dtos != null) {
 			((TextView) findViewById(R.id.block11)).setText(dtos[0].getValue() + dtos[0].getUnit());

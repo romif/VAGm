@@ -2,18 +2,14 @@ package com.vagm.vagmdroid.activities;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import roboguice.activity.RoboActivity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.inject.Inject;
-import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.exceptions.ExceptionHandler;
 import com.vagm.vagmdroid.service.BluetoothService;
 
@@ -21,7 +17,7 @@ import com.vagm.vagmdroid.service.BluetoothService;
  * The Class CustomAbstractActivity.
  * @author Roman_Konovalov
  */
-public abstract class CustomAbstractActivity extends RoboActivity {
+public abstract class CustomAbstractActivity extends DispatcherHandler {
 
 	/**
 	 * defaultUEH.
@@ -37,7 +33,7 @@ public abstract class CustomAbstractActivity extends RoboActivity {
 	 * bluetoothService.
 	 */
 	@Inject
-	protected BluetoothService bluetoothService;
+	private BluetoothService bluetoothService;
 
 	/**
 	 * @return the defaultUEH
@@ -75,28 +71,6 @@ public abstract class CustomAbstractActivity extends RoboActivity {
 			}
 		}
 	}
-
-	/**
-	 * getControllerNotAnswerAlert.
-	 * @return AlertDialog
-	 */
-	protected AlertDialog getControllerNotAnswerAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		alertDialog = builder.create();
-		return alertDialog;
-	}
-
-	/**
-	 * getHandler.
-	 * @return Handler
-	 */
-	protected abstract Handler getHandler();
 
 	/**
 	 * {@inheritDoc}
@@ -143,6 +117,5 @@ public abstract class CustomAbstractActivity extends RoboActivity {
 
 		}
 	}
-
 
 }

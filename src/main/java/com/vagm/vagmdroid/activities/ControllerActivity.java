@@ -7,19 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
@@ -28,7 +23,7 @@ import com.vagm.vagmdroid.enums.FunctionCode;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 
@@ -77,11 +72,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private static final String COMPONENT = "component";
 
 	/**
-	 * buffer.
-	 */
-	private byte[] message = new byte[0];
-
-	/**
 	 * progressBar.
 	 */
 	private ProgressDialog progressBar;
@@ -112,37 +102,12 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@Inject
 	private ControllerInfoService controllerInfoService;
-
+	
 	/**
-	 * The Handler that gets information back from the BluetoothService.
+	 * bluetoothService.
 	 */
-	@SuppressLint("HandlerLeak")
-	private final Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(final Message msg)  {
-			super.handleMessage(msg);
-			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
-			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
-				try {
-					proceedMessage(message);
-				} catch (ControllerNotFoundException e) {
-					LOG.error("Controller wasn't found", e);
-					getControllerNotFoundAlert().show();
-				}catch (ControllerCommunicationException e) {
-					LOG.error("No answer from controller", e);
-					getControllerNotAnswerAlert().show();
-				} catch (ControllerWrongResponseException e) {
-					LOG.info(e.getMessage());
-				}
-			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
-				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
-				stopTimer();
-				finish();
-			}
-		}
-	};
+	@Inject
+	private BluetoothService bluetoothService;
 
 	/**
 	 * {@inheritDoc}
@@ -186,14 +151,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	private void fillControllerInfo() {
 		controllerInfoService.setBoudRate(boudRate.getText().toString());
 		controllerInfoService.setComponent(component.getText().toString());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected Handler getHandler() {
-		return mHandler;
 	}
 
 	/**
@@ -267,7 +224,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	private void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
 		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
 		boudRate.setText(controllerInfo[0]);
 		vagNumber.setText(controllerInfo[1]);
@@ -292,20 +249,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		}
 	}
 
-	/**
-	 * getControllerNotFoundAlert.
-	 * @return AlertDialog
-	 */
-	protected AlertDialog getControllerNotFoundAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.controller_not_found)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		AlertDialog alertDialog = builder.create();
-		return alertDialog;
+	protected void onConnectionLost() {
+		stopTimer();
 	}
 
 }
