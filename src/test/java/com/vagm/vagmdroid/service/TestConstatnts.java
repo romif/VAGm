@@ -144,7 +144,7 @@ public final class TestConstatnts {
 	/**
 	 * BUFFER_STRING_ARRAY_NEGATIVE.
 	 */
-	public static final String[] BUFFER_STRING_ARRAY_NEGATIVE = {"02F9018A", "50" };
+	public static final String[] BUFFER_STRING_ARRAY_NEGATIVE = {"02F9018A", "50", "51"};
 
 	/**
 	 * hexStringToByteArray.

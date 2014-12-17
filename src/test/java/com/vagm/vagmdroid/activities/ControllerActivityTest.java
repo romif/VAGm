@@ -181,7 +181,7 @@ public class ControllerActivityTest {
 		assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
 		assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
 
-		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition
@@ -189,6 +189,18 @@ public class ControllerActivityTest {
 		assertNotNull("Should be error dialog", alert);
 		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
 		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_answer)));
+	}
+	
+	@Test
+	public final void testHandleMessageControllerNotFound() {
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+
+		// postcondition
+		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
+		assertNotNull("Should be error dialog", alert);
+		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
+		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_found)));
 	}
 
 	/**

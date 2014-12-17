@@ -145,8 +145,19 @@ public class BufferServiceTest {
 		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
 		assertEquals(ECU_INFO1[0], result[0]);
 
+		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]), result);
+	}
+    
+    @Test(expected = ControllerNotFoundException.class)
+	public final void testGetControllerInfoNegative2() throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+		String[] result = {"", "", "" };
+
+		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
+		assertEquals(ECU_INFO1[0], result[0]);
+
 		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
 	}
+
 
     /**
 	 * testGetControllerInfoNegativ1e.

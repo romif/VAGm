@@ -130,7 +130,7 @@ public class FaultCodesActivityTest {
 	 */
 	@Test
 	public final void testHandleMessageControllerNotAnswer() {
-		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
+		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]);
 		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
 		// postcondition

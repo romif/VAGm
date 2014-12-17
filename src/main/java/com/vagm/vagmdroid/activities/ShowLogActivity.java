@@ -103,7 +103,7 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 				e.printStackTrace();
 			}
 		} else if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof String) {
-			logText.setText(encodeAdapterLog((String)getIntent().getExtras().get(SendLogActivity.LOG_TEXT)));
+			//logText.setText(encodeAdapterLog((String)getIntent().getExtras().get(SendLogActivity.LOG_TEXT)));
 		}
 
 	}
@@ -188,9 +188,6 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
 					encodeAdapterLog(message);
-				} catch (final ControllerCommunicationException e) {
-					LOG.error("No answer from controller", e);
-					getControllerNotAnswerAlert().show();
 				} catch (Exception e) {
 					LOG.info(e.getMessage(), e);
 				}
