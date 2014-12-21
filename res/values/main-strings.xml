@@ -42,5 +42,6 @@
     <string name="copying_labels">Copying label files</string>
     <string name="viewLog">View Log</string>
     <string name="taskNotComlete">Action can not be comleted</string>
+    <string name="bBack">Back</string>
 
 </resources>

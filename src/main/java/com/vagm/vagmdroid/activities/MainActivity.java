@@ -126,6 +126,7 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
 					bluetoothService.write(VAGmConstans.START_CONTROLLER_COMMUNICATION);
 					disableEnableControls(true, (ViewGroup) findViewById(R.id.mainLayout));
 					connectButton.setEnabled(false);
+					propertyService.setConnectedToAdapter(true);
 					break;
 				case CONNECTING:
 					mTitle.setText(R.string.title_connecting);

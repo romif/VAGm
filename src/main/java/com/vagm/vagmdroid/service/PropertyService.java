@@ -89,6 +89,10 @@ public class PropertyService {
 	 * properties.
 	 */
 	private static Properties properties;
+	
+	private boolean connectedToAdapter = false;
+	
+	private boolean connectedToController = false;	
 
 	/**
 	 * constructor.
@@ -146,6 +150,34 @@ public class PropertyService {
 	
 	public String getLogFileName() {
 		return properties.getProperty(LOG_FILE_NAME, DEFAULT_LOG_FILE_NAME);
+	}
+
+	/**
+	 * @return the connectedToAdapter
+	 */
+	public boolean isConnectedToAdapter() {
+		return connectedToAdapter;
+	}
+
+	/**
+	 * @param connectedToAdapter the connectedToAdapter to set
+	 */
+	public void setConnectedToAdapter(boolean connectedToAdapter) {
+		this.connectedToAdapter = connectedToAdapter;
+	}
+
+	/**
+	 * @return the connectedToController
+	 */
+	public boolean isConnectedToController() {
+		return connectedToController;
+	}
+
+	/**
+	 * @param connectedToController the connectedToController to set
+	 */
+	public void setConnectedToController(boolean connectedToController) {
+		this.connectedToController = connectedToController;
 	}
 
 }

@@ -145,6 +145,10 @@ public final class TestConstatnts {
 	 * BUFFER_STRING_ARRAY_NEGATIVE.
 	 */
 	public static final String[] BUFFER_STRING_ARRAY_NEGATIVE = {"02F9018A", "50", "51"};
+	
+	public static final String ADAPTER_LOG = "5501ff01ff010103000300030001ff011101ff011101ff0111";
+	
+	public static final String ADAPTER_LOG_DECODED = "Received char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nGet baudrate time out error - 3\r\nGet baudrate time out error - 3\r\nGet baudrate time out error - 3\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\n";
 
 	/**
 	 * hexStringToByteArray.

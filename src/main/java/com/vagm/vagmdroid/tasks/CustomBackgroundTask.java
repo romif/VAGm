@@ -5,13 +5,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import roboguice.util.RoboAsyncTask;
-
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
 
 import com.vagm.vagmdroid.activities.DispatcherHandlerActivity;
-import com.vagm.vagmdroid.service.TimeOutJob;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.TimeOutJob;
 
 /**
  * The Class SendLogTask.
@@ -72,7 +70,7 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
 			@Override
 			public void run() {
 				try {
-					CustomBackgroundTask.this.future().get(timeToWait, TimeUnit.MILLISECONDS);
+					CustomBackgroundTask.this.future.get(timeToWait, TimeUnit.MILLISECONDS);
 				} catch (InterruptedException | ExecutionException
 						| TimeoutException e) {
 					if (CustomBackgroundTask.this.progressBar.isShowing()) {

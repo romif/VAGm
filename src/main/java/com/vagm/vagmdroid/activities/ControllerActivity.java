@@ -23,6 +23,7 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
+import com.vagm.vagmdroid.service.PropertyService;
 import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
@@ -93,6 +94,12 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 */
 	@Inject
 	private BluetoothService bluetoothService;
+	
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
 
 	/**
 	 * {@inheritDoc}
@@ -166,7 +173,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	}
 
 	private void connect() {
-		new CustomBackgroundTask<Void, Void>(this,getString(R.string.connecting_to_controller), 15 * 1000) {
+		new CustomBackgroundTask<Void, Void>(this,getString(R.string.connecting_to_controller), 18 * 1000) {
 
 			@Override
 			protected Void doBackgroundJob() {
@@ -220,6 +227,7 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			controllerInfoService.setVagNumber(controllerInfo[1]);
 			LOG.debug("Found ecu: {}", controllerInfo[1]);
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
+			propertyService.setConnectedToController(true);
 			LATCH.countDown();
 		}
 	}

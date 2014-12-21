@@ -40,5 +40,6 @@
     <string name="copying_labels">Копирование label файлов</string>
     <string name="viewLog">Просмотреть лог</string>
     <string name="taskNotComlete">Действие не может быть завершено</string>
+    <string name="bBack">Назад</string>
     
 </resources>

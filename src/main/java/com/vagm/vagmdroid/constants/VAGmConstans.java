@@ -86,4 +86,8 @@ public final class VAGmConstans {
 	 * VAG_BTI_GROUP_RES.
 	 */
 	public static final int VAG_BTI_GROUP_RES = 0xE7;
+	
+	public static final int ADAPTER_LOG_REQ = 0x11;
+	
+	public static final int ADAPTER_LOG_RES = 0x55;
 }

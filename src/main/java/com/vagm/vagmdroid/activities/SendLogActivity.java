@@ -9,10 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +22,7 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.HttpPostDTO;
 import com.vagm.vagmdroid.service.FileService;
 import com.vagm.vagmdroid.service.HttpPostService;
+import com.vagm.vagmdroid.service.PropertyService;
 import com.vagm.vagmdroid.service.HttpPostService.MediaType;
 import com.vagm.vagmdroid.service.LogService;
 import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
@@ -66,6 +64,12 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@Inject
 	private FileService fileService;
+	
+	/**
+	 * propertyService.
+	 */
+	@Inject
+	private PropertyService propertyService;
 
 	/**
 	 * file.
@@ -76,12 +80,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 	 * zipFile.
 	 */
 	private File zipFile = null;
-
-	/**
-	 * bViewMobileLog.
-	 */
-	@InjectView(R.id.bViewMobileLog)
-	private Button bViewMobileLog;
 
 	/**
 	 * bViewAdapterLog.
@@ -117,6 +115,10 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 				sendLogFile(zipFile);
 			}
 			break;
+			
+		case R.id.bBack:
+			finish();
+			break;
 
 		default:
 			break;
@@ -129,7 +131,7 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
 			@Override
 			protected String doBackgroundJob() {
-				return httpPostService.doMultipartRequest(new HttpPostDTO(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA));
+				return httpPostService.doMultipartRequest(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA);
 			}
 			
 		}.execute();
@@ -148,6 +150,10 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 		setResult(Activity.RESULT_CANCELED);
 
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.send_log), this);
+		
+		if (!propertyService.isConnectedToAdapter()) {
+			bViewAdapterLog.setVisibility(View.GONE);
+		}
 
 		file = logService.getLogFile();
 		if (file != null) {
@@ -162,25 +168,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 			bSendLog.setVisibility(View.GONE);
 		}
 
-	}
-
-	protected void setButtonOnClickListner(final ViewGroup vg, final OnClickListener clickListener) {
-		for (int i = 0; i < vg.getChildCount(); i++) {
-			final View child = vg.getChildAt(i);
-			if (child instanceof ViewGroup) {
-				setButtonOnClickListner((ViewGroup) child, clickListener);
-			} else {
-				if (child instanceof Button) {
-					child.setOnClickListener(clickListener);
-				}
-			}
-
-		}
-	}
-	
-	@Override
-	public void onBackPressed() {
-		finish();
 	}
 
 }

@@ -14,6 +14,7 @@ import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
+import com.vagm.vagmdroid.enums.AdapterLogKey;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
@@ -223,6 +224,32 @@ public class BufferService {
 		int outputTestCode = Integer.parseInt(
 				Integer.toHexString(byteToInt(buffer[1])) + Integer.toHexString(byteToInt(buffer[2])), 16);
 		return faultCodesService.getDTC(outputTestCode);
+	}
+	
+	public String encodeAdapterLog(byte[] adapterLog) throws ControllerWrongResponseException {
+		int response = byteToInt(adapterLog[0]);
+		checkResponseCode(VAGmConstans.ADAPTER_LOG_RES, response);
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		
+		for (int i = 1; i < adapterLog.length; i++) {
+			byte st = adapterLog[i];
+			AdapterLogKey logKey = AdapterLogKey.getAdapterLogKey(st);
+			stringBuilder.append(logKey.getValue());
+			stringBuilder.append(" - ");
+			stringBuilder.append(adapterLog[i++]);
+			if (logKey == AdapterLogKey.BAUDRATE_TICKS) {
+				stringBuilder.append(", ");
+				stringBuilder.append(adapterLog[i++]);
+				stringBuilder.append(", ");
+				stringBuilder.append(adapterLog[i++]);
+				stringBuilder.append(", ");
+				stringBuilder.append(adapterLog[i++]);
+			} 
+			stringBuilder.append(String.format("%n").intern());
+		}
+		
+		return stringBuilder.toString();
 	}
 
 	/**

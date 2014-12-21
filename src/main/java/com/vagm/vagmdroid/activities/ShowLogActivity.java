@@ -3,6 +3,7 @@ package com.vagm.vagmdroid.activities;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,6 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
-import com.vagm.vagmdroid.enums.AdapterLogKey;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
@@ -37,6 +37,8 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	 * LOG.
 	 */
 	private static final Logger LOG = LoggerFactory.getLogger(ShowLogActivity.class);
+	
+	private static final CountDownLatch LATCH = new CountDownLatch(1);
 
 	/**
 	 * fileService.
@@ -61,10 +63,6 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@InjectView(R.id.log_text)
 	private TextView logText;
-	
-	private static final Object MUTEX = new Object();
-	
-	private String adapterLog;
 
 	@Override
 	public void onClick(final View v) {
@@ -102,22 +100,19 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	}
 
 	private void getAdapterLog() {
-		new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 2000) {
+		new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 5000) {
 
 			@Override
 			protected Void doBackgroundJob() {
 				LOG.debug("Request for adapter log");
-				bluetoothService.write(0x11);
-				synchronized (MUTEX) {
-					try {
-						MUTEX.wait();
-					} catch (InterruptedException e) {
-						LOG.error(e.getMessage());
-					}
-					
-					logText.setText(adapterLog);
-					return null;
-				}
+				bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
+				try {
+					LATCH.await();
+				} catch (InterruptedException e) {
+					LOG.error(e.getMessage());
+				}	
+				
+				return null;
 			}
 
 		}.execute();
@@ -144,28 +139,6 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 		}.execute();
 
 	}
-
-	private String encodeAdapterLog(byte[] adapterLog) {
-		StringBuilder stringBuilder = new StringBuilder();
-		
-		for (int i = 0; i < adapterLog.length; i++) {
-			byte st = adapterLog[i];
-			AdapterLogKey logKey = AdapterLogKey.getAdapterLogKey(st);
-			stringBuilder.append(logKey.getValue());
-			stringBuilder.append(" - ");
-			stringBuilder.append(adapterLog[i++]);
-			if (logKey == AdapterLogKey.BAUDRATE_TICKS) {
-				stringBuilder.append(", ");
-				stringBuilder.append(adapterLog[i++]);
-				stringBuilder.append(", ");
-				stringBuilder.append(adapterLog[i++]);
-				stringBuilder.append(", ");
-				stringBuilder.append(adapterLog[i++]);
-			} 
-		}
-		
-		return stringBuilder.toString();
-	}
 	
 	@Override
 	public void onBackPressed() {
@@ -178,11 +151,9 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 			ControllerWrongResponseException, ControllerNotFoundException {
 		super.proceedMessage(message);
 		
-		adapterLog = encodeAdapterLog(message);
+		logText.setText(bufferService.encodeAdapterLog(message));
 		
-		synchronized (MUTEX) {
-			MUTEX.notify();
-		}
+		LATCH.countDown();
 	}
 
 }
