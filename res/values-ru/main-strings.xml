@@ -39,5 +39,6 @@
     <string name="bConnectAdapter">Подключиться к адаптеру</string>
     <string name="copying_labels">Копирование label файлов</string>
     <string name="viewLog">Просмотреть лог</string>
+    <string name="taskNotComlete">Действие не может быть завершено</string>
     
 </resources>

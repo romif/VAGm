@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import roboguice.inject.InjectView;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,10 +22,12 @@ import android.widget.Button;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.dto.HttpPostDTO;
 import com.vagm.vagmdroid.service.FileService;
 import com.vagm.vagmdroid.service.HttpPostService;
 import com.vagm.vagmdroid.service.HttpPostService.MediaType;
 import com.vagm.vagmdroid.service.LogService;
+import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
  * @author Roman_Konovalov
@@ -94,20 +97,24 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
 	@Override
 	public void onClick(final View v) {
+		Intent showLogIntent;
 		switch (v.getId()) {
 		case R.id.bViewMobileLog:
-			Intent showLogIntent = new Intent(this, ShowLogActivity.class);
+			showLogIntent = new Intent(this, ShowLogActivity.class);
 			showLogIntent.putExtra(LOG_TEXT, file);
 			
-			startActivityForResult(showLogIntent, -1);
+			startActivity(showLogIntent);
 			break;
 
 		case R.id.bViewAdapterLog:
+			showLogIntent = new Intent(this, ShowLogActivity.class);
+			showLogIntent.putExtra(LOG_TEXT, "");
+			startActivity(showLogIntent);
 			break;
 
 		case R.id.bSendLog:
 			if (zipFile != null) {
-				new SendLogTask().execute();
+				sendLogFile(zipFile);
 			}
 			break;
 
@@ -117,6 +124,17 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
 	}
 
+	private void sendLogFile(File zipFile) {
+		new CustomBackgroundTask<HttpPostDTO, String>(this, getString(R.string.sendingLog)) {
+
+			@Override
+			protected String doBackgroundJob(HttpPostDTO httpPostDTO) {
+				return httpPostService.doMultipartRequest(httpPostDTO);
+			}
+			
+		}.execute(new HttpPostDTO(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA));
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -124,11 +142,9 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// Setup the window
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.send_log);
 
-		// Set result CANCELED incase the user backs out
 		setResult(Activity.RESULT_CANCELED);
 
 		setButtonOnClickListner((ViewGroup) findViewById(R.id.send_log), this);
@@ -148,39 +164,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
 	}
 
-	/**
-	 * The Class SendLogTask.
-	 * @author roman_konovalov
-	 */
-	private class SendLogTask extends AsyncTask<Void, Void, Void> {
-
-		/**
-		 * progressBar.
-		 */
-		private final ProgressDialog progressBar = new ProgressDialog(SendLogActivity.this);
-
-		@Override
-		protected void onPreExecute() {
-			progressBar.setMessage(getString(R.string.sendingLog));
-			progressBar.setCancelable(false);
-			progressBar.show();
-		}
-
-		@Override
-		protected Void doInBackground(final Void... arg0) {
-			httpPostService.doMultipartRequest(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA);
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(final Void unused) {
-			if (this.progressBar.isShowing()) {
-				this.progressBar.dismiss();
-
-			}
-		}
-	}
-
 	protected void setButtonOnClickListner(final ViewGroup vg, final OnClickListener clickListener) {
 		for (int i = 0; i < vg.getChildCount(); i++) {
 			final View child = vg.getChildAt(i);
@@ -193,6 +176,11 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 			}
 
 		}
+	}
+	
+	@Override
+	public void onBackPressed() {
+		finish();
 	}
 
 }

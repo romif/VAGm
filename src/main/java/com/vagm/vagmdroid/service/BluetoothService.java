@@ -149,7 +149,12 @@ public class BluetoothService implements Parcelable {
 		/**
 		 * CONNECTION_LOST.
 		 */
-		CONNECTION_LOST
+		CONNECTION_LOST,
+		
+		/**
+		 * 
+		 */
+		TASK_TIMEOUT
 
 	}
 	

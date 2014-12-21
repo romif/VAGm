@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.activity.RoboActivity;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,10 +16,11 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
+import com.vagm.vagmdroid.service.BufferService;
+import com.vagm.vagmdroid.service.TimeOutJob;
 
-public class DispatcherHandler extends RoboActivity{
+public class DispatcherHandlerActivity extends RoboActivity{
 	
 	/**
 	 * bufferService.
@@ -31,7 +31,7 @@ public class DispatcherHandler extends RoboActivity{
 	/**
 	 * LOG.
 	 */
-	private static final Logger LOG = LoggerFactory.getLogger(DispatcherHandler.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DispatcherHandlerActivity.class);
 	
 	/**
 	 * The Handler that gets information back from the BluetoothService.
@@ -60,6 +60,8 @@ public class DispatcherHandler extends RoboActivity{
 				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
 				onConnectionLost();
 				finish();
+			} else if (serviceCommand == ServiceCommand.TASK_TIMEOUT) {
+				((TimeOutJob)msg.obj).onTimeout(); 
 			}
 		}
 	};
@@ -70,6 +72,17 @@ public class DispatcherHandler extends RoboActivity{
 	 */
 	public Handler getHandler() {
 		return mHandler;
+	}
+
+	public void showControllerTaskNotCompleteAlert() {
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(getString(R.string.taskNotComlete)).setTitle(getString(R.string.error)).setCancelable(false)
+				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog, final int id) {
+						finish();
+					}
+				});
+		builder.create().show();
 	}
 
 	protected void proceedMessage(byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {	
@@ -109,5 +122,6 @@ public class DispatcherHandler extends RoboActivity{
 		AlertDialog alertDialog = builder.create();
 		return alertDialog;
 	}
+
 
 }

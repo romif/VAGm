@@ -17,7 +17,7 @@ import com.vagm.vagmdroid.service.BluetoothService;
  * The Class CustomAbstractActivity.
  * @author Roman_Konovalov
  */
-public abstract class CustomAbstractActivity extends DispatcherHandler {
+public abstract class CustomAbstractActivity extends DispatcherHandlerActivity {
 
 	/**
 	 * defaultUEH.

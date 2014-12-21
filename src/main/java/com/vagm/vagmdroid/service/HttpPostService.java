@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.vagm.vagmdroid.dto.HttpPostDTO;
 
 /**
  * The Class HttpPostService.
@@ -53,6 +54,10 @@ public class HttpPostService {
 	 * Default constructor.
 	 */
 	public HttpPostService() {
+	}
+	
+	public String doMultipartRequest(HttpPostDTO httpPostDTO) {
+		return doMultipartRequest(httpPostDTO.getUrlTo(), httpPostDTO.getParmas(), httpPostDTO.getFile(), httpPostDTO.getFileMimeType());
 	}
 
 	/**

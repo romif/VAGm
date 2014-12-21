@@ -3,6 +3,7 @@ package com.vagm.vagmdroid.activities;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -24,8 +25,11 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.AdapterLogKey;
+import com.vagm.vagmdroid.service.TimeOutJob;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.FileService;
+import com.vagm.vagmdroid.service.HttpPostService.MediaType;
+import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
  * @author Roman_Konovalov
@@ -54,6 +58,8 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@InjectView(R.id.log_text)
 	private TextView logText;
+	
+	private static final Object MUTEX = new Object();
 
 	@Override
 	public void onClick(final View v) {
@@ -84,20 +90,65 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 		
 		if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof File) {
 			try {
-				new ReadFileTask().execute().get(10000, TimeUnit.MILLISECONDS);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (TimeoutException e) {
+				readPhoneLogFile();
+			} catch (InterruptedException | ExecutionException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof String) {
-			//logText.setText(encodeAdapterLog((String)getIntent().getExtras().get(SendLogActivity.LOG_TEXT)));
+		} else {
+			try {
+				getAdapterLog();
+			} catch (InterruptedException | ExecutionException
+					| TimeoutException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+
+	}
+
+	private void getAdapterLog() throws InterruptedException, ExecutionException, TimeoutException {
+		new CustomBackgroundTask<String, String>(this, getString(R.string.readingLogFile), 2000) {
+
+			@Override
+			protected String doBackgroundJob(String arg) {
+				synchronized (MUTEX) {
+					try {
+						MUTEX.wait();
+					} catch (InterruptedException e) {
+						LOG.error(e.getMessage());
+					}
+					return "";
+				}
+			}
+
+			@Override
+			protected void onJobDone(String result) {
+				logText.setText(result);
+			}
+
+		}.execute();
+		
+	}
+
+	private void readPhoneLogFile() throws InterruptedException, ExecutionException {
+		new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
+			@Override
+			protected String doBackgroundJob(File file) {
+				try {
+					return fileService.convertStreamToString(new FileInputStream(file));
+				} catch (FileNotFoundException e) {
+					LOG.error(e.getMessage());
+					return "";
+				}
+			}
+			
+			@Override
+			public void onJobDone(String result) {
+				logText.setText(result);
+			}
+			
+		}.execute((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT));
 
 	}
 
@@ -122,49 +173,10 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 		
 		return stringBuilder.toString();
 	}
-
-	/**
-	 * The Class ReadFileTask.
-	 * @author roman_konovalov
-	 */
-	private class ReadFileTask extends AsyncTask<Void, Void, Void> {
-
-		/**
-		 * progressBar.
-		 */
-		private final ProgressDialog progressBar = new ProgressDialog(ShowLogActivity.this);
-
-		/**
-		 * textLog.
-		 */
-		private String textLog = null;
-
-		@Override
-		protected void onPreExecute() {
-			progressBar.setMessage(getString(R.string.readingLogFile));
-			progressBar.setCancelable(false);
-			progressBar.show();
-		}
-
-		@Override
-		protected Void doInBackground(final Void... arg0) {
-			File file = (File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT);
-			try {
-				textLog = fileService.convertStreamToString(new FileInputStream(file));
-			} catch (FileNotFoundException e) {
-				LOG.error(e.getMessage());
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(final Void unused) {
-			logText.setText(textLog);
-			if (this.progressBar.isShowing()) {
-				this.progressBar.dismiss();
-
-			}
-		}
+	
+	@Override
+	public void onBackPressed() {
+		finish();
 	}
 
 }
