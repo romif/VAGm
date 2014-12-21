@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
@@ -70,11 +68,9 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
 	/**
 	 * proceedMessage.
 	 * @param message buffer
-	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 * @throws ControllerNotFoundException 
 	 */
-	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
 		String activatedOutputText = bufferService.getOutputTestsInfo(message);
 		if (activatedOutputText == getString(R.string.test_ended)) {
 			bStart.setText(getString(R.string.bStart));

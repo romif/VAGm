@@ -13,8 +13,6 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.enums.FunctionCode;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
@@ -85,13 +83,10 @@ public class FaultCodesActivity extends CustomAbstractActivity implements OnClic
 	 * proceedMessage.
 	 * @param message
 	 *            message
-	 * @throws ControllerCommunicationException
-	 *             if some communication error occurs
 	 * @throws ControllerWrongResponseException
 	 *             if wrong response from controller occurs
-	 * @throws ControllerNotFoundException 
 	 */
-	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
 		String error = bufferService.getFaultCodesInfo(message);
 		if (error.equals(getText(R.string.no_errors))) {
 			faultCodes.setText(error);

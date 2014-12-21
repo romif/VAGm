@@ -15,11 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -28,17 +26,14 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BluetoothService;
+import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
@@ -381,11 +376,9 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
 	/**
 	 * proceedMessage.
 	 * @param message buffer
-	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 * @throws ControllerNotFoundException 
 	 */
-	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 
 		if (timeSeries == null) {

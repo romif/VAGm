@@ -146,11 +146,7 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	}
 	
 	@Override
-	protected void proceedMessage(byte[] message)
-			throws ControllerCommunicationException,
-			ControllerWrongResponseException, ControllerNotFoundException {
-		super.proceedMessage(message);
-		
+	protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {		
 		logText.setText(bufferService.encodeAdapterLog(message));
 		
 		LATCH.countDown();

@@ -19,8 +19,6 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
@@ -216,11 +214,9 @@ public class MeasBlocksActivity extends CustomAbstractActivity implements OnClic
 	/**
 	 * proceedMessage.
 	 * @param message buffer
-	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 * @throws ControllerNotFoundException 
 	 */
-	protected void proceedMessage(final byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
 		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 		if (dtos != null) {
 			((TextView) findViewById(R.id.block11)).setText(dtos[0].getValue() + dtos[0].getUnit());

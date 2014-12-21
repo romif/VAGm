@@ -46,13 +46,17 @@ public class DispatcherHandlerActivity extends RoboActivity{
 				byte[] message = (byte[]) msg.obj;
 				LOG.debug("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
-					proceedMessage(message);
+					bufferService.checkAdapterErrors(message);
 				} catch (ControllerNotFoundException e) {
 					LOG.error("Controller wasn't found", e);
 					getControllerNotFoundAlert().show();
 				}catch (ControllerCommunicationException e) {
 					LOG.error("No answer from controller", e);
 					getControllerNotAnswerAlert().show();
+				}
+				
+				try {
+					proceedMessage(message);
 				} catch (ControllerWrongResponseException e) {
 					LOG.info(e.getMessage());
 				}
@@ -85,7 +89,7 @@ public class DispatcherHandlerActivity extends RoboActivity{
 		builder.create().show();
 	}
 
-	protected void proceedMessage(byte[] message) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {	
+	protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {	
 	}
 
 	protected void onConnectionLost() {

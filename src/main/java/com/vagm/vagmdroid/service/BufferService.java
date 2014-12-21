@@ -78,9 +78,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo)
-			throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		checkAdapterErrors(buffer);
+	public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo) throws  ControllerWrongResponseException {
 		final String[] result = controllerInfo;
 		if (buffer.length == 4) {
 			result[0] = String.valueOf(8000000 / Integer.parseInt(
@@ -128,8 +126,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		checkAdapterErrors(buffer);
+	public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
@@ -166,8 +163,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	public String getFaultCodesInfo(final byte[] buffer) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		checkAdapterErrors(buffer);
+	public String getFaultCodesInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
@@ -207,8 +203,7 @@ public class BufferService {
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	public String getOutputTestsInfo(final byte[] buffer)throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		checkAdapterErrors(buffer);
+	public String getOutputTestsInfo(final byte[] buffer)throws ControllerWrongResponseException {
 
 		int responseCode = byteToInt(buffer[0]);
 		if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
@@ -283,7 +278,7 @@ public class BufferService {
 	 * @throws ControllerCommunicationException if some communication error occurs
 	 * @throws ControllerNotFoundException 
 	 */
-	private void checkAdapterErrors(final byte[] buffer) throws ControllerCommunicationException, ControllerNotFoundException {
+	public void checkAdapterErrors(final byte[] buffer) throws ControllerCommunicationException, ControllerNotFoundException {
 		if (buffer.length == 1) {
 			if (buffer[0] == CONTROLLER_NOT_FOUND) {
 				throw new ControllerNotFoundException();

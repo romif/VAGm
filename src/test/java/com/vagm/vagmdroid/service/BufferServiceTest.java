@@ -139,25 +139,14 @@ public class BufferServiceTest {
 	 * @throws ControllerNotFoundException 
 	 */
     @Test(expected = ControllerCommunicationException.class)
-	public final void testGetControllerInfoNegative() throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		String[] result = {"", "", "" };
-
-		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
-		assertEquals(ECU_INFO1[0], result[0]);
-
-		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]), result);
+	public final void testControllerCommunicationException() throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+    	bufferService.checkAdapterErrors(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]));
 	}
     
     @Test(expected = ControllerNotFoundException.class)
-	public final void testGetControllerInfoNegative2() throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
-		String[] result = {"", "", "" };
-
-		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]), result);
-		assertEquals(ECU_INFO1[0], result[0]);
-
-		result = bufferService.getControllerInfo(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]), result);
+	public final void testControllerNotFoundException() throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+    	bufferService.checkAdapterErrors(hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]));
 	}
-
 
     /**
 	 * testGetControllerInfoNegativ1e.

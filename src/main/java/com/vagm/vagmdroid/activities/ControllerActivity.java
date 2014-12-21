@@ -17,8 +17,6 @@ import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.FunctionCode;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
@@ -212,12 +210,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * proceedMessage.
 	 * @param array
 	 *            array
-	 * @throws ControllerCommunicationException
-	 *             if some communication error occurs
 	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 * @throws ControllerNotFoundException 
 	 */
-	protected void proceedMessage(final byte[] array) throws ControllerCommunicationException, ControllerWrongResponseException, ControllerNotFoundException {
+	protected void proceedMessage(final byte[] array) throws ControllerWrongResponseException {
 		controllerInfo = bufferService.getControllerInfo(array, controllerInfo);
 		boudRate.setText(controllerInfo[0]);
 		vagNumber.setText(controllerInfo[1]);
