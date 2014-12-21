@@ -44,7 +44,7 @@ public class DispatcherHandlerActivity extends RoboActivity{
 			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
 			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
 				byte[] message = (byte[]) msg.obj;
-				LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
+				LOG.debug("Recieved message from conroller: {}", bufferService.bytesToHex(message));
 				try {
 					proceedMessage(message);
 				} catch (ControllerNotFoundException e) {
@@ -121,6 +121,17 @@ public class DispatcherHandlerActivity extends RoboActivity{
 				});
 		AlertDialog alertDialog = builder.create();
 		return alertDialog;
+	}
+	
+	protected void showtAlert(String message) {
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(message).setTitle(getString(R.string.error)).setCancelable(false)
+				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+					public void onClick(final DialogInterface dialog, final int id) {
+						finish();
+					}
+				});
+		builder.create().show();
 	}
 
 

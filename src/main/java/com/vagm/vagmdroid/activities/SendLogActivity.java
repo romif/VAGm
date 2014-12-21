@@ -47,7 +47,7 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 	/**
 	 * SERVER_URL.
 	 */
-	private static final String SERVER_URL = "http://vagmlog-romif.rhcloud.com/rest/log/11111111111/vagmdroidlog";
+	private static final String SERVER_URL = "http://vagmlog-romif.rhcloud.com/rest/log/001204017530/vagmdroidlog";
 
 	/**
 	 * propertyService.
@@ -124,15 +124,15 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
 	}
 
-	private void sendLogFile(File zipFile) {
+	private void sendLogFile(final File zipFile) {
 		new CustomBackgroundTask<HttpPostDTO, String>(this, getString(R.string.sendingLog)) {
 
 			@Override
-			protected String doBackgroundJob(HttpPostDTO httpPostDTO) {
-				return httpPostService.doMultipartRequest(httpPostDTO);
+			protected String doBackgroundJob() {
+				return httpPostService.doMultipartRequest(new HttpPostDTO(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA));
 			}
 			
-		}.execute(new HttpPostDTO(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA));
+		}.execute();
 	}
 
 	/**

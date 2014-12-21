@@ -4,6 +4,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import roboguice.util.RoboAsyncTask;
+
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
@@ -17,7 +19,7 @@ import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
  * @param <Param>
  * @param <Result>
  */
-public abstract class CustomBackgroundTask<Param, Result> extends AsyncTask<Param, Void, Result> implements TimeOutJob{
+public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<Result> implements TimeOutJob{
 
 	/**
 	 * DEFAULT_TIMEOUT.
@@ -50,6 +52,7 @@ public abstract class CustomBackgroundTask<Param, Result> extends AsyncTask<Para
 	}
 
 	public CustomBackgroundTask(final DispatcherHandlerActivity context, final String message, long timeToWait) {
+		super(context);
 		this.message = message;
 		this.context = context;
 		this.timeToWait = timeToWait;
@@ -62,14 +65,14 @@ public abstract class CustomBackgroundTask<Param, Result> extends AsyncTask<Para
 		progressBar.setCancelable(false);
 		progressBar.show();
 	}
-
+	
 	@Override
-	protected Result doInBackground(final Param... args) {
+	public Result call() throws Exception {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					onJobDone(CustomBackgroundTask.this.get(timeToWait, TimeUnit.MILLISECONDS));
+					CustomBackgroundTask.this.future().get(timeToWait, TimeUnit.MILLISECONDS);
 				} catch (InterruptedException | ExecutionException
 						| TimeoutException e) {
 					if (CustomBackgroundTask.this.progressBar.isShowing()) {
@@ -80,17 +83,18 @@ public abstract class CustomBackgroundTask<Param, Result> extends AsyncTask<Para
 			}
 		}).start();
 
-		return args.length > 0 ? doBackgroundJob(args[0]) : doBackgroundJob(null);
+		return doBackgroundJob();
 	}
 
 	@Override
-	protected void onPostExecute(final Result result) {
+	protected void onSuccess(final Result result) {
 		if (this.progressBar.isShowing()) {
 			this.progressBar.dismiss();
 		}
+		onJobDone(result);
 	}
 
-	protected abstract Result doBackgroundJob(Param arg);
+	protected abstract Result doBackgroundJob();
 
 	protected void onJobDone(Result result) {
 	}

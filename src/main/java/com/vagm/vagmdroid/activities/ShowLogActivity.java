@@ -3,19 +3,13 @@ package com.vagm.vagmdroid.activities;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Collections;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,11 +18,14 @@ import android.widget.TextView;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.AdapterLogKey;
-import com.vagm.vagmdroid.service.TimeOutJob;
+import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
+import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
+import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.FileService;
-import com.vagm.vagmdroid.service.HttpPostService.MediaType;
 import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
@@ -52,6 +49,12 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	 */
 	@Inject
 	private BufferService bufferService;
+	
+	/**
+	 * bluetoothService.
+	 */
+	@Inject
+	private BluetoothService bluetoothService;
 
 	/**
 	 * logText.
@@ -60,6 +63,8 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	private TextView logText;
 	
 	private static final Object MUTEX = new Object();
+	
+	private String adapterLog;
 
 	@Override
 	public void onClick(final View v) {
@@ -89,54 +94,42 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 		setResult(Activity.RESULT_CANCELED);
 		
 		if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof File) {
-			try {
-				readPhoneLogFile();
-			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			readPhoneLogFile();
 		} else {
-			try {
-				getAdapterLog();
-			} catch (InterruptedException | ExecutionException
-					| TimeoutException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			getAdapterLog();
 		}
 
 	}
 
-	private void getAdapterLog() throws InterruptedException, ExecutionException, TimeoutException {
-		new CustomBackgroundTask<String, String>(this, getString(R.string.readingLogFile), 2000) {
+	private void getAdapterLog() {
+		new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 2000) {
 
 			@Override
-			protected String doBackgroundJob(String arg) {
+			protected Void doBackgroundJob() {
+				LOG.debug("Request for adapter log");
+				bluetoothService.write(0x11);
 				synchronized (MUTEX) {
 					try {
 						MUTEX.wait();
 					} catch (InterruptedException e) {
 						LOG.error(e.getMessage());
 					}
-					return "";
+					
+					logText.setText(adapterLog);
+					return null;
 				}
-			}
-
-			@Override
-			protected void onJobDone(String result) {
-				logText.setText(result);
 			}
 
 		}.execute();
 		
 	}
 
-	private void readPhoneLogFile() throws InterruptedException, ExecutionException {
+	private void readPhoneLogFile() {
 		new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
 			@Override
-			protected String doBackgroundJob(File file) {
+			protected String doBackgroundJob() {
 				try {
-					return fileService.convertStreamToString(new FileInputStream(file));
+					return fileService.convertStreamToString(new FileInputStream((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT)));
 				} catch (FileNotFoundException e) {
 					LOG.error(e.getMessage());
 					return "";
@@ -148,7 +141,7 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 				logText.setText(result);
 			}
 			
-		}.execute((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT));
+		}.execute();
 
 	}
 
@@ -177,6 +170,19 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
 	@Override
 	public void onBackPressed() {
 		finish();
+	}
+	
+	@Override
+	protected void proceedMessage(byte[] message)
+			throws ControllerCommunicationException,
+			ControllerWrongResponseException, ControllerNotFoundException {
+		super.proceedMessage(message);
+		
+		adapterLog = encodeAdapterLog(message);
+		
+		synchronized (MUTEX) {
+			MUTEX.notify();
+		}
 	}
 
 }

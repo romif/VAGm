@@ -1,16 +1,13 @@
 package com.vagm.vagmdroid.activities;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import roboguice.inject.InjectView;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -26,6 +23,7 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
+import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
  * The Class ControllerActivity.
@@ -70,21 +68,8 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 	 * component.
 	 */
 	private static final String COMPONENT = "component";
-
-	/**
-	 * progressBar.
-	 */
-	private ProgressDialog progressBar;
-
-	/**
-	 * longTimer.
-	 */
-	private Timer longTimer;
-
-	/**
-	 * h.
-	 */
-	private Handler h;
+	
+	private static final CountDownLatch LATCH = new CountDownLatch(1);
 
 	/**
 	 * controllerInfo.
@@ -119,7 +104,6 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			LOG.debug("Exiting Controller Activity, writing exit command: {}", VAGmConstans.EXIT_COMMAND);
 			bluetoothService.write(0xAA);
 			controllerInfoService.clear();
-			stopTimer();
 			finish();
 			break;
 
@@ -167,41 +151,43 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 			finish();
 		}*/
 		if (savedInstanceState == null) {
-			int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
-			LOG.debug("Sending controller code: {}", controllerCode);
-			bluetoothService.write(VAGmConstans.CONNECT_ECU);
-			bluetoothService.write(controllerCode);
+			
 			disableEnableControls(false, (ViewGroup) findViewById(R.id.controllerLayout));
 			setButtonOnClickListner((ViewGroup) findViewById(R.id.controllerLayout), this);
-			progressBar = new ProgressDialog(this);
-			progressBar.setMessage(getString(R.string.connecting_to_controller));
-			progressBar.setCancelable(false);
-			progressBar.show();
-			h = new Handler();
-			longTimer = new Timer();
-			longTimer.schedule(new TimerTask() {
-				@Override
-				public void run() {
-					h.post(new Runnable() {
-
-						public void run() {
-							LOG.warn("No answer from controller");
-							longTimer.cancel();
-							longTimer = null;
-							if (!ControllerActivity.this.isFinishing()) {
-								progressBar.dismiss();
-								getControllerNotAnswerAlert().show();
-							}
-						}
-					});
-				}
-			}, 15 * 1000);
+			
+			connect();
+			
 		} else {
 			boudRate.setText(savedInstanceState.getString(BOUD_RATE));
 			vagNumber.setText(savedInstanceState.getString(VAG_NUMBER));
 			component.setText(savedInstanceState.getString(COMPONENT));
 		}
 
+	}
+
+	private void connect() {
+		new CustomBackgroundTask<Void, Void>(this,getString(R.string.connecting_to_controller), 15 * 1000) {
+
+			@Override
+			protected Void doBackgroundJob() {
+				int controllerCode = getIntent().getExtras().getInt(MainActivity.CONTROLLER_CODE);
+				LOG.debug("Sending controller code: {}", controllerCode);
+				bluetoothService.write(VAGmConstans.CONNECT_ECU);
+				bluetoothService.write(controllerCode);
+				try {
+					LATCH.await();
+				} catch (InterruptedException e) {
+					LOG.error(e.getMessage());
+				}
+				return null;
+			}
+			
+			@Override
+			public void onTimeout() {
+				showtAlert(getString(R.string.adapter_not_answer));
+			}
+			
+		}.execute();
 	}
 
 	/**
@@ -233,24 +219,9 @@ public class ControllerActivity extends CustomAbstractActivity implements OnClic
 		if (controllerInfo[1].length() == VAGmConstans.ECU_LENGTH) {
 			controllerInfoService.setVagNumber(controllerInfo[1]);
 			LOG.debug("Found ecu: {}", controllerInfo[1]);
-			progressBar.dismiss();
 			disableEnableControls(true, (ViewGroup) findViewById(R.id.controllerLayout));
-			stopTimer();
+			LATCH.countDown();
 		}
-	}
-
-	/**
-	 * stopTimer.
-	 */
-	private void stopTimer() {
-		if (longTimer != null) {
-			longTimer.cancel();
-			longTimer = null;
-		}
-	}
-
-	protected void onConnectionLost() {
-		stopTimer();
 	}
 
 }
