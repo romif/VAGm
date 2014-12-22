@@ -156,18 +156,13 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
         }
 
         file = logService.getLogFile();
-        if (file != null) {
-            try {
-                zipFile = fileService.zip(file);
-                bSendLog.setText(bSendLog.getText() + " (" + String.valueOf(zipFile.length() / 1024) + " kB)");
-            } catch (final IOException e) {
-                LOG.error(e.getMessage());
-                bSendLog.setVisibility(View.GONE);
-            }
-        } else {
+        try {
+            zipFile = fileService.zip(file);
+            bSendLog.setText(bSendLog.getText() + " (" + String.valueOf(zipFile.length() / 1024) + " kB)");
+        } catch (final IOException e) {
+            LOG.error(e.getMessage());
             bSendLog.setVisibility(View.GONE);
         }
-
     }
 
 }

@@ -243,10 +243,10 @@
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>findbugs-maven-plugin</artifactId>
                         <version>${maven.findbugs.plugin}</version>
-                        <!-- <configuration>
-                            <onlyAnalyze>com.msm.-</onlyAnalyze>
+                        <configuration>
+                            <onlyAnalyze>com.vagm.vagmdroid.-</onlyAnalyze>
                             <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
-                        </configuration> -->
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>default-findbugs-checks</id>

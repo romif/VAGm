@@ -76,7 +76,7 @@ public class OutputTestsActivity extends CustomAbstractActivity implements OnCli
      */
     protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
         String activatedOutputText = bufferService.getOutputTestsInfo(message);
-        if (activatedOutputText == getString(R.string.test_ended)) {
+        if (getString(R.string.test_ended).equals(activatedOutputText)) {
             bStart.setText(getString(R.string.bStart));
         } else {
             bStart.setText(getString(R.string.bNext));

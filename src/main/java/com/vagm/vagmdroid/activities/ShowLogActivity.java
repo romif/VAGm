@@ -1,8 +1,6 @@
 package com.vagm.vagmdroid.activities;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
@@ -20,8 +18,6 @@ import android.widget.TextView;
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
-import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
-import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
@@ -123,13 +119,7 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
         new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
             @Override
             protected String doBackgroundJob() {
-                try {
-                    return fileService.convertStreamToString(new FileInputStream((File) getIntent().getExtras().get(
-                            SendLogActivity.LOG_TEXT)));
-                } catch (FileNotFoundException e) {
-                    LOG.error(e.getMessage());
-                    return "";
-                }
+                return fileService.convertStreamToString((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT));
             }
 
             @Override

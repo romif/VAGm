@@ -2,7 +2,6 @@ package com.vagm.vagmdroid.activities;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,11 +23,6 @@ public abstract class CustomAbstractActivity extends DispatcherHandlerActivity {
      * defaultUEH.
      */
     private UncaughtExceptionHandler defaultUEH;
-
-    /**
-     * alertDialog.
-     */
-    private AlertDialog alertDialog;
 
     /**
      * bluetoothService.
@@ -89,9 +83,6 @@ public abstract class CustomAbstractActivity extends DispatcherHandlerActivity {
 
     @Override
     protected void onDestroy() {
-        if (alertDialog != null) {
-            alertDialog.dismiss();
-        }
         super.onDestroy();
     }
 

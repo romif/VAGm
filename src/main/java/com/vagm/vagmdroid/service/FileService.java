@@ -80,26 +80,44 @@ public class FileService {
     /**
      * convertStreamToString.
      * 
-     * @param is
-     *            inputStream
+     * @param file
      * @return string
      */
-    public String convertStreamToString(final InputStream is) {
-        final BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+    public String convertStreamToString(final File file) {
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+            return convertStreamToString(inputStream);
+        } catch (final IOException e) {
+            LOG.error(e.getMessage());
+        } finally {
+            try {
+                inputStream.close();
+            } catch (final IOException e) {
+                LOG.error(e.getMessage());
+            }
+        }
+        return "";
+    }
+
+    public String convertStreamToString(InputStream inputStream) {
+        BufferedReader reader = null;
         final StringBuilder sb = new StringBuilder();
 
         String line = null;
         try {
+            reader = new BufferedReader(new InputStreamReader(inputStream));
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
             }
         } catch (final IOException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage());
         } finally {
             try {
-                is.close();
+                reader.close();
             } catch (final IOException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage());
             }
         }
         return sb.toString();
