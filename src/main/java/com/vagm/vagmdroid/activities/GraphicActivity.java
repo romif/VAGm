@@ -42,423 +42,439 @@ import com.vagm.vagmdroid.widget.ChartSettingsButton;
 
 /**
  * The Class GraphicActivity.
+ * 
  * @author Roman_Konovalov
  */
 public class GraphicActivity extends CustomAbstractActivity implements OnClickListener {
 
-	/**
-	 * The Class ScaleTimeSeries.
-	 * @author Roman_Konovalov
-	 */
-	public static class ScaleTimeSeries extends TimeSeries  {
+    /**
+     * The Class ScaleTimeSeries.
+     * 
+     * @author Roman_Konovalov
+     */
+    public static class ScaleTimeSeries extends TimeSeries {
 
-		/**
-		 * LOG.
-		 */
-		private static final Logger LOG = LoggerFactory.getLogger(ScaleTimeSeries.class);
+        /**
+         * LOG.
+         */
+        private static final Logger LOG = LoggerFactory.getLogger(ScaleTimeSeries.class);
 
-		/**
-		 * serialVersionUID.
-		 */
-		private static final long serialVersionUID = 4020891366423167712L;
+        /**
+         * serialVersionUID.
+         */
+        private static final long serialVersionUID = 4020891366423167712L;
 
-		/**
-		 * constructor.
-		 * @param title title
-		 */
-		public ScaleTimeSeries(final String title) {
-			super(title);
-		}
+        /**
+         * constructor.
+         * 
+         * @param title
+         *            title
+         */
+        public ScaleTimeSeries(final String title) {
+            super(title);
+        }
 
-		/**
-		 * Gets Date.
-		 * @param index index
-		 * @return Date
-		 */
-		public Date getDate(final int index) {
-			return new Date((long) getX(index));
-		}
+        /**
+         * Gets Date.
+         * 
+         * @param index
+         *            index
+         * @return Date
+         */
+        public Date getDate(final int index) {
+            return new Date((long) getX(index));
+        }
 
-		/**
-		 * Sets ScaleNumber.
-		 * @param scaleNumber scaleNumber
-		 */
-		public void setScaleNumber(final int scaleNumber) {
-			try {
-				Field field = XYSeries.class.getDeclaredField("mScaleNumber");
-				field.setAccessible(true);
-				field.set(this, scaleNumber);
-			} catch (Exception e) {
-				LOG.error("Cannot set scaleNumber", e);
-				throw new RuntimeException("Cannot set scaleNumber", e);
-			}
-		}
-	}
-
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(GraphicActivity.class);
-
-	/**
-	 * MAX_DATA_LIST_SIZE.
-	 */
-	private static final int MAX_DATA_LIST_SIZE = 1000;
-
-	/**
-	 * Visible chart length (seconds per 1000px).
-	 */
-	private static final int VISIBLE_CHART_LENGTH = 20;
-
-	/**
-	 * dataList.
-	 */
-	private final LinkedList<float[]> dataList = new LinkedList<>();
-
-	/**
-	 * labels.
-	 */
-	private SparseArray<LabelDTO> labels;
-
-	/**
-	 * bufferService.
-	 */
-	@Inject
-	private BufferService bufferService;
-
-	/**
-	 * labelService.
-	 */
-	@Inject
-	private LabelService labelService;
+        /**
+         * Sets ScaleNumber.
+         * 
+         * @param scaleNumber
+         *            scaleNumber
+         */
+        public void setScaleNumber(final int scaleNumber) {
+            try {
+                Field field = XYSeries.class.getDeclaredField("mScaleNumber");
+                field.setAccessible(true);
+                field.set(this, scaleNumber);
+            } catch (Exception e) {
+                LOG.error("Cannot set scaleNumber", e);
+                throw new RuntimeException("Cannot set scaleNumber", e);
+            }
+        }
+    }
 
     /**
-	 * chartContainer.
-	 */
-	@InjectView(value = R.id.chart_container)
-	private LinearLayout chartContainer;
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(GraphicActivity.class);
+
+    /**
+     * MAX_DATA_LIST_SIZE.
+     */
+    private static final int MAX_DATA_LIST_SIZE = 1000;
+
+    /**
+     * Visible chart length (seconds per 1000px).
+     */
+    private static final int VISIBLE_CHART_LENGTH = 20;
+
+    /**
+     * dataList.
+     */
+    private final LinkedList<float[]> dataList = new LinkedList<>();
+
+    /**
+     * labels.
+     */
+    private SparseArray<LabelDTO> labels;
+
+    /**
+     * bufferService.
+     */
+    @Inject
+    private BufferService bufferService;
+
+    /**
+     * labelService.
+     */
+    @Inject
+    private LabelService labelService;
+
+    /**
+     * chartContainer.
+     */
+    @InjectView(value = R.id.chart_container)
+    private LinearLayout chartContainer;
 
     /**
      * mChartView.
      */
     private GraphicalView mChartView;
 
-	/**
-	 * timeSeries.
-	 */
-	private ScaleTimeSeries[] timeSeries;
+    /**
+     * timeSeries.
+     */
+    private ScaleTimeSeries[] timeSeries;
 
-	/**
-	 * spinner.
-	 */
-	@InjectView(value = R.id.bChartSettings)
-	private ChartSettingsButton bChartSettings;
+    /**
+     * spinner.
+     */
+    @InjectView(value = R.id.bChartSettings)
+    private ChartSettingsButton bChartSettings;
 
-	/**
-	 * blocks.
-	 */
-	private boolean[] blocks = {true, false, false, false, false, false, false, false};
+    /**
+     * blocks.
+     */
+    private boolean[] blocks = { true, false, false, false, false, false, false, false };
 
-	/**
-	 * graphicActivityControl.
-	 */
-	@InjectView(R.id.graphicActivityControl)
-	private LinearLayout graphicActivityControl;
+    /**
+     * graphicActivityControl.
+     */
+    @InjectView(R.id.graphicActivityControl)
+    private LinearLayout graphicActivityControl;
 
-	/**
-	 * renderer.
-	 */
-	private XYMultipleSeriesRenderer renderer;
+    /**
+     * renderer.
+     */
+    private XYMultipleSeriesRenderer renderer;
 
-	/**
-	 * aChartUtil.
-	 */
-	@Inject
-	private ChartUtil chartUtil;
-	
-	/**
-	 * bluetoothService.
-	 */
-	@Inject
-	private BluetoothService bluetoothService;
+    /**
+     * aChartUtil.
+     */
+    @Inject
+    private ChartUtil chartUtil;
 
-	/**
-	 * isRocord.
-	 */
-	private boolean isRecording;
+    /**
+     * bluetoothService.
+     */
+    @Inject
+    private BluetoothService bluetoothService;
 
-	/**
-	 * bRec.
-	 */
-	@InjectView(R.id.bRec)
-	private Button bRec;
+    /**
+     * isRocord.
+     */
+    private boolean isRecording;
 
-	/**
-	 * blocksCount.
-	 */
-	private int blocksCount;
+    /**
+     * bRec.
+     */
+    @InjectView(R.id.bRec)
+    private Button bRec;
 
-	/**
-	 * controllerInfoService.
-	 */
-	@Inject
-	private ControllerInfoService controllerInfoService;
+    /**
+     * blocksCount.
+     */
+    private int blocksCount;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
+    /**
+     * controllerInfoService.
+     */
+    @Inject
+    private ControllerInfoService controllerInfoService;
 
-		case R.id.bGraphicBack:
-			LOG.debug("Exiting Graphic Activity");
-			finish();
-			break;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.bGraphicBack:
+                LOG.debug("Exiting Graphic Activity");
+                finish();
+                break;
+    
+            case R.id.bRec:
+                LOG.debug("Satrt/stop recording");
+                isRecording = !isRecording;
+                if (isRecording) {
+                    bRec.setText(getString(R.string.stop));
+                } else {
+                    bRec.setText(getString(R.string.start));
+                }
+                break;
+    
+            case R.id.bSave:
+                chartUtil.saveChart(timeSeries, blocksCount);
+                break;
+    
+            case ChartSettingsButton.OK_BUTTON_ID:
+            synchronized (blocks) {
+                blocks = bChartSettings.getBlocks();
+                LOG.debug("blocks {}", Arrays.toString(blocks));
+                bChartSettings.hideDialog();
+                initGraph();
+                repaint();
+            }
+                break;
+    
+            default:
+                break;
+        }
+    }
 
-		case R.id.bRec:
-			LOG.debug("Satrt/stop recording");
-			isRecording = !isRecording;
-			if (isRecording) {
-				bRec.setText(getString(R.string.stop));
-			} else {
-				bRec.setText(getString(R.string.start));
-			}
-			break;
+    @Override
+    public void onConfigurationChanged(final Configuration myConfig) {
+        super.onConfigurationChanged(myConfig);
+        int orient = getResources().getConfiguration().orientation;
+        switch (orient) {
+            case Configuration.ORIENTATION_LANDSCAPE:
+                graphicActivityControl.setVisibility(View.GONE);
+                break;
+            case Configuration.ORIENTATION_PORTRAIT:
+                graphicActivityControl.setVisibility(View.VISIBLE);
+                break;
+            default:
+        }
+    }
 
-		case R.id.bSave:
-			chartUtil.saveChart(timeSeries, blocksCount);
-			break;
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        int orient = getResources().getConfiguration().orientation;
+        if (orient == Configuration.ORIENTATION_LANDSCAPE) {
+            graphicActivityControl.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(new Runnable() {
+                public void run() {
+                    graphicActivityControl.setVisibility(View.GONE);
+                }
+            }, 3000);
+        }
+        return false;
+    }
 
-		case ChartSettingsButton.OK_BUTTON_ID:
-			synchronized (blocks) {
-				blocks = bChartSettings.getBlocks();
-				LOG.debug("blocks {}", Arrays.toString(blocks));
-				bChartSettings.hideDialog();
-				initGraph();
-				repaint();
-			}
-			break;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onKeyDown(final int keyCode, final KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+            if (controllerInfoService.getGroup() < 0xFF) {
+                controllerInfoService.setGroup(controllerInfoService.getGroup() + 1);
+                LOG.debug("Request for group {}", controllerInfoService.getGroup());
+                bluetoothService.write(controllerInfoService.getGroup());
+                timeSeries = null;
+            }
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            if (controllerInfoService.getGroup() > 0x01) {
+                controllerInfoService.setGroup(controllerInfoService.getGroup() - 1);
+                LOG.debug("Request for group {}", controllerInfoService.getGroup());
+                bluetoothService.write(controllerInfoService.getGroup());
+                timeSeries = null;
+            }
+            return true;
+        }
 
-		default:
-			break;
-		}
-	}
+        return super.onKeyDown(keyCode, event);
+    }
 
-	@Override
-	public void onConfigurationChanged(final Configuration myConfig) {
-		super.onConfigurationChanged(myConfig);
-		int orient = getResources().getConfiguration().orientation;
-		switch (orient) {
-		case Configuration.ORIENTATION_LANDSCAPE:
-			graphicActivityControl.setVisibility(View.GONE);
-			break;
-		case Configuration.ORIENTATION_PORTRAIT:
-			graphicActivityControl.setVisibility(View.VISIBLE);
-			break;
-		default:
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LOG.debug("onCreate");
+        setContentView(R.layout.activity_graphic);
+        /*
+         * controllerInfoService.setGroup(1);
+         * controllerInfoService.setVagNumber("028906021GL");
+         */
+        labels = labelService.getLabels();
+        setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
+        bChartSettings.setEnabled(false);
+        bRec.setText(getString(R.string.stop));
+        isRecording = true;
 
-	@Override
-	public boolean onCreateOptionsMenu(final Menu menu) {
-		int orient = getResources().getConfiguration().orientation;
-		if (orient == Configuration.ORIENTATION_LANDSCAPE) {
-			graphicActivityControl.setVisibility(View.VISIBLE);
-			new Handler().postDelayed(new Runnable() {
-				public void run() {
-					graphicActivityControl.setVisibility(View.GONE);
-				}
-			}, 3000);
-		}
-		return false;
-	}
+        // test();
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean onKeyDown(final int keyCode, final KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-			if (controllerInfoService.getGroup() < 0xFF) {
-				controllerInfoService.setGroup(controllerInfoService.getGroup() + 1);
-				LOG.debug("Request for group {}", controllerInfoService.getGroup());
-				bluetoothService.write(controllerInfoService.getGroup());
-				timeSeries = null;
-			}
-			return true;
-		} else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-			if (controllerInfoService.getGroup() > 0x01) {
-				controllerInfoService.setGroup(controllerInfoService.getGroup() - 1);
-				LOG.debug("Request for group {}", controllerInfoService.getGroup());
-				bluetoothService.write(controllerInfoService.getGroup());
-				timeSeries = null;
-			}
-			return true;
-		}
+    }
 
-		return super.onKeyDown(keyCode, event);
-	}
+    /**
+     * initGraph.
+     */
+    private void initGraph() {
+        // create dataset and renderer
+        renderer = new XYMultipleSeriesRenderer(2);
+        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		LOG.debug("onCreate");
-		setContentView(R.layout.activity_graphic);
-		/*controllerInfoService.setGroup(1);
-		controllerInfoService.setVagNumber("028906021GL");*/
-		labels = labelService.getLabels();
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.graphicLayout), this);
-		bChartSettings.setEnabled(false);
-		bRec.setText(getString(R.string.stop));
-		isRecording = true;
+        int length = 0;
+        for (int i = 0; i < blocks.length; i += 2) {
+            if (blocks[i]) {
+                timeSeries[i / 2].setScaleNumber(blocks[i + 1] ? 1 : 0);
+                dataset.addSeries(timeSeries[i / 2]);
+                length++;
+            }
+        }
 
-		//test();
+        chartUtil.setRenderer(renderer, labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getTitle(),
+                getString(R.string.x_axis_title), length);
+        for (XYSeries series : dataset.getSeries()) {
+            LOG.debug(String.valueOf(series.getScaleNumber()));
+        }
 
-	}
+        mChartView = ChartFactory.getTimeChartView(this, dataset, renderer, "H:mm:ss");
+        chartContainer.removeAllViews();
+        chartContainer.addView(mChartView);
+        mChartView.repaint();
+    }
 
-	/**
-	 * initGraph.
-	 */
-	private void initGraph() {
-		// create dataset and renderer
-		renderer = new XYMultipleSeriesRenderer(2);
-		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+    /**
+     * initSpinners.
+     * 
+     * @param blockCount
+     *            blockCount
+     */
+    private void initSpinners(final int blockCount) {
+        String[] items = new String[blockCount];
+        for (int i = 0; i < items.length; i++) {
+            items[i] = labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle();
+        }
+        bChartSettings.setItems(items);
+        bChartSettings.setBlocks(blocks);
+    }
 
-		int length = 0;
-		for (int i = 0; i < blocks.length; i += 2) {
-			if (blocks[i]) {
-				timeSeries[i / 2].setScaleNumber(blocks[i + 1] ? 1 : 0);
-				dataset.addSeries(timeSeries[i / 2]);
-				length++;
-			}
-		}
+    /**
+     * initTimeSeries.
+     * 
+     * @param blockCount
+     *            blockCount
+     */
+    private void initTimeSeries(final int blockCount) {
+        timeSeries = new ScaleTimeSeries[blockCount];
+        for (int i = 0; i < blockCount; i++) {
+            timeSeries[i] = new ScaleTimeSeries(labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle());
+        }
+    }
 
-		chartUtil.setRenderer(renderer, labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getTitle(),
-				getString(R.string.x_axis_title), length);
-		for (XYSeries series : dataset.getSeries()) {
-			LOG.debug(String.valueOf(series.getScaleNumber()));
-		}
+    /**
+     * proceedMessage.
+     * 
+     * @param message
+     *            buffer
+     * @throws ControllerWrongResponseException
+     *             if wrong response from controller occurs
+     */
+    protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
+        DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
 
-		mChartView = ChartFactory.getTimeChartView(this, dataset, renderer, "H:mm:ss");
-		chartContainer.removeAllViews();
-		chartContainer.addView(mChartView);
-		mChartView.repaint();
-	}
+        if (timeSeries == null) {
+            int blocksCount1 = 0; //TODO
+            for (DataStreamDTO dto : dtos) {
+                if (!dto.getValue().equals(getString(R.string.no_data))) {
+                    blocksCount1++;
+                }
+            }
+            this.blocksCount = blocksCount1;
+            initSpinners(blocksCount1);
+            initTimeSeries(blocksCount1);
+            bChartSettings.setEnabled(true);
+            initGraph();
+        }
 
-	/**
-	 * initSpinners.
-	 * @param blockCount blockCount
-	 */
-	private void initSpinners(final int blockCount) {
-		String[] items = new String[blockCount];
-		for (int i = 0; i < items.length; i++) {
-			items[i] = labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle();
-		}
-		bChartSettings.setItems(items);
-		bChartSettings.setBlocks(blocks);
-	}
+        if (dtos != null && isRecording) {
+            if (dataList.size() > MAX_DATA_LIST_SIZE) {
+                dataList.removeFirst();
+            }
+            float[] fs = new float[4];
+            for (int i = 0; i < 4; i++) {
+                fs[i] = dtos[i].getValueFloat();
+            }
+            dataList.addLast(fs);
 
-	/**
-	 * initTimeSeries.
-	 * @param blockCount blockCount
-	 */
-	private void initTimeSeries(final int blockCount) {
-		timeSeries = new ScaleTimeSeries[blockCount];
-		for (int i = 0; i < blockCount; i++) {
-			timeSeries[i] = new ScaleTimeSeries(labels.get(controllerInfoService.getGroup(), new LabelDTO(this)).getGroup()[i].getTitle());
-		}
-	}
+            if (mChartView != null) {
+                for (int i = 0; i < 4; i++) {
+                    fs[i] = dtos[i].getValueFloat();
+                    timeSeries[i].add(new Date(), dtos[i].getValueFloat());
+                }
+                repaint();
+            }
 
-	/**
-	 * proceedMessage.
-	 * @param message buffer
-	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 */
-	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
-		DataStreamDTO[] dtos = bufferService.getMeasBlocksInfo(message);
+        }
 
-		if (timeSeries == null) {
-			int blocksCount = 0;
-			for (DataStreamDTO dto:dtos) {
-				if (!dto.getValue().equals(getString(R.string.no_data))) {
-					blocksCount++;
-				}
-			}
-			this.blocksCount = blocksCount;
-			initSpinners(blocksCount);
-			initTimeSeries(blocksCount);
-			bChartSettings.setEnabled(true);
-			initGraph();
-		}
+    }
 
-		if (dtos != null && isRecording) {
-			if (dataList.size() > MAX_DATA_LIST_SIZE) {
-				dataList.removeFirst();
-			}
-			float[] fs = new float[4];
-			for (int i = 0; i < 4; i++) {
-				fs[i] = dtos[i].getValueFloat();
-			}
-			dataList.addLast(fs);
-			
-			if (mChartView != null) {
-				for (int i = 0; i < 4; i++) {
-					fs[i] = dtos[i].getValueFloat();
-					timeSeries[i].add(new Date(), dtos[i].getValueFloat());
-				}
-				repaint();
-			}
-			
-		}
+    /**
+     * repaint.
+     */
+    private void repaint() {
+        double[] range = renderer.getInitialRange();
+        double maxX = timeSeries[0].getMaxX();
+        double minX = timeSeries[0].getMinX();
+        int deltaX = VISIBLE_CHART_LENGTH * chartContainer.getWidth();
+        minX = (maxX - deltaX) < minX ? minX : maxX - deltaX;
 
-	}
+        renderer.setRange(new double[] { minX, maxX, range[2], range[3] });
+        mChartView.repaint();
+    }
 
-	/**
-	 * repaint.
-	 */
-	private void repaint() {
-		double[] range = renderer.getInitialRange();
-		double maxX = timeSeries[0].getMaxX();
-		double minX = timeSeries[0].getMinX();
-		int deltaX = VISIBLE_CHART_LENGTH * chartContainer.getWidth();
-		minX = (maxX - deltaX) < minX ? minX : maxX - deltaX;
+    private void test() {
+        byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
+        getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
-		renderer.setRange(new double[] {minX, maxX, range[2], range[3] });
-		mChartView.repaint();
-	}
-	
-	private void test() {
-		byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
-		getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
+                    getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                    buffer = bufferService.hexStringToByteArray("e701690127340015142505098c");
+                    getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
 
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				for (int i = 0; i < 100; i++) {
-					byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
-					getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
-					try {
-						Thread.sleep(300);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					buffer = bufferService.hexStringToByteArray("e701690127340015142505098c");
-					getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
-					try {
-						Thread.sleep(300);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		}).start();
-
-	}
+    }
 
 }

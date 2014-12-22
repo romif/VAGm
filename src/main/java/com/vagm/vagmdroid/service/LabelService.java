@@ -24,278 +24,291 @@ import com.vagm.vagmdroid.dto.LabelDTO.Group;
 
 /**
  * The Class LabelService.
+ * 
  * @author Roman_Konovalov
  */
 @Singleton
 public class LabelService {
 
-	/**
-	 * COMMENT_SYMBOl.
-	 */
-	private static final String COMMENT_SYMBOL = ";";
+    private static final String COMMA_DELEMITER = ",";
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(LabelService.class);
+    /**
+     * COMMENT_SYMBOl.
+     */
+    private static final String COMMENT_SYMBOL = ";";
 
-	/**
-	 * propertyService.
-	 */
-	@Inject
-	private PropertyService propertyService;
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(LabelService.class);
 
-	/**
-	 * context.
-	 */
-	@Inject
-	private Context context;
+    /**
+     * propertyService.
+     */
+    @Inject
+    private PropertyService propertyService;
 
-	/**
-	 * controllerInfoService.
-	 */
-	@Inject
-	private ControllerInfoService controllerInfoService;
+    /**
+     * context.
+     */
+    @Inject
+    private Context context;
 
-	/**
-	 * labels.
-	 */
-	private SparseArray<LabelDTO> labels;
+    /**
+     * controllerInfoService.
+     */
+    @Inject
+    private ControllerInfoService controllerInfoService;
 
-	/**
-	 * constructor.
-	 */
-	public LabelService() {
-	}
+    /**
+     * labels.
+     */
+    private SparseArray<LabelDTO> labels;
 
-	/**
-	 * getLabelFile.
-	 * @param fullEcu
-	 *            fullEcu
-	 * @return LabelFileName
-	 */
-	public String getLabelFileName(final String fullEcu) {
-		String ecu = fullEcu;
-		String ecuLit = "";
-		String result = null;
-		if (ecu.length() > 9) {
-			ecuLit = ecu.substring(9);
-			ecu = ecu.substring(0, 9);
-		}
+    /**
+     * constructor.
+     */
+    public LabelService() {
+    }
 
-		InputStream inputStream = null;
-		BufferedReader reader = null;
-		try {
-			inputStream = LabelService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
-			reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+    /**
+     * getLabelFile.
+     * 
+     * @param fullEcu
+     *            fullEcu
+     * @return LabelFileName
+     */
+    public String getLabelFileName(final String fullEcu) {
+        String ecu = fullEcu;
+        String ecuLit = "";
+        String result = null;
+        if (ecu.length() > 9) {
+            ecuLit = ecu.substring(9);
+            ecu = ecu.substring(0, 9);
+        }
 
-			String st;
-			while (((st = reader.readLine()) != null)) {
-				if (matchStrings(ecu, st.substring(4, 13))) {
-					String[] tokens = st.split(",");
-					if (tokens.length > 3) {
-						String[] liters = new String[tokens.length - 3];
-						System.arraycopy(tokens, 3, liters, 0, liters.length);
-						for (String lit : liters) {
-							if (ecuLit.equals(lit)) {
-								LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, tokens[2]);
-								return tokens[2];
-							}
-						}
-					} else {
-						result = tokens[2];
-					}
-				}
-			}
+        InputStream inputStream = null;
+        BufferedReader reader = null;
+        try {
+            inputStream = LabelService.class.getClassLoader().getResourceAsStream("assets/labels/Redirect.txt");
+            reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 
-		} catch (final IOException ex) {
-			LOG.error("Cannot read NA37.txt", ex);
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					LOG.error("Cannot close BufferedReader", e);
-				}
-			}
-		}
+            String st;
+            while (((st = reader.readLine()) != null)) {
+                if (matchStrings(ecu, st.substring(4, 13))) {
+                    String[] tokens = st.split(COMMA_DELEMITER);
+                    if (tokens.length > 3) {
+                        String[] liters = new String[tokens.length - 3];
+                        System.arraycopy(tokens, 3, liters, 0, liters.length);
+                        for (String lit : liters) {
+                            if (ecuLit.equals(lit)) {
+                                LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, tokens[2]);
+                                return tokens[2];
+                            }
+                        }
+                    } else {
+                        result = tokens[2];
+                    }
+                }
+            }
 
-		if (result != null) {
-			LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, result);
-		} else {
-			result = ecu.substring(0, 3) + "-" + ecu.substring(3, 6) + "-" + ecu.substring(6, 9) + ".lbl";
-			LOG.debug("Cannot find label file for ECU: {}, build default file name: ", fullEcu, result);
-		}
+        } catch (final IOException ex) {
+            LOG.error("Cannot read NA37.txt", ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    LOG.error("Cannot close BufferedReader", e);
+                }
+            }
+        }
 
-		return result;
-	}
+        if (result != null) {
+            LOG.debug("Found label file for ECU: {}, label: {}", fullEcu, result);
+        } else {
+            result = ecu.substring(0, 3) + "-" + ecu.substring(3, 6) + "-" + ecu.substring(6, 9) + ".lbl";
+            LOG.debug("Cannot find label file for ECU: {}, build default file name: ", fullEcu, result);
+        }
 
-	/**
-	 * matchStrings.
-	 * @param ecu
-	 *            ecu
-	 * @param pattern
-	 *            pattern
-	 * @return matching
-	 */
-	private static boolean matchStrings(final String ecu, final String pattern) {
-		String regex = pattern.replaceAll("\\?", ".");
-		return ecu.matches(regex);
-	}
+        return result;
+    }
 
-	/**
-	 * getLabels.
-	 * @return Labels
-	 */
-	public SparseArray<LabelDTO> getLabels() {
-		return labels == null ? getLabels(getLabelFileName(controllerInfoService.getVagNumber())) : labels;
-	}
+    /**
+     * matchStrings.
+     * 
+     * @param ecu
+     *            ecu
+     * @param pattern
+     *            pattern
+     * @return matching
+     */
+    private static boolean matchStrings(final String ecu, final String pattern) {
+        String regex = pattern.replaceAll("\\?", ".");
+        return ecu.matches(regex);
+    }
 
-	/**
-	 * getLabels.
-	 * @param fileName fileName
-	 * @return Labels
-	 */
-	public SparseArray<LabelDTO> getLabels(final String fileName) {
-		//LOG.debug("Begin getting labels for ecu: " + ecu);
-		//String fileName = getLabelFileName(ecu);
-		labels = new SparseArray<LabelDTO>();
-		BufferedReader reader = null;
-		Set<Integer> recordsCount = new HashSet<Integer>();
-		try {
-			File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
-					+ "labels" + File.separator + fileName);
-			if (!file.exists()) {
-				LOG.debug("Label file: " + fileName + " doesn't exist");
-				return labels;
-			}
-			reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
+    /**
+     * getLabels.
+     * 
+     * @return Labels
+     */
+    public SparseArray<LabelDTO> getLabels() {
+        return labels == null ? getLabels(getLabelFileName(controllerInfoService.getVagNumber())) : labels;
+    }
 
-			String st;
-			int lineCount = 0;
-			int groupNumber;
-			int prevGroupNumber = -1;
-			int blockNumber;
-			boolean firstCycle = true;
-			LabelDTO labelDTO = null;
-			while (((st = reader.readLine()) != null)) {
-				lineCount++;
-				//skip empty string and comments
-				if (st.equals("") || st.startsWith(COMMENT_SYMBOL)) {
-					continue;
-				}
+    /**
+     * getLabels.
+     * 
+     * @param fileName
+     *            fileName
+     * @return Labels
+     */
+    public SparseArray<LabelDTO> getLabels(final String fileName) {
+        // LOG.debug("Begin getting labels for ecu: " + ecu);
+        // String fileName = getLabelFileName(ecu);
+        labels = new SparseArray<LabelDTO>();
+        BufferedReader reader = null;
+        Set<Integer> recordsCount = new HashSet<Integer>();
+        try {
+            File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
+                    + "labels" + File.separator + fileName);
+            if (!file.exists()) {
+                LOG.debug("Label file: " + fileName + " doesn't exist");
+                return labels;
+            }
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
 
-				String[] tokens = st.split(",");
-				if (tokens.length < 2) {
-					LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
-					continue;
-				}
+            String st;
+            int lineCount = 0;
+            int groupNumber;
+            int prevGroupNumber = -1;
+            int blockNumber;
+            boolean firstCycle = true;
+            LabelDTO labelDTO = null;
+            while (((st = reader.readLine()) != null)) {
+                lineCount++;
+                // skip empty string and comments
+                if (st.equals("") || st.startsWith(COMMENT_SYMBOL)) {
+                    continue;
+                }
 
-				//skip adaptation, basic and coding labels
-				if (tokens[0].toUpperCase(Locale.ENGLISH).startsWith("A") || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("B")
-						|| tokens[0].toUpperCase(Locale.ENGLISH).startsWith("C")) {
-					continue;
-				}
+                String[] tokens = st.split(COMMA_DELEMITER);
+                if (tokens.length < 2) {
+                    LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
+                    continue;
+                }
 
-				try {
-					groupNumber = Integer.parseInt(tokens[0]);
-					blockNumber = Integer.parseInt(tokens[1]);
-				} catch (NumberFormatException e) {
-					LOG.debug("Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + "," + tokens[1]);
-					continue;
-				}
+                // skip adaptation, basic and coding labels
+                if (tokens[0].toUpperCase(Locale.ENGLISH).startsWith("A") || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("B")
+                        || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("C")) {
+                    continue;
+                }
 
-				if ((blockNumber < 0) || (blockNumber > 4)) {
-					LOG.debug("Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
-					continue;
-				}
+                try {
+                    groupNumber = Integer.parseInt(tokens[0]);
+                    blockNumber = Integer.parseInt(tokens[1]);
+                } catch (NumberFormatException e) {
+                    LOG.debug("Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + COMMA_DELEMITER + tokens[1]);
+                    continue;
+                }
 
-				//skip 0 group
-				if (groupNumber == 0) {
-					continue;
-				}
+                if ((blockNumber < 0) || (blockNumber > 4)) {
+                    LOG.debug("Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
+                    continue;
+                }
 
-				recordsCount.add(groupNumber);
+                // skip 0 group
+                if (groupNumber == 0) {
+                    continue;
+                }
 
-				if (firstCycle) {
-					prevGroupNumber = groupNumber;
-					labelDTO = new LabelDTO(context);
-					firstCycle = false;
-				}
+                recordsCount.add(groupNumber);
 
-				if (groupNumber != prevGroupNumber) {
-					labels.put(prevGroupNumber, labelDTO);
-					labelDTO = new LabelDTO(context);
-				}
+                if (firstCycle) {
+                    prevGroupNumber = groupNumber;
+                    labelDTO = new LabelDTO(context);
+                    firstCycle = false;
+                }
 
-				prevGroupNumber = groupNumber;
-				fillLabel(labelDTO, tokens, blockNumber);
+                if (groupNumber != prevGroupNumber) {
+                    labels.put(prevGroupNumber, labelDTO);
+                    labelDTO = new LabelDTO(context);
+                }
 
-			}
-			if (labelDTO != null) {
-				labels.put(prevGroupNumber, labelDTO);
-			}
+                prevGroupNumber = groupNumber;
+                fillLabel(labelDTO, tokens, blockNumber);
 
-		} catch (final IOException ex) {
-			LOG.error("Cannot find label file", ex);
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					LOG.error("Cannot close BufferedReader", e);
-				}
-			}
-		}
-		//Assert.assertEquals("Wrong records count", recordsCount.size(), result.size());
-		LOG.debug("Found group records: " + labels.size());
-		return labels;
-	}
+            }
+            if (labelDTO != null) {
+                labels.put(prevGroupNumber, labelDTO);
+            }
 
-	/**
-	 * clearLabels.
-	 */
-	public void clearLabels() {
-		labels = null;
-	}
+        } catch (final IOException ex) {
+            LOG.error("Cannot find label file", ex);
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    LOG.error("Cannot close BufferedReader", e);
+                }
+            }
+        }
+        // Assert.assertEquals("Wrong records count", recordsCount.size(),
+        // result.size());
+        LOG.debug("Found group records: " + labels.size());
+        return labels;
+    }
 
-	/**
-	 * getFilledGoup.
-	 * @param tokens tokens
-	 * @return FilledGoup
-	 */
-	private static Group getFilledGoup(final String[] tokens) {
-		switch (tokens.length) {
-		case 3:
-			return new Group(tokens[2], "", "");
+    /**
+     * clearLabels.
+     */
+    public void clearLabels() {
+        labels = null;
+    }
 
-		case 4:
-			return new Group(tokens[2], tokens[3], "");
+    /**
+     * getFilledGoup.
+     * 
+     * @param tokens
+     *            tokens
+     * @return FilledGoup
+     */
+    private static Group getFilledGoup(final String[] tokens) {
+        switch (tokens.length) {
+            case 3:
+                return new Group(tokens[2], "", "");
+    
+            case 4:
+                return new Group(tokens[2], tokens[3], "");
+    
+            case 5:
+                return new Group(tokens[2], tokens[3], tokens[4]);
+    
+            default:
+                return new Group("", "", "");
+        }
+    }
 
-		case 5:
-			return new Group(tokens[2], tokens[3], tokens[4]);
-
-		default:
-			return new Group("", "", "");
-		}
-	}
-
-	/**
-	 * fillLabel.
-	 * @param label label
-	 * @param tokens tokens
-	 * @param blockNumber blockNumber
-	 */
-	private static void fillLabel(final LabelDTO label, final String[] tokens, final int blockNumber) {
-		if (blockNumber == 0) {
-			if (tokens.length > 2) {
-				label.setTitle(tokens[2]);
-			} else {
-				label.setTitle("");
-			}
-		} else {
-			label.getGroup()[blockNumber - 1] = getFilledGoup(tokens);
-		}
-	}
+    /**
+     * fillLabel.
+     * 
+     * @param label
+     *            label
+     * @param tokens
+     *            tokens
+     * @param blockNumber
+     *            blockNumber
+     */
+    private static void fillLabel(final LabelDTO label, final String[] tokens, final int blockNumber) {
+        if (blockNumber == 0) {
+            if (tokens.length > 2) {
+                label.setTitle(tokens[2]);
+            } else {
+                label.setTitle("");
+            }
+        } else label.getGroup()[blockNumber - 1] = getFilledGoup(tokens);
+    }
 
 }

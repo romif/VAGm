@@ -33,123 +33,124 @@ import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
  */
 public class ShowLogActivity extends CustomAbstractActivity implements OnClickListener {
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(ShowLogActivity.class);
-	
-	private static final CountDownLatch LATCH = new CountDownLatch(1);
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(ShowLogActivity.class);
 
-	/**
-	 * fileService.
-	 */
-	@Inject
-	private FileService fileService;
-	
-	/**
-	 * bufferService.
-	 */
-	@Inject
-	private BufferService bufferService;
-	
-	/**
-	 * bluetoothService.
-	 */
-	@Inject
-	private BluetoothService bluetoothService;
+    private static final CountDownLatch LATCH = new CountDownLatch(1);
 
-	/**
-	 * logText.
-	 */
-	@InjectView(R.id.log_text)
-	private TextView logText;
+    /**
+     * fileService.
+     */
+    @Inject
+    private FileService fileService;
 
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.bViewMobileLog:
-			startActivityForResult(new Intent(this, FaultCodesActivity.class), -1);
-			break;
+    /**
+     * bufferService.
+     */
+    @Inject
+    private BufferService bufferService;
 
-		default:
-			break;
-		}
+    /**
+     * bluetoothService.
+     */
+    @Inject
+    private BluetoothService bluetoothService;
 
-	}
+    /**
+     * logText.
+     */
+    @InjectView(R.id.log_text)
+    private TextView logText;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.bViewMobileLog:
+                startActivityForResult(new Intent(this, FaultCodesActivity.class), -1);
+                break;
+    
+            default:
+                break;
+        }
 
-		// Setup the window
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		setContentView(R.layout.show_log);
+    }
 
-		// Set result CANCELED incase the user backs out
-		setResult(Activity.RESULT_CANCELED);
-		
-		if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof File) {
-			readPhoneLogFile();
-		} else {
-			getAdapterLog();
-		}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-	}
+        // Setup the window
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setContentView(R.layout.show_log);
 
-	private void getAdapterLog() {
-		new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 5000) {
+        // Set result CANCELED incase the user backs out
+        setResult(Activity.RESULT_CANCELED);
 
-			@Override
-			protected Void doBackgroundJob() {
-				LOG.debug("Request for adapter log");
-				bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
-				try {
-					LATCH.await();
-				} catch (InterruptedException e) {
-					LOG.error(e.getMessage());
-				}	
-				
-				return null;
-			}
+        if (getIntent().getExtras().get(SendLogActivity.LOG_TEXT) instanceof File) {
+            readPhoneLogFile();
+        } else {
+            getAdapterLog();
+        }
 
-		}.execute();
-		
-	}
+    }
 
-	private void readPhoneLogFile() {
-		new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
-			@Override
-			protected String doBackgroundJob() {
-				try {
-					return fileService.convertStreamToString(new FileInputStream((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT)));
-				} catch (FileNotFoundException e) {
-					LOG.error(e.getMessage());
-					return "";
-				}
-			}
-			
-			@Override
-			public void onJobDone(String result) {
-				logText.setText(result);
-			}
-			
-		}.execute();
+    private void getAdapterLog() {
+        new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 5000) {
 
-	}
-	
-	@Override
-	public void onBackPressed() {
-		finish();
-	}
-	
-	@Override
-	protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {		
-		logText.setText(bufferService.encodeAdapterLog(message));
-		
-		LATCH.countDown();
-	}
+            @Override
+            protected Void doBackgroundJob() {
+                LOG.debug("Request for adapter log");
+                bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
+                try {
+                    LATCH.await();
+                } catch (InterruptedException e) {
+                    LOG.error(e.getMessage());
+                }
+
+                return null;
+            }
+
+        }.execute();
+
+    }
+
+    private void readPhoneLogFile() {
+        new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
+            @Override
+            protected String doBackgroundJob() {
+                try {
+                    return fileService.convertStreamToString(new FileInputStream((File) getIntent().getExtras().get(
+                            SendLogActivity.LOG_TEXT)));
+                } catch (FileNotFoundException e) {
+                    LOG.error(e.getMessage());
+                    return "";
+                }
+            }
+
+            @Override
+            public void onJobDone(String result) {
+                logText.setText(result);
+            }
+
+        }.execute();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
+    @Override
+    protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {
+        logText.setText(bufferService.encodeAdapterLog(message));
+
+        LATCH.countDown();
+    }
 
 }

@@ -1,7 +1,14 @@
 package com.vagm.vagmdroid.service;
 
+/**
+ * The Class TimeOutJob.
+ * @author Roman_Konovalov
+ */
 public interface TimeOutJob {
-	
-	void onTimeout();
+
+    /**
+     * onTimeout.
+     */
+    void onTimeout();
 
 }

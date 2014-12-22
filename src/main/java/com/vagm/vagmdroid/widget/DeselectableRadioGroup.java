@@ -29,28 +29,40 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 
 /**
- * <p>This class is used to create a multiple-exclusion scope for a set of deselectable radio 
- * buttons. Checking one deselectable radio button that belongs to an deselectable radio group 
- * unchecks any previously checked deselectable radio button within the same group.</p>
- *
- * <p>Intially, all of the deselectable radio buttons are unchecked. It is possible to uncheck a 
- * particular deselectable radio button, the deselectable radio group can be cleared to remove the 
- * checked state.</p>
- *
- * <p>The selection is identified by the unique id of the deselectable radio button as defined in 
- * the XML layout file.</p>
- *
- * <p><strong>XML Attributes</strong></p>
- * <p>See {@link android.R.styleable#RadioGroup RadioGroup Attributes}, 
+ * <p>
+ * This class is used to create a multiple-exclusion scope for a set of
+ * deselectable radio buttons. Checking one deselectable radio button that
+ * belongs to an deselectable radio group unchecks any previously checked
+ * deselectable radio button within the same group.
+ * </p>
+ * 
+ * <p>
+ * Intially, all of the deselectable radio buttons are unchecked. It is possible
+ * to uncheck a particular deselectable radio button, the deselectable radio
+ * group can be cleared to remove the checked state.
+ * </p>
+ * 
+ * <p>
+ * The selection is identified by the unique id of the deselectable radio button
+ * as defined in the XML layout file.
+ * </p>
+ * 
+ * <p>
+ * <strong>XML Attributes</strong>
+ * </p>
+ * <p>
+ * See {@link android.R.styleable#RadioGroup RadioGroup Attributes},
  * {@link android.R.styleable#LinearLayout LinearLayout Attributes},
  * {@link android.R.styleable#ViewGroup ViewGroup Attributes},
- * {@link android.R.styleable#View View Attributes}</p>
- * <p>Also see
- * {@link android.widget.LinearLayout.LayoutParams LinearLayout.LayoutParams}
- * for layout attributes.</p>
+ * {@link android.R.styleable#View View Attributes}
+ * </p>
+ * <p>
+ * Also see {@link android.widget.LinearLayout.LayoutParams
+ * LinearLayout.LayoutParams} for layout attributes.
+ * </p>
  * 
  * @see DeselectableRadioButton
- *
+ * 
  */
 public class DeselectableRadioGroup extends RadioGroup {
     // holds the checked id; the selection is empty by default
@@ -63,7 +75,8 @@ public class DeselectableRadioGroup extends RadioGroup {
     private PassThroughHierarchyChangeListener mPassThroughListener;
 
     /**
-     * {@inheritDoc}
+     * constructor.
+     * @param context
      */
     public DeselectableRadioGroup(Context context) {
         super(context);
@@ -71,7 +84,9 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * {@inheritDoc}
+     * constructor.
+     * @param context
+     * @param attrs
      */
     public DeselectableRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -100,7 +115,8 @@ public class DeselectableRadioGroup extends RadioGroup {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        // checks the appropriate deselectable radio button as requested in the XML file
+        // checks the appropriate deselectable radio button as requested in the
+        // XML file
         if (mCheckedId != -1) {
             mProtectFromCheckedChange = true;
             setCheckedStateForView(mCheckedId, true);
@@ -127,12 +143,17 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>Sets the selection to the deselectable radio button whose identifier is 
-     * passed in parameter. Using -1 as the selection identifier clears the selection;
-     * such an operation is equivalent to invoking {@link #clearCheck()}.</p>
-     *
-     * @param id the unique id of the deselectable radio button to select in this group
-     *
+     * <p>
+     * Sets the selection to the deselectable radio button whose identifier is
+     * passed in parameter. Using -1 as the selection identifier clears the
+     * selection; such an operation is equivalent to invoking
+     * {@link #clearCheck()}.
+     * </p>
+     * 
+     * @param id
+     *            the unique id of the deselectable radio button to select in
+     *            this group
+     * 
      * @see #getCheckedRadioButtonId()
      * @see #clearCheck()
      */
@@ -168,11 +189,14 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>Returns the identifier of the selected deselectable radio button in this 
-     * group. Upon empty selection, the returned value is -1.</p>
-     *
-     * @return the unique id of the selected deselectable radio button in this group
-     *
+     * <p>
+     * Returns the identifier of the selected deselectable radio button in this
+     * group. Upon empty selection, the returned value is -1.
+     * </p>
+     * 
+     * @return the unique id of the selected deselectable radio button in this
+     *         group
+     * 
      * @see #check(int)
      * @see #clearCheck()
      */
@@ -181,10 +205,12 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>Clears the selection. When the selection is cleared, no deselectable radio 
-     * button in this group is selected and {@link #getCheckedRadioButtonId()} returns
-     * null.</p>
-     *
+     * <p>
+     * Clears the selection. When the selection is cleared, no deselectable
+     * radio button in this group is selected and
+     * {@link #getCheckedRadioButtonId()} returns null.
+     * </p>
+     * 
      * @see #check(int)
      * @see #getCheckedRadioButtonId()
      */
@@ -193,10 +219,13 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>Register a callback to be invoked when the checked deselectable 
-     * radio button changes in this group.</p>
-     *
-     * @param listener the callback to call on checked state change
+     * <p>
+     * Register a callback to be invoked when the checked deselectable radio
+     * button changes in this group.
+     * </p>
+     * 
+     * @param listener
+     *            the callback to call on checked state change
      */
     public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeListener = listener;
@@ -224,71 +253,90 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>This set of layout parameters defaults the width and the height of
-     * the children to {@link #WRAP_CONTENT} when they are not specified in the
-     * XML file. Otherwise, this class ussed the value read from the XML file.</p>
-     *
-     * <p>See
-     * {@link android.R.styleable#LinearLayout_Layout LinearLayout Attributes}
-     * for a list of all child view attributes that this class supports.</p>
-     *
+     * <p>
+     * This set of layout parameters defaults the width and the height of the
+     * children to {@link #WRAP_CONTENT} when they are not specified in the XML
+     * file. Otherwise, this class ussed the value read from the XML file.
+     * </p>
+     * 
+     * <p>
+     * See {@link android.R.styleable#LinearLayout_Layout LinearLayout
+     * Attributes} for a list of all child view attributes that this class
+     * supports.
+     * </p>
+     * 
      */
     public static class LayoutParams extends LinearLayout.LayoutParams {
+
         /**
-         * {@inheritDoc}
+         * constructor.
+         * @param c
+         * @param attrs
          */
         public LayoutParams(Context c, AttributeSet attrs) {
             super(c, attrs);
         }
 
         /**
-         * {@inheritDoc}
+         * constructor.
+         * @param w
+         * @param h
          */
         public LayoutParams(int w, int h) {
             super(w, h);
         }
 
         /**
-         * {@inheritDoc}
+         * constructor.
+         * @param w
+         * @param h
+         * @param initWeight
          */
         public LayoutParams(int w, int h, float initWeight) {
             super(w, h, initWeight);
         }
 
         /**
-         * {@inheritDoc}
+         * constructor.
+         * @param p
          */
         public LayoutParams(ViewGroup.LayoutParams p) {
             super(p);
         }
 
         /**
-         * {@inheritDoc}
+         * constructor.
+         * @param source
          */
         public LayoutParams(MarginLayoutParams source) {
             super(source);
         }
 
         /**
-         * <p>Fixes the child's width to
-         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} and the child's
-         * height to  {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT}
-         * when not specified in the XML file.</p>
-         *
-         * @param a the styled attributes set
-         * @param widthAttr the width attribute to fetch
-         * @param heightAttr the height attribute to fetch
+         * <p>
+         * Fixes the child's width to
+         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} and the
+         * child's height to
+         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} when not
+         * specified in the XML file.
+         * </p>
+         * 
+         * @param a
+         *            the styled attributes set
+         * @param widthAttr
+         *            the width attribute to fetch
+         * @param heightAttr
+         *            the height attribute to fetch
          */
         @Override
-        protected void setBaseAttributes(TypedArray a,
-                int widthAttr, int heightAttr) {
+        protected void setBaseAttributes(TypedArray a, int widthAttr, int heightAttr) {
 
             if (a.hasValue(widthAttr)) {
                 width = a.getLayoutDimension(widthAttr, "layout_width");
             } else {
                 width = WRAP_CONTENT;
             }
-            
+
             if (a.hasValue(heightAttr)) {
                 height = a.getLayoutDimension(heightAttr, "layout_height");
             } else {
@@ -298,16 +346,24 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>Interface definition for a callback to be invoked when the checked
-     * deselectable radio button changed in this group.</p>
+     * <p>
+     * Interface definition for a callback to be invoked when the checked
+     * deselectable radio button changed in this group.
+     * </p>
      */
     public interface OnCheckedChangeListener {
         /**
-         * <p>Called when the checked deselectable radio button has changed. 
-         * When the selection is cleared, checkedId is -1.</p>
-         *
-         * @param group the group in which the checked deselectable radio button has changed
-         * @param checkedId the unique identifier of the newly checked deselectable radio button
+         * <p>
+         * Called when the checked deselectable radio button has changed. When
+         * the selection is cleared, checkedId is -1.
+         * </p>
+         * 
+         * @param group
+         *            the group in which the checked deselectable radio button
+         *            has changed
+         * @param checkedId
+         *            the unique identifier of the newly checked deselectable
+         *            radio button
          */
         public void onCheckedChanged(RadioGroup group, int checkedId);
     }
@@ -331,12 +387,13 @@ public class DeselectableRadioGroup extends RadioGroup {
     }
 
     /**
-     * <p>A pass-through listener acts upon the events and dispatches them
-     * to another listener. This allows the table layout to set its own internal
-     * hierarchy change listener without preventing the user to setup his.</p>
+     * <p>
+     * A pass-through listener acts upon the events and dispatches them to
+     * another listener. This allows the table layout to set its own internal
+     * hierarchy change listener without preventing the user to setup his.
+     * </p>
      */
-    private class PassThroughHierarchyChangeListener implements
-            ViewGroup.OnHierarchyChangeListener {
+    private class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         private ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
 
         /**
@@ -350,9 +407,8 @@ public class DeselectableRadioGroup extends RadioGroup {
                     id = child.hashCode();
                     child.setId(id);
                 }
-                
-                setOnCheckedChangeWidgetListener(((DeselectableRadioButton) child), 
-                        mChildOnCheckedChangeListener);
+
+                setOnCheckedChangeWidgetListener(((DeselectableRadioButton) child), mChildOnCheckedChangeListener);
             }
 
             if (mOnHierarchyChangeListener != null) {
@@ -372,20 +428,17 @@ public class DeselectableRadioGroup extends RadioGroup {
                 mOnHierarchyChangeListener.onChildViewRemoved(parent, child);
             }
         }
-        
-        private void setOnCheckedChangeWidgetListener(
-                DeselectableRadioButton deselectableRadioButton, 
+
+        private void setOnCheckedChangeWidgetListener(DeselectableRadioButton deselectableRadioButton,
                 android.widget.CompoundButton.OnCheckedChangeListener checkedChangeListener) {
-            
+
             try {
-                Method widgetChangeListenerMethod = CompoundButton.class.getDeclaredMethod(
-                        "setOnCheckedChangeWidgetListener", 
+                Method widgetChangeListenerMethod = CompoundButton.class.getDeclaredMethod("setOnCheckedChangeWidgetListener",
                         CompoundButton.OnCheckedChangeListener.class);
-                
-                if(widgetChangeListenerMethod != null) {
-                    widgetChangeListenerMethod.setAccessible(true); 
-                    widgetChangeListenerMethod.invoke(deselectableRadioButton, 
-                            checkedChangeListener);
+
+                if (widgetChangeListenerMethod != null) {
+                    widgetChangeListenerMethod.setAccessible(true);
+                    widgetChangeListenerMethod.invoke(deselectableRadioButton, checkedChangeListener);
                 }
             } catch (SecurityException e) {
                 e.printStackTrace();

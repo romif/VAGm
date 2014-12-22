@@ -16,6 +16,10 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<slf4j.version>1.7.7</slf4j.version>
 		<logback.android.version>1.1.1-2</logback.android.version>
+		<maven.checkstyle.plugin>2.10</maven.checkstyle.plugin>
+		<maven.pmd.plugin>2.7.1</maven.pmd.plugin>
+		<maven.findbugs.plugin>2.5.2</maven.findbugs.plugin>
+		<maven.surefire.plugin>2.16</maven.surefire.plugin>
 	</properties>
 
 	<repositories>
@@ -109,6 +113,190 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin}</version>
+                <!-- <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>integrationMode</name>
+                            <value>${integrationMode}</value>
+                        </property>
+                    </systemProperties>
+                </configuration> -->
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <configuration>
+                            <argLine>${surefireArgLine} -XX:-UseSplitVerifier</argLine>
+                            <!-- Set by Jacoco plugin -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.2.201409121644</version>
+                <executions>
+                    <!--
+                       Prepares the property pointing to the JaCoCo runtime agent which
+                       is passed as VM argument when Maven the Surefire plugin is executed.
+                   -->
+                    <execution>
+                        <id>unit-test-coverage-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Sets the path to the file which contains the execution data. -->
+                            <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                            <!--
+                               Sets the name of the property containing the settings
+                               for JaCoCo runtime agent.
+                           -->
+                            <propertyName>surefireArgLine</propertyName>
+                        </configuration>
+                    </execution>
+                    <!--
+                       Ensures that the code coverage report for unit tests is created after
+                       unit tests have been run.
+                   -->
+                    <execution>
+                        <id>unit-test-coverage-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Sets the path to the file which contains the execution data. -->
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                            <!-- Sets the output directory for the code coverage report. -->
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>unit-test-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
 		</plugins>
 	</build>
+	
+	<reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven.pmd.plugin}</version>
+            </plugin>
+        </plugins>
+    </reporting>
+	
+	<profiles>
+        <profile>
+            <id>quality-checks</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${maven.checkstyle.plugin}</version>
+                        <!-- <dependencies>
+                            <dependency>
+                                <groupId>com.msm</groupId>
+                                <artifactId>aggregation-platform-code-quality</artifactId>
+                                <version>${codequality.version}</version>
+                            </dependency>
+                        </dependencies> -->
+                        <executions>
+                            <execution>
+                                <id>default-checkstyle-checks</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <configLocation>checkstyle_checks.xml</configLocation>
+                                    <suppressionsLocation>checkstyle_suppressions.xml</suppressionsLocation>
+                                    <consoleOutput>true</consoleOutput>
+                                    <logViolationsToConsole>true</logViolationsToConsole>
+                                    <violationSeverity>warning</violationSeverity>
+                                    <failOnViolation>true</failOnViolation>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <!-- Use -Dcheckstyle.skipExec=true to bypass -->
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>findbugs-maven-plugin</artifactId>
+                        <version>${maven.findbugs.plugin}</version>
+                        <!-- <configuration>
+                            <onlyAnalyze>com.msm.-</onlyAnalyze>
+                            <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
+                        </configuration> -->
+                        <executions>
+                            <execution>
+                                <id>default-findbugs-checks</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                                <configuration>
+                                    <includeFilterFile>findbugs.xml</includeFilterFile>
+                                    <failOnError>true</failOnError>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${maven.pmd.plugin}</version>
+                        <configuration>
+                            <failOnViolation>true</failOnViolation>
+                            <failurePriority>3</failurePriority>
+                            <aggregate>true</aggregate>
+                            <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+                            <!-- The minimum tokens before a violation -->
+                            <minimumTokens>100</minimumTokens>
+                            <!-- Turn off if no xref report -->
+                            <linkXRef>true</linkXRef>
+                            <verbose>true</verbose>
+                            <targetJdk>${java.version}</targetJdk>
+                            <rulesets>
+                                <ruleset>pmd.xml</ruleset>
+                            </rulesets>
+                            <excludeRoots>
+                                <excludeRoot>target/generated-sources/jaxb</excludeRoot>
+                            </excludeRoots>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                    <goal>pmd</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+	
+	
 </project>

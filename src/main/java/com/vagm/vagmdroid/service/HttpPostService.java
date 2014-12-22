@@ -14,155 +14,151 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.vagm.vagmdroid.dto.HttpPostDTO;
 
 /**
  * The Class HttpPostService.
+ * 
  * @author roman_konovalov
  */
 @Singleton
 public class HttpPostService {
 
-	/**
-	 * The Class MediaType.
-	 */
-	public static class MediaType {
+    /**
+     * The Class MediaType.
+     */
+    public static class MediaType {
 
-		/**
-		 * "multipart/form-data".
-		 */
-		public static final String MULTIPART_FORM_DATA = "multipart/form-data";
-	}
+        /**
+         * "multipart/form-data".
+         */
+        public static final String MULTIPART_FORM_DATA = "multipart/form-data";
+    }
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(HttpPostService.class);
-	
-	/**
-	 * FORM_PARAM.
-	 */
-	private static final String FORM_PARAM = "log";
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(HttpPostService.class);
 
-	/**
-	 * fileService.
-	 */
-	@Inject
-	private FileService fileService;
+    /**
+     * FORM_PARAM.
+     */
+    private static final String FORM_PARAM = "log";
 
-	/**
-	 * Default constructor.
-	 */
-	public HttpPostService() {
-	}
-	
-	public String doMultipartRequest(HttpPostDTO httpPostDTO) {
-		return doMultipartRequest(httpPostDTO.getUrlTo(), httpPostDTO.getParmas(), httpPostDTO.getFile(), httpPostDTO.getFileMimeType());
-	}
+    /**
+     * fileService.
+     */
+    @Inject
+    private FileService fileService;
 
-	/**
-	 * doMultipartRequest.
-	 * @param urlTo
-	 *            urlTo
-	 * @param parmas
-	 *            parmas
-	 * @param file
-	 *            file
-	 * @param fileMimeType
-	 *            fileMimeType
-	 * @return response
-	 */
-	public String doMultipartRequest(final String urlTo, final Map<String, String> parmas, final File file, final String fileMimeType) {
-		HttpURLConnection connection = null;
-		DataOutputStream outputStream = null;
-		InputStream inputStream = null;
+    /**
+     * Default constructor.
+     */
+    public HttpPostService() {
+    }
 
-		final String twoHyphens = "--";
-		final String boundary = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
-		final String lineEnd = "\r\n";
+    /**
+     * doMultipartRequest.
+     * 
+     * @param urlTo
+     *            urlTo
+     * @param parmas
+     *            parmas
+     * @param file
+     *            file
+     * @param fileMimeType
+     *            fileMimeType
+     * @return response
+     */
+    public String doMultipartRequest(final String urlTo, final Map<String, String> parmas, final File file, final String fileMimeType) {
+        HttpURLConnection connection = null;
+        DataOutputStream outputStream = null;
+        InputStream inputStream = null;
 
-		String result = "";
+        final String twoHyphens = "--";
+        final String boundary = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
+        final String lineEnd = "\r\n";
 
-		int bytesRead, bytesAvailable, bufferSize;
-		byte[] buffer;
-		final int maxBufferSize = 1 * 1024 * 1024;
+        String result = "";
 
-		try {
-			final FileInputStream fileInputStream = new FileInputStream(file);
+        int bytesRead, bytesAvailable, bufferSize;
+        byte[] buffer;
+        final int maxBufferSize = 1 * 1024 * 1024;
 
-			final URL url = new URL(urlTo);
-			connection = (HttpURLConnection) url.openConnection();
+        try {
+            final FileInputStream fileInputStream = new FileInputStream(file);
 
-			connection.setDoInput(true);
-			connection.setDoOutput(true);
-			connection.setUseCaches(false);
+            final URL url = new URL(urlTo);
+            connection = (HttpURLConnection) url.openConnection();
 
-			connection.setRequestMethod("POST");
-			connection.setRequestProperty("Connection", "Keep-Alive");
-			connection.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
-			connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);
 
-			outputStream = new DataOutputStream(connection.getOutputStream());
-			outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-			outputStream.writeBytes("Content-Disposition: form-data; name=\"" + FORM_PARAM + "\""
-					+ lineEnd);
-			outputStream.writeBytes("Content-Type: " + fileMimeType + lineEnd);
-			outputStream.writeBytes("Content-Transfer-Encoding: binary" + lineEnd);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Connection", "Keep-Alive");
+            connection.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
+            connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
 
-			outputStream.writeBytes(lineEnd);
+            outputStream = new DataOutputStream(connection.getOutputStream());
+            outputStream.writeBytes(twoHyphens + boundary + lineEnd);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"" + FORM_PARAM + "\"" + lineEnd);
+            outputStream.writeBytes("Content-Type: " + fileMimeType + lineEnd);
+            outputStream.writeBytes("Content-Transfer-Encoding: binary" + lineEnd);
 
-			bytesAvailable = fileInputStream.available();
-			bufferSize = Math.min(bytesAvailable, maxBufferSize);
-			buffer = new byte[bufferSize];
+            outputStream.writeBytes(lineEnd);
 
-			bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-			while (bytesRead > 0) {
-				outputStream.write(buffer, 0, bufferSize);
-				bytesAvailable = fileInputStream.available();
-				bufferSize = Math.min(bytesAvailable, maxBufferSize);
-				bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-			}
+            bytesAvailable = fileInputStream.available();
+            bufferSize = Math.min(bytesAvailable, maxBufferSize);
+            buffer = new byte[bufferSize];
 
-			outputStream.writeBytes(lineEnd);
+            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+            while (bytesRead > 0) {
+                outputStream.write(buffer, 0, bufferSize);
+                bytesAvailable = fileInputStream.available();
+                bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+            }
 
-			// Upload POST Data
-			final Iterator<String> keys = parmas.keySet().iterator();
-			while (keys.hasNext()) {
-				final String key = keys.next();
-				final String value = parmas.get(key);
+            outputStream.writeBytes(lineEnd);
 
-				outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-				outputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
-				outputStream.writeBytes("Content-Type: text/plain" + lineEnd);
-				outputStream.writeBytes(lineEnd);
-				outputStream.writeBytes(value);
-				outputStream.writeBytes(lineEnd);
-			}
+            // Upload POST Data
+            final Iterator<String> keys = parmas.keySet().iterator();
+            while (keys.hasNext()) {
+                final String key = keys.next();
+                final String value = parmas.get(key);
 
-			outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+                outputStream.writeBytes(twoHyphens + boundary + lineEnd);
+                outputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
+                outputStream.writeBytes("Content-Type: text/plain" + lineEnd);
+                outputStream.writeBytes(lineEnd);
+                outputStream.writeBytes(value);
+                outputStream.writeBytes(lineEnd);
+            }
 
-			if (200 != connection.getResponseCode()) {
-				LOG.error("Failed to upload code:" + connection.getResponseCode() + " " + connection.getResponseMessage());
-				fileInputStream.close();
-				outputStream.close();
-				return null;
-			}
+            outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
 
-			inputStream = connection.getInputStream();
+            if (200 != connection.getResponseCode()) {
+                LOG.error("Failed to upload code:" + connection.getResponseCode() + " " + connection.getResponseMessage());
+                fileInputStream.close();
+                outputStream.close();
+                return null;
+            }
 
-			result = fileService.convertStreamToString(inputStream);
+            inputStream = connection.getInputStream();
 
-			fileInputStream.close();
-			inputStream.close();
-			outputStream.flush();
-			outputStream.close();
+            result = fileService.convertStreamToString(inputStream);
 
-			return result;
-		} catch (final Exception e) {
-			LOG.error(e.getMessage());
-			return null;
-		}
+            fileInputStream.close();
+            inputStream.close();
+            outputStream.flush();
+            outputStream.close();
 
-	}
+            return result;
+        } catch (final Exception e) {
+            LOG.error(e.getMessage());
+            return null;
+        }
+
+    }
 
 }

@@ -20,85 +20,89 @@ import com.vagm.vagmdroid.service.BufferService;
 
 /**
  * The Class OutputTestsActivity.
+ * 
  * @author Roman_Konovalov
  */
 public class OutputTestsActivity extends CustomAbstractActivity implements OnClickListener {
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(OutputTestsActivity.class);
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(OutputTestsActivity.class);
 
-	/**
-	 * bufferService.
-	 */
-	@Inject
-	private BufferService bufferService;
+    /**
+     * bufferService.
+     */
+    @Inject
+    private BufferService bufferService;
 
-	/**
-	 * activatedOutput.
-	 */
-	@InjectView(R.id.activatedOutput)
-	private TextView activatedOutput;
+    /**
+     * activatedOutput.
+     */
+    @InjectView(R.id.activatedOutput)
+    private TextView activatedOutput;
 
-	/**
-	 * bStart.
-	 */
-	@InjectView(R.id.bStart)
-	private Button bStart;
-	
-	/**
-	 * bluetoothService.
-	 */
-	@Inject
-	private BluetoothService bluetoothService;
+    /**
+     * bStart.
+     */
+    @InjectView(R.id.bStart)
+    private Button bStart;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		LOG.debug("onCreate");
-		setContentView(R.layout.activity_output_tests);
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.outputTestsLayout), this);
+    /**
+     * bluetoothService.
+     */
+    @Inject
+    private BluetoothService bluetoothService;
 
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LOG.debug("onCreate");
+        setContentView(R.layout.activity_output_tests);
+        setButtonOnClickListner((ViewGroup) findViewById(R.id.outputTestsLayout), this);
 
-	/**
-	 * proceedMessage.
-	 * @param message buffer
-	 * @throws ControllerWrongResponseException if wrong response from controller occurs
-	 */
-	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
-		String activatedOutputText = bufferService.getOutputTestsInfo(message);
-		if (activatedOutputText == getString(R.string.test_ended)) {
-			bStart.setText(getString(R.string.bStart));
-		} else {
-			bStart.setText(getString(R.string.bNext));
-		}
-		activatedOutput.setText(activatedOutputText);
-	}
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.bStart:
-			bluetoothService.write(FunctionCode.OUTPUT_TESTS.getCode());
-			break;
+    /**
+     * proceedMessage.
+     * 
+     * @param message
+     *            buffer
+     * @throws ControllerWrongResponseException
+     *             if wrong response from controller occurs
+     */
+    protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
+        String activatedOutputText = bufferService.getOutputTestsInfo(message);
+        if (activatedOutputText == getString(R.string.test_ended)) {
+            bStart.setText(getString(R.string.bStart));
+        } else {
+            bStart.setText(getString(R.string.bNext));
+        }
+        activatedOutput.setText(activatedOutputText);
+    }
 
-		case R.id.bOutputTestsBack:
-			LOG.debug("Exiting OutputTests Activity");
-			finish();
-			break;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.bStart:
+                bluetoothService.write(FunctionCode.OUTPUT_TESTS.getCode());
+                break;
+    
+            case R.id.bOutputTestsBack:
+                LOG.debug("Exiting OutputTests Activity");
+                finish();
+                break;
+    
+            default:
+                break;
+        }
 
-		default:
-			break;
-		}
-
-	}
+    }
 
 }

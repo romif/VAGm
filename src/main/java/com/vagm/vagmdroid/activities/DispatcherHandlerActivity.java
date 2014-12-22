@@ -20,123 +20,132 @@ import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.TimeOutJob;
 
-public class DispatcherHandlerActivity extends RoboActivity{
-	
-	/**
-	 * bufferService.
-	 */
-	@Inject
-	private BufferService bufferService;
-	
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(DispatcherHandlerActivity.class);
-	
-	/**
-	 * The Handler that gets information back from the BluetoothService.
-	 */
-	@SuppressLint("HandlerLeak")
-	private final Handler mHandler = new Handler() {
-		@Override
-		public void handleMessage(final Message msg)  {
-			super.handleMessage(msg);
-			final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
-			if (serviceCommand == ServiceCommand.MESSAGE_READ) {
-				byte[] message = (byte[]) msg.obj;
-				LOG.debug("Recieved message from conroller: {}", bufferService.bytesToHex(message));
-				try {
-					bufferService.checkAdapterErrors(message);
-				} catch (ControllerNotFoundException e) {
-					LOG.error("Controller wasn't found", e);
-					getControllerNotFoundAlert().show();
-				}catch (ControllerCommunicationException e) {
-					LOG.error("No answer from controller", e);
-					getControllerNotAnswerAlert().show();
-				}
-				
-				try {
-					proceedMessage(message);
-				} catch (ControllerWrongResponseException e) {
-					LOG.info(e.getMessage());
-				}
-			} else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
-				Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
-				onConnectionLost();
-				finish();
-			} else if (serviceCommand == ServiceCommand.TASK_TIMEOUT) {
-				((TimeOutJob)msg.obj).onTimeout(); 
-			}
-		}
-	};
-	
-	/**
-	 * getHandler.
-	 * @return Handler
-	 */
-	public Handler getHandler() {
-		return mHandler;
-	}
+/**
+ * The Class DispatcherHandlerActivity.
+ * @author Roman_Konovalov
+ */
+public class DispatcherHandlerActivity extends RoboActivity {
 
-	public void showControllerTaskNotCompleteAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.taskNotComlete)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		builder.create().show();
-	}
+    /**
+     * bufferService.
+     */
+    @Inject
+    private BufferService bufferService;
 
-	protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {	
-	}
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(DispatcherHandlerActivity.class);
 
-	protected void onConnectionLost() {
-	}
+    /**
+     * The Handler that gets information back from the BluetoothService.
+     */
+    @SuppressLint("HandlerLeak")
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(final Message msg) {
+            super.handleMessage(msg);
+            final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
+            if (serviceCommand == ServiceCommand.MESSAGE_READ) {
+                byte[] message = (byte[]) msg.obj;
+                LOG.debug("Recieved message from conroller: {}", bufferService.bytesToHex(message));
+                try {
+                    bufferService.checkAdapterErrors(message);
+                } catch (ControllerNotFoundException e) {
+                    LOG.error("Controller wasn't found", e);
+                    getControllerNotFoundAlert().show();
+                } catch (ControllerCommunicationException e) {
+                    LOG.error("No answer from controller", e);
+                    getControllerNotAnswerAlert().show();
+                }
 
-	/**
-	 * getControllerNotAnswerAlert.
-	 * @return AlertDialog
-	 */
-	protected AlertDialog getControllerNotAnswerAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		AlertDialog alertDialog = builder.create();
-		return alertDialog;
-	}
-	
-	/**
-	 * getControllerNotFoundAlert.
-	 * @return AlertDialog
-	 */
-	protected AlertDialog getControllerNotFoundAlert() {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.controller_not_found)).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		AlertDialog alertDialog = builder.create();
-		return alertDialog;
-	}
-	
-	protected void showtAlert(String message) {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(message).setTitle(getString(R.string.error)).setCancelable(false)
-				.setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
-					public void onClick(final DialogInterface dialog, final int id) {
-						finish();
-					}
-				});
-		builder.create().show();
-	}
+                try {
+                    proceedMessage(message);
+                } catch (ControllerWrongResponseException e) {
+                    LOG.info(e.getMessage());
+                }
+            } else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
+                Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
+                onConnectionLost();
+                finish();
+            } else if (serviceCommand == ServiceCommand.TASK_TIMEOUT) {
+                ((TimeOutJob) msg.obj).onTimeout();
+            }
+        }
+    };
 
+    /**
+     * getHandler.
+     * 
+     * @return Handler
+     */
+    public Handler getHandler() {
+        return mHandler;
+    }
+
+    /**
+     * showControllerTaskNotCompleteAlert.
+     */
+    public void showControllerTaskNotCompleteAlert() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.taskNotComlete)).setTitle(getString(R.string.error)).setCancelable(false)
+                .setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        finish();
+                    }
+                });
+        builder.create().show();
+    }
+
+    protected void proceedMessage(byte[] message) throws ControllerWrongResponseException {
+    }
+
+    protected void onConnectionLost() {
+    }
+
+    /**
+     * getControllerNotAnswerAlert.
+     * 
+     * @return AlertDialog
+     */
+    protected AlertDialog getControllerNotAnswerAlert() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.controller_not_answer)).setTitle(getString(R.string.error)).setCancelable(false)
+                .setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        finish();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        return alertDialog;
+    }
+
+    /**
+     * getControllerNotFoundAlert.
+     * 
+     * @return AlertDialog
+     */
+    protected AlertDialog getControllerNotFoundAlert() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.controller_not_found)).setTitle(getString(R.string.error)).setCancelable(false)
+                .setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        finish();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        return alertDialog;
+    }
+
+    protected void showtAlert(String message) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message).setTitle(getString(R.string.error)).setCancelable(false)
+                .setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        finish();
+                    }
+                });
+        builder.create().show();
+    }
 
 }

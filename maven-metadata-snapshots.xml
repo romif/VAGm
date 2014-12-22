@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.msm</groupId>
+  <artifactId>aggregation-platform-code-quality</artifactId>
+  <version>1.0.0-20141024.151319-1</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20141027.151607</timestamp>
+      <buildNumber>3</buildNumber>
+    </snapshot>
+    <lastUpdated>20141027151607</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-20141027.151607-3</value>
+        <updated>20141027151607</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.0-20141027.151607-3</value>
+        <updated>20141027151607</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

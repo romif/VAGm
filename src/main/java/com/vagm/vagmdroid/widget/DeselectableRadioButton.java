@@ -22,37 +22,55 @@ import android.widget.CompoundButton;
 
 /**
  * <p>
- * A deselectable radio button is a two-states button that can be either checked or
- * unchecked. When the radio button is unchecked, the user can press or click it
- * to check it. However, contrary to a {@link android.widget.RadioButton}, an 
+ * A deselectable radio button is a two-states button that can be either checked
+ * or unchecked. When the radio button is unchecked, the user can press or click
+ * it to check it. However, contrary to a {@link android.widget.RadioButton}, an
  * deselectable radio button can be unchecked by the user once checked.
  * </p>
- *
+ * 
  * <p>
  * Uncheckable Radio buttons are normally used together in a
- * {@link com.mobsandgeeks.widget.DeselectableRadioGroup}. When several deselectable 
- * radio buttons live inside a deselectable radio group, checking one 
- * deselectable radio button unchecks all the others.</p>
+ * {@link com.mobsandgeeks.widget.DeselectableRadioGroup}. When several
+ * deselectable radio buttons live inside a deselectable radio group, checking
+ * one deselectable radio button unchecks all the others.
  * </p>
- *
- * <p><strong>XML attributes</strong></p>
- * <p> 
- * See {@link android.R.styleable#CompoundButton CompoundButton Attributes}, 
- * {@link android.R.styleable#Button Button Attributes}, 
- * {@link android.R.styleable#TextView TextView Attributes}, 
+ * </p>
+ * 
+ * <p>
+ * <strong>XML attributes</strong>
+ * </p>
+ * <p>
+ * See {@link android.R.styleable#CompoundButton CompoundButton Attributes},
+ * {@link android.R.styleable#Button Button Attributes},
+ * {@link android.R.styleable#TextView TextView Attributes},
  * {@link android.R.styleable#View View Attributes}
  * </p>
  */
 public class DeselectableRadioButton extends CompoundButton {
-    
+
+    /**
+     * constructor.
+     * @param context
+     */
     public DeselectableRadioButton(Context context) {
         this(context, null);
     }
-    
+
+    /**
+     * constructor.
+     * @param context
+     * @param attrs
+     */
     public DeselectableRadioButton(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.radioButtonStyle);
     }
 
+    /**
+     * constructor.
+     * @param context
+     * @param attrs
+     * @param defStyle
+     */
     public DeselectableRadioButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }

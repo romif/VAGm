@@ -12,42 +12,44 @@ import com.google.inject.Singleton;
 
 /**
  * The Class LogService.
+ * 
  * @author roman_konovalov
  */
 @Singleton
 public class LogService {
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(LogService.class);
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(LogService.class);
 
-	/**
-	 * propertyService.
-	 */
-	@Inject
-	private PropertyService propertyService;
+    /**
+     * propertyService.
+     */
+    @Inject
+    private PropertyService propertyService;
 
-	/**
-	 * Default constructor.
-	 */
-	public LogService() {
-	}
+    /**
+     * Default constructor.
+     */
+    public LogService() {
+    }
 
-	/**
-	 * getLogFile.
-	 * @return LogFile
-	 */
-	public File getLogFile() {
+    /**
+     * getLogFile.
+     * 
+     * @return LogFile
+     */
+    public File getLogFile() {
 
-		File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
-				+ propertyService.getLogFileName());
+        File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
+                + propertyService.getLogFileName());
 
-		if (!file.exists()) {
-			LOG.error("File not found:" + Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName()
-					+ File.separator + propertyService.getLogFileName());
-		}
-		return file;
-	}
+        if (!file.exists()) {
+            LOG.error("File not found:" + Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName()
+                    + File.separator + propertyService.getLogFileName());
+        }
+        return file;
+    }
 
 }

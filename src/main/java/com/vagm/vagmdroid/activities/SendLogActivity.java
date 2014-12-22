@@ -19,155 +19,155 @@ import android.widget.Button;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
-import com.vagm.vagmdroid.dto.HttpPostDTO;
 import com.vagm.vagmdroid.service.FileService;
 import com.vagm.vagmdroid.service.HttpPostService;
-import com.vagm.vagmdroid.service.PropertyService;
 import com.vagm.vagmdroid.service.HttpPostService.MediaType;
 import com.vagm.vagmdroid.service.LogService;
+import com.vagm.vagmdroid.service.PropertyService;
 import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
  * @author Roman_Konovalov
  */
 public class SendLogActivity extends CustomAbstractActivity implements OnClickListener {
-	
-	/**
-	 * LOG_TEXT.
-	 */
-	public static final String LOG_TEXT = "logText";
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(SendLogActivity.class);
+    /**
+     * LOG_TEXT.
+     */
+    public static final String LOG_TEXT = "logText";
 
-	/**
-	 * SERVER_URL.
-	 */
-	private static final String SERVER_URL = "http://vagmlog-romif.rhcloud.com/rest/log/001204017530/vagmdroidlog";
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(SendLogActivity.class);
 
-	/**
-	 * propertyService.
-	 */
-	@Inject
-	private LogService logService;
+    /**
+     * SERVER_URL.
+     */
+    private static final String SERVER_URL = "http://vagmlog-romif.rhcloud.com/rest/log/001204017530/vagmdroidlog";
 
-	/**
-	 * httpPostService.
-	 */
-	@Inject
-	private HttpPostService httpPostService;
+    /**
+     * propertyService.
+     */
+    @Inject
+    private LogService logService;
 
-	/**
-	 * fileService.
-	 */
-	@Inject
-	private FileService fileService;
-	
-	/**
-	 * propertyService.
-	 */
-	@Inject
-	private PropertyService propertyService;
+    /**
+     * httpPostService.
+     */
+    @Inject
+    private HttpPostService httpPostService;
 
-	/**
-	 * file.
-	 */
-	private File file = null;
+    /**
+     * fileService.
+     */
+    @Inject
+    private FileService fileService;
 
-	/**
-	 * zipFile.
-	 */
-	private File zipFile = null;
+    /**
+     * propertyService.
+     */
+    @Inject
+    private PropertyService propertyService;
 
-	/**
-	 * bViewAdapterLog.
-	 */
-	@InjectView(R.id.bViewAdapterLog)
-	private Button bViewAdapterLog;
+    /**
+     * file.
+     */
+    private File file = null;
 
-	/**
-	 * bSendLog.
-	 */
-	@InjectView(R.id.bSendLog)
-	private Button bSendLog;
+    /**
+     * zipFile.
+     */
+    private File zipFile = null;
 
-	@Override
-	public void onClick(final View v) {
-		Intent showLogIntent;
-		switch (v.getId()) {
-		case R.id.bViewMobileLog:
-			showLogIntent = new Intent(this, ShowLogActivity.class);
-			showLogIntent.putExtra(LOG_TEXT, file);
-			
-			startActivity(showLogIntent);
-			break;
+    /**
+     * bViewAdapterLog.
+     */
+    @InjectView(R.id.bViewAdapterLog)
+    private Button bViewAdapterLog;
 
-		case R.id.bViewAdapterLog:
-			showLogIntent = new Intent(this, ShowLogActivity.class);
-			showLogIntent.putExtra(LOG_TEXT, "");
-			startActivity(showLogIntent);
-			break;
+    /**
+     * bSendLog.
+     */
+    @InjectView(R.id.bSendLog)
+    private Button bSendLog;
 
-		case R.id.bSendLog:
-			if (zipFile != null) {
-				sendLogFile(zipFile);
-			}
-			break;
-			
-		case R.id.bBack:
-			finish();
-			break;
+    @Override
+    public void onClick(final View v) {
+        Intent showLogIntent;
+        switch (v.getId()) {
+            case R.id.bViewMobileLog:
+                showLogIntent = new Intent(this, ShowLogActivity.class);
+                showLogIntent.putExtra(LOG_TEXT, file);
+    
+                startActivity(showLogIntent);
+                break;
+    
+            case R.id.bViewAdapterLog:
+                showLogIntent = new Intent(this, ShowLogActivity.class);
+                showLogIntent.putExtra(LOG_TEXT, "");
+                startActivity(showLogIntent);
+                break;
+    
+            case R.id.bSendLog:
+                if (zipFile != null) {
+                    sendLogFile(zipFile);
+                }
+                break;
+    
+            case R.id.bBack:
+                finish();
+                break;
+    
+            default:
+                break;
+        }
 
-		default:
-			break;
-		}
+    }
 
-	}
+    private void sendLogFile(final File zipFile) {
+        new CustomBackgroundTask<Void, String>(this, getString(R.string.sendingLog)) {
 
-	private void sendLogFile(final File zipFile) {
-		new CustomBackgroundTask<HttpPostDTO, String>(this, getString(R.string.sendingLog)) {
+            @Override
+            protected String doBackgroundJob() {
+                return httpPostService.doMultipartRequest(SERVER_URL, Collections.<String, String> emptyMap(), zipFile,
+                        MediaType.MULTIPART_FORM_DATA);
+            }
 
-			@Override
-			protected String doBackgroundJob() {
-				return httpPostService.doMultipartRequest(SERVER_URL, Collections.<String, String> emptyMap(), zipFile, MediaType.MULTIPART_FORM_DATA);
-			}
-			
-		}.execute();
-	}
+        }.execute();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		setContentView(R.layout.send_log);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setContentView(R.layout.send_log);
 
-		setResult(Activity.RESULT_CANCELED);
+        setResult(Activity.RESULT_CANCELED);
 
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.send_log), this);
-		
-		if (!propertyService.isConnectedToAdapter()) {
-			bViewAdapterLog.setVisibility(View.GONE);
-		}
+        setButtonOnClickListner((ViewGroup) findViewById(R.id.send_log), this);
 
-		file = logService.getLogFile();
-		if (file != null) {
-			try {
-				zipFile = fileService.zip(file);
-				bSendLog.setText(bSendLog.getText() + " (" + String.valueOf(zipFile.length() / 1024) + " kB)");
-			} catch (final IOException e) {
-				LOG.error(e.getMessage());
-				bSendLog.setVisibility(View.GONE);
-			}
-		} else {
-			bSendLog.setVisibility(View.GONE);
-		}
+        if (!propertyService.isConnectedToAdapter()) {
+            bViewAdapterLog.setVisibility(View.GONE);
+        }
 
-	}
+        file = logService.getLogFile();
+        if (file != null) {
+            try {
+                zipFile = fileService.zip(file);
+                bSendLog.setText(bSendLog.getText() + " (" + String.valueOf(zipFile.length() / 1024) + " kB)");
+            } catch (final IOException e) {
+                LOG.error(e.getMessage());
+                bSendLog.setVisibility(View.GONE);
+            }
+        } else {
+            bSendLog.setVisibility(View.GONE);
+        }
+
+    }
 
 }

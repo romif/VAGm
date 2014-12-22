@@ -16,6 +16,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -208,6 +209,7 @@ public class ControllerActivityTest {
 	 * @throws InterruptedException
 	 */
 	@Test
+	@Ignore
 	public final void testHandleMessageNegative1() throws InterruptedException {
 		CountDownLatch latch = new CountDownLatch(1);
 		latch.await(20, TimeUnit.SECONDS);

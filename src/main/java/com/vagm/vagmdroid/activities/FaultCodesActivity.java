@@ -19,84 +19,86 @@ import com.vagm.vagmdroid.service.BufferService;
 
 /**
  * The Class FaultCodesActivity.
+ * 
  * @author roman_konovalov
  */
 public class FaultCodesActivity extends CustomAbstractActivity implements OnClickListener {
 
-	/**
-	 * LOG.
-	 */
-	private static final Logger LOG = LoggerFactory.getLogger(FaultCodesActivity.class);
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(FaultCodesActivity.class);
 
-	/**
-	 * bufferService.
-	 */
-	@Inject
-	private BufferService bufferService;
-	
-	/**
-	 * bluetoothService.
-	 */
-	@Inject
-	private BluetoothService bluetoothService;
+    /**
+     * bufferService.
+     */
+    @Inject
+    private BufferService bufferService;
 
-	/**
-	 * faultCodes.
-	 */
-	@InjectView(R.id.faultCodes)
-	private TextView faultCodes;
+    /**
+     * bluetoothService.
+     */
+    @Inject
+    private BluetoothService bluetoothService;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void onClick(final View v) {
-		switch (v.getId()) {
-		case R.id.bFaultCodesBack:
-			LOG.debug("Exiting FaultCodes Activity");
-			finish();
-			break;
+    /**
+     * faultCodes.
+     */
+    @InjectView(R.id.faultCodes)
+    private TextView faultCodes;
 
-		case R.id.bClearCodes:
-			faultCodes.setText("");
-			bluetoothService.write(FunctionCode.CLEAR_CODES.getCode());
-			break;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onClick(final View v) {
+        switch (v.getId()) {
+            case R.id.bFaultCodesBack:
+                LOG.debug("Exiting FaultCodes Activity");
+                finish();
+                break;
+    
+            case R.id.bClearCodes:
+                faultCodes.setText("");
+                bluetoothService.write(FunctionCode.CLEAR_CODES.getCode());
+                break;
+    
+            default:
+                break;
+        }
+    }
 
-		default:
-			break;
-		}
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LOG.debug("onCreate");
+        setContentView(R.layout.activity_fault_codes);
+        setButtonOnClickListner((ViewGroup) findViewById(R.id.faultCodesLayout), this);
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onCreate(final Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		LOG.debug("onCreate");
-		setContentView(R.layout.activity_fault_codes);
-		setButtonOnClickListner((ViewGroup) findViewById(R.id.faultCodesLayout), this);
+    }
 
-	}
-
-	/**
-	 * proceedMessage.
-	 * @param message
-	 *            message
-	 * @throws ControllerWrongResponseException
-	 *             if wrong response from controller occurs
-	 */
-	protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
-		String error = bufferService.getFaultCodesInfo(message);
-		if (error.equals(getText(R.string.no_errors))) {
-			faultCodes.setText(error);
-			return;
-		}
-		if (faultCodes.getText().length() == 0) {
-			faultCodes.append(error);
-		} else {
-			faultCodes.append("\r\n\r\n" + error);
-		}
-	}
+    /**
+     * proceedMessage.
+     * 
+     * @param message
+     *            message
+     * @throws ControllerWrongResponseException
+     *             if wrong response from controller occurs
+     */
+    protected void proceedMessage(final byte[] message) throws ControllerWrongResponseException {
+        String error = bufferService.getFaultCodesInfo(message);
+        if (error.equals(getText(R.string.no_errors))) {
+            faultCodes.setText(error);
+            return;
+        }
+        if (faultCodes.getText().length() == 0) {
+            faultCodes.append(error);
+        } else {
+            faultCodes.append("\r\n\r\n" + error);
+        }
+    }
 
 }
