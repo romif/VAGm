@@ -255,8 +255,7 @@ public class LabelService {
                 }
             }
         }
-        // Assert.assertEquals("Wrong records count", recordsCount.size(),
-        // result.size());
+        
         LOG.debug("Found group records: " + labels.size());
         return labels;
     }

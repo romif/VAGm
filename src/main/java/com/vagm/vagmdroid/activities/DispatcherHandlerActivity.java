@@ -116,8 +116,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
                         finish();
                     }
                 });
-        AlertDialog alertDialog = builder.create();
-        return alertDialog;
+        return builder.create();
     }
 
     /**
@@ -133,8 +132,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
                         finish();
                     }
                 });
-        AlertDialog alertDialog = builder.create();
-        return alertDialog;
+        return builder.create();
     }
 
     protected void showtAlert(String message) {

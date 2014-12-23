@@ -167,10 +167,8 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
         if (buttonView instanceof DeselectableRadioButton) {
             enableDesableCheckBoxes();
             reCheckBoxes();
-        } else if (buttonView instanceof CheckBox) {
-            if (getCheckedBlocksCount() == getCheckedRightAxes()) {
-                deselectCheckBoxes();
-            }
+        } else if (buttonView instanceof CheckBox && getCheckedBlocksCount() == getCheckedRightAxes()) {
+            deselectCheckBoxes();
         }
 
     }

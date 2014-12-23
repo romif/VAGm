@@ -1,11 +1,9 @@
 package com.vagm.vagmdroid.util;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -29,7 +27,6 @@ import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.os.Environment;
 import android.util.SparseArray;
-import android.widget.Toast;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
@@ -211,11 +208,9 @@ public class ChartUtil {
 
             File dir = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
                     + propertyService.getSavedChartsFolder());
-            if (!dir.exists()) {
-                if (!dir.mkdirs()) {
-                    LOG.error("Cannot create directory: {}", dir.getAbsolutePath());
-                    return false;
-                }
+            if (!dir.exists() && !dir.mkdirs()) {
+                LOG.error("Cannot create directory: {}", dir.getAbsolutePath());
+                return false;
             }
             File file = new File(dir + File.separator + fileName);
             if (!file.createNewFile()) {

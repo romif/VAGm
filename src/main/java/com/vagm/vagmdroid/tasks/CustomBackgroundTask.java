@@ -76,7 +76,7 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
     }
 
     @Override
-    public Result call() throws Exception {
+    public Result call() {
         new Thread(new Runnable() {
             @Override
             public void run() {

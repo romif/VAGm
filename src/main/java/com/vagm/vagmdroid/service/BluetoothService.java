@@ -226,11 +226,9 @@ public class BluetoothService {
         LOG.debug("connect to: " + device);
 
         // Cancel any thread attempting to make a connection
-        if (mState == ConnectionState.CONNECTING) {
-            if (mConnectThread != null) {
-                mConnectThread.cancel();
-                mConnectThread = null;
-            }
+        if (mState == ConnectionState.CONNECTING && mConnectThread != null) {
+            mConnectThread.cancel();
+            mConnectThread = null;
         }
 
         // Cancel any thread currently running a connection

@@ -75,13 +75,4 @@ public class DeselectableRadioButton extends CompoundButton {
         super(context, attrs, defStyle);
     }
 
-    /**
-     * {@inheritDoc}
-     * <p>
-     * This method will toggle the radio button.
-     */
-    @Override
-    public void toggle() {
-        super.toggle();
-    }
 }

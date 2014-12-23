@@ -261,12 +261,9 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
                 editor.putString(getString(R.string.savedDevice), address);
                 editor.commit();
             }
-        } else if (requestCode == REQUEST_ENABLE_BT) {
-            // When the request to enable Bluetooth returns
-            if (resultCode != Activity.RESULT_OK) {
-                Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
-                finish();
-            }
+        } else if (requestCode == REQUEST_ENABLE_BT && resultCode != Activity.RESULT_OK) {
+            Toast.makeText(this, R.string.bt_not_enabled_leaving, Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 

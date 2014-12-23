@@ -103,10 +103,8 @@ public class BufferService {
 
             checkResponseCode(VAGmConstans.VAG_BTI_INFO_RES, response);
 
-            if (result[1].length() == 0) {
-                if (byteToInt(buffer[dataStartPosition]) > 0x80) {
-                    buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
-                }
+            if (result[1].length() == 0 && byteToInt(buffer[dataStartPosition]) > 0x80) {
+                buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
             }
 
             final StringBuilder builder = new StringBuilder();

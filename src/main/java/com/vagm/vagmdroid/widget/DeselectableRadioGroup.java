@@ -19,6 +19,11 @@ package com.vagm.vagmdroid.widget;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.vagm.vagmdroid.util.CopyLabelsTask;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -65,6 +70,11 @@ import android.widget.RadioGroup;
  * 
  */
 public class DeselectableRadioGroup extends RadioGroup {
+    /**
+     * LOG.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(CopyLabelsTask.class);
+    
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;
     // tracks children deselectable radio buttons checked state
@@ -183,7 +193,7 @@ public class DeselectableRadioGroup extends RadioGroup {
 
     private void setCheckedStateForView(int viewId, boolean checked) {
         View checkedView = findViewById(viewId);
-        if (checkedView != null && checkedView instanceof DeselectableRadioButton) {
+        if (checkedView instanceof DeselectableRadioButton) {
             ((DeselectableRadioButton) checkedView).setChecked(checked);
         }
     }
@@ -365,7 +375,7 @@ public class DeselectableRadioGroup extends RadioGroup {
          *            the unique identifier of the newly checked deselectable
          *            radio button
          */
-        public void onCheckedChanged(RadioGroup group, int checkedId);
+        void onCheckedChanged(RadioGroup group, int checkedId);
     }
 
     private class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
@@ -440,17 +450,9 @@ public class DeselectableRadioGroup extends RadioGroup {
                     widgetChangeListenerMethod.setAccessible(true);
                     widgetChangeListenerMethod.invoke(deselectableRadioButton, checkedChangeListener);
                 }
-            } catch (SecurityException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
+            } catch (SecurityException | NoSuchMethodException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                LOG.error(e.getMessage());
+            } 
         }
     }
 }

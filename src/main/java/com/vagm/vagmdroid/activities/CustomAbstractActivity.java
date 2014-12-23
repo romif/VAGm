@@ -81,11 +81,6 @@ public abstract class CustomAbstractActivity extends DispatcherHandlerActivity {
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(this));
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
     /**
      * {@inheritDoc}
      */

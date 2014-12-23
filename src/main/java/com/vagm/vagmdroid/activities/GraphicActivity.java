@@ -3,6 +3,7 @@ package com.vagm.vagmdroid.activities;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Deque;
 import java.util.LinkedList;
 
 import org.achartengine.ChartFactory;
@@ -33,7 +34,6 @@ import com.vagm.vagmdroid.dto.DataStreamDTO;
 import com.vagm.vagmdroid.dto.LabelDTO;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
-import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.ControllerInfoService;
 import com.vagm.vagmdroid.service.LabelService;
@@ -121,7 +121,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
     /**
      * dataList.
      */
-    private final LinkedList<float[]> dataList = new LinkedList<>();
+    private final Deque<float[]> dataList = new LinkedList<>();
 
     /**
      * labels.
@@ -447,7 +447,7 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
         mChartView.repaint();
     }
 
-    private void test() {
+/*    private void test() {
         byte[] buffer = bufferService.hexStringToByteArray("e701690027330015142405097c");
         getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
@@ -475,6 +475,6 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
             }
         }).start();
 
-    }
+    }*/
 
 }

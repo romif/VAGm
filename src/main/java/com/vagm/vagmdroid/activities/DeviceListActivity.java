@@ -50,11 +50,6 @@ public class DeviceListActivity extends Activity {
     private BluetoothAdapter mBtAdapter;
 
     /**
-     * mPairedDevicesArrayAdapter.
-     */
-    private ArrayAdapter<String> mPairedDevicesArrayAdapter;
-
-    /**
      * mNewDevicesArrayAdapter.
      */
     private ArrayAdapter<String> mNewDevicesArrayAdapter;
@@ -84,7 +79,7 @@ public class DeviceListActivity extends Activity {
 
         // Initialize array adapters. One for already paired devices and
         // one for newly discovered devices
-        mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
+        ArrayAdapter<String> mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
         mNewDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.device_name);
 
         // Find and set up the ListView for paired devices

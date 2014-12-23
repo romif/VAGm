@@ -70,7 +70,7 @@ public class GetLabelsTask extends RoboAsyncTask<SparseArray<LabelDTO>> {
     }
 
     @Override
-    public SparseArray<LabelDTO> call() throws Exception {
+    public SparseArray<LabelDTO> call() {
         String fileName = labelService.getLabelFileName(ecu);
         return labelService.getLabels(fileName);
     }

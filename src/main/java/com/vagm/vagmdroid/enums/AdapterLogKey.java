@@ -48,6 +48,13 @@ public enum AdapterLogKey {
     }
 
     /**
+     * @return the key
+     */
+    public int getKey() {
+        return key;
+    }
+
+    /**
      * getValue
      * 
      * @return value
@@ -63,10 +70,10 @@ public enum AdapterLogKey {
      */
     public static AdapterLogKey getAdapterLogKey(final int key) {
         for (final AdapterLogKey adapterLogKey : AdapterLogKey.values()) {
-            if (adapterLogKey.key == key) {
+            if (adapterLogKey.getKey() == key) {
                 return adapterLogKey;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Key " + key + "does not exist");
     }
 }
