@@ -3,11 +3,13 @@ package com.vagm.vagmdroid.service;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,9 +85,9 @@ public class HttpPostService {
         int bytesRead, bytesAvailable, bufferSize;
         byte[] buffer;
         final int maxBufferSize = 1 * 1024 * 1024;
-
+        FileInputStream fileInputStream = null;
         try {
-            final FileInputStream fileInputStream = new FileInputStream(file);
+            fileInputStream = new FileInputStream(file);
 
             final URL url = new URL(urlTo);
             connection = (HttpURLConnection) url.openConnection();
@@ -122,10 +124,9 @@ public class HttpPostService {
             outputStream.writeBytes(lineEnd);
 
             // Upload POST Data
-            final Iterator<String> keys = parmas.keySet().iterator();
-            while (keys.hasNext()) {
-                final String key = keys.next();
-                final String value = parmas.get(key);
+            for (Entry<String, String> entry : parmas.entrySet()) {
+                final String key = entry.getKey();
+                final String value = entry.getValue();
 
                 outputStream.writeBytes(twoHyphens + boundary + lineEnd);
                 outputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
@@ -147,16 +148,27 @@ public class HttpPostService {
             inputStream = connection.getInputStream();
 
             result = fileService.convertStreamToString(inputStream);
-
-            fileInputStream.close();
-            inputStream.close();
             outputStream.flush();
-            outputStream.close();
 
             return result;
-        } catch (final Exception e) {
+        } catch (final IOException e) {
             LOG.error(e.getMessage());
             return null;
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();                    
+                }
+                if (inputStream != null) {
+                    inputStream.close();                    
+                }
+                if (outputStream != null) {
+                    outputStream.close();                    
+                }
+            } catch (IOException e) {
+                LOG.error(e.getMessage());
+            }
+            
         }
 
     }

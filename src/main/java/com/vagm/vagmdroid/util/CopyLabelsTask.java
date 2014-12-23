@@ -72,46 +72,58 @@ public class CopyLabelsTask extends AsyncTask<Void, Integer, Boolean> {
     protected Boolean doInBackground(final Void... unused) {
         InputStream in = null;
         OutputStream out = null;
-        try {
-            File labelDir = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels");
-            if (!labelDir.exists()) {
-                labelDir.mkdirs();
-                String[] labelFiles = context.getAssets().list("labels");
+
+        File labelDir = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels");
+        if (!labelDir.exists()) {
+            if (!labelDir.mkdirs()) {
+                LOG.error("Cannot create directory: {}", labelDir.getAbsolutePath());
+                return false;
+            }
+            String[] labelFiles;
+            try {
+                labelFiles = context.getAssets().list("labels");
+
                 progressBar.setMax(labelFiles.length);
                 int filesCopied = 0;
                 for (String file : labelFiles) {
-                    File dst = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels/" + file);
-                    in = context.getAssets().open("labels/" + file);
-                    out = new FileOutputStream(dst);
+                    try {
+                        File dst = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels/" + file);
+                        in = context.getAssets().open("labels/" + file);
+                        out = new FileOutputStream(dst);
 
-                    // Transfer bytes from in to out
-                    byte[] buf = new byte[1024];
-                    int len;
-                    while ((len = in.read(buf)) > 0) {
-                        out.write(buf, 0, len);
+                        // Transfer bytes from in to out
+                        byte[] buf = new byte[1024];
+                        int len;
+                        while ((len = in.read(buf)) > 0) {
+                            out.write(buf, 0, len);
+                        }
+                        filesCopied++;
+                        if (filesCopied % 10 == 0) {
+                            progressBar.setProgress(filesCopied);
+                        }
+                    } catch (IOException e) {
+                        LOG.error("Error copying label files", e);
+                        return false;
+                    } finally {
+                        try {
+                            if (in != null) {
+                                in.close();
+                            }
+                            if (out != null) {
+                                out.close();
+                            }
+                        } catch (IOException e) {
+                            LOG.error("Cannot close InputStream / OutputStream", e);
+                        }
                     }
-                    filesCopied++;
-                    if (filesCopied % 10 == 0) {
-                        progressBar.setProgress(filesCopied);
-                    }
-                    in.close();
-                    out.close();
                 }
+
                 LOG.debug("{} files copied", filesCopied);
-            }
-        } catch (IOException e) {
-            LOG.error("Error copying label files", e);
-            return false;
-        } finally {
-            try {
-                if ((in != null) && (out != null)) {
-                    in.close();
-                    out.close();
-                }
             } catch (IOException e) {
-                LOG.error("Cannot close InputStream / OutputStream", e);
+                LOG.error(e.getMessage());
             }
         }
+
         return true;
     }
 

@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -93,7 +94,9 @@ public class FileService {
             LOG.error(e.getMessage());
         } finally {
             try {
-                inputStream.close();
+                if (inputStream != null) {
+                    inputStream.close();                    
+                }
             } catch (final IOException e) {
                 LOG.error(e.getMessage());
             }
@@ -101,13 +104,18 @@ public class FileService {
         return "";
     }
 
+    /**
+     * convertStreamToString.
+     * @param inputStream
+     * @return
+     */
     public String convertStreamToString(InputStream inputStream) {
         BufferedReader reader = null;
         final StringBuilder sb = new StringBuilder();
 
         String line = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(inputStream));
+            reader = new BufferedReader(new InputStreamReader(inputStream, Charset.defaultCharset()));
             while ((line = reader.readLine()) != null) {
                 sb.append(line);
             }
@@ -115,7 +123,9 @@ public class FileService {
             LOG.error(e.getMessage());
         } finally {
             try {
-                reader.close();
+                if (reader != null) {
+                    reader.close();                    
+                }
             } catch (final IOException e) {
                 LOG.error(e.getMessage());
             }

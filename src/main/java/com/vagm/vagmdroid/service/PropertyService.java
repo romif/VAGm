@@ -86,7 +86,7 @@ public class PropertyService {
     /**
      * properties.
      */
-    private static Properties properties;
+    private Properties properties;
 
     private boolean connectedToAdapter = false;
 

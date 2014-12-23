@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <FindBugsFilter>
-
-   <Match>
-      <Class name="com.vagm.vagmdroid.Application" />
-   </Match>
-   <Match>
-        <Class name="~.*\.R\$.*"/>
-   </Match>
-   <Match>
-      <Bug pattern="BC_UNCONFIRMED_CAST" />
-   </Match>
+    <Match>
+        <Class name="com.vagm.vagmdroid.Application" />
+    </Match>
+    <Match>
+        <Class name="~.*\.R\$.*" />
+    </Match>
+    <Match>
+        <Bug pattern="BC_UNCONFIRMED_CAST" />
+    </Match>
+    <Match>
+        <Bug pattern="ML_SYNC_ON_FIELD_TO_GUARD_CHANGING_THAT_FIELD" />
+    </Match>
 </FindBugsFilter>

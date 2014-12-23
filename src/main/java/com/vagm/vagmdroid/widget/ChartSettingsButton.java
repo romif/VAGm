@@ -1,5 +1,7 @@
 package com.vagm.vagmdroid.widget;
 
+import java.util.Arrays;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -22,7 +24,7 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
     /**
      * OK_BUTTON_ID.
      */
-    public final static int OK_BUTTON_ID = 0;
+    public static final int OK_BUTTON_ID = 0;
 
     private String[] items = null;
 
@@ -130,7 +132,7 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
      * @return the items
      */
     public String[] getItems() {
-        return items;
+        return Arrays.copyOf(items, items.length);
     }
 
     /**
@@ -138,14 +140,14 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
      *            the items to set
      */
     public void setItems(final String[] items) {
-        this.items = items;
+        this.items = Arrays.copyOf(items, items.length);
     }
 
     /**
      * @return the blocks
      */
     public boolean[] getBlocks() {
-        return blocks;
+        return Arrays.copyOf(blocks, blocks.length);
     }
 
     /**
@@ -153,7 +155,7 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
      *            the blocks to set
      */
     public void setBlocks(final boolean[] blocks) {
-        this.blocks = blocks;
+        this.blocks = Arrays.copyOf(blocks, blocks.length);
     }
 
     /**
@@ -173,6 +175,9 @@ public class ChartSettingsButton extends Button implements OnCheckedChangeListen
 
     }
 
+    /**
+     * hideDialog.
+     */
     public void hideDialog() {
         alertDialog.dismiss();
     }

@@ -212,10 +212,16 @@ public class ChartUtil {
             File dir = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
                     + propertyService.getSavedChartsFolder());
             if (!dir.exists()) {
-                dir.mkdirs();
+                if (!dir.mkdirs()) {
+                    LOG.error("Cannot create directory: {}", dir.getAbsolutePath());
+                    return false;
+                }
             }
             File file = new File(dir + File.separator + fileName);
-            file.createNewFile();
+            if (!file.createNewFile()) {
+                LOG.error("Cannot create file: {}", file.getAbsolutePath());
+                return false;
+            }
             fos = new FileOutputStream(file);
             workbook.write(fos);
 

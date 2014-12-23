@@ -44,7 +44,7 @@ public class DataStreamService {
     /**
      * NA37Strings.
      */
-    private static String[] nA37Strings = null;
+    private String[] nA37Strings = null;
 
     /**
      * constructor.
@@ -61,13 +61,13 @@ public class DataStreamService {
      *            numDecim
      * @return round
      */
-    private static double round(final double num, final int numDecim) {
+    private double round(final double num, final int numDecim) {
         long p = 1;
         // next line – calculate pow(10,brDecim)
         for (int i = 0; i < numDecim; i++) {
             p *= 10;
         }
-        return (double) (int) (p * num + 0.5) / p;
+        return (double) (int) (p * num + 0.5) / (double) p;
     }
 
     /**
@@ -77,18 +77,18 @@ public class DataStreamService {
      *            binary
      * @return String
      */
-    private static String binToStr(final int binary) {
+    private String binToStr(final int binary) {
         int b = binary;
-        String s = "";
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 8; ++i) {
             if ((b & 0x01) == 1) {
-                s += "1";
+                builder.append("1");
             } else {
-                s += "0";
+                builder.append("0");
             }
             b >>= 1;
         }
-        return s;
+        return builder.toString();
     }
 
     /**
@@ -96,7 +96,7 @@ public class DataStreamService {
      * 
      * @return String array
      */
-    private static String[] getNA37Strings() {
+    private String[] getNA37Strings() {
         if (nA37Strings == null) {
             nA37Strings = new String[1288];
             InputStream inputStream = null;
@@ -348,9 +348,9 @@ public class DataStreamService {
                     unit = PERCENT;
                     valueFloat = (float) (100 * blockData2);
                 } else {
-                    value = String.valueOf(round(100 * blockData2 / blockData1, 3));
+                    value = String.valueOf(round(100 * blockData2 / (float) blockData1, 3));
                     unit = PERCENT;
-                    valueFloat = (float) (100 * blockData2 / blockData1);
+                    valueFloat = (float) (100 * blockData2 / (float) blockData1);
                 }
                 break;
     
@@ -463,9 +463,9 @@ public class DataStreamService {
                     unit = MILLI_BAR;
                     valueFloat = (float) ((blockData2 - 128) * 100);
                 } else {
-                    value = String.valueOf(round((blockData2 - 128) * 100 / blockData1, 4));
+                    value = String.valueOf(round((blockData2 - 128) * 100 / (float) blockData1, 4));
                     unit = MILLI_BAR;
-                    valueFloat = (float) ((blockData2 - 128) * 100 / blockData1);
+                    valueFloat = (float) ((blockData2 - 128) * 100 / (float) blockData1);
                 }
                 break;
     
@@ -537,8 +537,8 @@ public class DataStreamService {
                     value = String.valueOf(round(blockData2 - 128, 4));
                     valueFloat = (float) (blockData2 - 128);
                 } else {
-                    value = String.valueOf(round((blockData2 - 128) / blockData1, 4));
-                    valueFloat = (float) ((blockData2 - 128) / blockData1);
+                    value = String.valueOf(round((blockData2 - 128) / (float) blockData1, 4));
+                    valueFloat = (float) ((blockData2 - 128) / (float) blockData1);
                 }
                 break;
     
