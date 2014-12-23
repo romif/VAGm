@@ -94,7 +94,7 @@ public final class TestConstatnts {
 	/**
 	 * FAULT_CODES_STRING1.
 	 */
-	public static final String FAULT_CODES_STRING1 = "1176 Ключ - слишком низкий уровень сигнала";
+	public static final String FAULT_CODES_STRING1 = "1176 Ключ - слишком низкий уровень сигнала\r\n";
 
 	/**
 	 * BUFFER_FAULT_CODES2.
@@ -104,7 +104,7 @@ public final class TestConstatnts {
 	/**
 	 * FAULT_CODES_STRING2.
 	 */
-	public static final String FAULT_CODES_STRING2 = "626 Контрольная лампа времени прогрева свечами накаливания-K29 - обрыв цепи/короткое замыкание на массу";
+	public static final String FAULT_CODES_STRING2 = "626 Контрольная лампа времени прогрева свечами накаливания-K29 - обрыв цепи/короткое замыкание на массу\r\n";
 
 	/**
 	 * BUFFER_FAULT_CODES_NO_ERRORS.

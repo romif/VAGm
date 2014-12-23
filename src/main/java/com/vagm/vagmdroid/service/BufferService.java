@@ -193,7 +193,7 @@ public class BufferService {
             return context.getString(R.string.no_errors);
         }
 
-        String result = "";
+        StringBuffer result = new StringBuffer();
         for (int i = 0; i < buffer.length / 3; i++) {
             int errorCode = Integer.parseInt(
                     Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])), 16);
@@ -203,9 +203,14 @@ public class BufferService {
                 errorTypeInt = errorTypeInt - 0x80;
             }
             String errorType = faultCodesService.getErrorType(errorTypeInt);
-            result += "" + errorCode + " " + errorString + " - " + errorType;
+            result.append(errorCode);
+            result.append(" ");
+            result.append(errorString);
+            result.append(" - ");
+            result.append(errorType);
+            result.append(String.format("%n").intern());
         }
-        return result;
+        return result.toString();
     }
 
     /**

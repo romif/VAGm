@@ -15,8 +15,6 @@ import android.bluetooth.BluetoothSocket;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import com.google.inject.Singleton;
 import com.vagm.vagmdroid.activities.MainActivity;
@@ -27,7 +25,7 @@ import com.vagm.vagmdroid.activities.MainActivity;
  * @author Roman_Konovalov
  */
 @Singleton
-public class BluetoothService implements Parcelable {
+public class BluetoothService {
 
     /**
      * LOG.
@@ -167,26 +165,9 @@ public class BluetoothService implements Parcelable {
     public static final String BLUETOOTH_SERVICE_INSTANCE = "BluetoothServiceInstance";
 
     /**
-     * instance.
-     */
-    private static BluetoothService instance = null;
-
-    /**
      * Constructor.
      */
     public BluetoothService() {
-    }
-
-    /**
-     * Gets Instance.
-     * 
-     * @return BluetoothCommandService
-     */
-    public static BluetoothService getInstance() {
-        if (instance == null) {
-            instance = new BluetoothService();
-        }
-        return instance;
     }
 
     /**
@@ -636,32 +617,5 @@ public class BluetoothService implements Parcelable {
     public void setmHandler(final Handler mHandler) {
         this.mHandler = mHandler;
     }
-
-    @Override
-    public int describeContents() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(final Parcel dest, final int flags) {
-        // TODO Auto-generated method stub
-    }
-
-    /**
-     * CREATOR.
-     */
-    public static final Parcelable.Creator<BluetoothService> CREATOR = new Parcelable.Creator<BluetoothService>() {
-
-        @Override
-        public BluetoothService createFromParcel(final Parcel source) {
-            return getInstance();
-        }
-
-        @Override
-        public BluetoothService[] newArray(final int size) {
-            throw new RuntimeException("Only one instance is allowed");
-        }
-    };
 
 }

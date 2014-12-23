@@ -1,10 +1,8 @@
 package com.vagm.vagmdroid.dto;
 
-import java.util.Arrays;
+import android.content.Context;
 
 import com.vagm.vagmdroid.R;
-
-import android.content.Context;
 
 /**
  * The Class LabelDTO.
@@ -21,7 +19,10 @@ public class LabelDTO {
     /**
      * group.
      */
-    private Group[] group;
+    private Group group1;
+    private Group group2;
+    private Group group3;
+    private Group group4;
 
     /**
      * constructor.
@@ -29,7 +30,11 @@ public class LabelDTO {
      */
     public LabelDTO(Context context) {
         title = context.getString(R.string.group1);
-        group = getDefaultGroups(context);
+        Group[] groups = getDefaultGroups(context);
+        group1 = groups[0];
+        group2 = groups[1];
+        group3 = groups[2];
+        group4 = groups[3];
     }
 
     /**
@@ -51,22 +56,42 @@ public class LabelDTO {
      * @return the group
      */
     public Group[] getGroup() {
-        return group;
+        return new Group[] { group1, group2, group3, group4 };
     }
-
+    
     /**
+     * setGroup.
+     * @param groupNumber
      * @param group
-     *            the group to set
      */
-    public void setGroup(final Group[] group) {
-        this.group = group;
+    public void setGroup(int groupNumber, Group group) {
+        switch (groupNumber) {
+            case 1:
+                group1 = group;
+                break;
+    
+            case 2:
+                group2 = group;
+                break;
+    
+            case 3:
+                group3 = group;
+                break;
+    
+            case 4:
+                group4 = group;
+                break;
+    
+            default:
+                throw new IllegalArgumentException("Group number " + groupNumber + " must be <= 4");
+        }
     }
 
-    private static Group[] getDefaultGroups(Context context) {
-        Group group1 = new Group(context.getString(R.string.block1), "", "");
-        Group group2 = new Group(context.getString(R.string.block2), "", "");
-        Group group3 = new Group(context.getString(R.string.block3), "", "");
-        Group group4 = new Group(context.getString(R.string.block4), "", "");
+    private Group[] getDefaultGroups(Context context) {
+        group1 = new Group(context.getString(R.string.block1), "", "");
+        group2 = new Group(context.getString(R.string.block2), "", "");
+        group3 = new Group(context.getString(R.string.block3), "", "");
+        group4 = new Group(context.getString(R.string.block4), "", "");
         return new Group[] { group1, group2, group3, group4 };
     }
 
@@ -75,7 +100,7 @@ public class LabelDTO {
      */
     @Override
     public String toString() {
-        return "LabelDTO [title=" + title + ", group=" + Arrays.toString(group) + "]";
+        return "LabelDTO [title=" + title + ", group1=" + group1 + ", group2=" + group2 + ", group3=" + group3 + ", group4=" + group4 + "]";
     }
 
     /**

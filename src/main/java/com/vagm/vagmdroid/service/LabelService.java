@@ -308,7 +308,8 @@ public class LabelService {
             } else {
                 label.setTitle("");
             }
-        } else label.getGroup()[blockNumber - 1] = getFilledGoup(tokens);
+        } else
+            label.setGroup(blockNumber, getFilledGoup(tokens));
     }
 
 }
