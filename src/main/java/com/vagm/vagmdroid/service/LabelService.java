@@ -6,9 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Locale;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -169,7 +168,6 @@ public class LabelService {
         // String fileName = getLabelFileName(ecu);
         labels = new SparseArray<LabelDTO>();
         BufferedReader reader = null;
-        Set<Integer> recordsCount = new HashSet<Integer>();
         try {
             File file = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
                     + "labels" + File.separator + fileName);
@@ -179,65 +177,33 @@ public class LabelService {
             }
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
 
-            String st;
+            String line;
             int lineCount = 0;
-            int groupNumber;
             int prevGroupNumber = -1;
-            int blockNumber;
             boolean firstCycle = true;
             LabelDTO labelDTO = null;
-            while (((st = reader.readLine()) != null)) {
+            LabelLineDTO labelLineDTO = null;
+            while (((line = reader.readLine()) != null)) {
                 lineCount++;
-                // skip empty string and comments
-                if (st.equals("") || st.startsWith(COMMENT_SYMBOL)) {
-                    continue;
-                }
 
-                String[] tokens = st.split(COMMA_DELEMITER);
-                if (tokens.length < 2) {
-                    LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
+                labelLineDTO = getLabelLineDTO(line, lineCount);
+                if (labelLineDTO == null) {
                     continue;
-                }
-
-                // skip adaptation, basic and coding labels
-                if (tokens[0].toUpperCase(Locale.ENGLISH).startsWith("A") || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("B")
-                        || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("C")) {
-                    continue;
-                }
-
-                try {
-                    groupNumber = Integer.parseInt(tokens[0]);
-                    blockNumber = Integer.parseInt(tokens[1]);
-                } catch (NumberFormatException e) {
-                    LOG.debug("Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + COMMA_DELEMITER + tokens[1]);
-                    continue;
-                }
-
-                if ((blockNumber < 0) || (blockNumber > 4)) {
-                    LOG.debug("Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
-                    continue;
-                }
-
-                // skip 0 group
-                if (groupNumber == 0) {
-                    continue;
-                }
-
-                recordsCount.add(groupNumber);
+                } 
 
                 if (firstCycle) {
-                    prevGroupNumber = groupNumber;
+                    prevGroupNumber = labelLineDTO.getGroupNumber();
                     labelDTO = new LabelDTO(context);
                     firstCycle = false;
                 }
 
-                if (groupNumber != prevGroupNumber) {
+                if (labelLineDTO.getGroupNumber() != prevGroupNumber) {
                     labels.put(prevGroupNumber, labelDTO);
                     labelDTO = new LabelDTO(context);
                 }
 
-                prevGroupNumber = groupNumber;
-                fillLabel(labelDTO, tokens, blockNumber);
+                prevGroupNumber = labelLineDTO.getGroupNumber();
+                fillLabel(labelDTO, labelLineDTO.getTokens(), labelLineDTO.getBlockNumber());
 
             }
             if (labelDTO != null) {
@@ -255,9 +221,52 @@ public class LabelService {
                 }
             }
         }
-        
+
         LOG.debug("Found group records: " + labels.size());
         return labels;
+    }
+
+    private LabelLineDTO getLabelLineDTO(String line, int lineCount) {
+
+        int groupNumber;
+        int blockNumber;
+
+        // skip empty string and comments
+        if (line.equals("") || line.startsWith(COMMENT_SYMBOL)) {
+            return null;
+        }
+
+        String[] tokens = line.split(COMMA_DELEMITER);
+        if (tokens.length < 2) {
+            LOG.debug("Wrong syntax in line " + lineCount + ": expected tokens length > 2, but was: " + tokens.length);
+            return null;
+        }
+
+        // skip adaptation, basic and coding labels
+        if (tokens[0].toUpperCase(Locale.ENGLISH).startsWith("A") || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("B")
+                || tokens[0].toUpperCase(Locale.ENGLISH).startsWith("C")) {
+            return null;
+        }
+
+        try {
+            groupNumber = Integer.parseInt(tokens[0]);
+            blockNumber = Integer.parseInt(tokens[1]);
+        } catch (NumberFormatException e) {
+            LOG.debug("Wrong syntax in line " + lineCount + ": expected number, but was: " + tokens[0] + COMMA_DELEMITER + tokens[1]);
+            return null;
+        }
+
+        if ((blockNumber < 0) || (blockNumber > 4)) {
+            LOG.debug("Wrong block number in line " + lineCount + ": expected 0..4, but was: " + blockNumber);
+            return null;
+        }
+
+        // skip 0 group
+        if (groupNumber == 0) {
+            return null;
+        }
+
+        return new LabelLineDTO(groupNumber, blockNumber, tokens);
     }
 
     /**
@@ -300,7 +309,7 @@ public class LabelService {
      * @param blockNumber
      *            blockNumber
      */
-    private static void fillLabel(final LabelDTO label, final String[] tokens, final int blockNumber) {
+    private void fillLabel(final LabelDTO label, final String[] tokens, final int blockNumber) {
         if (blockNumber == 0) {
             if (tokens.length > 2) {
                 label.setTitle(tokens[2]);
@@ -309,6 +318,48 @@ public class LabelService {
             }
         } else
             label.setGroup(blockNumber, getFilledGoup(tokens));
+    }
+
+    private static class LabelLineDTO {
+        private int groupNumber;
+        private int blockNumber;
+        private String[] tokens;
+
+        /**
+         * constructor.
+         * 
+         * @param groupNumber
+         * @param blockNumber
+         * @param tokens
+         */
+        public LabelLineDTO(int groupNumber, int blockNumber, String[] tokens) {
+            super();
+            this.groupNumber = groupNumber;
+            this.blockNumber = blockNumber;
+            this.tokens = Arrays.copyOf(tokens, tokens.length);
+        }
+
+        /**
+         * @return the groupNumber
+         */
+        public int getGroupNumber() {
+            return groupNumber;
+        }
+
+        /**
+         * @return the blockNumber
+         */
+        public int getBlockNumber() {
+            return blockNumber;
+        }
+
+        /**
+         * @return the tokens
+         */
+        public String[] getTokens() {
+            return Arrays.copyOf(tokens, tokens.length);
+        }
+
     }
 
 }

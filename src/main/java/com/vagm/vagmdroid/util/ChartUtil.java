@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.inject.Singleton;
 
@@ -203,20 +204,15 @@ public class ChartUtil {
                 }
             }
 
-            String time = new SimpleDateFormat(DATE_FORMAT_PATTERN).format(new Date());
+            String time = new SimpleDateFormat(DATE_FORMAT_PATTERN, Locale.getDefault()).format(new Date());
             String fileName = CHART_FILE_NAME + "_" + time + ".xls";
 
-            File dir = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
-                    + propertyService.getSavedChartsFolder());
-            if (!dir.exists() && !dir.mkdirs()) {
-                LOG.error("Cannot create directory: {}", dir.getAbsolutePath());
+            File file = getFileToSave(fileName);
+            
+            if (file == null) {
                 return false;
             }
-            File file = new File(dir + File.separator + fileName);
-            if (!file.createNewFile()) {
-                LOG.error("Cannot create file: {}", file.getAbsolutePath());
-                return false;
-            }
+            
             fos = new FileOutputStream(file);
             workbook.write(fos);
 
@@ -227,21 +223,32 @@ public class ChartUtil {
             LOG.error("Cannot save chart", ex);
             return false;
         } finally {
-            if (fos != null) {
-                try {
+            try {
+                if (fos != null) {
                     fos.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close FileOutputStream", e);
                 }
-            }
-            if (inputStream != null) {
-                try {
+                if (inputStream != null) {
                     inputStream.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close InputStream", e);
                 }
+            } catch (IOException e) {
+                LOG.error(e.getMessage());
             }
         }
+    }
+
+    private File getFileToSave(String fileName) throws IOException {
+        File dir = new File(Environment.getExternalStorageDirectory() + File.separator + propertyService.getAppName() + File.separator
+                + propertyService.getSavedChartsFolder());
+        if (!dir.exists() && !dir.mkdirs()) {
+            LOG.error("Cannot create directory: {}", dir.getAbsolutePath());
+            return null;
+        }
+        File file = new File(dir + File.separator + fileName);
+        if (!file.createNewFile()) {
+            LOG.error("Cannot create file: {}", file.getAbsolutePath());
+            return null;
+        }
+        return file;
     }
 
 }

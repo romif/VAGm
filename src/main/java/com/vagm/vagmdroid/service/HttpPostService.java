@@ -3,11 +3,12 @@ package com.vagm.vagmdroid.service;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -35,6 +36,12 @@ public class HttpPostService {
          */
         public static final String MULTIPART_FORM_DATA = "multipart/form-data";
     }
+    
+    private static final int MAX_BUFFER_SIZE = 1 * 1024 * 1024;
+    
+    private static final String LINE_END = "\r\n";
+    
+    private static final String TWO_HYPHENS = "--";
 
     /**
      * LOG.
@@ -72,71 +79,36 @@ public class HttpPostService {
      * @return response
      */
     public String doMultipartRequest(final String urlTo, final Map<String, String> parmas, final File file, final String fileMimeType) {
-        HttpURLConnection connection = null;
+        
         DataOutputStream outputStream = null;
         InputStream inputStream = null;
-
-        final String twoHyphens = "--";
-        final String boundary = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
-        final String lineEnd = "\r\n";
-
-        String result = "";
-
-        int bytesRead, bytesAvailable, bufferSize;
-        byte[] buffer;
-        final int maxBufferSize = 1 * 1024 * 1024;
         FileInputStream fileInputStream = null;
+
+        final String boundary = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
+        
+        String result = "";
+        
         try {
-            fileInputStream = new FileInputStream(file);
-
             final URL url = new URL(urlTo);
-            connection = (HttpURLConnection) url.openConnection();
-
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
-            connection.setUseCaches(false);
-
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Connection", "Keep-Alive");
-            connection.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
-            connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+            final HttpURLConnection connection = getConnection(boundary, url);
 
             outputStream = new DataOutputStream(connection.getOutputStream());
-            outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-            outputStream.writeBytes("Content-Disposition: form-data; name=\"" + FORM_PARAM + "\"" + lineEnd);
-            outputStream.writeBytes("Content-Type: " + fileMimeType + lineEnd);
-            outputStream.writeBytes("Content-Transfer-Encoding: binary" + lineEnd);
+            outputStream.writeBytes(TWO_HYPHENS + boundary + LINE_END);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"" + FORM_PARAM + "\"" + LINE_END);
+            outputStream.writeBytes("Content-Type: " + fileMimeType + LINE_END);
+            outputStream.writeBytes("Content-Transfer-Encoding: binary" + LINE_END);
 
-            outputStream.writeBytes(lineEnd);
+            outputStream.writeBytes(LINE_END);
+            
+            fileInputStream = new FileInputStream(file);
 
-            bytesAvailable = fileInputStream.available();
-            bufferSize = Math.min(bytesAvailable, maxBufferSize);
-            buffer = new byte[bufferSize];
+            writeOutputStream(fileInputStream, outputStream);
 
-            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-            while (bytesRead > 0) {
-                outputStream.write(buffer, 0, bufferSize);
-                bytesAvailable = fileInputStream.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-            }
+            outputStream.writeBytes(LINE_END);
 
-            outputStream.writeBytes(lineEnd);
+            uploadPOSTData(parmas, outputStream, boundary);
 
-            // Upload POST Data
-            for (Entry<String, String> entry : parmas.entrySet()) {
-                final String key = entry.getKey();
-                final String value = entry.getValue();
-
-                outputStream.writeBytes(twoHyphens + boundary + lineEnd);
-                outputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
-                outputStream.writeBytes("Content-Type: text/plain" + lineEnd);
-                outputStream.writeBytes(lineEnd);
-                outputStream.writeBytes(value);
-                outputStream.writeBytes(lineEnd);
-            }
-
-            outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+            outputStream.writeBytes(TWO_HYPHENS + boundary + TWO_HYPHENS + LINE_END);
 
             if (200 != connection.getResponseCode()) {
                 LOG.error("Failed to upload code:" + connection.getResponseCode() + " " + connection.getResponseMessage());
@@ -165,12 +137,61 @@ public class HttpPostService {
                 if (outputStream != null) {
                     outputStream.close();                    
                 }
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 LOG.error(e.getMessage());
             }
             
         }
 
+    }
+
+    private void uploadPOSTData(final Map<String, String> parmas, DataOutputStream outputStream, final String boundary) throws IOException {
+        for (final Entry<String, String> entry : parmas.entrySet()) {
+            final String key = entry.getKey();
+            final String value = entry.getValue();
+
+            outputStream.writeBytes(TWO_HYPHENS + boundary + LINE_END);
+            outputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + LINE_END);
+            outputStream.writeBytes("Content-Type: text/plain" + LINE_END);
+            outputStream.writeBytes(LINE_END);
+            outputStream.writeBytes(value);
+            outputStream.writeBytes(LINE_END);
+        }
+    }
+
+    private FileInputStream writeOutputStream(final FileInputStream fileInputStream, DataOutputStream outputStream) throws FileNotFoundException, IOException {
+        int bytesRead;
+        int bytesAvailable;
+        int bufferSize;
+        byte[] buffer;
+        
+        bytesAvailable = fileInputStream.available();
+        bufferSize = Math.min(bytesAvailable, MAX_BUFFER_SIZE);
+        buffer = new byte[bufferSize];
+
+        bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+        while (bytesRead > 0) {
+            outputStream.write(buffer, 0, bufferSize);
+            bytesAvailable = fileInputStream.available();
+            bufferSize = Math.min(bytesAvailable, MAX_BUFFER_SIZE);
+            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+        }
+        return fileInputStream;
+    }
+
+    private HttpURLConnection getConnection(final String boundary, final URL url) throws IOException, ProtocolException {
+        HttpURLConnection connection;
+        connection = (HttpURLConnection) url.openConnection();
+
+        connection.setDoInput(true);
+        connection.setDoOutput(true);
+        connection.setUseCaches(false);
+
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Connection", "Keep-Alive");
+        connection.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
+        connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+        return connection;
     }
 
 }
