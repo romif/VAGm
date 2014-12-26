@@ -40,7 +40,7 @@ public class BufferService {
      * dataStreamService.
      */
     @Inject
-    private DataStreamService dataStreamService;
+    private GroupDataService groupDataService;
 
     /**
      * context.
@@ -154,7 +154,7 @@ public class BufferService {
 
         DataStreamDTO[] dtos = new DataStreamDTO[4];
         for (int i = 0; i < groupsCount; i++) {
-            dtos[i] = dataStreamService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
+            dtos[i] = groupDataService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
                     byteToInt(buffer[i * 3 + 3]));
         }
         for (int i = groupsCount; i < 4; i++) {

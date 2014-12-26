@@ -45,7 +45,7 @@ public class DataStreamServiceTest {
      * dataStreamService.
      */
     @Inject
-    private DataStreamService dataStreamService;
+    private GroupDataService dataStreamService;
 
     /**
      * testEncodeGroupData.

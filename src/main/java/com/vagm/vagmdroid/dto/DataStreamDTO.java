@@ -30,6 +30,9 @@ public class DataStreamDTO {
      * constructor.
      */
     public DataStreamDTO() {
+        this.value = "";
+        this.unit = "";
+        this.valueFloat = 0;
     }
 
     /**
@@ -53,7 +56,7 @@ public class DataStreamDTO {
      * @return the value
      */
     public String getValue() {
-        return value;
+        return value != null ? value : "";
     }
 
     /**
@@ -68,7 +71,7 @@ public class DataStreamDTO {
      * @return the unit
      */
     public String getUnit() {
-        return unit;
+        return unit != null ? unit : "";
     }
 
     /**
