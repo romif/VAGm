@@ -22,6 +22,7 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.FileService;
+import com.vagm.vagmdroid.service.LogService;
 import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
@@ -41,6 +42,9 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
      */
     @Inject
     private FileService fileService;
+    
+    @Inject
+    private LogService logService;
 
     /**
      * bufferService.
@@ -119,7 +123,7 @@ public class ShowLogActivity extends CustomAbstractActivity implements OnClickLi
         new CustomBackgroundTask<File, String>(this, getString(R.string.readingLogFile)) {
             @Override
             protected String doBackgroundJob() {
-                return fileService.convertStreamToString((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT));
+                return logService.getTodayLog((File) getIntent().getExtras().get(SendLogActivity.LOG_TEXT));
             }
 
             @Override

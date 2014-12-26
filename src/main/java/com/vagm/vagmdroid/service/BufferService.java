@@ -18,6 +18,7 @@ import com.vagm.vagmdroid.enums.AdapterLogKey;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
+import com.vagm.vagmdroid.util.NumberUtil;
 
 /**
  * The Class BufferService.
@@ -53,6 +54,9 @@ public class BufferService {
      */
     @Inject
     private FaultCodesService faultCodesService;
+    
+    @Inject
+    private NumberUtil numberUtil;
 
     /**
      * Constructor.
@@ -91,19 +95,19 @@ public class BufferService {
         final String[] result = controllerInfo;
         if (buffer.length == 4) {
             result[0] = String.valueOf(8000000 / Integer.parseInt(
-                    Integer.toHexString(byteToInt(buffer[0])) + Integer.toHexString(byteToInt(buffer[1])), 16));
+                    Integer.toHexString(numberUtil.byteToInt(buffer[0])) + Integer.toHexString(numberUtil.byteToInt(buffer[1])), 16));
         } else if (buffer.length > 4) {
 
-            int response = byteToInt(buffer[0]);
+            int response = numberUtil.byteToInt(buffer[0]);
             int dataStartPosition = 1;
             if (response <= 0x01) {
-                response = byteToInt(buffer[1]);
+                response = numberUtil.byteToInt(buffer[1]);
                 dataStartPosition = 2;
             }
 
             checkResponseCode(VAGmConstans.VAG_BTI_INFO_RES, response);
 
-            if (result[1].length() == 0 && byteToInt(buffer[dataStartPosition]) > 0x80) {
+            if (result[1].length() == 0 && numberUtil.byteToInt(buffer[dataStartPosition]) > 0x80) {
                 buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
             }
 
@@ -137,7 +141,7 @@ public class BufferService {
      */
     public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = byteToInt(buffer[0]);
+        int responseCode = numberUtil.byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("No data for current group");
             return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
@@ -154,8 +158,8 @@ public class BufferService {
 
         DataStreamDTO[] dtos = new DataStreamDTO[4];
         for (int i = 0; i < groupsCount; i++) {
-            dtos[i] = groupDataService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
-                    byteToInt(buffer[i * 3 + 3]));
+            dtos[i] = groupDataService.encodeGroupData(numberUtil.byteToInt(buffer[i * 3 + 1]), numberUtil.byteToInt(buffer[i * 3 + 2]),
+                    numberUtil.byteToInt(buffer[i * 3 + 3]));
         }
         for (int i = groupsCount; i < 4; i++) {
             dtos[i] = DataStreamDTO.getDefault(context);
@@ -176,7 +180,7 @@ public class BufferService {
      */
     public String getFaultCodesInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = byteToInt(buffer[0]);
+        int responseCode = numberUtil.byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("Error");
             // TODO
@@ -187,16 +191,16 @@ public class BufferService {
             throw new ControllerWrongResponseException("Wrong response length from controller: expected multiplicity of three, but was: "
                     + (buffer.length - 1));
         }
-        if ((byteToInt(buffer[1]) == 0xFF) && (byteToInt(buffer[2]) == 0xFF)) {
+        if ((numberUtil.byteToInt(buffer[1]) == 0xFF) && (numberUtil.byteToInt(buffer[2]) == 0xFF)) {
             return context.getString(R.string.no_errors);
         }
 
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < buffer.length / 3; i++) {
             int errorCode = Integer.parseInt(
-                    Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])), 16);
+                    Integer.toHexString(numberUtil.byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(numberUtil.byteToInt(buffer[i * 3 + 2])), 16);
             String errorString = faultCodesService.getDTC(errorCode);
-            int errorTypeInt = byteToInt(buffer[i * 3 + 3]);
+            int errorTypeInt = numberUtil.byteToInt(buffer[i * 3 + 3]);
             if (errorTypeInt > 0x80) {
                 errorTypeInt = errorTypeInt - 0x80;
             }
@@ -223,7 +227,7 @@ public class BufferService {
      */
     public String getOutputTestsInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = byteToInt(buffer[0]);
+        int responseCode = numberUtil.byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("Error");
             // TODO
@@ -234,7 +238,7 @@ public class BufferService {
         }
         checkResponseCode(VAGmConstans.VAG_BTI_ACT_RES, responseCode);
 
-        int outputTestCode = Integer.parseInt(Integer.toHexString(byteToInt(buffer[1])) + Integer.toHexString(byteToInt(buffer[2])), 16);
+        int outputTestCode = Integer.parseInt(Integer.toHexString(numberUtil.byteToInt(buffer[1])) + Integer.toHexString(numberUtil.byteToInt(buffer[2])), 16);
         return faultCodesService.getDTC(outputTestCode);
     }
 
@@ -244,9 +248,7 @@ public class BufferService {
      * @return
      * @throws ControllerWrongResponseException
      */
-    public String encodeAdapterLog(byte[] adapterLog) throws ControllerWrongResponseException {
-        int response = byteToInt(adapterLog[0]);
-        checkResponseCode(VAGmConstans.ADAPTER_LOG_RES, response);
+    public String encodeAdapterLog(byte[] adapterLog) {
 
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -268,33 +270,6 @@ public class BufferService {
         }
 
         return stringBuilder.toString();
-    }
-
-    /**
-     * hexStringToByteArray.
-     * 
-     * @param s
-     *            String
-     * @return byte[]
-     */
-    public byte[] hexStringToByteArray(final String s) {
-        int len = s.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) Integer.parseInt(s.substring(i, i + 2), 16);
-        }
-        return data;
-    }
-
-    /**
-     * byteToInt.
-     * 
-     * @param b
-     *            byte
-     * @return int
-     */
-    private static int byteToInt(final byte b) {
-        return b < 0 ? b + 256 : b;
     }
 
     /**

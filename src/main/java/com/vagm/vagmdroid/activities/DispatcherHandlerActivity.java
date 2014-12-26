@@ -16,6 +16,7 @@ import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
+import com.vagm.vagmdroid.service.BackgroundService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.TimeOutJob;
@@ -31,6 +32,9 @@ public class DispatcherHandlerActivity extends RoboActivity {
      */
     @Inject
     private BufferService bufferService;
+    
+    @Inject
+    private BackgroundService backgroundService;
 
     /**
      * LOG.
@@ -48,7 +52,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
             final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
             if (serviceCommand == ServiceCommand.MESSAGE_READ) {
                 byte[] message = (byte[]) msg.obj;
-                LOG.debug("Recieved message from conroller: {}", bufferService.bytesToHex(message));
+                LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
                 try {
                     bufferService.checkAdapterErrors(message);
                 } catch (ControllerNotFoundException e) {
@@ -58,12 +62,15 @@ public class DispatcherHandlerActivity extends RoboActivity {
                     LOG.error("No answer from controller", e);
                     getControllerNotAnswerAlert().show();
                 }
-
-                try {
-                    proceedMessage(message);
-                } catch (ControllerWrongResponseException e) {
-                    LOG.info(e.getMessage());
+                
+                if (!backgroundService.doTask(message)) {
+                    try {
+                        proceedMessage(message);
+                    } catch (ControllerWrongResponseException e) {
+                        LOG.trace(e.getMessage());
+                    }
                 }
+                
             } else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {
                 Toast.makeText(getApplicationContext(), getText(R.string.connection_lost), Toast.LENGTH_SHORT).show();
                 onConnectionLost();
