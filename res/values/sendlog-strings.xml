@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="bViewMobileLog">View Mobile Log</string>
-    <string name="bViewAdapterLog">View Adapter Log</string>
+    <string name="bViewLog">View Log</string>
     <string name="bSendLog">Send Log</string>
     <string name="sendingLog">Sending Log...</string>
     <string name="readingLogFile">Reading Log...</string>

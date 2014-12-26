@@ -3,6 +3,7 @@ package com.vagm.vagmdroid.activities;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,8 @@ import android.widget.Button;
 
 import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
+import com.vagm.vagmdroid.constants.VAGmConstans;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.FileService;
 import com.vagm.vagmdroid.service.HttpPostService;
 import com.vagm.vagmdroid.service.HttpPostService.MediaType;
@@ -37,6 +40,8 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
     public static final String LOG_TEXT = "logTest";
     
     public static final String EXTRA_CRASHED_FLAG = "crashed";
+    
+    private static final CountDownLatch LATCH = new CountDownLatch(1);
 
     /**
      * LOG.
@@ -71,6 +76,9 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
      */
     @Inject
     private PropertyService propertyService;
+    
+    @Inject
+    private BluetoothService bluetoothService;
 
     /**
      * file.
@@ -83,12 +91,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
     private File zipFile = null;
 
     /**
-     * bViewAdapterLog.
-     */
-    @InjectView(R.id.bViewAdapterLog)
-    private Button bViewAdapterLog;
-
-    /**
      * bSendLog.
      */
     @InjectView(R.id.bSendLog)
@@ -96,22 +98,14 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
     @Override
     public void onClick(final View v) {
-        Intent showLogIntent;
         switch (v.getId()) {
-            case R.id.bViewMobileLog:
-                showLogIntent = new Intent(this, ShowLogActivity.class);
-                showLogIntent.putExtra(LOG_TEXT, file);
-    
-                startActivity(showLogIntent);
-                break;
-    
-            case R.id.bViewAdapterLog:
-                showLogIntent = new Intent(this, ShowLogActivity.class);
-                showLogIntent.putExtra(LOG_TEXT, "");
-                startActivity(showLogIntent);
+            case R.id.bViewLog:
+                LOG.debug("Request for log");
+                showLog();
                 break;
     
             case R.id.bSendLog:
+                LOG.debug("Request for sending log");
                 if (zipFile != null) {
                     sendLogFile(zipFile);
                 }
@@ -159,10 +153,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
 
         setButtonOnClickListner((ViewGroup) findViewById(R.id.send_log), this);
 
-        if (!propertyService.isConnectedToAdapter()) {
-            bViewAdapterLog.setVisibility(View.GONE);
-        }
-
         file = logService.getLogFile();
         try {
             zipFile = fileService.zip(file);
@@ -171,6 +161,39 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
             LOG.error(e.getMessage());
             bSendLog.setVisibility(View.GONE);
         }
+    }
+    
+    private void showLog() {
+        new CustomBackgroundTask<Void, Void>(this, getString(R.string.readingLogFile), 8000) {
+
+            @Override
+            protected Void doBackgroundJob() {
+                if (propertyService.isConnectedToAdapter()) {
+                    bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
+                    try {
+                        LATCH.await();
+                    } catch (InterruptedException e) {
+                        LOG.error(e.getMessage());
+                    }
+                }
+                String logString = logService.getTodayLog(file);
+                
+                Intent showLogIntent = new Intent(SendLogActivity.this, ShowLogActivity.class);
+                bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
+                showLogIntent.putExtra(LOG_TEXT, logString);
+    
+                startActivity(showLogIntent);
+
+                return null;
+            }
+
+        }.execute();
+
+    }
+    
+    @Override
+    protected void proceedMessage(byte[] message) {
+        LATCH.countDown();
     }
 
 }

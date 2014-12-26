@@ -62,13 +62,12 @@ public class DispatcherHandlerActivity extends RoboActivity {
                     LOG.error("No answer from controller", e);
                     getControllerNotAnswerAlert().show();
                 }
+                backgroundService.doTask(message);
                 
-                if (!backgroundService.doTask(message)) {
-                    try {
-                        proceedMessage(message);
-                    } catch (ControllerWrongResponseException e) {
-                        LOG.trace(e.getMessage());
-                    }
+                try {
+                    proceedMessage(message);
+                } catch (ControllerWrongResponseException e) {
+                    LOG.trace(e.getMessage());
                 }
                 
             } else if (serviceCommand == ServiceCommand.CONNECTION_LOST) {

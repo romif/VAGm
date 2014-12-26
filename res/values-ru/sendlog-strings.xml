@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="bViewMobileLog">Просмотреть лог телефона</string>
-    <string name="bViewAdapterLog">Просмотреть лог адаптера</string>
+    <string name="bViewLog">Просмотреть лог</string>
     <string name="bSendLog">Послать лог</string>
     <string name="sendingLog">Отправка лога...</string>
     <string name="readingLogFile">Чтение лог файла...</string>

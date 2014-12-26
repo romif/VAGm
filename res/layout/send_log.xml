@@ -8,16 +8,11 @@
     tools:context=".SendLogActivity" >
 
     <Button
-        android:id="@+id/bViewMobileLog"
+        android:id="@+id/bViewLog"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bViewMobileLog" />
+        android:text="@string/bViewLog" />
 
-    <Button
-        android:id="@+id/bViewAdapterLog"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/bViewAdapterLog" />
 
     <Button
         android:id="@+id/bSendLog"
