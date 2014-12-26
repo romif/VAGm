@@ -6,5 +6,7 @@
     <string name="bSendLog">Послать лог</string>
     <string name="sendingLog">Отправка лога...</string>
     <string name="readingLogFile">Чтение лог файла...</string>
+    <string name="bExit">Выход</string>
+    <string name="apllicationCrashed">Произошла ошибка</string>
 
 </resources>

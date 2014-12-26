@@ -6,5 +6,7 @@
     <string name="bSendLog">Send Log</string>
     <string name="sendingLog">Sending Log...</string>
     <string name="readingLogFile">Reading Log...</string>
+    <string name="bExit">Exit</string>
+    <string name="apllicationCrashed">Apllication Crashed</string>
 
 </resources>

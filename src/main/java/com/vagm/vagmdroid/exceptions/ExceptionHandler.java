@@ -3,9 +3,10 @@ package com.vagm.vagmdroid.exceptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.app.Activity;
+import android.content.Intent;
 
 import com.vagm.vagmdroid.activities.CustomAbstractActivity;
+import com.vagm.vagmdroid.activities.SendLogActivity;
 
 /**
  * The Class ExceptionHandler.
@@ -22,7 +23,7 @@ public class ExceptionHandler implements Thread.UncaughtExceptionHandler {
     /**
      * activity.
      */
-    private final Activity activity;
+    private final CustomAbstractActivity activity;
 
     /**
      * constructor.
@@ -30,25 +31,21 @@ public class ExceptionHandler implements Thread.UncaughtExceptionHandler {
      * @param activity
      *            activity
      */
-    public ExceptionHandler(final Activity activity) {
+    public ExceptionHandler(final CustomAbstractActivity activity) {
         this.activity = activity;
     }
 
     @Override
     public void uncaughtException(final Thread thread, final Throwable ex) {
         LOG.error("Uncaught Exception", ex);
-        /*
-         * final AlertDialog.Builder builder = new
-         * AlertDialog.Builder(activity);
-         * builder.setMessage(activity.getString(R
-         * .string.controller_not_answer))
-         * .setTitle(activity.getString(R.string.error)).setCancelable(false)
-         * .setNeutralButton(activity.getString(R.string.back), new
-         * DialogInterface.OnClickListener() { public void onClick(final
-         * DialogInterface dialog, final int id) { activity.finish(); }
-         * }).create().show();
-         */
-        ((CustomAbstractActivity) activity).getDefaultUEH().uncaughtException(thread, ex);
+        
+        Intent crashedIntent = new Intent(activity, SendLogActivity.class);
+        crashedIntent.putExtra(SendLogActivity.EXTRA_CRASHED_FLAG,  "Unexpected Error occurred.");
+        crashedIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        crashedIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        activity.startActivity(crashedIntent);
+        
+        System.exit(0);
     }
 
 }

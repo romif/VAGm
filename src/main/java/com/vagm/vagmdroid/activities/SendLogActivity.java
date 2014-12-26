@@ -34,7 +34,9 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
     /**
      * LOG_TEXT.
      */
-    public static final String LOG_TEXT = "logText";
+    public static final String LOG_TEXT = "logTest";
+    
+    public static final String EXTRA_CRASHED_FLAG = "crashed";
 
     /**
      * LOG.
@@ -115,7 +117,7 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
                 }
                 break;
     
-            case R.id.bBack:
+            case R.id.bExit:
                 finish();
                 break;
     
@@ -143,6 +145,12 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        boolean isApplicationCrashed = getIntent().getExtras() != null && getIntent().getExtras().get(SendLogActivity.EXTRA_CRASHED_FLAG) != null;
+        
+        if (isApplicationCrashed) {
+            this.setTitle(getString(R.string.apllicationCrashed));
+        }
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.send_log);

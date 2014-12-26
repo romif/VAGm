@@ -135,7 +135,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
         return builder.create();
     }
 
-    protected void showtAlert(String message) {
+    public void showtAlert(String message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message).setTitle(getString(R.string.error)).setCancelable(false)
                 .setNeutralButton(getString(R.string.back), new DialogInterface.OnClickListener() {

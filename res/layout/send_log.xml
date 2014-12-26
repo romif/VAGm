@@ -26,9 +26,9 @@
         android:text="@string/bSendLog" />
     
     <Button
-        android:id="@+id/bBack"
+        android:id="@+id/bExit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bBack" />
+        android:text="@string/bExit" />
 
 </LinearLayout>
