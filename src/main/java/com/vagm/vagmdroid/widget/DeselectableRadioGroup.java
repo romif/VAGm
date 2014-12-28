@@ -22,8 +22,6 @@ import java.lang.reflect.Method;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.vagm.vagmdroid.util.CopyLabelsTask;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -73,7 +71,7 @@ public class DeselectableRadioGroup extends RadioGroup {
     /**
      * LOG.
      */
-    private static final Logger LOG = LoggerFactory.getLogger(CopyLabelsTask.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DeselectableRadioGroup.class);
     
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;

@@ -1,5 +1,11 @@
 package com.vagm.vagmdroid.activities;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +17,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
@@ -31,11 +38,11 @@ import com.google.inject.Inject;
 import com.vagm.vagmdroid.R;
 import com.vagm.vagmdroid.constants.VAGmConstans;
 import com.vagm.vagmdroid.enums.ControllerCode;
+import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.BluetoothService.ConnectionState;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
-import com.vagm.vagmdroid.service.BluetoothService;
 import com.vagm.vagmdroid.service.PropertyService;
-import com.vagm.vagmdroid.util.CopyLabelsTask;
+import com.vagm.vagmdroid.tasks.CustomBackgroundTask;
 
 /**
  * The Class MainActivity.
@@ -297,30 +304,68 @@ public class MainActivity extends CustomAbstractActivity implements OnClickListe
         }
 
         if (isFirstRun()) {
-            new CopyLabelsTask(this).execute();
+            copyLabels();
         }
 
-        /*
-         * final Intent faultCodesIntent = new Intent(this,
-         * GraphicActivity.class); startActivityForResult(faultCodesIntent, -1);
-         */
-        /*
-         * String url = "http://vagm-romif.rhcloud.com/uploadFile"; File file =
-         * new File(Environment.getExternalStorageDirectory() + File.separator +
-         * PropertyService.getAppName(), "VAGm.log"); try { HttpClient
-         * httpclient = new DefaultHttpClient();
-         * 
-         * HttpPost httppost = new HttpPost(url);
-         * 
-         * InputStreamEntity reqEntity = new InputStreamEntity( new
-         * FileInputStream(file), -1);
-         * reqEntity.setContentType("multipart/form-data");
-         * reqEntity.setChunked(true); // Send in multiple parts if needed
-         * httppost.setEntity(reqEntity); HttpResponse response =
-         * httpclient.execute(httppost); //Do something with response...
-         * 
-         * } catch (Exception e) { LOG.error("Error", e); }
-         */
+    }
+    
+    private void copyLabels() {
+        new CustomBackgroundTask<Void, Void>(this, getString(R.string.copying_labels)) {
+
+            @Override
+            protected Void doBackgroundJob() {
+                InputStream in = null;
+                OutputStream out = null;
+
+                File labelDir = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels");
+                if (!labelDir.exists()) {
+                    if (!labelDir.mkdirs()) {
+                        LOG.error("Cannot create directory: {}", labelDir.getAbsolutePath());
+                        return null;
+                    }
+                    String[] labelFiles;
+                    try {
+                        labelFiles = getContext().getAssets().list("labels");
+
+                        int filesCopied = 0;
+                        for (String file : labelFiles) {
+                            try {
+                                File dst = new File(Environment.getExternalStorageDirectory(), propertyService.getAppName() + "/labels/" + file);
+                                in = getContext().getAssets().open("labels/" + file);
+                                out = new FileOutputStream(dst);
+
+                                // Transfer bytes from in to out
+                                byte[] buf = new byte[1024];
+                                int len;
+                                while ((len = in.read(buf)) > 0) {
+                                    out.write(buf, 0, len);
+                                }
+                                filesCopied++;
+                            } catch (IOException e) {
+                                LOG.error("Error copying label files", e);
+                                return null;
+                            } finally {
+                                try {
+                                    if (in != null) {
+                                        in.close();
+                                    }
+                                    if (out != null) {
+                                        out.close();
+                                    }
+                                } catch (IOException e) {
+                                    LOG.error("Cannot close InputStream / OutputStream", e);
+                                }
+                            }
+                        }
+
+                        LOG.debug("{} files copied", filesCopied);
+                    } catch (IOException e) {
+                        LOG.error(e.getMessage());
+                    }
+                }
+                return null;
+            }
+        }.execute();
     }
 
     /**
