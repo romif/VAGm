@@ -6,7 +6,7 @@ package com.vagm.vagmdroid.activities;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_CODES1;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_END;
 import static com.vagm.vagmdroid.service.TestConstatnts.OUTPUTTESTS_STRING1;
-import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static com.vagm.vagmdroid.util.NumberUtil.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 

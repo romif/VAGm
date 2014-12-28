@@ -20,6 +20,7 @@ import com.vagm.vagmdroid.service.BackgroundService;
 import com.vagm.vagmdroid.service.BluetoothService.ServiceCommand;
 import com.vagm.vagmdroid.service.BufferService;
 import com.vagm.vagmdroid.service.TimeOutJob;
+import com.vagm.vagmdroid.util.NumberUtil;
 
 /**
  * The Class DispatcherHandlerActivity.
@@ -39,7 +40,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
     /**
      * LOG.
      */
-    private static final Logger LOG = LoggerFactory.getLogger(DispatcherHandlerActivity.class);
+    protected static final Logger LOG = LoggerFactory.getLogger(DispatcherHandlerActivity.class);
 
     /**
      * The Handler that gets information back from the BluetoothService.
@@ -52,7 +53,7 @@ public class DispatcherHandlerActivity extends RoboActivity {
             final ServiceCommand serviceCommand = ServiceCommand.values()[msg.what];
             if (serviceCommand == ServiceCommand.MESSAGE_READ) {
                 byte[] message = (byte[]) msg.obj;
-                LOG.trace("Recieved message from conroller: {}", bufferService.bytesToHex(message));
+                LOG.debug("Recieved message from conroller: {}", NumberUtil.bytesToHex(message));
                 try {
                     bufferService.checkAdapterErrors(message);
                 } catch (ControllerNotFoundException e) {

@@ -2,6 +2,7 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NOT_FOUND;
 import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NO_ANSWER;
+import static com.vagm.vagmdroid.util.NumberUtil.*;
 
 import javax.inject.Singleton;
 
@@ -18,7 +19,6 @@ import com.vagm.vagmdroid.enums.AdapterLogKey;
 import com.vagm.vagmdroid.exceptions.ControllerCommunicationException;
 import com.vagm.vagmdroid.exceptions.ControllerNotFoundException;
 import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
-import com.vagm.vagmdroid.util.NumberUtil;
 
 /**
  * The Class BufferService.
@@ -54,29 +54,11 @@ public class BufferService {
      */
     @Inject
     private FaultCodesService faultCodesService;
-    
-    @Inject
-    private NumberUtil numberUtil;
 
     /**
      * Constructor.
      */
     public BufferService() {
-    }
-
-    /**
-     * bytesToHex.
-     * 
-     * @param in
-     *            in
-     * @return String
-     */
-    public String bytesToHex(final byte[] in) {
-        final StringBuilder builder = new StringBuilder();
-        for (final byte b : in) {
-            builder.append(String.format(TWO_DIGIT_FORMAT, b));
-        }
-        return builder.toString();
     }
 
     /**
@@ -95,19 +77,19 @@ public class BufferService {
         final String[] result = controllerInfo;
         if (buffer.length == 4) {
             result[0] = String.valueOf(8000000 / Integer.parseInt(
-                    Integer.toHexString(numberUtil.byteToInt(buffer[0])) + Integer.toHexString(numberUtil.byteToInt(buffer[1])), 16));
+                    Integer.toHexString(byteToInt(buffer[0])) + Integer.toHexString(byteToInt(buffer[1])), 16));
         } else if (buffer.length > 4) {
 
-            int response = numberUtil.byteToInt(buffer[0]);
+            int response = byteToInt(buffer[0]);
             int dataStartPosition = 1;
             if (response <= 0x01) {
-                response = numberUtil.byteToInt(buffer[1]);
+                response = byteToInt(buffer[1]);
                 dataStartPosition = 2;
             }
 
             checkResponseCode(VAGmConstans.VAG_BTI_INFO_RES, response);
 
-            if (result[1].length() == 0 && numberUtil.byteToInt(buffer[dataStartPosition]) > 0x80) {
+            if (result[1].length() == 0 && byteToInt(buffer[dataStartPosition]) > 0x80) {
                 buffer[dataStartPosition] = (byte) (buffer[dataStartPosition] + 0x80);
             }
 
@@ -141,7 +123,7 @@ public class BufferService {
      */
     public DataStreamDTO[] getMeasBlocksInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = numberUtil.byteToInt(buffer[0]);
+        int responseCode = byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("No data for current group");
             return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
@@ -158,8 +140,8 @@ public class BufferService {
 
         DataStreamDTO[] dtos = new DataStreamDTO[4];
         for (int i = 0; i < groupsCount; i++) {
-            dtos[i] = groupDataService.encodeGroupData(numberUtil.byteToInt(buffer[i * 3 + 1]), numberUtil.byteToInt(buffer[i * 3 + 2]),
-                    numberUtil.byteToInt(buffer[i * 3 + 3]));
+            dtos[i] = groupDataService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
+                    byteToInt(buffer[i * 3 + 3]));
         }
         for (int i = groupsCount; i < 4; i++) {
             dtos[i] = DataStreamDTO.getDefault(context);
@@ -180,7 +162,7 @@ public class BufferService {
      */
     public String getFaultCodesInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = numberUtil.byteToInt(buffer[0]);
+        int responseCode = byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("Error");
             // TODO
@@ -191,16 +173,16 @@ public class BufferService {
             throw new ControllerWrongResponseException("Wrong response length from controller: expected multiplicity of three, but was: "
                     + (buffer.length - 1));
         }
-        if ((numberUtil.byteToInt(buffer[1]) == 0xFF) && (numberUtil.byteToInt(buffer[2]) == 0xFF)) {
+        if ((byteToInt(buffer[1]) == 0xFF) && (byteToInt(buffer[2]) == 0xFF)) {
             return context.getString(R.string.no_errors);
         }
 
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < buffer.length / 3; i++) {
             int errorCode = Integer.parseInt(
-                    Integer.toHexString(numberUtil.byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(numberUtil.byteToInt(buffer[i * 3 + 2])), 16);
+                    Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])), 16);
             String errorString = faultCodesService.getDTC(errorCode);
-            int errorTypeInt = numberUtil.byteToInt(buffer[i * 3 + 3]);
+            int errorTypeInt = byteToInt(buffer[i * 3 + 3]);
             if (errorTypeInt > 0x80) {
                 errorTypeInt = errorTypeInt - 0x80;
             }
@@ -227,7 +209,7 @@ public class BufferService {
      */
     public String getOutputTestsInfo(final byte[] buffer) throws ControllerWrongResponseException {
 
-        int responseCode = numberUtil.byteToInt(buffer[0]);
+        int responseCode = byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("Error");
             // TODO
@@ -238,7 +220,7 @@ public class BufferService {
         }
         checkResponseCode(VAGmConstans.VAG_BTI_ACT_RES, responseCode);
 
-        int outputTestCode = Integer.parseInt(Integer.toHexString(numberUtil.byteToInt(buffer[1])) + Integer.toHexString(numberUtil.byteToInt(buffer[2])), 16);
+        int outputTestCode = Integer.parseInt(Integer.toHexString(byteToInt(buffer[1])) + Integer.toHexString(byteToInt(buffer[2])), 16);
         return faultCodesService.getDTC(outputTestCode);
     }
 
@@ -256,17 +238,26 @@ public class BufferService {
             byte st = adapterLog[i];
             AdapterLogKey logKey = AdapterLogKey.getAdapterLogKey(st);
             stringBuilder.append(logKey.getValue());
-            stringBuilder.append(" - ");
-            stringBuilder.append(adapterLog[i++]);
-            if (logKey == AdapterLogKey.BAUDRATE_TICKS) {
-                stringBuilder.append(ADAPTER_LOG_DELEMITER);
-                stringBuilder.append(adapterLog[i++]);
-                stringBuilder.append(ADAPTER_LOG_DELEMITER);
-                stringBuilder.append(adapterLog[i++]);
-                stringBuilder.append(ADAPTER_LOG_DELEMITER);
-                stringBuilder.append(adapterLog[i++]);
+            if (logKey == AdapterLogKey.GETCHAR_TIMEOUT_ERROR) {
+                continue;
             }
-            stringBuilder.append(String.format("%n").intern());
+            
+            stringBuilder.append(" - ");
+            
+            if (logKey == AdapterLogKey.BAUDRATE_TICKS) {
+                for (int j = 0; j < 9; j++) {
+                    stringBuilder.append("0x" + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]) + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]));
+                    if (j != 8) {
+                        stringBuilder.append(ADAPTER_LOG_DELEMITER);
+                    }
+                }
+            } else {
+                stringBuilder.append("0x" + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]));
+            }
+            
+            if (i != adapterLog.length - 1) {
+                stringBuilder.append(String.format("%n").intern());                
+            }
         }
 
         return stringBuilder.toString();

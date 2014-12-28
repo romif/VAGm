@@ -4,6 +4,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import roboguice.util.RoboAsyncTask;
 import android.app.ProgressDialog;
 
@@ -19,6 +22,8 @@ import com.vagm.vagmdroid.service.TimeOutJob;
  * @param <Result>
  */
 public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<Result> implements TimeOutJob {
+    
+    private static final Logger LOG = LoggerFactory.getLogger(CustomBackgroundTask.class);
 
     /**
      * DEFAULT_TIMEOUT.
@@ -45,6 +50,8 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
      */
     private final ProgressDialog progressBar;
 
+    private long time;
+
     /**
      * constructor.
      * @param context
@@ -66,6 +73,8 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
         this.context = context;
         this.timeToWait = timeToWait;
         progressBar = new ProgressDialog(context);
+        LOG.debug("Start task: " + message);
+        time = System.currentTimeMillis();
     }
 
     @Override
@@ -99,6 +108,7 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
         if (this.progressBar.isShowing()) {
             this.progressBar.dismiss();
         }
+        LOG.debug("Finish yask: " + message + " in " + (System.currentTimeMillis() - time) + " ms");
         onJobDone(result);
     }
 

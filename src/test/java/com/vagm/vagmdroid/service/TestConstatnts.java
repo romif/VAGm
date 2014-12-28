@@ -146,23 +146,9 @@ public final class TestConstatnts {
 	 */
 	public static final String[] BUFFER_STRING_ARRAY_NEGATIVE = {"02F9018A", "50", "51"};
 	
-	public static final String ADAPTER_LOG = "5501ff01ff010103000300030001ff011101ff011101ff0111";
+	public static final String ADAPTER_LOG = "5501ff01010300011104036d02f8036702f8036502f9036502f8036605";
 	
-	public static final String ADAPTER_LOG_DECODED = "Received char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nGet baudrate time out error - 3\r\nGet baudrate time out error - 3\r\nGet baudrate time out error - 3\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\nReceived char - 1\r\n";
-
-	/**
-	 * hexStringToByteArray.
-	 * @param s
-	 *            String
-	 * @return byte[]
-	 */
-	public static byte[] hexStringToByteArray(final String s) {
-		int len = s.length();
-		byte[] data = new byte[len / 2];
-		for (int i = 0; i < len; i += 2) {
-			data[i / 2] = (byte) Integer.parseInt(s.substring(i, i + 2), 16);
-		}
-		return data;
-	}
+	public static final String ADAPTER_LOG_DECODED = "Received char - 0xff\r\nReceived char - 0x01\r\nGet baudrate time out error - 0x00\r\nReceived char - 0x11\r\n" +
+			"Baudrate ticks - 0x036d, 0x02f8, 0x0367, 0x02f8, 0x0365, 0x02f9, 0x0365, 0x02f8, 0x0366\r\nGet char time out error";
 
 }

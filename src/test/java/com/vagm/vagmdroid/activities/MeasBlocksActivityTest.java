@@ -9,7 +9,7 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_4GROU
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY1;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGATIVE;
 import static com.vagm.vagmdroid.service.TestConstatnts.DATA_STREAM_DTOS4;
-import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static com.vagm.vagmdroid.util.NumberUtil.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;

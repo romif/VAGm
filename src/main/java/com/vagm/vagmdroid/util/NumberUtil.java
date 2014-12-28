@@ -1,9 +1,11 @@
 package com.vagm.vagmdroid.util;
 
-import javax.inject.Singleton;
 
-@Singleton
-public class NumberUtil {
+public final class NumberUtil {
+    
+    private NumberUtil() { }
+    
+    private static final String TWO_DIGIT_FORMAT = "%02x";
     
     /**
      * byteToInt.
@@ -12,7 +14,7 @@ public class NumberUtil {
      *            byte
      * @return int
      */
-    public int byteToInt(final byte b) {
+    public static int byteToInt(final byte b) {
         return b < 0 ? b + 256 : b;
     }
     
@@ -23,13 +25,28 @@ public class NumberUtil {
      *            String
      * @return byte[]
      */
-    public byte[] hexStringToByteArray(final String s) {
+    public static byte[] hexStringToByteArray(final String s) {
         int len = s.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
             data[i / 2] = (byte) Integer.parseInt(s.substring(i, i + 2), 16);
         }
         return data;
+    }
+    
+    /**
+     * bytesToHex.
+     * 
+     * @param in
+     *            in
+     * @return String
+     */
+    public static String bytesToHex(final byte[] in) {
+        final StringBuilder builder = new StringBuilder();
+        for (final byte b : in) {
+            builder.append(String.format(TWO_DIGIT_FORMAT, b));
+        }
+        return builder.toString();
     }
 
 }

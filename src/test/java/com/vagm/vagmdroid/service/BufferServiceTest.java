@@ -1,31 +1,9 @@
 package com.vagm.vagmdroid.service;
 
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES1;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES2;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES_NO_ERRORS;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_1GROUPS;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_2GROUPS;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_3GROUPS;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_MEAS_BLOCKS_4GROUPS;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_CODES1;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_CODES2;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_OUTPUTTESTS_END;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY1;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY2;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY3;
-import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGATIVE;
-import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
-import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
-import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO2;
-import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO3;
-import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING1;
-import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
-import static com.vagm.vagmdroid.service.TestConstatnts.OUTPUTTESTS_STRING1;
-import static com.vagm.vagmdroid.service.TestConstatnts.OUTPUTTESTS_STRING2;
-import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static com.vagm.vagmdroid.service.TestConstatnts.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static com.vagm.vagmdroid.util.NumberUtil.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -274,6 +252,12 @@ public class BufferServiceTest {
 
         result = bufferService.getOutputTestsInfo(hexStringToByteArray(BUFFER_OUTPUTTESTS_END));
         assertEquals(context.getString(R.string.test_ended), result);
+    }
+    
+    @Test
+    public void testShouldEncodeAdapterLogCorrectly() {
+        String result = bufferService.encodeAdapterLog(hexStringToByteArray(ADAPTER_LOG));
+        assertEquals(ADAPTER_LOG_DECODED, result);
     }
 
 }

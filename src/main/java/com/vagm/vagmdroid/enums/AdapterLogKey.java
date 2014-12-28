@@ -74,6 +74,6 @@ public enum AdapterLogKey {
                 return adapterLogKey;
             }
         }
-        throw new IllegalArgumentException("Key " + key + "does not exist");
+        throw new IllegalArgumentException("Key " + key + " does not exist");
     }
 }

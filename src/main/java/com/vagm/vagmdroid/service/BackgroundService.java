@@ -15,13 +15,10 @@ public class BackgroundService {
     private static final Logger LOG = LoggerFactory.getLogger(BackgroundService.class);
 
     @Inject
-    private NumberUtil numberUtil;
-
-    @Inject
     private BufferService bufferService;
 
     public boolean doTask(final byte[] buffer) {
-        int responseCode = numberUtil.byteToInt(buffer[0]);
+        int responseCode = NumberUtil.byteToInt(buffer[0]);
 
         switch (responseCode) {
             case VAGmConstans.ADAPTER_LOG_RES:

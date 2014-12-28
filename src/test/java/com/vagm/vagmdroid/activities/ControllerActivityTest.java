@@ -5,7 +5,7 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_STRING_ARRAY_NEGATIVE;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO;
 import static com.vagm.vagmdroid.service.TestConstatnts.ECU_INFO1;
-import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static com.vagm.vagmdroid.util.NumberUtil.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -219,7 +219,7 @@ public class ControllerActivityTest {
 		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
 		assertNotNull("Should be error dialog", alert);
 		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
-		//assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.adapter_not_answer)));
+		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.adapter_not_answer)));
 	}
 
 	/**

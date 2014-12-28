@@ -179,7 +179,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
                 String logString = logService.getTodayLog(file);
                 
                 Intent showLogIntent = new Intent(SendLogActivity.this, ShowLogActivity.class);
-                bluetoothService.write(VAGmConstans.ADAPTER_LOG_REQ);
                 showLogIntent.putExtra(LOG_TEXT, logString);
     
                 startActivity(showLogIntent);
@@ -188,7 +187,6 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
             }
 
         }.execute();
-
     }
     
     @Override

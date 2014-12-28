@@ -35,7 +35,7 @@ public class LogService {
     
     private final DateTimeFormatter formatter = DateTimeFormat.forPattern("dd MMM yyyy"); 
     
-    private final static Pattern datePattern = Pattern.compile("^\\d{2}\\s.{3}\\s\\d{4}.*");
+    private final static Pattern DATE_PATTERN = Pattern.compile("^\\d{2}\\s.{3}\\s\\d{4}.*");
     
     private static final String LINE_END = "\r\n";
 
@@ -82,7 +82,7 @@ public class LogService {
             inputStream = new FileInputStream(file);
             reader = new BufferedReader(new InputStreamReader(inputStream, Charset.defaultCharset()));
             while ((line = reader.readLine()) != null) {
-                if (!isLineFound && datePattern.matcher(line).matches() && formatter.parseDateTime(line.substring(0, 11)).isEqual(today)) {
+                if (!isLineFound && DATE_PATTERN.matcher(line).matches() && formatter.parseDateTime(line.substring(0, 11)).isEqual(today)) {
                     isLineFound = true;
                 }
                 

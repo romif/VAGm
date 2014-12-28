@@ -5,7 +5,7 @@ import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES2;
 import static com.vagm.vagmdroid.service.TestConstatnts.BUFFER_FAULT_CODES_NO_ERRORS;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING1;
 import static com.vagm.vagmdroid.service.TestConstatnts.FAULT_CODES_STRING2;
-import static com.vagm.vagmdroid.service.TestConstatnts.hexStringToByteArray;
+import static com.vagm.vagmdroid.util.NumberUtil.hexStringToByteArray;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
