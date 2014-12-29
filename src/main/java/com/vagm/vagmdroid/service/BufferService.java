@@ -2,7 +2,7 @@ package com.vagm.vagmdroid.service;
 
 import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NOT_FOUND;
 import static com.vagm.vagmdroid.constants.VAGmConstans.CONTROLLER_NO_ANSWER;
-import static com.vagm.vagmdroid.util.NumberUtil.*;
+import static com.vagm.vagmdroid.util.NumberUtil.byteToInt;
 
 import javax.inject.Singleton;
 
@@ -28,9 +28,13 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
 @Singleton
 public class BufferService {
 
+    private static final String DASH = " - ";
+
     private static final String ADAPTER_LOG_DELEMITER = ", ";
 
-    private static final String TWO_DIGIT_FORMAT = "%02x";
+    private static final String TWO_DIGIT_HEX_FORMAT = "0x%02x";
+    
+    private static final String FOUR_DIGIT_HEX_FORMAT = "0x%02x%02x";
 
     /**
      * LOG.
@@ -126,8 +130,8 @@ public class BufferService {
         int responseCode = byteToInt(buffer[0]);
         if (responseCode == VAGmConstans.VAG_BTI_ERROR) {
             LOG.trace("No data for current group");
-            return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
-                    DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context) };
+            return new DataStreamDTO[] { DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context), DataStreamDTO.getDefault(context),
+                    DataStreamDTO.getDefault(context) };
         }
 
         checkResponseCode(VAGmConstans.VAG_BTI_GROUP_RES, responseCode);
@@ -140,8 +144,7 @@ public class BufferService {
 
         DataStreamDTO[] dtos = new DataStreamDTO[4];
         for (int i = 0; i < groupsCount; i++) {
-            dtos[i] = groupDataService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]),
-                    byteToInt(buffer[i * 3 + 3]));
+            dtos[i] = groupDataService.encodeGroupData(byteToInt(buffer[i * 3 + 1]), byteToInt(buffer[i * 3 + 2]), byteToInt(buffer[i * 3 + 3]));
         }
         for (int i = groupsCount; i < 4; i++) {
             dtos[i] = DataStreamDTO.getDefault(context);
@@ -179,8 +182,8 @@ public class BufferService {
 
         StringBuffer result = new StringBuffer();
         for (int i = 0; i < buffer.length / 3; i++) {
-            int errorCode = Integer.parseInt(
-                    Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])), 16);
+            int errorCode = Integer.parseInt(Integer.toHexString(byteToInt(buffer[i * 3 + 1])) + Integer.toHexString(byteToInt(buffer[i * 3 + 2])),
+                    16);
             String errorString = faultCodesService.getDTC(errorCode);
             int errorTypeInt = byteToInt(buffer[i * 3 + 3]);
             if (errorTypeInt > 0x80) {
@@ -190,7 +193,7 @@ public class BufferService {
             result.append(errorCode);
             result.append(" ");
             result.append(errorString);
-            result.append(" - ");
+            result.append(DASH);
             result.append(errorType);
             result.append(String.format("%n").intern());
         }
@@ -226,6 +229,7 @@ public class BufferService {
 
     /**
      * encodeAdapterLog.
+     * 
      * @param adapterLog
      * @return
      * @throws ControllerWrongResponseException
@@ -238,25 +242,29 @@ public class BufferService {
             byte st = adapterLog[i];
             AdapterLogKey logKey = AdapterLogKey.getAdapterLogKey(st);
             stringBuilder.append(logKey.getValue());
-            if (logKey == AdapterLogKey.GETCHAR_TIMEOUT_ERROR) {
-                continue;
-            }
-            
-            stringBuilder.append(" - ");
-            
-            if (logKey == AdapterLogKey.BAUDRATE_TICKS) {
-                for (int j = 0; j < 9; j++) {
-                    stringBuilder.append("0x" + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]) + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]));
-                    if (j != 8) {
-                        stringBuilder.append(ADAPTER_LOG_DELEMITER);
+
+            switch (logKey) {
+                case GETCHAR_TIMEOUT_ERROR:
+                    break;
+    
+                case BAUDRATE_TICKS:
+                    stringBuilder.append(DASH);
+                    for (int j = 0; j < 9; j++) {
+                        stringBuilder.append(String.format(FOUR_DIGIT_HEX_FORMAT, adapterLog[++i], adapterLog[++i]));
+                        if (j != 8) {
+                            stringBuilder.append(ADAPTER_LOG_DELEMITER);
+                        }
                     }
-                }
-            } else {
-                stringBuilder.append("0x" + String.format(TWO_DIGIT_FORMAT, adapterLog[++i]));
+                    break;
+    
+                default:
+                    stringBuilder.append(DASH);
+                    stringBuilder.append(String.format(TWO_DIGIT_HEX_FORMAT, adapterLog[++i]));
+                    break;
             }
-            
+
             if (i != adapterLog.length - 1) {
-                stringBuilder.append(String.format("%n").intern());                
+                stringBuilder.append(String.format("%n").intern());
             }
         }
 
@@ -295,8 +303,8 @@ public class BufferService {
      */
     private void checkResponseCode(final int expectedCode, final int actualCode) throws ControllerWrongResponseException {
         if (expectedCode != actualCode) {
-            throw new ControllerWrongResponseException("Wrong response from controller: expected 0x" + String.format(TWO_DIGIT_FORMAT, expectedCode)
-                    + ", but was: 0x" + String.format(TWO_DIGIT_FORMAT, actualCode));
+            throw new ControllerWrongResponseException("Wrong response from controller: expected " + String.format(TWO_DIGIT_HEX_FORMAT, expectedCode)
+                    + ", but was: " + String.format(TWO_DIGIT_HEX_FORMAT, actualCode));
         }
     }
 

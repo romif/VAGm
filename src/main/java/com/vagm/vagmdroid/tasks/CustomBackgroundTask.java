@@ -108,7 +108,7 @@ public abstract class CustomBackgroundTask<Param, Result> extends RoboAsyncTask<
         if (this.progressBar.isShowing()) {
             this.progressBar.dismiss();
         }
-        LOG.debug("Finish yask: " + message + " in " + (System.currentTimeMillis() - time) + " ms");
+        LOG.debug("Finish task: " + message + " in " + (System.currentTimeMillis() - time) + " ms");
         onJobDone(result);
     }
 

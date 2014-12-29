@@ -3,11 +3,9 @@ package com.vagm.vagmdroid.service;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -159,7 +157,7 @@ public class HttpPostService {
         }
     }
 
-    private FileInputStream writeOutputStream(final FileInputStream fileInputStream, DataOutputStream outputStream) throws FileNotFoundException, IOException {
+    private FileInputStream writeOutputStream(final FileInputStream fileInputStream, DataOutputStream outputStream) throws IOException {
         int bytesRead;
         int bytesAvailable;
         int bufferSize;
@@ -179,7 +177,7 @@ public class HttpPostService {
         return fileInputStream;
     }
 
-    private HttpURLConnection getConnection(final String boundary, final URL url) throws IOException, ProtocolException {
+    private HttpURLConnection getConnection(final String boundary, final URL url) throws IOException {
         HttpURLConnection connection;
         connection = (HttpURLConnection) url.openConnection();
 
