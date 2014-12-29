@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -92,15 +93,9 @@ public class LogService {
                 }
             }
         } catch (final IOException e) {
-            LOG.error(e.getMessage());
+            LOG.error(e.getMessage(), e);
         } finally {
-            try {
-                if (reader != null) {
-                    reader.close();                    
-                }
-            } catch (final IOException e) {
-                LOG.error(e.getMessage());
-            }
+            IOUtils.closeQuietly(reader);
         }
         return sb.toString();
     }

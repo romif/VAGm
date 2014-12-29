@@ -7,13 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
@@ -50,12 +51,6 @@ public class HttpPostService {
      * FORM_PARAM.
      */
     private static final String FORM_PARAM = "log";
-
-    /**
-     * fileService.
-     */
-    @Inject
-    private FileService fileService;
 
     /**
      * Default constructor.
@@ -117,7 +112,7 @@ public class HttpPostService {
 
             inputStream = connection.getInputStream();
 
-            result = fileService.convertStreamToString(inputStream);
+            result = IOUtils.toString(inputStream, Charset.defaultCharset());
             outputStream.flush();
 
             return result;

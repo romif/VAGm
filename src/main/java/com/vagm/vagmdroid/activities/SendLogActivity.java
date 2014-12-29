@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -156,9 +157,9 @@ public class SendLogActivity extends CustomAbstractActivity implements OnClickLi
         file = logService.getLogFile();
         try {
             zipFile = fileService.zip(file);
-            bSendLog.setText(bSendLog.getText() + " (" + (zipFile.length() / 1024) + " kB)");
+            bSendLog.setText(bSendLog.getText() + " " + FileUtils.byteCountToDisplaySize(zipFile.length()));
         } catch (final IOException e) {
-            LOG.error(e.getMessage());
+            LOG.error(e.getMessage(), e);
             bSendLog.setVisibility(View.GONE);
         }
     }

@@ -2,19 +2,15 @@ package com.vagm.vagmdroid.service;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.io.IOUtils;
 
 import com.google.inject.Singleton;
 
@@ -25,16 +21,8 @@ import com.google.inject.Singleton;
  */
 @Singleton
 public class FileService {
-
-    /**
-     * VAGMDROIDLOG_FILE_NAME.
-     */
-    private static final String VAGMDROIDLOG_FILE_NAME = "vagmdroidlog.log";
-
-    /**
-     * LOG.
-     */
-    private static final Logger LOG = LoggerFactory.getLogger(FileService.class);
+    
+    private static final String VAGMDROIDLOG_FILE_NAME = "vagm.log";
 
     /**
      * Default constructor.
@@ -51,86 +39,23 @@ public class FileService {
      * @throws IOException
      *             if exception occurs
      */
-    public File zip(File file) throws IOException {
-        File zipFile = File.createTempFile("ZipFileTest", ".zip");
+    public File zip(final File file) throws IOException {
+        final File zipFile = File.createTempFile("vagmlog.zip", null);
 
-        final int maxBufferSize = 1 * 1024 * 1024;
-        BufferedInputStream origin = null;
-        ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zipFile)));
+        ZipOutputStream out = null;
+        InputStream input = null;
         try {
-            byte[] data = new byte[maxBufferSize];
-
-            FileInputStream fi = new FileInputStream(file);
-            origin = new BufferedInputStream(fi, maxBufferSize);
-            try {
-                ZipEntry entry = new ZipEntry(VAGMDROIDLOG_FILE_NAME);
-                out.putNextEntry(entry);
-                int count;
-                while ((count = origin.read(data, 0, maxBufferSize)) != -1) {
-                    out.write(data, 0, count);
-                }
-            } finally {
-                origin.close();
-            }
+            out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zipFile)));
+            input = new BufferedInputStream(new FileInputStream(file));
+            
+            ZipEntry entry = new ZipEntry(VAGMDROIDLOG_FILE_NAME);
+            out.putNextEntry(entry);
+            IOUtils.copy(input, out);
         } finally {
-            out.close();
+            IOUtils.closeQuietly(out);
+            IOUtils.closeQuietly(input);
         }
         return zipFile;
-    }
-
-    /**
-     * convertStreamToString.
-     * 
-     * @param file
-     * @return string
-     */
-    public String convertStreamToString(final File file) {
-
-        InputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(file);
-            return convertStreamToString(inputStream);
-        } catch (final IOException e) {
-            LOG.error(e.getMessage());
-        } finally {
-            try {
-                if (inputStream != null) {
-                    inputStream.close();                    
-                }
-            } catch (final IOException e) {
-                LOG.error(e.getMessage());
-            }
-        }
-        return "";
-    }
-
-    /**
-     * convertStreamToString.
-     * @param inputStream
-     * @return
-     */
-    public String convertStreamToString(InputStream inputStream) {
-        BufferedReader reader = null;
-        final StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(inputStream, Charset.defaultCharset()));
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (final IOException e) {
-            LOG.error(e.getMessage());
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();                    
-                }
-            } catch (final IOException e) {
-                LOG.error(e.getMessage());
-            }
-        }
-        return sb.toString();
     }
 
 }
