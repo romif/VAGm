@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Locale;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,13 +115,7 @@ public class LabelService {
         } catch (final IOException ex) {
             LOG.error("Cannot read NA37.txt", ex);
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close BufferedReader", e);
-                }
-            }
+            IOUtils.closeQuietly(reader);
         }
 
         if (result != null) {
@@ -213,13 +208,7 @@ public class LabelService {
         } catch (final IOException ex) {
             LOG.error("Cannot find label file", ex);
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close BufferedReader", e);
-                }
-            }
+            IOUtils.closeQuietly(reader);
         }
 
         LOG.debug("Found group records: " + labels.size());

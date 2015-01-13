@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,13 +91,7 @@ public class FaultCodesService {
         } catch (final IOException ex) {
             LOG.error("Cannot read NA37.txt", ex);
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close BufferedReader", e);
-                }
-            }
+            IOUtils.closeQuietly(reader);
         }
 
         return context.getString(R.string.unknown_error);
@@ -136,13 +131,7 @@ public class FaultCodesService {
         } catch (NumberFormatException | IOException e) {
             LOG.error("Cannot read DTC_description", e);
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    LOG.error("Cannot close BufferedReader", e);
-                }
-            }
+            IOUtils.closeQuietly(reader);
         }
 
         return dtcDescriptionMap;

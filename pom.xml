@@ -20,6 +20,7 @@
 		<maven.pmd.plugin>2.7.1</maven.pmd.plugin>
 		<maven.findbugs.plugin>2.5.2</maven.findbugs.plugin>
 		<maven.surefire.plugin>2.16</maven.surefire.plugin>
+		<codequality.version>0.0.1-SNAPSHOT</codequality.version>
 		<java.version>1.7</java.version>
 	</properties>
 
@@ -28,6 +29,14 @@
 			<id>achartengine</id>
 			<name>Public AChartEngine repository</name>
 			<url>https://repository-achartengine.forge.cloudbees.com/snapshot/</url>
+		</repository>
+		<repository>
+			<id>vagm-code-quality-mvn-repo</id>
+			<url>https://raw.githubusercontent.com/romif/vagm-code-quality/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -75,7 +84,16 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.robolectric</groupId>
@@ -95,7 +113,16 @@
 			<version>3.10-FINAL</version>
 		</dependency>
 	</dependencies>
+
 	<build>
+		<extensions>
+			<extension>
+				<groupId>com.vagm</groupId>
+				<artifactId>vagm-code-quality</artifactId>
+				<version>${codequality.version}</version>
+			</extension>
+		</extensions>
+
 		<finalName>${project.artifactId}</finalName>
 		<pluginManagement>
 			<plugins>
@@ -208,13 +235,19 @@
 		<profile>
 			<id>quality-checks</id>
 			<build>
+
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-checkstyle-plugin</artifactId>
 						<version>${maven.checkstyle.plugin}</version>
-						<!-- <dependencies> <dependency> <groupId>com.msm</groupId> <artifactId>aggregation-platform-code-quality</artifactId> 
-							<version>${codequality.version}</version> </dependency> </dependencies> -->
+						<dependencies>
+							<dependency>
+								<groupId>com.vagm</groupId>
+								<artifactId>vagm-code-quality</artifactId>
+								<version>${codequality.version}</version>
+							</dependency>
+						</dependencies>
 						<executions>
 							<execution>
 								<id>default-checkstyle-checks</id>

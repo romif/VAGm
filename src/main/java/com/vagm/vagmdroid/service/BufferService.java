@@ -6,6 +6,7 @@ import static com.vagm.vagmdroid.util.NumberUtil.byteToInt;
 
 import javax.inject.Singleton;
 
+import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +28,8 @@ import com.vagm.vagmdroid.exceptions.ControllerWrongResponseException;
  */
 @Singleton
 public class BufferService {
+
+    private static final int ECU_FREQUENCY = 8000000;
 
     private static final String DASH = " - ";
 
@@ -80,7 +83,7 @@ public class BufferService {
     public String[] getControllerInfo(final byte[] buffer, final String[] controllerInfo) throws ControllerWrongResponseException {
         final String[] result = controllerInfo;
         if (buffer.length == 4) {
-            result[0] = String.valueOf(8000000 / Integer.parseInt(
+            result[0] = String.valueOf(ECU_FREQUENCY / Integer.parseInt(
                     Integer.toHexString(byteToInt(buffer[0])) + Integer.toHexString(byteToInt(buffer[1])), 16));
         } else if (buffer.length > 4) {
 

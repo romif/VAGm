@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -967,13 +968,7 @@ public class GroupDataService {
             } catch (final IOException ex) {
                 LOG.error("Cannot read NA37.txt", ex);
             } finally {
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (final IOException e) {
-                        LOG.error("Cannot close BufferedReader", e);
-                    }
-                }
+                IOUtils.closeQuietly(reader);
             }
         }
         return nA37Strings;

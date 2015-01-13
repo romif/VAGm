@@ -105,8 +105,6 @@ public class HttpPostService {
 
             if (200 != connection.getResponseCode()) {
                 LOG.error("Failed to upload code:" + connection.getResponseCode() + " " + connection.getResponseMessage());
-                fileInputStream.close();
-                outputStream.close();
                 return null;
             }
 
@@ -120,19 +118,9 @@ public class HttpPostService {
             LOG.error(e.getMessage());
             return null;
         } finally {
-            try {
-                if (fileInputStream != null) {
-                    fileInputStream.close();                    
-                }
-                if (inputStream != null) {
-                    inputStream.close();                    
-                }
-                if (outputStream != null) {
-                    outputStream.close();                    
-                }
-            } catch (final IOException e) {
-                LOG.error(e.getMessage());
-            }
+            IOUtils.closeQuietly(outputStream);
+            IOUtils.closeQuietly(fileInputStream);
+            IOUtils.closeQuietly(inputStream);
             
         }
 

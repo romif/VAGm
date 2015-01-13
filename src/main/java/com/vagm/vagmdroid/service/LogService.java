@@ -36,7 +36,7 @@ public class LogService {
     
     private final DateTimeFormatter formatter = DateTimeFormat.forPattern("dd MMM yyyy"); 
     
-    private final static Pattern DATE_PATTERN = Pattern.compile("^\\d{2}\\s.{3}\\s\\d{4}.*");
+    private static final Pattern DATE_PATTERN = Pattern.compile("^\\d{2}\\s.{3}\\s\\d{4}.*");
     
     private static final String LINE_END = "\r\n";
 
@@ -69,6 +69,11 @@ public class LogService {
         return file;
     }
     
+    /**
+     * Gets TodayLog.
+     * @param file
+     * @return
+     */
     public String getTodayLog(final File file) {
         InputStream inputStream = null;
         
