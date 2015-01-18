@@ -30,15 +30,26 @@
 			<name>Public AChartEngine repository</name>
 			<url>https://repository-achartengine.forge.cloudbees.com/snapshot/</url>
 		</repository>
-		<repository>
+		<!-- <repository>
 			<id>vagm-code-quality-mvn-repo</id>
 			<url>https://raw.githubusercontent.com/romif/vagm-code-quality/mvn-repo/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
-		</repository>
+		</repository> -->
 	</repositories>
+	
+	<pluginRepositories>
+	    <pluginRepository>
+	        <id>vagm-code-quality-mvn-repo</id>
+			<url>https://raw.githubusercontent.com/romif/vagm-code-quality/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+	    </pluginRepository>
+	</pluginRepositories>
 
 	<dependencies>
 		<dependency>
