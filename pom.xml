@@ -11,7 +11,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<platform.version> 4.1.1.4</platform.version>
-		<android.plugin.version>3.9.0-rc.1</android.plugin.version>
+		<android.plugin.version>3.9.0-rc.2</android.plugin.version>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<slf4j.version>1.7.7</slf4j.version>
@@ -30,15 +30,26 @@
 			<name>Public AChartEngine repository</name>
 			<url>https://repository-achartengine.forge.cloudbees.com/snapshot/</url>
 		</repository>
-		<repository>
+		<!-- <repository>
 			<id>vagm-code-quality-mvn-repo</id>
 			<url>https://raw.githubusercontent.com/romif/vagm-code-quality/mvn-repo/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
 			</snapshots>
-		</repository>
+		</repository> -->
 	</repositories>
+	
+	<pluginRepositories>
+	    <pluginRepository>
+	        <id>vagm-code-quality-mvn-repo</id>
+			<url>https://raw.githubusercontent.com/romif/vagm-code-quality/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+	    </pluginRepository>
+	</pluginRepositories>
 
 	<dependencies>
 		<dependency>
