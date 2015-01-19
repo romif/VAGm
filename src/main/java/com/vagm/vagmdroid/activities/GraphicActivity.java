@@ -255,6 +255,10 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
     @Override
     public void onConfigurationChanged(final Configuration myConfig) {
         super.onConfigurationChanged(myConfig);
+        syncActivityControlWithOrientation();
+    }
+
+    private void syncActivityControlWithOrientation() {
         int orient = getResources().getConfiguration().orientation;
         switch (orient) {
             case Configuration.ORIENTATION_LANDSCAPE:
@@ -324,6 +328,8 @@ public class GraphicActivity extends CustomAbstractActivity implements OnClickLi
         bChartSettings.setEnabled(false);
         bRec.setText(getString(R.string.stop));
         isRecording = true;
+        
+        syncActivityControlWithOrientation();
 
         // test();
 

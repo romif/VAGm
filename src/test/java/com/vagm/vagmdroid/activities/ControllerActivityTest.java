@@ -41,209 +41,211 @@ import com.vagm.vagmdroid.service.LabelServiceTest;
 
 /**
  * The Class ControllerActivityTest.
+ * 
  * @author Roman_Konovalov
  */
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "AndroidManifest.xml")
 public class ControllerActivityTest {
 
-	/**
-	 * activity.
-	 */
-	private ControllerActivity activity;
+    /**
+     * activity.
+     */
+    private ControllerActivity activity;
 
-	/**
-	 * bFaultCodes.
-	 */
-	private Button bFaultCodes;
+    /**
+     * bFaultCodes.
+     */
+    private Button bFaultCodes;
 
-	/**
-	 * bMeasBlocks.
-	 */
-	private Button bMeasBlocks;
+    /**
+     * bMeasBlocks.
+     */
+    private Button bMeasBlocks;
 
-	/**
-	 * bOuputTests.
-	 */
-	private Button bOuputTests;
+    /**
+     * bOuputTests.
+     */
+    private Button bOuputTests;
 
-	/**
-	 * bCloseController.
-	 */
-	private Button bCloseController;
+    /**
+     * bCloseController.
+     */
+    private Button bCloseController;
 
-	/**
-	 * boudRate.
-	 */
-	private TextView boudRate;
+    /**
+     * boudRate.
+     */
+    private TextView boudRate;
 
-	/**
-	 * VAGnumber.
-	 */
-	private TextView VAGnumber;
+    /**
+     * VAGnumber.
+     */
+    private TextView VAGnumber;
 
-	/**
-	 * component.
-	 */
-	private TextView component;
+    /**
+     * component.
+     */
+    private TextView component;
 
-	/**
-	 * controllerInfoService.
-	 */
-	@Inject
-	private ControllerInfoService controllerInfoService;
+    /**
+     * controllerInfoService.
+     */
+    @Inject
+    private ControllerInfoService controllerInfoService;
 
-	/**
-	 * setUp.
-	 */
-	@Before
-	public void setUp() {
-		ShadowLog.stream = System.out;
-		controllerInfoService.setVagNumber(LabelServiceTest.ECU);
-		Intent intent = new Intent(Robolectric.getShadowApplication().getApplicationContext(), ControllerActivity.class);
-		intent.putExtra(MainActivity.CONTROLLER_CODE, 1);
-		activity = Robolectric.buildActivity(ControllerActivity.class).withIntent(intent).create().get();
-		bFaultCodes = (Button) activity.findViewById(R.id.bFaultCodes);
-		bMeasBlocks = (Button) activity.findViewById(R.id.bMeasBlocks);
-		bOuputTests = (Button) activity.findViewById(R.id.bOuputTests);
-		bCloseController = (Button) activity.findViewById(R.id.bCloseController);
-		boudRate = (TextView) activity.findViewById(R.id.boudRate);
-		VAGnumber = (TextView) activity.findViewById(R.id.VAGnumber);
-		component = (TextView) activity.findViewById(R.id.component);
-	}
+    /**
+     * setUp.
+     */
+    @Before
+    public void setUp() {
+        ShadowLog.stream = System.out;
+        controllerInfoService.setVagNumber(LabelServiceTest.ECU);
+        Intent intent = new Intent(Robolectric.getShadowApplication().getApplicationContext(), ControllerActivity.class);
+        intent.putExtra(MainActivity.CONTROLLER_CODE, 1);
+        activity = Robolectric.buildActivity(ControllerActivity.class).withIntent(intent).create().get();
+        bFaultCodes = (Button) activity.findViewById(R.id.bFaultCodes);
+        bMeasBlocks = (Button) activity.findViewById(R.id.bMeasBlocks);
+        bOuputTests = (Button) activity.findViewById(R.id.bOuputTests);
+        bCloseController = (Button) activity.findViewById(R.id.bCloseController);
+        boudRate = (TextView) activity.findViewById(R.id.boudRate);
+        VAGnumber = (TextView) activity.findViewById(R.id.VAGnumber);
+        component = (TextView) activity.findViewById(R.id.component);
+    }
 
-	/**
-	 * testHandleMessage.
-	 */
-	@Test
-	public final void testHandleMessage() {
-		// precondition
-		assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
-		assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
-		assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
-		assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
+    /**
+     * testHandleMessage.
+     */
+    @Test
+    public final void testHandleMessage() {
+        // precondition
+        assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
+        assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
+        assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
+        assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
 
-		for (String s : BUFFER_STRING_ARRAY) {
-			byte[] buffer = hexStringToByteArray(s);
-			activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
-		}
+        for (String s : BUFFER_STRING_ARRAY) {
+            byte[] buffer = hexStringToByteArray(s);
+            activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        }
 
-		// postcondition
-		assertThat(boudRate.getText().toString(), equalTo(ECU_INFO[0]));
-		assertThat(VAGnumber.getText().toString(), equalTo(ECU_INFO[1]));
-		assertThat(component.getText().toString(), equalTo(ECU_INFO[2]));
+        // postcondition
+        assertThat(boudRate.getText().toString(), equalTo(ECU_INFO[0]));
+        assertThat(VAGnumber.getText().toString(), equalTo(ECU_INFO[1]));
+        assertThat(component.getText().toString(), equalTo(ECU_INFO[2]));
 
-		assertTrue("Button FaultCodes should be enabled", bFaultCodes.isEnabled());
-		assertTrue("Button MeasBlocks should be enabled", bMeasBlocks.isEnabled());
-		assertTrue("Button OuputTests should be enabled", bOuputTests.isEnabled());
-		assertTrue("Button CloseController should be enabled", bCloseController.isEnabled());
-	}
+        assertTrue("Button FaultCodes should be enabled", bFaultCodes.isEnabled());
+        assertTrue("Button MeasBlocks should be enabled", bMeasBlocks.isEnabled());
+        assertTrue("Button OuputTests should be enabled", bOuputTests.isEnabled());
+        assertTrue("Button CloseController should be enabled", bCloseController.isEnabled());
+    }
 
-	/**
-	 * testHandleMessageRotation.
-	 */
-	@Test
-	public final void testHandleMessageRotation() {
-		// precondition
-		assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
-		assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
-		assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
-		assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
+    /**
+     * testHandleMessageRotation.
+     */
+    @Test
+    public final void testHandleMessageRotation() {
+        // precondition
+        assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
+        assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
+        assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
+        assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
 
-		for (String s : BUFFER_STRING_ARRAY) {
-			byte[] buffer = hexStringToByteArray(s);
-			activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
-		}
-		activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        for (String s : BUFFER_STRING_ARRAY) {
+            byte[] buffer = hexStringToByteArray(s);
+            activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        }
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-		// postcondition
-		assertThat(boudRate.getText().toString(), equalTo(ECU_INFO[0]));
-		assertThat(VAGnumber.getText().toString(), equalTo(ECU_INFO[1]));
-		assertThat(component.getText().toString(), equalTo(ECU_INFO[2]));
+        // postcondition
+        assertThat(boudRate.getText().toString(), equalTo(ECU_INFO[0]));
+        assertThat(VAGnumber.getText().toString(), equalTo(ECU_INFO[1]));
+        assertThat(component.getText().toString(), equalTo(ECU_INFO[2]));
 
-		assertTrue("Button FaultCodes should be enabled", bFaultCodes.isEnabled());
-		assertTrue("Button MeasBlocks should be enabled", bMeasBlocks.isEnabled());
-		assertTrue("Button OuputTests should be enabled", bOuputTests.isEnabled());
-		assertTrue("Button CloseController should be enabled", bCloseController.isEnabled());
-	}
+        assertTrue("Button FaultCodes should be enabled", bFaultCodes.isEnabled());
+        assertTrue("Button MeasBlocks should be enabled", bMeasBlocks.isEnabled());
+        assertTrue("Button OuputTests should be enabled", bOuputTests.isEnabled());
+        assertTrue("Button CloseController should be enabled", bCloseController.isEnabled());
+    }
 
-	/**
-	 * testHandleMessageControllerNotAnswer.
-	 */
-	@Test
-	public final void testHandleMessageControllerNotAnswer() {
-		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]);
-		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+    /**
+     * testHandleMessageControllerNotAnswer.
+     */
+    @Test
+    public final void testHandleMessageControllerNotAnswer() {
+        byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[0]);
+        activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
-		// postcondition
-		assertThat(boudRate.getText().toString(), equalTo(ECU_INFO1[0]));
-		assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
-		assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
-		assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
-		assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
+        // postcondition
+        assertThat(boudRate.getText().toString(), equalTo(ECU_INFO1[0]));
+        assertTrue("Button FaultCodes should be desabled", !bFaultCodes.isEnabled());
+        assertTrue("Button MeasBlocks should be desabled", !bMeasBlocks.isEnabled());
+        assertTrue("Button OuputTests should be desabled", !bOuputTests.isEnabled());
+        assertTrue("Button CloseController should be desabled", !bCloseController.isEnabled());
 
-		buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]);
-		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[2]);
+        activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
-		// postcondition
-		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
-		assertNotNull("Should be error dialog", alert);
-		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
-		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_answer)));
-	}
-	
-	@Test
-	public final void testHandleMessageControllerNotFound() {
-		byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
-		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        // postcondition
+        AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
+        assertNotNull("Should be error dialog", alert);
+        ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
+        assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_answer)));
+    }
 
-		// postcondition
-		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
-		assertNotNull("Should be error dialog", alert);
-		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
-		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_found)));
-	}
+    @Test
+    public final void testHandleMessageControllerNotFound() {
+        byte[] buffer = hexStringToByteArray(BUFFER_STRING_ARRAY_NEGATIVE[1]);
+        activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
 
-	/**
-	 * testHandleMessageNegative1.
-	 * @throws InterruptedException
-	 */
-	@Test
-	@Ignore
-	public final void testHandleMessageNegative1() throws InterruptedException {
-		CountDownLatch latch = new CountDownLatch(1);
-		latch.await(20, TimeUnit.SECONDS);
+        // postcondition
+        AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
+        assertNotNull("Should be error dialog", alert);
+        ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
+        assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.controller_not_found)));
+    }
 
-		Robolectric.runUiThreadTasksIncludingDelayedTasks();
-		// postcondition
-		AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
-		assertNotNull("Should be error dialog", alert);
-		ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
-		assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.adapter_not_answer)));
-	}
+    /**
+     * testHandleMessageNegative1.
+     * 
+     * @throws InterruptedException
+     */
+    @Test
+    @Ignore
+    public final void testHandleMessageNegative1() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        latch.await(20, TimeUnit.SECONDS);
 
-	/**
-	 * testHandleMessageNegative2.
-	 */
-	@Test
-	public final void testHandleMessageNegative2() {
-		CharSequence expected = VAGnumber.getText();
-		byte[] buffer = hexStringToByteArray(BUFFER_FAULT_CODES1);
-		activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
-		assertEquals(expected, VAGnumber.getText());
-	}
+        Robolectric.runUiThreadTasksIncludingDelayedTasks();
+        // postcondition
+        AlertDialog alert = ShadowAlertDialog.getLatestAlertDialog();
+        assertNotNull("Should be error dialog", alert);
+        ShadowAlertDialog sAlert = Robolectric.shadowOf(alert);
+        assertThat(sAlert.getMessage().toString(), equalTo(activity.getString(R.string.adapter_not_answer)));
+    }
 
-	/**
-	 * testHandleMessageConnectionLost.
-	 */
-	@Test
-	public final void testHandleMessageConnectionLost() {
-		activity.getHandler().obtainMessage(ServiceCommand.CONNECTION_LOST.ordinal(), -1, -1).sendToTarget();
+    /**
+     * testHandleMessageNegative2.
+     */
+    @Test
+    public final void testHandleMessageNegative2() {
+        CharSequence expected = VAGnumber.getText();
+        byte[] buffer = hexStringToByteArray(BUFFER_FAULT_CODES1);
+        activity.getHandler().obtainMessage(ServiceCommand.MESSAGE_READ.ordinal(), buffer.length, -1, buffer).sendToTarget();
+        assertEquals(expected, VAGnumber.getText());
+    }
 
-		// postcondition
-		Toast toast = ShadowToast.getLatestToast();
-		assertNotNull("Should be error dialog", toast);
-		assertThat(ShadowToast.getTextOfLatestToast(), equalTo(activity.getString(R.string.connection_lost)));
-	}
+    /**
+     * testHandleMessageConnectionLost.
+     */
+    @Test
+    public final void testHandleMessageConnectionLost() {
+        activity.getHandler().obtainMessage(ServiceCommand.CONNECTION_LOST.ordinal(), -1, -1).sendToTarget();
+
+        // postcondition
+        Toast toast = ShadowToast.getLatestToast();
+        assertNotNull("Should be error dialog", toast);
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo(activity.getString(R.string.connection_lost)));
+    }
 
 }
